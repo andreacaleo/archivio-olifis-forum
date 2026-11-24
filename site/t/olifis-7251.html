@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serie infinita di maglie</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Serie infinita di maglie</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7251">forum Olifis</a></p>
+<article class="post first" id="p28403"><div class="who"><b>Higgs</b><span>28 mag 2024, 11:10</span></div>Siano due i terminali in alto e basso di un circuito costituito da infinite maglie identiche in serie. In serie al terminale in alto si ha la resistenza<span class="tex">\(R_1\)</span>orizzontale seguita dalla resistenza verticale <span class="tex">\(R_2\)</span>connessa al terminale basso. La maglia si ripete infinite volte verso destra. Si chiede qual è la resistenza R totale del circuito.</article>
+<article class="post" id="p28405"><div class="who"><b>mantanp</b><span>28 mag 2024, 21:19</span></div>Riusciresti a caricare un disegno della situazione? Ci ho capito veramente poco a leggere così  :(</article>
+<article class="post" id="p28406"><div class="who"><b>Pigkappa</b><span>28 mag 2024, 23:16</span></div>Penso sia così<br>
+<br>
+<a class="lost" href="https://i.imgur.com/1BTbKlE.png" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p28407"><div class="who"><b>Higgs</b><span>29 mag 2024, 11:04</span></div>Per la precisione ringrazio Pigkappa che sopperisce alla mia incapacità osservando solo che nel testo originario manca il generatore di ddp e il circuito inizia da A,B</article>
+<article class="post" id="p28410"><div class="who"><b>mantanp</b><span>29 mag 2024, 14:16</span></div>Facendo dei conti veloci mi verrebbe <span class="tex">\(\frac{\sqrt{R_1^2+4R_1R_2}-R_1}{2}\)</span>  :?:</article>
+<article class="post" id="p28411"><div class="who"><b>Higgs</b><span>29 mag 2024, 17:26</span></div>Questo risultato non è corretto anche se c'è una certa "assonanza" con quello giusto. Qual è il tuo procedimento in due parole?</article>
+<article class="post" id="p28413"><div class="who"><b>mantanp</b><span>29 mag 2024, 21:56</span></div>Sostanzialmente ho immaginato di partire dal "quadratino" finale, così da trovare una serie di <span class="tex">\(R_2\)</span> e <span class="tex">\(R_1\)</span> da mettere poi in parallelo con <span class="tex">\(R_2\)</span>. Poi quindi ho trovato una sorta di formula ricorsiva e, visto che gli elementi erano infiniti, ho supposto che la resistenza incognita fosse uguale a quella con un solo quadrato in meno. Però forse sono solo robe a caso</article>
+<article class="post" id="p28414"><div class="who"><b>Pigkappa</b><span>29 mag 2024, 22:45</span></div>L'idea è giusta, il risultato no.<br>
+<br>
+Per <span class="tex">\(R_2\)</span> che tende a 0 il tuo risultato tende a 0 mentre mi sembra chiaro dalla figura che la resistenza dovrà essere per forza positiva, e maggiore di <span class="tex">\(R_1\)</span>...</article>
+<article class="post" id="p28416"><div class="who"><b>mantanp</b><span>30 mag 2024, 14:22</span></div>Possibile ci sia semplicemente un + al posto del -, ovvero che il risultato sia <span class="tex">\(\frac{\sqrt{R_1^2+4R_1R_2}+R_1}{2}\)</span> perché non ho sommato la resistenza <span class="tex">\(R_1\)</span> che è all'inizio ed è isolata dal resto del "blocco"?</article>
+<article class="post" id="p28419"><div class="who"><b>Pigkappa</b><span>31 mag 2024, 1:21</span></div>Giusto, vai pure con il procedimento<br>
+<br>
+Domanda bonus: se si attacca un generatore di fem <span class="tex">\(V\)</span> tra A e B, come si calcola la corrente che scorre in ognuno dei resistori, ad esempio nel secondo resistore <span class="tex">\(R_1\)</span>?</article>
+<article class="post" id="p28420"><div class="who"><b>mantanp</b><span>31 mag 2024, 9:27</span></div>Il bonus riguarda solo i resistori <span class="tex">\(R_1\)</span> oppure un resistore qualunque del circuito?</article>
+<article class="post" id="p28421"><div class="who"><b>Pigkappa</b><span>31 mag 2024, 12:37</span></div>Qualunque<br>
+<br>
+Ma non sono sicuro ci sia una formula semplice per un resistore generico, per questo ho chiesto solo "come si calcola"... Ma se trovi una formula, anche meglio</article>
+<article class="post" id="p28422"><div class="who"><b>mantanp</b><span>31 mag 2024, 15:39</span></div>Intanto invio il procedimento per la prima parte. <br>
+<br>
+In sostanza, l'idea è quella che, se le disposizioni a quadrato di <span class="tex">\(R_1\)</span> e <span class="tex">\(R_2\)</span> continuano all'infinito, allora aggiungendo un solo quadrato di questo tipo la resistenza equivalente sarà la stessa. Sia allora <span class="tex">\(\alpha\)</span> la resistenza equivalente di tutte le resistenze tranne la prima. Per quanto detto prima, possiamo immaginare che la resistenza <span class="tex">\(\alpha\)</span> si trovi in serie con <span class="tex">\(R_1\)</span> e in parallelo con <span class="tex">\(R_2\)</span> in quello che è il primo quadrato, subito dopo la prima resistenza. Dovrà valere che: <span class="tex">\(\begin{equation} \frac{(\alpha+R_1)R_2}{ R_1+R_2+\alpha}=\alpha \end{equation}\)</span>, che si può sviluppare come semplice equazione di secondo grado in incognita <span class="tex">\(\alpha\)</span>. Si ottiene così <span class="tex">\(\alpha=\frac{\sqrt{R_1^2+4R_1R_2}-R_1} {2}\)</span> come unica soluzione in quanto l'altra è negativa. Aggiungendo in serie la resistenza <span class="tex">\(R_1\)</span> inziale si ottiene il risultato cercato, ovvero <span class="tex">\(R_{eq}=\frac{\sqrt{R_1^2+4R_1R_2}+R_1} {2}\)</span>. <br>
+<br>
+Ora, se <span class="tex">\(V\)</span> è la fem del generatore, la corrente nei resistori si può calcolare con la legge dei nodi. Nella prima resistenza, essendo in serie con <span class="tex">\(\alpha\)</span>, scorrerà una corrente data <span class="tex">\(I=\frac{V} {R_ {eq} }\)</span>, perché in due resistenze in serie scorre la stessa corrente. La corrente così trovata si ripartirà tra <span class="tex">\(R_2\)</span> e <span class="tex">\(R_1+\alpha\)</span>. Tenendo conto della caduta di potenziale dovuta al primo resistero, avremo che <span class="tex">\(V'=V-R_1I\)</span>, quindi nel secondo resistore scorre una corrente <span class="tex">\(I_1=\frac{V'} {R_1+\alpha}=\frac {V-R_1I } {R_ {eq}}=I(1-\frac {R_1} {R_ {eq}})\)</span>.</article>
+<article class="post" id="p28423"><div class="who"><b>Pigkappa</b><span>31 mag 2024, 17:34</span></div>Giusto<br>
+<br>
+Riusciamo a capire come va la corrente nella n-esima resistenza <span class="tex">\(R_2\)</span>?<br>
+<br>
+Se non una formula esatta, almeno la dipendenza approssimativa da n, cioè capire se va come una potenza di n come <span class="tex">\(1/n^2\)</span>, oppure esponenziale come <span class="tex">\(1/2^n\)</span> , o altro.<br>
+<br>
+Premetto che non ci ho ancora pensato io stesso.</article>
+<article class="post" id="p28424"><div class="who"><b>Pigkappa</b><span>1 giu 2024, 12:22</span></div>Adesso ci ho pensato e sono convinto che esistono formule abbastanza semplici, ed un modo furbo e non contoso per dimostrarle  :D</article>
+<article class="post" id="p28425"><div class="who"><b>mantanp</b><span>1 giu 2024, 16:05</span></div>Avevo letto male e credevo fosse da provare per <span class="tex">\(R_1\)</span>. Ad ogni modo, facendo qualche conto credo che la decrescita di corrente dipenda esponenzialmente da <span class="tex">\(\frac{\alpha}{\alpha+R_1}\)</span>, cioè che sia una roba del tipo <span class="tex">\(I_n=I_0(\frac{\alpha }{\alpha+R_1})^n\)</span>, dove <span class="tex">\(I_n\)</span> è la corrente sull'n-esima resistenza e <span class="tex">\(I_0\)</span> è la corrente che scorre nella prima resistenza, quella isolata, ovvero <span class="tex">\(I_0=\frac{V}{R_1+\alpha}\)</span>. Nel limite di n che tende a <span class="tex">\(+\infty\)</span>, la corrente tende a zero, che ha senso, e per n=1 si ottiene lo stesso risultato ricavato in precedenza. Tenendo conto che se la corrente in entrata nei quadrati è <span class="tex">\(I_0\)</span>, per la conservazione della carica si dovrebbe ricavare anche quanta ne scorre nei vari <span class="tex">\(R_2\)</span>.</article>
+<article class="post" id="p28426"><div class="who"><b>Pigkappa</b><span>1 giu 2024, 18:28</span></div>Giusto<br>
+<br>
+Riusciamo a dimostrarlo un po' più formalmente? Per ora hai solo detto "facendo qualche conto"</article>
+<article class="post" id="p28427"><div class="who"><b>mantanp</b><span>2 giu 2024, 11:19</span></div>Certo, appena ho tempo carico la dimostrazione. Visto che non sono così ferrato in <span class="tex">\(LaTe\chi\)</span> (a proposito, come sarebbe il comando per scrivere il logo?) volevo evitare di perdere tempo a scrivere roba sbagliata... Intanto, se riesci, potresti dare un'occhiata al problema "matita che cade" che ho pubblicato di recente?</article>
+<article class="post" id="p28428"><div class="who"><b>Pigkappa</b><span>2 giu 2024, 21:08</span></div><blockquote><div><cite>mantanp ha scritto: <a href="olifis-7251.html#p28427" data-post-id="28427" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 giu 2024, 11:19</div></cite>
+<span class="tex">\(LaTe\chi\)</span> (a proposito, come sarebbe il comando per scrivere il logo?)
+</div></blockquote>
+Il latex si impara copiando esempi di altri, oppure cercando su Google :)<br>
+<br>
+Ho provato per un paio di minuti ma in questo caso non sono riuscito..! Google mi suggerisce:
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>[tex]\LaTeX[/tex]</code></pre></div>
+Ma non sembra funzionare, non so se per motivi specifici del forum o in generale.<br>
+
+<blockquote><div><cite>mantanp ha scritto: <a href="olifis-7251.html#p28427" data-post-id="28427" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 giu 2024, 11:19</div></cite>
+"matita che cade"
+</div></blockquote>
+Quando posso guardo</article>
+<article class="post" id="p28431"><div class="who"><b>mantanp</b><span>4 giu 2024, 12:16</span></div>Per prima cosa, cerchiamo di capire come cambia il potenziale ai capi dell'n-esimo resistore <span class="tex">\(R_1\)</span> e considerando quello isolato come lo "0-esimo". Dopo che la corrente passa in quest'ultimo resistore, c'è una caduta di potenziale e si ha che quello dopo ha una differenza di potenziale ai due capi di <span class="tex">\(V_1=V-R_1I_0\)</span>, dove <span class="tex">\(I_0=\frac{V}{R_1+\alpha}\)</span>. Per il secondo <span class="tex">\(R_1\)</span>, la differenza di potenziale sarà <span class="tex">\(V_2=V_1-R_1I_1=V-R_1(I_0+I_1)\)</span>. Per induzione si capisce facilmente che la differenza di potenziale ai capi dell'n-esimo <span class="tex">\(R_1\)</span> vale:<br>
+<span class="tex">\(
+V_n=V-R_1 \sum_{j=0}^{n-1}I_j
+\)</span><br>
+Ora, siccome vogliamo calcolare la corrente che scorre nell'n-esimo resistore, questa sarà data semplicemente da <span class="tex">\(I_n=\frac{V_n}{R_1+\alpha}\)</span>. Sfruttando la formula ricorsiva per il potenziale si nota che: <span class="tex">\(R_1 \sum_{j=0}^{n-2}I_j=V-V_{n-1}\)</span>. Riprendendo l'espressione di <span class="tex">\(V_n\)</span>, possiamo sostituire ottenendo: <br>
+<span class="tex">\(
+V_n=V-R_1 I_{n-1}-V+V_{n-1}=V_{n-1}-R_1 I_{n-1}
+\)</span><br>
+Da ciò si ricava che <span class="tex">\(I_n=\frac{V_{n-1}}{R_1+\alpha}-I_{n-1}\frac{R_1}{R_1+\alpha}=I_{n-1} \Bigl(1-\frac{R_1}{R_1+\alpha}\Bigr)=I_{n-1}\frac{\alpha}{R_1+\alpha}\)</span>. Sostituendo ricorsivamente, si ottiene proprio <span class="tex">\(I_n=I_0 \Bigl(\frac{\alpha}{R_1+\alpha}\Bigr)^n\)</span>.<br>
+<br>
+Per trovare la corrente <span class="tex">\(J_n\)</span> nei vari <span class="tex">\(R_2\)</span>, una volta che abbiamo <span class="tex">\(V_n\)</span>, essendo che sono in parellelo con <span class="tex">\(R_1+\alpha\)</span> la differenza di potenziale è la stessa. Inoltre, per la legge di conservazione della carica, <span class="tex">\(I_{n-1}=I_n+J_n\)</span>, quindi:<br>
+<span class="tex">\(
+J_n=\frac{V_n}{R_2}=J_{n-1}-I_{n-1} \frac{R_1}{R_2}\)</span>, che con qualche conto si può rendere arbitrariamente più maneggevole.</article>
+<article class="post" id="p28432"><div class="who"><b>Pigkappa</b><span>6 giu 2024, 20:53</span></div>Giusto  :D tra poco posto la mia soluzione che è leggermente diversa</article>
+<article class="post" id="p28434"><div class="who"><b>Pigkappa</b><span>7 giu 2024, 0:10</span></div>Qua c'è la mia soluzione.<br>
+<br>
+Chiamo <span class="tex">\(\displaystyle R\)</span> la resistenza equivalente tra A e B. Chiamo <span class="tex">\(\displaystyle I = V/R\)</span> la corrente totale. Chiamo <span class="tex">\(\displaystyle i_n\)</span> per <span class="tex">\(\displaystyle n \geq 1\)</span> le correnti nei rami verticali, così che <span class="tex">\(\displaystyle I = \sum i_n\)</span>. Chiamo <span class="tex">\(\displaystyle j_n\)</span> per <span class="tex">\(\displaystyle n \geq 1\)</span> quelle nei rami orizzontali.<br>
+<br>
+La corrente <span class="tex">\(\displaystyle I\)</span> incontra il primo nodo e si suddivide in <span class="tex">\(\displaystyle i_1\)</span> e <span class="tex">\(\displaystyle j_1\)</span> secondo le regole del <a href="https://it.wikipedia.org/wiki/Partitore_di_corrente" class="ext" class="postlink">partitore di corrente</a>, poiché ha incontrato una partizione con resistenze <span class="tex">\(\displaystyle R_2\)</span> e <span class="tex">\(\displaystyle R\)</span> (la sequenza infinita) rispettivamente. Questo ci dice che:<br>
+<span class="tex">\(\displaystyle j_1 = I \times \frac{R_2}{R+R_2}\)</span><br>
+<br>
+Lo stesso ragionamento dimostra che:<br>
+<span class="tex">\(\displaystyle j_n = j_{n-1} \times \frac{R_2}{R+R_2} = ... = I \times \big(\frac{R_2}{R+R_2}\big)^n\)</span><br>
+<br>
+Calcoliamo <span class="tex">\(\displaystyle i_n\)</span> per differenza:<br>
+<span class="tex">\(\displaystyle i_n = j_{n-1} - j_n = I \times \big(\frac{R_2}{R+R_2}\big)^{n-1} \times \frac{R}{R+R_2}\)</span><br>
+<br>
+Quindi <span class="tex">\(\displaystyle i_n\)</span> decade geometricamente e lo fa con una formula che è semplice se espressa in termini di <span class="tex">\(\displaystyle R_2\)</span> e <span class="tex">\(\displaystyle R\)</span>, ma non di <span class="tex">\(\displaystyle R_1\)</span>.<br>
+<br>
+Si può verificare che <span class="tex">\(\displaystyle I = \sum i_n\)</span> usando la somma di una serie geometrica.<br>
+<a class="lost" href="https://i.imgur.com/nbFI7Hb.png" class="ext">[immagine non più disponibile]</a></article>
+<nav class="pager"><a class="prev" href="olifis-884.html"><small>← precedente</small>Conservazione di Q dalle equazioni di Maxwell.</a><a class="next" href="olifis-111.html"><small>successivo →</small>Gas e strato di materiale in un pistone</a></nav>
+</main></body></html>

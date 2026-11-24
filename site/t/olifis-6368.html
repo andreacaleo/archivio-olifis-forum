@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>85. Sistema termodinamico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 85</a></span></nav>
+<h1>85. Sistema termodinamico</h1>
+<p class="meta">32 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6368">forum Olifis</a></p>
+<article class="post first" id="p22593"><div class="who"><b>FedericoC.</b><span>22 lug 2016, 15:13</span></div>Eccoci col problema <strong class="text-strong">85</strong>!  :D <br>
+<br>
+Si consideri un recipiente isolante a forma di parallelepipedo retto diviso in due scomparti da un setto scorrevole anch'esso isolante. In ciascuno dei due scomparti sono presenti <span class="tex">\(n\)</span> moli di gas perfetto monoatomico, a temperature rispettivamente <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2\)</span> con <span class="tex">\(T_2&gt;T_1\)</span>. Sia noto il volume totale del recipiente <span class="tex">\(V\)</span>.<br>
+<br>
+1)Determinare i volumi iniziali dei due scompartimenti;<br>
+<br>
+2)Determinare il massimo lavoro estraibile dal sistema;<br>
+<br>
+3)Determinare la temperatura di equilibrio del sistema se il setto non fosse isolante e la variazione di entropia.</article>
+<article class="post" id="p22597"><div class="who"><b>Antonio Mele</b><span>23 lug 2016, 12:37</span></div>Il primo punto dovrebbe essere questo:<br>
+<br>
+<span class="tex">\(V_1=\frac{T_1V}{T_1+T_2}\)</span><br>
+<br>
+<span class="tex">\(V_2=\frac{T_2V}{T_1+T_2}\)</span><br>
+<br>
+Ora sto facendo il terzo punto. <br>
+Per il secondo punto cosa si intende per massimo valore estraibile? (Il sistema inizialmente è all'equilibrio, quindi il lavoro dovrebbe essere nullo a meno che per 'massimo lavoro estraibile' si intenda il massimo lavoro che si eserciterebbe se si sottraesse una certa quantità di calore.)</article>
+<article class="post" id="p22598"><div class="who"><b>FedericoC.</b><span>23 lug 2016, 12:51</span></div>Per il primo punto va bene, vai col procedimento  :) <br>
+Per quanto riguarda il secondo, si intende se si sottraesse una certa quantità di calore.</article>
+<article class="post" id="p22599"><div class="who"><b>Antonio Mele</b><span>23 lug 2016, 13:17</span></div>Queste sono le mie soluzioni del terzo punto:<br>
+<br>
+<span class="tex">\(T_f =\frac{T_1+T_2}{2}\)</span><br>
+<br>
+<span class="tex">\(\Delta S= \frac{5}{2}nR\ln\frac{(T_1+T_2)^{2}}{4T_1T_2}\)</span><br>
+<br>
+Ora cerco di fare il secondo e posto tutto, okay?  :D</article>
+<article class="post" id="p22600"><div class="who"><b>poor</b><span>23 lug 2016, 13:25</span></div>Per il secondo punto il massimo lavoro estraibile<br>
+ essendo Q nulla dovrebbe corrispondere alla max variazip di <br>
+En.int cambiata :di segno ottenibile riducendo la temp.a T1 la minima . Viene Lmax uguale ncv.T2-T1.<br>
+Per il terzo punto due isoterme e due isovol.REVERSIBILI</article>
+<article class="post" id="p22602"><div class="who"><b>FedericoC.</b><span>23 lug 2016, 13:48</span></div>Per Antonio va tutto bene  :D <br>
+<br>
+Per quanto riguarda Poor il lavoro è sbagliato, per il terzo punto non ho capito cosa tu intenda</article>
+<article class="post" id="p22603"><div class="who"><b>Antonio Mele</b><span>23 lug 2016, 14:11</span></div>Sul secondo punto sono un po' bloccato. Il massimo lavoro estraibile posso considerarlo come il lavoro che si otterrebbe se si fornisse una certa quantità di calore alla parte fredda e se se ne estraesse alla parte calda per portare entrambe ad una certa temperatura finale?</article>
+<article class="post" id="p22604"><div class="who"><b>FedericoC.</b><span>23 lug 2016, 14:20</span></div>Si il ragionamento è corretto, ora devi solo dire operando in che modo si ha il lavoro massimo..</article>
+<article class="post" id="p22606"><div class="who"><b>Antonio Mele</b><span>23 lug 2016, 15:22</span></div>Il secondo punto mi esce così. E' un po' brutto come risultato, ma ho cercato di implementare il ragionamento che ho scritto prima.<br>
+<br>
+<span class="tex">\(W = \frac{3}{2}nR(T_1+T_2 -2 (\frac{2\sqrt{(T_1T_2)}}{T_1+T_2})^{\frac{2}{3}})))\)</span></article>
+<article class="post" id="p22607"><div class="who"><b>poor</b><span>23 lug 2016, 15:34</span></div>Scusa ma L deve uguagliare memo deltaU. Questa è max quando la trmp.fimale è T1.Non capisco se sbagloo il ragionamento e dove o il calcolo.Per il 3 punto si tratta fi calcolare entropia sulla corrispondente tras.reversibile vhe conduce a V e alla media delle temp.</article>
+<article class="post" id="p22613"><div class="who"><b>FedericoC.</b><span>24 lug 2016, 0:41</span></div>Antonio, dalla forma del risultato direi che il ragionamento e il procedimento sono corretti, se non sbaglio hai fatto un errore di calcolo nel trovare la temperatura finale, ad ogni modo direi di postare i procedimenti  :D <br>
+<br>
+Per Poor, l'errore nel ragionamento sta nel considerare il calore nullo, bisogna immaginare di prelevare del calore dal serbatoio caldo e trasferirne una porzione a quello freddo...</article>
+<article class="post" id="p22614"><div class="who"><b>Antonio Mele</b><span>24 lug 2016, 2:19</span></div>PRIMO PUNTO:<br>
+<br>
+I due gas per stare all'equilibrio devono avere la stessa pressione. Quindi riesco a ricavarmi i volumi iniziali dei due gas mettendo a sistema l'equazione di stato dei gas perfetti tenendo conto che la pressione è uguale e che <span class="tex">\(V_t=V_1 + V_2\)</span>.<br>
+<br>
+SECONDO PUNTO<br>
+<br>
+Per calcolare il massimo lavoro estraibile ho pensato un po' al massimo lavoro che può svolgere una macchina termica con trasformazioni reversibili.<br>
+Se immaginiamo come per magia che il calore venga prelevato dalla sorgente più calda e immesso in quella più fredda senza che quest'ultimo attraversi il pannello isolante, la temperatura all'intero dei due gas cambia e di conseguenza anche il volume e la pressione. Il lavoro massimo che si ottiene sarebbe quello speso per far muovere il pannello isolante. Il gas a cui è stato ceduto calore si espande mentre l'altro si comprime fino a raggiungere entrambi la stessa temperatura <span class="tex">\(T_f\)</span> e lo stesso volume <span class="tex">\(1/2 V\)</span>. <br>
+<br>
+<span class="tex">\(W = |Q_1|- |Q_2|\)</span><br>
+<br>
+Usando il primo principio della termodinamica mi trovo facilmente a quanto corrispondono <span class="tex">\(Q_1\)</span> e <span class="tex">\(Q_2\)</span> , dopodichè vado a sostituire nella precedente equazione con l'accorgimento che <span class="tex">\(dV_1 + dV_2 = 0\)</span>. Ora per calcolarmi il lavoro mi manca solo la temperatura finale da trovarmi. Me la posso facilmente ricavare ponendo la variazione di entropia totale (la somma tra le due variazioni) uguale a 0 e posso farlo visto che abbiamo supposto che la trasformazione sia reversibile.<br>
+<br>
+TERZO PUNTO.<br>
+<br>
+La temperatura finale me la trovo ponendo <span class="tex">\(Qass + Qced=0\)</span>. <br>
+La variazione di entropia sarebbe la somma tra le variazioni di entropia relative ai due gas. <br>
+L'unico accorgimento da fare è quello che il volume finale per entrambi i gas sarebbe la metà del volume totale.<br>
+<br>
+<br>
+<br>
+Se c'è bisogno di scrivere tutti i vari passi in formule, lo faccio, ma è una tortura scrivere tutti quei logaritmi!</article>
+<article class="post" id="p22615"><div class="who"><b>FedericoC.</b><span>24 lug 2016, 10:00</span></div>Tutti i procedimenti sono perfetti e spiegati bene! Direi di consegnarti il testimone della staffetta senza perderci in calcoli  :lol:</article>
+<article class="post" id="p22616"><div class="who"><b>rocco</b><span>24 lug 2016, 11:18</span></div><blockquote><div><cite>FedericoC. ha scritto:</cite>
+<br>
+Per Poor, l'errore nel ragionamento sta nel considerare il calore nullo, bisogna immaginare di prelevare del calore dal serbatoio caldo e trasferirne una porzione a quello freddo...</div></blockquote>
+
+Scusa se mi sostituisco a poor ma ho seguito il suo ragionamento e, per amor di verità, credo che sia giusto. Il calore nullo si riferisce infatti allo <strong class="text-strong">scambio con l'esterno </strong>e il recipiente è isolante: pertanto il lavoro estraibile deve proprio essere la max variazione di energia interna cambiata di segno per il primo principio. Ma questa si ha proprio quando 2 cede calore ed 1 non lo assorbe rendendolo disponibile per il lavoro. Infatti <span class="tex">\(-\Delta U = -nc_v(T-T_1)-nc_v(T-T_2)\)</span> con T temperatura finale. Si vede subito che essa è max, e quindi L è max, quando <span class="tex">\(T=T_1\)</span> in cui il primo termine, che sarebbe negativo, si annulla e il secondo termine, che sarebbe positivo, è massimo. Mele dovrebbe dare il risultato invece delle formule e vediamo se è diverso da questo.</article>
+<article class="post" id="p22617"><div class="who"><b>FedericoC.</b><span>24 lug 2016, 11:35</span></div>Se io prelevo del calore <span class="tex">\(Q_2\)</span>  dal serbatoio più caldo e si fornisce del calore <span class="tex">\(Q_1\)</span> a quello più freddo ottengo del lavoro che per la conservazione dell'energia deve essere <span class="tex">\(L=Q_2-Q_1\)</span>. Se applichiamo il primo principio della termodinamica a ciascuno dei due scomparti che sono sistemi isolati in quanto tutte le pareti incluso il setto sono isolanti otteniamo <span class="tex">\(Q_2=-nC_v(T_f-T_2)-PdV_2\)</span> e <span class="tex">\(Q_1=nC_v(T_f-T_1)+PdV_1\)</span>. Da qui possiamo ricavare il lavoro che è massimo quando tutte le trasformazioni sono reversibili cioè quano la variazione di entropia è nulla.<br>
+La relazione che hai scritto infatti è corretta ed è alla fine se si ordina <span class="tex">\(L=nC_v(T_1+T_2-2T_f)\)</span>, cioè quello che si ottiene col ragionamento fatto sopra, ma non è coretto dire che il massimo si ha per <span class="tex">\(T_f=T_1\)</span>.<br>
+Scusate se prima non sono stato chiaro, non avevo capito bene cosa si intendeva per calore nullo, perchè io avevo considerato due sistemi anzichè uno unico..   :roll:<br>
+Ad ogni modo provate se vi va a trovare la temperatura finale, il testimone va comunque ad Antonio che ha fatto correttamente i primi due punti  :)</article>
+<article class="post" id="p22620"><div class="who"><b>rocco</b><span>24 lug 2016, 17:01</span></div><blockquote><div><cite>FedericoC. ha scritto:</cite>.<br>
+La relazione che hai scritto infatti è corretta ed è alla fine se si ordina <span class="tex">\(L=nC_v(T_1+T_2-2T_f)\)</span>, cioè quello che si ottiene col ragionamento fatto sopra, ma non è coretto dire che il massimo si ha per <span class="tex">\(T_f=T_1\)</span>.</div></blockquote>
+
+Scusami davvero se sono un rompiscatole e sai bene che non c'entra la questione del testimone a Mele. Ma devo capire: se la mia relazione è corretta come dici per farla coincidere con la tua dovrebbe essere <span class="tex">\(T_f=T_1\)</span> nella tua? Grazie e scusa ancora ma si impara così...</article>
+<article class="post" id="p22621"><div class="who"><b>FedericoC.</b><span>24 lug 2016, 17:41</span></div>Figurati si fa sempre bene a chiedere e chiarire confrontandosi anche perchè tutti sbagliano e magari ho sbagliato io.<br>
+La relazione cui siamo arrivati per il lavoro è la medesima cioè <span class="tex">\(L=nC_v(T_1+T_2-2T_f)\)</span> che è una semplice riscrittura della tua variazione di energia interna cambiata di segno. Ora data questa relazione il problema chiede quale sia il massimo lavoro estraibile dal sistema alias la temperatura finale <span class="tex">\(T_f\)</span> cui questo avviene, ora tu dici che si ha per <span class="tex">\(T_f=T_1\)</span> ed è qui che secondo me non è corretto. Il massimo lavoro si ha quando si opera in modo reversibile quindi quando la variazione di entropia è nulla.<br>
+<br>
+<span class="tex">\(\Delta S=nC_vln(\frac{T_f}{T_1})+nRln(\frac{V}{2V_1})+nC_vln(\frac{T_f}{T_2})+nRln(\frac{V}{2V_2})\)</span><br>
+<br>
+Usando la legge dei gas perfetti per sostituire ai volumi un'espressione in funzione della temperatura si arriva infine a:<br>
+<br>
+<span class="tex">\(\Delta S=nC_vln(\frac{T_f^2}{T_1T_2})+nRln(\frac{(T_1+T_2)^2}{4T_1T_2})\)</span><br>
+<br>
+Ora ponendo <span class="tex">\(\Delta S=0\)</span> si potrebbe trovare <span class="tex">\(T_f\)</span> che è una cosa un po' brutta ma che volendo posso scrivere, ad ogni modo a noi interessa più che altro verificare se <span class="tex">\(T_f=T_1\)</span> sia soluzione, sostituendo risulterebbe:<br>
+<br>
+<span class="tex">\(\Delta S= nC_vln(\frac{1}{T_2})+nRln(\frac{(T_1+T_2)^2}{4T_1T_2})\)</span> che se non ho sbagliato calcoli non fa zero<br>
+<br>
+Spero di essere stato chiaro in caso qualcosa non funzioni dimmi pure  :D</article>
+<article class="post" id="p22625"><div class="who"><b>rocco</b><span>25 lug 2016, 18:31</span></div>Mi dispiace insistere: noi abbiamo e siamo concordi una espressione del lavoro in funzione della temperatura finale. Essa può essere una qualunque fra la minima e la massima del sistema cioè <span class="tex">\(T_1 e T_2\)</span>. Qual è quella che massimizza L come chiede il testo? Quella che minimizza il sattraendo <span class="tex">\(2T_f\)</span> ovvero <span class="tex">\(T_1\)</span> e dunque il mio risultato è <span class="tex">\(L_max= nc_v(T_2-T_1)\)</span> ovvero quella che realizza la massima diminuzione di energia interna del sistema: quella di 1 rimane al minimo, quella di 2 diminuisce della maggiore quantità possibile. Riguardo al tuo discorso sull'entropia è un terreno scivoloso perchè è difficile stabilire la corrispondente reversibile che porta dallo stesso stato iniziale allo stesso stato finale. Visto che i due argomenti del log non possono essere 1 (sennò nel secondo dovrebbe essere <span class="tex">\(T_1=T_2\)</span>) per trovare <span class="tex">\(T_f\)</span> occorre un calcolo che mi pare improbabile sia richiesto. Mentre nel mio caso è indiscutibile che il lavoro si massimizza per quel valore e ad occhio mi pare più verosimile come soluzione che è fondata sul primo principio e non c' è possibilità di sbagliare come nella scelta della reversibile.</article>
+<article class="post" id="p22629"><div class="who"><b>FedericoC.</b><span>25 lug 2016, 19:43</span></div>Mi dispiace di non saperti rispondere in modo più convincente, magari qualcun'altro saprà farlo. Ad ogni modo la soluzione che ti ho proposto con il secondo principio della termodinamica è lo stesso dato dalla soluzione del testo (ciò non toglie che possa essere sbagliata). Personalmente io ho optato per questo procedimento ispirato dal problema di Senigallia di termodinamica di quest'anno  :lol:</article>
+<article class="post" id="p22630"><div class="who"><b>rocco</b><span>25 lug 2016, 21:53</span></div><blockquote><div><cite>FedericoC. ha scritto:</cite> Il massimo lavoro si ha quando si opera in modo reversibile quindi quando la variazione di entropia è nulla.<br>
+Spero di essere stato chiaro in caso qualcosa non funzioni dimmi pure  :D</div></blockquote>
+
+Credo proprio che questo ragionamento sia sbagliato. La reversibilità non implica una variazione nulla di entropia come tu sostieni a meno che non si tratti di un CICLO (e non è il nostro caso) poichè l'entropia è funzione di stato. E' inutile che ti faccia esempi, che conosci benissimo, di reversibili non cicliche (con stato iniziale DIVERSO da quello finale come nel nostro caso) in cui la variazione d'entropia è diversa da 0 e quindi è inutile che tu ricerchi quello stato finale per cui la variazione è nulla. Dovrebbe coincidere con lo stato iniziale. Certo si può pensare all'adiabatica reversibile ma non è certo a lavoro massimo: se prendi un'adiabatica reversibile fra due stati si può trovare un'isobara e un'isovolumica fra gli stessi stati a lavoro maggiore...Quindi io non so cosa dire del testo di cui parli e son pronto a riconoscere un mio eventuale abbaglio...ci mancherebbe...ma credo non sulla base della tua argomentazione che ho citato. Staremo a vedere eventuali novità.</article>
+<article class="post" id="p22632"><div class="who"><b>FedericoC.</b><span>25 lug 2016, 23:41</span></div>Sono d'accordo su quanto hai detto, ma noi per trasferire calore da uno scompartimento all'altro supponiamo di servirci di una macchina termica per la quale la parte 2 sarà il serbatoio caldo mentre la parte 1 quello freddo. Ora noi sappiamo che tra tutte le macchine termiche quella con rendimento maggiore è quella di Carnot che opera in modo reversibile. Ora considerando infinitesimi cicli tra le temperature istantanee dei due serbatoi si arriverà all'equilibrio termico. Dato che il calore sottratto al serbatoio caldo è il medesimo da qualsiasi macchina termica quella con rendimento maggiore sarà quella che estrae maggior lavoro dal sistema, dato che <span class="tex">\(\eta=\frac{L}{Q _{ass}}\)</span>. Dato che si sono utilizzati cicli infinitesimi reversibili la variazione di entropia sarà comunque nulla.</article>
+<article class="post" id="p22636"><div class="who"><b>rocco</b><span>26 lug 2016, 17:45</span></div>Non voglio dare l'impressione di voler polemizzare o voler avere l'ultima parola. Il procedere per cicli infinitesimi non può oscurare il dato di fatto che lo stato finale è <span class="tex">\(diverso\)</span>da quello iniziale e quindi la funzione di stato deve essere diversa nei due stati. Tu stesso nella tua espressione del lavoro e dell'entropia usi t.fin  che è diversa da quelle iniziali dei due gas. Un ciclo infinitesimo torna comunque da dove parte sennò non è un ciclo. Poi non riesco a capire dove possa essere sbagliato massimizzare il lavoro con una temperatura finale che rientra fra quelle possibili del sistema. Quindi propongo di tenere ognuno le proprie convinzioni sperando che intervenga qualche lume.</article>
+<article class="post" id="p22641"><div class="who"><b>step98</b><span>26 lug 2016, 23:21</span></div>Per avere una variazione di entropia nulla il sistema non deve per forza ritornare nello stato di partenza, anzi in un sistema isolato che compie solo trasformazioni reversibili si ha sempre una variazione di entropia nulla (é maggiore di zero invece se il sistema isolato compie anche trasformazioni irreversibili). Nel nostro caso i due gas e la macchina termica che opera tra di essi costituiscono un sistema isolato che compie solo trasformazioni reversibili, quindi la variazione di entropia deve essere nulla. Secondo me l'errore nel tuo ragionamento sta nel fatto che consideri la temperatura <span class="tex">\(T_1\)</span> una temperatura finale possibile per il sistema, ma non essendo in questo caso la variazione di entropia nulla, ci sarebbe una violazione del secondo principio della termodinamica.</article>
+<article class="post" id="p22649"><div class="who"><b>rocco</b><span>27 lug 2016, 18:24</span></div>Siamo d'accordo ad arrivare alla stessa espressione del lavoro in funzione della temperatura finale: dov'è l'errore se essa viene massimizzata a <span class="tex">\(T_1\)</span>? Tu dici perchè non la può raggiungere in quanto la variazione di entropia deve essre nulla perchè si tratta di trasformazioni reversibili. E' un pò il gatto che si mangia la coda...<br>
+E poi c'è un dato grosso come una casa: io do un risultato, Federico non è in grado di darlo(dice per motivi tecnici): ma il testo è chiarissimo al riguardo. Bisogna determinare il massimo lavoro estraibile. Quindi il libro da cui ha preso il testo darà pure il risultato!  :?: Lui dice che da la stessa soluzione. Ma qual'è il risultato? Lo dia e siamo a posto :!:</article>
+<article class="post" id="p22652"><div class="who"><b>FedericoC.</b><span>27 lug 2016, 19:32</span></div>Non ho mai detto di non avere un risultato, anzi te lo posto subito <span class="tex">\(T_f=[\frac{2\sqrt{T_1T_2}}{T_1+T_2}]^{R/C_v}\sqrt{T_1T_2}\)</span>, ho preferito dare il procedimento che credo sia la parte più importante e istruttiva di un problema di fisica, bastava fare i calcoli..</article>
+<article class="post" id="p22659"><div class="who"><b>rocco</b><span>28 lug 2016, 18:01</span></div>Grazie, finalmente. Ci studierò immaginando che sia anche il risultato del libro. Ho continuato intanto a riflettere e sento il bisogno della tua critica per queste riflessioni (se vorrai)perchè quasi certamente le hai già effettuate e ti ringrazio in anticipo. Credo che sia assodato <br>
+1) che qualunque trasformazione subiscano i due gas debba essere adiabatica perchè sono isolati dall'esterno e fra loro<br>
+2) il problema è se sia reversibile o no, a variazione nulla di entropia oppure no.<br>
+3) è qui che mi tornerebbe di mettere che sia reversibile per ottenere il lavoro massimo, perchè siamo solo nell'ambito delle ADIABATICHE e non di tutte le trasformazioni (infatti ti dissi, e tu ti dicesti d'accordo, che l'adiabatica fra due stati non aveva il lavoro massimo perchè si può trovare un'isobara ed un'isovolumica reversibili a lavoro maggiore fra gli stessi stati)<br>
+4) ed ecco il grande dubbio: la relazione che dà il nostro lavoro è fondata su L=<span class="tex">\(-\Delta U\)</span>ovvero su<span class="tex">\(\int \delta Q =0\)</span> ovvero sul primo principio che riguarda tutte le trasformazioni; ma se deve essere adiabatica reversibile deve essere <span class="tex">\(\int \delta Q/T =0\)</span> ovvero <span class="tex">\(\int \delta L/T = - \int dU/T\)</span>. Perchè dal primo principio non discende questo automaticamente? Mi puoi chiarire perchè se il numeratore è nullo non si annulla anche la frazione?<br>
+Evidentemente non sta così perchè altrimenti non avresti bisogno di trovare <span class="tex">\(T_f\)</span>....</article>
+<article class="post" id="p22660"><div class="who"><b>FedericoC.</b><span>28 lug 2016, 21:12</span></div>Ti rispondo molto volentieri  :) <br>
+<br>
+Innanzi tutto anche se l'entropia è una funzione di stato non è detto che affinchè la sua variazione sia nulla il sistema debba essere nello stesso stato, sarebbe come dire che per avere una variazione nulla di temperatura o pressione il sistema debba essere invariato e questo ovviamente non è necessario. Questo per chiarire il problema che avevi posto e a cui non avevo ancora risposto.<br>
+Poi a dire il vero non penso che le trasformazioni cui sono sottoposti i due gas possano essere solo adiabatiche. Consideriamo lo scomparto 2, quello caldo, la macchina termica estrae da questo del calore <span class="tex">\(Q_2\)</span> quindi il calore per questo singolo setto non è nullo e quindi la trasformazione cui è stato sottoposto non adiabatica. Essendo una macchina termica da questo calore estrae del lavoro, per poi cedere del calore <span class="tex">\(Q_1\)</span> minore di <span class="tex">\(Q_2\)</span> allo scomparto 1, quindi anche per quest'ultimo il calore non è nullo e la trasformazione non adiabatica. Secondo me l'utilizzo che hai fatto del primo principio seppure corretto è "inusuale" e trae un po' in inganno. Il lavoro che noi vogliamo trovare non è quello direttamente compiuto dai gas come quello per spostare il setto isolante, ma quello estratto dal sistema da una macchina termica. Ora dato che il lavoro compiuto da ogni scomparto e opposto all'altro il lavoro totale che il sistema compie considerando entrambi gli scomparti è nullo, quindi la variazione di energia interna corrisponde anche allo scarto di calore che la macchina termica ha tramutato in lavoro, cioè <span class="tex">\(Q_2-Q_1\)</span>. Spero di essermi spiegato bene in questo passaggio che forse è quello chiave.<br>
+Sta di fatto che comunque la relazione che tu proponi per il lavoro è corretta e anche il massimizzarla per <span class="tex">\(T_f=T_1\)</span> è assolutamente ragionevole, tuttavia penso come Stefano che l'errore stia nel considerare quella temperatura come effettivamente possibile, come temperaura finale, per il nostro sistema, non si può sapere a prescindere se non viola il secondo principio della termodinamica e in questo caso penso proprio lo faccia.<br>
+<br>
+Spero di essermi spiegato in modo comprensibile, se qualcosa non è corretto o chiaro dimmi pure  :D</article>
+<article class="post" id="p22662"><div class="who"><b>step98</b><span>28 lug 2016, 22:34</span></div>Perfettamente d'accordo con quello che ha scritto Federico, preciso solo che parlavo di sistema isolato perché la trasformazione dell'intero sistema è adiabatica, e non quelle dei singoli scompartimenti, che come ha fatto notare Federico non lo sono affatto perché c'è la macchina termica che assorbe calore da uno scompartimento e lo cede all'altro.</article>
+<article class="post" id="p22665"><div class="who"><b>rocco</b><span>29 lug 2016, 17:17</span></div>E' incredibile ma più discutiamo e meno siamo d'accordo: per il primo punto non è calzante l'esempio della temperatura e della pressione giusto perchè esse non sono funzioni di stato! Ti prego di farmi un esempio, che non sia il caso dell'adiabatica reversibile!, in cui stati diversi di un certo sistema hanno la stessa entropia. Secondo me è una contraddizione in termini che una funzione di stato non dipenda dallo stato a meno che non sia previsto (adiabatica reversibile) che sia costante in tutti gli stati.<br>
+Poi l'altro aspetto per me misterioso: ma dov'è la macchina termica? Che preleva il calore da un gas (che è TERMICAMENTE ISOLATO da tutto) e lo trasferisce all'altro (che è ancora TERMICAMENTE ISOLATO da tutto). Il testo parla di un recipiente diviso in due comparti isolati fra loro e dall'esterno. Dov'è il fluido termodinamico, di Carnot per es., che si sposta da una sorgente ad un'altra prelevando calore dall'unica base di un  termostato che non è isolante e cedendolo all'altra attraverso la base non isolante? Infatti per realizzare l'adiabatica si pone il fluido di Carnot su base isolante come sono i contorni di ciascun gas nel nostro caso. <br>
+Nella nostra circostanza l'unica cosa mobile (macchina?)è il setto scorrevole che si muove sulla base della differenza di pressione.<br>
+Sono scoraggiato perchè evidentemente io non vedo cose che voi vedete (a meno che non le suggerisca il libro da cui hai preso il testo). Con che coraggio posso provare il test SNS? Bianciardi in Problemi di fisica dice che non bisogna mai arrendersi...</article>
+<article class="post" id="p22666"><div class="who"><b>FedericoC.</b><span>29 lug 2016, 20:16</span></div>Mi dispiace contraddirti, ma temperatura e pressione SONO funzioni di stato, puoi avere un rapido riscontro cercando su internet "funzioni di stato", quindi credo che l'esempio portato possa essere calzante. Detto ciò penso possa essere assodato che non serve che il sistemi sia nello stesso stato iniziale affinchè la variazione di entropia sia nulla.<br>
+In secondo luogo il testo del problema non da alcun suggerimento, l'idea della macchina termica dovrebbe venire poichè altrimenti come si potrebbe estrarre lavoro dal sistema? Il lavoro compiuto dai due gas è complessivamente nullo poichè <span class="tex">\(dL_2=pdV_2\)</span> mentre <span class="tex">\(dL_1=pdV_1\)</span> e <span class="tex">\(dV_1+dV_2=0\)</span>.<br>
+Ad ogni modo non credo tu debba scoraggiarti solo per questo problema, chiedi pure se qualcosa ancora non va  ;)</article>
+<article class="post" id="p22668"><div class="who"><b>rocco</b><span>30 lug 2016, 17:40</span></div>La pressione e la temperatura sono grandezze che, insieme al volume e al numero di moli, INDIVIDUANO lo stato, non sono funzioni del medesimo. Che senso ha dire che la pressione è funzione della pressione? Certo si possono trovare relazioni che legano queste grandezze. Come l'equazione di stato dei gas perfetti che si chiama così proprio perchè lega fra loro le grandezze che INDIVIDUANO lo stato.<br>
+Sul secondo punto. Non conta affatto che "possa venire in mente" la macchina termica. Quello che conta è il dato del testo. Si chiama macchina termica un dispositivo capace di trasformare calore in lavoro, come quella di Carnot o quella del trenino ciuff ciuff. Ti sembra che il recipiente del testo, termicamente isolato dall'esterno e formato da comparti termicamente isolati fra loro, sia una macchina termica? I due gas possono scambiarsi solo lavoro a spese (o a vantaggio) della propria energia interna. Questo tipo di trasformazione si chiama ADIABATICA: se poi è anche reversibile, come quelle di Carnot, allora è anche isoentropica, cioè la variazione di entropia deve annullarsi come nel caso di Carnot lungo le adiabatiche.(Si hanno poi opposte variazioni di entropia lungo le isoterme perchè, essendo un ciclo reversibile, lo stato iniziale coincide con quello finale e la totale variazione d'entropia è 0.<br>
+Questo è ciò che penso. Ti ringrazio: per ora non ho altro da chiederti.</article>
+<article class="post" id="p22669"><div class="who"><b>sall96</b><span>31 lug 2016, 9:46</span></div>Non sono riuscito a leggere tutte le varie risposte però vorrei aggiungere qualcosa a questa frase (per ampliare un po' la discussione :) )
+<blockquote><div><cite>rocco ha scritto:</cite>La pressione e la temperatura sono grandezze che, insieme al volume e al numero di moli, INDIVIDUANO lo stato, non sono funzioni del medesimo. Che senso ha dire che la pressione è funzione della pressione? Certo si possono trovare relazioni che legano queste grandezze. Come l'equazione di stato dei gas perfetti che si chiama così proprio perchè lega fra loro le grandezze che INDIVIDUANO lo stato.</div></blockquote>
+In realtà nella termodinamica formale si definisce stato di equilibrio come uno stato che è completamente determinato dai suoi parametri termodinamici estensivi (energia interna, volume, entropia, e numero di moli dei vari componenti del sistema). A sua volta l'entropia viene definita come quella funzione che si massimizza (a parità di energia interna) in uno stato di equilibrio. Da queste definizioni puoi ricavare i parametri termodinamici intensivi definiti come <br>
+<span class="tex">\(T = \dfrac{\partial U}{\partial S}\)</span><br>
+<span class="tex">\(p = - \dfrac{\partial U}{\partial V}\)</span><br>
+Dunque in questo formalismo effettivamente pressione e temperatura sono funzioni di parametri termodinamici estensivi.<br>
+Inoltre le cose che ho detto non sono in contrasto con la frase citata sopra, perché effettivamente non è sbagliata quella frase. Noi possiamo prendere anche temperatura e pressione come parametri e definire energia interna ed entropia in funzione delle prime. Volevo solo dare uno spunto di riflessione per vedere anche un altro punto di vista, perché con le poche definizione che ho detto prima (e altre cose) si dà una teoria completa e ben definita della termodinamica :)</article>
+<nav class="pager"><a class="prev" href="olifis-6362.html"><small>← precedente</small>84. Secchio bucato</a><a class="next" href="olifis-6370.html"><small>successivo →</small>86. Colpire una torta</a></nav>
+</main></body></html>

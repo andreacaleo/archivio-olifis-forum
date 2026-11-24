@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5. fune priva di massa</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 5</a></span></nav>
+<h1>5. fune priva di massa</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4692">forum Olifis</a></p>
+<article class="post first" id="p15443"><div class="who"><b>Simone256</b><span>31 ago 2013, 21:12</span></div>Propongo questo problema trovato sull' Halliday (quindi presumo sia fattibile) che non ho ancora risolto... Ma la bellezza estetica della soluzione (a parer mio) fa meritare al problema un posto nella staffeta :)<br>
+<br>
+<em class="text-italics">Una fune di massa trascurabile scavalca un mozzo cilindrico di raggio <span class="tex">\(r\)</span>, in modo da poter sollevare dal suolo un oggetto molto pesante di peso <span class="tex">\(P\)</span>. Il coefficiente di attrito radente tra la fune e il mozzo è <span class="tex">\(\mu\)</span>. Dimostrare che la minima forza diretta verso il basso da applicare alla fune per sollevare il carico è:<br>
+<br>
+<span class="tex">\(\displaystyle F=Pe^{\pi \mu}\)</span></em></article>
+<article class="post" id="p15445"><div class="who"><b>desga</b><span>31 ago 2013, 23:35</span></div>Sia T la tensione all'estremo inferiore di un segmento infinitesimo di corda.<br>
+All' estremo superiore sarà aumentata di <span class="tex">\(dT= \mu T d\theta\)</span><br>
+Pertanto <span class="tex">\(\frac{dT}{T}=\mu d\theta\)</span>,e integrando <span class="tex">\(ln(T)=k \mu \theta\)</span> con k costante qualsiasi. Pertanto <span class="tex">\(T=Ce^{\mu\theta}\)</span>.<br>
+Siccome <span class="tex">\(T(0)=P\)</span> allora <span class="tex">\(C=P\)</span>. Pertanto, dopo metà giro la forza sarà <span class="tex">\(T=Pe^{\mu\pi}\)</span></article>
+<article class="post" id="p15446"><div class="who"><b>gilgamesh</b><span>1 set 2013, 0:16</span></div>Come è evidente nell'immagine, si considera la forza infinitesima di attrito che si ha percorrendo un tratto <span class="tex">\(R d\theta\)</span> della carrucola.<br>
+<br>
+Bisognerà ottenere l'equilibrio , per cui , chiamando <span class="tex">\(T\)</span> e <span class="tex">\(T+dT\)</span> le due tensioni e accorgendomi del fatto che l'angolo in rosa è la metà dell'angolo in celeste in figura scrivo :<br>
+<br>
+<span class="tex">\(\left \{
+\begin{array}{l}
+T \cos {\frac {d\theta}{2}} + dN \mu = (T+dt) \cos {\frac{d\theta}{2}}\\
+T \sin {\frac {d\theta}{2}} + (T+dT) \sin {\frac {d\theta}{2}}= dN\\
+\end{array}
+\right.\)</span><br>
+<br>
+e con le dovute approssimazioni (che semplificano notevolmente):<br>
+<br>
+<span class="tex">\(\left \{
+\begin{array}{l}
+dN \mu = dt \\
+T\frac {d\theta}{2} + T\frac {d\theta}{2}= dN\\
+\end{array}
+\right.\)</span><br>
+<br>
+quindi infine ottengo:<br>
+<br>
+<span class="tex">\(\frac {dP}{P}=2 \mu \frac{d\theta}{2}\)</span><br>
+<br>
+risolvendo l'equazione differenziale:<br>
+<br>
+<span class="tex">\(\int^F_P \frac{dT}{T}=2 \mu \int^\pi_0 \frac {\theta}{2}\)</span><br>
+<br>
+così si ottiene <span class="tex">\(F=P e^ {\mu \pi}\)</span><br>
+<br>
+EDIT: Desga mi hai battuto sul tempo (anche se ci hai messo un pò meno latex  :D ) ....vabbè posso accettare queste sconfitte da un argento  :D
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/8c9f8743a8b5045a.png" class="postimage" alt="staffetta.png" onclick="viewableArea(this);" /></dt>
+						<dd>staffetta.png (112.7 KiB) Visto 5263 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p15619"><div class="who"><b>Simone256</b><span>12 set 2013, 16:43</span></div>Abbiate pazienza... Qualcuno riesce a rispiegarmelo con qualche passaggio in più?  :oops:</article>
+<article class="post" id="p15623"><div class="who"><b>Pigkappa</b><span>13 set 2013, 3:52</span></div>Cosa non capisci della soluzione di gilgamesh (che è spiegata bene secondo me)?</article>
+<article class="post" id="p15625"><div class="who"><b>Simone256</b><span>13 set 2013, 15:11</span></div><blockquote><div><cite>gilgamesh ha scritto:</cite>
+quindi infine ottengo:<br>
+<br>
+<span class="tex">\(\frac {dP}{P}=2 \mu \frac{d\theta}{2}\)</span>
+</div></blockquote>
+Scusate... Mi ero semplicemente fatto fregare da questa scritta (credo si debba sostituire <span class="tex">\(T\)</span> a <span class="tex">\(P\)</span>) e mi ero scoraggiato senza provare a capirlo da solo... Tutto chiaro!  :)</article>
+<nav class="pager"><a class="prev" href="olifis-4669.html"><small>← precedente</small>4. Razzo vincolato</a><a class="next" href="olifis-4725.html"><small>successivo →</small>6: Minigolf! (SNS 91/92 N°5)</a></nav>
+</main></body></html>

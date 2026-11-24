@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>116. Fotoni ed elettroni</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 116</a></span></nav>
+<h1>116. Fotoni ed elettroni</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6512">forum Olifis</a></p>
+<article class="post first" id="p23634"><div class="who"><b>FedericoC.</b><span>5 apr 2017, 20:30</span></div>Quando un fotone collide con un elettrone relativistico ad alta energia esso può guadagnare energia, ciò significa che l'energia e la frequenza del fotone aumenta. Questo effetto è detto "Compton inverso".<br>
+Si consideri un elettrone ad alta energia <span class="tex">\(E\)</span>, quindi con energia cinetica maggiore della sua energia a riposo, e un fotone a bassa energia, cioè con energia minore dell'energia a riposo dell'elettrone, con frequenza <span class="tex">\(f\)</span>. Elettrone e fotone si muovono in direzioni opposte sulla stessa retta e si urtano. Nell'urto il fotone viene deviato di un angolo <span class="tex">\(\theta\)</span> rispetto alla retta congiungente elettrone e fotone prima della collisione.<br>
+(a)Calcolare l'energia del fotone deflesso, in termini di <span class="tex">\(E, \theta, f\)</span> e l'energia a riposo dell'elettrone <span class="tex">\(E_0\)</span>;<br>
+(b)Mostrare per quale valore di <span class="tex">\(\theta\)</span> il fotone ha energia massima;<br>
+(c)Trovare l'energia massima del fotone.</article>
+<article class="post" id="p23639"><div class="who"><b>guido</b><span>6 apr 2017, 18:06</span></div>Abbiamo svolto tempo fa il problema "relatività ristretta" con Step98 e ci fu bisogno di intenderci essendo almeno io alle prime armi. L'energia di riposo dell'elettrone è <span class="tex">\(E_0=m_0.c^2\)</span>. Se <span class="tex">\(m_0\)</span>è la massa di riposo, quella relativistica a velocità v è <span class="tex">\(m=\gamma.m_0\)</span> dove <span class="tex">\(\gamma= \frac{1}{\sqrt{1-(v/c)^2}}\)</span>. L'energia totale è <span class="tex">\(E=mc^2=\gamma.m_0.c^2\)</span>. L'energia cinetica è la differenza fra l'energia totale e quella di riposo cioè <span class="tex">\(E_c=m.c^2-m_0.c^2=m_0.c^2(\gamma-1)\)</span>. L'impulso è <span class="tex">\(p=m.v=\gamma.m_0.v\)</span> cioè gamma volte il classico. La intendi anche tu così? Perchè allora nel testo forse poteva essere scritto non "con energia cinetica maggiore di quella di riposo" ma "con energia totale maggiore di quella a riposo". Infatti è vero che <span class="tex">\(\gamma&gt;1\)</span> ma non è detto che <span class="tex">\(\gamma-1&gt;1\)</span>Voglio dire che ci può essere energia cinetica senza che sia maggiore di quella di riposo!? :roll: Grazie se mi vorrai chiarire prima di cominciare :D  :D</article>
+<article class="post" id="p23641"><div class="who"><b>FedericoC.</b><span>6 apr 2017, 21:01</span></div>Si intendo quanto hai detto. Il fatto che l'energia cinetica sia maggiore dell'energia a riposo è la "condizione" che rende l'elettrone ad alta energia. :)</article>
+<article class="post" id="p23642"><div class="who"><b>drago</b><span>6 apr 2017, 21:30</span></div>specifico solo un fatto; se volete è una finezza ma non esiste una massa relativistica, nel senso che l'interpretazione che un corpo relativistico ha una massa differente da quella a riposo è un refuso antico e sorpassato che veniva usato per mantenere invariato in forma la formula della quantità di moto ma questa interpretazione oggi non ha più nessun senso di esistere e secondo me crea solo molta confusione.</article>
+<article class="post" id="p23643"><div class="who"><b>guido</b><span>7 apr 2017, 11:15</span></div>Per Drago: a noi il professore disse che la massa come inerzia al moto varia con la velocità nel senso che per avere una stessa accelerazione a velocità diverse occorreva una forza maggiore a velocità maggiore. A me sembrava sensato. Tu dici che è falso e fuorviante fatto solo per scrivere ancora formalmente p alla maniera classica :roll:  :roll: . La cosa è più importante della soluzione del problema :!: . Puoi ribadire? Grazie. :D</article>
+<article class="post" id="p23644"><div class="who"><b>drago</b><span>7 apr 2017, 12:44</span></div>come ho detto è una finezza e per la soluzione non cambia quasi niente; il fatto che un corpo cambi la massa con la velocità è un interpretazione che diamo noi delle formule però è un interpretazione che si considera "superata" perchè si preferisce pensare alla massa come a una proprietà intrinseca di un corpo quindi invariante al sistema di riferimento e quelle formule ti dicono solo come passare dalla velocità alla quantità di moto, ciò è dovuto al fatto che questa interpretazione si generalizza più facilmente inrelatività generale rispetto a quella della massa efficace.<br>
+per quello che dice il tuo professore è vero si può intermpretare in quel modo ma un modo che in relatività è più naturale è quello di passare nel sistema di riferimento innerziale in cui il corpo è istantaneamente fermoe e si vede che in quel sistema di riferimento la forza percepita dal corpo diminuisce di un fattore <span class="tex">\(\gamma\)</span> cioè la forza percepita dal corpo diminuisce all'aumentare della velocità.<br>
+<br>
+dato che centra poco col problema se si vuole continuare si può fare in privato o nella sezione teoria.</article>
+<article class="post" id="p23645"><div class="who"><b>Flaffo</b><span>7 apr 2017, 17:52</span></div>Cercherò, utilizzando questo metodo, di evitare il più possibile calcoli.<br>
+Scriviamo la conservazione dell'energia e del momento in in vettore a quattro componenti:<br>
+<br>
+<span class="tex">\(P \equiv (E,p) \equiv (E, p_x, p_y , p_z)\)</span><br>
+<br>
+Inoltre definiamo il prodotto tra due vettori , <span class="tex">\(A \equiv (A_0, A_1 , A_2, A_3)\)</span> e <span class="tex">\(B\equiv (B_0, B_1 , B_2, B_3)\)</span>, come <br>
+<br>
+<span class="tex">\(\displaystyle  A \cdot B = A_0 B_0 - A_1 B_1 -A_2 B_2 - A_3 B_3\)</span><br>
+<br>
+E guardando <span class="tex">\(\displaystyle E^2 -p^2 = m^2\)</span> (c=1) segue <br>
+<br>
+<span class="tex">\(\displaystyle  P \cdot P= m^2\)</span><br>
+<br>
+Scriviamo i vettori a quattro componenti per la collisione<br>
+<br>
+<span class="tex">\(\displaystyle  P_e = ( E, \sqrt {E^2 - m^2},  0,0)\)</span><br>
+<br>
+<span class="tex">\(\displaystyle P_f = (hf, -hf, 0,0)\)</span><br>
+<br>
+<span class="tex">\(\displaystyle  {P_f}^{'}= (h f^{'}, -h f^{'}cos \theta , -h f^{'} sin \theta , 0)\)</span><br>
+<br>
+Non ci servirà quello per l'elettrone dopo l'urto (che sarà in funzione del suo angolo di deviazione )<br>
+<br>
+La conservazione dell'energia e del momento si scrivono come<br>
+<br>
+<span class="tex">\(\displaystyle P_e + P_f ={P_e}^{'} + {P_f}^{'}\)</span><br>
+<br>
+Isoliamo <span class="tex">\({P_e}^{'}\)</span> ed eleviamo alla seconda <br>
+<br>
+<span class="tex">\(\displaystyle {{P_e}^{'}}^2 = {P_e}^2 + {P_f}^2 +  {{P_f}^{'}}^2 +2 P_e \cdot \left ( P_f - {P_f}^{'}\right) - 2  P_f \cdot {P_f}^{'}\)</span><br>
+<br>
+Per quanto detto prima <span class="tex">\(P \cdot P= m^2\)</span><br>
+L'equazione precedente diventa <br>
+<br>
+<span class="tex">\(\displaystyle P_e \cdot \left ( P_f - {P_f}^{'}\right)=P_f \cdot {P_f}^{'}\)</span><br>
+<br>
+Sostituendo le variabili e isolando per <span class="tex">\(f^{'}\)</span> otteniamo subito<br>
+<br>
+<span class="tex">\(\displaystyle f^{'} = f  \frac { E + \sqrt {E^2- E_0^2}}{ E+\sqrt {E^2- E_0^2} cos \theta + hf \left ( 1 - cos \theta \right) }\)</span><br>
+<br>
+Moltiplicando per <span class="tex">\(h\)</span> otteniamo l'energia del fotone in funzione di <span class="tex">\(\theta\)</span><br>
+Per calcolare l'angolo a cui corrisponde massima energia, basta porre la derivata del denominatore uguale a zero. Ciò avviene per <span class="tex">\(\theta =0\)</span> o <span class="tex">\(\theta= 180\)</span>. Escludiamo subito il primo caso che corrisponde alla situazione in cui l'elettrone e fotone si sfiorano senza interagire, come ci dice anche l'equazione dell'energia del fotone che rimane uguale. Per <span class="tex">\(\theta =180\)</span> abbiamo dunque <br>
+<br>
+<span class="tex">\(\displaystyle  E_{max}= hf^{'} =hf  \frac { E + \sqrt {E^2- E_0^2}}{ E -\sqrt {E^2- E_0^2}  + 2 hf  }\)</span></article>
+<article class="post" id="p23646"><div class="who"><b>FedericoC.</b><span>7 apr 2017, 18:21</span></div>Wow, gran bel metodo  :lol:<br>
+Mi torna tutto, a te il testimone  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6490.html"><small>← precedente</small>115. Il campo nel cilindro</a><a class="next" href="olifis-6516.html"><small>successivo →</small>117. Aste?</a></nav>
+</main></body></html>

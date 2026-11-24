@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50: Catena in caduta libera</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 50</a></span></nav>
+<h1>50: Catena in caduta libera</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6156">forum Olifis</a></p>
+<article class="post first" id="p21182"><div class="who"><b>CapitanFindus</b><span>14 ago 2015, 18:38</span></div>Per festeggiare il 50esimo problema della staffetta ne propongo uno apparentemente banale ma che a suo tempo mi aveva stuzzicato non poco.<br>
+<br>
+<strong class="text-strong">La catena che cade</strong><br>
+<br>
+Vi è una catena sospesa verticalmente appesa ad un sostegno. Subito sotto la catena vi è una bilancia.<br>
+La catena ha massa M (kg) e lunghezza L (cm). Ad un certo istante viene tolto il sostegno e la catena cade. <br>
+<br>
+Nell'istante in cui tutta la catena è caduta, quale valore si legge sulla bilancia? <br>
+<br>
+<br>
+Auguri  :lol: <br>
+<br>
+<br>
+<em class="text-italics">hint: la soluzione dipende solo da M </em></article>
+<article class="post" id="p21183"><div class="who"><b>Simone256</b><span>14 ago 2015, 23:07</span></div>Forse uno degli ultimi problemi che risolvo sul forum come liceale... Ma sará risolto?  :roll: <br>
+La forza netta sul sistema <em class="text-italics">catenina in caduta</em> vale:<br>
+<span class="tex">\(F=\frac{dp}{dt}=v\frac{dm}{dt}+m\frac{dv}{dt}\)</span><br>
+Ma il secondo addendo è nullo nell'istante finale e sappiamo inoltre che la forza netta verso l'altro è la reazione della bilancia meno la forza peso.<br>
+<span class="tex">\(N=F+Mg=v\frac{dm}{dt}+Mg=v^2\frac{M}{L}+Mg=3Mg\)</span></article>
+<article class="post" id="p21184"><div class="who"><b>CapitanFindus</b><span>15 ago 2015, 12:28</span></div>complimenti, soluzione elegantissima ed anche esatta. Usare la derivata della funzione in due variabili è un colpo di classe.<br>
+<br>
+Devo ammettere che lo hai un po' bruciato sto problema, speravo che generasse un po' più di tensione intellettuale nel forum  :lol: <br>
+<br>
+A te il prossimo!</article>
+<article class="post" id="p21185"><div class="who"><b>andrea96</b><span>15 ago 2015, 13:41</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Forse uno degli ultimi problemi che risolvo sul forum come liceale...</div></blockquote> <br>
+i prossimi li risolverai da normalista  :twisted:  :twisted:  :twisted:</article>
+<article class="post" id="p21186"><div class="who"><b>Simone256</b><span>15 ago 2015, 16:29</span></div>Ok grazie ;)<br>
+Diciamo che usare il <span class="tex">\(\frac{dp}{dt}\)</span> è molto comodo nei sistemi a massa variabile quindi ormai appena si vede qualcosa di continuo che si muove viene spontaneo pensarci! Nulla di speciale... andrea96 sto problema te lo fa considerando la rotazione terrestre e l'attrito con l'aria :lol:<br>
+
+<blockquote><div><cite>andrea96 ha scritto:</cite><blockquote><div><cite>Simone256 ha scritto:</cite>Forse uno degli ultimi problemi che risolvo sul forum come liceale...</div></blockquote> <br>
+i prossimi li risolverai da normalista  :twisted:  :twisted:  :twisted:</div></blockquote>
+Hahaha mi accontenterò di risolverli da studente universitario fallito oppure mi limiterò ad aggirarmi per il forum con la tipica aria snob da chi ha più di 19 anni  :lol:  :lol:<br>
+Te goditi sti ultimi post da non vincitore di premio Nobel :P</article>
+<article class="post" id="p21187"><div class="who"><b>phyknight</b><span>15 ago 2015, 19:17</span></div>Rilancio (è facile, eh...ma dato che non c'è nel testo almeno lo metto per completezza...):<br>
+Determinare il valore che si legge sulla bilancia in funzione del tempo</article>
+<nav class="pager"><a class="prev" href="olifis-6155.html"><small>← precedente</small>49: sfera che salta 2 volte</a><a class="next" href="olifis-6157.html"><small>successivo →</small>51. Centro di massa</a></nav>
+</main></body></html>

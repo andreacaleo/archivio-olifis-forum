@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>26: oscillatori su un cerchio</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 26</a></span></nav>
+<h1>26: oscillatori su un cerchio</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6006">forum Olifis</a></p>
+<article class="post first" id="p19781"><div class="who"><b>andrea96</b><span>5 dic 2014, 20:32</span></div>a) Due masse identiche sono vincolate a muoversi su una circonferenza e sono collegate tra loro con due molle identiche con lunghezza nulla a riposo che seguono il profilo della circonferenza. Trovare i modi normali di oscillazione, cioè le situazioni in cui entrambe le masse oscillano alla stessa frequenza.<br>
+b) Fare la stessa cosa ma con tre masse e tre molle.<br>
+c)domanda extra,super impossibile ( non mi aspetto che qualcuno la faccia ma la metto giusto per completezza ): trovare i modi normali nel caso generale di N masse e N molle.<br>
+[Hint]: Se <span class="tex">\(A\)</span> è una matrice e <span class="tex">\(\vec v\)</span> un vettore che non può essere nullo, allora se vale la relazione <span class="tex">\(A \vec v=0\)</span> allora <span class="tex">\(A\)</span> non può essere invertibile perchè se lo fosse si potrebbe moltiplicare entrambe i membri per la sua matrice inversa e ottenere <span class="tex">\(\vec v=0\)</span>.</article>
+<article class="post" id="p19782"><div class="who"><b>bogcal11</b><span>6 dic 2014, 10:26</span></div>Aaaallora...<br>
+Fissiamo le posizioni d'equilibrio in due punti opposti della circonferenza e, detti <span class="tex">\(x_1\)</span> e <span class="tex">\(x_2\)</span> gli spostamenti lungo la circonferenza (supponiamo antiorari), si ha:<br>
+<span class="tex">\(m\ddot{x_1} +k(x_1-x_2)=0\)</span><br>
+<span class="tex">\(m\ddot{x_2} + k(x_2-x_1)\)</span><br>
+Da cui:<br>
+<span class="tex">\(\ddot{x_1}+\ddot{x_2}=0\)</span> e,<br>
+<span class="tex">\((\ddot{x_1}-\ddot{x_2}) +2\omega^2(x_1-x_2)=0\)</span> dove <span class="tex">\(\omega=\sqrt\frac{k}{m}\)</span><br>
+<br>
+Integrando la prima abbiamo: <br>
+<span class="tex">\(x_1+x_2=A_1t+A_2\)</span><br>
+Provando una soluzione esponenziale la seconda diventa <br>
+<span class="tex">\(x_1-x_2=\)</span> funzione esponenziale di variabile complessa random che posso aggiustare con una funzione trigonometrica del tipo:<br>
+<span class="tex">\(B_1\sin(\sqrt{2}\omega t + \phi)\)</span>.<br>
+Quindi, riscrivendo, per <span class="tex">\(x_1\)</span> si ha:<br>
+<span class="tex">\(x_1=A_1t+A_2 +B_1\sin(\sqrt{2}\omega t + \phi)\)</span> <br>
+e per <span class="tex">\(x_2\)</span><br>
+<span class="tex">\(x_2=A_1t+A_2 -B_1\sin(\sqrt{2}\omega t + \phi)\)</span>.<br>
+Quindi i modi normali sono: <br>
+<span class="tex">\(\binom{1}{1}(A_1t+A_2)\)</span><br>
+<span class="tex">\(\binom{1}{-1}(B_1\sin(\sqrt{2}\omega t + \phi)\)</span><br>
+<br>
+Fatemi sapere se è giusta e se lo è scrivo i calcoli del caso di tre masse :roll: <br>
+Comunque 1) Come diavolo si scrivono le matrici in Latex?<br>
+Comunque 2) Per il caso di tre masse a me non serve nessuna matrice per i coefficienti, ho sbagliato i conti?  :oops:</article>
+<article class="post" id="p19783"><div class="who"><b>andrea96</b><span>6 dic 2014, 12:40</span></div>Attento c è un errore nelle prime due equazioni... potrebbe essere che fai lo stesso errore nel caso a tre...<br>
+Il caso a due anch io lo risolvo senza usare matrici però nel caso a tre un altro modo non lo trovo... prova a capire qual è l errore e poi vedi se correggendo hai bisogno di usare matici</article>
+<article class="post" id="p19784"><div class="who"><b>bogcal11</b><span>6 dic 2014, 12:46</span></div>Effettivamente ero indeciso e non sapevo se mettere <span class="tex">\(k\)</span> o <span class="tex">\(2k\)</span>. Questo intendevi, giusto?  :oops:</article>
+<article class="post" id="p19785"><div class="who"><b>andrea96</b><span>6 dic 2014, 15:52</span></div><blockquote><div><cite>bogcal11 ha scritto:</cite>Effettivamente ero indeciso e non sapevo se mettere <span class="tex">\(k\)</span> o <span class="tex">\(2k\)</span>. Questo intendevi, giusto?  :oops:</div></blockquote>
+esatto! ti spiego il motivo che è fondamentale per fare il resto ( altrimenti ti vengono sempre equazioni sbagliate ): diciamo che <span class="tex">\(l\)</span> è la distanza misurata sulla circonferenza tra le masse nella situazione di equilibrio, diciamo che la massa "in alto" è la 1 e che il verso positivo è antiorario. Allora la forza applicata dalla molla "di sinistra" è <span class="tex">\(k(l+x_2-x_1)\)</span> mentre quella della molla "di destra" è <span class="tex">\(-k(l+x_1-x_2)\)</span> e quindi <span class="tex">\(mx_1"=-2k(x_1-x_2)\)</span>, e invertendo ottieni quella per <span class="tex">\(x_2\)</span>. <br>
+è importante fare questo ragionamento per non cadere nell errore di mettere <span class="tex">\(3k\)</span> nel caso a tre molle.<br>
+Poi per la questione dell'utilizzo o meno della matrice: gia nel caso a due puoi trovarti la frequenza sia utilizzando la matrice si non utilizzandola, solo che nel caso a due è molto semplice non utilizzarla; chiaramente i sistemi che ti vengono sono sempre sistemi che hanno un incognita in più delle equazioni ( ci sono tutte le ampiezze dei moti e c'è la frequenza mentre le equazioni sono tante quante le masse ) che quindi sono in linea di principio irrisolvibili, ma, il fatto che funziona il metodo con la matrice implica che c'è una delle variabile che può essere trovata con delle manipolazioni algebriche come si fa nel caso a due, solo che quando salgono le variabile è molto più difficile farlo; se riesci a farlo va bene però secondo me è una buona cosa imparare quel metodo. Poi ad esempio nel caso generale ( che ai fini della staffetta non è richiesto ) è assolutamente necessario applicare quel metodo.</article>
+<article class="post" id="p19786"><div class="who"><b>bogcal11</b><span>6 dic 2014, 16:23</span></div>Sisi, infatti non avevo messo il <span class="tex">\(3k\)</span> ma le equazioni erano del tipo: <br>
+<span class="tex">\(m\ddot{x_1} +k(x_1-x_2)+k(x_1-x_3)=0\)</span><br>
+però mi ero fatto trascinare dal fatto che sommando le tre equazioni iniziali venisse qualcosa di carino e facendo la differenza a due a due usciva comunque qualcosa di lavorabile! (Forse  :roll: ) Per questo avevo pensato di poter evitare la matrice (anche perché non conoscevo il metodo)<br>
+Grazie mille per la dritta  ;)</article>
+<article class="post" id="p19787"><div class="who"><b>andrea96</b><span>6 dic 2014, 16:42</span></div>Ma quell'equazione è giusta! :D perchè allora nel caso a due ti viene quella sbagliata? se tu nell'equazione corretta per quello a 3 metti <span class="tex">\(x_2=x_3\)</span> ti viene l'equazione giusta per il caso a 2  :D <br>
+Si anche io avevo provato con somme e differenze solo che essendo tre equazioni è abbastanza impestato, sicuramente un modo c'è (perchè altrimenti non funzionerebbe il metodo della matrice), però non è evidente come nel caso a 2. ;)</article>
+<article class="post" id="p19788"><div class="who"><b>bogcal11</b><span>6 dic 2014, 17:10</span></div>Una piccola svista, diciamo  :oops: <br>
+Con il metodo del determinante mi vengono <br>
+<span class="tex">\((1,1,1)(A_1t + A_2); (0,1,-1)B\sin(\sqrt{3}\omega t + \phi) e(1, 0, -1) C\sin(\sqrt{3}\omega t + \phi)\)</span> <br>
+Si fa provando la soluzione esponenziale e ponendo il determinante della matrice dei coefficienti uguale a zero perché a quanto pare nell'algoritmo per trovare l'inversa si divide per il determinante e noi vogliamo una matrice non invertibile (Non chiedetemi altro, è una cosa che ho appena scoperto). Quando hai un po' di tempo mi spieghi in pm che idea c'è dietro per risolvere il determinante nel caso a n masse per favore? Te ne sarei molto grato   :D <br>
+ <br>
+Ps: Se volete i conti ve li scrivo più tardi, quando sarò ad un computer e non ad un cellulare e sarò capace di scrivere le matrici in Latex</article>
+<article class="post" id="p19789"><div class="who"><b>andrea96</b><span>6 dic 2014, 17:32</span></div>è giusto puoi andare col prossimo problema!<br>
+P.S. non lo abbiamo più detto ma nel caso a due masse la soluzione corretta è che c'è una frequenza nulla ( come in tutti i casi, perchè se le masse vengono messe in moto con la stessa velocità nello stesso verso si ottiene un modo normale ) e l'altra frequenza è <span class="tex">\(\omega=2\sqrt{\frac{k}{m}}\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-6005.html"><small>← precedente</small>25: Classico</a><a class="next" href="olifis-6007.html"><small>successivo →</small>27. La fisica a servizio della distruzione</a></nav>
+</main></body></html>

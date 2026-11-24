@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>134  Reticolo infinito</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 134</a></span></nav>
+<h1>134  Reticolo infinito</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6642">forum Olifis</a></p>
+<article class="post first" id="p24407"><div class="who"><b>carol</b><span>26 gen 2018, 18:11</span></div>Un reticolo bidimensionale infinito è costituito da maglie quadrate conduttrici nelle quali ciascun lato ha resistenza R. Detti A e B gli estremi di un lato, determinare il valore della resistenza <span class="tex">\(R_{AB}\)</span> fra questi due punti. <br>
+Cosa succede se successivamente sostituiamo solo la resistenza R del lato AB con una uguale a 2R?</article>
+<article class="post" id="p24410"><div class="who"><b>Gamow00</b><span>29 gen 2018, 19:07</span></div><span class="tex">\(R_R={R \over 2}\)</span>   ?<br>
+<br>
+<span class="tex">\(R_{2R}={2 \over 3}R\)</span>   ?</article>
+<article class="post" id="p24411"><div class="who"><b>carol</b><span>30 gen 2018, 18:07</span></div>I tuoi risultati di questo strano sns sono giusti! :D  :) Sono tuoi sia la postazione del procedimento che hai usato sia il testimone della staffetta :)  :)  :)</article>
+<article class="post" id="p24413"><div class="who"><b>Gamow00</b><span>31 gen 2018, 14:49</span></div>Inizio subito dicendo che la soluzione al 1) non è farina del mio sacco; è un problema molto noto che conoscevo già. Il 2) invece l'ho fatto io.<br>
+<br>
+1) Supponiamo di "iniettare" una corrente <span class="tex">\(I\)</span> nel vertice A e di "prelevarla" all'infinito. Potete immaginarvi un anello di centro A e raggio infinito che preleva la corrente. <br>
+Al vertice A sono collegati 4 lati. Allora, per simmetria, la corrente che fluisce in ogni vertice è <span class="tex">\(I/4\)</span>. <br>
+Ora Supponiamo di iniettare nell'anello all'infinito una corrente <span class="tex">\(I\)</span> e di "prelevare" questa corrente in B. Allora in ogni lato adiacente a B fluisce una corrente <span class="tex">\(I/4\)</span>. Adesso sovrapponiamo queste due situazioni. Otteniamo che una corrente <span class="tex">\(I\)</span> entra in A e esce in B. La corrente che scorre in AB sarà la somma delle correnti che scorre nelle due situazioni. Significa che metà della corrente passa dal lato AB mentre l'altra metà in tutto il resto della griglia. Quindi il resto della griglia ha la stessa resistenza del lato AB, cioè <span class="tex">\(R\)</span>. La resistenza tra i vertici A e B è quindi quella di due resistenze <span class="tex">\(R\)</span> messe in parallelo, cioè <span class="tex">\(R/2\)</span>.<br>
+<br>
+2) Siccome sappiamo che la resistenza della griglia tolto il lato AB è <span class="tex">\(R\)</span>, se ai vertici A e B colleghiamo una resistenza <span class="tex">\(2R\)</span>, avremo una resistenza <span class="tex">\(R\)</span> e una <span class="tex">\(2R\)</span> in parallelo.<br>
+La resistenza totale è quindi <span class="tex">\({2 \over 3}R\)</span>.</article>
+<article class="post" id="p28532"><div class="who"><b>antonella_05</b><span>18 lug 2024, 10:09</span></div>Perdonatemi ma non ho ben capito…. Con il ragionamento fatto a me risulta che nel tratto che ci interessa passi I/4 e nel resto 3/4 I e che quindi la resistenza ‘fuori’ sia 3R (ovviamente tutto prima che venga inserita 2R al posto di R). Probabilmente mi è sfuggito qualcosa nel procedimento … :( <br>
+Grazie in anticipo</article>
+<article class="post" id="p28533"><div class="who"><b>Pigkappa</b><span>20 lug 2024, 17:54</span></div>No; la corrente che passa nel tratto che ci interessa è I/2, non I/4.<br>
+<br>
+La soluzione richiede di sommare due scenari. <br>
+<br>
+Il primo scenario è quello in cui una corrente I entra in A, si divide in I/4 in ogni ramo, e arriva fino all'infinito. <br>
+<br>
+Il secondo scenario è quello in cui una corrente I viene estratta da B, arrivando quindi in quantità I/4 da ogni ramo che passa per B. <br>
+<br>
+La somma di questi due scenari descrive il problema, perché prevede che corrente I entri in A ed esca da B, e nel ramo tra i due passa I/4+I/4 = I/2.</article>
+<nav class="pager"><a class="prev" href="olifis-6636.html"><small>← precedente</small>133: Pseudo quark</a><a class="next" href="olifis-6644.html"><small>successivo →</small>135: Triangolo carico</a></nav>
+</main></body></html>

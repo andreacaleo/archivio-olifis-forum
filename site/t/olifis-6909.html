@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>213. Tre Cilindri in rotazione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 213</a></span></nav>
+<h1>213. Tre Cilindri in rotazione</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6909">forum Olifis</a></p>
+<article class="post first" id="p26089"><div class="who"><b>east_beast</b><span>8 giu 2020, 11:55</span></div>Tre cilindri, di uguale massa e dimensione, sono disposti in fila, con gli assi paralleli. <br>
+Il cilindro 1 è in contatto con il 2, il 2 è in contatto con l'1 e il 3, e il 3 è in contatto con l'2.<br>
+Ogni cilindro inizialmente ruota a velocità angolare <span class="tex">\(\omega_0\)</span> intorno al proprio asse, tuttavia i corpi sono soggetti alla forza d'attrito, a meno di non trovarsi in condizione di puro rotolamento in ciascun punto di contatto. Trovare la velocità angolare di ogni cilindro a "Regime", ossia dopo un tempo arbitrariamente lungo.</article>
+<article class="post" id="p26090"><div class="who"><b>Luca Milanese</b><span>8 giu 2020, 12:03</span></div>Forse c'è un typo alla fine della seconda riga?</article>
+<article class="post" id="p26091"><div class="who"><b>east_beast</b><span>8 giu 2020, 12:07</span></div>Ah sì, correggo subito.</article>
+<article class="post" id="p26096"><div class="who"><b>Luca Milanese</b><span>8 giu 2020, 22:42</span></div>Mi viene <span class="tex">\(\frac{\omega_0}{3}\)</span>. Se è corretto, posto il procedimento.</article>
+<article class="post" id="p26097"><div class="who"><b>east_beast</b><span>8 giu 2020, 23:59</span></div>Si, il modulo di ogni velocità angolare è corretto, attenzione però a specificare i segni.<br>
+Posta pure :D</article>
+<article class="post" id="p26098"><div class="who"><b>Luca Milanese</b><span>9 giu 2020, 11:05</span></div>Per ragioni di simmetria, la forza d'attrito agente fra i cilindri <span class="tex">\(1\)</span> e <span class="tex">\(2\)</span> è uguale in ogni istante a quella agente fra i cilindri <span class="tex">\(2\)</span> e <span class="tex">\(3\)</span>, e le velocità angolari di <span class="tex">\(1\)</span> e <span class="tex">\(3\)</span> hanno in ogni istante stesso verso e modulo. I tre cilindri raggiungono la situazione di regime quando il <span class="tex">\(2\)</span> ha velocità angolare avente lo stesso modulo e verso opposto a quella di <span class="tex">\(1\)</span> e <span class="tex">\(3\)</span>. Chiamo <span class="tex">\(\omega_f\)</span> il modulo di questa velocità angolare. Sul <span class="tex">\(2\)</span> agisce in ogni istante un momento torcente di intensità doppia rispetto a quello agente su <span class="tex">\(1\)</span>, quindi la sua variazione di velocità angolare <span class="tex">\(-\omega_f-\omega_0\)</span> (considerata in segno) è doppia rispetto a quella del cilindro <span class="tex">\(1\)</span>, che vale <span class="tex">\(\omega_f-\omega_0\)</span>:<br>
+<span class="tex">\(-\omega_f-\omega_0=2(\omega_f-\omega_0) \Rightarrow \omega_0=3\omega_f \Rightarrow \omega_f=\frac{\omega_0}{3}\)</span>.</article>
+<article class="post" id="p26099"><div class="who"><b>east_beast</b><span>9 giu 2020, 11:48</span></div>Ok, Corretto! :D <br>
+Ti faccio notare che puoi ottenere lo stesso risultato anche non supponendo che le forze d'attrito siano uguali, difatti non ho specificato che i coefficienti d'attrito siano uguali. Vai col prossimo se vuoi.<br>
+<br>
+Faccio una domanda rivolta a tutti, in quanto ho un dubbio che non riesco a risolvere da solo. Se prendo il sistema formato dai tre cilindri, si dovrebbe conservare il momento angolare totale <span class="tex">\(\vec{L}\)</span>, in quanto ci sono solo momenti torcenti interni. Tuttavia, in questo problema, la quantità che si conserva è <span class="tex">\(\omega_1 - \omega_2 + \omega_3\)</span>, dunque anche <span class="tex">\(I(\omega_1 - \omega_2 + \omega_3)\)</span>.<br>
+Questo però non mi sembra essere il momento angolare, che dovrebbe invece essere <span class="tex">\(\vec{L} = I\vec{\omega_2} + [I + m(2R)^2](\vec{\omega_1}+\vec{\omega_3})\)</span>, rispetto al Centro di Massa.<br>
+Il momento angolare non mi sembra conservato sinceramente, e a meno che non stia sbagliando qualcosa anche nei calcoli non torna la conservazione di <span class="tex">\(\vec{L}\)</span>. Dove sbaglio? <br>
+Ringrazio chiunque mi voglia rispondere.</article>
+<article class="post" id="p26101"><div class="who"><b>Luca Milanese</b><span>9 giu 2020, 12:11</span></div>Penso dipenda dal fatto che i cilindri sono fissi nello spazio, quindi su di essi agiscono delle forze che bilanciano l'attrito e che forniscono un momento torcente esterno.</article>
+<article class="post" id="p26102"><div class="who"><b>east_beast</b><span>9 giu 2020, 12:20</span></div>Si ci può stare, grazie</article>
+<article class="post" id="p26104"><div class="who"><b>Pigkappa</b><span>9 giu 2020, 15:29</span></div>Bonus question... Assumendo che la forza di attrito e' costante in modulo se i cilindri strisciano, e nulla se non strisciano, possiamo trovare <span class="tex">\(\displaystyle w_1(t), w_2(t), w_3(t)\)</span> ?</article>
+<article class="post" id="p26106"><div class="who"><b>east_beast</b><span>9 giu 2020, 15:39</span></div>Se è legittimo pensare che la forza di contatto tra 1 e 2 sia uguale a quella tra 2 e 3, che chiamo <span class="tex">\(F\)</span> dunque, mi viene <span class="tex">\(\omega_1(t) = \omega_3(t) = \omega_0 - \frac{FR}{I}t\)</span>  e    <span class="tex">\(\omega_2(t) = \omega_0 - \frac{2FR}{I}t\)</span></article>
+<article class="post" id="p26110"><div class="who"><b>Pigkappa</b><span>9 giu 2020, 16:04</span></div>Possiamo verificare che la variazione totale di momento angolare rispetto al centro del cilindro centrale e' uguale all'integrale rispetto al tempo del momento torcente applicato?</article>
+<article class="post" id="p26112"><div class="who"><b>Luca Milanese</b><span>9 giu 2020, 16:42</span></div>Possiamo e dobbiamo!<br>
+Il momento angolare totale iniziale rispetto all'asse del cilindro <span class="tex">\(2\)</span> vale <span class="tex">\(L_i=\frac{3mR^2\omega_0}{2}\)</span> (dal Teorema di Koenig, si ottiene semplicemente sommando i momenti angolari di ciascun cilindro rispetto al proprio asse, perché poi i momenti angolari dei centri di massa di questi ultimi rispetto al polo scelto sono nulli). Quello finale, con ragionamento analogo, vale <span class="tex">\(L_f=2\frac{mR^2\omega_f}{2}-\frac{mR^2\omega_f}{2}=\frac{mR^2\omega_0}{6}\)</span>. Dunque la variazione vale <span class="tex">\(\Delta L=L_f-L_i=-\frac{4mR^2\omega_0}{3}\)</span>.<br>
+Ora consideriamo le forze agenti sui cilindri. Gli attriti agenti sul <span class="tex">\(2\)</span> hanno sempre verso opposto e (possiamo supporre) modulo uguale, dunque non servono forze esterne per evitare che trasli. Su ciascuno degli altri due, invece, deve agire una forza <span class="tex">\(N\)</span> avente lo stesso modulo <span class="tex">\(F\)</span> di quella d'attrito, verso opposto a quest'ultima e deve essere applicata lungo la perpendicolare all'asse del cilindro, poichè in caso contrario avrebbe un momento torcente non nullo rispetto all'asse stesso. Dunque il momento torcente totale dovuto alle forze esterne vale <span class="tex">\(2F \cdot 2R=4FR\)</span>, e la variazione di <span class="tex">\(L\)</span> ad esso dovuto sarà<br>
+<span class="tex">\(\Delta L=4\int_{i}^{f}RFdt\)</span>. Ora ricordiamo che <span class="tex">\(RF\)</span> è il momento torcente rispetto all'asse del cilindro <span class="tex">\(1\)</span> (o <span class="tex">\(3\)</span>) dovuto all'attrito, e che dunque l'integrale dà la variazione del momento angolare di <span class="tex">\(1\)</span> (o <span class="tex">\(3\)</span>) rispetto al proprio asse:<br>
+<span class="tex">\(\int_{i}^{f}RFdt=\frac{mR^2}{2}(\omega_f-\omega_i)=-\frac{mR^2\omega_0}{3}\)</span><br>
+Ne segue che <span class="tex">\(4\int_{i}^{f}RFdt=-\frac{4mR^2\omega_0}{3}=\Delta L\)</span>, espressione che volevamo.</article>
+<nav class="pager"><a class="prev" href="olifis-6907.html"><small>← precedente</small>n. 212- La tinozza va in ascensore</a><a class="next" href="olifis-6912.html"><small>successivo →</small>214. Centro e vertice.</a></nav>
+</main></body></html>

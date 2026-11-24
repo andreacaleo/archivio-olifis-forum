@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>204. Nuotata nel fiume</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 204</a></span></nav>
+<h1>204. Nuotata nel fiume</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6891">forum Olifis</a></p>
+<article class="post first" id="p25955"><div class="who"><b>east_beast</b><span>3 mag 2020, 17:08</span></div>Vi trovate davanti ad un fiume, la cui acqua scorre alla velocità costante di 2 m/s, e siete in un punto A.<br>
+Volete attraversarlo, arrivando in B, trovandovi alla stessa altezza del fiume ma sull'altra sponda. (ossia AB è perpendicolare allo scorrere del fiume).<br>
+Il problema è che sapete nuotare solo fino a 1 m/s di velocità, e siete quasi certi di non riuscire ad arrivare perfettamente in B, ma presumibilmente vi ritroverete a distanza d da B.<br>
+Trovare la minima distanza d in funzione della larghezza del fiume, che è L.<br>
+Bonus: Quanto dovrebbe essere la velocità della vostra nuotata affinché possiate arrivare esattamente in B, ossia d=0?</article>
+<article class="post" id="p25957"><div class="who"><b>Luca Milanese</b><span>5 mag 2020, 9:40</span></div>Probabilmente è scontato, ma... la velocità di nuotata 1 m/s è relativa all'acqua?</article>
+<article class="post" id="p25958"><div class="who"><b>east_beast</b><span>5 mag 2020, 9:49</span></div>Si, non avevo specificato.</article>
+<article class="post" id="p25959"><div class="who"><b>bosone</b><span>5 mag 2020, 13:57</span></div>A me risulterebbe d=<span class="tex">\(L\sqrt{3}\)</span> , imponendo che il vettore risultante dalla somma vettoriale della velocità dell'acqua e la mia formi l'angolo maggiore possibile con la direzione del fiume ovvero dovrebbe essere tangente alla circonferenza avente come raggio la mia velocità. Tutte le velocità sono relative al sistema fisso con la riva secondo me. :?:  :?:</article>
+<article class="post" id="p25960"><div class="who"><b>east_beast</b><span>5 mag 2020, 14:15</span></div>È corretto, per quanto riguarda la velocità intendevo che il nuotatore è in grado di nuotare a 1m/s indipendentemente dal fiume... quindi si, forse era giusto scrivere rispetto alla riva.<br>
+Spiega però come, a partire dal ragionamento che hai fatto, hai ottenuto proprio <span class="tex">\(L/ \sqrt{3}\)</span>, poi puoi proseguire con il prossimo, oppure ancora meglio finisci con il bonus, che a questo punto non è difficile.</article>
+<article class="post" id="p25961"><div class="who"><b>bosone</b><span>5 mag 2020, 17:52</span></div>Sono nel punto A. Considero il <span class="tex">\(\vec v_x\)</span> di modulo 2 (m/s) nel verso della corrente del fiume (asse x). La mia velocità <span class="tex">\(\vec v\)</span>che ha modulo 1 può avere qualunque direzione a partire dal secondo estremo di <span class="tex">\(\vec v_x\)</span>e dunque il suo secondo estremo giace in un punto della circonferenza con centro in questo secondo estremo e raggio 1. Abbiamo insomma due lati di un triangolo uno metà dell'altro. L'atro sarà <span class="tex">\(\vec v_r\)</span> cioè il risultante delle due velocità. Una nota proprietà geometrica asserisce che l'angolo opposto al lato minore (che è quello formato da <span class="tex">\(\vec v_r\)</span> con <span class="tex">\(\vec v_x\)</span>) è massimo (ed è quello che vogliamo affinchè d sia minima) quando l'angolo formato da <span class="tex">\(\vec v_r\)</span> con il lato minore <span class="tex">\(\vec v\)</span> è retto. Pertanto <span class="tex">\(\vec v_r\)</span> deve essere perpendicolare a <span class="tex">\(\vec v\)</span> ovvero deve essere tangente alla circonferenza di raggio v. La  congiungente il centro con il punto di tangenza è ovviamente <span class="tex">\(\vec v\)</span>. Sia ora D il punto dell'altra sponda dove punta <span class="tex">\(\vec v_r\)</span>. Il triangolo delle tre velocità è palesemente simile al triangolo ABD. Dalla similitudine si può scrivere che il modulo di <span class="tex">\(\vec v_r\)</span>=<span class="tex">\(\sqrt {3}\)</span>: BD=1:L, da cui BD= d= <span class="tex">\(L\sqrt {3}\)</span>. Nel caso che ritieni corretto questo devo provare il bonus che non vedo così immediato. Ci devo pensare e se tu vuoi decidere altrimenti per la staffetta se qualcuno avesse la soluzione del bonus non me ne avrò a male... :roll:  :roll:</article>
+<article class="post" id="p25962"><div class="who"><b>east_beast</b><span>5 mag 2020, 18:35</span></div>Corretto! Al momento la staffetta è tua, prova il bonus (ovviamente chiunque voglia aggiungersi che lo faccia). <br>
+Non ho la soluzione per il bonus, mi sono fatto una mia idea però, che mi sembra sensata ma sicuramente non è una verità assoluta, ed è bene discutere.</article>
+<article class="post" id="p25963"><div class="who"><b>Luca Milanese</b><span>5 mag 2020, 19:15</span></div>A me è venuta in mente un'idea che però è molto probabilmente sbagliata. Affinchè <span class="tex">\(d=0\)</span>, è necessario e sufficiente che la componente della velocità della nostra nuotata parallela al fiume abbia verso opposto a quella della velocità di scorrimento dell'acqua, cioè <span class="tex">\(v_x=-2m/s\)</span>. A questo punto, per arrivare all'altra sponda in un tempo finito basta che sia <span class="tex">\(v_y&gt;0\)</span>. Per cui ci basta che la nostra velocità <span class="tex">\(v=\sqrt{4m^2/s^2+v_y^2}\)</span> sia maggiore di <span class="tex">\(2m/s\)</span>. Può funzionare?</article>
+<article class="post" id="p25964"><div class="who"><b>east_beast</b><span>5 mag 2020, 19:56</span></div>è la stessa idea che ho avuto io; penso sia corretta, ora che ricevo la tua conferma. Aspettiamo le opinioni di qualcun'altro magari, se ha qualcosa di meglio da proporre..</article>
+<article class="post" id="p25965"><div class="who"><b>bosone</b><span>6 mag 2020, 10:05</span></div>Si anch'io penso che il problema abbia infinite soluzioni. Basta che v&gt;2 m/s sia l'ipotenusa di un triangolo rettangolo in cui <span class="tex">\(v_y\)</span> sia l'altro cateto insomma se <span class="tex">\(\alpha\)</span> è l'angolo acuto formato da v con <span class="tex">\(v_x\)</span> si abbia <span class="tex">\(v_y = v sen \alpha\)</span>.</article>
+<article class="post" id="p25966"><div class="who"><b>east_beast</b><span>6 mag 2020, 11:21</span></div>Ottimo, possiamo proseguire allora :)</article>
+<nav class="pager"><a class="prev" href="olifis-6890.html"><small>← precedente</small>203. Energie potenziali.</a><a class="next" href="olifis-6893.html"><small>successivo →</small>205 - Srotolamento di due fili inestensibili</a></nav>
+</main></body></html>

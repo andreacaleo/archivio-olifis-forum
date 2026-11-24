@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>170. Zona sicura</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 170</a></span></nav>
+<h1>170. Zona sicura</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6785">forum Olifis</a></p>
+<article class="post first" id="p25278"><div class="who"><b>lance00</b><span>2 dic 2018, 14:13</span></div>Un cannone spara proiettili da terra con velocità <span class="tex">\(v_0\)</span> in qualsiasi direzione. Il cannone può regolare l'angolo <span class="tex">\(\phi\)</span> che la velocità iniziale forma con l'orizzontale a piacere. Trovare l'equazione della curva che demarca la zona sicura dalla zona pericolosa (ovvero dove può arrivare un proiettile).</article>
+<article class="post" id="p25279"><div class="who"><b>sg_gamma</b><span>2 dic 2018, 20:37</span></div>Do per nota l'equazione della parabola<br>
+<span class="tex">\(y=-g/2v_0^2(tg^2(\alpha)+1)x^2+tg(\alpha)x\)</span>.<br>
+Per risolvere il problema, considero un generico punto <span class="tex">\(x_0\)</span>: la mia intenzione è trovare la massima <span class="tex">\(y\)</span> raggiunta da una qualsiasi delle parabole possibili; la mia intenzione è allora trovare <span class="tex">\(\alpha\)</span> che mi restituisce un massimo.<br>
+Si ha allora<br>
+<span class="tex">\(y=-(gx_0^2/2v_0^2)tg^2(\alpha)+x_0tg(\alpha)-gx_0^2/2v_0^2\)</span><br>
+Questa è una parabola che ha un massimo quando <span class="tex">\(tg(\alpha)=v_0^2/gx_0\)</span><br>
+Allora la traiettoria generale cercata corrisponde, sostituendo, a<br>
+<span class="tex">\(y=-(g/2v_0^2)x^2+v_0^2/2g\)</span>.</article>
+<article class="post" id="p25281"><div class="who"><b>lance00</b><span>3 dic 2018, 21:24</span></div>posta pure il 171!</article>
+<nav class="pager"><a class="prev" href="olifis-6784.html"><small>← precedente</small>169. Gas ignoto</a><a class="next" href="olifis-6786.html"><small>successivo →</small>171. Ruotando in una ruota</a></nav>
+</main></body></html>

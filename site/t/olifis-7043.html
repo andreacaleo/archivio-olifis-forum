@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>248. Ellissi</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 248</a></span></nav>
+<h1>248. Ellissi</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7043">forum Olifis</a></p>
+<article class="post first" id="p26725"><div class="who"><b>lorenzo.arienti.gdg</b><span>18 gen 2021, 19:01</span></div>Un oggetto puntiforme di massa <span class="tex">\(m\)</span> e carica <span class="tex">\(q\)</span> viene rilasciato da una distanza <span class="tex">\(d\)</span> sopra una lastra di metallo molto estesa e tenuta ferma. Se ignoriamo la gravità, quanto tempo impiegherà l'oggetto a toccare la lastra?</article>
+<article class="post" id="p26728"><div class="who"><b>Leo</b><span>21 gen 2021, 18:53</span></div>Sono sempre quello che ci batte i denti per primo e non mi voglio smentire...Io vedo la caduta diretta di q sulla sua immagine q' come un'ellisse degenere avente per semiasse maggiore d/2, la metà di quello che avrebbe se l'orbita fosse circolare in cui sarebbe d e avente per periodo il semiperiodo dell'ellisse percorrendone solo metà. Per la legge di Keplero allora il rapporto al quadrato fra il periodo dell'orbita circolare e il doppio di quello che cerchiamo sarà pari ad 8. Il periodo dell'orbita circolare è calcolato uguagliando la forza centripeta all'attrazione elettrica a distanza d. E' tutta una cavolata??? :roll:  :roll:</article>
+<article class="post" id="p26731"><div class="who"><b>lorenzo.arienti.gdg</b><span>22 gen 2021, 20:05</span></div>La prima parte è giusta, però non ho ben capito il tuo discorso sulla legge di Keplero</article>
+<article class="post" id="p26732"><div class="who"><b>Leo</b><span>23 gen 2021, 12:19</span></div>Se dici che la prima parte è giusta hai condiviso che nel caso dell'orbita circolare il periodo determinato da d è fornito dall'uguaglianza fra la forza centripeta e l'attrazione fra q e la sua immagine -q ovvero <span class="tex">\(m\omega^2 d = [(kq^2)/d^2]\)</span> da cui risulta <span class="tex">\(T^2= \frac{4\pi^2 m d^3}{kq^2}\)</span>. Se il semiasse maggiore diventa d/2 come nell'ellisse degenere, detto <span class="tex">\(\tau\)</span>il tempo di caduta richiesto il periodo sarà <span class="tex">\(2\tau\)</span>per cui <span class="tex">\((2\tau)^2=\frac{4\pi^2 m (d/2)^3}{kq^2} = (1/8)T^2\)</span> come ho scritto parlando impropriamente in questo caso di legge di Keplero, improprietà formale ma non sostanziale secondo me... Facendo i conti allora <span class="tex">\(4\tau^2=(1/8)T^2= \frac{4\pi^2.m.d^3}{8 k q^2}\)</span>. Ricaverei dunque, se non ho sbagliato i conti <span class="tex">\(\tau=\frac{\pi}{2q}.\sqrt{\frac{m d^3}{2k}}\)</span> :?:  :?:</article>
+<article class="post" id="p26734"><div class="who"><b>lorenzo.arienti.gdg</b><span>25 gen 2021, 15:58</span></div>Molto vicino alla risposta giusta se non per un fattore numerico errato. Credo che il tuo errore stia nel valore del semiasse maggiore</article>
+<article class="post" id="p26735"><div class="who"><b>Leo</b><span>25 gen 2021, 19:06</span></div>Scelgo di modificare questo messaggio. Allora nella mia prima interpretazione credo di aver visto bene la conica degenere. Infatti se sta sopra la lastra e se q dista d da essa il semiasse maggiore della degenere deve essere d/2 come avevo indicato. Così come era giusto allora che il tempo di caduta <span class="tex">\(\tau\)</span> fosse la metà del periodo (vedi il mio messaggio del 23/1). Pertanto rifacendo il conto mi verrebbe ora <span class="tex">\(\tau=\frac{\pi}{q}.\sqrt{\frac{md^3}{2k}}\)</span> . Ti ringrazio per la tua precisazione:roll:  :roll:  :?:  :?:</article>
+<article class="post" id="p26738"><div class="who"><b>lorenzo.arienti.gdg</b><span>26 gen 2021, 11:42</span></div>La carica <span class="tex">\(q\)</span> percorre metà dell'ellisse degenere. L'ellisse è tutta "sopra" la lastra e la tocca nel punto in cui avviene l'impatto.<br>
+Per fare un parallelismo fra questa ellisse degenere e l'orbita della Terra intorno al Sole: l'afelio è il punto in cui lasciamo la carica <span class="tex">\(q\)</span> e il perielio è il punto di contatto fra l'ellisse e la lastra (dove la distanza tra <span class="tex">\(q\)</span> e <span class="tex">\(-q\)</span> è <span class="tex">\(0\)</span>).</article>
+<article class="post" id="p26753"><div class="who"><b>Leo</b><span>27 gen 2021, 12:15</span></div>Scusami ho scelto di modificare il mio messaggio precedente vista la mia dimestichezza con il latex :roll:  :roll:</article>
+<article class="post" id="p26755"><div class="who"><b>lorenzo.arienti.gdg</b><span>27 gen 2021, 13:11</span></div>Perfetto, a te il testimone</article>
+<article class="post" id="p26760"><div class="who"><b>Leo</b><span>27 gen 2021, 18:23</span></div>Ti ringrazio ancora della tua precisazione di ieri perchè dimostra che il 23/1 alla mia prima risposta facevo un errore di calcolo e non di concetto :D</article>
+<nav class="pager"><a class="prev" href="olifis-7040.html"><small>← precedente</small>247. Tubo di gomma.</a><a class="next" href="olifis-7048.html"><small>successivo →</small>249. Una cimice sopra il mappamondo</a></nav>
+</main></body></html>

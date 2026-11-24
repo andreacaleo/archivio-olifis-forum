@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>228. Particella e circonferenza</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 228</a></span></nav>
+<h1>228. Particella e circonferenza</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6953">forum Olifis</a></p>
+<article class="post first" id="p26291"><div class="who"><b>Pigkappa</b><span>14 ago 2020, 18:16</span></div>Questo e' un altro problema avanzato dalla riserva di quelli per il preIPhO. Non peer-reviewed per cui potrebbero esserci inesattezze nella mia soluzione, ma speriamo di no. <br>
+Link al testo su Overleaf: <a href="https://www.overleaf.com/read/sggtgxtgcyqh" class="ext" class="postlink">https://www.overleaf.com/read/sggtgxtgcyqh</a> . <br>
+Clickando in alto a destra una delle opzioni vicino a "Recompile" vi permette di scaricarlo come PDF. Postate anche soluzioni parziali, se non ci sono progressi entro ~3 giorni lascio libera la staffetta perche' non voglio paralizzarla prima degli orali SNS.</article>
+<article class="post" id="p26300"><div class="who"><b>Luca Milanese</b><span>15 ago 2020, 18:24</span></div>Non mi è chiaro un punto del testo. Nella seconda assunzione della parte C, la velocità della struttura che si deve considerare è quella del centro di massa della circonferenza o quella del punto di contatto (quindi tenendo conto pure della velocità angolare)?</article>
+<article class="post" id="p26301"><div class="who"><b>Pigkappa</b><span>15 ago 2020, 19:50</span></div>Quella rispetto al punto di contatto.</article>
+<article class="post" id="p26307"><div class="who"><b>Luca Milanese</b><span>16 ago 2020, 22:57</span></div>Parte A<br>
+<br>
+1. La reazione normale fra circonferenza e particella agisce lungo <span class="tex">\(y\)</span>, pertanto entrambi gli oggetti avranno velocità solo verticali dopo l'urto e la circonferenza non acquisirà velocità angolare. Detta <span class="tex">\(\vec V_1\)</span> la velocità di <span class="tex">\(M\)</span> dopo l'urto, si ha allora <span class="tex">\(\vec v_1=(0, v_1)\)</span> e <span class="tex">\(\vec V_1=(0, V_1)\)</span>. Dalla conservazione di qdm ed energia:<br>
+<span class="tex">\(mv_0=mv_1+MV_1\)</span><br>
+<span class="tex">\(\frac{1}{2}mv_0^2=\frac{1}{2}mv_1^2+\frac{1}{2}MV_1^2\)</span><br>
+Risolvendo, <span class="tex">\(v_1=v_0\frac{q-1}{q+1}\)</span> e <span class="tex">\(V_1=v_0\frac{2q}{q+1}\)</span>, quindj <span class="tex">\(\vec v_1 = \bigg(0, \frac{q-1}{q+1}v_0 \bigg)\)</span><br>
+<br>
+2. Mi metto in un sistema di riferimento in cui la circonferenza è ferma. Allora <span class="tex">\(v_1'=v_1-V_1=-v_0\)</span>. L'urto avviene quando la particella tocca l'estremo inferiore della circonferenza, dopo che in questo sistema di riferimento ha percorso una distanza <span class="tex">\(2R\)</span>, e quindi avviene al tempo <span class="tex">\(t_1=\frac{2R}{v_0}\)</span>. Tornando nel sistema del laboratorio, si ha che <span class="tex">\(\vec P_2 = \vec P_1 + \vec v_1 t_1\)</span>, con <span class="tex">\(\vec P_1 =(0,R)\)</span> la posizione del primo urto. Risolvendo, <span class="tex">\(P_{2x}=0\)</span> e <span class="tex">\(P_{2y}=\frac{3q-1}{q+1}R\)</span>.<br>
+<br>
+3. Per gli stessi motivi del punto 1. è <span class="tex">\(v_{2x}=V_{2x}=0\)</span>. Usando di nuovo le leggi di conservazione, e ricordando che per motivi fisici sarà <span class="tex">\(v_{2y}&gt;V_{2y}\)</span> (la particella non scavalca la circonferenza), si ricava <span class="tex">\(v_{2y}=v_0\)</span> e <span class="tex">\(V_{2y}=0\)</span>, cioè i valori iniziali.<br>
+<br>
+4. Inserendo i valori numerici ottengo <span class="tex">\(v_1=-\frac{1}{3} m/s \approx -0,67 m/s\)</span>, <span class="tex">\(t_1=2 s\)</span>, <span class="tex">\(P_{2y}=\frac{1}{3} m \approx 0,67 m\)</span>. Osservo ora che, a <span class="tex">\(t=4s\)</span>, la particella urterà di nuovo la circonferenza nel suo estremo superiore, nel punto <span class="tex">\(\bigg(0, \frac{7}{3} m\bigg)\)</span>. In effetti, il moto si ripete periodicamente ogni <span class="tex">\(t'=4s\)</span> ma traslato di vettore <span class="tex">\(\vec s=\bigg(0, \frac{4}{3} m\bigg)\)</span>, perchè <span class="tex">\(\vec v_{cdm}=\bigg (0, \frac{1}{3} m/s \bigg)\)</span> e <span class="tex">\(\vec s =\vec v_{cdm}t'\)</span>. Pertanto <span class="tex">\(\vec P_T=\vec P(10 s)= \vec P(2s)+2 \vec s=\vec P_2 +2 \vec s = (0, 3m)\)</span>.<br>
+<br>
+Parte B<br>
+<br>
+5. Di nuovo, la forza normale agisce lungo <span class="tex">\(y\)</span> e perciò <span class="tex">\(v_{1x}= \frac{v_0}{\sqrt{2}}\)</span>, <span class="tex">\(V_{1x}=0\)</span>. Le leggi di conservazione della qdm e dell'energia assumono perciò le forme:<br>
+<span class="tex">\(m\frac{v_0}{\sqrt{2}}=mv_{1y}+MV_{1y}\)</span><br>
+<span class="tex">\(\frac{1}{2}mv_0^2=\frac{1}{2}m\bigg(v_{1y}^2+\frac{v_0^2}{2} \bigg)+\frac{1}{2}MV_{1y}^2\)</span><br>
+Sapendo che <span class="tex">\(q=m/M=0,5\)</span>, si ricava <span class="tex">\(v_{1y}=-\frac{v_0}{3\sqrt{2}}\)</span>, <span class="tex">\(V_{1y}=\frac{\sqrt{2}v_0}{3}\)</span><br>
+<br>
+6. Ora mi sposto nuovamente in un sistema solidale con <span class="tex">\(M\)</span> e noto che <span class="tex">\(\vec v_1'=\bigg(\frac{v_0}{\sqrt{2}}, -\frac{v_0}{\sqrt{2}}\bigg)\)</span>, quindi il secondo urto si ha dell'estremo destro della circonferenza a un tempo <span class="tex">\(t_1\)</span> dato da <span class="tex">\(v_0 t_1=\sqrt{2} R\)</span>. Procedendo come prima, trovo allora che <span class="tex">\(\vec P_2= (0, R)+\vec v_1 t_1= \bigg (R, \frac{2R}{3} \bigg)\)</span><br>
+<br>
+Domani posto la Parte C :D .</article>
+<article class="post" id="p26308"><div class="who"><b>Luca Milanese</b><span>17 ago 2020, 10:36</span></div>Parte C<br>
+<br>
+Dato che nel testo sono richiesti solo i valori numerici delle risposte, mi limito a sintetizzare come ho proceduto: ho usato di nuovo la conservazione della qdm, con l'aggiunta di quella del momento angolare per la velocità angolare della circonferenza. Per l'energia e la velocità relativa ho scritto <span class="tex">\(K_1=K_0(1-f)\)</span> e <span class="tex">\(v_{rel,1}=v_{rel,0}(1-g)\)</span>. Quando un'equazione quadratica dava due possibili risultati, ho preso quello cui corrispondeva la non uscita della particella dalla circonferenza, e al secondo urto ho imposto che la velocità della particella dopo l'urto fosse uguale a quella del punto di contatto, una volta verificato che l'urto riguardava la parte della struttura cosparsa di colla.<br>
+<br>
+7. <span class="tex">\(v_{1x} \approx 0,754 m/s\)</span>, <span class="tex">\(v_{1y} \approx 0,030 m/s\)</span><br>
+<br>
+8. <span class="tex">\(P_{2x} \approx 0,665 m\)</span>, <span class="tex">\(P_{2y} \approx 1,026 m\)</span><br>
+<br>
+9. <span class="tex">\(v_{2x} \approx 0,322 m/s\)</span>, <span class="tex">\(v_{2y} \approx 0,154 m/s\)</span><br>
+<br>
+10. <span class="tex">\(w_2 \approx 0,178 rad/s\)</span>, in senso orario.<br>
+<br>
+Ho dovuto scrivere 3 pagine di conti e contazzi per cui quasi certamente ho sbagliato qualcosa  :lol: , ma intanto queste sono le mie risposte.</article>
+<article class="post" id="p26309"><div class="who"><b>Pigkappa</b><span>17 ago 2020, 12:10</span></div>Mi vengono diversi il 4, 7, 8, 9 e 10. Indubbiamente ci sono tanti conti negli ultimi, magari guarda se le equazioni che abbiamo impostato sono diverse... Mia soluzione a <a href="https://www.overleaf.com/read/bpmkvytchmpd" class="ext" class="postlink">https://www.overleaf.com/read/bpmkvytchmpd</a><br>
+Buon lavoro comunque, a te la staffetta</article>
+<article class="post" id="p26310"><div class="who"><b>Luca Milanese</b><span>17 ago 2020, 12:49</span></div>Dunque...<br>
+4. Mi sembra che tu non abbia considerato che, a <span class="tex">\(t=0\)</span>, la particella sta in <span class="tex">\((0,R)\)</span>, quindi ti viene un'ordinata della posizione finale minore di una quantità <span class="tex">\(R\)</span>.<br>
+7. 8. 9. 10. Abbiamo usato le stesse equazioni, solo che, in quella che è la tua (25), io ho scritto <span class="tex">\(0,8\)</span> invece che <span class="tex">\(0,566\)</span> avendo dimenticato che la componente iniziale della velocità della particella è <span class="tex">\(\frac{v_0}{\sqrt{2}}\)</span> e non <span class="tex">\(v_0\)</span>. Il bello è che nelle altre equazioni ho usato il valore corretto!  :lol: Quindi errore mio, e da qui mi sono derivati errori numerici a catena.<br>
+Al 9. hai scritto che le velocità di pallina e circonferenza sono uguali, riferendoti per quest'ultima alla velocità del suo cdm. Io invece ho posto la velocità della pallina dopo l'urto uguale a quella del punto di contatto, cioè <span class="tex">\(\vec v_2 = \vec V_2 + \vec w_2 \times \vec R\)</span>, dato che altrimenti la pallina scivola lungo la circonferenza pur non muovendosi rispetto al cdm della struttura. È giusto così?<br>
+<br>
+P. S. Li fate sempre così contosi i problemi del Pre-IPhO?  :?</article>
+<article class="post" id="p26311"><div class="who"><b>Pigkappa</b><span>17 ago 2020, 13:08</span></div>Hai ragione sul 4 e sul 9.<br>
+<br>
+C'è parecchia variabilità in quel che viene proposto, io sono dell'idea che di dare problemi con conti simili a quelli IPhO dato che stiamo selezionando per le IPhO. Di solito però sono meno pesanti. Questo non era particolarmente interessante e di meccanica ne abbiamo sempre parecchi tra cui scegliere per cui non penso sarebbe mai stato preso.</article>
+<nav class="pager"><a class="prev" href="olifis-6951.html"><small>← precedente</small>227. Rettangolo appoggiato sul cerchio</a><a class="next" href="olifis-6955.html"><small>successivo →</small>229. Sfera radiante</a></nav>
+</main></body></html>

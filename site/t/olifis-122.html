@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PreIPhO 2009-Problema 1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>PreIPhO 2009-Problema 1</h1>
+<p class="meta">20 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=122">forum Olifis</a></p>
+<article class="post first" id="p1112"><div class="who"><b>Rigel</b><span>27 mag 2009, 18:52</span></div>A grande richiesta  :D mi son preso la briga di trascrivere il testo del primo problema dato alla prova finale del preIPhO. a breve potrei trascrivere anche gli altri problemi, ma questo dipenderà dal "successo" del problema: quindi impegnatevi a discuterlo... (sì, questo è un ricatto  :D )<br>
+<br>
+Un atomo di idrogeno ha massa di 1 u (unità di massa atomica) e quello di elio ha massa 4 u.<br>
+Un fascio di atomi di idrogeno monoenergetici e nello stato stazionario urta con atomi di elio in una regione di spazio contenente dell'elio a bassa temperatura e bassa pressione.<br>
+La conseguenza della bassa temperatura è che gli atomi di elio sono pressocché fermi nel momento dell'urto con l'idrogeno; la conseguenza della bassa pressione è che ciascun atomo di idrogeno può, al massimo, urtare un solo atomo di elio.<br>
+1. Quale deve essere la minima velocità degli atomi di idrogeno del fascio affinchè, in seguito all'urto, si abbia emissione di fotoni?<br>
+2. In tale caso, quale è la differenza di lunghezza d'onda tra la luce osservata lungo la direzione del fascio e quella osservata nella stessa direzione, ma in verso opposto?<br>
+si ricorda che: <span class="tex">\(1 u=1.66\cdot10^{-27}kg\)</span>; <span class="tex">\(1 eV=1.6\cdot10^{-19}J\)</span>; <span class="tex">\(h=6.63\cdot10^{-34}Js\)</span>; <span class="tex">\(c=3\cdot10^8m/s\)</span> con h costante di Planck e c velocità della luce.<br>
+L'energia di ionizzazione dell'idrogeno vale <span class="tex">\(13.6 eV\)</span> mentre l'energia di prima ionizzazione dell'elio vale <span class="tex">\(24.6 eV\)</span>.<br>
+Trascurare qualsiasi struttura fine dei livelli atomici.<br>
+<br>
+Questo è il testo riportato alla lettera. Buon lavoro  ;)</article>
+<article class="post" id="p1126"><div class="who"><b>CoNVeRGe.</b><span>28 mag 2009, 15:23</span></div>Ne so veramente molto poco a riguardo, però sono interessato a discuterne animatamente perchè voglio leggere gli altri problemi  :D (e voglio imparare qualcosa!).<br>
+<br>
+Premetto che andrò a pescarmi le formule relativistiche solo quando avrò tempo (servono, no?).<br>
+<br>
+Praticamente ci dobbiamo occupare dell'urto tra un solo atomo di idrogeno contro uno di elio fermo sfruttando le conservazioni della quantità di moto e dell'energia.<br>
+<br>
+Non capisco due cose però (ma molte di più in verità!):<br>
+1) il fotone emesso sarebbe un elettrone che acquista grande velocità oppure energia che esce fuori 'per far sì che l'energia si conservi' ? (chiedo perchè non capisco l'energia di ionizzazione cosa c'entri..) <br>
+2) perchè se viene emesso un fotone in un verso, allora ne viene emesso uno anche nell'altro? (questo mi sembra sia implicito nella seconda domanda)<br>
+Per la conservazione della quantità di moto?</article>
+<article class="post" id="p1129"><div class="who"><b>Solimano</b><span>28 mag 2009, 15:58</span></div>sicuramente scriverò delle stupidate grandissime quindi ditemi dove sbaglio!!!! :D  ;) <br>
+Poichè le velocità sono elevate, utilizzo le leggi della relatività; la velocità minima si ha quando l'atomo di H si ferma dopo l'urto con l'atomo di He. Quindi tutta l'energia posseduta dal primo atomo si converte in quella di prima ionizzazione del secondo, emettendo così il fotone (spero sia più o meno così :lol: ). Quindi:<br>
+<br>
+<span class="tex">\(mc^2(\gamma-1)=E\)</span> dove <span class="tex">\(\gamma=\frac{1}{\sqrt{1-(\frac{v}{c})^2}}\)</span>, m la massa di H e E = energia di prima ionizzazione del He.<br>
+<br>
+<span class="tex">\(\gamma=\frac{E}{mc^2}+1\)</span><br>
+<br>
+<span class="tex">\(\frac{1}{\sqrt{1-(\frac{v}{c})^2}}=\frac{E+mc^2}{mc^2}\)</span><br>
+<br>
+<span class="tex">\((\frac{v}{c})^2=\frac{E^2+2Emc^2}{(E+mc^2)^2}\)</span><br>
+<br>
+<span class="tex">\(v=c\sqrt\frac{E^2+2Emc^2}{(E+mc^2)^2}\)</span><br>
+<br>
+<span class="tex">\(v=0,00023c\)</span><br>
+<br>
+Il risultato mi sembra molto molto molto strano!!!  :lol:  :lol: <br>
+vi prego, aiutatemi!!!!! ;)</article>
+<article class="post" id="p1130"><div class="who"><b>Ippo</b><span>28 mag 2009, 16:00</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Premetto che andrò a pescarmi le formule relativistiche solo quando avrò tempo (servono, no?).</div></blockquote>
+In linea di principio "potrebbero servire" (se ti risulta una velocità maggiore di 0,1c), ma non è questo il caso  :mrgreen: <br>
+tutta la teoria che ho usato io, oltre la conservazione di energia e quantità di moto, riguarda l'atomo di Bohr (come/perché emette fotoni) e un'altra cosa facile per il punto 2 (non la dico perché altrimenti è già risolto  :P ).</article>
+<article class="post" id="p1131"><div class="who"><b>Ippo</b><span>28 mag 2009, 16:06</span></div><blockquote><div><cite>Solimano ha scritto:</cite>Poichè le velocità sono elevate, utilizzo le leggi della relatività; </div></blockquote> Beh, non è detto a priori (infatti col valore di v che ti risulta il fattore di Lorentz vale tipo 1+10^-8  :D )...<br>
+comunque non hai tenuto conto della conservazione della quantità di moto e non hai spiegato perchè ionizzando l'atomo questo dovrebbe emettere un fotone, né perché dovrebbe essere proprio l'elio ad emetterlo e non l'idrogeno (che ha energia di ionizzazione più bassa... ;) )</article>
+<article class="post" id="p1132"><div class="who"><b>Ippo</b><span>28 mag 2009, 16:33</span></div>Tra l'altro ho appena scoperto casualmente che questo è il problema 1 di Varsavia '74 (con qualche modifica), quindi una "soluzione ufficiale" volendo è disponibile. Direi comunque di non guardarla e di continuare a discutere il problema qui, almeno fino a quando non sarete ragionevolmente sicuri di averlo capito bene.  :mrgreen:</article>
+<article class="post" id="p1134"><div class="who"><b>CoNVeRGe.</b><span>28 mag 2009, 16:48</span></div><blockquote><div><cite>Solimano ha scritto:</cite> <br>
+La velocità minima si ha quando l'atomo di H si ferma dopo l'urto con l'atomo di He. Quindi tutta l'energia posseduta dal primo atomo si converte in quella di prima ionizzazione del secondo.
+</div></blockquote>
+Perchè?<br>
+<br>
+<br>
+Non capisco cosa c'entri la ionizzazione..<br>
+Nella mia ipotesi nell'urto parte dell'energia cinetica diventa energia potenziale degli elettroni (che raggiungono orbite più lontane dal nucleo).<br>
+Un attimo successivo gli elettroni tornano allo stato orbitale iniziale ed emettono un fotone con frequenza data dall'equazione di Planck (dove l'energia è la differenza tra le energie delle orbite raggiunte). Sbaglio qualcosa nell'interpretazione?</article>
+<article class="post" id="p1136"><div class="who"><b>Rigel</b><span>28 mag 2009, 20:07</span></div><blockquote><div><cite>Ippo ha scritto:</cite>Tra l'altro ho appena scoperto casualmente che questo è il problema 1 di Varsavia '74 (con qualche modifica), quindi una "soluzione ufficiale" volendo è disponibile.</div></blockquote>
+Argh! e io che pensavo che quest'anno avessero inventato completamente i problemi... come dice Pig è veramente indispensabile aver visto i problemi delle vecchie IPhO  :lol:</article>
+<article class="post" id="p1138"><div class="who"><b>Solimano</b><span>28 mag 2009, 20:41</span></div>Avete ragione, ma oggi ho provato a scrivere un sistema con anche la quantità di moto relativistica, ma neppure nelle ore d latino c sono venuto su a risolverlo!!! :lol:  :lol:</article>
+<article class="post" id="p1139"><div class="who"><b>Pairo</b><span>28 mag 2009, 21:01</span></div>Do anch'io segni di gratitudine per il post  :D . Non ho avuto tempo di provare a risolverlo oggi, ma domani mi prendo tutto il tempo per provare a buttare giù una soluzione e contribuire al dibattito. Non vorrei mai che si pensasse che queste iniziative non siano apprezzate  :D</article>
+<article class="post" id="p1144"><div class="who"><b>Pairo</b><span>29 mag 2009, 14:54</span></div>Ok, allora provo a dare la mia soluzione.<br>
+<br>
+Prima di tutto alcune considerazioni preliminari.<br>
+1) In generale, si ha emissione di un fotone quando un'elettrone passa da un livello stazionario a maggiore energia ad uno minore.<br>
+2) In questo caso l'emissione di fotoni avverrà da parte degli atomi idrogeno che hanno energia di ionizzazione minore, e quindi necessitano anche di una minore energia per il salto energetico dal primo al secondo livello.<br>
+3) L'energia di ionizzazione è uguale all'energia necessaria per strappare un atomo fino a distanza infinita. E' quindi uguale al modulo dell'energia totale del sistema nucleo-elettrone allo stato stazionario per n=1 (poiché l'energia totale minima a distanza infinita è 0).<br>
+<br>
+Supponiamo che dopo l'urto si abbia avuto un'emissione di fotoni e analizziamo la situazione. Per il principio di conservazione della quantità di moto, dopo pochi passaggi, si ha:<br>
+<br>
+<span class="tex">\({v_2} = v - 4V\ (1)\)</span> dove v è la velocità iniziale dell'atomo di idrogeno, <span class="tex">\({v_2}\)</span> è la sua velocità dopo l'urto e <span class="tex">\(V\)</span> è la velocità dell'atomo di elio dopo l'urto.<br>
+<br>
+Tenendo conto dell'energia assorbita dall'atomo di idrogeno, per la conservazione dell'energia si ha:<br>
+<br>
+<span class="tex">\(\frac{1}{2}mv^2 = \frac{1}{2}m{v_2}^2+\frac{1}{2}4V^2+{E}\ (2)\)</span> dove <span class="tex">\(E\)</span> è l'energia necessaria all'elettrone di idrogeno per passare dal primo livello al secondo livello. Si noti che conoscendo l'energia di ionizzazione dell'idrogeno <span class="tex">\({E_i}\)</span>,per quanto detto prima possiamo ricavare <span class="tex">\(E\)</span>:<br>
+<br>
+<span class="tex">\(E = -\frac{1}{4}{E_i}+{E_i} = \frac{3}{4}{E_i}\ (3)\)</span> Combinando la <span class="tex">\((1)\)</span> e la <span class="tex">\((2)\)</span>, eliminando <span class="tex">\({v_2}\)</span> otteniamo:<br>
+<br>
+<span class="tex">\(10mV^2-4vmV+E = 0\)</span> da cui, eliminando la soluzione inaccettabile:<br>
+<br>
+<span class="tex">\(V = \frac{2vm-\sqrt{4v^2m^2-10mE}}{10m}\)</span> Da qui possiamo allora ricavare il valore minimo della velocità per cui sia possibile il passaggio dell'elettrone dell'idrogeno dal primo al secondo livello, e quindi ci sia successiva emissione di un fotone, imponendo il delta positivo:<br>
+<br>
+<span class="tex">\(v\geq\sqrt{\frac{5E}{2m}}\)</span> E infine, tenendo conto della <span class="tex">\((3)\)</span>:<br>
+<br>
+<span class="tex">\(v\geq\sqrt{\frac{15{E_i}}{8m}}\)</span><br>
+<br>
+Il valore dell'energia di ionizzazione dell'elio è quindi inutile, una volta saputo che è maggiore di quella dell'idrogeno.<br>
+Prima della seconda parte naturalmente aspetto le correzioni  :D</article>
+<article class="post" id="p1145"><div class="who"><b>CoNVeRGe.</b><span>29 mag 2009, 15:05</span></div><blockquote><div><cite>Pairo ha scritto:</cite>
+2) In questo caso l'emissione di fotoni avverrà da parte degli atomi di elio; si avrà infatti che gli atomi di idrogeno, durante l'urto, cedono energia agli atomi di elio, e  gli elettroni degli atomi di idrogeno non possono assorbire energia per saltare di livello, a differenza degli elettroni dell'atomo di elio che ricevono energia dall'urto; potranno quindi essere eccitati e in seguito tornare allo stato stazionario.
+</div></blockquote>
+Non capisco perchè è l'elio a ricevere energia e non l'idrogeno.. Sembra che sia per il fatto che è fermo, ma possiamo benissimo porci in un sistema in cui è l'idrogeno a star fermo e l'elio a muoversi.</article>
+<article class="post" id="p1146"><div class="who"><b>Pairo</b><span>29 mag 2009, 15:14</span></div>Sì, sì, scusa me n'ero accorto dopo aver postato di aver scritto una stupidata grossa. In effetti, essendo i due sistemi di riferimento inerziali non c'è differenza tra il considerare una particella in moto rispetto all'altra, e l'energia cinetica durante l'urto si trasforma in parte in energia interna della particella che richiede minor energia per il salto energetico. Adesso ho corretto e così dovrebbe essere giusto, però la svista era stata notevole  :D</article>
+<article class="post" id="p1147"><div class="who"><b>CoNVeRGe.</b><span>29 mag 2009, 15:23</span></div>Non preoccuparti, a tutti capita di spararla grossa e dover ricorrere alla modifica del messaggio  :D <br>
+<br>
+Potresti spiegarmi l'equazione (3)? In particolare non capisco il termine con 1/4 davanti, grazie.</article>
+<article class="post" id="p1148"><div class="who"><b>Pairo</b><span>29 mag 2009, 15:36</span></div>Sì, questa volta l'avevo sparata grossa  :D .<br>
+Allora; abbiamo detto che l'energia di ionizzazione rappresenta l'energia totale, cioè la somma dell'energia cinetica e potenziale, per lo stato <span class="tex">\(n = 1\)</span>; questo perché per estrarre l'elettrone dall'atomo occorre almeno fornirgli l'energia sufficiente ad azzerare la sua energia potenziale (in altri termini ancora l'elettrone deve arrivare a distanza infinita con con velocità maggiore o uguale a 0).<br>
+Ora, l'energie totali dei vari livelli sono proporzionali al quadrato dell'inverso del numero n. Quindi si avrà:<br>
+<br>
+<span class="tex">\({E_n} = \frac{1}{n^2}k\)</span> dove <span class="tex">\(k\)</span> è quella della formula dell'atomo di Bohr, dipendente dalla massa e dalla potenza quarta della carica dell'elettrone, ma uguale per tutti i livelli. In particolare,si ha:<br>
+<br>
+<span class="tex">\({E_1} = k\)</span> Ma allora si può calcolare la differenza di energia totale tra il secondo livello e il primo:<br>
+<br>
+<span class="tex">\({E_2} - {E_1} = -\frac{1}{2^2}k + k = \frac{3}{4}k = \frac{3}{4} {E_1}\)</span></article>
+<article class="post" id="p1149"><div class="who"><b>Ippo</b><span>29 mag 2009, 15:47</span></div><blockquote><div><cite>Pairo ha scritto:</cite><span class="tex">\(v\geq\sqrt{\frac{5E}{2m}}\)</span><br>
+<span class="tex">\(V = \frac{2vm-\sqrt{4v^2m^2-10mE}}{10m}\)</span><br>
+<span class="tex">\({v_2} = v - 4V\)</span></div></blockquote>
+Ok; cosa succede ora se provi a sostituire il valore che hai trovato per v nelle espressioni di V e di v2? Che interpretazione qualitativa se ne può dare?<br>
+(pensare subito a questo fatto poteva essere una bella scorciatoia  :mrgreen: )</article>
+<article class="post" id="p1150"><div class="who"><b>Pairo</b><span>29 mag 2009, 17:32</span></div>Le due velocità sono uguali  :D . In questo caso l'urto è completamente anelastico: questo si spiega dal fatto che tutta l'energia interna immagazzinata durante l'urto, è stata spesa per il salto di livello dell'elettrone. In effetti forse questa era una strada più veloce ed elegante  :D</article>
+<article class="post" id="p1151"><div class="who"><b>CoNVeRGe.</b><span>29 mag 2009, 18:45</span></div><blockquote><div><cite>Pairo ha scritto:</cite>
+Ora, l'energie totali dei vari livelli sono proporzionali al quadrato dell'inverso del numero n. Quindi si avrà:<br>
+<br>
+<span class="tex">\({E_n} = \frac{1}{n^2}k\)</span> dove <span class="tex">\(k\)</span> è quella della formula dell'atomo di Bohr, dipendente dalla massa e dalla potenza quarta della carica dell'elettrone, ma uguale per tutti i livelli. </div></blockquote>
+Bene, è questo che mi mancava. Vedrò di studiarmi qualcosa sull'atomo di Bohr, che mi sembra possa risultare utile in diversi modi e problemi.</article>
+<article class="post" id="p1163"><div class="who"><b>Pairo</b><span>30 mag 2009, 15:38</span></div>Possiamo allora concludere il problema, tenendo conto dell'effetto doppler; poiché la velocità delle particelle è abbastanza bassa, possiamo scrivere :<br>
+<br>
+<span class="tex">\(\nu = {\nu_0}(1+\beta)\ (1)\)</span> dove si ha <span class="tex">\(\beta = \frac{{v_2}}{c}\)</span> con <span class="tex">\({v_2}\)</span> velocità della particella di idrogeno rispetto al laboratorio, calcolata al punto precedente.<br>
+<br>
+Ponendoci dalle parti opposte rispetto alla direzione di propagazione, la lunghezza d'onda misurata avrà la stessa espressione della <span class="tex">\((1)\)</span> ma il termine <span class="tex">\(\beta\)</span> avrà segno opposto. Si avrà allora:<br>
+<br>
+<span class="tex">\(\Delta\nu = 2\beta{\nu_0}\)</span></article>
+<article class="post" id="p1167"><div class="who"><b>pascal</b><span>31 mag 2009, 10:40</span></div>Nel sistema S del centro di massa (cm) il procedimento si potrebbe semplificare.<br>
+La velocità del cm è:<br>
+<br>
+<span class="tex">\(v_c = \frac{mv}{m+4m}= \frac{v}{5}\)</span>.<br>
+<br>
+Le due particelle in S hanno le velocità:<br>
+<br>
+<span class="tex">\(v-v_c =4v/5, \, 0-v/5=-v/5\)</span>.<br>
+<br>
+La quantità di moto prima dell’urto in S è nulla; ciò si verifica facilmente oppure scaturisce dalla considerazione che la grandezza è uguale alla massa del sistema per la velocità (nulla) del cm.<br>
+Dopo l’urto la quantità di moto rimane zero significando che i due atomi avranno quantità di moto opposte. Se vogliamo utilizzare per l’eccitazione dell’idrogeno tutta l’energia attorno al cm, cioè l’energia iniziale, è necessario che le due velocità in S si annullino. In tal modo la massa m deve essere lanciata con velocità minima. L’energia disponibile in S è:<br>
+<br>
+<span class="tex">\(E=1/2m(4v/5)^2+1/2 (4m) (v/5)^2=2mv^2/5\)</span>.<br>
+<br>
+Sfruttando quest’energia per la transizione dallo stato fondamentale al primo livello eccitato (formula di Bohr) dell’atomo di H si ha:<br>
+<br>
+<span class="tex">\(v= \sqrt{\frac{5E}{2m}}\)</span>.</article>
+<nav class="pager"><a class="prev" href="olifis-525.html"><small>← precedente</small>Equilibrio termico di particelle a due stati</a></nav>
+</main></body></html>

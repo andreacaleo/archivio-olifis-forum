@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>66:Un colpo di cannone</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 66</a></span></nav>
+<h1>66:Un colpo di cannone</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6308">forum Olifis</a></p>
+<article class="post first" id="p22164"><div class="who"><b>rocco</b><span>4 mag 2016, 18:12</span></div>Da un punto P della superficie terrestre a 45° Lat. Nord viene sparato un colpo di cannone con velocità <span class="tex">\(v_0\)</span> parallelamente al terreno e tangenzialmente al parallelo terrestre. Precisare se il colpo deve essere sparato verso Est o verso Ovest affinché un osservatore terrestre veda cadere il proiettile soggetto alla sola accelerazione di gravità <em class="text-italics">g</em> appena uscito dalla bocca del cannone. Calcolare anche il valore di <span class="tex">\(v_0\)</span>.</article>
+<article class="post" id="p22177"><div class="who"><b>1998marcom</b><span>12 mag 2016, 17:48</span></div>Facendo ricorso a dati della mia memoria, il raggio terrestre equatoriale vale 6378 km. Poiché la rotazione terrestre va in senso antiorario, il proiettile va sparato in senso orario, cioè verso ovest. Se <span class="tex">\(\alpha = 45^o\)</span>, chiamando il raggio terrestre <span class="tex">\(R\)</span> e il tempo di una rotazione siderale <span class="tex">\(T\)</span>, che vale 23 ore e 56 minuti, abbiamo che:<br>
+<br>
+<span class="tex">\(\displaystyle v_0 = cos\alpha \mbox{ } v_e\)</span> dove <span class="tex">\(v_e\)</span> è la velocità equatoriale:<br>
+<span class="tex">\(\displaystyle v_e = 2 \pi \frac{R}{T}\)</span><br>
+<br>
+Dunque:<br>
+<span class="tex">\(\displaystyle v_0 = 2 \pi cos\alpha \mbox{ } \frac{R}{T} = 329 \frac{m}{s}\)</span><br>
+<br>
+Aspetto conferma per un problemino divertentuccio, sperando di non aver fatto errori  :mrgreen:  :roll:</article>
+<article class="post" id="p22178"><div class="who"><b>rocco</b><span>13 mag 2016, 10:33</span></div>Il risultato è sbagliato perché l'impostazione è sbagliata. Per quanto capisco il tuo problema sembra quello di annullare la velocità assoluta del proiettile dandogli una velocità relativa opposta a quella di trascinamento. Ma il testo parla di accelerazione (in quel riferimento, aggiungo io...). Scrivo da scuola e mi scuso per la sintesi.</article>
+<article class="post" id="p22179"><div class="who"><b>1998marcom</b><span>13 mag 2016, 14:29</span></div>Allora proprio non capisco il testo: se trascuriamo gli attriti, l'unica altra forza in gioco (se trascuriamo le altre 3 forze fondamentali e considerando ininfluente la gravità del sole e della luna, così come quella di ogni oggetto extraterrestre) oltre alla gravità della terra è quella dovuta alla forza "centrifuga". Gli attriti sono inizialmente orizzontali ed è per questo che non sono "bilanciabili", e dunque li ho trascurati. Le forze verticali sono due. Annullando quella centrifuga, rimane solo la gravità, e dunque la condizione richiesta nel testo (che il corpo sia soggetto alla sola forza di gravità agli occhi di un osservatore terrestre) dovrebbe essere soddisfatta.  :?</article>
+<article class="post" id="p22180"><div class="who"><b>rocco</b><span>14 mag 2016, 17:50</span></div>Ma tu non hai fatto un discorso sulle forze, tu non hai annullato la forza centrifuga, hai annullato la velocità assoluta= velocità relativa+velocità di trascinamento  calcolando la prima opposta alla seconda. Sembrando dire: se nel sistema assoluto sta fermo allora è soggetto solo alla gravità. E' un ragionamento sbagliato. Chiediti: nel sistema di riferimento dell'osservatore terrestre è proprio vero che, come dici, le forze "verticali" sono solo due (gravità e centrifuga)? Con questo hint son sicuro che risolverai.</article>
+<article class="post" id="p22183"><div class="who"><b>rocco</b><span>19 mag 2016, 9:50</span></div>Non so come funziona in questi casi ma sono ormai 15 giorni con un solo tentativo ufficiale forse anche perchè in questo periodo la gente non ha tempo. Comunque sia ritengo utile dare un suggerimento sperando di non rovinare le elaborazioni di qualcuno che giustamente suggerimenti non ne vuole. L'osservatore terrestre sta in un sistema di riferimento relativo non inerziale dove, oltre alle forze assolute (la gravità), appaiono forze (e accelerazioni) come quella di trascinamento (centrifuga nel nostro caso) e di Coriolis su un oggetto che si muove nel sistema relativo (come il proiettile che ha velocità <span class="tex">\(v_0\)</span>). Quest'ultima vale <span class="tex">\(-2m.\vec{\omega}\wedge\vec{v_0}\)</span> con <span class="tex">\(\omega\)</span> velocità angolare terrestre e deve essere opposta......affinchè ci sia solo la...</article>
+<article class="post" id="p22187"><div class="who"><b>CaptainJohnCabot</b><span>21 mag 2016, 16:40</span></div>Provo a rispondere io anche se effettivamente non sono sicuro di aver capito il testo...  :?  Giusto per dare una smossa alla staffetta  :lol: <br>
+<br>
+Allora ho fatto un po' di ricerche,  la forza di Coriolis risulta <span class="tex">\(-2mwv_0sen(\theta)\)</span> con <span class="tex">\(\theta\)</span> angolo fra l'asse di rotazione e velocità,  allora in questo caso <span class="tex">\(\theta=\pi/2\)</span>. <br>
+Sul corpo agiscono anche la forza di gravità <span class="tex">\(mg\)</span> e quella centrifuga apparente <span class="tex">\(mw^2Rsen(\alpha)\)</span> con <span class="tex">\(\alpha=\pi/4\)</span>. Dato <span class="tex">\(\sum F=ma_t\)</span> allora <span class="tex">\(a_t=g\)</span> implica <span class="tex">\(\sum F=mg\)</span>. <br>
+Allora la centrifuga e Coriolis si devono annullare.  Dalle suddette ricerche ho trovato che la forza di Coriolis è diretta verso il centro quando la velocità del corpo è contraria al verso di rotazione (<span class="tex">\(v_0\)</span> sarà quindi in verso orario).  Quindi:<br>
+<span class="tex">\(mw^2Rsen(\alpha)=2mwv_0\)</span> da cui:<br>
+<span class="tex">\(v_0=\pi Rsen(\alpha)/T\)</span> con T periodo di rotazione della Terra. Inserendo i dati noti si ha:<br>
+<span class="tex">\(v_0=164 m/s\)</span><br>
+<br>
+Sinceramente non credo che sia corretto,  non sono molto abituato ad usare le forze apparenti. Il problema è interessante e insolito però forse ha reso poco a causa dell testo che ha un po' di problemi in quanto a chiarezza (forse ad esempio andava specificato l'utilizzo della forza di Coriolis, molto rara in effetti). Il mio primo approccio sarebbe forse stato più simile a quello di marcom...<br>
+<br>
+Per il resto spero che non sia troppo sbagliato  :lol: <br>
+<br>
+PS<br>
+Ho risolto il problema e scritto il post da tablet quindi scusatemi per gli eventuali errori di distrazione...  :o</article>
+<article class="post" id="p22188"><div class="who"><b>rocco</b><span>21 mag 2016, 17:09</span></div>Il testo lo hai capito quando dici che forza centrifuga e di Coriolis si devono annullare. Nel testo non poteva poi essere citata la f. di Coriolis perchè la difficoltà stava proprio in questo: come ogni problema che si rispetti è senz'altro insolito come dici.<br>
+Comunque il risultato è sbagliato perchè, se ho capito, c'è un errore concettuale che non dipende certo dalla comprensione del testo: mi sembra che fai dipendere la forza e l'accelerazione centrifuga (di trascinamento da parte della Terra) dalla velocità relativa <span class="tex">\(v_0\)</span> di uscita del proiettile dalla bocca del cannone e non dalla velocità angolare <span class="tex">\(\omega\)</span> della Terra e quindi dalla velocità di rotazione terrestre a quella latitudine. Secondo me dovresti correggere questo punto e la staffetta sarà tua.</article>
+<article class="post" id="p22189"><div class="who"><b>CaptainJohnCabot</b><span>21 mag 2016, 23:00</span></div>Ho provato a correggere seguendo il tuo suggerimento modificando il messaggio di sopra.  Spero che ora sia giusto  :roll:  :?</article>
+<article class="post" id="p22190"><div class="who"><b>rocco</b><span>22 mag 2016, 16:19</span></div>ok, a te la staffetta.</article>
+<nav class="pager"><a class="prev" href="olifis-6306.html"><small>← precedente</small>65: produzione di idrogeno</a><a class="next" href="olifis-6313.html"><small>successivo →</small>67. Spaghettificazione</a></nav>
+</main></body></html>

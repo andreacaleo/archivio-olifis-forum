@@ -79,6 +79,14 @@ mjx-container [data-mml-node="merror"] { fill:currentColor !important; stroke:no
 .card.big { grid-column:1 / -1; padding:22px 24px; border-color:var(--chip-fg); background:var(--chip); }
 .card.big b { font-size:24px; color:var(--chip-fg); }
 .card .kicker { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--chip-fg); }
+h2.part { font:600 26px/1.2 var(--serif); text-transform:none; letter-spacing:0; color:var(--fg); margin-top:48px; }
+h3.tema { font:600 13px var(--sans); text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:28px 0 10px; }
+ol.relay { list-style:none; padding:0; margin:0; columns:2; column-gap:28px; font-size:15px; }
+ol.relay li { break-inside:avoid; padding:3px 0; display:flex; gap:8px; align-items:baseline; }
+ol.relay .num { flex:0 0 2.6em; text-align:right; font:600 13px var(--sans); color:var(--faint); font-variant-numeric:tabular-nums; }
+ol.relay a { text-decoration:none; }
+ol.relay a:hover { text-decoration:underline; }
+@media (max-width:600px) { ol.relay { columns:1; } }
 ul.picks { list-style:none; padding:0; margin:0; }
 ul.picks li { padding:14px 0; border-top:1px solid var(--line); }
 ul.picks li:first-child { border-top:none; }

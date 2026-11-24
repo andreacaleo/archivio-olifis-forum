@@ -6,7 +6,13 @@ Private GitHub repo `andreacaleo/archivio-olifis-forum`. Commit freely, push onl
 
 What is archived so far: the topic "Soluzioni SNS sui forum Olimat e Olifis" (t=228, opened by Andrea as Pigkappa in 2009), an index of the admission problems of the Scuola Normale Superiore, and every topic it links to. Plus, listed in `extra_topics.json` with their year and problem number, the other topics in the Problemi teorici section with SNS in the title: physics problems go in the main table, problems from the chemistry and biology admission tests in their own section, orals in their own section. Topics left out are listed there with the reason. Other interesting topics are to be added.
 
-The site is "Archivio del forum Olifis", not an archive of the SNS: the home page leads first to the admission problems page (`sns.html`), then to one page each of chosen discussions from the sections Problemi teorici (at most 30), Olimpiadi di Fisica (at most 10) and Caffè (at most 10). The choice, with the line shown for each, is in `selezioni.json`; it was made by reading the discussions, not by length or views. Posts listed under `escludi` there (spam) are left out. Admission problems are shown most recent year first.
+The site is "Archivio del forum Olifis", not an archive of the SNS. The home page has four sections, in this order:
+1. Problemi di ammissione alla Normale (`sns.html`), most recent year first.
+2. La staffetta (`staffetta.html`): every problem of the numbered relay, 1 to 330, listed in `staffetta.json`, plus the three single-thread relays of 2010-2011. Relay problems that are also admission problems follow the relay for previous / next.
+3. Altri problemi teorici (`problemi-teorici.html`): at most 30 chosen discussions not in the relay or the admission problems.
+4. Olimpiadi di Fisica e Caffè (`olimpiadi-caffe.html`): at most 10 chosen discussions from each section.
+
+The choices for 3 and 4, with the line shown for each, are in `selezioni.json`; they were made by reading the discussions, not by length or views. Posts listed under `escludi` there (spam) are left out.
 
 ## Layout
 

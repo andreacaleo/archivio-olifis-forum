@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>55: una palla che gira e cade</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 55</a></span></nav>
+<h1>55: una palla che gira e cade</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6166">forum Olifis</a></p>
+<article class="post first" id="p21296"><div class="who"><b>Gimmy</b><span>18 ago 2015, 17:20</span></div>Dal grattacielo più alto del mondo (<span class="tex">\(h=828\mbox{ m}\)</span>) viene lasciata cadere una sfera di raggio <span class="tex">\(R\)</span> e massa <span class="tex">\(m\)</span> che ruota attorno ad un asse parallelo al suolo con velocità angolare <span class="tex">\(\omega\)</span>. La densità dell'aria è <span class="tex">\(\rho\)</span>; trascurare gli effetti frenanti della viscosità.<br>
+Detta <span class="tex">\(\vec v\)</span> la velocità di arrivo al suolo, e supponendo che <span class="tex">\(\sqrt{\frac{\rho}{mg}}R^2\omega\ll1\)</span>, trovare (una stima ragionevole di):<br>
+- <span class="tex">\(v\)</span>;<br>
+- <span class="tex">\(\theta\)</span>, l'angolo formato da <span class="tex">\(\vec v\)</span> con la verticale;<br>
+e dimostrare che <span class="tex">\(v\propto 1-\left(\frac{\theta}{2}\right)^2\)</span>.<br>
+<br>
+Se qualche conto in particolare vi rompe un po' troppo, è permesso usare qualche calcolatore tipo Wolfram e boh, guardate questo: <a href="https://www.youtube.com/watch?v=QtP_bh2lMXc" class="ext" class="postlink">https://www.youtube.com/watch?v=QtP_bh2lMXc</a>  :D</article>
+<article class="post" id="p21297"><div class="who"><b>andrea96</b><span>18 ago 2015, 17:27</span></div>La rotazione della terra e la viscosità dell aria le consideriamo trascurabili?</article>
+<article class="post" id="p21299"><div class="who"><b>Gimmy</b><span>18 ago 2015, 17:34</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>La rotazione della terra e la viscosità dell aria le consideriamo trascurabili?</div></blockquote>
+Sì, aggiungo in traccia per la viscosità.</article>
+<article class="post" id="p21300"><div class="who"><b>Simone256</b><span>18 ago 2015, 17:36</span></div>Il video è fantastico &lt;3_&lt;3</article>
+<article class="post" id="p21301"><div class="who"><b>CapitanFindus</b><span>18 ago 2015, 19:40</span></div>e avete visto il video di Veritasium dove ne parlano? <a href="https://www.youtube.com/watch?v=2OSrvzNW9FE" class="ext" class="postlink">https://www.youtube.com/watch?v=2OSrvzNW9FE</a>  :D <br>
+<br>
+Comunque, io farei la stima nel modo seguente.<br>
+<br>
+Considero il modello bidimensionale della sezione della sfera che ruota in senso orario, ossia un cerchio di raggio R. Chiamo A l'estremità sinistra e B l'estremità destra. Per il teorema di Bernoulli viene a generarsi una forza verso destra; la cosa può essere così formulata:<br>
+<br>
+<span class="tex">\(p_A + \frac{1}{2}D (V_A)^2 = p_B + \frac{1}{2}D (V_B)^2\)</span> dove D è la densità dell'aria ( la rho si confonde con la p )<br>
+<br>
+inoltre <span class="tex">\(V_B = V - wR\)</span> <span class="tex">\(V_A = V + wR\)</span>, dove V è la velocità dell'aria dell'ambiente circostante (mi rendo conto che questo è il punto meno saldo del mio ragionamento, infatti non saprei con che principio fisico motivarlo ma direi semplicemente che le velocità si sommano algebricamente un pò come in tutti quegli esercizi con i cilindri rotanti che si tangono)<br>
+<br>
+sostituendo le velocità nell'equazione di Bernoulli trovo che la <span class="tex">\(\Delta p = -2DwV\)</span> dove posso sostituire <span class="tex">\(V = gt\)</span> in quanto corrisponde alla velocità di caduta della palla <br>
+<br>
+<br>
+Ora, questo disco è in realtà un volumetto infinitesimale con spessore <span class="tex">\(dx\)</span> (una fettina di sfera), e di conseguenza la superficie laterale <span class="tex">\(dS = dx2R\)</span> è quella su cui "spinge" la pressione. Possiamo così trovare la forza F totale integrando da R a -R dF:<br>
+<br>
+F = <span class="tex">\(\int_0^{2R} pdS = \frac{32}{3} DwR^3gt\)</span>  (questa cosa è abbastanza approssimativa in quanto la pressione in realtà non è costante lungo la profondità della sfera ma vabè)<br>
+<br>
+trovo così una accelerazione che dipende linearmente dal tempo, e quindi integrando due volte col il tempo totale di caduta <span class="tex">\(T=\sqrt{\frac{2h}{g}}\)</span> trovo questa espressione per lo spazio percorso sull'asse x<br>
+<br>
+<span class="tex">\(S_x = \frac{32DwR^3h\sqrt{2h}}{9m\sqrt{g}}\)</span>  dove stimando le costanti con la palla da basket nel video (preso le dimensioni della palla su wikipedia e la densità dell'aria 1,3kg/m^3 e posta la velocità angolare uguale a 2 giri al secondo come nel video(?) ) mi esce qualcosa come <strong class="text-strong">640 metri</strong>, che mi sembra abbastanza ragionevole visto che l'altezza da cui lo si lancia è 900m.<br>
+L'angolo esce molto approssimativamente di 60 gradi che assomiglia a quello che si vede nel video. <br>
+<br>
+Che ne pensate?</article>
+<article class="post" id="p21302"><div class="who"><b>Gimmy</b><span>18 ago 2015, 20:07</span></div><blockquote><div><cite>CapitanFindus ha scritto:</cite>e avete visto il video di Veritasium dove ne parlano? <a href="https://www.youtube.com/watch?v=2OSrvzNW9FE" class="ext" class="postlink">https://www.youtube.com/watch?v=2OSrvzNW9FE</a>  :D <br>
+<br>
+Comunque, io farei la stima nel modo seguente.<br>
+<br>
+Considero il modello bidimensionale della sezione della sfera che ruota in senso orario, ossia un cerchio di raggio R. Chiamo A l'estremità sinistra e B l'estremità destra. Per il teorema di Bernoulli viene a generarsi una forza verso destra; la cosa può essere così formulata:<br>
+<br>
+<span class="tex">\(p_A + \frac{1}{2}D (V_A)^2 = p_B + \frac{1}{2}D (V_B)^2\)</span> dove D è la densità dell'aria ( la rho si confonde con la p )<br>
+<br>
+inoltre <span class="tex">\(V_B = V - wR\)</span> <span class="tex">\(V_A = V + wR\)</span>, dove V è la velocità dell'aria dell'ambiente circostante (mi rendo conto che questo è il punto meno saldo del mio ragionamento, infatti non saprei con che principio fisico motivarlo ma direi semplicemente che le velocità si sommano algebricamente un pò come in tutti quegli esercizi con i cilindri rotanti che si tangono)<br>
+<br>
+sostituendo le velocità nell'equazione di Bernoulli trovo che la <span class="tex">\(\Delta p = -2DwV\)</span> dove posso sostituire <span class="tex">\(V = gt\)</span> in quanto corrisponde alla velocità di caduta della palla <br>
+<br>
+<br>
+Ora, questo disco è in realtà un volumetto infinitesimale con spessore <span class="tex">\(dx\)</span> (una fettina di sfera), e di conseguenza la superficie laterale <span class="tex">\(dS = dx2R\)</span> è quella su cui "spinge" la pressione. Possiamo così trovare la forza F totale integrando da R a -R dF:<br>
+<br>
+F = <span class="tex">\(\int_0^{2R} pdS = \frac{32}{3} DwR^3gt\)</span>  (questa cosa è abbastanza approssimativa in quanto la pressione in realtà non è costante lungo la profondità della sfera ma vabè)<br>
+<br>
+trovo così una accelerazione che dipende linearmente dal tempo, e quindi integrando due volte col il tempo totale di caduta <span class="tex">\(T=\sqrt{\frac{2h}{g}}\)</span> trovo questa espressione per lo spazio percorso sull'asse x<br>
+<br>
+<span class="tex">\(S_x = \frac{32DwR^3h\sqrt{2h}}{9m\sqrt{g}}\)</span>  dove stimando le costanti con la palla da basket nel video (preso le dimensioni della palla su wikipedia e la densità dell'aria 1,3kg/m^3 e posta la velocità angolare uguale a 2 giri al secondo come nel video(?) ) mi esce qualcosa come <strong class="text-strong">640 metri</strong>, che mi sembra abbastanza ragionevole visto che l'altezza da cui lo si lancia è 900m.<br>
+L'angolo esce molto approssimativamente di 60 gradi che assomiglia a quello che si vede nel video. <br>
+<br>
+Che ne pensate?</div></blockquote>
+Il ragionamento per stimare la forza dovuta all'effetto Magnus l'ho fatto in modo molto simile, però probabilmente mi sono spiegato male nella traccia: l'idea del problema è lanciare una palla da moolto in alto (non importa quanto) e stimare 1) la forza dovuta al Magnus (come hai fatto tu) e 2) la resistenza dell'aria, assolutamente non più trascurabile per certe altezze!, per poi vedere l'effetto combinato delle due forze. Con "trascurare la viscosità" non intendevo affatto "trascurare l'attrito aerodinamico", che è un'altra cosa! :)<br>
+Non ho visto per bene tutti i tuoi conti, però attento, che la forza dovuta all'effetto Magnus non è parallela al suolo durante tutto il moto, quindi non puoi trovare lo spostamento semplicemente integrando così.</article>
+<article class="post" id="p21303"><div class="who"><b>andrea96</b><span>18 ago 2015, 23:43</span></div>Innanzi tutto stimiamo qual'è l'effetto della presenza dell'aria. Mi metto in un riferimento centrato nella palla con la velocità dell'aria <span class="tex">\(\vec v\)</span>( cambiando riferimento è l'aria a muoversi) nella direzione negativa delle x e l'asse di rotazione è z. Uso coordinate sferiche quindi <span class="tex">\(\theta\)</span> ( che non è quello del post di gimmy ) è l'angolo tra il raggio vettore e l'asse y mentre <span class="tex">\(\phi\)</span> è l'angolo nel piano x-z misurato dall'asse x. Una forza è di sicuro la resistenza dell'aria nella direzione delle x positive. Faccio quindi questa stima: le particelle rimbalzano anelasticamente sulla palla cambiando solo la componente normale (brutta parola di questi giorni :lol: ) che è:<br>
+<span class="tex">\(u_r=vcos\phi sen\theta\)</span><br>
+quindi una massa <span class="tex">\(dm\)</span> di aria che rimbalza nel tempo <span class="tex">\(dt\)</span> dà una forza radiale <span class="tex">\(dF_r=vcos \phi cos\theta \frac{dm}{dt}\)</span><br>
+ma visto che le forze nelle direzioni trasversali a <span class="tex">\(\vec v\)</span> si bilanciano ci interessa solo la componente lungo l'asse x:<br>
+<span class="tex">\(dF=dF_rcos \phi sen \theta\)</span><br>
+ora quanto vale <span class="tex">\(\frac{dm}{dt}\)</span>? Nel tempo <span class="tex">\(dt\)</span> sbatte tutta la massa compresa nel volumetto <span class="tex">\(dV=vdA dt=vR^2 cos \phi sen \theta d\phi d\theta\)</span> (dove <span class="tex">\(dA\)</span> è l'area efficace) così che <span class="tex">\(\frac{dm}{dt}=v\rho R^2 cos\phi sen \theta\)</span>. Ora mettendo insieme i pezzi <span class="tex">\(dF=v^2\rho R^2 |cos^3 \phi sen^3 \theta| d\phi d\theta\)</span>, quindi<br>
+<span class="tex">\(F= \displaystyle \int_0 ^{\pi} \displaystyle \int _0 ^{\pi}v^2\rho R^2 |cos^3 \phi sen^3 \theta| d\phi d\theta=\frac{16v^2\rho R^2}{9}\)</span> <br>
+<br>
+(essendo la stima molto grossolana il coefficiente è quasi a caso, ci interessa più la forma e l'ordine di grandezza).<br>
+Ora veniamo alla parte bella: l'aria esercita anche una forza perpendicolare alla velocità che chiameremo <span class="tex">\(F_m\)</span> nel seguente modo: nella rotazione la palla si "trascina" dietro l'aria così che la velocità tangenziale dell'aria sarà la somma della velocità intrinseca dell'aria ( in realtà era della palla ma abbiamo cambiato riferimento) e quella della palla a contatto con essa. Quindi chiamandola <span class="tex">\(u_t(\theta,\phi)\)</span> si ha <span class="tex">\(u_t(\theta,\phi)=vcos\theta-\omega R cos \phi\)</span> e da bernouilli otteniamo che prendendo la sezione individuata dall'angolo <span class="tex">\(\phi\)</span>, abbiamo una differenza di pressione tra i punti individuati da <span class="tex">\(\theta\)</span> e <span class="tex">\(\pi+\theta\)</span> che è <span class="tex">\(\delta p=\frac{1}{2} \rho ((vcos\theta +\omega R cos \phi)^2-(v cos\theta- \omega R cos \phi)^2)=2\rho R \omega v cos \theta \cos \phi\)</span><br>
+questo gradiente di pressione eserciterà una forza normale ( ancora gufate ) <span class="tex">\(dF_{m,r}=2\rho R^3 \omega v cos \theta d\theta d\phi\)</span> ma per simmetria le componenti in direzione x si elidono quindi avremo solo una forza perpendicolare alla velocità la cui componente infinitesima è <span class="tex">\(dF_m=2\rho R^3 \omega v cos^2 \theta cos^2 \phi d\theta d\phi\)</span><br>
+e dunque <br>
+<span class="tex">\(F_m= \displaystyle \int_0 ^{\pi} \displaystyle \int _0 ^{\pi}2\rho R^3 \omega v cos^2 \theta cos^2 \phi d\theta d\phi=\frac{{\pi}^2}{2}\rho R^3 \omega v\)</span><br>
+che è sempre perpendicolare sia alla velocità che all'asse di rotazione.<br>
+Ora se uno prova un po di valori ragionevoli viene fuori che la palla arriva molto rapidamente in una condizione di regime in cui le tre forze agenti si bilanciano, vediamo dunque quanto valgono <span class="tex">\(v\)</span> e <span class="tex">\(\alpha\)</span> (angolo con la verticale, ho dovuto necessariamene cambiare nome) nella condizione di regime.<br>
+l'equilibrio nella direzione della velocità dà:<br>
+<span class="tex">\(F=\frac{16v^2\rho R^2}{9}=mg cos\alpha\)</span> cioè <span class="tex">\(v=\sqrt{\frac{9mg}{16\rho R^2}} (cos\alpha)^{\frac{1}{2}}\)</span><br>
+ora l'approssimazione in Taylor "è banale ed è ovviamente" (Gimmy mi capirà  :lol:  :lol:  :lol: ) <span class="tex">\(v \approx \sqrt{\frac{9mg}{16\rho R^2}} (1-(\frac{\alpha}{2})^2)\)</span> .<br>
+ora imponendo anche l'equilibrio nella direzione trasversa viene fuori <span class="tex">\(\frac{{\pi}^2}{2}\rho R^3 \omega v=mg sen \alpha \approx mg \alpha\)</span><br>
+e mettendo insieme le due cose se non ho sbagliato i conti dovrebbe venire <span class="tex">\(\alpha \approx \frac{3 \pi ^2 R^2 \omega}{8} \sqrt {\frac{\rho}{mg}}\\)</span></article>
+<article class="post" id="p21304"><div class="who"><b>Gimmy</b><span>19 ago 2015, 1:14</span></div>Baam!<br>
+Mi stavo perdendo tra tutti quei seni e coseni, ma mi pare tutto giusto! In particolare, mi è piaciuto molto com'è venuto l'effetto Magnus in coordinate sferiche e penso che sia anche più di una stima. :D<br>
+La mia stima sulla resistenza dell'aria era stata la stessa, ma stranamente mi trovo con un fattore appena diverso (però ho integrato a cipolla e senza coordinate sferiche).<br>
+In ogni caso, a te il prossimo!<br>
+<br>
+Comunque mi sono sorpreso di come l'angolo non venisse così grande di come sembrava nel video, ma dell'ordine di circa 10 gradi, sarà che le stime sono rozze, ma... mah!</article>
+<article class="post" id="p21305"><div class="who"><b>andrea96</b><span>19 ago 2015, 9:44</span></div><blockquote><div><cite>Gimmy ha scritto:</cite>
+<br>
+Comunque mi sono sorpreso di come l'angolo non venisse così grande di come sembrava nel video, ma dell'ordine di circa 10 gradi, sarà che le stime sono rozze, ma... mah!</div></blockquote>
+Mah più che altro direi che nel video la rotazione della palla è molto più potente così che il &lt;&lt; dovrebbe essere cambiato con un &gt;&gt; e la situazione è totalmente diversa: la palla non arriva all equilibrio e da un certo punto in poi la gravitá è forse addirittura trascurabile rispetto all effetto magnus così che la traiettoria assomiglia molto più a una circonferenza che a una retta</article>
+<nav class="pager"><a class="prev" href="olifis-6164.html"><small>← precedente</small>54: alte temperature</a><a class="next" href="olifis-6167.html"><small>successivo →</small>56: specchio relativistico</a></nav>
+</main></body></html>

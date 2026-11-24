@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>51. Centro di massa</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 51</a></span></nav>
+<h1>51. Centro di massa</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6157">forum Olifis</a></p>
+<article class="post first" id="p21188"><div class="who"><b>Simone256</b><span>16 ago 2015, 10:13</span></div>Questo non è difficile, però credo sia divertente!<br>
+Sia dato un arco di raggio <span class="tex">\(R\)</span> individuato da un angolo <span class="tex">\(\theta\)</span> di massa omogenea; determinare la posizione del centro di massa dell'arco.<br>
+P.s. Vietato usare integrali  :P</article>
+<article class="post" id="p21189"><div class="who"><b>Mdz</b><span>16 ago 2015, 10:49</span></div>Mi sono appena iscritto e non so usare il Latex, comunque il mio risultato è x=0 e y=rsin(theta)/theta dove x=0 per simmetria</article>
+<article class="post" id="p21191"><div class="who"><b>Simone256</b><span>16 ago 2015, 12:59</span></div>Sicuro che al posto di <span class="tex">\(\theta\)</span> non ci sia <span class="tex">\(\theta/2\)</span>?</article>
+<article class="post" id="p21193"><div class="who"><b>Mdz</b><span>16 ago 2015, 13:11</span></div>Si scusa ero partito con l idea che l'angolo era 2 theta (letto male)</article>
+<article class="post" id="p21194"><div class="who"><b>Simone256</b><span>16 ago 2015, 13:41</span></div>Ci sta ponendo l'angolo in quel modo il risultato è anche più bello da vedere! ;)<br>
+Però per avere il testimone mi devi dire come l'hai fatto! Ricordando che non sono ammessi gli integrali  :P</article>
+<article class="post" id="p21196"><div class="who"><b>Mdz</b><span>16 ago 2015, 15:58</span></div>Posto le foto per complicazioni tecniche
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><img src="../img/10cc9e974365bf18.gif" alt="" /> <a class="postlink" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=365" class="ext">img016.pdf</a></dt>
+						<dd>(81.5 KiB) Scaricato 354 volte</dd>
+		</dl>
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p21197"><div class="who"><b>andrea96</b><span>16 ago 2015, 17:27</span></div><blockquote><div><cite>Simone256 ha scritto:</cite> Ricordando che non sono ammessi gli integrali  :P</div></blockquote></article>
+<article class="post" id="p21198"><div class="who"><b>Mdz</b><span>16 ago 2015, 17:37</span></div>Non ho usato integrali</article>
+<article class="post" id="p21199"><div class="who"><b>Simone256</b><span>16 ago 2015, 18:00</span></div>Buono! Sei riuscito a non usarli! (Andrea se vedi alla fine non ha usato formule di integrazione ma solo il concetto...)<br>
+Esiste una soluzione più fisica che implicitamente usa la stessa idea geometrica ma che è mascherata da un concetto fisico abbastanza noto ;)</article>
+<article class="post" id="p21200"><div class="who"><b>Mdz</b><span>16 ago 2015, 18:01</span></div>Si poteva immaginare anche di ruotare il tutto e usare il teorema di pappo o gul qualcuno.. non ricordo il nome</article>
+<article class="post" id="p21201"><div class="who"><b>Simone256</b><span>16 ago 2015, 18:09</span></div>Quel teorema non me lo ricordo bene me l'andrò a guardare...<br>
+<br>
+Prova con quest'idea:<br>
+<br>
+<span style="color:#FFFFFF"><span style="font-size: 50%; line-height: normal">Fallo ruotare attorno al centro della circonferenza e vedi la forza centrifuga... Puoi modellizzarla come una "pressione lineare" interna. Infine poni le adeguate equazioni sull'ordinata del centro di massa</span></span></article>
+<article class="post" id="p21202"><div class="who"><b>Mdz</b><span>16 ago 2015, 18:14</span></div>E' vero, bella idea... appena arrivo a casa posto la soluzione anche con questo metodo</article>
+<article class="post" id="p21207"><div class="who"><b>andrea96</b><span>16 ago 2015, 18:50</span></div><blockquote><div><cite>Mdz ha scritto:</cite>Non ho usato integrali</div></blockquote>
+perdonami :D <br>
+appena ho visto il simbolo di integrale ho chiuso il file...  :cry:</article>
+<article class="post" id="p21208"><div class="who"><b>Mdz</b><span>16 ago 2015, 18:53</span></div>Sono io che scrivo male, quella doveva essere una somma ahahah</article>
+<article class="post" id="p21225"><div class="who"><b>Simone256</b><span>16 ago 2015, 19:52</span></div>Hahaha in ogni caso il testimone è tuo! Posta il problema 52  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6156.html"><small>← precedente</small>50: Catena in caduta libera</a><a class="next" href="olifis-6160.html"><small>successivo →</small>52. Radiazione centrifuga</a></nav>
+</main></body></html>

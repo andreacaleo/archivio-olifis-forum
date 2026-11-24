@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>243. Reticolo a nido d&#x27;ape</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 243</a></span></nav>
+<h1>243. Reticolo a nido d'ape</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7024">forum Olifis</a></p>
+<article class="post first" id="p26634"><div class="who"><b>drago</b><span>4 dic 2020, 10:46</span></div>Dato un reticolo infinito a nido d'ape in cui ogni lato è composto da un filo conduttivo con resistenza pari a <span class="tex">\(R\)</span>.<br>
+Detti <span class="tex">\(A\)</span> e <span class="tex">\(C\)</span> due vertici distinti e adiacenti ad uno stesso vertice <span class="tex">\(B\)</span> calcolare le seguenti resistenze equivalenti<br>
+
+<ul>
+<li><span class="tex">\(R_{AB}\)</span> la resistenza equivalente tra i nodi <span class="tex">\(A\)</span> e <span class="tex">\(B\)</span></li>
+<li><span class="tex">\(R_{AC}\)</span> la resistenza equivalente tra i nodi <span class="tex">\(A\)</span> e <span class="tex">\(C\)</span></li>
+<li><span class="tex">\(R_\text{cut}\)</span> la resistenza equivalente tra i nodi <span class="tex">\(A\)</span> e <span class="tex">\(B\)</span> se il filo tra essi viene tagliato</li>
+</ul></article>
+<article class="post" id="p26636"><div class="who"><b>Luca Milanese</b><span>5 dic 2020, 11:02</span></div>Il reticolo è infinito?</article>
+<article class="post" id="p26637"><div class="who"><b>Leo</b><span>5 dic 2020, 12:31</span></div>Non voglio passare avanti a Drago io che non sapevo neppure che il nido d'ape è costituito da esagoni...ma per vedere se avevo capito il testo: se la resistenza totale dei vari lati è R finita, questo implica che il reticolo non è infinito :?:  :?:</article>
+<article class="post" id="p26638"><div class="who"><b>Luca Milanese</b><span>5 dic 2020, 12:38</span></div>Hai ragione, infatti il mio dubbio è proprio quello. Però se il reticolo non fosse infinito mi sembra che bisognerebbe specificare il numero di esagoni e la posizione dei vertici al suo interno...</article>
+<article class="post" id="p26639"><div class="who"><b>Leo</b><span>5 dic 2020, 13:00</span></div>Io pensavo Luca che questo fosse un vantaggio per noi perchè uno può immaginare una struttura (per es. un esagono circondato da altri 6) e su quello fare i conti. Non credo che gli potrebbe essere contestato di esser caduto in un caso particolare... :?:</article>
+<article class="post" id="p26640"><div class="who"><b>drago</b><span>5 dic 2020, 13:01</span></div>Ho corretto il testo, il reticolo è infinito</article>
+<article class="post" id="p26641"><div class="who"><b>Leo</b><span>6 dic 2020, 11:43</span></div>Sia AB orizzontale con un esagono sopra ed uno sotto di cui fa parte, con un semipiano sopra ed uno sotto. I punti A e B siano connessi con un generatore, A positivo +V e B negativo -V. La corrente diretta sarà <span class="tex">\(I=2V/R\)</span>. Si considerino ora i due lati  dell'esagono superiore adiacenti ad AB, diciamo AD e BE. B ed E sono entrambi a potenziale nullo e quindi possono essere congiunti  stabilendo un parallelo di resistenza 2R, in cui giustamente la corrente è I/2 perchè ha resistenza doppia. In sostanza la mia idea è che l'esagono(semipiano) superiore equivale a 2R. Lo stesso quello inferiore. Conclusione secondo me: la resistenza equivalente è il parallelo fra R,2R e 2R cioè <span class="tex">\(R_{AB}=R/2\)</span>. <br>
+Si può trovare subito <span class="tex">\(R_{CUT}=R\)</span> (omettendo AB le resistenze di entrambi i semipiani rimangono invariate e quindi si farebbe il parallelo fra 2R e 2R). Penso che sarebbe giusto che venisse doppia perchè manca il collegamento diretto. Quanto a quella fra A e C secondo me si può fare la serie fra quella già trovata fra A e B e quella che dovrebbe essere uguale fra B e C per avere <span class="tex">\(R_{AC} = R \)</span>. Mi rimangono dubbi su queste soluzioni ma ho trovato anche un altro modo di affrontare il problema che dà lo stesso risultato... :?:  :?:</article>
+<article class="post" id="p26642"><div class="who"><b>drago</b><span>6 dic 2020, 12:30</span></div>Mi spiace ma il ragionamento è sbagliato, in quanto secondo la tua notazione i nodi <span class="tex">\(D\)</span> ed <span class="tex">\(E\)</span> non sono a potenziale nullo.<br>
+Se mi specifichi meglio il ragionamento alla base di questa assunzione possiamo ragionare su dove sta l'errore concettuale.</article>
+<article class="post" id="p26643"><div class="who"><b>Leo</b><span>7 dic 2020, 12:11</span></div>Secondo me i due punti sono allo stesso potenziale perchè non risentono del collegamento di A e B ai poli se non per il fatto che la corrente va da A a D e la stessa va da E a B ed è metà di quella che va direttamente da A a B: è quindi come se fossero connessi e praticamente pensavo che è come se, considerando anche l'esagono inferiore, AB fosse in una "bolla" senza che ci fossero altre possibilità di coillegamento con il resto del reticolo. Quindi calcolavo la resistenza equivalente.<br>
+Comunque sbagliato per sbagliato di voglio sottoporre un altro ragionamento che conduce allo stesso risultato. <br>
+Data sempre la connessione al generatore, ci sarà un flusso di corrente da A a B in ogni istante. Si può supporre ora equivalentemente che questo processo contemporaneo di uscita da A ed entrata in B avvenga in due tempi: prima effluisce da A e poi affluisce in B. L'unico tratto del reticolo percorso sia durante l'efflusso da A che durante l'entrata in B è proprio AB che pertanto risulta percorso dalla corrente 2I doppia di quella che gli competerebbe cioè 2V/R. Allora il semipiano superiore e quello inferiore devono sopperire ciascuno con I/2 e quindi equivalgono ad una resistenza 2R e ritorna il parallelo R,2R e 2R :?:  :?:  :?: Mi scuso se approfitto della tua pazienza :D</article>
+<article class="post" id="p26644"><div class="who"><b>drago</b><span>9 dic 2020, 19:56</span></div>Scusa se rispondo solo adesso ma ho avuto un po'da fare in questi giorni.<br>
+<br>
+Il fatto che la corrente tra <span class="tex">\(A\)</span>e <span class="tex">\(D\)</span> è uguale in modulo e verso a quella tra <span class="tex">\(E\)</span> e <span class="tex">\(B\)</span> è dato dalla simmetria destra/sinistra del circuito ma non ti dà nessuna informazione sui potenziali di  <span class="tex">\(E\)</span> e <span class="tex">\(D\)</span> se non che siano opposti ma potrebbero non essere nulli (cosa che effettivamente succede).<br>
+<br>
+Il ragionamento in due tempi mi piace abbastanza (è necessario formalizzarlo meglio, prova a pensare alla sovrapposizione degli effetti) come si distribuiscono le correnti quando escono dal nodo <span class="tex">\(A\)</span> e come rientrano dal nodo <span class="tex">\(B\)</span> prova a pensarci ancora un po'</article>
+<article class="post" id="p26645"><div class="who"><b>Leo</b><span>10 dic 2020, 12:10</span></div>Mentre sto pensando ad una nuova formalizzazione ti prego di specificare il (cosa che effettivamente succede): se intendi che sono opposti o che sono nulli :?:  :?:</article>
+<article class="post" id="p26646"><div class="who"><b>drago</b><span>10 dic 2020, 12:24</span></div>il fatto che siano opposti è dato dalla simmetria, quello che intendevo è che non è possibile saperlo a priori ma i potenziali non sono nulli quindi la tua assunzione non è valida</article>
+<article class="post" id="p26647"><div class="who"><b>Leo</b><span>10 dic 2020, 13:08</span></div>Allora secondo il ragionamento che mostri di apprezzare, posti A e B in connessione con un generatore con il polo positivo +V in A e quello negativo -V in B, la corrente scorrerà da A a B contemporaneamente. In maniera equivalente si può immaginare questo processo come la sovrapposizione di due processi separati nel tempo. Con la sola presenza del polo A le cariche usciranno da A e per simmetria percorreranno le tre possibili uscite con una intensità di corrente <span class="tex">\(I/3\)</span>. Successivamente con la sola presenza del polo negativo B affluiranno a questo polo dai tre possibili ingressi sempre con intensità <span class="tex">\(I/3\)</span>per ciascuno, fra cui dal tratto da A a B come nel semitempo precedente. Per cui il tratto da A a B è percorso nella sovrapposizione dalla corrente <span class="tex">\((2/3)I\)</span>, doppia di quella che competerebbe alla sua resistenza R. Quindi si può scrivere <span class="tex">\((2V/I)=(2/3)R\)</span>. Pertanto <span class="tex">\(R_{AB}=(2/3)R\)</span>rappresenta la resistenza equivalente fra A e B, come parallelo fra R , 4R e 4R. (avevo sbagliato il conto nella prima formulazione mettendo un 2 al posto del 4). Di conseguenza sarà <span class="tex">\(R_{CUT}= 2R\)</span> come parallelo di 4R e 4R. Ritengo infine che la resistenza equivalente fra A e C sia il doppio di quella fra A e B cioè <span class="tex">\(R_{AC}= (4/3)R\)</span> :?:  :?:</article>
+<article class="post" id="p26648"><div class="who"><b>drago</b><span>10 dic 2020, 16:35</span></div>Le resistenze <span class="tex">\(R_{AB}\)</span> e <span class="tex">\(R_\text{cut}\)</span> sono corrette, per <span class="tex">\(R_{AC}\)</span> non ci siamo ancora, prova a sviluppare ancora un poco il ragionamento che hai fatto</article>
+<article class="post" id="p26649"><div class="who"><b>Leo</b><span>10 dic 2020, 18:31</span></div>Mettendo ora i poli +V in A e -V in C, al solito nel primo tempo escono da A tre volte <span class="tex">\(I/3\)</span> che poi entrano in C nel secondo tempo. Il tratto ABC di resistenza 2R mi risulterebbe percorso da <span class="tex">\((I/3)+(I/6)=(I/2)\)</span>per cui <span class="tex">\((2V/I)=(2/2)R\)</span>e pertanto mi verrebbe<span class="tex">\(R_{AC}=R\)</span>maggiore ma non doppia di <span class="tex">\(R_{AB}\)</span> :?:  :?:</article>
+<article class="post" id="p26650"><div class="who"><b>drago</b><span>10 dic 2020, 20:13</span></div>corretto</article>
+<article class="post" id="p26651"><div class="who"><b>Leo</b><span>11 dic 2020, 10:57</span></div>Sono contento e ti ringrazio :D  :D</article>
+<article class="post" id="p26653"><div class="who"><b>drago</b><span>11 dic 2020, 13:58</span></div>adesso però prova a proporre tu un problema, non importa se ti sembra semplice, tutti le prime volte sul forum hanno iniziato con problemi semplici.</article>
+<article class="post" id="p26654"><div class="who"><b>Leo</b><span>11 dic 2020, 18:05</span></div>Giusto, lo prenderò da un libro che ho comprato. E' dello stesso genere dell'ultimo ma appunto molto più semplice :D</article>
+<nav class="pager"><a class="prev" href="olifis-7017.html"><small>← precedente</small>242. Griglia LC infinita</a><a class="next" href="olifis-7028.html"><small>successivo →</small>244-SNS n.6-2014    Cubo di resistenze</a></nav>
+</main></body></html>

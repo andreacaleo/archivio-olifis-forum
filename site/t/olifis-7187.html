@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>303. Un cubo e la sua gravità</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 303</a></span></nav>
+<h1>303. Un cubo e la sua gravità</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7187">forum Olifis</a></p>
+<article class="post first" id="p27746"><div class="who"><b>Pigkappa</b><span>9 mag 2023, 1:01</span></div>Un cubo di materia oscura di densità uniforme si trova nello spazio, e non si muove. Un corpo parte da fermo, a grande distanza dal cubo, e viene attratto dal cubo per gravità. Il corpo ha velocità <span class="tex">\(v\)</span> quando passa per un vertice del cubo. Se il corpo passa poi per il centro del cubo, che velocità ha in quel momento?</article>
+<article class="post" id="p27747"><div class="who"><b>Higgs</b><span>10 mag 2023, 12:05</span></div>La materia oscura è quella che interagisce gravitazionalmente ma non elettromagneticamente? Finché il corpo è fuori dal cubo vede la massa del cubo concentrata nel suo centro e la conservazione dell'energia cinetica più potenziale (negativa) esige che il totale sia nullo come all'inizio? Fino all'ingresso si può integrare l'equazione di Newton integrata con la seconda legge della dinamica con il trucco di moltiplicare i due membri per 2v e di eliminare dt al denominatore di ambo i membri? O non ho capito il testo e quanto dico è sciocco? :?:  :?:</article>
+<article class="post" id="p27748"><div class="who"><b>Torros</b><span>10 mag 2023, 16:08</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7187.html#p27747" data-post-id="27747" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 mag 2023, 12:05</div></cite>
+Fino all'ingresso si può integrare l'equazione di Newton integrata con la seconda legge della dinamica con il trucco di moltiplicare i due membri per 2v e di eliminare dt al denominatore di ambo i membri?</div></blockquote>
+Mi potresti spiegare cosa intendi con questo trucco? Ad ogni modo a me sembra bastino solo considerazioni energetiche: come credo giustamente dici l’energia totale del corpo inizialmente fermo e posto a grande distanza dal cubo deve risultare pari a zero in ogni istante. Poiché la forza gravitazionale al centro del cubo deve risultare per simmetria pari a zero, ne consegue che anche l’energia potenziale gravitazionale sia zero e, per la conservazione dell’energia, che pure l’energia cinetica sia zero. Perciò la velocità al centro del cubo è nulla. Avrò detto qualche fesseria, vi prego di correggermi.</article>
+<article class="post" id="p27750"><div class="who"><b>Pigkappa</b><span>10 mag 2023, 16:28</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7187.html#p27747" data-post-id="27747" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 mag 2023, 12:05</div></cite>
+La materia oscura è quella che interagisce gravitazionalmente ma non elettromagneticamente? 
+</div></blockquote>
+Giusto<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7187.html#p27747" data-post-id="27747" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 mag 2023, 12:05</div></cite>
+Finché il corpo è fuori dal cubo vede la massa del cubo concentrata nel suo centro
+</div></blockquote>
+Sbagliato<br>
+Il campo gravitazionale al di fuori di una distribuzione di massa non e' uguale a quello che si avrebbe se la massa fosse nel baricentro. Questo e' vero solo se la distribuzione ha simmetria sferica, non e' vero in generale.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7187.html#p27747" data-post-id="27747" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 mag 2023, 12:05</div></cite>
+la conservazione dell'energia cinetica più potenziale (negativa) esige che il totale sia nullo come all'inizio?
+</div></blockquote>
+Giusto<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7187.html#p27747" data-post-id="27747" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 mag 2023, 12:05</div></cite>
+Fino all'ingresso si può integrare l'equazione di Newton integrata con la seconda legge della dinamica con il trucco di moltiplicare i due membri per 2v e di eliminare dt al denominatore di ambo i membri?
+</div></blockquote>
+La parte di moltiplicare per 2v non l'ho capita.<br>
+La conservazione dell'energia si ottiene avendo integrato la seconda legge della dinamica <span class="tex">\(F = ma\)</span>, se intendi questo...<br>
+
+<blockquote><div><cite>Torros ha scritto: <a href="olifis-7187.html#p27748" data-post-id="27748" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 mag 2023, 16:08</div></cite>
+la forza gravitazionale al centro del cubo deve risultare per simmetria pari a zero
+</div></blockquote>
+Giusto<br>
+
+<blockquote><div><cite>Torros ha scritto: <a href="olifis-7187.html#p27748" data-post-id="27748" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 mag 2023, 16:08</div></cite>
+ne consegue che anche l’energia potenziale gravitazionale sia zero
+</div></blockquote>
+Sbagliato<br>
+Immagina sia una sfera invece che un cubo. La gravita', sia dentro che fuori dalla sfera, e' sempre diretta verso il centro. Quindi il corpo, quando arriva nel centro, avra' velocita' massima. L'energia potenziale gravitazionale nel centro e' minima - negativa e massima in valore assoluto. Non e' zero.<br>
+<br>
+Potete provare a risolvere il caso in cui la distribuzione sia sferica, invece che cubica, che e' piu' standard, e aiuta a chiarire i concetti.</article>
+<article class="post" id="p27751"><div class="who"><b>Higgs</b><span>10 mag 2023, 17:25</span></div>Mentre nei prossimi giorni tenterò la simmetria sferica  che ci ha suggerito Pigkappa volevo spiegare meglio il discorso del 2v perché se non è chiaro né a Torros né a Pigkappa dipende da me. Volevo dire che<span class="tex">\(ma=m dv/dt= GMm/r^2\)</span> Moltiplicando i due membri per 2v=2dr/dt il primo membro diventa <span class="tex">\(d(v^2)/dt\)</span> ed il secondo<span class="tex">\(2 (GM/r^2)dr/dt\)</span> per cui eliminando dt ad ambo i membri si può integrare rispetto a v il primo membro fra 0 e il dato del testo ed il secondo rispetto ad r fra infinito e il vertice <span class="tex">\(l\sqrt 3/2\)</span>. Mi pare che venga la conservazione dell'energia ovvero <span class="tex">\((1/2)mv^2 - GMm/l\sqrt 3=0\)</span>...</article>
+<article class="post" id="p27752"><div class="who"><b>Torros</b><span>11 mag 2023, 16:33</span></div>Provo a risolvere il problema per una distribuzione di antimateria sferica.<br>
+In tale caso è possibile sfruttare il teorema di Gauss per ricavare il valore dell'accelerazione che agisce sulla particella punto per punto:<br>
+<br>
+<span class="tex">\(
+
+ g(\vec{r})  = -\frac{G M(r) }{r^2} \hat{r} = -\frac{4G \pi r \rho }{3} \hat{r}
+
+\)</span><br>
+<br>
+Con il versore <span class="tex">\(\hat{r} \)</span> rivolto verso l'esterno della sfera. Scrivo ora l'accelerazione come prodotto della derivata della velocità rispetto al raggio e la derivata del raggio rispetto al tempo, ovvero la velocità:<br>
+<br>
+<span class="tex">\(
+
+ \frac{d\vec{v}}{d\vec{r}} \ \vec{v}= -\frac{4G \pi r \rho }{3} \hat{r}
+
+\)</span><br>
+<br>
+Porto <span class="tex">\(dr\)</span> a destra e risolvo l'integrale di sinistra da <span class="tex">\(v\)</span> a <span class="tex">\(V\)</span> (dove <span class="tex">\(V\)</span> rappresenta la velocità della particella al centro) e l'integrale di destra da <span class="tex">\(R\)</span> (raggio della sfera) a 0.<br>
+Da qui segue che:<br>
+<br>
+<span class="tex">\(
+V= \sqrt{\frac{4 }{3} \pi R^2 \rho G +v^2}
+\)</span><br>
+<br>
+Ora mi chiedo come si possa passare al caso del cubo. La differenza sta ovviamente nella mancanza di simmetria e perciò nella difficoltà di trovare l'accelerazione punto per punto. Ho poi un'altra domanda: se sappiamo che il corpo partito da grande distanza arriva al vertice del cubo, possiamo supporre che la velocità <span class="tex">\(\vec{v}\)</span> abbia come direzione la diagonale del cubo? Magari per una questione di simmetria che non vedo? O non serve a nulla? Grazie.</article>
+<article class="post" id="p27753"><div class="who"><b>Pigkappa</b><span>11 mag 2023, 17:19</span></div>Nel testo l'unica variabile data è <span class="tex">\(v\)</span> quindi, a meno di dimostrare che proprio non si può, la risposta si deve esprimere solo in termini di <span class="tex">\(v\)</span> (e costanti numeriche tipo pi greco o radice di 2, e fisiche tipo G). Manca un'idea per eliminare la dipendenza da <span class="tex">\(R, \rho\)</span>...</article>
+<article class="post" id="p27754"><div class="who"><b>Torros</b><span>13 mag 2023, 9:25</span></div>L’energia potenziale U rispetto al raggio risulta essere:<br>
+<br>
+<span class="tex">\(
+U=-G\frac{mM}{r}
+\)</span><br>
+<br>
+Per la conservazione dell’energia, quest’ultima deve risultare pari a zero lungo tutto il moto; dunque l’energia potenziale del corpo  <span class="tex">\(m\)</span> quando possiede velocità <span class="tex">\(v\)</span> (ovvero quando dista <span class="tex">\(R\)</span> dal centro della sfera) deve essere pari a:<br>
+<br>
+<span class="tex">\(
+U=-G\frac{mM}{R}=-\frac{1}{2}mv^2
+\)</span><br>
+<br>
+Semplificando otteniamo la relazione:<br>
+<br>
+<span class="tex">\(
+G\frac{M}{R}=\frac{1}{2}v^2
+\)</span><br>
+<br>
+Si può scrivere <span class="tex">\(V\)</span> come:<br>
+<br>
+<span class="tex">\(
+V=v \sqrt{\frac{3}{2}}
+\)</span></article>
+<article class="post" id="p27755"><div class="who"><b>Pigkappa</b><span>13 mag 2023, 11:07</span></div>Perfetto<br>
+<br>
+Nel caso del cubo non importa se il moto è esattamente lungo la diagonale o no. Se la velocità iniziale è esattamente 0 in pratica lo deve essere ma per considerazioni energetiche non fa differenza.</article>
+<article class="post" id="p27756"><div class="who"><b>Higgs</b><span>13 mag 2023, 11:34</span></div>Il tuo è ancora a simmetria sferica ma mi sembra che non è eliminata la dipendenza da M e R quello che richiede Pigkappa. Perchè esprimi V per mezzo di v e va bene ma v dipende da M e da R...Vale comunque anche per il problema del testo che <span class="tex">\(-(1/2)mv^2=U \)</span>dovendo la loro somma essere zero anche quando passa dal centro in cui F=0, -dU/dr=0 ma <span class="tex">\(U(0)=-(1/2)mv^2(0)\)</span> sempre per la condizione che la somma dell'energia cinetica e di quella potenziale deve annullarsi.</article>
+<article class="post" id="p27757"><div class="who"><b>Pigkappa</b><span>14 mag 2023, 2:11</span></div>Quel che intendevo dire è che l'unica variabile a cui è stato assegnato un nome è <span class="tex">\(v\)</span> e quindi il risultato era da esprimere solo in termini di <span class="tex">\(v\)</span>.<br>
+<br>
+Che il moto nel caso cubico sia sulla diagonale per forza peraltro non ne sono affatto sicuro. Non credo la gravità sia sempre diretta verso il centro del cubo e quindi si potrebbe finire in un vertice anche partendo da fuori dalla diagonale. Comunque non è importante per risolvere il problema.</article>
+<article class="post" id="p27758"><div class="who"><b>Higgs</b><span>14 mag 2023, 10:32</span></div>Scusa Torros non capisco perché si può scrivere <span class="tex">\(V=v\sqrt (3/2)\)</span> Grazie</article>
+<article class="post" id="p27759"><div class="who"><b>Torros</b><span>14 mag 2023, 10:59</span></div>Provo a spiegarmi meglio, ho saltato qualche passaggio.<br>
+Credo sia chiaro che:<br>
+<br>
+<span class="tex">\(
+V=\sqrt{\frac{4}{3}\pi R^2 \rho G+v^2}
+\)</span><br>
+<br>
+Ma <span class="tex">\(\frac{4}{3}\pi R^2 \rho = \frac{M}{R}\)</span> e dunque:<br>
+<br>
+<span class="tex">\(
+V=\sqrt{\frac{M}{R}G+v^2}
+\)</span><br>
+<br>
+Dal secondo messaggio che ho scritto dopo il suggerimento di Pigkappa, ho trovato la relazione:<br>
+<br>
+<span class="tex">\(
+\frac{M}{R}G= \frac{1}{2}v^2
+\)</span><br>
+<br>
+Ho dunque sostituito <span class="tex">\(\frac{M}{R}G \)</span> sotto la radice con <span class="tex">\(\frac{1}{2}v^2\)</span>.<br>
+<br>
+Grazie Pigkappa per le delucidazioni, nei prossimi giorni mi metto e provo a risolvere il caso del cubo.</article>
+<article class="post" id="p27760"><div class="who"><b>Higgs</b><span>14 mag 2023, 11:46</span></div>Grazie Torros. Quel commento di Pigkappa "perfetto" è allora riferito alla simmetria sferica se affronterai il caso del cubo come del resto tenterò anch'io.</article>
+<article class="post" id="p27761"><div class="who"><b>DeoGratias</b><span>15 mag 2023, 23:16</span></div>WLOG, siano <span class="tex">\(l, M\)</span> il lato e la massa del cubo di antimateria. Indichiamo con <span class="tex">\(\phi\)</span> il potenziale gravitazionale, e sia <span class="tex">\(\phi_0 (l)\)</span> il suo valore al centro di un cubo di lato <span class="tex">\(l\)</span>, <span class="tex">\(\phi_1(l)\)</span> il suo valore su un vertice dello stesso cubo. L'energia potenziale gravitazionale di un corpo di massa <span class="tex">\(m\)</span> sarà quindi <span class="tex">\(U=m\phi\)</span><br>
+Come già spiegato da @Torros e @Higgs, l'energia totale del corpo è sempre zero, quindi, indicando con <span class="tex">\(V\)</span> la sua velocità quando passa per il centro del cubo, si avrà <br>
+<span class="tex">\(\frac{1}{2}mv^2+m\phi_1(l)=0=\frac{1}{2}mV^2+m\phi_0(l)\)</span>, da cui <span class="tex">\(\frac{V^2}{v^2}=\frac{\phi_0 (l)}{\phi_1 (l)}\)</span>.<br>
+Ci basta quindi trovare il valore di <span class="tex">\(\phi_0\)</span> in funzione di <span class="tex">\(\phi_1\)</span>. Il potenziale sul vertice del cubo sarà pari a <span class="tex">\(\phi_1(l)=-\alpha \frac{GM}{l}\)</span>, dove <span class="tex">\(\alpha\)</span> è una costante adimensionale che dipende soltanto dalla geometria del cubo e non dalle sue dimensioni. Un cubo con la stessa densità ma lato <span class="tex">\(l/2\)</span> avrà massa pari a <span class="tex">\(M/8\)</span>, quindi il potenziale sul suo vertice varrà <span class="tex">\(\phi_1(l/2)=-\alpha \frac{G\frac{M}{8}}{\frac{l}{2}}=\frac{1}{4} \phi_1(l)\)</span>.<br>
+<br>
+Immaginiamo di dividere il cubo originale di lato <span class="tex">\(l\)</span> in 8 cubetti di lato <span class="tex">\(l/2\)</span>: per il principio di sovrapposizione, il potenziale al centro <span class="tex">\(\phi_0 (l)\)</span> sarà pari alla somma dei potenziali dei singoli cubetti in tale punto; ma questo coincide con un vertice di ciascuno dei cubetti, quindi <br>
+<br>
+<span class="tex">\(\phi_0 (l)=8\phi_1(l/2)=2\phi_1(l)\)</span>. <br>
+<br>
+Da ciò segue che <span class="tex">\(V=\sqrt{2}v\)</span></article>
+<article class="post" id="p27762"><div class="who"><b>Pigkappa</b><span>16 mag 2023, 12:55</span></div>Giusto.<br>
+<br>
+Staffetta a DeoGratias, se gli altri hanno dubbi ovviamente chiedano</article>
+<article class="post" id="p27764"><div class="who"><b>Torros</b><span>16 mag 2023, 18:49</span></div><blockquote><div><cite>DeoGratias ha scritto: <a href="olifis-7187.html#p27761" data-post-id="27761" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">15 mag 2023, 23:16</div></cite>
+Il potenziale sul vertice del cubo sarà pari a <span class="tex">\(\phi_1(l)=-\alpha \frac{GM}{l}\)</span>, dove <span class="tex">\(\alpha\)</span> è una costante adimensionale che dipende soltanto dalla geometria del cubo e non dalle sue dimensioni.
+</div></blockquote>
+
+Non riesco a dimostrare che ciò sia vero. Mi potreste spiegare? Grazie!</article>
+<article class="post" id="p27765"><div class="who"><b>Pigkappa</b><span>17 mag 2023, 21:59</span></div>Una analogia e' quella del momento di inerzia rispetto ad un asse, scritto come integrale sul volume <span class="tex">\(\displaystyle I = \int{R^2(\vec r) \rho(\vec r) dV}\)</span> dove <span class="tex">\(\displaystyle R^2(\vec r)\)</span> e' la distanza dall'asse, spero sia chiara la notazione.<br>
+Il momento di inerzia di una particella a distanza <span class="tex">\(\displaystyle R\)</span> dall'asse e' <span class="tex">\(M R^2\)</span>. Se prendi quella massa e la distribuisci in un disco attorno all'asse di raggio <span class="tex">\(\displaystyle R\)</span>, diventa <span class="tex">\(\displaystyle \frac{1}{2}M R^2\)</span>. Se invece la distribuisci a forma di asta diventa <span class="tex">\(\displaystyle \frac{1}{12} M R^2\)</span>, se la distribuisci ad anello e' <span class="tex">\(\displaystyle M R^2\)</span> come nel primo caso, e cosi' via. Evidentemente, quando fai l'integrale, ti verra' sempre un coefficiente per <span class="tex">\(\displaystyle M R^2\)</span>. <br>
+<br>
+La stessa cosa vale per il potenziale al vertice di un cubo gravitazionale - evidentemente verra' un risultato proporzionale a <span class="tex">\(\displaystyle -\frac{G M}{L}\)</span> per una qualche costante. Esplicito il conto. Il potenziale in un punto e' la somma dei potenziali dovuti a ogni elemento di massa, ovvero <span class="tex">\(\displaystyle \phi(\vec x) = \int{-\frac{G \rho(\vec r)}{|\vec x - \vec r|} \cdot dV}\)</span>. <br>
+<br>
+Se il cubo ha un vertice il (0,0,0), quello opposto in (L,L,L) e calcolo il potenziale nel primo vertice:<br>
+<span class="tex">\(\displaystyle \phi = \int_{x=0}^L{\int_{y=0}^L{\int_{z=0}^L{-\frac{G \rho}{\sqrt{x^2 + y^2 + z^2}}dx}dy}dz}\)</span><br>
+Estraendo dall'integrale e facendo cambi di variabili per togliere <span class="tex">\(\displaystyle L\)</span> dagli estremi di integrazione:<br>
+<span class="tex">\(\displaystyle \phi = -G\rho L^2\int_{x=0}^1{\int_{y=0}^1{\int_{z=0}^1{\frac{1}{\sqrt{x^2 + y^2 + z^2}}dx}dy}dz}\)</span><br>
+Usando <span class="tex">\(\displaystyle M = \rho L^3\)</span>:<br>
+<span class="tex">\(\displaystyle \phi = -\frac{GM}{L} \cdot \Big( \int_{x=0}^1{\int_{y=0}^1{\int_{z=0}^1{\frac{1}{\sqrt{x^2 + y^2 + z^2}}dx}dy}dz} \Big) \)</span><br>
+Quell'integrale 3-dimensionale che ho raccolto in parentesi e' il coefficiente numerico. Fortunatamente per questo problema non serviva calcolarlo esplicitamente perche' alla fine si semplificava nel risultato finale. Mathematica mi dice che l'integrale fa <span class="tex">\(\displaystyle 3 \ln{\frac{1+\sqrt 3}{\sqrt 2}} - \frac{\pi}{4}\)</span> ma non lo saprei fare a mano.</article>
+<article class="post" id="p27767"><div class="who"><b>Torros</b><span>19 mag 2023, 14:30</span></div>Tutto chiaro, grazie mille!</article>
+<nav class="pager"><a class="prev" href="olifis-7186.html"><small>← precedente</small>302. Campo elettrico in un guscio semisferico</a><a class="next" href="olifis-7188.html"><small>successivo →</small>304 - Ancora cubi!</a></nav>
+</main></body></html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7: Anello in salita</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 7</a></span></nav>
+<h1>7: Anello in salita</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4777">forum Olifis</a></p>
+<article class="post first" id="p15676"><div class="who"><b>Andg94</b><span>30 set 2013, 17:04</span></div>Due perle di massa <span class="tex">\(m\)</span> sono posizionate nella parte superiore di un anello di massa <span class="tex">\(M\)</span> e raggio <span class="tex">\(R\)</span>, che si erge verticalmente sul terreno. Alle perle è data una velocità iniziale affinché queste inizino a scorrere lungo il cerchio, una a destra e una a sinistra. Quale è il valore minimo di <span class="tex">\(m/M\)</span> per cui il cerchio si alzerà da terra ad un certo istante durante il movimento?<br>
+(Al posto di questo avevo trovato un problema carino riguardo la macchina di Atwood, ma a quanto pare Pigkappa l'aveva già postato tempo fa qui sul forum  :| )
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/a0b1320021522a3c.png" class="postimage" alt="Immagine.png" onclick="viewableArea(this);" /></dt>
+						<dd>Immagine.png (4.36 KiB) Visto 8760 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p15677"><div class="who"><b>Simone256</b><span>30 set 2013, 18:24</span></div>Scusa non ho capito bene  :oops: <br>
+Le perle sono poste internamente all'anello? Il parametro v_0 è inutile? Da come l'ho capito io il parametro v_0 è necessario... Anche per stabilire se rimarranno aderenti internamente all'anello... Oppure non ho capito 'na mazza  :(</article>
+<article class="post" id="p15678"><div class="who"><b>Andg94</b><span>30 set 2013, 21:05</span></div>No, la velocità iniziale è trascurabile, serve solo per mettere il moto le palline. Comunque scusate, mi son dimenticato di allegare l'immagine, spero che ora riusciate a capire meglio anche la situazione!</article>
+<article class="post" id="p15679"><div class="who"><b>Simone256</b><span>30 set 2013, 21:22</span></div>Aaaah ho capito scorrono come se fossero bucate al centro  :) <br>
+Grazie mille  :P</article>
+<article class="post" id="p15680"><div class="who"><b>Simone256</b><span>1 ott 2013, 17:41</span></div>Potrei aver sbagliato... Se il risultato è corretto posto una soluzione e se è sbagliato ricontrollo i calcoli o al massimo ci riprovo:<br>
+<span class="tex">\(\frac{m}{M}=\frac{3}{2}\)</span></article>
+<article class="post" id="p15681"><div class="who"><b>Andg94</b><span>1 ott 2013, 22:01</span></div>Posta pure la soluzione completa  ;)</article>
+<article class="post" id="p15682"><div class="who"><b>poor</b><span>2 ott 2013, 17:38</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Potrei aver sbagliato... Se il risultato è corretto posto una soluzione e se è sbagliato ricontrollo i calcoli o al massimo ci riprovo:<br>
+<span class="tex">\(\frac{m}{M}=\frac{3}{2}\)</span></div></blockquote>
+Anche a me risultò questo valore quando provai a fare il problema che è stato assegnato come test di ammissione in Normale nel 2009-2010. Ormai come altri si trova già risolto in Problemi di Fisica Ed. Libreriauniversitaria.it</article>
+<article class="post" id="p15683"><div class="who"><b>gilgamesh</b><span>2 ott 2013, 19:34</span></div><blockquote><div><cite>poor ha scritto:</cite>
+Anche a me risultò questo valore quando provai a fare il problema che è stato assegnato come test di ammissione in Normale nel 2009-2010. Ormai come altri si trova già risolto in Problemi di Fisica Ed. Libreriauniversitaria.it</div></blockquote>
+
+Ma anche senza andare così lontano <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=12&amp;t=249" class="ext" class="postlink">http://forumwww.cadnet.marche.it#46;oli ... f=12&amp;t=249</a></article>
+<article class="post" id="p15684"><div class="who"><b>Simone256</b><span>3 ott 2013, 16:43</span></div>Scusate il ritardo ma in questi giorni sono incasinatissimo  :cry: <br>
+<br>
+Ebbene, se le perle si trovano nella metà inferiore dell'anello eserciteranno in ogni caso una forza con componente verticale diretta verso il basso... Pertanto poiché a tali forze si aggiunge il peso dell'anello non riusciremo ad ottenere il risultato sperato. Analizziamo quindi le sfere nella metà superiore... Poniamo l'attenzione sulla perla in alto a destra e utilizziamo come origine del nostro sistema di riferimento il centro dell'anello con asse <span class="tex">\(x\)</span> orizzontale e quindi parallelo al suolo.<br>
+La perla è intercettata da un angolo <span class="tex">\(\theta\)</span> rispetto all'orizzontale... La somma tra la componente radiale del peso e la forza (anch'essa radiale) N esercitata dall'anello sulla perla è uguale alla forza centripeta agente sulla perla stessa:<br>
+<span class="tex">\(N+mg \mbox{sin }\theta = m\frac{v^2}{R}\)</span><br>
+Poiché non agiscono attriti abbiamo conservazione dell'energia totale che in questo caso si esprime come somma tra energia potenziale gravitazionale ed energia cinetica... La velocità della perla in funzione di \theta sarà (ometto i calcoli... Perdonatemi):<br>
+<span class="tex">\(\sqrt{2(R-R \mbox{sin }\theta)g}\)</span><br>
+Unendo le equazioni ottengo svolgendo i calcoli:<br>
+<span class="tex">\(N=gm(2-3 \mbox{sin }\theta)\)</span><br>
+La componente netta della forza verso l'alto generata dalle sfere sarà quindi:<br>
+<span class="tex">\(2N \mbox{sin }\theta\)</span><br>
+Dove il fattore <span class="tex">\(2\)</span> è giustificato dalla presenza di due sfere... Questa forza verso l'alto deve essere maggiore o uguale del peso <span class="tex">\(P\)</span> dell'anello:<br>
+<span class="tex">\(2N \mbox{sin }\theta \geq P\)</span><br>
+<span class="tex">\(2gm(2-3 \mbox{sin }\theta)\mbox{sin }\theta \geq Mg\)</span><br>
+<span class="tex">\(\frac{m}{M} \geq \frac{1}{4 \mbox{sin }\theta - 6  \mbox{sin }^2\theta}\)</span><br>
+E qui per trovare il minimo si può procedere in diversi modi... Come sostituire a <span class="tex">\(\mbox{sin }\theta\)</span> una variabile ausiliaria <span class="tex">\(x\)</span> e trovare il massimo della parabola <span class="tex">\(-6x^2+4x\)</span> e sostituire il valore di <span class="tex">\(x\)</span> corrispondente a <span class="tex">\(\mbox{sin }\theta\)</span> per poi trovare che:<br>
+<span class="tex">\(\frac{m}{M} \geq \frac{3}{2}\)</span><br>
+<br>
+Oppure si deriva brutalmente!  :P</article>
+<article class="post" id="p15686"><div class="who"><b>Andg94</b><span>3 ott 2013, 19:38</span></div>Scusate, il problema l'avevo trovato da un'altra fonte (parte di alcuni problemi proposti da David Morin) e non mi sono minimamente accorto che lo stesso era un problema d'ammissione alla Normale di qualche anno fa, peraltro già risolto qui sul forum. <br>
+Comunque la soluzione è corretta, avanti pure con il prossimo!</article>
+<nav class="pager"><a class="prev" href="olifis-4725.html"><small>← precedente</small>6: Minigolf! (SNS 91/92 N°5)</a><a class="next" href="olifis-4778.html"><small>successivo →</small>8: Cavità sferica in una sfera carica</a></nav>
+</main></body></html>

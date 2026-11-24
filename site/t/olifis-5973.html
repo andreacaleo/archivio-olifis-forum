@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12: la staffetta continua!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 12</a></span></nav>
+<h1>12: la staffetta continua!</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5973">forum Olifis</a></p>
+<article class="post first" id="p19466"><div class="who"><b>OrsoBruno96</b><span>19 set 2014, 17:42</span></div>STAFFETTA: ricordo che chi risolve un problema della  staffetta è obbligato a pubblicarne un altro entro un giorno.<br>
+<br>
+Un razzo parte da fermo da terra ed espelle propulsore a velocità relativa <span class="tex">\(\vec u\)</span> costante<br>
+<br>
+Assumere <span class="tex">\(\vec g\)</span> costante. <br>
+<br>
+1) scrivere l'equazione del moto del razzo, trascurando ogni tipo di attrito<br>
+<br>
+Il carburante viene espulso con la legge <span class="tex">\(m(t) = m_0(1-\alpha t)\)</span><br>
+<br>
+2)Calcolare NUMERICAMENTE il rapporto <span class="tex">\(\dfrac {m}{m_0}\)</span> quando il razzo ha raggiunto la velocità di fuga, assumendo che la velocità di espulsione del propellente (che è idrogeno) sia la velocità media delle particelle del gas a STP e che il razzo perda 1/250 della sua massa ogni secondo <br>
+<br>
+3) Extra: calcolare a che altezza si trova il razzo quando è nella situazione del punto 2 (dico extra perché non ci ho ancora provato e non so se viene accettabile o uno schifo ;) )</article>
+<article class="post" id="p19467"><div class="who"><b>andrea96</b><span>19 set 2014, 20:02</span></div>la legge dell'espulsione è scritta proprio così?! perchè per come è scritta a un certo punto <span class="tex">\(m(t)\)</span> diventa negativo cioè il razzo acquista carburante, il che mi sembra abbastanza surreale nello spazio...  :?  :roll:</article>
+<article class="post" id="p19468"><div class="who"><b>OrsoBruno96</b><span>19 set 2014, 20:07</span></div>no, m(t) è la massa del razzo. chiaramente la massa del razzo  non può essere negativa quindi ti interessano solo alcuni valori di t</article>
+<article class="post" id="p19469"><div class="who"><b>OrsoBruno96</b><span>19 set 2014, 20:09</span></div>in pratica c'è scritto che la massa diminuisce linearmente finchè la propulsione è in funzione</article>
+<article class="post" id="p19470"><div class="who"><b>andrea96</b><span>19 set 2014, 20:17</span></div>sisi ho capito  ;)</article>
+<article class="post" id="p19471"><div class="who"><b>sall96</b><span>19 set 2014, 20:42</span></div><span class="tex">\(\displaystyle g\)</span> deve essere considerato costante anche per il secondo punto?</article>
+<article class="post" id="p19472"><div class="who"><b>OrsoBruno96</b><span>19 set 2014, 20:50</span></div>Si. Il terzo punto mi è venuto in mente proprio per verificare se questa ipotesi è verosimile</article>
+<article class="post" id="p19473"><div class="who"><b>andrea96</b><span>19 set 2014, 22:29</span></div>prima che io perda tempo a scrivere cose che magari sono assurde... al primo punto mi viene una legge oraria "abbastanza" complessa... è possibile?</article>
+<article class="post" id="p19474"><div class="who"><b>andrea96</b><span>20 set 2014, 0:24</span></div>intanto posto il mio procedimento per il punto 1 ( che però ritengo sbagliato perchè il risultato ottenuto sarebbe inutilizzabile al punto 2 anche per un cinese! ) <br>
+al tempo <span class="tex">\(t\)</span> il razzo avrà quantità di moto <span class="tex">\(p(t)=v(t)m(t)=m_0v(t)(1-\alpha t)\)</span>. Ora, sul razzo agisce la forza gravitazionale <span class="tex">\(F_g=gm_0(1-\alpha t)\)</span> e la forza di propulsione <span class="tex">\(F_p=\frac{d}{dt}(u dm_e)\)</span> dove <span class="tex">\(dm_e=m_0\alpha dt\)</span> è la massa di carburante espulsa nel tempo <span class="tex">\(dt\)</span>. Quindi <span class="tex">\(F_p=um_0\alpha\)</span>.<br>
+Allora la legge di Newton si scrive:<br>
+<span class="tex">\(\frac{dp}{dt}=m_0v'(t)(1-\alpha t)-m_0\alpha v(t)=m_0u\alpha-gm_0(1-\alpha t)\)</span><br>
+L'equazione differenziale è una lineare del primo ordine (se consideriamo come incognita <span class="tex">\(v(t)\)</span> ) risolta da:<br>
+<span class="tex">\(v(t)=\frac{(u\alpha -g)t+\frac{g\alpha}{2} t^2}{1-\alpha t}\)</span>.<br>
+Purtroppo se integro per trovare la legge del moto viene fuori una funzione talmente complicata che non la scrivo nemmeno!  :evil:  :evil: <br>
+Il fatto è che non capisco quale parte del ragionamento sia errata....</article>
+<article class="post" id="p19475"><div class="who"><b>OrsoBruno96</b><span>20 set 2014, 17:07</span></div>No, non mi torna la stessa v(t)... <br>
+<br>
+Penso che tu ti sia incasinato prendendo in considerazione solo il razzo, sostituendo la presenza della qdm del carburante con una forza propulsiva<br>
+<br>
+Inoltre, ti aggiungo che non ti serve sapere la funzione m(t = tempo specifico) in ogni punto per avere v(t = tempo specifico) ma solo il valore della funzione. Intendo dire che <span class="tex">\(\Delta v\)</span> è di stato e non di percorso. La dipendenza esplicita anche da t c'è solo per la presenza di <span class="tex">\(\vec g\)</span><br>
+<br>
+Ti consiglio di:<br>
+-ripartire con un caso più semplice, ovvero senza la gravità e poi fare il caso più generale<br>
+-non sostituire m(t) nel punto 1 ma solo nel punto 2<br>
+<br>
+In ogni caso non aspettarti funzioni particolarmente belle perché non sono tali ;)<br>
+<br>
+Infine, trovare x(t) serve solo per il punto 3, non è richiesto  esplicitamente dagli altri, quindi fallo alla fine</article>
+<article class="post" id="p19476"><div class="who"><b>phyknight</b><span>21 set 2014, 13:45</span></div>Questa soluzione nasce per essere soluzione dei punti 1 e 3 ed è stata adattata per il punto 2...quindi la soluzione del punto 2 fa un po' schifo...ma non importa<br>
+<br>
+Sia <span class="tex">\(p(t)\)</span> la quantità di moto del razzo all'istante <span class="tex">\(t\)</span>, <span class="tex">\(v(t)\)</span> la velocità, <span class="tex">\(a(x)\)</span> l'accelerazione, <span class="tex">\(x(t)\)</span> l'altezza dal suolo, <span class="tex">\(m(t)\)</span> la massa e <span class="tex">\(\lambda(t)\)</span> la massa per unità di tempo che il razzo perde (cioè <span class="tex">\(\lambda(t)=-\dot m(t)\)</span>).<br>
+Sul razzo agisce solo la forza di gravità verso il basso, quindi <br>
+<span class="tex">\(p(t+dt)-p(t)=-m(t)gdt\)</span><br>
+Ora, <span class="tex">\(p(t)=m(t)v(t)\)</span> e <span class="tex">\(p(t+dt)=[m(t)-\lambda (t)dt]v(t+dt)+\lambda (t)dt[v(t)-u]=[m(t)-\lambda (t)dt][v(t)+\dot v(t)dt]+\lambda (t)dt[v(t)-u]\)</span><br>
+La relazione di prima è quindi <br>
+<span class="tex">\([m(t)-\lambda (t)dt][v(t)+\dot v(t)dt]+\lambda (t)dt[v(t)-u]-m(t)v(t)=-m(t)gdt\)</span><br>
+Facendo i prodotti e trascurando il termine di secondo ordine che esce, si arriva a <br>
+<span class="tex">\(m(t)\dot v(t)dt=\lambda(t)udt-m(t)gdt\)</span> e quindi <span class="tex">\(a(t)=\dot v(t)=\dfrac{u\lambda (t)}{m(t)}-g\)</span><br>
+A questo punto uno dovrebbe lasciare <span class="tex">\(a(t)\)</span> in funzione di <span class="tex">\(\dfrac{m}{m_0}\)</span> oppure del mio <span class="tex">\(\lambda\)</span>, ma secondo me è meglio sostituire direttamente la relazione <span class="tex">\(m(t)=m_0(1-\alpha t)\)</span> così si capisce subito che forma hanno i grafici delle tre funzioni.<br>
+Quindi <span class="tex">\(\lambda(t)=-\dot m(t)=m_0\alpha\)</span> e <span class="tex">\(a(t)=\dfrac{u\alpha m_0}{m_0(1-\alpha t)}-g\)</span><br>
+Allora <span class="tex">\(a(t)=\dfrac{u\alpha}{1-\alpha t}-g\)</span><br>
+Integrando questa, poiché il razzo parte da fermo e da terra, <span class="tex">\(v(t)=-u \ ln(1-\alpha t)-gt\)</span><br>
+Integrando di nuovo  <span class="tex">\(x(t)=-u\left[\left(t-\dfrac{1}{\alpha}\right)ln(a-\alpha t)-t\right]-\dfrac{1}{2}gt^2\)</span>  <br>
+L'ultima integrazione è un po' più brutta delle altre, ma non c'è nulla di difficile (si integra per parti e viene subito)<br>
+Il fatto che il razzo perde <span class="tex">\(\dfrac{1}{250}\)</span> della sua massa al secondo significa banalmente che <span class="tex">\(\alpha=\dfrac{1}{250}\)</span><br>
+inoltre sappiamo che <span class="tex">\(u=\sqrt{\dfrac{3RT}{M}}\)</span> con <span class="tex">\(M\)</span> la massa molare delle molecole di idrogeno e quindi a STP <span class="tex">\(u\approx 1838 \ m/s\)</span><br>
+La velocità di fuga l'ho trovata ponendo in pratica l'energia totale del razzo uguale a zero, quindi <span class="tex">\(\dfrac{1}{2}v(t)^2=\dfrac{GM_T}{r_T+x(t)}\)</span> con <span class="tex">\(M_T, r_T\)</span> massa e raggio terrestre.<br>
+Per risolvere questa avevo provato a scrivere l'espansione in serie del logaritmo...ma l'approssimazione che veniva fuori era troppo grande e avrei dovuto aggiungere termini di ordine superiore (e quindi il calcolo sarebbe diventato impossibile da fare a mano)<br>
+La soluzione che ho trovato è quindi non calcolarla a mano, ma l'ho data in pasto a wolfram alpha che mi ha restituito il valore del tempo corrispondente a quando il razzo raggiunge la velocità di fuga  :D <br>
+Dopo aver sbagliato 3 volte a inserire lo stesso dato in wolfram, ho trovato <span class="tex">\(t\approx 249.84 \ s\)</span> e qundi<br>
+<span class="tex">\(\dfrac{m}{m_0}=1-\alpha t=0.00064\)</span> (e quindi <span class="tex">\(\dfrac{m_0}{m}\approx 1562\)</span> se interessa)<br>
+Per il punto 3 ho sostituito il valore di <span class="tex">\(t\)</span> nella formula per <span class="tex">\(x(t)\)</span> e ho trovato <span class="tex">\(x(fuga)\approx 170761  \ m\)</span><br>
+<br>
+valore alternativo: OrsoBruno96 ha scritto che le molecole sono a STP, ma molto probabilmente intendeva a SATP, cioè a temperatura ambiente, e in questo caso dovrebbe venire <span class="tex">\(u\approx 1921 \ m/s\)</span>, <span class="tex">\(t\approx 249.78 \ s\)</span> (mooolto diverso da quello precedente ;) ) e <span class="tex">\(\dfrac{m}{m_0}=0.00088\)</span><br>
+<br>
+qualche(una) considerazione: forse ho sbagliato qualcosa (non i conti, quelli li ho controllati fin troppe volte  :lol: )...se invece non ho sbagliato, il rapporto tra le masse sembra essere davvero molto piccolo, perché il tempo a cui viene raggiunta la velocità di fuga è molto vicino al valore limite di 250...non che mi aspettassi cose tanto diverse visti i grafici di <span class="tex">\(x,v,a\)</span> ma se fosse stato anche di un ordine di grandezza superiore sarei stato più tranquillo della correttezza della soluzione...</article>
+<article class="post" id="p19477"><div class="who"><b>phyknight</b><span>21 set 2014, 14:32</span></div>forse c'è qualche problema...nella soluzione ho considerato <span class="tex">\(g\)</span> costante mentre all'altezza della velocità di fuga <span class="tex">\(g\approx 9.31\)</span> ...</article>
+<article class="post" id="p19478"><div class="who"><b>andrea96</b><span>21 set 2014, 15:15</span></div><blockquote><div><cite>phyknight ha scritto:</cite>forse c'è qualche problema...nella soluzione ho considerato <span class="tex">\(g\)</span> costante mentre all'altezza della velocità di fuga <span class="tex">\(g\approx 9.31\)</span> ...</div></blockquote>
+g costante era un ipotesi del problema e se leggi qualche post primo orsobruno aveva aggiunto il punto 3 proprio per questo.<br>
+ammetto di non aver letto tutta la soluzione perchè ci sono troppi conti e magari me la vedo un altra volta, però c'è un punto che mi è balzato all'occhio: 
+<blockquote class="uncited"><div>Sul razzo agisce solo la forza di gravità verso il basso, quindi <br>
+p(t+dt)-p(t)=-m(t)gdt</div></blockquote>
+non sono troppo convinto di questo:<br>
+la forza di gravità è l'unica forza agente se consideri il sistema razzo-carburante, ma se consideri solo il razzo ( e mi sembra di aver capito che è quello che fai perchè <span class="tex">\(p(t)\)</span> hai scritto che è la quantità di moto del razzo ) c'è anche una forza tra il razzo e il carburante, che se <span class="tex">\(p(t)\)</span> fosse la quantità di moto del sistema razzo-carburante giustamente non consideri per il terzo principio della dinamica, ma nel tuo caso andrebbe considerata: secondo quello che hai scritto infatti se fossimo in assenza di gravità, il razzo dovrebbe rimanere fermo, cosa che non succede invece! se infatti il razzo espelle un quantità infinitesima di carburante che avrà quantità di moto <span class="tex">\(dp=udm\)</span> il razzo SENZA QUELLA PARTE DI CARBURANTE per la conservazione della quantità di moto deve acquistare quantità di moto <span class="tex">\(dp\)</span> nel senso inverso...</article>
+<article class="post" id="p19479"><div class="who"><b>phyknight</b><span>21 set 2014, 17:12</span></div>Ok, scusa, ho scritto un po' male...con <span class="tex">\(p\)</span> intendo la quantità di moto del sistema razzo-carburante<br>
+Infatti <span class="tex">\(p(t+dt)=roba +\lambda (t)dt[v(t)-u]\)</span> e questo termine è la quantità di moto del carburante emesso<br>
+Per dirlo ancora meglio, <span class="tex">\(p(t)\)</span> è la quantità di moto del razzo all'istante <span class="tex">\(t\)</span> senza considerare tutto il carburante che ha emesso prima, e <span class="tex">\(p(t+dt)\)</span> è la quantità di moto del razzo dopo che ha emesso <span class="tex">\(dm\)</span> di carburante <span class="tex">\(+\)</span> la quantità di moto di quel <span class="tex">\(dm\)</span> di carburante.<br>
+Il casino è nato dal fatto che nel problema non c'è effettivamente una distinzione tra razzo e carburante, e quindi ho scritto sempre "razzo"</article>
+<article class="post" id="p19480"><div class="who"><b>OrsoBruno96</b><span>21 set 2014, 18:41</span></div>La risoluzione è corretta. Sei stato anche troppo preciso, per la velocità di fuga mi accontentavo di un banale <span class="tex">\(\sqrt{\dfrac{2GM}{r_T}}\)</span>, senza andare a vedere effettivamente di quanto cambia salendo ;)<br>
+<br>
+Il rapporto <span class="tex">\(\dfrac {m}{m_0}\)</span> è effettivamente minuscolo (<a href="http://it.wikipedia.org/wiki/Moto_dei_corpi_di_massa_variabile" class="ext" class="postlink">http://it.wikipedia.org/wiki/Moto_dei_c ... _variabile</a>). Credo che in qualche modo si riesca ad ottimizzare il consumo di carburante facendo seguire una traiettoria precisa al razzo e modificando il dm/dt in maniera opportuna, cosa che qui è stata semplificata per evitare di fare un problema di ingegneria aerospaziale ;)<br>
+<br>
+Avanti con il prossimo problema!</article>
+<nav class="pager"><a class="prev" href="olifis-5971.html"><small>← precedente</small>11: La staffetta continua??</a><a class="next" href="olifis-5975.html"><small>successivo →</small>13: Problemi Attraenti</a></nav>
+</main></body></html>

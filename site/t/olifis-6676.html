@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>145: Rotolando giù da una semisfera</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 145</a></span></nav>
+<h1>145: Rotolando giù da una semisfera</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6676">forum Olifis</a></p>
+<article class="post first" id="p24677"><div class="who"><b>Gamow00</b><span>6 apr 2018, 15:47</span></div>Una particella puntiforme di massa <span class="tex">\(m\)</span> è posta sulla sommità di una semisfera avente la stessa massa. La semisfera è collocata su una superficie piana senza attrito. Alla particella viene dato un piccolo colpo ed essa comincia a scivolare. A quale angolo <span class="tex">\(\theta\)</span> (inclinazione della retta particella-centro della semisfera rispetto alla verticale) la particella si staccherà dalla semisfera?<br>
+Tra la particella e la semisfera non c'è attrito.<br>
+<br>
+Nella figura <span class="tex">\(m=M\)</span>.<br>
+<img src="../img/80935a8ac52a8a4a.jpg" class="postimage" alt="Immagine"></article>
+<article class="post" id="p24678"><div class="who"><b>Aleksej99</b><span>6 apr 2018, 18:58</span></div>Si stacca per <span class="tex">\(cos( \theta) = \frac{2}{3}\)</span>, dove <span class="tex">\(\theta \)</span> é l'angolo con la verticale?</article>
+<article class="post" id="p24679"><div class="who"><b>diego</b><span>6 apr 2018, 19:11</span></div>30 gradi?</article>
+<article class="post" id="p24680"><div class="who"><b>lance00</b><span>6 apr 2018, 21:04</span></div><span class="tex">\(\theta = \arccos(\sqrt{3}-1)\)</span> se non ho sbagliato i conti ... comunque il problema lo conoscevo già  :) è un SNS vecchio e c'è anche sul Morin</article>
+<article class="post" id="p24681"><div class="who"><b>Gamow00</b><span>6 apr 2018, 21:19</span></div>@aleksej<br>
+La semisfera non è immobile...<br>
+<br>
+@lance00<br>
+Posta la soluzione e la staffetta è tua 8-)</article>
+<article class="post" id="p24682"><div class="who"><b>Aleksej99</b><span>6 apr 2018, 21:37</span></div>Boh strano, mi sembrava di aver considerato che la sfera si muovesse...<br>
+Magari ho sbagliato dei calcoli, comunque mi veniva da massimizzare la funzione <span class="tex">\(y=k \sqrt{ \frac{1- cos \theta} {1+ 2 tg^2 \theta}} \)</span></article>
+<article class="post" id="p24683"><div class="who"><b>lance00</b><span>6 apr 2018, 21:54</span></div>@Gamow: mi sembra di barare visto che l’avevo già risolto  :lol: aspetto ancora un po’ poi se fra qualche giorno non l’ha ancora risolto nessuno la posto</article>
+<article class="post" id="p24684"><div class="who"><b>Aleksej99</b><span>6 apr 2018, 21:59</span></div>Ok controllando con wolfram mi sono accorto di aver sbagliato i conti... Mi torna il risultato di lance00... Avevo visto sul Morin il problema quindi aspetto anche io dai...</article>
+<article class="post" id="p24695"><div class="who"><b>JacopoTosca</b><span>10 apr 2018, 15:49</span></div>Anche a me torna lo stesso risultato ma mi verrebbe indipendente dalla massa M della cupola possibile? :?:</article>
+<article class="post" id="p24698"><div class="who"><b>Gamow00</b><span>10 apr 2018, 16:34</span></div>Sisi è indipendente.<br>
+Anche perché per analisi dimensionale l'angolo non può dipendere dalla massa.</article>
+<article class="post" id="p24699"><div class="who"><b>Ilgatto</b><span>10 apr 2018, 18:39</span></div>Iniziamo definendo <span class="tex">\(v_x\)</span> la velocità orizzontale della pallina che è anche quella della semisfera per la conservazione della quantità di moto (le consideriamo in modulo). Per la conservazione dell'energia abbiamo <span class="tex">\(2rg(1-\cos\theta)=2v_x^2+v_y^2\)</span>. Notiamo innanzitutto che la pallina scende e aumenta la sua velocità, quindi ci sarà un momento in cui la sua velocità sarà troppo elevata per restare sulla semisfera e se ne staccherà. Questa velocità è quella che rende insufficiente la componente del peso perpendicolare alla superficie come forza centripeta. Quindi poniamo questa componente uguale alla nostra forza centripeta: <span class="tex">\(mg\cos\theta=m\frac{4v_x^2+v_y^2}{r}\)</span>. Combinando questa equazione con quella trovata in precedenza e notando che <span class="tex">\(\tan\theta=\frac{v_y}{2v_x}\)</span> ovvero <span class="tex">\(v_y=2v_x\tan\theta\)</span> (la pallina si muove sulla superficie sferica finché non se ne stacca, quindi questa relazione è valida fino al momento del distacco dalla semisfera) otteniamo: <span class="tex">\(2rg=v_x^2(10+12\tan^2\theta)\)</span>. Ora ricaviamo <span class="tex">\(v_x\)</span> dalla conservazione dell'energia ricordando il legame tra le velocità e la tangente ottenendo <span class="tex">\(v_x^2=\frac{rg(1-\cos\theta)}{1+2\tan^2\theta}\)</span>. Sostituendo e trasformando la tangente al quadrato in <span class="tex">\(\frac{1-\cos^2\theta}{\cos^2\theta}\)</span> si ottiene <span class="tex">\(\cos^3\theta-6\cos\theta+4=0\)</span>.<br>
+L'unica soluzione tra <span class="tex">\(-1\)</span> e <span class="tex">\(1\)</span> è quella di lance00.<br>
+Allo stesso modo si può ricavare la formula generale per qualsiasi rapporto tra le masse che è <span class="tex">\(\frac{m}{M+m}\cos^3\theta-3\cos\theta+2=0\)</span>. Sarebbe interessante averne una formula esplicita, ma non saprei come trovarla.</article>
+<article class="post" id="p24703"><div class="who"><b>Gamow00</b><span>11 apr 2018, 15:21</span></div>Bene @ilgatto! La staffetta è tua.  La formula esplicita puoi trovarla con la formula risolutiva delle equazioni di terzo grado, ma penso venga molto poco interessante...</article>
+<nav class="pager"><a class="prev" href="olifis-6666.html"><small>← precedente</small>144: Elettroni in un cilindro</a><a class="next" href="olifis-6682.html"><small>successivo →</small>146: La formica che non arriva</a></nav>
+</main></body></html>

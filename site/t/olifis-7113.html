@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>280. Flusso di calore</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 280</a></span></nav>
+<h1>280. Flusso di calore</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7113">forum Olifis</a></p>
+<article class="post first" id="p27222"><div class="who"><b>Luca Milanese</b><span>29 nov 2021, 20:48</span></div>Sono dati due grandi piani paralleli, a distanza <span class="tex">\(L\)</span> l'uno dall'altro, tenuti alle temperature <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2\)</span> con <span class="tex">\(T_1 \gg T_2\)</span>. L'area dei piani è molto maggiore di <span class="tex">\(L^2\)</span>. Lo spazio fra i due piani è riempito con un gas ideale di massa molare <span class="tex">\(M\)</span> e densità molare <span class="tex">\(n\)</span>. Si assuma che il libero cammino medio del gas in queste condizioni sia molto maggiore di <span class="tex">\(L\)</span>, e si trascuri la radiazione di corpo nero. Si ipotizzi inoltre che, quando una particella di gas colpisce uno dei due piani, ne assume istantaneamente la temperatura. In queste condizioni, determimare o stimare (il coefficiente numerico può non essere esatto) il calore trasmesso per unità di area e di tempo fra i due piani.</article>
+<article class="post" id="p27226"><div class="who"><b>Luca Milanese</b><span>7 dic 2021, 8:45</span></div>Hint: considerare il moto di una particella di gas che "rimbalza" tra i due piani.</article>
+<article class="post" id="p27227"><div class="who"><b>DeoGratias</b><span>7 dic 2021, 16:24</span></div>Sia x un asse perpendicolare ai due piani; userò il pedice <span class="tex">\(_1\)</span> per riferirmi alle particelle che si muovono dal piano caldo a quello freddo, <span class="tex">\(_2\)</span> per le altre.<br>
+Sia <span class="tex">\(\left \langle v \right \rangle\)</span> la velocità media (in modulo) delle molecole alla temperatura <span class="tex">\(T\)</span>. Usando la distribuzione di Maxwell, si ottiene <span class="tex">\(\left \langle v \right \rangle= 4\pi \left ( \frac{M}{2\pi RT} \right )^{\frac{3}{2}}\int_{0}^{\infty}v^3e^{-\frac{M{v}^2}{2RT}}dv = \sqrt{\frac{32RT}{\pi M}}\int_{0}^{\infty}x^3e^{-x^2}dx=\sqrt{\frac{8RT}{\pi M}}\)</span>.<br>
+Nell'urto con uil piano più freddo, <span class="tex">\(\textup{d}N\)</span> molecole trasmetteranno un calore <span class="tex">\(\textup{d}Q=\frac{3}{2}k(T_1-T_2)\textup{d}N\)</span> e la velocità di ognuna cambierà da <span class="tex">\(\sqrt{\frac{8RT_1}{\pi M}}\)</span> a <span class="tex">\(\sqrt{\frac{8RT_2}{\pi M}}\)</span> (o viceversa nell'urto con il piano più caldo), senza però che vari il rapporto <span class="tex">\(\frac {v_x}{v}\)</span>. Consideriamo tutte le particelle con lo stesso valore di <span class="tex">\(\frac {v_x}{v}\)</span> (quindi con il vettore velocità inclinato dello stesso angolo rispetto all'asse x), e supponiamo di essere in uno stato stazionario, in cui l'intensità del flusso di calore è costante nel tempo: ciò è possibile solo se il numero di particelle che colpiscono il piano freddo in un tempo <span class="tex">\(\textup{d}t\)</span> è pari al numero di quelle che colpiscono quello caldo. Detta quindi <span class="tex">\(n_1\)</span> la densità molare di molecole che si muovono dal caldo al freddo, <span class="tex">\(n_2\)</span> quella opposta, con <span class="tex">\(n=n_1+n_2\)</span>, si dovrà avere<br>
+<span class="tex">\(\textup{d}N_1=n_1Av_{1x}\textup{d}t=\textup{d}N_2=n_2Av_{2x}\textup{d}t \Rightarrow n_1=\frac{nv_{2x}}{v_{1x}+v_{2x}}=\frac{n\sqrt{T_2}}{\sqrt{T_1}+\sqrt{T_2}}\)</span><br>
+Di conseguenza, il contributo infinitesimo all'intensità del flusso dato dalle molecole con velocità lungo l'asse x compresa tra <span class="tex">\(v_{1x}\)</span> e <span class="tex">\(v_{1x}+\textup{d}v_{1x}\)</span> è <br>
+<span class="tex">\(\textup{d}I=\frac{3}{2}kn(T_1-T_2)\frac{\sqrt{T_2}}{\sqrt{T_1}+\sqrt{T_2}}v_{1x}\textup{d}P\)</span><br>
+dove <span class="tex">\(\textup{d}P\)</span> indica il rapporto tra il numero di tali molecole e quello totale di molecole che si muovono dal piano caldo al piano freddo.<br>
+Perciò l'intensità totale sarà data da <span class="tex">\(I=\frac{3}{2}kn(T_1-T_2)\frac{\sqrt{T_2}}{\sqrt{T_1}+\sqrt{T_2}}\left \langle v_{1x} \right \rangle\)</span><br>
+dove <span class="tex">\(\left \langle v_{1x} \right \rangle\)</span> è il valore medio della loro velocità di quest'ultime lungo l'asse x.<br>
+Visto che, per ognuna di queste molecole, si può scrivere <span class="tex">\(v_{1x}=v_1\textup{sin}\theta \textup{sin}\phi\)</span>, con <span class="tex">\(\theta, \phi\)</span> compresi tra <span class="tex">\(0\)</span> e <span class="tex">\(\pi\)</span>, si avrà <span class="tex">\(\left \langle v_{1x} \right \rangle = \frac{\left \langle v_1 \right \rangle}{\pi^2}\int_{0}^{\pi}\int_{0}^{\pi}\textup{sin}\theta \textup{sin}\phi \textup{d}\theta \textup{d}\phi = \frac{4}{\pi^2}\sqrt{\frac{8RT}{\pi M}}\)</span><br>
+Quindi, <span class="tex">\(I=\frac{12\sqrt2}{\pi^{5/2}}\textup{k}n(T_1-T_2)\sqrt{\frac{RT_1T_2}{M(\sqrt{T_1}+\sqrt{T_2})^2}}=\frac{12\sqrt2}{\pi^{5/2}}\textup{k}n(\sqrt{T_1}-\sqrt{T_2})\sqrt{\frac{RT_1T_2}{M}}\)</span></article>
+<article class="post" id="p27228"><div class="who"><b>Luca Milanese</b><span>7 dic 2021, 18:02</span></div>Direi che ci siamo, la staffetta è tua, tuttavia ti invito a sostituire <span class="tex">\(R\)</span> a <span class="tex">\(k\)</span> (<span class="tex">\(n\)</span> è densità molare) e a rivedere meglio il tuo calcolo di <span class="tex">\(\langle v_{1x} \rangle\)</span>, che è sbagliato e ti porta a un coefficiente numerico errato.</article>
+<article class="post" id="p27229"><div class="who"><b>DeoGratias</b><span>9 dic 2021, 16:51</span></div>1) Sì, mi sono scordato un <span class="tex">\(N_a\)</span> nel calcolo delle particelle che urtano il piano.<br>
+2) In effetti tornava strano anche a me :D <br>
+Correggerei così: consideriamo una semisfera di raggio unitario sezionata in due dal piano <span class="tex">\(yz\)</span>; sia <span class="tex">\(\theta\)</span> l'angolo di un vettore di modulo unitario formato con l'asse <span class="tex">\(x\)</span>. La probabilità che la proiezione sull'asse x di questo vettore sia compresa tra <span class="tex">\(\textup{cos} \theta\)</span> e <span class="tex">\(\textup{cos} (\theta+\textup{d} \theta)\)</span> è <span class="tex">\(\textup{d}P=\textup{sin} \theta \textup{d} \theta \)</span>. La stessa cosa può essere fatta con il vettore <span class="tex">\(\vec{\left \langle v \right \rangle}\)</span>; visto che <span class="tex">\( v_x(\theta) ={\left \langle v \right \rangle}\textup{cos}\theta\)</span>, allora <span class="tex">\({\left \langle v_{1x} \right \rangle}=\int v_{1x}(\theta)\textup{d}P=\left \langle v_1 \right \rangle\int_{0}^{\pi/2}\textup{sin} \theta \textup{cos} \theta \textup{d} \theta=\frac{1}{2}\left \langle v_1 \right \rangle = \sqrt{\frac{2RT_1}{\pi M}}\)</span>, quindi il risultato finale dovrebbe essere <br>
+<span class="tex">\(I=3n(\sqrt{T_1}-\sqrt{T_2})\sqrt{\frac{R^3T_1T_2}{2\pi M}}\)</span></article>
+<article class="post" id="p27230"><div class="who"><b>Luca Milanese</b><span>9 dic 2021, 16:55</span></div>Adesso è perfetto! :D</article>
+<article class="post" id="p27231"><div class="who"><b>DeoGratias</b><span>9 dic 2021, 17:01</span></div>Mi rimane un dubbio: perché l'assunzione <span class="tex">\(T_1 \gg T_2\)</span>? In linea teorica non dovrebbe funzionare lo stesso anche se le due temperature fossero vicine?</article>
+<article class="post" id="p27232"><div class="who"><b>Luca Milanese</b><span>9 dic 2021, 17:08</span></div>L'assunzione serviva solamente a permettere di scrivere il risultato in una forma più elegante, come <span class="tex">\(3nT_1 R \sqrt{\frac{RT_2}{2\pi M}}\)</span>  :lol:  :lol:<br>
+Chiaramente il tuo risultato vale anche per <span class="tex">\(T_1 \approx T_2\)</span>, e infatti dà <span class="tex">\(0\)</span> per <span class="tex">\(T_1=T_2\)</span>, come dovrebbe essere nel caso di equilibrio.</article>
+<nav class="pager"><a class="prev" href="olifis-7110.html"><small>← precedente</small>279 - SNS 2021/1</a><a class="next" href="olifis-7115.html"><small>successivo →</small>281 - Goccia d&#x27;acqua</a></nav>
+</main></body></html>

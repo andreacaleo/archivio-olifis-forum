@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>161. Urto reale</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 161</a></span></nav>
+<h1>161. Urto reale</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6744">forum Olifis</a></p>
+<article class="post first" id="p25043"><div class="who"><b>.Ruben.</b><span>7 ago 2018, 9:09</span></div>Un cubo che striscia su un piano orizzontale senza attrito urta un muro verticale parallelo ad una delle sue facce.<br>
+Il coefficiente di attrito tra muro e cubo è <span class="tex">\(\mu\)</span> e l'angolo tra il muro e la velocitâ <span class="tex">\(v\)</span> del cubo è <span class="tex">\(\alpha\)</span>.<br>
+Quanto vale <span class="tex">\(\alpha\)</span> dopo l'urto?</article>
+<article class="post" id="p25044"><div class="who"><b>nicarepo</b><span>7 ago 2018, 10:21</span></div>Può essere  <span class="tex">\(arctg\left\(\frac{1}{2\mu+tg\alpha}\right)\)</span>  ?</article>
+<article class="post" id="p25045"><div class="who"><b>Dudin</b><span>7 ago 2018, 11:19</span></div>A me esce<br>
+<span class="tex">\(  \arctan({\frac{1}{\cot{a}-2\mu}})  \)</span></article>
+<article class="post" id="p25046"><div class="who"><b>nicarepo</b><span>7 ago 2018, 11:50</span></div>Si, ho fatto un errore di calcolo, comunque credo che il ragionamento comune sia il seguente: dato che lungo <span class="tex">\(y\)</span> non agiscono forze dissipative, l'urto si può considerare elastico, quindi:<br>
+<br>
+<span class="tex">\(2mv_{yi}=\int_{0}^{t} N(t)dt\)</span> dove <span class="tex">\(N(t)\)</span> è la reazione vincolare. <br>
+<br>
+La forza d'attrito è definita come: <span class="tex">\(f=\int_{0}^{t} \mu N(t)dt\)</span>  ed è diretta nel verso opposto della velocità lungo <span class="tex">\(x\)</span>. Questa forza fa variare la quantità di moto:<br>
+<br>
+<span class="tex">\(-\int_{0}^{t} \mu N(t)dt=m(v_{xf}-v_{xi})\)</span> sostituendo <span class="tex">\(v_{xi}=vcos(\alpha)    v_{yi}=vsen(\alpha)\)</span> si ottiene:<br>
+<br>
+<span class="tex">\(v_{xf}=vcos(\alpha)-2\mu\)</span> da cui <span class="tex">\( arctg \left ( \frac{vsen \alpha }{ vcos \alpha - 2 \mu vsen \alpha} \right) \)</span></article>
+<article class="post" id="p25047"><div class="who"><b>lance00</b><span>7 ago 2018, 11:53</span></div>stessa formula che ho trovato io.. solo che non funziona per <span class="tex">\(\alpha = \pi/2\)</span> in quanto il blocco non striscia durante l'intervallo di tempo in cui la normale fa sì che inverta il suo moto lungo y</article>
+<article class="post" id="p25048"><div class="who"><b>lance00</b><span>7 ago 2018, 11:56</span></div>E comunque sembra troppo facile per essere un problema di Ruben.. probabilmente sbagliamo qualcosa  :lol:</article>
+<article class="post" id="p25050"><div class="who"><b>Aleksej99</b><span>7 ago 2018, 14:38</span></div>Andrebbe notato un po' meglio cosa succede nel caso, usando la notazione di nicarepo, <span class="tex">\(v cos(a) \le 2 \mu v sin(a) \)</span> ricordandosi che si ha a che fare con l'attrito... Almeno credo</article>
+<article class="post" id="p25053"><div class="who"><b>.Ruben.</b><span>8 ago 2018, 1:02</span></div>Allora, detto <span class="tex">\(\beta\)</span> il nuovo angolo, è vero (cit. Nicarepo) che (se la veloxitá del cubo nella componente parallela al muro non si annulla durante l'urto: ipotesi importante): <span class="tex">\(tan(\beta)=\frac{tan(\alpha)}{1-2\mu tan(\alpha)}\)</span>. Provate a continuare, ragionando <em class="text-italics">da fisici</em>, ripensando daccapo alle soluzioni date con un piglio più realistico.</article>
+<article class="post" id="p25054"><div class="who"><b>.Ruben.</b><span>8 ago 2018, 1:02</span></div>Aleksej99 comunque è avanti...</article>
+<article class="post" id="p25055"><div class="who"><b>lance00</b><span>8 ago 2018, 8:54</span></div>direi che se <span class="tex">\(\cot\alpha &gt; 2\mu\)</span> allora l'angolo è <span class="tex">\(\arctan(\frac{1}{\cot\alpha-1})\)</span> altrimenti è <span class="tex">\(\pi/2\)</span>. Infatti nel secondo caso l'urto dura di più del tempo necessario affinchè la velocità parallela al muro diventi 0 e quindi ad un certo punto la velocità parallela è 0 mentre c'è ancora una forza impulsiva che causa l'inversione del moto lungo la perpendicolare</article>
+<article class="post" id="p25056"><div class="who"><b>.Ruben.</b><span>8 ago 2018, 10:27</span></div>Okay, è come dice lance00(a meno di typo).<br>
+A chi la diamo la staffetta?</article>
+<article class="post" id="p25057"><div class="who"><b>nicarepo</b><span>8 ago 2018, 11:01</span></div>A Lance, io non ho problemi da proporre :D . A proposito: ma da dove li prendete?? (se non li inventate)</article>
+<article class="post" id="p25067"><div class="who"><b>.Ruben.</b><span>8 ago 2018, 21:47</span></div>Io la maggior parte li invento.<br>
+Stavolta (dato che sono in vacanza) il 161 mancato (la cometa) l'ho preso da un sns per 4 anno che avevo risolto tempo fa; questo qui l'ho preso da 'A guide to physics problems' di Cahn.</article>
+<article class="post" id="p25077"><div class="who"><b>nicarepo</b><span>9 ago 2018, 22:04</span></div>Ho capito, grazie  :)</article>
+<nav class="pager"><a class="prev" href="olifis-6741.html"><small>← precedente</small>160. Distanza crescente</a><a class="next" href="olifis-6746.html"><small>successivo →</small>162. Giro in moto</a></nav>
+</main></body></html>

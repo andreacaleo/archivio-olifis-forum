@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10: Icosaedro di resistenze</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 10</a></span></nav>
+<h1>10: Icosaedro di resistenze</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4791">forum Olifis</a></p>
+<article class="post first" id="p15764"><div class="who"><b>Andg94</b><span>11 nov 2013, 0:27</span></div>Ogni spigolo di un icosaedro è composto da una resistenza di <span class="tex">\(1 \Omega\)</span>. Trovare la resistenza equivalente tra due vertici adiacenti. (Un icosaedro è composto da 20 triangoli equilateri. Ha 12 vertici e 30 spigoli, con 5 spigoli che si incontrano ad ogni vertice. Lo saprete già, ma ricopio tutto il testo per completezza!)<br>
+Scusatemi se ho bloccato la staffetta per così tempo, spero almeno gradiate il problema. :)</article>
+<article class="post" id="p15766"><div class="who"><b>Triarii</b><span>11 nov 2013, 21:22</span></div>Scusa la nabbanza, ma la resistenza non è un dispositivo bipolare, nel senso che ha una entrata e una uscita? Come fa ad averle se è un punto su un vertice nel quale confluiscono 5 spigoli? Non capisco  :cry:</article>
+<article class="post" id="p15767"><div class="who"><b>Pigkappa</b><span>11 nov 2013, 21:53</span></div>Penso volesse dire che ogni spigolo è composto da una resistenza, non ogni vertice.</article>
+<article class="post" id="p15768"><div class="who"><b>Andg94</b><span>12 nov 2013, 21:44</span></div>Ovviamente intendevo che ogni spigolo è composto da una resistenza, scusate l'erroraccio di trascrizione, correggo subito, grazie per avermelo segnalato!</article>
+<article class="post" id="p15769"><div class="who"><b>poor</b><span>13 nov 2013, 12:13</span></div>Se si pone una differenza di potenziale fra due vertici adiacenti, diciamo A positivo e B negativo, scorre una corrente convenzionale da A a B che esce dalle 5 resistenze aventi per estremo A ed entra nelle 5 aventi estremo B, una delle quali a comune con A. Immaginando la presenza dei due poli non contemporanea ma successiva c'è per simmetria 1/5 di corrente in uscita da A ed 1/5 in entrata a B per ognuna delle 5 resistenze. Ma il tratto da A a B è percorso nello stesso senso per cui "porta" 2/5 di corrente. Insomma facendo i conti a me verrebbe <span class="tex">\(R_{AB}= 4.10^{-1}\Omega\)</span></article>
+<article class="post" id="p15772"><div class="who"><b>Andg94</b><span>15 nov 2013, 0:09</span></div>La corrente per scorrere tra le resistenze non ha bisogno, oltre che ad un'entrata, di uscire? Mi riferisco ad ognuno dei due sottocasi... La strada è buona comunque..</article>
+<article class="post" id="p15773"><div class="who"><b>poor</b><span>15 nov 2013, 18:44</span></div>Io penso che il processo reale, che va come dici tu con l'entrata contemporanea all'uscita, può pensarsi decomposto in due sottoprocessi consecutivi: un pò come quando consideri il campo prodotto da due cariche come somma dei campi di ciascuna come se l'altra non ci fosse. E poi scusa c'è un controllo inequivocabile: il risultato è giusto?</article>
+<article class="post" id="p15778"><div class="who"><b>Andg94</b><span>19 nov 2013, 14:11</span></div>No, proprio per questo!  La sovrapposizione può essere applicata nel momento in cui le correnti dei due sottocasi siano costanti nel tempo. Cosa che non ho se non considero allo stesso tempo anche dei punti d'uscita.</article>
+<article class="post" id="p15779"><div class="who"><b>poor</b><span>20 nov 2013, 19:46</span></div><blockquote><div><cite>Andg94 ha scritto:</cite>No, proprio per questo!  La sovrapposizione può essere applicata nel momento in cui le correnti dei due sottocasi siano costanti nel tempo. Cosa che non ho se non considero allo stesso tempo anche dei punti d'uscita.</div></blockquote>
+Le correnti di ciascun sottoprocesso sono COSTANTI e pari ad 1/5. Comunque ho un'altra soluzione che dà lo stesso risultato con ingressi e uscite. Considera l'icosaedro con le sue due piramidi a base pentagonale, una con il vertice diciamo a polo nord e l'altra a sud. Siano i due vertici adiacenti gli estremi di un lato del pentagono, A collegato a +V e B collegato a -V di una batteria. Chiaramente il punto medio di AB è a potenziale 0, così come i vertici delle piramidi e i punti dell'icosaedro appartenenti al piano individuato da questi 3 punti che sono equidistati da A e B. Converrai che la corrente emessa da A in uno dei 5 spigoli prima raggiunge il punto più prossimo a potenziale 0 e poi viene risucchiata da B attraverso lo spigolo corrispondente. Il primo è AB diretto e ha resistenza <span class="tex">\(1 \Omega\)</span>. Altri due spigoli da A vanno al vertice della piramide e a un vertice del pentagono sud per poi andare a B attraverso analoghi spigoli (sono chiaramente i lati dei due triangoli equilateri di base AB). Le resistenze di ciascuno di loro sono <span class="tex">\(2 \Omega\)</span>. Infine ci sono due spigoli che escono da A  ed hanno bisogno di uno spigolo per arrivare a un vertice a potenziale 0 e di due altri spigoli per arrivare a B. La resistenza di questi due percorsi è di <span class="tex">\(4 \Omega\)</span>ciascuno.<br>
+E' un pò complicato ma se hai davanti la riproduzione di un icosaedro credo di essermi spiegato.<br>
+Ricapitolando abbiamo i cinque paralleli che partono da A e arrivano in B e che danno<br>
+<span class="tex">\(1/R = 1+1/2+1/2+1/4+1/4= 5/2 \Omega\)</span><br>
+da cui <span class="tex">\(R= 2/5   \Omega = 0,4 \Omega\)</span> <br>
+come l'altra soluzione.<br>
+<br>
+P.S. Dopo due soluzioni coincidenti che sono sbagliate, sono curiosissimo di conoscere la soluzione giusta.</article>
+<article class="post" id="p15781"><div class="who"><b>Pigkappa</b><span>21 nov 2013, 1:36</span></div>Forse non sto capendo qualcosa io, ma non è che il problema nasce dal fatto che un icosaedro ha <strong class="text-strong">20</strong> spigoli, e non 10 come la figura che secondo me ha in mente poor?<br>
+<br>
+Secondo mi ci sarà qualche modo di usare le simmetrie come per il cubo anche qua, ma sarà molto più impestato e non riesco a provare alcun interesse per una cosa del genere...</article>
+<article class="post" id="p15783"><div class="who"><b>poor</b><span>21 nov 2013, 11:34</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Forse non sto capendo qualcosa io, ma non è che il problema nasce dal fatto che un icosaedro ha <strong class="text-strong">20</strong> spigoli, e non 10 come la figura che secondo me ha in mente poor?</div></blockquote>
+
+Nonostante che non ti interessi ci tengo a precisare che l'icosaedro che sto osservando in uno dei numerosi siti che se ne occupano (e che non "ho in mente" io..) ha 20 facce, 12 vertici (quelli delle due piramidi a base pentagonale di cui parlo) e 30 spigoli (non 20, come del resto precisava Andg94 che prima o poi dovrà fornire autore, titolo della pubblicazione e soluzione del problema a meno che non l'abbia inventato lui).</article>
+<article class="post" id="p15785"><div class="who"><b>Pigkappa</b><span>21 nov 2013, 13:13</span></div>Sì, hai ragione, sono rimbambito. Icosaedro = 20 facce, non spigoli.<br>
+<br>
+Comunque, direi che non è formato da 2 piramidi, no?</article>
+<article class="post" id="p15786"><div class="who"><b>Andg94</b><span>22 nov 2013, 22:28</span></div><blockquote><div><cite>poor ha scritto:</cite> Le correnti di ciascun sottoprocesso sono COSTANTI e pari ad 1/5. </div></blockquote>
+Le correnti NON SONO costanti nel tempo se applichi solamente un singolo potenziale in un nodo. Per avere la conferma che il primo procedimento è errato prova a ricondurti ad un caso piu' semplice: immagina di voler determinare la resistenza equivalente tra due nodi di un quadrato di resistenze di <span class="tex">\(1 \Omega\)</span> e prova ad utilizzare il tuo metodo. <br>
+<br>
+Per quanto riguarda la seconda soluzione: sicuro di aver considerato tutte le diramazioni possibili per cui passa la corrente? <br>
+
+<blockquote><div><cite>poor ha scritto:</cite> prima o poi dovrà fornire autore, titolo della pubblicazione e soluzione del problema a meno che non l'abbia inventato lui.</div></blockquote>
+Se volete, pubblico direttamente la soluzione (ovviamente il problema non è stato inventato dal sottoscritto) e si passa ad un altro problema, così da accontentare tutti.</article>
+<article class="post" id="p15787"><div class="who"><b>pascal</b><span>22 nov 2013, 23:35</span></div>Siccome ho perso un po’ di tempo su questo solido che presenta 30 spigoli (30 correnti), 12 vertici (12 nodi) e 20 facce (venti maglie), fornisco qualche contributo. Considerando soltanto le equazioni indipendenti, il problema ammette una soluzione. La questione si complica perché è difficile visualizzare la situazione e perché i vertici richiesti non sono opposti.<br>
+Supponiamo che una corrente di 1A dal generatore entri nel vertice B ed esca da un vertice contiguo C. Vi è simmetria rispetto al piano passante per BC e per il centro del solido. Il piano ortogonale a BC per il suo punto medio determina correnti simmetriche uguali in modulo. In tal modo le equazioni si riducono e, se non ho commesso errori, risulta <span class="tex">\(i_{BC}=11/30A\)</span> ed <span class="tex">\(R_{BC}=11/30\)</span> Ohm.</article>
+<article class="post" id="p15796"><div class="who"><b>Andg94</b><span>26 nov 2013, 22:18</span></div>Esatto, la soluzione di Pascal è corretta! Ad ogni modo, oltre alla soluzione così trovata, esiste una soluzione più raffinata, senza passare per vie "contose": basti pensare a due sottocasi in cui una corrente di <span class="tex">\(1 A\)</span> entra/esce da un nodo ed una corrente di <span class="tex">\(\frac{1}{11} A\)</span> esce/entra dagli altri nodi: in tal modo la corrente entrante è pari a quella uscente in ognuno dei due casi. È sufficiente quindi sovrapporre i due stati nello stile già proposto da poor ed il problema è risolto. <br>
+<br>
+Ad ogni modo, come richiesto, l'autore è David Morin e il problema fa parte di una serie di 90 quesiti da lui proposti ("Problem of the Week") che volendo potete reperire in internet. Vi lascio comunque il link alla soluzione completa: <a href="https://www.physics.harvard.edu/uploads/files/undergrad/probweek/sol17.pdf" class="ext" class="postlink">https://www.physics.harvard.edu/uploads ... /sol17.pdf</a><br>
+<br>
+Avanti con il prossimo problema, dunque!</article>
+<article class="post" id="p15939"><div class="who"><b>Simone256</b><span>5 gen 2014, 19:26</span></div>Non si staffetta più?  :(</article>
+<article class="post" id="p15970"><div class="who"><b>Simone256</b><span>11 gen 2014, 20:30</span></div>Pascal sembra essere scomparso... Andg94 a questo punto il testimone è ancora tuo! Sempre che tu abbia abbastanza voglia  :D   :)</article>
+<article class="post" id="p15976"><div class="who"><b>Andg94</b><span>17 gen 2014, 16:39</span></div>Tempo di trovare un attimo un problema carino e lo posto  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-4780.html"><small>← precedente</small>9: Due sfere sovrapposte</a><a class="next" href="olifis-5971.html"><small>successivo →</small>11: La staffetta continua??</a></nav>
+</main></body></html>

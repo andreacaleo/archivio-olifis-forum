@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>275. Campo elettrico intermittente</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 275</a></span></nav>
+<h1>275. Campo elettrico intermittente</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7103">forum Olifis</a></p>
+<article class="post first" id="p27175"><div class="who"><b>Luca Milanese</b><span>9 ott 2021, 21:11</span></div>In una zona dello spazio è presente un campo magnetico uniforme e costante <span class="tex">\(\vec B= B \hat z\)</span>. Una particella di massa <span class="tex">\(m\)</span> e carica <span class="tex">\(q\)</span>, inizialmente ferma, è libera di muoversi nel campo. Tramite un interruttore è possibile indurre un campo elettrico uniforme <span class="tex">\(E\hat x\)</span> per un tempo <span class="tex">\(\tau\)</span>. Supponiamo che il campo elettrico venga acceso e spento con periodo <span class="tex">\(\Delta t\)</span> (cioè viene acceso ai tempi <span class="tex">\(n\Delta t\)</span> e spento ai tempi <span class="tex">\(n\Delta t + \tau\)</span>), e valgano le disuguaglianze <span class="tex">\(\tau \ll \Delta t \ll \frac{2\pi m}{Bq}\)</span>.<br>
+a) Dimostrare che la quantità di moto della particella subito dopo l'<span class="tex">\(n\)</span>-esimo spegnimento del campo elettrico può essere espresso come somma di <span class="tex">\(n\)</span> vettori complanari <span class="tex">\(\vec p_i\)</span> di uguale modulo (indipendente da <span class="tex">\(n\)</span>) e tali che l'angolo tra <span class="tex">\(\vec p_{i-1}\)</span> e <span class="tex">\(\vec p_i \)</span> sia uguale all'angolo fra <span class="tex">\(\vec p_i\)</span> e <span class="tex">\(\vec p_{i+1}\)</span>.<br>
+b) Supponiamo ora che il campo elettrico alterni polarità: ai tempi <span class="tex">\((2n)\Delta t\)</span> è <span class="tex">\(E \hat x\)</span>, ai tempi <span class="tex">\((2n+1)\Delta t\)</span> è <span class="tex">\(-E\hat x\)</span>. Qual è la velocità vettoriale media della particella calcolata su un tempo molto lungo rispetto a <span class="tex">\(\frac{2\pi m}{Bq}\)</span>?</article>
+<article class="post" id="p27176"><div class="who"><b>DeoGratias</b><span>13 ott 2021, 16:45</span></div>#piùcomplessisulforum! :D <br>
+<br>
+Intanto carico la prima parte, tra poco dovrei postare anche la seconda:<br>
+Parte a) Notiamo innanzitutto che dopo l'n-esimo spegnimento, la particella si muoverà su una circonferenza di raggio <span class="tex">\(r_n=\frac{P_n}{qB}\)</span>, dove <span class="tex">\(P_n\)</span> è il modulo della quantità di moto n-esima, che rimane costante tra spegnimento e accensione. Lo spostamento angolare in ogni intervallo <span class="tex">\(\Delta t\)</span> equivale all'angolo di cui ruota il vettore q.d.m. tra spegnimento e accensione, che è <span class="tex">\(\theta=\frac{v_n \Delta t}{r_n}=\frac{qB\Delta t}{m}\)</span>; quindi l'angolo di rotazione rimane costante, indipendentemente da <span class="tex">\(n\)</span>. L'impulso ricevuto a causa del campo sarà <span class="tex">\(\vec{J}=q\tau E\hat{x}\)</span>; visto che <span class="tex">\(\tau \ll  \Delta t\)</span>, può essere considerato istantaneo.<br>
+La q.d.m. <span class="tex">\(\vec{P_1}\)</span> inizialmente sarà parallela ad <span class="tex">\(\vec{E}\)</span> (all'istante dell'accensione, <span class="tex">\(\vec{P_1}=q\tau E\hat{x}\)</span>), poi ruoterà di un angolo <span class="tex">\(\theta\)</span> nell'intervallo <span class="tex">\(\Delta t\)</span>, quindi si sommerà con <span class="tex">\(\vec{J}\)</span> istantaneamente, diventanto <span class="tex">\(\vec{P_2}\)</span>. A sua volta, questo vettore ruoterà di <span class="tex">\(\theta\)</span> in <span class="tex">\(\Delta t\)</span>, poi si sommerà con <span class="tex">\(\vec{J}\)</span> e così via.<br>
+Si può usare il piano complesso per facilitare i conti, ponendo l'asse x coincidente con quello reale, l'asse y con quello immaginario. Il processo appena illustrato corrisponde a porre <span class="tex">\(\left\{\begin{matrix}
+P_1 \in \mathbb{R^+} \\
+
+P_n=P_{n-1}e^{i\theta}+P_1
+\end{matrix}\right.\)</span><br>
+Si può dimostrare facilmente per induzione che <span class="tex">\(P_n=P_1(1+e^{i\theta}+...+e^{i\theta(n-1)})\)</span> per <span class="tex">\(n&gt;1\)</span>; segue che <span class="tex">\(|P_k-P_{k-1}|=P_1\)</span> e che <span class="tex">\(P_k-P_{k-1}=P_1e^{i\theta (k-1)}\equiv p_k\)</span> per <span class="tex">\(k \leq n\)</span> intero. <br>
+Perciò, ogni vettore <span class="tex">\(\vec{P_n}\)</span> può essere scritto come somma di <span class="tex">\(n\)</span> vettori <span class="tex">\(\vec{p_k}\)</span> di modulo <span class="tex">\(qE\tau\)</span>, con <span class="tex">\(\vec{p_1}=q\tau E\hat{x}\)</span> tali che l'angolo tra <span class="tex">\(\vec{p_k}\)</span> e <span class="tex">\(\vec{p_{k-1}}\)</span> è sempre <span class="tex">\(\theta\)</span>.</article>
+<article class="post" id="p27177"><div class="who"><b>Luca Milanese</b><span>13 ott 2021, 19:22</span></div>Per la prima parte ci siamo! (E sono contento di vedere che abbiamo pensato la stessa soluzione  :D )</article>
+<article class="post" id="p27178"><div class="who"><b>DeoGratias</b><span>14 ott 2021, 15:39</span></div>Per la seconda parte valgono gli stessi ragionamenti, solo che la relazione di ricorrenza diventerebbe <span class="tex">\(\left\{\begin{matrix}
+P_1 \in \mathbb{R^+}\\ 
+P_{2m}=P_{2m-1}e^{i\theta}-P_1\\
+P_{2m+1}=P_{2m}e^{i\theta}+P_1
+\end{matrix}\right.\)</span><br>
+Quindi, <span class="tex">\(P_n=(-1)^{n-1}P_1(1-e^{i\theta}+e^{2i\theta}-...+(-1)^{n-1}e^{i(n-1)\theta})=P_1\frac{e^{in\theta}+(-1)^{n-1}}{1+e^{i\theta}}\)</span><br>
+Il valore medio di <span class="tex">\(P\)</span> dopo <span class="tex">\(n\)</span> accensioni, con <span class="tex">\(n\)</span> molto grande, sarà pari a <span class="tex">\(\left \langle P \right \rangle_n=\sum_{k=1}^{n}\frac{\left \langle P_k \right \rangle}{n}\)</span>, dove <span class="tex">\(\left \langle P_k \right \rangle\)</span> è il valore medio di <span class="tex">\(P\)</span> tra la <span class="tex">\(k\)</span>-esima e la <span class="tex">\(k+1\)</span>-esima accensione. Visto che in tale intervallo <span class="tex">\(P\)</span> ruota in maniera uniforme di un angolo <span class="tex">\(\theta\)</span>, <span class="tex">\( \left \langle P_k \right \rangle=P_ke^{i\frac{\theta}{2}}=\frac{P_1}{2cos\frac{\theta}{2}}(e^{ik\theta}+(-1)^{k-1})\)</span><br>
+Da qui otterrei che per <span class="tex">\(T\)</span> molto grande si può assumere <span class="tex">\(n\rightarrow \infty \)</span>, la media dei moduli della quantità di moto tenderebbe a un valore finito, mentre <span class="tex">\(\left \langle P \right \rangle_n=\frac{P_1}{2cos\frac{\theta}{2}}\underset{n\rightarrow \infty }{lim}\sum_{k=1}^{n}\frac{e^{ik\theta}+(-1)^{k-1}}{n}= 0\)</span>, visto che il vettore tenderebbe a continuare a ruotare senza convergere verso una direzione precisa, e quindi anche la velocità vettoriale media tenderebbe a zero :?:  :?:  :?:</article>
+<article class="post" id="p27179"><div class="who"><b>Luca Milanese</b><span>15 ott 2021, 18:51</span></div>Va bene, puoi andare col 276, tuttavia ti faccio notare che non è vero che <span class="tex">\(\langle P_k \rangle = P_k e^{i\frac{\theta}{2}}\)</span>, perchè <span class="tex">\(\langle e^{ix} \rangle \neq e^{i\langle x\rangle}\)</span>. Inoltre, non è neanche necessario considerare <span class="tex">\(\langle P_k \rangle\)</span> al posto di <span class="tex">\(P_k\)</span>, dal momento che così facendo ti limiti a moltiplicare tutte le q.d.m. per una stessa quantità non nulla (non influendo sul fatto che la loro media risulti alla fine nulla).</article>
+<nav class="pager"><a class="prev" href="olifis-7102.html"><small>← precedente</small>274 - Triangolo di cariche</a><a class="next" href="olifis-7104.html"><small>successivo →</small>276 - Effetto Stewart-Tolman</a></nav>
+</main></body></html>

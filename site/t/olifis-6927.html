@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>221. Cilindro e oggetto.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 221</a></span></nav>
+<h1>221. Cilindro e oggetto.</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6927">forum Olifis</a></p>
+<article class="post first" id="p26185"><div class="who"><b>Luca Milanese</b><span>7 lug 2020, 19:40</span></div>Un cilindro cavo di massa <span class="tex">\(M\)</span> e raggio <span class="tex">\(R\)</span> poggia sul terreno. Il cilindro può muoversi solo rotolando senza strisciare. Sulla sua parete interna viene poggiato, ad altezza <span class="tex">\(R\)</span> da terra, un piccolo oggetto di massa <span class="tex">\(m\)</span>. Non c'è attrito fra oggetto e cilindro. Trovare la forza tra oggetto e cilindro quando la massetta <span class="tex">\(m\)</span> passa per il punto più basso della traiettoria. La gravità è <span class="tex">\(\vec g\)</span>.</article>
+<article class="post" id="p26196"><div class="who"><b>east_beast</b><span>10 lug 2020, 15:44</span></div>Quando m si trova nel punto più basso della traiettoria, la forza data dal cilindro deve bilanciare il peso e fornire l'accelerazione centripeta (segue da F=ma), dunque <span class="tex">\(N = mg + mv'^2/R\)</span>, dove <span class="tex">\(v' = v -V\)</span> è la velocità di m relativa ad M. Dalla conservazione della quantità di moto lungo x e dell'energia, arrivo a <span class="tex">\(N = mg(3+2m/M)\)</span></article>
+<article class="post" id="p26197"><div class="who"><b>Luca Milanese</b><span>10 lug 2020, 15:59</span></div>Il tuo risultato è sbagliato ma molto vicino a quello corretto. Sei sicuro che la quantità di moto si conservi?</article>
+<article class="post" id="p26198"><div class="who"><b>east_beast</b><span>10 lug 2020, 16:07</span></div>Intendo dire che la quantità di moto totale lungo x si conserva, dato che le forze esterne ai due corpi sono solo gravità e reazione normale del terreno, giusto?</article>
+<article class="post" id="p26199"><div class="who"><b>Luca Milanese</b><span>10 lug 2020, 16:09</span></div>Be', no, c'è un'altra forza, ed è orizzontale...</article>
+<article class="post" id="p26200"><div class="who"><b>east_beast</b><span>10 lug 2020, 16:12</span></div>ah già, l'attrito con il terreno! :D  Che babbo che sono :D  :D</article>
+<article class="post" id="p26201"><div class="who"><b>bosone</b><span>11 lug 2020, 10:35</span></div>@ Luca Non posso usare LaTeX ma questo problema mi ha messo un dubbio atroce. Io sapevo che nel puro rotolamento la forza di attrito applicata ad un punto fermo NON faceva lavoro. È corretto??</article>
+<article class="post" id="p26202"><div class="who"><b>Luca Milanese</b><span>11 lug 2020, 10:45</span></div>Nel puro rotolamento l'attrito non fa lavoro, e infatti l'energia qui si conserva. È la quantità di moto a variare, dato che <span class="tex">\(F_{ext}=\frac{dp}{dt}\)</span>.</article>
+<article class="post" id="p26203"><div class="who"><b>bosone</b><span>11 lug 2020, 10:54</span></div>Grazie ora sono tornato tranquillo, non avevo dubbi sulla qdm<img alt="😗" class="emoji smilies" draggable="false" src="../img/4380b0e282328cf0.svg"></article>
+<article class="post" id="p26212"><div class="who"><b>east_beast</b><span>16 lug 2020, 12:00</span></div>Chiamo <span class="tex">\(N\)</span> la forza di contatto tra i due corpi, <span class="tex">\(\theta\)</span> l'angolo tra la verticale ed il segmento che collega il centro della ruota ad m e scrivo <span class="tex">\(F_x = ma_x\)</span> per i due corpi<br>
+<span class="tex">\(ma_x = Nsin\theta\)</span><br>
+<span class="tex">\(MA_x  = Nsin\theta - F_a\)</span> dove <span class="tex">\(F_a\)</span> è l'attrito con il terreno<br>
+Dalla condizione di puro rotolamento so che <span class="tex">\(\alpha R = A_x\)</span>   mentre da <span class="tex">\(dL/dt =\tau\)</span> so che <span class="tex">\(I\alpha = F_aR \)</span><br>
+Combinando queste si ottiene che <span class="tex">\(ma_x = 2MA_x\)</span>, ossia integrando <span class="tex">\(mv = 2MV\)</span>.<br>
+Dalla conservazione dell'energia, combinata con la condizione di puro rotolamento, so che <span class="tex">\(mv^2/2 + MV^2 = mgR\)</span>, da cui si deducono le due velocità <span class="tex">\(V = (m/M) \sqrt{\frac{MgR}{2M+m}}\)</span>    e   <span class="tex">\(v =2\sqrt{\frac{MgR}{2M+m}}\)</span><br>
+<br>
+Come avevo già scritto qualche giorno fa, <span class="tex">\(N = m(g + v'^2/R)\)</span> dove <span class="tex">\(v' = V + v\)</span>, sostituendo viene <span class="tex">\(N = mg(3+m/M)\)</span>, che come dicevi è simile al risultato che avevo postato, anche se errato :D</article>
+<article class="post" id="p26213"><div class="who"><b>Luca Milanese</b><span>16 lug 2020, 12:06</span></div>Corretto! Avanti col 222! :D</article>
+<nav class="pager"><a class="prev" href="olifis-6923.html"><small>← precedente</small>220. Oscillazioni in orbita.</a><a class="next" href="olifis-6937.html"><small>successivo →</small>222. Sublimazione nel Cilindro</a></nav>
+</main></body></html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>259 Liquido in rotazione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 259</a></span></nav>
+<h1>259 Liquido in rotazione</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7081">forum Olifis</a></p>
+<article class="post first" id="p26994"><div class="who"><b>Ein Bonner</b><span>24 mag 2021, 20:47</span></div>Un contenitore cilindro e' immerso in un campo di gravita' non uniforme:<br>
+<br>
+<span class="tex">\(g(z)=g+g_0e^{-z/z_0}\)</span><br>
+<br>
+dove <span class="tex">\(g\)</span> e' una costante.<br>
+All'interno del cilindro c'e un liquido di densita uniforme <span class="tex">\(\rho\)</span>. Il cilindro ruota con velocita angolare <span class="tex">\(\omega\)</span> rispetto all'asse verticale <span class="tex">\(z\)</span>. Indichiamo inoltre con <span class="tex">\(r\)</span> la direzione radiale. A causa della rotazione, si osserva che dopo un certo punto la superficie libera (cioe la superficie di fluido a contatto con l'atmosfera) non e' piu piana. <br>
+Determinare l'equazione che descrive la superficie libera. Commentare il caso <span class="tex">\(z/z_0 &gt;&gt;1\)</span>.</article>
+<article class="post" id="p26995"><div class="who"><b>Luca Milanese</b><span>26 mag 2021, 15:54</span></div>Abbiamo <span class="tex">\(\displaystyle \vec g(z) = -(g+g_0 e^{-z/z_0})\hat z\)</span>. La velocità di un elemento di fluido a distanza <span class="tex">\(r\)</span> dall'asse <span class="tex">\(z\)</span> è <span class="tex">\(\vec v(r)=\omega r \hat \phi\)</span>, la sua accelerazione è <span class="tex">\(\vec a(r)= -\omega^2 r \hat r\)</span>. In verticale si ha equilibrio dinamico, quindi vale la legge di Stevino <span class="tex">\(\frac{\partial P}{\partial z}=-\rho g(z)\)</span>.<br>
+In direzione radiale, su un elemento di fluido di volume <span class="tex">\(\text{d}V=r\text{d}r\text{d}z\text{d}\phi\)</span> e massa <span class="tex">\(\text{d}m=\rho r\text{d}r\text{d}z\text{d}\phi\)</span> agisce una forza in orizzontale data dal gradiente di pressione in direzione radiale:<br>
+<span class="tex">\(\text{d}\vec F=\text{d}A(P(r)-P(r+\text{d}r))\hat r=-r\text{d}\phi\text{d}z\frac{\partial P}{\partial r}\text{d}r\hat r\)</span><br>
+Perciò, dalla Seconda Legge di Newton:<br>
+<span class="tex">\(\text{d}\vec F=\vec a \text{d}m \Rightarrow \frac{\partial P}{\partial r}=\rho \omega^2 r\)</span><br>
+Dalle due equazioni di sopra, integrando, si ottiene la pressione in ogni punto:<br>
+<span class="tex">\(P(r,z)=\frac{\rho \omega^2 r^2}{2}-\rho(gz-z_0g_0e^{-z/z_0})-\rho g_0 z_0+p_0\)</span><br>
+Dove <span class="tex">\(p_0\)</span> è la pressione atmosferica e ho imposto che la superficie libera passi per il punto <span class="tex">\((0,0)\)</span>. L'equazione della superficie libera del fluido si ottiene cercando il luogo dei punti a pressione <span class="tex">\(p_0\)</span>:<br>
+<span class="tex">\(\frac{\omega^2 r^2}{2}=gz+g_0z_0(1-e^{-z/z_0})\)</span><br>
+Nel caso <span class="tex">\(z/z_0 \gg 1\)</span>, cioè per punti della superficie lontani da <span class="tex">\((0,0)\)</span>, si ottiene <span class="tex">\(e^{-z/z_0} \approx 0\)</span> e dunque:<br>
+<span class="tex">\(\frac{\omega^2 r^2}{2}=gz+g_0z_0 \Rightarrow z(r)=-\frac{g_0 z_0}{g}+\frac{\omega^2 r^2}{2g}\)</span><br>
+Dunque la superficie del liquido è approssimabile a quella di un paraboloide con concavità rivolta verso l'alto.</article>
+<article class="post" id="p26996"><div class="who"><b>Leo</b><span>26 mag 2021, 17:39</span></div>Volevo solo osservare che penso si possa trovare la soluzione di Luca in maniera molto meno sofisticata ma più semplice imponendo, come si fa sempre con i liquidi in rotazione,che la superficie libera sia la rotazione completa attorno all'asse di una curva del piano (r,z) passante per (0,0) e luogo dei punti per cui la risultante della forza peso e della forza centrifuga sia ortogonale alla curva stessa. Considerando una particella di liquido sulla curva z(r) il suo equilibrio dinamico è assicurato se  <span class="tex">\((dz/dr)=(\omega^2.r)/[g+g_0.exp(-z/z_0)]\)</span>. Separando le variabili e integrando da 0 a r o a z si ottiene proprio <span class="tex">\(gz+ g_0 z_0 [1-exp(-z/z_0)] = \omega^2.r^2/2\)</span>. Con quello che poi segue nel caso particolare. :roll:  :?:</article>
+<article class="post" id="p26997"><div class="who"><b>Ein Bonner</b><span>27 mag 2021, 9:35</span></div><blockquote><div><cite>Luca Milanese ha scritto: <a href="olifis-7081.html#p26995" data-post-id="26995" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">26 mag 2021, 15:54</div></cite>
+Abbiamo <span class="tex">\(\displaystyle \vec g(z) = -(g+g_0 e^{-z/z_0})\hat z\)</span>. La velocità di un elemento di fluido a distanza <span class="tex">\(r\)</span> dall'asse <span class="tex">\(z\)</span> è <span class="tex">\(\vec v(r)=\omega r \hat \phi\)</span>, la sua accelerazione è <span class="tex">\(\vec a(r)= -\omega^2 r \hat r\)</span>. In verticale si ha equilibrio dinamico, quindi vale la legge di Stevino <span class="tex">\(\frac{\partial P}{\partial z}=-\rho g(z)\)</span>.<br>
+In direzione radiale, su un elemento di fluido di volume <span class="tex">\(\text{d}V=r\text{d}r\text{d}z\text{d}\phi\)</span> e massa <span class="tex">\(\text{d}m=\rho r\text{d}r\text{d}z\text{d}\phi\)</span> agisce una forza in orizzontale data dal gradiente di pressione in direzione radiale:<br>
+<span class="tex">\(\text{d}\vec F=\text{d}A(P(r)-P(r+\text{d}r))\hat r=-r\text{d}\phi\text{d}z\frac{\partial P}{\partial r}\text{d}r\hat r\)</span><br>
+Perciò, dalla Seconda Legge di Newton:<br>
+<span class="tex">\(\text{d}\vec F=\vec a \text{d}m \Rightarrow \frac{\partial P}{\partial r}=\rho \omega^2 r\)</span><br>
+Dalle due equazioni di sopra, integrando, si ottiene la pressione in ogni punto:<br>
+<span class="tex">\(P(r,z)=\frac{\rho \omega^2 r^2}{2}-\rho(gz-z_0g_0e^{-z/z_0})-\rho g_0 z_0+p_0\)</span><br>
+Dove <span class="tex">\(p_0\)</span> è la pressione atmosferica e ho imposto che la superficie libera passi per il punto <span class="tex">\((0,0)\)</span>. L'equazione della superficie libera del fluido si ottiene cercando il luogo dei punti a pressione <span class="tex">\(p_0\)</span>:<br>
+<span class="tex">\(\frac{\omega^2 r^2}{2}=gz+g_0z_0(1-e^{-z/z_0})\)</span><br>
+Nel caso <span class="tex">\(z/z_0 \gg 1\)</span>, cioè per punti della superficie lontani da <span class="tex">\((0,0)\)</span>, si ottiene <span class="tex">\(e^{-z/z_0} \approx 0\)</span> e dunque:<br>
+<span class="tex">\(\frac{\omega^2 r^2}{2}=gz+g_0z_0 \Rightarrow z(r)=-\frac{g_0 z_0}{g}+\frac{\omega^2 r^2}{2g}\)</span><br>
+Dunque la superficie del liquido è approssimabile a quella di un paraboloide con concavità rivolta verso l'alto.
+</div></blockquote>
+
+Esatto, puoi continure la staffetta.</article>
+<nav class="pager"><a class="prev" href="olifis-7079.html"><small>← precedente</small>258 - pallina in movimento</a><a class="next" href="olifis-7082.html"><small>successivo →</small>260. Compressione di un gas.</a></nav>
+</main></body></html>

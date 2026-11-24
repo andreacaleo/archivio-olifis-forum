@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>82. Caduta di una corda</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 82</a></span></nav>
+<h1>82. Caduta di una corda</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6356">forum Olifis</a></p>
+<article class="post first" id="p22532"><div class="who"><b>step98</b><span>14 lug 2016, 22:24</span></div>Una catena di lunghezza L e densità <span class="tex">\(\sigma\)</span> Kg/m è mantenuta nella posizione mostrata in figura, con un'estremità attaccata ad un supporto. Si assuma che solo una parte di corda di lunghezza trascurabile parta da sotto il supporto. La corda viene rilasciata. Trovare la forza che il supporto esercita sulla corda, in funzione del tempo.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/77c1a6cb3b9afe51.png" class="postimage" alt="Corda.PNG" onclick="viewableArea(this);" /></dt>
+						<dd>Corda.PNG (4.08 KiB) Visto 7188 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p22533"><div class="who"><b>FedericoC.</b><span>14 lug 2016, 22:56</span></div>Provo la mia soluzione  :D <br>
+<br>
+Al tempo <span class="tex">\(t=0\)</span> la forza che bisogna applicare è nulla dato che la parte di catena sottostante al supporto è trascurabile, in un intervallo infinitesimo <span class="tex">\(dt\)</span> si sposta sotto il supporto una parte di catena con massa <span class="tex">\(dm=\sigma v dt\)</span>, la sua variazione di quantità di moto vale <span class="tex">\(dp=\sigma v^2dt\)</span>.<br>
+Si ha dunque: <span class="tex">\(F=\frac{dp}{dt}=\sigma g^2 t^2\)</span></article>
+<article class="post" id="p22535"><div class="who"><b>step98</b><span>14 lug 2016, 23:14</span></div>No è sbagliato.<br>
+Per ora non darò indizi, perché magari ci vuoi riprovare da solo o c'è qualcun'altro che ci vuole provare.<br>
+Se poi ti interessa sapere dov'è l'errore nel tuo procedimento, chiedi pure.</article>
+<article class="post" id="p22536"><div class="who"><b>FedericoC.</b><span>15 lug 2016, 10:21</span></div>Provo a correggermi, credo di essermi dimenticato la forza peso, infatti la forza netta data da <span class="tex">\(\frac{dp}{dt}\)</span> equivale alla forza applicata da supporto meno la forza peso, quindi:<br>
+<span class="tex">\(F=\frac{dp}{dt}+P\)</span> dove <span class="tex">\(P\)</span> è dovuto solo alla parte di catena sottostante il supporto. Si ha dunque:<br>
+<span class="tex">\(F=2\sigma g^2t^2\)</span></article>
+<article class="post" id="p22537"><div class="who"><b>step98</b><span>15 lug 2016, 11:17</span></div>Giusta l'idea di sommare il contributo dovuto a <span class="tex">\(\frac{\mathrm{d} p}{\mathrm{d} t}\)</span> e quello dovuto a <span class="tex">\(P\)</span>, ma il risultato è ancora sbagliato. <br>
+<br>
+Solo un suggerimento: stai attento alle velocità.</article>
+<article class="post" id="p22539"><div class="who"><b>FedericoC.</b><span>15 lug 2016, 15:09</span></div>Spero sia la volta buona  :lol: <br>
+<span class="tex">\(F=\frac{3}{2}\sigma g^2 t^2\)</span></article>
+<article class="post" id="p22540"><div class="who"><b>Flaffo</b><span>15 lug 2016, 15:59</span></div>Secondo me è una cosa del tipo<br>
+<br>
+<span class="tex">\(F=\frac{3}{4}\sigma g^2 t^2\)</span></article>
+<article class="post" id="p22541"><div class="who"><b>step98</b><span>15 lug 2016, 17:36</span></div>Risposta giusta Flaffo. La staffetta è tua, ma ora dovresti mettere anche il procedimento.</article>
+<article class="post" id="p22542"><div class="who"><b>Flaffo</b><span>15 lug 2016, 20:38</span></div>La forza applicata alla catena dal supporto è responsabile di due cose: <br>
+1) regge la parte di catena direttamente sottostante <br>
+2)frena i pezzetti di corda <span class="tex">\(dx\)</span> che cadono ad una velocità <span class="tex">\(\dot {x}\)</span>.<br>
+Indichiamo con <span class="tex">\(x\)</span> la differenza tra l'altezza della corda iniziale e quella al tempo <span class="tex">\(t\)</span>. In un dato istante la lunghezza della corda direttamente sotto il supporto è<span class="tex">\(\frac{x}{2}\)</span> poiché la corda si piega e viene "raddoppiata"(penso che l'errore di federico sia nell'aver considerato <span class="tex">\(x\)</span> al posto di <span class="tex">\(\frac{x}{2}\)</span> ). Il primo contributo è, allora, dato da:<br>
+<br>
+<span class="tex">\(\displaystyle F_1=\frac {1}{2}\sigma g x\)</span>. <br>
+<br>
+Il contributo dovuto all'arresto è invece:<br>
+<br>
+<span class="tex">\(\displaystyle F_2=\frac {dp}{dt}=v \frac {dm}{dt}=\dot {x} \frac {\sigma d\frac {x}{2}}{dt}=\frac {1}{2}\sigma{\dot {x}}^2\)</span><br>
+<br>
+Abbiamo, inoltre che:<br>
+<br>
+<span class="tex">\(x=\frac {1}{2}gt^2\)</span><br>
+<br>
+<span class="tex">\(\dot {x}=gt\)</span><br>
+<br>
+Sommando i due contributi e sostituendo per <span class="tex">\(x\)</span> e <span class="tex">\(\dot {x}\)</span>:<br>
+<br>
+<span class="tex">\(\displaystyle F=F_1+F_2=\frac {1}{2}\sigma g \frac {x}{g}+ \frac {1}{2}\sigma{\dot {x}}^2= \frac {1}{4}\sigma g^2 t^2+ \frac {1}{2}\sigma g^2 t^2\)</span><br>
+<br>
+<span class="tex">\(F=\frac {3}{4}\sigma g^2 t^2\)</span><br>
+<br>
+Per risolvere questo problema c'é anche un secondo modo, più veloce e forse più elegante.. lo lascio a chi ci vuole provare :D</article>
+<article class="post" id="p22543"><div class="who"><b>FedericoC.</b><span>15 lug 2016, 21:24</span></div>L'errore che ho fatto è proprio quello che ha detto Flaffo.. Provo a proporre un secondo metodo ache se non so sia quello cui si riferisce Flaffo, infatti alla fine non è troppo diverso  :D <br>
+<br>
+Al tempo <span class="tex">\(t\)</span> al di sotto del supporto vi è un tratto lungo <span class="tex">\(\frac{gt^2}{4}\)</span> al di sopra ovviamente <span class="tex">\(L-\frac{gt^2}{4}\)</span><br>
+<br>
+Il momento totale del sistema è <span class="tex">\(p=\sigma(L-\frac{gt^2}{4})v\)</span> dove <span class="tex">\(v=-gt\)</span><br>
+<br>
+Considerando le forze che agiscono su tutto il sistema:<br>
+<span class="tex">\(F-\sigma Lg=\frac{dp}{dt}\)</span> dove <span class="tex">\(\sigma Lg\)</span> è il peso dell'intera catena<br>
+<br>
+Svolgendo i calcoli si ha come sopra <span class="tex">\(F=\frac {3}{4}\sigma g^2 t^2\)</span></article>
+<article class="post" id="p22544"><div class="who"><b>Flaffo</b><span>15 lug 2016, 22:07</span></div>Esattamente quello :D <br>
+È più bello come modo perché non bisogna dividere la forza in due e parti e poi il calcolo è più breve.</article>
+<nav class="pager"><a class="prev" href="olifis-6344.html"><small>← precedente</small>81. Solenoidi incastrati</a><a class="next" href="olifis-6358.html"><small>successivo →</small>83: ciotola stazionaria!</a></nav>
+</main></body></html>

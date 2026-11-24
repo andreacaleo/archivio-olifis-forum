@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staffetta elettromagnetica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta</a></span></nav>
+<h1>Staffetta elettromagnetica</h1>
+<p class="meta">56 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=439">forum Olifis</a></p>
+<article class="post first" id="p4042"><div class="who"><b>Gauss91</b><span>30 apr 2010, 22:18</span></div>Ciao a tutti! Visto il successo della staffetta meccanica, vista la mia originaria intenzione di offrire un sistema completo di thread "giocosi" e visto che mi piace "svegliare" il forum, propongo un'altra staffetta, dedicata esclusivamente ai problemi di elettromagnetismo.<br>
+<br>
+Spero mi permettiate di dire un paio di cose, che spero vengano accettate da tutti (non dico cose a caso, ma mi ispiro alle staffette dell'oliforum matematico). Sappiamo praticamente tutti che un problema di elettromagnetismo, molto spesso, è in realtà un problema di meccanica. Questo è inevitabile, come inevitabile è lo sconfinare in altre branche (non è raro che ci si infili dentro qualcosa di termodinamica), tuttavia qua bisogna confidare nel buon senso di chi posta i problemi. Egli dovrebbe capire quando un problema è "più elettromagnetico che altro" o "più meccanico che altro". Con questo non voglio dire che non ci va la meccanica in questi problemi, anzi è inevitabile ed anche utilissima. Quello che voglio dire è (per esempio) che se uno volesse proporre un problema analogo a quello del thread "Asta che gira", ma dicendo che l'asta ha una carica q e che oltre al campo gravitazionale ce n'è anche uno elettrico, sarebbe meglio che lo postasse nella staffetta di meccanica, perché a parte imporre una forza in più nelle considerazioni del moto, non c'è nulla di elettromagnetico.<br>
+<br>
+Detta questa premessa, a voi il<br>
+<strong class="text-strong">Problema 1</strong> (Halliday): Una striscia di metallo lunga 6.5cm, larga 0.88cm e spessa 0.76mm si muove con velocità costante v, parallela al suo asse maggiore, attraverso un campo magnetico B = 1.2mT perpendicolare alla striscia stessa. Una differenza di potenziale di 3.9V è misurata fra due punti x ed y attraverso la striscia, posti uno diametralmente all'altro.<br>
+Si determini la velocità v.</article>
+<article class="post" id="p4057"><div class="who"><b>Stardust</b><span>3 mag 2010, 20:21</span></div>In che senso i punti x e y sono diametralmente opposti? Possiamo considerarli come vertici opposti del parallelogramma (molto appiattito...)?</article>
+<article class="post" id="p4063"><div class="who"><b>Gauss91</b><span>3 mag 2010, 23:10</span></div>Piccolo hint: perché la domanda che mi hai fatto è superflua? (Basta che uno stia da una parte e l'altro dall'altra, non importa la "altezza" dei due punti rispetto al parallelogramma ;) prova a dare una risposta a questo).</article>
+<article class="post" id="p4064"><div class="who"><b>Stardust</b><span>4 mag 2010, 7:21</span></div>Quella differenza di potenziale non è tale nel vero senso della parola. Si tratta di una forza elettromotrice indotta da una variazione di flusso magnetico, quindi il campo elettrico derivante non è statico-conservativo ed è impossibile associare ad un certo punto al suo interno un dato potenziale.<br>
+Comunque se la striscia si muove in senso parallelo alla sua lunghezza maggiore l, allora frontalmente avanza con il lato <br>
+<span class="tex">\(d=0,88\,cm\)</span>, no?<br>
+Se è così, allora il flusso magnetico che attraversa una lamina di spessore infinitesimo della striscia perpendicolarmente alle due facce maggiori è<br>
+<span class="tex">\(\Phi_m=BA=B(l\,d)=B[(vt)d]\)</span>.<br>
+La forza elettromotrice è quindi<br>
+<span class="tex">\(fem=-\displaystyle{\frac{d\Phi_m}{dt}}=Bvd\)</span><br>
+La striscia ha uno spessore <span class="tex">\(y=0,88\,cm=N\,dy\)</span>, quindi può essere considerata come la sovrapposizione di N lamine infinitesime, ma non riesco a capire quante sono (magari <span class="tex">\(N=0,88\)</span>?).</article>
+<article class="post" id="p4065"><div class="who"><b>Stardust</b><span>4 mag 2010, 14:24</span></div>Ritratto tutte le mie precedenti affermazioni contenute nel post sopra esposto.<br>
+In realtà sia l'area che il campo restano sempre costanti (sicuramente la striscia non è deformata nello spostamento), quindi il loro prodotto è costante: non c'è assolutamente alcuna variazione di flusso magnetico, che quindi non può essere la causa della fem.<br>
+Il ragionamento che (forse) è più corretto consiste nel vedere cosa accade agli elettroni liberi del metallo. <br>
+Spinti dal campo magnetico, vengono ammassati ad un bordo della striscia, dal lato parallelo al movimento. Questa distribuzione provoca un campo elettrico esistente tra i due lati, in modo tale che all'equilibrio gli elettroni non subiscono più alcuna forza netta. Perciò i moduli delle forze magnetica ed elettrica (dirette in versi opposti lungo la stessa direttrice) si eguagliano:<br>
+<span class="tex">\(qE=qvB\)</span> con il campo elettrico che vale:<br>
+<span class="tex">\(E=\displaystyle{\frac{fem}{d}}\)</span>, in cui <span class="tex">\(d=0,88\,cm\)</span>.<br>
+Quindi la forza elettromotrice indotta dallo spostamento è<br>
+<span class="tex">\(fem=vdB\,\Rightarrow v=\displaystyle{\frac{fem}{dB}}\)</span>.<br>
+Quindi:<br>
+<span class="tex">\(v=3,69\,10^5\,m/s\)</span>.</article>
+<article class="post" id="p4070"><div class="who"><b>Gauss91</b><span>4 mag 2010, 20:12</span></div>Ok bene (la seconda versione ovviamente :lol: ). Dai questo era estremamente facile per cominciare, a te un problema più tosto! ;)</article>
+<article class="post" id="p4073"><div class="who"><b>Stardust</b><span>4 mag 2010, 21:19</span></div>Beh, ora cerco di farmi perdonare per le precedenti sciocchezze che ho scritto, proponendo un problema dell'ammissione alla Normale di Pisa del 1979.<br>
+<br>
+Un solenoide cilindrico ha raggio pari a <span class="tex">\(r=5\,cm\)</span>, lunghezza <span class="tex">\(l=10\,cm\)</span>, con un 200 spire. In un certo istante si rileva una corrente <span class="tex">\(i_0=1\,mA\)</span>, poi il solenoide è cortocircuitato. Dopo 24 ore si misura nuovamente la corrente, non trovando nessuna variazione rispetto a <span class="tex">\(i_0\)</span>, entro i limiti di precisione dello strumento di misura <span class="tex">\(\displaystyle{\frac{1}{10^5}}\)</span>.<br>
+Calcolare:<br>
+a. l'induttanza del solenoide;<br>
+b. la costante di tempo caratteristica;<br>
+c. la resistenza del filo del solenoide.</article>
+<article class="post" id="p4079"><div class="who"><b>spn</b><span>4 mag 2010, 22:37</span></div><blockquote><div><cite>Stardust ha scritto:</cite>In realtà sia l'area che il campo restano sempre costanti (sicuramente la striscia non è deformata nello spostamento), quindi il loro prodotto è costante: non c'è assolutamente alcuna variazione di flusso magnetico, che quindi non può essere la causa della fem.</div></blockquote>
+L'area non rimane costante in quanto il corpo si sta muovendo, ed è proprio quella la causa della fem.<br>
+<br>
+Volevo far notare che i procedimenti che hai usato sono validi entrambi: nel secondo non stai facendo altro che dimostrare il teorema di Faraday.</article>
+<article class="post" id="p4096"><div class="who"><b>Gauss91</b><span>6 mag 2010, 18:13</span></div>1. L'induttanza di quel solenoide è<br>
+<span class="tex">\(L = \mu_0 ln^2A = \mu_0 \cdot (0.1m)\cdot(\dfrac{200}{0.1m})^2 \cdot (\pi \cdot (0.05m)^2) = 3.96 \cdot 10^{-3} H\)</span><br>
+<br>
+2. La corrente i del circuito diminuisce al passare del tempo secondo la legge <span class="tex">\(i(t) = i_0 e^{-t/\tau_L}\)</span>, da cui <span class="tex">\(\tau_L = -\dfrac{t}{\log{\frac{i(t)}{i_0}}}\)</span>.<br>
+Dai dati del problema si deduce che <span class="tex">\(i_0 \ge i(86400s) &gt; i_0 (1 - \dfrac{1}{10^5})\)</span>, quindi<br>
+<span class="tex">\(1 \ge \dfrac{i(86400s)}{i_0} &gt; 1 - \dfrac{1}{10^5}\)</span>, quindi <span class="tex">\(0 \ge \log\dfrac{i(86400s)}{i_0} &gt; -1\cdot 10^{-5}\)</span>, quindi <span class="tex">\(8.64 \cdot 10^9 s&lt; \tau_L \le \infty\)</span>.<br>
+<br>
+3. Dalla relazione <span class="tex">\(\tau_L = \dfrac{L}{R}\)</span> si ottiene <span class="tex">\(0 \le R &lt; 4.58 \cdot 10^{-13} \Omega\)</span>.<br>
+<br>
+Ovviamente, non avendo valori esatti, si ottengono solo intervalli. Se effettivamente la corrente non diminuisse affatto (R = 0), la costante di tempo induttiva sarebbe infinita, e il materiale del filo sarebbe un superconduttore.</article>
+<article class="post" id="p4099"><div class="who"><b>Stardust</b><span>6 mag 2010, 21:14</span></div>Ok, però vorrei un attimo tornare al primo problema e al ragionamento di spn.<br>
+In effetti anche l'iniziale ragionamento con il teorema di Faraday-Lenz sarebbbe andato bene (senza tener conto dello spessore della lamina), ma non capisco perchè l'area della spira deve essere considerata variabile. Al massimo si può dire che la lamina copre una certa area, che, muovendosi, cresce, ma non mi sembra si possa parlare a rigore di una variazione di flusso magnetico della spira stessa...</article>
+<article class="post" id="p4102"><div class="who"><b>.mg</b><span>7 mag 2010, 15:35</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>2. La corrente i del circuito diminuisce al passare del tempo secondo la legge <span class="tex">\(i(t) = i_0 e^{-t/\tau_L}\)</span>, da cui <span class="tex">\(\tau_L = -\dfrac{t}{\log{\frac{i(t)}{i_0}}}\)</span>.<br>
+Dai dati del problema si deduce che <span class="tex">\(i_0 \ge i(86400s) &gt; i_0 (1 - \dfrac{1}{10^5})\)</span>, quindi<br>
+<span class="tex">\(1 \ge \dfrac{i(86400s)}{i_0} &gt; 1 - \dfrac{1}{10^5}\)</span>, quindi <span class="tex">\(0 \ge \log\dfrac{i(86400s)}{i_0} &gt; 1\cdot 10^{-5}\)</span>, quindi <span class="tex">\(8.64 \cdot 10^9 s&lt; \tau_L \le \infty\)</span>.
+</div></blockquote>
+Mi sa che hai sbagliato le ultime due disuguaglianze (anche perché se il logaritmo è positivo non lo può essere anche <span class="tex">\(\tau_L\)</span>)<br>
+<br>
+<strong class="text-strong">Correzione</strong>: in realtà è sbagliato solo un segno nella penultima disuguaglianza, l'ultima sta bene (avevo fatto male un conto io).</article>
+<article class="post" id="p4112"><div class="who"><b>Gauss91</b><span>9 mag 2010, 18:40</span></div>Ok ho editato l'errore di segno. Siccome non ci sono risposte, presumo che il resto sia corretto.<br>
+<strong class="text-strong">Problema 3</strong> (Halliday): Si consideri una lunga barra cilindrica conduttrice di raggio R. A distanza x da un estremo, che chiamo A, viene praticata, con una sega, una sottile fenditura perpendicolare all'asse del cilindro, e che percorre tutto il cilindro, tagliandolo in due parti.<br>
+A questo punto, una corrente variabile nel tempo secondo la legge <span class="tex">\(i = \alpha t\)</span>, dove alpha è una costante di proporzionalità positiva, scorre nel cilindro dall'estremo A all'altro estremo B. All'istante t=0 non è presente nessuna carica sulle facce della fenditura praticata.<br>
+1. Determinare il modulo della carica su tali facce in funzione del tempo.<br>
+2. Determinare il campo elettrico nella fenditura in funzione del tempo.<br>
+3. Per r &lt; R, determinare B(r) nella fenditura (r è la distanza di un punto dall'asse del cilindro).</article>
+<article class="post" id="p4149"><div class="who"><b>Stardust</b><span>14 mag 2010, 21:00</span></div>Abbastanza sfizioso, questo problema...<br>
+1.Sappiamo che l'intensità di corrente è la derivata temporale della carica, e che la carica che si accumula sulle due facce opposte del taglio (di area A) è proprio dovuta agli elettroni trasportati che non possono superare la divisione vuota fatta nel cilindro.<br>
+Quindi:<br>
+<span class="tex">\(\displaystyle{q=\int [i(t)]\,dt=\int \alpha t \,dt=\alpha \frac{t^2}{2}+k}\)</span>.<br>
+La costante k è nulla perchè a tempo zero non c'è corrente nè tantomeno carica pregressa già depositata lungo la fenditura.<br>
+Perciò:<br>
+<span class="tex">\(\displaystyle{q=\alpha \frac{t^2}{2}}\)</span>.<br>
+2.La corrente reale è sostituita nell'intermezzo vuoto del cilindro da una perturbazione di flusso elettrico paragonabile ad una corrente di spostamento (fittizia), che si può ottenere da una serie di manipolazioni dell'espressione di i:<br>
+<span class="tex">\(\displaystyle{i=\frac{dq}{dt}=\frac{d(\sigma A)}{dt}}\)</span>,<br>
+in cui <span class="tex">\(\sigma\)</span> indica la densità di carica superficiale sulle due facce del taglio (che funziona alla stregua di un condensatore).<br>
+Dal teorema di Coulumb sappiamo che il campo elettrico in prossimità di una superficie piana vale:<br>
+<span class="tex">\(\displaystyle{E=\frac{\sigma}{\varepsilon_0}}\)</span>, dove <span class="tex">\(\varepsilon_0\)</span> è la costante dielettrica del vuoto.<br>
+Ne risulta:<br>
+<span class="tex">\(\displaystyle{i=A\frac{d(\varepsilon_0 E)}{dt}=\varepsilon_0 A\frac{dE}{dt}}\)</span>.<br>
+Da ciò:<br>
+<span class="tex">\(\displaystyle{i=\alpha t=\varepsilon_0 A\frac{dE}{dt}}\)</span><br>
+<span class="tex">\(\displaystyle{\int \alpha t \, dt= \int \varepsilon_0 A \,dE}\)</span><br>
+<span class="tex">\(\displaystyle{E=\int dE=\int \frac{\alpha t}{\varepsilon_0 A}\,dt}\)</span><br>
+<span class="tex">\(\displaystyle{E=\frac{\alpha}{2\varepsilon_0A}t^2=\frac{\alpha}{2\pi \varepsilon_0 R^2}t^2}\)</span><br>
+Nell'ultimo integrale ho proprio trascurato la costante k' perchè essa è nulla come nel caso precedente.<br>
+Il campo elettrico è parallelo all'asse del cilindro e alla direzione di scorrimento della corrente.<br>
+3. Infine passiamo all'aspetto magnetico della situazione, osservando che la variazione di flusso elettrico <span class="tex">\(\Phi_e=E(t) \, A\)</span> nella fenditura implica la presenza di un campo magnetico perpendicolare a quello elettrico per la 4^ equazione di Maxwell (che poi è il teorema della circuitazione di Ampere-Maxwell).<br>
+Quindi:<br>
+<span class="tex">\(\displaystyle{\oint \vec{B}d\vec{s}=\mu_0\varepsilon_0\frac{d\Phi_e}{dt}}\)</span><br>
+<span class="tex">\(\displaystyle{\oint \vec{B}d\vec{s}=\mu_0\varepsilon_0 (\pi R^2)\frac{dE}{dt}}\)</span><br>
+<span class="tex">\(\displaystyle{\oint \vec{B}d\vec{s}=\alpha \mu_0t}\)</span>.<br>
+Qui <span class="tex">\(\mu_0\)</span> è la costante dielettrica del vuoto.<br>
+Alla fine:<br>
+<span class="tex">\(B2\pi r= \alpha \mu_0 t\)</span>,<br>
+<span class="tex">\(\displaystyle{B(r,t)=\frac{\alpha \mu_0 t}{2 \pi r}}\)</span>.<br>
+Si osserva che il campo magnetico è perpendicolare all'asse del cilindro, variabile in funzione del tempo e della distanza r dal centro, entro l'intervallo <span class="tex">\(0&lt;r \le R\)</span>.<br>
+Non riesco però ad interpretare bene qual è il valore del campo magnetico per r=0 m: teoricamente infinito se applicassimo la precedente formula, ma ho il fondato sospetto che essa non valga per r=0 m e che lì il campo magnetico sia invece 0, perchè la circuitazione di un punto infinitesimo (visto come una circonferenza di raggio nullo) deve essere nulla, visto che non ci passa corrente (è troppo "stretto", detto in parole povere).<br>
+Perciò direi che è vero che:<br>
+<span class="tex">\(B(0, t)=0\)</span>.</article>
+<article class="post" id="p4198"><div class="who"><b>Rigel</b><span>19 mag 2010, 19:28</span></div><blockquote><div><cite>Stardust ha scritto:</cite><span class="tex">\(\displaystyle{\oint \vec{B}d\vec{s}=\mu_0\varepsilon_0 (\pi R^2)\frac{dE}{dt}}\)</span></div></blockquote>
+Occhio perchè se applichi la circuitazione a una circonferenza di raggio r il flusso del campo elettrico è <span class="tex">\(\pi r^2E\)</span><br>
+questo dovrebbe sistemare un pò i dubbi cul campo magnetico per r=0</article>
+<article class="post" id="p4203"><div class="who"><b>Stardust</b><span>19 mag 2010, 20:31</span></div>Meno male che qualcuno mi richiama all'ordine, grazie. <br>
+Alla fine risulta:<br>
+<span class="tex">\(B(r,t)=\displaystyle{\frac{\alpha \mu_0rt}{2\pi R^2}}\)</span>.<br>
+A volte mi capita di incasinarmi con simili sostituzioni affrettate.</article>
+<article class="post" id="p4208"><div class="who"><b>Stardust</b><span>20 mag 2010, 20:57</span></div>Se qualcuno ha a disposizione qualche problema adatto alla staffetta, si senta libero di pubblicarlo, al momento non ne trovo uno adatto. Grazie.</article>
+<article class="post" id="p4209"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta elettromagnetica</b><span>21 mag 2010, 14:44</span></div>Colgo al volo l'occasione:<br>
+<strong class="text-strong">Problema 4</strong><br>
+Si consideri una sfera piena carica uniformemente di carica <span class="tex">\(Q\)</span> e raggio <span class="tex">\(R\)</span>: calcolare la forza che la metà inferiore esercita sulla metà superiore.</article>
+<article class="post" id="p4212"><div class="who"><b>Stardust</b><span>21 mag 2010, 20:10</span></div><blockquote><div><cite>Eagle ha scritto:</cite>
+Si consideri una sfera piena carica uniformemente di carica <span class="tex">\(Q\)</span> e raggio <span class="tex">\(R\)</span>: calcolare la forza che la metà inferiore esercita sulla metà superiore.</div></blockquote>
+Intendi "sfera piena carica" nel senso che il materiale non è conduttore e quindi la carica è distribuita in modo uniforme al suo interno?</article>
+<article class="post" id="p4213"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta elettromagnetica</b><span>21 mag 2010, 21:40</span></div>Perfettamente d'accordo con Stardust  ;)</article>
+<article class="post" id="p4215"><div class="who"><b>Stardust</b><span>21 mag 2010, 23:07</span></div>Considero la sfera idealmente divisa in due metà identiche, di uguale volume e carica.<br>
+Dobbiamo capire in quale punto va considerata concentrata la carica di ciascuna calotta.<br>
+Prendo in considerazione una sezione semicircolare (quella superiore, per comodità) che possiamo descrivere come metà della circonferenza di equazione<br>
+<span class="tex">\(x^2+y^2=R^2\)</span>, se fissiamo il centro del sistema di riferimento cartesiano <br>
+<br>
+coincidente con il centro della sfera.<br>
+Quindi un qualunque punto della funzione si indica come:<br>
+<span class="tex">\(y=\sqrt{R^2-x^2}\)</span>, imponendo <span class="tex">\(y\geq 0\)</span>.<br>
+Visualizziamo un rettangolino infinitesimo, la cui area è:<br>
+<span class="tex">\(dA=y\,dx=\sqrt{R^2-x^2}\,dx\)</span>, mentre la carica infinitesima si può ricavare <br>
+<br>
+considerando per il momento la distribuzione superficiale di q, <span class="tex">\(\sigma\)</span>:<br>
+<span class="tex">\(dq=\sigma \,dA=\sigma \sqrt{R^2-x^2}\,dx\)</span>.<br>
+Ora bisogna fare un salto indietro alla meccanica dei sistemi di punti, per ricordare il calcolo del baricentro della massa di un sistema e ricavare per analogia il baricentro elettrico. <br>
+L'ascissa del centro di massa è <br>
+<span class="tex">\(x_G=\displaystyle{\frac{\sum_{i=1}^{N}m_ix_i}{\sum_{i=1}^{N}m_i}}\)</span>,<br>
+mentre la sua ordinata è<br>
+<span class="tex">\(y_G=\displaystyle{\frac{\sum_{i=1}^{N}m_iy_i}{\sum_{i=1}^{N}m_i}}\)</span>.<br>
+In modo analogo possiamo indicare la posizione del baricentro della carica:<br>
+<span class="tex">\(x_G=\displaystyle{\frac{\sum_{i=1}^{N}q_ix_i}{\sum_{i=1}^{N}q_i}}\)</span><br>
+e<br>
+<span class="tex">\(y_G=\displaystyle{\frac{\sum_{i=1}^{N}q_iy_i}{\sum_{i=1}^{N}q_i}}\)</span>.<br>
+Il baricentro, per evidente simmetria tra le parti, ha ascissa nulla, quindi cade lungo il diametro verticale, mentre la sua ordinata è<br>
+<span class="tex">\(y_G=\displaystyle{\frac{\sum_{i=1}^{N}q_iy_i}{\frac{1}{2}\sigma \pi R^2}}\)</span>.<br>
+A questo punto è utile osservare che: <br>
+<span class="tex">\(\displaystyle{\sum_{i=1}^{N}q_iy_i=\int_{-R}^{R}\sigma\sqrt{R^2-x^2}\frac{\sqrt{R^2-x^2}}{2}\,dx}\)</span>.<br>
+L'ultime radice divisa per 2 indica l'ordinata del baricentro di ogni infinitesimo rettangolino su cui si esegue l'integrazione tra -R e R.<br>
+Semplificando un po' si arriva a:<br>
+<span class="tex">\(y_G=\displaystyle{\frac{1}{2}\frac{\int_{-R}^{R}(R^2-x^2)\,dx }{\pi R^2}}\)</span><br>
+da cui si ottiene<br>
+<span class="tex">\(y_G=\displaystyle{\frac{4R}{3\pi}}\)</span>.<br>
+Questo ragionamento è lo stesso, qualunque sezione scegliamo, quindi anche ruotando la sezione analizzata di 180°, abbiamo che tutta la carica tridimensionale è in tale baricentro elettrico, sia per la calotta superiore, che per quella inferiore.<br>
+Questo significa che se la carica su una metà della sfera può essere immaginata come <br>
+concentrata in un solo punto, le due cariche <span class="tex">\(q_1=q_2=\frac{1}{2}Q\)</span> sono a <br>
+distanza <span class="tex">\(d=\displaystyle{2\frac{4R}{3\pi}}=\frac{8R}{3\pi}\)</span>.<br>
+La forza elettrica di repulsione che di manifesta tra le due semisfere vale quindi:<br>
+<span class="tex">\(F_e=\displaystyle{\frac{1}{4\pi \varepsilon_0}\frac{q_1 q_2}{d^2}}\)</span> ossia<br>
+<span class="tex">\(F_e=\displaystyle{\frac{9\pi Q^2}{64\varepsilon_0 R^2}}\)</span>.<br>
+Un'altro aspetto da non trascurare è legato al fatto che la sfera è dotata di massa.<br>
+La metà superiore è spinta in basso dal proprio peso, ma deve contemporaneamente sostenere un ugual peso della semisfera inferiore, così si osserva che alla massa delle due parti non va attribuita nessuna azione in termini di altre forze nette eventualmente da aggiungere alla <span class="tex">\(F_e\)</span>.<br>
+<br>
+Info tecnica sul <span class="tex">\(\LaTeX\)</span>: non si può evitare che il simbolo della sommatoria sia un po' scombussolato quando viene inserito nel comando<br>
+\frac{}?</article>
+<article class="post" id="p4216"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta elettromagnetica</b><span>21 mag 2010, 23:17</span></div>Il risultato del mio ragionamento differisce di poco da quello di Sturdust:<br>
+<br>
+<span class="tex">\(\displaystyle{F_e=\frac{1}{4\pi\epsilon_0}\frac{3Q^2}{16R^2}}\)</span></article>
+<article class="post" id="p4217"><div class="who"><b>Pigkappa</b><span>21 mag 2010, 23:17</span></div>Per comodità, faccio finta che stiamo considerando le forze gravitazionali anzi che quelle elettriche (tanto i conti si fanno nello stesso modo, e così non si deve parlare di "baricentro elettrico" o cose del genere).<br>
+<br>
+Siano <span class="tex">\(G_1\)</span> e <span class="tex">\(G_2\)</span> i baricentri della metà di sopra e della metà di sotto. Allora:<br>
+<br>
+1)Non è vero che la parte di sopra subisce una forza uguale a quella che subirebbe se tutta la sua massa fosse in <span class="tex">\(G_1\)</span>.<br>
+2)Non è vero che la parte di sotto genera un campo uguale a quello che genererebbe se tutta la sua massa fosse in <span class="tex">\(G_2\)</span>.<br>
+<br>
+"Non è vero" significa "non è in generale vero"; ad esempio, la 1 sarebbe vera se la semisfera superiore si trovasse in un campo di gravità uniforme, mentre la 2 sarebbe vera se la semisfera inferiore avesse simmetria sferica (ma evidentemente non ce l'ha). Può darsi che in questo caso siano comunque vere sia 1) che 2), ma sinceramente credo proprio di no, e di certo bisognerebbe dimostrarlo.</article>
+<article class="post" id="p4218"><div class="who"><b>Gauss91</b><span>21 mag 2010, 23:19</span></div>Baricentro elettrico :shock: sarebbe una bella idea! ma si può effettivamente utilizzare? (non è una provocazione eh! semplicemente non lo so! :P )</article>
+<article class="post" id="p4219"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta elettromagnetica</b><span>21 mag 2010, 23:19</span></div>Ci tengo a sottolineare per correttezza che nonostante i nostri risultati siano alquanto simili, ho seguito un tipo di ragionamento diverso da quello di Sturdust.<br>
+<br>
+<strong class="text-strong">P.S</strong>: Scusate questa aggiunta, ma da quando mi sono iscritto devo ammettere che personalmente questa è una delle primissime volte in cui partecipo ad un botta e risposta senza esclusione di colpi. Spero sia di buon auspicio per il forum delle Olifis (<em class="text-italics">alla faccia dell'oliforum dei cugini matematici</em> :twisted: )</article>
+<article class="post" id="p4220"><div class="who"><b>Stardust</b><span>21 mag 2010, 23:22</span></div>@Pigkappa: potresti chiarire allora come andrebbe svolto il problema? Se non si può contare su queste affermazioni, che sembrano abbastanza naturali, come si approccia la soluzione?<br>
+Io ho lavorato in analogia con  la gravitazione, data la somiglianza delle formule matematiche che descrivono le forze e le energie in gioco. A voi come esce?</article>
+<article class="post" id="p4221"><div class="who"><b>Ippo</b><span>22 mag 2010, 12:43</span></div><blockquote><div><cite>Stardust ha scritto:</cite>@Pigkappa: potresti chiarire allora come andrebbe svolto il problema? Se non si può contare su queste affermazioni, <strong class="text-strong">che sembrano abbastanza naturali</strong>, come si approccia la soluzione?</div></blockquote> Ma sono false. Pig è prudente e dice "in generale", ma io mi sbilancerei e direi è chiaro che in questo caso quelle assunzioni non funzionano. Se ci pensi non puoi nemmeno escludere qualitativamente che ti esca un infinito: l'interazione di una distribuzione continua di carica/massa con se stessa è sempre un po' problematica. Bisogna andarci estremamente cauti.<br>
+Così a pelle direi che non se ne viene fuori se non sporcandosi parecchio le mani: <br>
+-calcolo del campo elettrico (basta la componente z) generata da un emisfero<br>
+-integrale del campo in dq su tutto l'altro emisfero.<br>
+Se la soluzione è davvero questa il problema non è decisamente da staffetta e nemmeno da olimpiadi;<br>
+se Eagle ha una soluzione elementare sarei curioso di vederla.<br>
+Provo a svolgere i conti.</article>
+<article class="post" id="p4222"><div class="who"><b>Rigel</b><span>22 mag 2010, 14:03</span></div>io ho inteso il problema come "calcola la forza che la sfera di raggio R/2 interna alla sfera data esercita sul guscio sferico esterno". curiosamente mi è uscito lo stesso risultato di Eagle. magari c'è un equivoco sul testo</article>
+<article class="post" id="p4223"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta elettromagnetica</b><span>22 mag 2010, 14:20</span></div>Il ragionamento da seguire è simile a quello espresso nel messaggio di Ippo. Metodi alternativi, personalmente, non ne ho trovati. Circa quanto scritto da Rigel, credo ci sia un equivoco nel testo. <br>
+Ho considerato semplicemente una sfera divisa in due semisfere e poi l'ho risolto integrando sulla metà superiore il prodotto della densità di carica per la componente del campo <span class="tex">\(E\)</span> rispetto a <span class="tex">\(z\)</span>. E’ naturale che il campo elettrico considerato è quello generato da tutta la sfera (e non solo della metà inferiore), ma integrando sulla sola metà superiore la forza totale dovuta al campo della semisfera stessa sarà nulla (per il principio di azione e reazione). <br>
+Sul fatto che esca lo stesso risultato sia a me che a Rigel (pur interpretando il testo in modo differente) ... non so, potrebbe trattarsi di coincidenza o anche nel suo caso il ragionamento di fondo è lo stesso... <br>
+... :?</article>
+<article class="post" id="p4224"><div class="who"><b>Ippo</b><span>22 mag 2010, 18:07</span></div><blockquote><div><cite>Eagle ha scritto:</cite>E’ naturale che il campo elettrico considerato è quello generato da tutta la sfera (e non solo della metà inferiore), ma integrando sulla sola metà superiore la forza totale dovuta al campo della semisfera stessa sarà nulla (per il principio di azione e reazione). </div></blockquote>
+Non ci avevo pensato, questo evita il peggio in effetti  :)</article>
+<article class="post" id="p4225"><div class="who"><b>Rigel</b><span>22 mag 2010, 18:25</span></div><blockquote><div><cite>Eagle ha scritto:</cite>Sul fatto che esca lo stesso risultato sia a me che a Rigel (pur interpretando il testo in modo differente) ... non so, potrebbe trattarsi di coincidenza o anche nel suo caso il ragionamento di fondo è lo stesso... <br>
+... :?</div></blockquote>
+Credo che l'interpretazione e il ragionamento che ho fatto sono del tutto diversi dai tuoi quindi si tratta di una coincidenza che penso sia casuale</article>
+<article class="post" id="p4227"><div class="who"><b>Pigkappa</b><span>22 mag 2010, 19:16</span></div><blockquote><div><cite>Eagle ha scritto:</cite>Ho considerato semplicemente una sfera divisa in due semisfere e poi l'ho risolto integrando sulla metà superiore il prodotto della densità di carica per la componente del campo <span class="tex">\(E\)</span> rispetto a <span class="tex">\(z\)</span>. E’ naturale che il campo elettrico considerato è quello generato da tutta la sfera (e non solo della metà inferiore), ma integrando sulla sola metà superiore la forza totale dovuta al campo della semisfera stessa sarà nulla (per il principio di azione e reazione).</div></blockquote>
+
+Uhm, wow, sembra funzionare e non ci avevamo pensato  :shock: . Bello!</article>
+<article class="post" id="p4234"><div class="who"><b>Stardust</b><span>24 mag 2010, 7:37</span></div>Eagle, potresti essere un po' più esplicito? Come hai visualizzato il campo generato dalla semisfera?</article>
+<article class="post" id="p4236"><div class="who"><b>Ippo</b><span>24 mag 2010, 13:22</span></div>Il punto del ragionamento di Eagle è proprio che visualizzare il campo generato dalla semisfera (che sarebbe la parte orrenda del problema) non è necessario, è sufficiente calcolare il campo generato dalla sfera intera (che è banale) sapendo che poi nel calcolo della forza totale la parte dovuta alla semisfera superiore si elide automaticamente. <br>
+A questo punto se non vi dispiace sviluppo anche i conti:<br>
+<br>
+<span class="tex">\(\displaystyle \vec E={\rho \over 3 \varepsilon_0} \vec r\)</span> (dentro la sfera, cioé per <span class="tex">\(r&lt;R\)</span>)<br>
+<span class="tex">\(E_z={\rho \over 3 \varepsilon_0} z\)</span><br>
+<span class="tex">\(\displaystyle \vec F= \hat z \int_0^R E_z(z) \pi (R^2-z^2) \rho dz=\)</span><br>
+<span class="tex">\(\displaystyle =\hat z {\pi \rho^2 \over 3 \varepsilon_0} \int_0^R (R^2z-z^3)dz=\)</span><br>
+<span class="tex">\(\displaystyle =\hat z {\pi \rho^2 \over 3 \varepsilon_0} {R^4 \over 4}\)</span><br>
+<br>
+Sostituendo <span class="tex">\(\rho=3Q/4 \pi R^3\)</span> si ottiene<br>
+<br>
+<span class="tex">\(\displaystyle \vec F={3 Q^2 \over 64 \pi \varepsilon_0 R^2} \hat z\)</span><br>
+<br>
+che coincide col risultato di Eagle. Bello  :)</article>
+<article class="post" id="p4237"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta elettromagnetica</b><span>24 mag 2010, 13:39</span></div>Perfetto, Ippo  ;)</article>
+<article class="post" id="p4238"><div class="who"><b>Stardust</b><span>24 mag 2010, 14:42</span></div>Wow, stupenda soluzione. Esce un calcolo così pulito e semplice!<br>
+Solo un appunto sulla prima formula usata da Ippo, che collega E e <span class="tex">\(\rho\)</span>. Che significato ha e come si ottiene?</article>
+<article class="post" id="p4239"><div class="who"><b>Pigkappa</b><span>24 mag 2010, 15:24</span></div>E' il campo elettrico in una sfera con carica distribuita uniformemente. Serviva anche nel problema di elettromagnetismo della simulazione di Senigallia, nel primo problema di Senigallia 2010 (nella versione gravitazionale), eccetera eccetera.<br>
+<br>
+Si ottiene notando che per simmetria il campo deve essere radiale, e poi applicando la legge di Gauss ad una sfera opportuna...</article>
+<article class="post" id="p4240"><div class="who"><b>Stardust</b><span>24 mag 2010, 15:39</span></div>Allora è semplicemente la legge per cui in una sfera con carica uniforme all'interno (o in un pianeta a densità omogenea) la forza elettrica/gravitazionale è proporzionale al raggio... Ho capito bene?</article>
+<article class="post" id="p4241"><div class="who"><b>Pigkappa</b><span>24 mag 2010, 15:55</span></div>Sì, ma chiamarla "legge" mi pare troppo. E' un fatto utile che conviene ricordarsi che è vero e come lo si ricava. La costante che compare (<span class="tex">\(\frac{\rho}{3\epsilon_0}\)</span>) non la dovete ricordare, potete ricavarla ogni volta...</article>
+<article class="post" id="p4332"><div class="who"><b>Stardust</b><span>4 giu 2010, 16:26</span></div>Scusate, ma a chi tocca postare il nuovo problema della staffetta?</article>
+<article class="post" id="p4589"><div class="who"><b>spn</b><span>10 lug 2010, 19:00</span></div>Visto che la staffetta di elettromagnetismo è a rischio estinzione, propongo questo problema che è preso da un vecchio APhO; uno dei pochi ''fattibili'' (dove fattibile = non da cinesi = non perdi ore su conti assurdi).<br>
+<br>
+<strong class="text-strong">Problema 5: Effetto Stewart-Tolman</strong><br>
+<br>
+Sulle pareti di un lungo cilindro situato nel vuoto viene posto un gran numero di sottili anelli di metallo di raggio <span class="tex">\(r\)</span> e resistenza <span class="tex">\(R\)</span>. Gli anelli sono uno sopra l'altro, in modo che il piano su cui giace ogni anello è perpendicolare all'asse di simmetria del cilindro, e sono fissati alle sue pareti. Il numero di anelli per unità di lunghezza lungo l'asse di simmetria è <span class="tex">\(n\)</span>.<br>
+A un cero punto il cilindro incomincia a ruotare intorno al suo asse con un'accelerazione angolare <span class="tex">\(\alpha\)</span> costante. Sapendo che la carica e la massa degli elettroni sono <span class="tex">\(e\)</span> ed <span class="tex">\(m\)</span>, si trovi il valore del campo magnetico che si crea lungo l'asse del cilindro dopo un tempo sufficentemente lungo.</article>
+<article class="post" id="p4623"><div class="who"><b>Stardust</b><span>17 lug 2010, 20:31</span></div>Un singolo elettrone viene accelerato dal moto rotatorio dell'anello in cui si trova, raggiungendo una generica velocità <span class="tex">\(v(t)=\alpha r t\)</span>.<br>
+Questo significa che alla variazione di energia cinetica della particella è ricollegabile l'azione della forza elettromotrice di origine magnetica, attraverso la formula:<br>
+<span class="tex">\(\Delta K=fem \;e\)</span>,<br>
+laddove<br>
+<span class="tex">\(\Delta K=K_f-K_0=\frac{1}{2}m v_f^2-0=\frac{1}{2}m\alpha ^2 r^2 t^2\)</span>.<br>
+La spinta all'elettrone deriva dalla forza elettromotrice, per cui:<br>
+<span class="tex">\(\Delta K= fem\; e\)</span><br>
+ossia<br>
+<span class="tex">\(\frac{1}{2}m\alpha ^2 r^2 t^2=fem\;e\)</span>.<br>
+Da ciò:<br>
+<span class="tex">\(fem= \displaystyle{\frac{1}{2e}m\alpha ^2 r^2 t^2}\)</span>.<br>
+Dalla prima legge di Ohm vale però:<br>
+<span class="tex">\(fem=Ri\)</span>,<br>
+perciò la corrente che scorre in un anello è:<br>
+<span class="tex">\(i=\displaystyle{\frac{fem}{R}=\frac{m\alpha ^2 r^2 t^2}{2eR}}\)</span>.<br>
+<br>
+Possiamo invocare il teorema di Ampere Maxwell sulla circuitazione del campo magnetico B per capire la sua intensità verso la zona centrale del cilindro (in modo analogo a quanto fatto per un normale solenoide).<br>
+Perciò:<br>
+<span class="tex">\(\displaystyle{\oint \vec{B}d\vec{s}=\mu_0 i_{tot}}\)</span>.<br>
+Essendo x una distanza considerata lungo la parete del cilindro e N il numero di anelli qui presenti si ottiene:<br>
+<span class="tex">\(B\,x=\mu _0 N i\)</span><br>
+<span class="tex">\(B=\displaystyle{\frac{\mu _0 N i}{x}=\mu_0 n i}\)</span><br>
+ovvero<br>
+<span class="tex">\(B=\displaystyle{\frac{\mu _0\, n\, m\, \alpha^2\, r^2\, t^2}{2eR}}\)</span>.<br>
+<br>
+Nota: editato dopo affermazioni non corrette pubblicate ieri sera.</article>
+<article class="post" id="p4624"><div class="who"><b>Stardust</b><span>19 lug 2010, 9:19</span></div>Nessuno ha niente da ridire sulla soluzione?<br>
+Non credo spn possa intervenire, mi pare sia leggermente impegnato in quel di Zagabria  :).<br>
+Se è corretto, posso postare un altro problema.</article>
+<article class="post" id="p4643"><div class="who"><b>Stardust</b><span>21 lug 2010, 10:47</span></div><strong class="text-strong">Problema 6:</strong><br>
+Il campo magnetico è uniforme e ha intensità B all'interno di un solenoide molto lungo, lontano dai suoi estremi. Ad una delle estremità, il solenoide è chiuso con uno strato di plastica molto fino. Una singola spira circolare di raggio R è posta sullo strato in plastica in modo tale che il suo centro coincide con l'asse di simmetria del solenoide. Data una corrente i che scorre nella spira, calcolare la tensione meccanica nel filo.<br>
+<br>
+Il testo proviene dalle XXIX Olimpiadi di Fisica Russe. Info: <a href="http://www.mipt.ru/eng/education/olympiads/a_kowge.html" class="ext" class="postlink">http://www.mipt.ru/eng/education/olympiads/a_kowge.html</a>   .
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=130" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Solenoide di Chivilev.png (3.9 KiB) Visto 8041 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p4678"><div class="who"><b>spn</b><span>26 lug 2010, 11:04</span></div>La soluzione del problema 5 comunque non è corretta. <br>
+Se tu dici che che tutto l'anello (compresi gli elettroni) si muove come un singolo corpo rigido, allora non si sa perché dovrebbe venir fuori un campo magnetico: l'anello ha carica nulla.</article>
+<article class="post" id="p4679"><div class="who"><b>Stardust</b><span>26 lug 2010, 11:10</span></div>In un metallo ci sono elettroni di conduzione che non sono strettamente legati ai nuclei atomici, e proprio questa maggiore mobilità degli elettroni permette a questi materiali di essere buoni conduttori.<br>
+Nel nostro caso, ho immaginato che questi elettroni non fossero trascinati dalla rotazione dell'anello, in modo tale che essi rimanessero fermi mentre le cariche positive scorrevano "sotto" di essi. In pratica, la corrente elettronica non c'è, ci sono protoni e neutroni che si muovono mentre gli elettroni restano al loro posto. Questo spiega perchè compare una corrente netta, anche se l'anello resta complessivamente neutro.<br>
+L'errore si ripercuote anche sull'analisi quantitativa?</article>
+<article class="post" id="p4680"><div class="who"><b>spn</b><span>26 lug 2010, 11:46</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Un singolo elettrone viene accelerato dal moto rotatorio dell'anello in cui si trova, raggiungendo una generica velocità .</div></blockquote>
+Forse sono io che mi sto rimbambendo, ma mi pare che queste due cose che dici siano in contraddizione. <br>
+<br>
+Comunque anche se non sono strettamente legati fra loro, gli elettroni interagiscono comunque con i nuclei. <br>
+Guarda, credo che se la pensi con le velocità viene un casino.<br>
+L'errore si ripercuote anche quantitativamente.</article>
+<article class="post" id="p4681"><div class="who"><b>spn</b><span>26 lug 2010, 12:51</span></div>Per non mischiare insieme troppi problemi, metto io la mia soluzione al problema di Stardust, scusandomi se tolgo l'opportunità a qualcuno.<br>
+<br>
+Per simmetria il campo magnetico presente sullo strato di plastica è: <span class="tex">\(B_1 = B/2\)</span> <br>
+<br>
+La forza centripeta esercitata della tensione in un'arco infinitesimo è <span class="tex">\(F_{cp}=T d\theta\)</span><br>
+<br>
+La forza centrifuga dovuta al campo magnetico è <span class="tex">\(F_{cf}= B_1 i R d\theta\)</span><br>
+Da cui:<br>
+<br>
+<span class="tex">\(T=B_1 i R = \dfrac{BiR}{2}\)</span></article>
+<article class="post" id="p4682"><div class="who"><b>Stardust</b><span>26 lug 2010, 12:59</span></div>Ok, giusto.<br>
+Tornando al problema precedente, credo si potrebbe usare la variazione di flusso magnetico associata alla rotazione. O no?</article>
+<article class="post" id="p4692"><div class="who"><b>Falco5x</b><span>27 lug 2010, 8:42</span></div>Salve ragazzi, torno dopo lunga assenza.<br>
+Nel frattempo non so se mi sono rimbambito, per provarlo l'unico modo è tentare una soluzione.<br>
+Provo col problema 5.<br>
+Gli elettroni risentono della forza di inerzia dovuta al moto accelerato di ogni anello. Dunque sono soggetti a <span class="tex">\(F = ma = m\alpha r\)</span><br>
+Il loro moto in un conduttore resistivo è esattamente uguale a quello provocato da una f.e.m. lungo l'anello. La corrente che si genera è dunque pari a quella che si genererebbe applicando una f.e.m. equivalente, tale da produrre sugli elettroni una forza uguale a quella di inerzia.<br>
+Ciò premesso, vado a calcolare questa f.e.m. e la corrente corrispondente:<br>
+<br>
+<span class="tex">\(\displaystyle {E_{eq}} = \frac{F}{e} = \frac{{m\alpha r}}{e}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle f.e.m{._{eq}} = 2\pi r{E_{eq}} = \frac{{2\pi m\alpha {r^2}}}{e}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle I = \frac{{f.e.m{._{eq}}}}{R} = \frac{{2\pi m\alpha {r^2}}}{{eR}}\)</span><br>
+<br>
+Da cui il campo generato all'interno di questa specie di solenoide:<br>
+<br>
+<span class="tex">\(\displaystyle B = \frac{{nI}}{{{\varepsilon _0}{c^2}}} = {\mu _0}nI = \frac{{2\pi {\mu _0}nm\alpha {r^2}}}{{eR}}\)</span><br>
+<br>
+Se nel frattempo mi sono rinco... ditemelo pure, grazie! :D<br>
+<br>
+<br>
+<br>
+Edit: corretta formula finale dopo ravvedimento ispirato da spn</article>
+<article class="post" id="p4693"><div class="who"><b>spn</b><span>27 lug 2010, 10:29</span></div><span class="tex">\(B=\dfrac{ In}{ {\mu}_0 }\)</span> ? :mrgreen: <br>
+<br>
+A parte questo va bene  :mrgreen:</article>
+<article class="post" id="p4696"><div class="who"><b>Falco5x</b><span>27 lug 2010, 11:15</span></div><blockquote><div><cite>spn ha scritto:</cite><span class="tex">\(B=\dfrac{ In}{ {\mu}_0 }\)</span> ? :mrgreen: <br>
+<br>
+A parte questo va bene  :mrgreen:</div></blockquote>
+Urka... questa però è solo ruggine, non demenza dài....<br>
+Ehm, vooooooolevo invece dire :<br>
+<br>
+<span class="tex">\(\displaystyle B = \frac{{nI}}{{{\varepsilon _0}{c^2}}} = {\mu _0}nI = \frac{{2\pi {\mu _0}nm\alpha {r^2}}}{{eR}}\)</span><br>
+<br>
+<br>
+...sorry...</article>
+<article class="post" id="p4698"><div class="who"><b>Ippo</b><span>27 lug 2010, 13:13</span></div>...quindi il nostro claim è che gli elettroni restano fissi al loro posto nei conduttori. Lo giustifichiamo o ci crediamo? a priori potrebbero fare quello che vogliono, sono elettroni di conduzione in un metallo... <br>
+Io direi: proviamo a guardare la cosa in un riferimento rotante attorno all'asse del cilindro in cui questo appare fermo; questo è un sistema "inerziale" a meno della forza centrifuga, che gli elettroni bilanciano comodamente disponendosi un po' più all'esterno che all'interno (bonus question: qual è la differenza tra le densità di carica superficiali dell'interno e dell'esterno del cilindro tale che si abbia questo?), e qui è abbastanza chiaro che gli elettroni non hanno motivo di cominciare a girare da una parte piuttosto che dall'altra.</article>
+<article class="post" id="p4707"><div class="who"><b>Falco5x</b><span>27 lug 2010, 16:58</span></div><blockquote><div><cite>Ippo ha scritto:</cite>...quindi il nostro claim è che gli elettroni restano fissi al loro posto nei conduttori. Lo giustifichiamo o ci crediamo? a priori potrebbero fare quello che vogliono, sono elettroni di conduzione in un metallo... <br>
+Io direi: proviamo a guardare la cosa in un riferimento rotante attorno all'asse del cilindro in cui questo appare fermo; questo è un sistema "inerziale" a meno della forza centrifuga, che gli elettroni bilanciano comodamente disponendosi un po' più all'esterno che all'interno (bonus question: qual è la differenza tra le densità di carica superficiali dell'interno e dell'esterno del cilindro tale che si abbia questo?), e qui è abbastanza chiaro che gli elettroni non hanno motivo di cominciare a girare da una parte piuttosto che dall'altra.</div></blockquote>
+Scusa, confesso che non ho capito cosa intendi dire.<br>
+Il cilindro accelera la sua velocità di rotazione, dunque secondo il modello che ho descritto gli elettroni continuano a ruotare spinti da una forza di inerzia tangente alla circonferenza!<br>
+Poi c'è anche la forza centrifuga, ma questo influisce poco visto che si dice che gli anelli sono sottilissimi...<br>
+Perdonami ma temo di non aver capito la tua osservazione.</article>
+<article class="post" id="p4711"><div class="who"><b>spn</b><span>27 lug 2010, 19:52</span></div>No, gli elettroni non rimangono fermi nel sistema del laboratorio, altrimenti si avrebbe una corrente che cresce nel tempo. <br>
+<br>
+Premetto che non sono assolutamente un esperto di fisica della materia, ma nella mia ignoranza avevo pensato una cosa del genere:<br>
+Gli elettroni interagiscono con il resto dell'anello (la resistenza di questo è dovuta a ció). Mettendoci nel sistema dell'anello si ha che su gli elettroni agisce una forza inerziale e una forza dovuta all'interazione con il reticolo, dirette in verso opposto (è come se l'interazione con il reticolo fosse un'attrito, che aumenta con la velocità, come succede nell'aria). Se la resistenza non è nulla, allora verrà raggiunto uno stato di equilibrio in cui le due forze si equilibrano. A questo punto gli elettroni si muovono rispetto all'anello ad una velocità costante, il chè comporta la presenza della corrente. A questo punto per l'osservatore esterno gli elettroni sembrano muoversi sotto una forza costante, e da qui viene il procedimento detto da Falco5x. <br>
+È importante notare che se la resistenza è nulla, allora gli elettroni non si muovono, percui non verrà mai raggiunto l'equilibrio e la differenza di velocità tenderà ad infinito, da cui una corrente infinita. Per una resistenza infinita invece la differenza di velocità è nulla, percui una corrente nulla. Che è proprio come ci si aspetta.<br>
+<br>
+Per le forze radiale immagino che possano essere ignorate visto che, come dice Falco5x, gli anelli sono molto sottili.</article>
+<article class="post" id="p4714"><div class="who"><b>Ippo</b><span>28 lug 2010, 0:09</span></div>le forze radiali non dipendono dallo spessore. Ciononostante basta spostare qualche elettrone per bilanciarle, si può tranquillamente fare il conto con la legge di Gauss, immaginando che verso l'interno ci siano un po' di elettroni in meno (carica positiva) che vanno a concentrarsi verso l'esterno. Si ha a spanne <span class="tex">\(Ee={\sigma \over \varepsilon_0}e=m \omega^2 r\)</span> da cui <span class="tex">\(\displaystyle \sigma={m \alpha^2 r \varepsilon_0 \over e}t^2\)</span> che per valori non giganteschi del tempo e dell'accelerazione angolare è un numero ridicolo, giusto qualche elettrone per metro quadro.<br>
+Prima non avevo capito cosa intendeva Falco e ho scritto un po' di cose a caso (non faccio elettromagnetismo da un anno, ignoratemi :oops: ) Spiegazione molto chiara comunque. A questo punto avanti col prossimo!</article>
+<article class="post" id="p4751"><div class="who"><b>spn</b><span>2 ago 2010, 14:05</span></div>Dicendo che le forze radiali potevano essere ignorate intendevo che non influiscono sulla corrente che viene generata, ossia l'accelerazione delle cariche non varia significamente. Poi certo questo non vuol dire che esse non esistano.<br>
+
+<blockquote><div><cite>Falco5x ha scritto:</cite>questa però è solo ruggine, non demenza dài....</div></blockquote>
+Figurati...chi ti scrive è uno che ha perso l'argento alle IPhO per aver sbagliato a convertire cm in metri.  :roll:   :mrgreen: <br>
+<br>
+Il problema è finito, andate in pace.</article>
+<nav class="pager"><a class="prev" href="olifis-440.html"><small>← precedente</small>Staffetta termodinamica</a><a class="next" href="olifis-4646.html"><small>successivo →</small>1. Elettromagnetismo di base</a></nav>
+</main></body></html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>210. Aberrazione sferica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 210</a></span></nav>
+<h1>210. Aberrazione sferica</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6902">forum Olifis</a></p>
+<article class="post first" id="p26033"><div class="who"><b>Nicolás Lobato</b><span>29 mag 2020, 19:34</span></div>In uno specchio sferico i raggi riflessi di un sottile fascio che si propaga parallelamente all’asse ottico convergono approssimativamente in un punto dell’asse detto fuoco parassiale. Si pone uno schermo sul piano del fuoco parassiale di uno specchio di raggio r sul quale incide un fascio di luce parallelo all’asse ottico la cui sezione ha raggio h. Si determini il raggio minimo dello schermo per raccogliere tutta la luce riflessa;</article>
+<article class="post" id="p26036"><div class="who"><b>bosone</b><span>30 mag 2020, 10:56</span></div>L'asse del fascio di raggio h coincide con l'asse dello specchio?</article>
+<article class="post" id="p26037"><div class="who"><b>Nicolás Lobato</b><span>30 mag 2020, 11:18</span></div>Si, l'asse del fascio di raggi e l'asse ottico dello specchio coincidono. Scusa se magari il testo non era molto chiaro, qualsiasi altro dubbio chiedi pure  :)</article>
+<article class="post" id="p26038"><div class="who"><b>bosone</b><span>30 mag 2020, 11:44</span></div>Grazie. Non mi chiedere di fare le figure. Ho calcolato lo spostamento del fuoco rispetto a quello teorico che è r/2. L'angolo di incidenza massimo mi verrebbe <span class="tex">\(\alpha= arcosen(h/r)\)</span> e con un pò di conti trigonometrici che avrò sicuramente sbagliato avrei ottenuto per il raggio minimo dello schermo il valore <span class="tex">\(\rho_{min}=\frac{r^2.h}{r^2-2h^2}\)</span> . In particolare ho dei dubbi sul denominatore perchè pone limiti ad h?...:roll:  :?:  :?:</article>
+<article class="post" id="p26040"><div class="who"><b>Nicolás Lobato</b><span>30 mag 2020, 14:24</span></div>@Bosone l'impostazione del problema mi sembra corretta in ogni caso ho da dire che il risultato non è corretto, io ti direi di ricontrollare il procedimento e, se non è troppo disturbo, gradirei se lo spiegassi meglio... Sarei in grado di darti anche qualche hint per arrivare alla soluzione ma mi sembra che sia ancora un po presto e non vorrei toglierti il piacere di arrivare tu da solo alla risposta finale e non vorrei neanche togliere divertimento agli altri compagni, anche se in realtà questi suggerimenti non sono un granchè.  :lol:</article>
+<article class="post" id="p26041"><div class="who"><b>bosone</b><span>30 mag 2020, 17:58</span></div>Io avrei trovato un errore. Con il mio procedimento credo che il risultato sia diverso anche se vicino al precedente. Se non andrà bene vuol dire che è il procedimento ad essere sbagliato. Il nuovo risultato sarebbe <span class="tex">\(\rho_{min}= \frac{hr(r-\sqrt{r^2-h^2})}{r^2-2h^2}\)</span>. Il procedimento consiste nel considerare il massimo angolo di incidenza dei due raggi estremi che distano h dall'asse dello specchio e del fascio h. Ho chiamato <span class="tex">\(\alpha = arcosen(h/r)\)</span> questo angolo. Il fuoco dove essi vengono riflessi risulta diverso da r/2, spostato a sinistra. Congiungendo il punto di incidenza con questo fuoco e prolungandolo sullo schermo trovo il raggio minimo usando proprio la distanza fra questo fuoco e r/2. Essa vale <span class="tex">\(r/2[(1/cos\alpha)-1]\)</span>. Se la moltiplico per la tang(2<span class="tex">\(\alpha\)</span>) trovo proprio il raggio minimo.Ho pensato che se lo schermo contiene la riflessione dei due raggi estremi contiene quella di tutto il fascio.</article>
+<article class="post" id="p26042"><div class="who"><b>Nicolás Lobato</b><span>30 mag 2020, 18:32</span></div>Il procedimento in se non è sbagliato ma il risultato non è ancora quello giusto, il risultato è una formula molto più semplice, in ogni caso ti propongo di riguardare il problema e di tenere in conto della grandezza di alpha, solo come piccolo suggerimento, ad un certo punto affinchè si possa semplificare il risultato è necessario fare uso dell' "approssimazione binomiale",non so se ti è già conosciuta, in caso contrario puoi semplicemente chiederla e te la fornisco io  :) o tentare di ricavartela attraverso lo sviluppo in serie di Taylor.</article>
+<article class="post" id="p26044"><div class="who"><b>Pigkappa</b><span>30 mag 2020, 20:15</span></div>Provo a soffiare la staffetta a bosone :)<br>
+<br>
+<a class="lost" href="https://i.imgur.com/AeF3SI5.jpg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Le coordinate di O sono <span class="tex">\((0, 0)\)</span>, di F sono <span class="tex">\((r/2, 0)\)</span> perche' il fuoco e' a meta' del raggio, quelle di A sono <span class="tex">\((r, 0)\)</span>, quelle di B sono <span class="tex">\((\sqrt{r^2 - h^2}, h)\)</span>, quelle di C che ho messo verticalmente sopra a F sono <span class="tex">\((r, h)\)</span>.<br>
+<br>
+L'angolo <span class="tex">\(\beta = \hat{CBO}\)</span> e' tale che <span class="tex">\(\tan \beta = h / \sqrt{r^2 - h^2}\)</span>. <br>
+<br>
+Il raggio riflesso incide sullo schermo in D. Sappiamo che <span class="tex">\(x_D = x_F = r/2\)</span>, che <span class="tex">\(\hat{OBD} = \beta\)</span>, vogliamo <span class="tex">\(y_D\)</span>.<br>
+<br>
+Usiamo che <span class="tex">\(CD = BC \tan(2\beta) = (\sqrt{r^2 - h^2} - r/2) \frac{2\tan \beta}{1 - \tan^2 \beta}\)</span><br>
+<span class="tex">\(CD =  (\sqrt{r^2 - h^2} - r/2) \frac{2h}{\sqrt{r^2 - h^2}} \frac{r^2 - h^2}{r^2 - 2h^2}\)</span>.<br>
+<br>
+Il risultato e' <span class="tex">\(FD = CD - FC = CD - h = (\sqrt{r^2 - h^2} - r/2) \frac{2h}{\sqrt{r^2 - h^2}} \frac{r^2 - h^2}{r^2 - 2h^2} - h\)</span>.<br>
+<br>
+Sicuramente volete qualcosa di piu' bello per cui chiamiamo <span class="tex">\(\mu = h/r \ll 1\)</span> e approssimiamo usando piu' volte <span class="tex">\((1+x)^k \approx 1 + kx, x \ll 1\)</span>:<br>
+<br>
+<span class="tex">\(FC = h ((\sqrt{1 - \mu^2} - 1/2) \frac{2}{\sqrt{1 - \mu^2}} \frac{1- \mu^2}{1 - 2\mu^2} - 1)\)</span><br>
+<span class="tex">\(FC = h ((2\sqrt{1 - \mu^2} - 1) \frac{\sqrt{1- \mu^2}}{1 - 2\mu^2} - 1) \)</span><br>
+<span class="tex">\(FC \approx h ((1-\mu^2) (1-\mu^2 / 2) (1 + 2 \mu^2) - 1) \approx h \mu^2 /2 = \frac{h^3}{2r^2}\)</span></article>
+<article class="post" id="p26045"><div class="who"><b>Nicolás Lobato</b><span>30 mag 2020, 20:49</span></div>Non so perché non mi sia possibile visualizzare l'immagine ma in ogni caso sia il procedimento sia il risultato sono corretti, anche se sicuramente di procedimenti ci sono diversi, in ogni caso congratulazioni e puoi continuare con il 211 :D . A chi potesse essere interessato riguardo a da dove avessi ricavato il problema dico che è il 4 problema delle Ipho 1970, in origine il problema dava già di per se i suggerimenti riguardo alle approssimazioni ma poiché a me era stato presentato dal mio professore di fisica senza e mi sembrava più divertente rifletterci su da soli ho presentato il problema senza suggerimenti  :)</article>
+<article class="post" id="p26047"><div class="who"><b>Pigkappa</b><span>31 mag 2020, 0:13</span></div>Ho postato il 211 :) e ora l'immagine dovrebbe essere visibile. E' interessante il fatto che il risultato sia proporzionale a <span class="tex">\(\mu^2\)</span> e non a <span class="tex">\(\mu\)</span> - l'aberrazione sferica sara' ancora piu' piccola di quanto ci si immaginerebbe senza fare questo conto.</article>
+<article class="post" id="p26049"><div class="who"><b>bosone</b><span>31 mag 2020, 10:17</span></div>E' per me un onore nche Pigkappa mi abbia soffiato la staffetta! :D</article>
+<nav class="pager"><a class="prev" href="olifis-6901.html"><small>← precedente</small>209. Razzo relativistico.</a><a class="next" href="olifis-6903.html"><small>successivo →</small>211. Sbarretta in campo magnetico</a></nav>
+</main></body></html>

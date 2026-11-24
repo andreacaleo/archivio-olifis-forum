@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>271. Supermag</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 271</a></span></nav>
+<h1>271. Supermag</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7098">forum Olifis</a></p>
+<article class="post first" id="p27155"><div class="who"><b>Luca Milanese</b><span>6 set 2021, 9:02</span></div>Col giocattolo "Supermag" (se non lo conoscete, cercate su Internet per vedere come è fatto) è possibile costruire, tra le altre cose, poliedri, come cubi, piramidi, etc... Si nota che alcuni di essi, come per esempio un cubo, sono deformabili (cioè si possono regolare a piacimento gli angoli fra le sbarrette senza disconnetterle dalle sfere), mentre altri (come un tetraedro) sono rigidi. Dimostrare che un poliedro siffatto è rigido se e solo se ogni sua faccia è un triangolo.</article>
+<article class="post" id="p27156"><div class="who"><b>Luca Milanese</b><span>12 set 2021, 12:42</span></div>Hint: conviene ragionare sui gradi di libertà del sistema.</article>
+<article class="post" id="p27157"><div class="who"><b>VFersini</b><span>15 set 2021, 10:27</span></div>A me è venuto da ragionare sulla geometria del sistema e dovrebbe risultare che, tenendo conto della variazione massima che può subire uno spigolo scorrendo sulla sfera se si considera per comodità la sfera stessa puntiforme, si può fare vedere che deformando un solido a facce triangolari gli spigoli variano significativamente di più rispetto a quella distanza massima che permette al tutto di rimanere “incollato”, cosa che non accade se le facce sono di lati n&gt;3… posso provare a procedere con i calcoli in questa direzione, o è preferibile comunque impostare un discorso “teorico” sui gradi di libertà? O alla fine si va a parare sempre qui?<br>
+Effettivamente il mio ragionamento rimane semplice finché le facce sono regolari, dopo si complica un attimo</article>
+<article class="post" id="p27158"><div class="who"><b>Luca Milanese</b><span>15 set 2021, 12:13</span></div>Non penso sia una strada feconda, piuttosto prova a calcolare quanti sono i gradi di libertà di un generico poliedro costruito col Supermag e a collegare tale numero con quello di quantità rilevanti nell'oggetto (facce, spigoli, etc...).</article>
+<article class="post" id="p27160"><div class="who"><b>DeoGratias</b><span>18 set 2021, 17:28</span></div>Provo una dimostrazione:<br>
+<br>
+Consideriamo un insieme di <span class="tex">\(n\)</span> particelle nello spazio: lo stato del sistema sarà descritto da <span class="tex">\(3n\)</span> coordinate <span class="tex">\((x_{1}, y_1, z_1,x_2,...x_n,y_n,z_n)\)</span>, 3 per ogni particella, corrispondenti alla sua posizione. Se due particelle vengono collegate con un segmento rigido, i gradi di libertà del sistema diminuiscono di 1: lo stato delle altre <span class="tex">\(n-2\)</span> particelle rimane invariato, mentre i gradi di libertà della coppia passano da essere 6 a 5, visto che la posizione di una rispetto all'altra è univocamente determinata da due variabili <span class="tex">\(\theta\)</span> e <span class="tex">\(\phi\)</span> (<span class="tex">\(r\)</span> rimane costante). Quindi, se collego i vari punti con <span class="tex">\(k\)</span> segmenti rigidi, i gradi di libertà del sistema saranno <span class="tex">\(3n-k\)</span>. Il poliedro è rigido se ha 6 gradi di libertà (3 per la posizione spaziale, 1 per l'inclinazione rispetto all'asse verticale, 1 per la rotazione attorno all'asse verticale e 1 per la rotazione attorno a se stesso), quindi il numero minimo di segmenti necessari per creare un poliedro rigido è <span class="tex">\(3n-6\)</span>.<br>
+<br>
+1) Un poliedro con sole facce triangolari è rigido<br>
+Siano <span class="tex">\(V\)</span>, <span class="tex">\(E\)</span>, <span class="tex">\(F\)</span> l'insieme dei vertici, degli spigoli e delle facce di un poliedro a facce triangolari. Due facce avranno in comune uno spigolo, perciò si avrà <span class="tex">\(|F|=\frac{2}{3}|E|\)</span>. Infatti, consideriamo l'insieme <span class="tex">\(I\subseteq E\times F, I=\left \{ (e,f),  e\in E, f\in F  \right \}\)</span>, dove <span class="tex">\(e\)</span> è uno spigolo di <span class="tex">\(f\)</span>. Per double-counting, si avrà <span class="tex">\(|I|=2|E|=3|F|\)</span>. Visto che la caratteristica di Eulero del poliedro è 2, <span class="tex">\(|V|+|F|-|E|=2\)</span>, quindi <span class="tex">\(|E|=3|V|-6\)</span>. Per quanto detto prima, un poliedro a facce triangolari sarà quindi rigido. <br>
+<br>
+2) Un poliedro rigido ha sole facce triangolari<br>
+Supponiamo per assurdo che esista un poliedro rigido con almeno una faccia non triangolare e <span class="tex">\(n\)</span> vertici. Collegando i vertici del poligono non triangolare alternatamente (es. il primo col terzo, il terzo col quinto e così via) è possibile dividere della faccia in triangoli aggiungendo degli spigoli. Aggiungere spigoli non altera la rigidità del sistema, quindi il poliedro sarà ancora rigido anche dopo l'aggiunta. Tuttavia ciò è assurdo; infatti, per quanto visto sopra un poliedro a facce triangolari ha il numero minimo di spigoli necessari per essere rigido; anche il poliedro dopo l'aggiunta ha il numero minimo di spigoli necessario per un poliedro a <span class="tex">\(n\)</span> vertici, ma togliendoli e tornando alla configurazione iniziale avremmo un altro poliedro ancora con <span class="tex">\(n\)</span> vertici, rigido ma con un numero di spigoli minore, assurdo. Quindi un poliedro rigido ha sole facce triangolari.</article>
+<article class="post" id="p27161"><div class="who"><b>Luca Milanese</b><span>18 set 2021, 17:40</span></div>Soluzione perfetta, vai col 272! :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-7097.html"><small>← precedente</small>270 - Saliscendi termodinamico</a><a class="next" href="olifis-7100.html"><small>successivo →</small>272 - Potenziale di Yukawa</a></nav>
+</main></body></html>

@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proiettile tra pianeti</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Proiettile tra pianeti</h1>
+<p class="meta">36 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=123">forum Olifis</a></p>
+<article class="post first" id="p1113"><div class="who"><b>Alex90</b><span>27 mag 2009, 20:18</span></div>Due pianeti di massa <span class="tex">\(M\)</span> e raggio <span class="tex">\(R\)</span> sono posti ad una distanza <span class="tex">\(2R\)</span>, ovvero i loro centri distano <span class="tex">\(4R\)</span>. Vogliamo lanciare un proiettile da un pianeta all'altro, qual'è la minima velocità <span class="tex">\(v\)</span> che deve possedere affinchè ciò avvenga?</article>
+<article class="post" id="p1114"><div class="who"><b>Solimano</b><span>27 mag 2009, 20:28</span></div>Scusa se non ti rispondo inserendo i conti, ma devo uscire :cry:  ;) <br>
+comunque, in teoria dovresti trovare il punto in cui la forza d'attrazione sul proiettile è nulla(punto morto) e poi con la conservazione dell'energia imponi che il proiettile arrivi con velocità nulla in quel punto.<br>
+Se vuoi domani metto i conti ;) <br>
+comunque, se hai il Rosati, questo problema è ben spiegato sull'eserciziario :D <br>
+p.s. spero di non aver scritto bestemmie!!!! :D  :D</article>
+<article class="post" id="p1115"><div class="who"><b>Alex90</b><span>27 mag 2009, 20:41</span></div><blockquote><div><cite>Solimano ha scritto:</cite>
+comunque, se hai il Rosati, questo problema è ben spiegato sull'eserciziario :D </div></blockquote>
+
+Mica lo posto per per sapere che lo trovo sul Rosati...cerca magari di spiegarlo tu no?  ;)<br>
+<br>
+Comunque era più che altro per non deprimere chi legge il problema del PreIpho e non sa dove mettere le mani  :D</article>
+<article class="post" id="p1116"><div class="who"><b>Rigel</b><span>27 mag 2009, 21:25</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>
+Comunque era più che altro per non deprimere chi legge il problema del PreIpho e non sa dove mettere le mani  :D</div></blockquote>
+Uhm... forse avrei dovuto postare il problema 2 che è più facile degli altri due.  :D <br>
+Il fatto è che neanche noi che abbiamo fatto la prova sappiamo le soluzioni ufficiali e quindi potrei pure dare suggerimenti sbagliati (non al problema 2, quello l'ho fatto bene  8-) ... spero)</article>
+<article class="post" id="p1120"><div class="who"><b>Falco5x</b><span>28 mag 2009, 8:41</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Due pianeti di massa <span class="tex">\(M\)</span> e raggio <span class="tex">\(R\)</span> sono posti ad una distanza <span class="tex">\(2R\)</span>, ovvero i loro centri distano <span class="tex">\(4R\)</span>. Vogliamo lanciare un proiettile da un pianeta all'altro, qual'è la minima velocità <span class="tex">\(v\)</span> che deve possedere affinchè ciò avvenga?</div></blockquote>
+Ma come fanno a stare fermi questi due pianeti? non sarà magari che per mantenere la distanza devono ruotare entrambi attorno al baricentro comune? ho paura che in questo caso il problema del proiettile si complicherebbe alquanto.</article>
+<article class="post" id="p1122"><div class="who"><b>Alex90</b><span>28 mag 2009, 14:49</span></div>E' un caso ipotetico del tutto teorico, diciamo che sono isolati dal resto del mondo e fermati da qualche forza sovrannaturale  :D</article>
+<article class="post" id="p1124"><div class="who"><b>Solimano</b><span>28 mag 2009, 15:20</span></div>Adesso provo a mettere i conti.<br>
+Il punto in cui la risultante delle forze è nulla si trova a distanza 2R dai centri dei pianeti.<br>
+Con la conservazione dell'energia ho:<br>
+<br>
+<span class="tex">\(\frac{v^2}{2}-\frac{GM}{R}-\frac{GM}{3R}=-\frac{GM}{2R}-\frac{GM}{2R}\)</span><br>
+<br>
+da cui:<br>
+<br>
+<span class="tex">\(v=\sqrt{\frac{2GM}{3R}}\)</span></article>
+<article class="post" id="p1125"><div class="who"><b>Falco5x</b><span>28 mag 2009, 15:22</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>...fermati da qualche forza sovrannaturale  :D</div></blockquote>
+In presenza di questo sovrannaturale, allora, dio solo sa come si comporterebbe il proiettile :D</article>
+<article class="post" id="p1127"><div class="who"><b>CoNVeRGe.</b><span>28 mag 2009, 15:27</span></div><blockquote><div><cite>Solimano ha scritto:</cite>Adesso provo a mettere i conti.<br>
+Il punto in cui la risultante delle forze è nulla si trova a distanza 2R dai centri dei pianeti.<br>
+Con la conservazione dell'energia ho:<br>
+<br>
+<span class="tex">\(\frac{v^2}{2}-\frac{GM}{R}-\frac{GM}{3R}=-\frac{GM}{2R}-\frac{GM}{2R}\)</span><br>
+<br>
+da cui:<br>
+<br>
+<span class="tex">\(v=\sqrt{\frac{2GM}{3R}}\)</span></div></blockquote>
+
+Prova a spiegare un po' perchè dai per scontato che si spari nel punto più vicino all'altro pianeta e perchè vuoi che il proiettile arrivi a velocità nulla in quel punto.. E perchè escludi altre traiettorie insomma.. (senza rileggere il libro  :) )</article>
+<article class="post" id="p1128"><div class="who"><b>Solimano</b><span>28 mag 2009, 15:38</span></div>In primo luogo non credo ci sia nulla di male a prendere spunto dai libri su cui si studia ;) .<br>
+Secondariamente, il testo del problema dice:" da un pianeta all'altro"; quindi mi pongo sulla suprficie di uno e qui l'energia potenziale è data dalla somma di quella dal centro del pianeta su cui ci si trova e di quella dal centro dell'altro pianeta.<br>
+Infine, se il prioettile arriva con velocità appena maggiore di zero nel punto morto, l'attrazione del scondo pianeta farà si che il proiettile arrivi su di esso.</article>
+<article class="post" id="p1133"><div class="who"><b>CoNVeRGe.</b><span>28 mag 2009, 16:38</span></div><blockquote><div><cite>Solimano ha scritto:</cite>In primo luogo non credo ci sia nulla di male a prendere spunto dai libri su cui si studia ;) .</div></blockquote>
+No, assolutamente! Non so mai spiegarmi..  :mrgreen:  Volevo dire che il problema si risolve con una sola conservazione e quindi sarebbe interessante ''perdere tempo'' nell'elaborare una spiegazione convincente che escluda gli altri casi e spieghi chiaramente cosa si fa.<br>
+Magari il libro neanche lo spiega e quindi la mia affermazione è stata piuttosto inutile.. insomma mi mangio quel che ho detto.<br>
+<br>
+
+<blockquote><div><cite>Solimano ha scritto:</cite>
+il testo del problema dice:" da un pianeta all'altro"; quindi mi pongo sulla suprficie di uno e qui l'energia potenziale è data dalla somma di quella dal centro del pianeta su cui ci si trova e di quella dal centro dell'altro pianeta.
+</div></blockquote>
+Nella soluzione ti sei posto sul punto più vicino all'altro pianeta senza spiegarlo. Io ti ho detto "spiega.." per benessere tuo/ditutti/delforum, poi ovviamente se non hai minima voglia di farlo o non lo trovi interessante: tranquillo, basta non rispondere.  :D</article>
+<article class="post" id="p1137"><div class="who"><b>Solimano</b><span>28 mag 2009, 20:25</span></div>No no, hai ragione! é che via internet non si sa mai se si skerza o no! :D  :lol:</article>
+<article class="post" id="p1152"><div class="who"><b>CoNVeRGe.</b><span>29 mag 2009, 21:05</span></div>Intendevo qualcosa di simile:<br>
+<br>
+Sia <span class="tex">\(\displaystyle s\)</span> l'asse del segmento <span class="tex">\(\displaystyle C_1 C_2\)</span> che congiunge i due centri.<br>
+Si consideri il pianeta da dove vogliamo sparare il proiettile nel semispazio delimitato da <span class="tex">\(\displaystyle s\)</span> che lo contiene.<br>
+Per ogni spostamento (di un corpo) radiale con verso uscente dal centro l'energia potenziale aumenta; questo perchè la distanza <span class="tex">\(\displaystyle r_1\)</span> dal primo pianeta è sempre minore della distanza <span class="tex">\(\displaystyle r_2\)</span> dal secondo e quindi <span class="tex">\(\displaystyle |\Delta U_1|&gt;|\Delta U_2|\)</span>.<br>
+Allora in ogni direzione incontriamo una 'salita' perchè vi abbiamo potenziale gravitazionale crescente.<br>
+<br>
+La situazione è simmetrica rispetto a <span class="tex">\(\displaystyle s\)</span>, dunque se il proiettile supera <span class="tex">\(\displaystyle s\)</span> si troverà in 'discesa', ovvero potrà precipitare liberamente sull'altro pianeta.<br>
+<br>
+Quindi se il proiettile raggiunge <span class="tex">\(\displaystyle s\)</span> anche con un infinitesimo di velocità, esso cadrà sull'altro pianeta.<br>
+<br>
+Ora basta individuare il punto <span class="tex">\(\displaystyle P\)</span> di <span class="tex">\(\displaystyle s\)</span> con minor potenziale e il punto <span class="tex">\(\displaystyle L\)</span> della superficie del pianeta di lancio con maggior potenziale gravitazionale.<br>
+<br>
+Il primo sta proprio sul segmento che unisce i due centri.<br>
+<br>
+Il secondo sta sulla retta che contiene <span class="tex">\(\displaystyle C_1 C_2\)</span> ma è sul punto più <strong class="text-strong">lontano</strong> dal pianeta dove si vuole spedire il proiettile.<br>
+<br>
+In formule:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{v^2}{2} - \frac{GM}{R} - \frac{GM}{5R} = \frac{dv^2}{2} - \frac{GM}{2R} - \frac{GM}{2R}\)</span><br>
+<br>
+Da cui:<br>
+<br>
+<span class="tex">\(\displaystyle v = \sqrt{ \frac{2GM}{5R} }\)</span><br>
+<br>
+<br>
+Ora però contraddico il libro. Probabilmente perchè non esiste una traiettoria che non tocchi il pianeta di lancio. Questo però non saprei dimostrarlo, il libro dovrebbe dire qualcosa a riguardo.</article>
+<article class="post" id="p1153"><div class="who"><b>Alex90</b><span>29 mag 2009, 21:25</span></div>Non capisco perchè vuoi farlo arrivare sul punto più lontano  :roll:</article>
+<article class="post" id="p1154"><div class="who"><b>CoNVeRGe.</b><span>29 mag 2009, 21:31</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Ora basta individuare il punto <span class="tex">\(\displaystyle P\)</span> di <span class="tex">\(\displaystyle s\)</span> con minor potenziale e il punto <span class="tex">\(\displaystyle L\)</span> <span style="text-decoration:underline">della superficie del pianeta di lancio con maggior potenziale gravitazionale.</span>
+</div></blockquote>
+Scelgo il punto a maggior potenziale di modo che la differenza di potenziale tra il punto da cui si vuol far partire il proiettile e il punto in cui si vuole farlo arrivare (il punto P) sia minima.<br>
+<br>
+<br>
+Ma la soluzione qualè? <br>
+Riflettendoci non può comunque essere quella di Solimano perchè basta prendere un punto di lancio vicino a quello che ha individuato e si avrebbe  una traiettoria possibilissima e una velocità minima minore.</article>
+<article class="post" id="p1159"><div class="who"><b>Falco5x</b><span>30 mag 2009, 14:06</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Ora basta individuare il punto <span class="tex">\(\displaystyle P\)</span> di <span class="tex">\(\displaystyle s\)</span> con minor potenziale e il punto <span class="tex">\(\displaystyle L\)</span> <span style="text-decoration:underline">della superficie del pianeta di lancio con maggior potenziale gravitazionale.</span>
+</div></blockquote>
+Scelgo il punto a maggior potenziale di modo che la differenza di potenziale tra il punto da cui si vuol far partire il proiettile e il punto in cui si vuole farlo arrivare (il punto P) sia minima.<br>
+<br>
+<br>
+Ma la soluzione qualè? <br>
+Riflettendoci non può comunque essere quella di Solimano perchè basta prendere un punto di lancio vicino a quello che ha individuato e si avrebbe  una traiettoria possibilissima e una velocità minima minore.</div></blockquote>
+E' giusto quello che dici però ho paura che qua andiamo sul difficile, e mi spiego (non ci ho pensato più di tanto, per cui faccio delle considerazioni solo qualitative).<br>
+Pensa di essere sul pianeta di lancio nel punto opposto rispetto al quale si trova l'altro pianeta. Se tu lanci il proiettile con una velocità così bassa come quella che hai calcolato cioè <span class="tex">\(v = \sqrt {\frac{{2GM}}{{5R}}}\)</span>, e per ipotesi semplificativa supponiamo che il lancio sia orizzontale, cioè tangente al pianeta, succede che il proiettile probabilmente raggiunge il segmento di congiungimento tra i due pianeti, ma più vicino al pianeta di lancio che all'altro perché raggiunge il segmento con una velocità non nulla, e poi si comporta in modo che mi è difficile immaginare, ma penso ricada sul pianeta di lancio. A mio parere non è possibile però che lo scrivente del problema intendesse far calcolare tutto ciò, probabilmente Solimano ha dato la risposta che quello si aspettava.<br>
+Se non ho sbagliato alcuni velocissimi conti mi pare che se il proiettile viene lanciato orizzontalmente con la velocità calcolata da Solimano però partendo dal punto che dicevi tu e quindi opposto al suo, fa un'orbita circolare attorno ai due pianeti (che in questo caso si comportano come un unico pianeta di massa 2M situato sul loro baricentro) toccando il pianeta bersaglio esattamente dalla parte opposta. Dunque una soluzione che preveda velocità minore di quella calcolata da Solimano direi che deve esistere.<br>
+Supponiamo dunque di riuscire a calcolare questa velocità minima partendo dal punto opposto del pianeta di lancio; se però pretendiamo una soluzione di minimo assoluto, chi può escludere che esista un punto diverso partendo dal quale la velocità di lancio potrebbe essere addirittura minore di quest'ultima? Bella domanda davvero!</article>
+<article class="post" id="p1161"><div class="who"><b>CoNVeRGe.</b><span>30 mag 2009, 15:05</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>[...] in questo caso si comportano come un unico pianeta di massa 2M situato sul loro baricentro [...]</div></blockquote>
+Sei sicuro? Non mi pare che si possa fare.. Ad esempio se prendi un punto tra i pianeti esso tenderà a cadere su uno, non sul baricentro.<br>
+Per questo motivo credo anche che non sia (facilmente) possibile studiare il moto del proiettile.<br>
+<br>
+Penso inoltre che la mia soluzione sia valida solo se fosse possibile perforare il pianeta, infatti se il proiettile deve arrivare con velocità nulla nel punto medio del segmento, la traiettoria deve essere meno aperta possibile, ovvero deve tracciare un segmento.<br>
+<br>
+Probabilmente la risposta è quella di Solimano, però si devono per forza escludere tutti gli altri casi.. magari c'è una considerazione da fare. Non saprei.</article>
+<article class="post" id="p1165"><div class="who"><b>Falco5x</b><span>30 mag 2009, 16:18</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>[...] in questo caso si comportano come un unico pianeta di massa 2M situato sul loro baricentro [...]</div></blockquote>
+Sei sicuro? Non mi pare che si possa fare.. Ad esempio se prendi un punto tra i pianeti esso tenderà a cadere su uno, non sul baricentro.<br>
+Per questo motivo credo anche che non sia (facilmente) possibile studiare il moto del proiettile.
+</div></blockquote>
+Certo, è vero, il mio è un discorso (largamente) approssimato  (sarebbe vero a grande distanza da entrambe le masse) che mi porta però a pensare che probabilmente una soluzione con velocità minore di quella calcolata da Solimano può esistere.<br>
+<br>
+Se avessi voglia di sbattermi un po' (tanto) dovrei: installare Mathematica sul mio PC (dovrei averlo da qualche parte), ricordare come si usa (fatica maggiore), e fargli disegnare varie orbite. Ma al momento ho altro da fare (solita scusa?... mah... diciamo allora che non ne ho voglia... anche se potrebbe essere interessante... :roll: ).</article>
+<article class="post" id="p1166"><div class="who"><b>Rigel</b><span>30 mag 2009, 16:46</span></div>Forse non è il posto più adatto per parlarne, ma visto che ci sono di mezzo i pianeti, scrivo un problemino che ho inventato io.<br>
+Immaginiamo i pianeti con le dimensioni e la disposizione descritta nel problema originale, ma con massa "negativa", cioè una massa che esercita su una massa "positiva" (cioè normale) una forza gravitazionale repulsiva e non attrattiva (un pò come due cariche dello stesso segno). immaginiamo che il proiettile sia di massa "positiva" e si trovi nel punto di equilibrio trovato sopra. In questo caso l'equilibrio è stabile, a differenza che nel caso di masse "positive", in cui è instabile. Trovare il periodo delle piccole oscillazioni del proiettile attorno alla sua posizione di equilibrio.</article>
+<article class="post" id="p1168"><div class="who"><b>Solimano</b><span>31 mag 2009, 10:41</span></div>Prima di tutto, il problema è veramente interessante! ;) <br>
+Ho provato a risolverlo così: il corpo risente della forza di entrambi i pianeti, quindi l'equazione della forza totale è<br>
+<br>
+<span class="tex">\(m{\ddot{x}}=\frac{GMm}{(d+x)^2}-\frac{GMm}{(d-x)^2}\)</span> con <span class="tex">\(d=2R\)</span>, posizione d'equilibrio.<br>
+<br>
+poichè le oscillazioni sono piccole, ho <span class="tex">\(d\gg{x}\)</span>.<br>
+facendo i conti mi viene<br>
+<br>
+<span class="tex">\(\ddot{x}=GM(\frac{1}{d^2+2dx}-\frac{1}{d^2-2dx})\)</span><br>
+<br>
+<span class="tex">\(\ddot{x}=GM(\frac{-4dx}{d^4-4d^2x^2})\)</span><br>
+<br>
+<span class="tex">\(\ddot{x}=-\frac{4xGM}{d}(\frac{1}{d^2-4x^2})\)</span><br>
+<br>
+<span class="tex">\(\ddot{x}=-\frac{4xGM}{d^3}\)</span> e inserendo <span class="tex">\(d=2R\)</span>, ho<br>
+<br>
+<span class="tex">\(\ddot{x}=-\frac{xGM}{2R^3}\)</span>.<br>
+<br>
+Infine, il periodo delle piccole oscillazioni è:<br>
+<br>
+<span class="tex">\(T=2\pi\sqrt{\frac{2R^3}{GM}}\)</span><br>
+<br>
+A me sembra più o meno giusto, però provate a guardarlo per essere(io e voi :D ) sicuro!!!!<br>
+Un' altra domanda: come si può risolvere usando il potenziale??? :?:</article>
+<article class="post" id="p1172"><div class="who"><b>Rigel</b><span>31 mag 2009, 16:47</span></div>OK a me viene lo stesso risultato.<br>
+Per farlo col potenziale usa la conservazione dell'energia. Per non fare confusione coi segni, forse è meglio se indichi la massa dei pianeti con <span class="tex">\(-M\)</span>, dove <span class="tex">\(M\)</span> è un valore positivo.</article>
+<article class="post" id="p1173"><div class="who"><b>CoNVeRGe.</b><span>31 mag 2009, 18:35</span></div><blockquote><div><cite>Rigel ha scritto:</cite> In questo caso l'equilibrio è stabile, a differenza che nel caso di masse "positive", in cui è instabile. Trovare il periodo delle piccole oscillazioni del proiettile attorno alla sua posizione di equilibrio.</div></blockquote>
+Se non specifichi che è vincolato a muoversi sul segmento che congiunge i pianeti l'equilibrio non è affatto stabile, il proiettile con poco partirebbe via per l'asse del segmento.</article>
+<article class="post" id="p1185"><div class="who"><b>pascal</b><span>1 giu 2009, 12:08</span></div>Per lo spostamento di x lungo la congiungente i centri di forza (problema di Rigel e ipotesi di CoNVeRGe), partendo dal suo punto medio O, si ottiene la variazione di energia potenziale (n=costante):<br>
+<br>
+<span class="tex">\(\frac {n}{d+x}+ \frac {n}{d-x}-\frac {2n}{d}= \frac {2nx^2}{(d^2-x^2)d}\approx \frac {2nx^2}{d^3}=kx^2/2\)</span> essendo <span class="tex">\(k = 4n / d^3.\)</span><br>
+<br>
+Poiché la forza è orientata verso O e produce un’energia del tipo elastico, si avranno delle oscillazioni con periodo:<br>
+<br>
+<span class="tex">\(T=2 \pi \sqrt {\frac{m}{k}}=2 \pi \sqrt {\frac{md^3}{4n}}=2 \pi \sqrt {\frac{2mR^3}{n}}.\)</span><br>
+<br>
+Chi si vuole divertire può ricavare direttamente il risultato, risolvendo l’equazione differenziale che si desume dalla conservazione dell’energia.<br>
+<br>
+Adesso ritorno al mio intenso lavoro di fine anno scolastico.</article>
+<article class="post" id="p1187"><div class="who"><b>Rigel</b><span>1 giu 2009, 16:11</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Rigel ha scritto:</cite> In questo caso l'equilibrio è stabile, a differenza che nel caso di masse "positive", in cui è instabile. Trovare il periodo delle piccole oscillazioni del proiettile attorno alla sua posizione di equilibrio.</div></blockquote>
+Se non specifichi che è vincolato a muoversi sul segmento che congiunge i pianeti l'equilibrio non è affatto stabile, il proiettile con poco partirebbe via per l'asse del segmento.</div></blockquote>
+Ovviamente era quello che intendevo... scusate  :roll: . Lo sapevo che mancava qualcosa...</article>
+<article class="post" id="p1188"><div class="who"><b>CoNVeRGe.</b><span>1 giu 2009, 20:05</span></div>Era importante perchè solo così si giustifica quanto hai detto, ovvero l'instabilità della situazione con masse "positive".<br>
+Infatti le due situazioni (positive o negative) hanno entrambe una "direzione di stabilità", però l'una ortogonale all'altra.</article>
+<article class="post" id="p1190"><div class="who"><b>pascal</b><span>2 giu 2009, 10:10</span></div>Allora perché non esaminare il moto vincolato, con piccole oscillazioni attorno alla posizione di equilibrio, di una massa lungo l’asse della congiungente dei due centri dei pianeti, che esplicano forze attrattive? E’ ancora armonico? Ha periodo diverso dal precedente?</article>
+<article class="post" id="p1194"><div class="who"><b>CoNVeRGe.</b><span>2 giu 2009, 12:21</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Era importante perchè solo così si giustifica quanto hai detto, ovvero l'instabilità della situazione con masse "positive".<br>
+Infatti le due situazioni (positive o negative) hanno entrambe una "direzione di stabilità", però l'una ortogonale all'altra.</div></blockquote>
+Mi correggo: mentre con le masse negative si ha solo una "direzione di stabilità", nel caso di masse positive esiste un "piano di stabilità" quindi infinite "direzioni di stabilità".<br>
+Questo piano biseca perpendicolarmente il segmento che congiunge i due pianeti. Si possono quindi ottenere dei moti particolari su tale piano ma ad esempio anche moti circolari attorno al punto medio del segmento. Dunque sono possibili moti armonici a qualsiasi distanza dal segmento.<br>
+<br>
+"Bidimensionando" il problema si fissa un asse che ha per origine il punto medio del segmento.<br>
+Per un proiettile di massa <span class="tex">\(\displaystyle m\)</span> a distanza <span class="tex">\(\displaystyle x\)</span> dall'origine agiscono due forze <span class="tex">\(\displaystyle \vec{F}\)</span> tali che:<br>
+<br>
+<span class="tex">\(\displaystyle |\vec{F}| = \frac{GMm}{d^2 + x^2}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle d\)</span> è la distanza dai pianeti di massa <span class="tex">\(\displaystyle M\)</span>.<br>
+<br>
+La risultante delle forze costituisce il richiamo verso il centro ed è:<br>
+<br>
+<span class="tex">\(\displaystyle R = - 2 |\vec{F}| \frac{x}{\sqrt{d^2 + x^2}} = - 2GMm \frac{x}{(d^2+x^2)^\frac{3}{2}}\)</span><br>
+<br>
+<br>
+Supponendo ora piccole oscillazioni sull'asse del segmento si trascura il termine <span class="tex">\(\displaystyle x^2\)</span> e quindi si ha:<br>
+<br>
+<span class="tex">\(\displaystyle R = - kx\)</span><br>
+<br>
+con<br>
+<br>
+ <span class="tex">\(\displaystyle k = \frac{2GMm}{d^3}\)</span><br>
+<br>
+Poichè il coefficiente <span class="tex">\(\displaystyle k\)</span> è la metà di quello trovato da pascal, si ha che il periodo è <span class="tex">\(\displaystyle \sqrt{2}\)</span> volte maggiore.<br>
+<br>
+<span class="tex">\(\displaystyle T = 2 \pi \sqrt{\frac{m}{k} } = 2 \pi \sqrt{\frac{d^3}{2GM} } = 2 \pi \sqrt{\frac{4R^3}{GM} }\)</span></article>
+<article class="post" id="p1195"><div class="who"><b>pascal</b><span>2 giu 2009, 13:55</span></div>Ho ottenuto lo stesso T.<br>
+Esaminando le equazioni traspare che questi moti circolari soddisfano ad una relazione <br>
+analoga alla terza legge di Keplero.</article>
+<article class="post" id="p1201"><div class="who"><b>pascal</b><span>2 giu 2009, 21:58</span></div>Il moto circolare uniforme in oggetto imposto dalla forza centripeta costante <span class="tex">\(2GMm \rho /r^3\)</span>, in cui r è la distanza tra M ed m e <span class="tex">\(\rho\)</span> è il raggio, proiettato su un diametro della circonferenza di qualsiasi <span class="tex">\(\rho\)</span>, è certamente armonico.<br>
+Invece il moto vibratorio, su un asse della congiungente i centri dei pianeti, è armonico soltanto per oscillazioni di piccola ampiezza. E’ in quest’ipotesi, infatti, che nel movimento <span class="tex">\(k=2GMm/r^3\)</span> si può reputare costante.</article>
+<article class="post" id="p1218"><div class="who"><b>CoNVeRGe.</b><span>4 giu 2009, 22:59</span></div>Questo problema di Rigel ricorda tanto questo della Normale del '94, che è leggermente più complesso ma anche più interessante:<br>
+<br>
+"Si consideri il sistema di tre cariche puntiformi, allineate e a distanza <span class="tex">\(\displaystyle d\)</span> come in figura, in assenza di gravità.<br>
+<br>
+Le cariche 1 e 3 (ciascuna pari a  <span class="tex">\(\displaystyle Q\)</span>) sono fisse, mentre la carica 2 (pari a  <span class="tex">\(\displaystyle -Q\)</span>) è fissata a due supporti mediante due fili di lunghezza  <span class="tex">\(\displaystyle L &gt;&gt; d\)</span> e tensione  <span class="tex">\(\displaystyle  T\)</span>.<br>
+La carica 2 viene spostata verso una delle due cariche fisse di un tratto  <span class="tex">\(\displaystyle x &lt;&lt;d\)</span>.<br>
+<br>
+(1) Ricavare l'espressione della forza agente sulla carica 2.<br>
+(2) Descrivere il moto della carica 2.<br>
+(3) Discutere l'effetto di valori crescenti di  <span class="tex">\(\displaystyle |Q|\)</span>"
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=17" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>sns94.JPG (8.56 KiB) Visto 7499 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p1220"><div class="who"><b>Alex90</b><span>5 giu 2009, 12:51</span></div>E' già il secondo sottoproblema...postiamoli su altri topic no?  ;)</article>
+<article class="post" id="p1337"><div class="who"><b>SkZ</b><span>21 giu 2009, 1:50</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Due pianeti di massa <span class="tex">\(M\)</span> e raggio <span class="tex">\(R\)</span> sono posti ad una distanza <span class="tex">\(2R\)</span>, ovvero i loro centri distano <span class="tex">\(4R\)</span>. Vogliamo lanciare un proiettile da un pianeta all'altro, qual'è la minima velocità <span class="tex">\(v\)</span> che deve possedere affinchè ciò avvenga?</div></blockquote>
+Mai sentito parlare di Lobi di Roche e Punto Lagrangiano 1? basta far arrivare in L1 il proiettile con velocita' nulla<br>
+<a href="http://it.wikipedia.org/wiki/Lobo_di_Roche" class="ext" class="postlink">http://it.wikipedia.org/wiki/Lobo_di_Roche</a><br>
+<a href="http://it.wikipedia.org/wiki/Punto_Lagrangiano" class="ext" class="postlink">http://it.wikipedia.org/wiki/Punto_Lagrangiano</a><br>
+<br>
+<span class="tex">\(\frac{E}{m}=\frac{v^2}{2}+\Phi(r)&lt;0\)</span><br>
+dato che <span class="tex">\(~v^2&gt;0\)</span> abbiamo <span class="tex">\(\frac{E}{m}-\Phi(r)&gt;0\)</span><br>
+<span class="tex">\(-\Phi=\frac{GM}{r}+\frac{GM}{|\vec{r}-\vec{d}|}=GM\left(\frac{1}{r}+ \frac{1}{\sqrt{r^2+d^2-2dr\cos(\theta)}}\right)&gt;-\frac{E}{m}\)</span><br>
+che mi da le zone permesse per l'energia del proiettile. Per poter passare da un pianeta all'altro l'energia deve essere maggiore del massimo relativo del potenziale (il punto di massimo e' appunto L1).<br>
+Nel caso di sistema in rivoluzione basta aggiungere il potenzia;le di Coriolis e si ha le classiche equazioni per i lobi di Roche</article>
+<article class="post" id="p1338"><div class="who"><b>Alex90</b><span>21 giu 2009, 14:33</span></div><blockquote><div><cite>SkZ ha scritto:</cite>
+Mai sentito parlare di Lobi di Roche e Punto Lagrangiano 1?</div></blockquote>
+
+Sinceramente no...visto da dove l'ho preso non credo che occorrano tali conoscenze...</article>
+<article class="post" id="p1343"><div class="who"><b>CoNVeRGe.</b><span>21 giu 2009, 19:21</span></div><blockquote><div><cite>SkZ ha scritto:</cite>
+Mai sentito parlare di Lobi di Roche e Punto Lagrangiano 1? basta far arrivare in L1 il proiettile con velocita' nulla
+</div></blockquote>
+E tu hai mai letto la discussione precedente?  :P</article>
+<article class="post" id="p1349"><div class="who"><b>SkZ</b><span>21 giu 2009, 23:53</span></div>Si: quel punto appunto si chiama L1.<br>
+Conoscendo i lobi la soluzione e' piu' immediata perche' L1 e' appunto il luogo di equilibrio (instabile) per l'energia di un corpo in un sistema di 2 masse orbitanti tra loro.<br>
+<br>
+Forse mi sono espresso male col tono.</article>
+<article class="post" id="p1352"><div class="who"><b>Falco5x</b><span>22 giu 2009, 9:52</span></div>Non conosco questi lobi, però ho fatto qualche prova con Mathematica e mi pare che la soluzione corretta sia quella più semplice, ovvero partendo dal punto di maggiore vicinanza tra i due pianeti.<br>
+Quello che invece non ho provato a fare (perché con Mathematica non riesco a impostarlo, conosco il programma troppo poco... :cry: ) ma penso porterebbe a una soluzione a energia cinetica ancora minore, sarebbe partire dal punto opposto del pianeta e sparare il proiettile attraverso il centro del pianeta stesso (supponendo il pianeta già perforato  :mrgreen: ).<br>
+Però questa soluzione non penso emerga dai lobi di Roche, i quali prevedono, immagino, pianeti compatti.</article>
+<nav class="pager"><a class="prev" href="olifis-132.html"><small>← precedente</small>PreIPhO 2009-Problema 3</a><a class="next" href="olifis-580.html"><small>successivo →</small>SGSS 2010 - orbita di un pianeta</a></nav>
+</main></body></html>

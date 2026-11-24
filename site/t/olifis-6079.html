@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>43: bobina in campo magnetico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 43</a></span></nav>
+<h1>43: bobina in campo magnetico</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6079">forum Olifis</a></p>
+<article class="post first" id="p20648"><div class="who"><b>Carlo96</b><span>29 mar 2015, 9:09</span></div>Una bobina di sezione quadrata con lato L=5 cm è composta da 2000 spire di filo di rame (<span class="tex">\(\rho=1,7\cdot 10^{-8}\Omega m\)</span>) è posta perpendicolarmente ad un campo magnetico uniforme B=700 Gauss (1Gauss=0,0001T). Ad un certo punto viene ruotata e allineata con il campo stesso. Calcolare la carica totale che fluisce attraverso la bobina a causa della rotazione, sapendo che il filo ha un diametro di 0,2 mm è che la bobina è chiusa su di una resistenza R=180 Ohm.<br>
+<br>
+Come da suggerimento posto un problema semplice :D</article>
+<article class="post" id="p20649"><div class="who"><b>andrea96</b><span>29 mar 2015, 14:12</span></div><span class="tex">\(8,83 \cdot 10^{-4} C\)</span> ?</article>
+<article class="post" id="p20650"><div class="who"><b>Carlo96</b><span>29 mar 2015, 14:40</span></div>Sapevo che era troppo semplice. È esatto, vai con il procedimento!!</article>
+<article class="post" id="p20651"><div class="who"><b>andrea96</b><span>29 mar 2015, 14:45</span></div>dai aspettiamo qualche giorno se qualcun altro trova la soluzione.<br>
+Comunque non è eccessivamente semplice, il livello è di una domanda di senigallia; poi è molto carino  :D</article>
+<article class="post" id="p20652"><div class="who"><b>Carlo96</b><span>29 mar 2015, 16:02</span></div>Il libro da cui lo ho preso è per esercizi per l'esame di fisica 2. In teoria sarebbe il più difficile del capitolo!!  :lol:</article>
+<article class="post" id="p20653"><div class="who"><b>Davide96</b><span>29 mar 2015, 16:38</span></div>molto carino, è venuto lo stesso anche a me  :D</article>
+<article class="post" id="p20655"><div class="who"><b>sall96</b><span>29 mar 2015, 22:29</span></div>Mi e' venuto un dubbio: in teoria non bisognerebbe considerare anche l'autoinduzione della spira?</article>
+<article class="post" id="p20656"><div class="who"><b>andrea96</b><span>29 mar 2015, 22:33</span></div><blockquote><div><cite>sall96 ha scritto:</cite>Mi e' venuto un dubbio: in teoria non bisognerebbe considerare anche l'autoinduzione della spira?</div></blockquote>
+Ero sicurissimo che qualcuno avrebbe detto questa cosa :lol:  :lol:  :lol: <br>
+Vai considera è scrivi quant'è l'errore relativo che si compie a non considerarla spiegando anche qualitativamente perchè ti viene quell'errore relativo  :D</article>
+<article class="post" id="p20657"><div class="who"><b>sall96</b><span>30 mar 2015, 0:00</span></div>Se è giusto quello che mi viene mi sento molto stupido per averlo chiesto  :oops:  :lol: <br>
+Se non ho sbagliato a fare i conti non dovrebbe cambiare niente, giusto? Qualitativamente quello che avviene è che l'autoinduzione determina una diminuzione di potenziale attraverso la spira, ma quando quest'ultima si allinea col campo si ha ancora della corrente per l'autoinduzione stessa (che si oppone al cambiamento) che pareggia le cose. Quindi possiamo felicemente trascurarla  :D <br>
+O ho sbagliato tutto?  :?<br>
+<br>
+PS: mentre scrivevo il messaggio mi è venuta in mente un'altra motivazione. Sia che ci sia autoinduzione che no, l'energia si conserva. Per allineare la spira con il campo si compie lavoro, che viene trasmesso agli elettroni e poi in energia termica al filo. Se meno carica fluisse (per autoinduzione), meno energia verrebbe trasferita in calore, e si avrebbe una perdita di energia dal nulla. Può andare?  :)</article>
+<article class="post" id="p20658"><div class="who"><b>CapitanFindus</b><span>30 mar 2015, 0:06</span></div>anche a me è uscito il valore della quantità di carica!<br>
+<br>
+Ma non è impossibile calcolare l'induttanza (e quindi l'autoinduzione) senza sapere la lunghezza del solenoide? alla fine dipende solo dalle caratteristiche geometriche del circuito!</article>
+<article class="post" id="p20659"><div class="who"><b>andrea96</b><span>30 mar 2015, 0:22</span></div><blockquote><div><cite>sall96 ha scritto:</cite>Se è giusto quello che mi viene mi sento molto stupido per averlo chiesto  :oops:  :lol: <br>
+Se non ho sbagliato a fare i conti non dovrebbe cambiare niente, giusto? Qualitativamente quello che avviene è che l'autoinduzione determina una diminuzione di potenziale attraverso la spira, ma quando quest'ultima si allinea col campo si ha ancora della corrente per l'autoinduzione stessa (che si oppone al cambiamento) che pareggia le cose. Quindi possiamo felicemente trascurarla  :D <br>
+O ho sbagliato tutto?  :?<br>
+<br>
+PS: mentre scrivevo il messaggio mi è venuta in mente un'altra motivazione. Sia che ci sia autoinduzione che no, l'energia si conserva. Per allineare la spira con il campo si compie lavoro, che viene trasmesso agli elettroni e poi in energia termica al filo. Se meno carica fluisse (per autoinduzione), meno energia verrebbe trasferita in calore, e si avrebbe una perdita di energia dal nulla. Può andare?  :)</div></blockquote>
+è giusto quello che hai scritto dopo il P.S. !  :D sostanzialmente il fenomeno dell'autoinduzione consiste nell'allungamento dei processi rendendoli infiniti ma meno intensi, quando consideri integrali sul tempo totale l'effetto dell'autoinduzione non cambia nulla.
+<blockquote class="uncited"><div>anche a me è uscito il valore della quantità di carica!<br>
+<br>
+Ma non è impossibile calcolare l'induttanza (e quindi l'autoinduzione) senza sapere la lunghezza del solenoide? alla fine dipende solo dalle caratteristiche geometriche del circuito!</div></blockquote> <br>
+Si è vero! ma tanto come abbiamo detto prima non serve, se tu ti fai il problema tenendoti <span class="tex">\(L\)</span> senza calcolarla vedrai che alla fine non ti serve quindi il problema non si pone. Se fosse stata data l'equazione temporale dell'angolo che la'asse della spira forma con il campo e fosse stato chiesto di calcolare <span class="tex">\(i(t)\)</span> allora avresti avuto bisogno della lunghezza della spira.</article>
+<article class="post" id="p20675"><div class="who"><b>CapitanFindus</b><span>31 mar 2015, 15:52</span></div>ma il prossimo problema della staffetta? chi lo fa? :roll:  :roll:  :roll:</article>
+<article class="post" id="p20677"><div class="who"><b>Carlo96</b><span>31 mar 2015, 16:23</span></div>Pensando alla questione dell'autoinduzione, possiamo pensare che nelle legge di Lenz il campo magnetico che si deriva sia non solo quello presente dall'inizio, ma la somma di questo con quello che si forma per la fem indotta. Anche a rigor di logica la fem indotta in ogni istante deve dipendere dal campo totale che attraversa la spira in quel momento. Integrando però si considerano solo gli stati estremi, nei quali la bobina è ferma e dunque ci interessa solo il campo uniforme iniziale. Lo stesso vale nei circuiti con induttanze, dove la corrente varia per la fem indotta, ma anche qui nella fem autoindotta, la derivata è della corrente che attraversa la bobina in quell'istante. Anche in quel caso poi integrando si risolvono tutti i problemi. Come ha detto Andrea, il processo però diventa infinitamente lungo!!</article>
+<nav class="pager"><a class="prev" href="olifis-6059.html"><small>← precedente</small>42: riuscirà l&#x27;elettrone a raggiungere il conduttore?</a><a class="next" href="olifis-6083.html"><small>successivo →</small>44: Pulegge infinite</a></nav>
+</main></body></html>

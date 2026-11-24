@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>65: produzione di idrogeno</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 65</a></span></nav>
+<h1>65: produzione di idrogeno</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6306">forum Olifis</a></p>
+<article class="post first" id="p22141"><div class="who"><b>nace26</b><span>28 apr 2016, 18:26</span></div>Due domande:<br>
+<br>
+è possibile formare una molecola di <span class="tex">\(H_2\)</span> facendo collidere due atomi H?<br>
+<br>
+si fanno collidere sul piano tre atomi H (massa <span class="tex">\(m\)</span>) con velocità iniziali <span class="tex">\(\displaystyle\vec{v}\)</span> a <span class="tex">\(120\textdegree\)</span> gradi fra loro; conoscendo l'energia di legame liberata <span class="tex">\(\Delta\)</span>, quanto vale in modulo la velocità finale del terzo atomo?</article>
+<article class="post" id="p22142"><div class="who"><b>FedericoC.</b><span>28 apr 2016, 20:45</span></div>Provo a rispondere  :D <br>
+<br>
+Considerando due atomi di idrogeno, entrambi hanno un elettrone nel primo livello energetico, la loro configurazione energetica è quindi <span class="tex">\(1s^1\)</span>. La tendenza degli atomi isolati è quella di completare il livello energetico più esterno che conferisce una condizione energetica più stabile, pertanto i due atomi di idrogeno possono facilmente formare la molecola <span class="tex">\(H_2\)</span> raggiungendo la configurazione <span class="tex">\(1s^2\)</span>.<br>
+<br>
+Se facciamo collidere tre atomi di idrogeno si conserva sia l'energia sia la quantità di moto. Considerando un sistema di riferimento in cui la direzione dell'asse <span class="tex">\(y\)</span> è la stessa del vettore velocità del terzo atomo, in modo da poter trascurare la componente radiale della quantità di moto che si annulla per simmetria.<br>
+<br>
+Si ha dunque:<br>
+<br>
+<span class="tex">\(\frac{3}{2}mv^2=\Delta+\frac{1}{2}mV^2+mu^2\)</span> <br>
+<br>
+<span class="tex">\(-mv+2mvcos60\textdegree=mV+2mu\)</span>   <br>
+<br>
+dove <span class="tex">\(V\)</span> è la velocità finale del terzo atomo, <span class="tex">\(u\)</span> la velocità finale della molecola<br>
+<br>
+Dalla seconda ottengo facilmente che: <span class="tex">\(u=-\frac{V}{2}\)</span><br>
+<br>
+Isolando <span class="tex">\(V\)</span> si ottiene: <span class="tex">\(V=\sqrt{2v^2-\frac{4\Delta}{3m}}\)</span></article>
+<article class="post" id="p22143"><div class="who"><b>nace26</b><span>28 apr 2016, 21:06</span></div>Attenzione a come consideri l'energia <span class="tex">\(\Delta\)</span>! La molecola di <span class="tex">\(H_2\)</span> ha meno energia chimica di due molecole di <span class="tex">\(H\)</span> (infatti per rompere il legame devi fornire energia, non sottrarne), quindi la conservazione devi scriverla in un altro modo  ;) <br>
+<br>
+P.S. ho postato il problema proprio perché avevo fatto lo stesso tuo errore  :?<br>
+<br>
+MODIFICA: (l'errore coinvolge anche la prima parte)</article>
+<article class="post" id="p22144"><div class="who"><b>FedericoC.</b><span>28 apr 2016, 21:23</span></div>Non ho capito..  :oops: <br>
+L'energia in questo caso non deve essere sottratta dato che il legame si deve formare? Nella formazione non si libera un'energia <span class="tex">\(\Delta\)</span> proprio per il fatto che la molecola ha minore energia chimica della molecola?</article>
+<article class="post" id="p22145"><div class="who"><b>nace26</b><span>28 apr 2016, 21:59</span></div>In questo sistema ci sono due tipi di energia: chimica e cinetica (siccome parliamo di atomi, l'energia termica del sistema è l'energia cinetica degli atomi stessi!). All'inizio ciascun atomo ha un'energia cinetica <span class="tex">\(\frac{1}{2}K_1\)</span> ed un'energia chimica <span class="tex">\(\frac{1}{2}E_1\)</span>. Dopo la collisione, abbiamo una molecola con energia cinetica <span class="tex">\(K_2\)</span> e chimica <span class="tex">\(E_2\)</span>. La conservazione dell'energia si imposta uguagliando le somme di queste energie. L'energia chimica liberata è quella che si trasforma in energia cinetica (alias termica del sistema) ed è <span class="tex">\(\Delta = E_1 - E_2\)</span>. Questa energia è positiva perché, come hai fatto notare tu, si tende a raggiungere una condizione energetica più stabile, ovvero a perdere energia chimica.<br>
+<br>
+Scusa se ho scritto in modo un po' frettoloso ma sono sommerso dal latino  :( , spero si capisca</article>
+<article class="post" id="p22147"><div class="who"><b>rocco</b><span>30 apr 2016, 10:57</span></div>Trovo fuorviante parlare di energia chimica: in realtà è l'energia potenziale elettrica negativa che lega l'elettrone al protone a formare l'atomo di H. Usando i simboli che avete introdotto, la conservazione della quantità di moto conduce in definitiva a <span class="tex">\(u^2= (1/4)V^2\)</span> mentre secondo me la conservazione dell'energia impone che<span class="tex">\((3/2)mv^2+(3/2)E_1= E_2+(1/2)E_1+mu^2+(1/2)mV^2\)</span>. Togliendo ad ambo i membri <span class="tex">\((1/2)E_1\)</span> e ponendo <span class="tex">\(E_1-E_2=\Delta\)</span> che è positiva perchè <span class="tex">\(E_2\)</span> è ancor più negativa di <span class="tex">\(E_1\)</span> a me risulterebbe <span class="tex">\(V=\sqrt{(6mv^2+4\Delta)/(3m)}\)</span></article>
+<article class="post" id="p22148"><div class="who"><b>nace26</b><span>30 apr 2016, 12:07</span></div>@rocco il tuo procedimento è perfetto, ma mi sa che hai sbagliato i calcoli, ricontrolla ;) <br>
+<br>
+Ovviamente, come dici tu, l'energia di cui si parla è quella elettrostatica di legame. Ma siccome quando si parla di energia quello che conta non è il valore in sé ma la differenza tra i valori, ho introdotto un'energia legata allo stato chimico dei corpi perché mi era più congeniale da trattare, è questione di gusti ;)  <br>
+ <br>
+Per andare avanti nella staffetta però devi risolvere anche il primo punto, ti basta fare un calcoletto  :D</article>
+<article class="post" id="p22149"><div class="who"><b>rocco</b><span>1 mag 2016, 10:14</span></div>Ci proverò ma intanto vorrei sapere: cos'è la staffetta? Scusa ma sono iscritto da due giorni, ho visto certi interventi numerati. Sono quelli, cosa vogliono dire?</article>
+<article class="post" id="p22150"><div class="who"><b>rocco</b><span>1 mag 2016, 11:09</span></div>Per quanto riguarda i conti: <br>
+1) quando due atomi di H vengono "a contatto" ci sono le 2 forze attrattive di un protone dell'uno sull'elettrone dell'altro e le 2 repulsive fra i due protoni e i due elettroni (ma bisognerelbbe dire le 2 "nubi elettroniche"). Le forze repulsive possono considerarsi fra cariche a distanza pressochè doppia e quindi prevale l'attrazione e si forma la molecola in cui i due protoni sono ad una certa distanza di equilibrio stabile nel senso che allontanandoli (da) o avvicinandoli (a) quella distanza tendono a ristabilirla. L'energia del sistema è allora palesemente più negativa della somma (negativa) dei due atomi separati: ecco la stabilità. <br>
+2) Se il procedimento è giusto come dici e quindi per la conservazione della q.di m. il quadrato della velocità finale della molecola è un quarto di quella dell'atomo e la conservazione dell'energia è ben impostata, non riesco a scoprire l'errore.</article>
+<article class="post" id="p22151"><div class="who"><b>nace26</b><span>1 mag 2016, 11:43</span></div>L'errore di calcolo è che dal sistema che hai impostato viene fuori un risultato diverso da quello che hai scritto, hai fatto qualche errore di distrazione, niente di più. In ogni caso, si fa presto a verificare che il tuo risultato non quadra dimensionalmente, quindi non può essere corretto, ricontrolla ;) <br>
+Per il primo punto, la domanda non è se sia possibile ottenere <span class="tex">\(H_2\)</span> partendo da due atomi <span class="tex">\(H\)</span>, ma se per farlo sia sufficiente o meno far semplicemente collidere due <span class="tex">\(H\)</span>. Se ne hai tre, hai verificato che ciò è possibile; ti consiglio di approcciarti nello stesso modo al caso di due atomi <span class="tex">\(H\)</span> e vedere se le cose quadrano  ;)</article>
+<article class="post" id="p22152"><div class="who"><b>nace26</b><span>1 mag 2016, 11:46</span></div>Ho appena visto la tua domanda sulla staffetta, scusa<br>
+Staffetta significa che io ho risolto il problema 64 quindi propongo il 65, tu stai per risolvere questo quindi tra poco dovrai proporre il 66 :)</article>
+<article class="post" id="p22155"><div class="who"><b>rocco</b><span>2 mag 2016, 18:04</span></div>Ho visto solo ora le tue risposte: mentre per il punto 2 non mi pare che ci siano errori dimensionali (la radice quadrata di [(mvquadro+Delta) diviso m]) è proprio una velocità mi approccerò diversamente al punto 1 poiché evidentemente non avevo capito la domanda. Intuitivamente mi pare che la conservazione dell'energia implichi che il modulo della velocità della molecola debba uguagliare quello degli atomi che collidono. Ciò è possibile se collidono formando 120°. Comunque grazie, ci penserò.</article>
+<article class="post" id="p22156"><div class="who"><b>nace26</b><span>2 mag 2016, 18:39</span></div>@rocco scusami! Non ho visto la parentesi nel tuo risultato! Avevo letto <span class="tex">\(V=\sqrt{6mv^2 + 4\Delta/3m}\)</span> che ovviamente non mi tornava, mi dispiace, spero tu non abbia perso troppo tempo a cercare errori di calcolo :roll: <br>
+<br>
+Per il primo punto ora basta guardare la conservazione dell'energia  ;)</article>
+<article class="post" id="p22157"><div class="who"><b>rocco</b><span>3 mag 2016, 10:54</span></div>Per il punto 1 la mia risposta è che è impossibile. Infatti <br>
+a) se v è il modulo della velocità dei due atomi e <span class="tex">\(2\alpha\)</span> è il loro angolo di collisione, orientando per es. l'asse y come la bisettrice dell'angolo di collisione, risultano per la conservazione della q.di m.<span class="tex">\(V_x=0   V_y=V= v cos \alpha\)</span> e per la conservazione dell'energia  <span class="tex">\(V^2=v^2+\Delta/m\)</span>. Combinandole si ottiene che dovrebbe essere <span class="tex">\(\Delta&lt;0\)</span> ovvero che l'energia elettrica della molecola dovrebbe essere maggiore di quella della somma dei due atomi. Se <span class="tex">\(\alpha=\pi/2\)</span>, collisione frontale,V=0 e ancora <span class="tex">\(\Delta&lt;0\)</span>.<br>
+b) se i due atomi avessero velocità di moduli <span class="tex">\(v_1\neq v_2\)</span> (che non mi pare escluso dal testo), dalla conservazione della q.di m. risulterebbe <span class="tex">\(V^2=(1/4)(v_1+v_2)^2\)</span> e dalla conservazione dell'energia <span class="tex">\(V^2= (1/2)(v_1^2+V_2^2)+\Delta\)</span>. Combinandole dovrebbe essere <span class="tex">\((v_1-v_2)^2=-4\Delta\)</span> ovvero ancora che l'energia elettrica della molecola supera quella della somma dei due atomi.<br>
+Ovviamente spero di non aver sbagliato impostazione e/o conti.</article>
+<article class="post" id="p22158"><div class="who"><b>nace26</b><span>3 mag 2016, 17:38</span></div>Esatto!  :D <br>
+<br>
+Ti passo il testimone, a te la staffetta ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6303.html"><small>← precedente</small>64: Oscillazioni in un gas</a><a class="next" href="olifis-6308.html"><small>successivo →</small>66:Un colpo di cannone</a></nav>
+</main></body></html>

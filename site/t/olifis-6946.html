@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>226. Sistema binario</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 226</a></span></nav>
+<h1>226. Sistema binario</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6946">forum Olifis</a></p>
+<article class="post first" id="p26251"><div class="who"><b>Luca Milanese</b><span>3 ago 2020, 9:34</span></div>Due stelle di masse <span class="tex">\(m\)</span> ed <span class="tex">\(M\)</span> (con <span class="tex">\(m&lt;M\)</span>) ruotano in orbite circolari attorno al comune centro di massa. A un certo punto la stella di massa <span class="tex">\(M\)</span> esplode emettendo materia in modo isotropo. Dopo l'esplosione, le due stelle hanno la stessa massa. Trovare il massimo valore del rapporto <span class="tex">\(M/m\)</span> tale che i due corpi rimangano legati gravitazionalmente.</article>
+<article class="post" id="p26259"><div class="who"><b>bosone</b><span>5 ago 2020, 17:29</span></div>Ti chiedo un giudizio su questa idea. E' risaputo che il sistema binario del testo è equivalente ad una massa ridotta che ruota attorno alla somma delle masse ad una distanza pari alla somma delle distanze di ciascuna dal centro di massa nel quale è centrato il sistema di riferimento inerziale. La dispersione di materia causata dall'esplosione è isotropa per cui la quantità di moto dispersa è vettorialmente nulla e la massa ridotta, che risulta ancor più "ridotta" (ad m/2), deve mantenere la stessa quantità di moto con un palese innalzamento della sua velocità. Perchè le due masse rimangano gravitazionalmente dipendenti bisogna determinare il massimo M/m in modo che m/2 non superi la velocità di fuga determinata ora da 2m. Ho trovato un risultato che posterò solo se questa idea è corretta.... :roll:  :roll:</article>
+<article class="post" id="p26260"><div class="who"><b>Luca Milanese</b><span>5 ago 2020, 17:43</span></div>Mi sembra che la tua idea sia corretta, ma da come hai scritto credo sia meglio che io specifici una cosa: l'esplosione è isotropa rispetto alla stella di massa iniziale <span class="tex">\(M\)</span>, non rispetto al sistema di riferimento del laboratorio o del cdm.</article>
+<article class="post" id="p26261"><div class="who"><b>bosone</b><span>6 ago 2020, 10:17</span></div>Capisco quello che dici però mi sembra che venga conservata la quantità di moto che M aveva prima dell'esplosione nel sistema inerziale dove ci troviamo. Altrimenti la mia idea non sarebbe corretta come dici... :?:</article>
+<article class="post" id="p26262"><div class="who"><b>Luca Milanese</b><span>6 ago 2020, 10:39</span></div>Quella che si conserva è la quantità di moto totale della massa <span class="tex">\(M\)</span>. La parte di massa esplosa, <span class="tex">\(M-m\)</span>, ha velocità vettoriale totale nulla nel riferimento della stella, dunque nel nostro ha la stessa velocità <span class="tex">\(V\)</span> che aveva la stella e quindi qdm <span class="tex">\((M-m)V\)</span>. Da qui segue che la velocità della stella esplosa non varia tra prima e dopo l'esplosione. Quando dicevo che la tua idea è corretta mi riferivo al porre la velocità della massa ridotta minore a quella della velocità di fuga, che mi pare giusto anche se non è la strada che ho seguito io.<br>
+In ogni caso ti invito a postare il tuo procedimento, altrimenti rischiamo di andare avanti a lungo senza capirci bene.</article>
+<article class="post" id="p26264"><div class="who"><b>bosone</b><span>6 ago 2020, 17:35</span></div>Io mi scuso per la confusione che ho fatto sulla conservazione della qdm. In realtà avevi capito il mio procedimento. Avevo calcolato la velocità della massa ridotta uguagliando la forza centripeta della massa ridotta<span class="tex">\(\mu=\frac{mM}{m+M}\)</span>alla forza di attrazione di (m+M) determinando la velocità di <span class="tex">\(\mu\)</span>pari a <span class="tex">\(v_{\mu}= \sqrt{\frac{G(M+m)}{r}}\)</span> con r raggio dell'orbita circolare della massa ridotta nel sistema inerziale. Questa velocità deve essere minore della velocità di fuga dopo l'esplosione (quando l'attrattore è diventato 2m) che notoriamente vale <span class="tex">\(v_f=\sqrt{\frac{4Gm}{r}}\)</span>. Dalla disuguaglianza avevo ricavato il valore che non avevo postato e cioè <span class="tex">\(\frac{M}{m}&lt;3\)</span>. Pertanto per me era 3 l'estremo superiore (non il massimo mi sembra a voler essere pignoli) del rapporto M/m. Saranno giusti o sbagliati, questi sono il mio risultato e il mio procedimento. :?:  :?:</article>
+<article class="post" id="p26265"><div class="who"><b>Luca Milanese</b><span>6 ago 2020, 17:40</span></div>Sia procedimento che risultato sono correttissimi. A te il testimone, se lo vuoi!</article>
+<article class="post" id="p26266"><div class="who"><b>bosone</b><span>7 ago 2020, 10:15</span></div>Infatti, non lo dico per condiscendeza ma in questa fase i tuoi problemi sono troppo utili! Ti chiederei di continuare e ti ringrazio :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6945.html"><small>← precedente</small>225. Sistema di cariche che esplode</a><a class="next" href="olifis-6951.html"><small>successivo →</small>227. Rettangolo appoggiato sul cerchio</a></nav>
+</main></body></html>

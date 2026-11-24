@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>73. Nebulose oscure</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 73</a></span></nav>
+<h1>73. Nebulose oscure</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6324">forum Olifis</a></p>
+<article class="post first" id="p22293"><div class="who"><b>CaptainJohnCabot</b><span>4 giu 2016, 14:02</span></div><span style="color:#0000FF"><span style="text-decoration:underline"><em class="text-italics">Breve introduzione al problema</em></span></span><br>
+<br>
+L'area scura in figura che appare senza stelle è una <span style="color:#400000"><strong class="text-strong">nebulosa oscura</strong></span>, una fredda nube di gas nello spazio interstellare che contiene abbastanza materiale da bloccare la luce proveniente dai corpi dietro di essa.<br>
+Una tipica nebulosa oscura ha un diametro di <span class="tex">\(20\)</span> anni luce e contiene circa <span class="tex">\(50\)</span> atomi di idrogeno per centimetro cubo (in forma monoatomica, non in <span class="tex">\(H_2\)</span>) ad una temperatura di circa <span class="tex">\(20 \hspace{2mm}K\)</span>.<br>
+<br>
+<a class="lost" href="http://xoart.link/1250/400/darknebula" class="ext">[immagine non più disponibile]</a><br>
+<br>
+<span style="color:#0000FF"><span style="text-decoration:underline"><em class="text-italics">Il problema</em></span></span><br>
+<br>
+Sia <span class="tex">\(D\)</span> il diametro della nebulosa, <span class="tex">\(T\)</span> la sua temperatura e <span class="tex">\(h\)</span> il numero di atomi di idrogeno per centimetro cubo. Calcola prima in forma letterale e poi in numeri, utilizzando i dati per la tipica nebulosa oscura:<br>
+<br>
+(<span style="color:#000080"><strong class="text-strong"><em class="text-italics">1</em></strong></span>) Il libero cammino medio di un atomo di idrogeno nella nebulosa.<br>
+(<span style="color:#000080"><strong class="text-strong"><em class="text-italics">2</em></strong></span>) Il libero tempo medio di un atomo di idrogeno nella nebulosa (ovvero il tempo medio fra collisioni del dato atomo).<br>
+(<span style="color:#000080"><strong class="text-strong"><em class="text-italics">3</em></strong></span>) La pressione all'interno della nebulosa.<br>
+<br>
+Svolgi inoltre anche le seguenti richieste:<br>
+<br>
+(<span style="color:#000080"><em class="text-italics"><strong class="text-strong">4</strong></em></span>) Compara la velocità quadratica media di un atomo di idrogeno con la velocità di fuga dalla nebulosa alla superficie (assunta sferica).<br>
+(<span style="color:#000080"><em class="text-italics"><strong class="text-strong">5</strong></em></span>) Valuta: Se lo spazio intorno alla nebulosa fosse vuoto quale sarebbe il comportamento della nube di gas?<br>
+<br>
+La stabilità della nube è spiegata dalla presenza del ISM (in inglese <em class="text-italics">Interstellar Medium</em>), gas che permea lo spazio e che circonda la nebulosa oscura. <br>
+<br>
+(<span style="color:#000080"><strong class="text-strong"><em class="text-italics">6</em></strong></span>) Dimostra che affinché essa sia in equilibrio con ISM i numeri di atomi per volume, <span class="tex">\((N/V)_n\)</span> per la nebulosa e <span class="tex">\((N/V)_i\)</span> per l'<em class="text-italics">interstellar medium</em>, e le temperature, rispettivamente <span class="tex">\(T_n\)</span> e <span class="tex">\(T_i\)</span>, devono essere correlate dalla seguente relazione:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{(N/V)_n}{(N/V)_i}=\dfrac{T_i}{T_n}\)</span><br>
+<br>
+Nelle vicinanze del Sole l'ISM contiene circa un atomo di idrogeno per <span class="tex">\(200 \hspace{2mm}cm^3\)</span>.<br>
+<br>
+(<span style="color:#000080"><strong class="text-strong"><em class="text-italics">7</em></strong></span>) Stima la temperatura dell'ISM nelle vicinanze del Sole e comparala con quella della superficie della stella, circa 5800 K.<br>
+(<span style="color:#000080"><em class="text-italics"><strong class="text-strong">8</strong></em></span>) Valuta: Se un'astronave navigasse attraverso lo spazio interstellare si brucerebbe? Perché no?<br>
+<br>
+<br>
+<span style="color:#0000FF"><span style="text-decoration:underline"><em class="text-italics">Soluzione</em></span></span><br>
+<br>
+I punti riportati sono molti ma anche abbastanza semplici quindi una soluzione completa per continuare la staffetta dovrebbe contenere almeno i primi 6; 7 e 8 invece servono per attribuirla in caso due persone ne abbiano risolto lo stesso numero.<br>
+<br>
+Buon lavoro  :D</article>
+<article class="post" id="p22294"><div class="who"><b>FedericoC.</b><span>4 giu 2016, 16:06</span></div>Proviamo  :D <br>
+<br>
+1) Il libero cammino medio è: <span class="tex">\(\lambda=\frac{1}{\sqrt2\pi(2r)^2h}\)</span> dove <span class="tex">\(r=53 pm\)</span> è il raggio atomico dell'idorgeno<br>
+Sostituendo i valori numerici: <span class="tex">\(\lambda=4,006\cdot10^{-11}m\)</span><br>
+<br>
+2) Il tempo libero medio è: <span class="tex">\(\tau=\frac{\lambda}{v_m}\)</span> dove <span class="tex">\(v_m=\sqrt{\frac{8RT}{\pi M}}\)</span> è la velocità media degli atomi di idrogeno e <span class="tex">\(M=1,008 \frac{g}{mol}\)</span> è la massa molare dell'idrogeno<br>
+Sostituendo i valori numerici: <span class="tex">\(\tau=6,181\cdot10^{-14}s\)</span><br>
+<br>
+3) Per la legge dei gas perfetti: <span class="tex">\(pV=nRT\)</span> isolando <span class="tex">\(p\)</span> e sostituendo <span class="tex">\(n=\frac{hV}{N_A}\)</span> si ottiene <span class="tex">\(p=\frac{hRT^2}{N_A}\)</span><br>
+Sostituendo i valori numerici: <span class="tex">\(p=2,761\cdot10 ^{-13}Pa\)</span><br>
+<br>
+4) La velocità quadratica media è: <span class="tex">\(v_{qm}= \sqrt{\frac{3RT}{M}}\)</span><br>
+La velocità di fuga è: <span class="tex">\(v_f=\sqrt{\frac{2Gm}{D/2}}\)</span> dove <span class="tex">\(m=hV(m_e+m_p)\)</span> è la massa della nebulosa<br>
+Facendo i calcoli: <span class="tex">\(v_{qm}=703,5\frac{m}{s}\)</span> mentre <span class="tex">\(v_f=647,2\frac{m}{s}\)</span><br>
+Sono presenti quindi atomi con energia cinetica potenzialmente sufficiente ad allontanarsi definitivamente dalla nebulosa<br>
+<br>
+5)Se lo spazio intorno alla nebulosa fosse vuoto, la nube di gas si espanderebbe in espansione libera, cioè senza compiere o subire lavoro e senza scambiare calore<br>
+<br>
+6)Affinchè ISM e la nebulosa siano in equilibrio è necessario che le loro pressioni siano uguali, dalla legge dei gas perfetti si ha:<br>
+<span class="tex">\(\frac{n_nRT_n}{V_n}=\frac{n_iRT_i}{V_i}\)</span> semplificando e moltiplicando per <span class="tex">\(N_A\)</span> si ottiene subito:<br>
+<span class="tex">\(\frac{(N/V)_n}{n/V)_i}=\frac{T_i}{T_n}\)</span><br>
+<br>
+Gli ultimi due li provo appena riesco  :)</article>
+<article class="post" id="p22300"><div class="who"><b>CaptainJohnCabot</b><span>4 giu 2016, 18:16</span></div>Sono giusti i punti 4, 5 e 6.  Nei primi mi sa che hai fatto qualche errore di calcolo o di sostituzione. Se correggi quei tre punti iniziali ti ripasso subito la staffetta  :D</article>
+<article class="post" id="p22302"><div class="who"><b>FedericoC.</b><span>4 giu 2016, 19:24</span></div>Già sono un po sbadato nel fare i calcoli  :lol: <br>
+<br>
+1) <span class="tex">\(\lambda=4,006\cdot10^{11}m\)</span><br>
+<br>
+2) <span class="tex">\(\tau=6,181\cdot10^8s\)</span><br>
+<br>
+3)<span class="tex">\(p=1,381\cdot10^{-14}Pa\)</span><br>
+<br>
+Spero di non averne fatti altri dato che ho corretto con la calcolatrice del cellulare  :D</article>
+<article class="post" id="p22303"><div class="who"><b>CaptainJohnCabot</b><span>4 giu 2016, 20:19</span></div>Ora ci siamo puoi postare il prossimo problema  :)</article>
+<nav class="pager"><a class="prev" href="olifis-6320.html"><small>← precedente</small>72. Serbatoio di idrogeno</a><a class="next" href="olifis-6326.html"><small>successivo →</small>74. Aste su un tavolo</a></nav>
+</main></body></html>

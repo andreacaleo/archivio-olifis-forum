@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>264. Onda d&#x27;urto</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 264</a></span></nav>
+<h1>264. Onda d'urto</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7087">forum Olifis</a></p>
+<article class="post first" id="p27057"><div class="who"><b>Luca Milanese</b><span>3 lug 2021, 12:00</span></div>Un'onda d'urto può essere considerata come una differenza discontinua della pressione dell'aria, dal valore <span class="tex">\(p_0\)</span> al valore <span class="tex">\(p_1\)</span>, che si propaga in orizzontale con velocità <span class="tex">\(c_s\)</span> (cioè la pressione atmosferica vale <span class="tex">\(p_0\)</span> per punti dello spazio davanti al fronte d'onda e <span class="tex">\(p_1\)</span> per punti dietro di esso). L'onda investe un oggetto dalla forma irregolare, che giace su un pavimento liscio. Il volume del corpo è <span class="tex">\(V\)</span>, la sua densità media è <span class="tex">\(\rho\)</span>. Determinare la velocità <span class="tex">\(v\)</span> dell'oggetto dopo l'urto, assumendo che sia <span class="tex">\(v \ll c_s\)</span>.</article>
+<article class="post" id="p27058"><div class="who"><b>DeoGratias</b><span>6 lug 2021, 17:09</span></div>Provo una soluzione:<br>
+ <br>
+Possiamo scrivere il volume come <span class="tex">\(V=\int_{0}^{a}A(l)dl\)</span>, dove <span class="tex">\(a\)</span> è la lunghezza massima del solido misurata su un asse parallelo al verso di propagazione dell'onda e <span class="tex">\(A(l)\)</span> è una funzione arbitraria che ci fornisce l'area del solido perpendicolare al verso di propagazione a una distanza <span class="tex">\(l\)</span> dall'estremo del solido. Visto che <span class="tex">\(c_{s}\gg v\)</span>, possiamo considerare che il blocco rimanga fermo finché l'onda non l'ha oltrepassato. Ad ogni istante, sul solido agiscono due forze parallele e opposte in verso, una dovuta a <span class="tex">\(p_{1}\)</span> e una a <span class="tex">\(p_{0}\)</span> (le componenti laterali e verticali si annullano visto che nelle due zone la pressione è uniforme). La forza risultante è quindi <span class="tex">\(F(l)=\Delta pA(l)\)</span>.  L'impulso totale ricevuto è <span class="tex">\(\left \| \vec{J} \right \| =mv=\rho Vv=\int_{0}^{a}F(l)dt\)</span>. Sfruttando <span class="tex">\(dl=c_{s}dt\)</span>, diventa <span class="tex">\(\rho Vv=\frac{\Delta p}{c_{s}}\int_{0}^{a}A(l)dl=\frac{\Delta p}{c_{s}}V\)</span><br>
+Semplificando, <span class="tex">\(v=\frac{\Delta p}{c_{s} \rho}\)</span></article>
+<article class="post" id="p27059"><div class="who"><b>Luca Milanese</b><span>6 lug 2021, 17:29</span></div>Corretto! A te la staffetta.</article>
+<nav class="pager"><a class="prev" href="olifis-7086.html"><small>← precedente</small>263. Polvere nello spazio</a><a class="next" href="olifis-7088.html"><small>successivo →</small>265 - Asta che scivola</a></nav>
+</main></body></html>

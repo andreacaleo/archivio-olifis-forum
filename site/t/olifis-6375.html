@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>87. Neutroni</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 87</a></span></nav>
+<h1>87. Neutroni</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6375">forum Olifis</a></p>
+<article class="post first" id="p22658"><div class="who"><b>BeppeBogna</b><span>28 lug 2016, 9:17</span></div>Nel 2002 un gruppo di fisici di Grenoble ha condotto degli esperimenti per studiare il comportamento dei neutroni in un campo gravitazionale. Nell'immagine trovate uno schizzo dell'apparato sperimentale, che consiste in uno specchio M orizzontale, su cui i neutroni rimbalzano elasticamente, un assorbitore A parallelo allo specchio, di lunghezza <span class="tex">\(L\)</span> e posto a un'altezza <span class="tex">\(H\)</span> e infine un rivelatore D, parallelo al campo gravitazionale terrestre. I neutroni vengono immessi in tale apparato a un'altezza <span class="tex">\(z\)</span> qualsiasi compresa tra <span class="tex">\(0\)</span> e <span class="tex">\(H\)</span> e con una velocità verticale <span class="tex">\(v_z\)</span> qualsiasi e con una velocità orizzontale <span class="tex">\(v_x\)</span> costante. Quelli che raggiungono l'assorbitore vengono eliminati dall'esperimento (si faccia l'ipotesi che <span class="tex">\(L\)</span> sia sufficientemente lunga da permettere l'assorbimento anche nel caso più sfavorevole).<br>
+Il rivelatore D registra il numero <span class="tex">\(N(H)\)</span> di neutroni incidenti su di esso per unità di tempo.<br>
+<br>
+1. Calcolare in maniera classica <span class="tex">\(N(H)\)</span>, assumendo che tutti i valori di <span class="tex">\(z\)</span> e <span class="tex">\(v_z\)</span> siano equiprobabili, in funzione di <span class="tex">\(\rho\)</span>, ovvero il numero di neutroni che entra nella cavità per unità di tempo, unità di velocità verticale e unità di altezza.<br>
+<br>
+I dati sperimentali sono in disaccordo con la precedente previsione, poichè mostrano che <span class="tex">\(N(H)\)</span> cresce bruscamente ogni volta che vengono superate delle altezze critiche <span class="tex">\(H_1\)</span>, <span class="tex">\(H_2\)</span>,...,<span class="tex">\(H_n\)</span>. In altre parole, ci sono degli effetti quantistici non trascurabili nel moto dei neutroni. Tali effetti possono essere tenuti in considerazione tramite la quantizzazione dell'azione <span class="tex">\(S\)</span>, ovvero l'integrale della quantità di moto verticale rispetto a uno spostamento infinitesimo lungo la verticale, calcolato lungo tutto il cammino. Deve quindi verificarsi:<br>
+<br>
+<span class="tex">\(S= \int p_z(z) \mathrm{d}z =nh\)</span><br>
+<br>
+Dove <span class="tex">\(n\)</span> è un intero positivo e <span class="tex">\(h\)</span> la costante di Planck.<br>
+<br>
+2. Calcolare il valore più piccolo <span class="tex">\(H_1\)</span> per cui si verifica un brusco incremento di <span class="tex">\(N(H)\)</span>.<br>
+<br>
+BONUS: 3. Calcolare la minima lunghezza <span class="tex">\(L\)</span> necessaria per osservare il primo incremento, se <span class="tex">\(v_x=10m/s\)</span>
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/0734d53b93d3d3e8.png" class="postimage" alt="Neutron gravitational field.png" onclick="viewableArea(this);" /></dt>
+						<dd>Neutron gravitational field.png (10.49 KiB) Visto 7525 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p22661"><div class="who"><b>step98</b><span>28 lug 2016, 22:30</span></div>Non sono sicuro di cosa voglia dire "il numero di neutroni che entra nella cavità per ... unità di velocità verticale", ma se la mia interpretazione è corretta, il risultato della prima richiesta potrebbe essere <span class="tex">\(N(H) = \frac{4}{3} \rho H \sqrt{2gH}\)</span> ?</article>
+<article class="post" id="p22663"><div class="who"><b>BeppeBogna</b><span>29 lug 2016, 0:38</span></div>La risposta è giusta, ora mancano l'ultimo punto e il procedimento e puoi continuare la staffetta  :D</article>
+<article class="post" id="p22664"><div class="who"><b>step98</b><span>29 lug 2016, 16:29</span></div>Per il secondo punto al momento sono un po' a corto di idee, perciò chi volesse provare provi pure, nel frattempo metto il procedimento del primo punto:<br>
+innanzi tutto non tutti i neutroni immessi ad una certa altezza <span class="tex">\(h\)</span> arriveranno sul rivelatore, ma solo quelli che hanno un'energia tale da non superare mai l'altezza <span class="tex">\(H\)</span>, perchè se la superano vengono assorbiti. L'energia dipende dalla velocità iniziale, e per la conservazione dell'energia si può scrivere:<br>
+<span class="tex">\(\frac{1}{2}mv_{0,z}^{2}+mgh \leq mgH\)</span><br>
+cioè deve essere<br>
+-\sqrt{2h(H-h)}\leq v_{0,z} \leq \sqrt{2g(H-h)}<br>
+affinché i neutroni immessi all'altezza <span class="tex">\(h\)</span> arrivino sul rivelatore.<br>
+Il numero di neutroni emessi per unità di tempo e d'altezza con una velocità lungo <span class="tex">\(z\)</span> che soddisfa la condizione precedente è:<br>
+<span class="tex">\(n(h) = \int_{-\sqrt{2g(H-h)}}^{\sqrt{2g(H-h)}} \rho \mathrm{d}v_{0,z} = 2 \rho \sqrt{2g(H-h)}\)</span><br>
+Però i neutroni vengono immessi con la stessa probabilità ad una qualunque altezza tra <span class="tex">\(0\)</span> ed <span class="tex">\(H\)</span>, quindi bisogna integrare lungo l'altezza:<br>
+<span class="tex">\(N(H) = \int_{0}^{H} n(h) \mathrm{d}h = \int_{0}^{H} 2 \rho \sqrt{2g(H-h)} \mathrm{d}h = \frac{4}{3} \rho H \sqrt{2gH}\)</span></article>
+<article class="post" id="p22667"><div class="who"><b>BeppeBogna</b><span>29 lug 2016, 20:57</span></div>Precisamente  :D</article>
+<article class="post" id="p22670"><div class="who"><b>►M∂∩G∂™</b><span>1 ago 2016, 2:38</span></div>Per il primo punto, beh, per fortuna lo ha scritto step98. Sto scoprendo scrivere con Latex una agonia. Indicherò con z quanto è stato indicato con h. Sperando che siano corretti, posto gli altri due punti:<br>
+<br>
+2) Per avere informazioni sulla velocità e quindi sulla quantità di moto dei neutroni considerati nel limite non relativistico, consideriamo quelli aventi la velocità massima consentita, <span class="tex">\(v = \sqrt{2g(H-z)}\)</span> Applico direttamente la condizione sulla quantizzazione dell'azione (considerando che l'azione, per via del fatto che il neutrone considerato compie un certo tipo di moto da z a 0 e "rimbalzando" compie un percorso simmetrico al primo, vale il doppio di tale integrale) ottenendo: <span class="tex">\(S= 2\int_{0}^{H}\ p_{z}dz= 2m \sqrt{2g} \int_{0}^{H}\  \sqrt{H-z}dz= \frac{4}{3}m \sqrt{2gH^3}=nh\)</span> da cui <span class="tex">\(H=\sqrt[3]{ \frac{9}{32} \frac{n^2h^2}{m^2g}}\)</span> Quella minima si avrà per <span class="tex">\(n=1\)</span>.<br>
+<br>
+3) Parodia delle tecniche di problem solving utili e sensate: Heisenberg supera bruscamente barriere invalicabili. Il principio di indeterminazione nella forma <span class="tex">\(\bigtriangleup{E}\bigtriangleup{t}\geq \bar{h}\)</span> con <span class="tex">\(\bigtriangleup E= mgH\)</span> e <span class="tex">\(\bigtriangleup t = \frac{L}{v_x}\)</span> da cui: <strong class="text-strong"> <span class="tex">\(L \leq \frac{\bar{h} v_x}{mgH}\)</span>. </strong><br>
+La lunghezza minima si ha nel caso di uguaglianza. L'H da considerare ha <span class="tex">\(n=1\)</span>.<br>
+<br>
+Commenti: l'eccitazione dovuta al punto 3) non mi farà dormire stanotte, come tutte le volte in cui riesci ad applicare furtivamente il principio di indeterminazione di Heisenberg. Il problema non è difficile, una volta che si è risolto. Prima è come brancolare nel buio. Ho notato che in alcuni problemi di questo tipo "combinando i dati" (no, non analisi dimensionale) si riesce ad arrivare a risposte corrette senza magari aver riflettuto sui fenomeni e processi coinvolti (che qui sono quasi sconosciuti: puoi provare quello che prova un fisico sperimentale in avanscoperta senza strumenti accurati, cosa molto in tema con il problema).</article>
+<article class="post" id="p22671"><div class="who"><b>BeppeBogna</b><span>1 ago 2016, 8:32</span></div>C'è una svista nel 2, correggi e la staffetta è tua. E ovviamente nel bonus dovrebbe essere <span class="tex">\(\Delta E \Delta t \geq \hbar\)</span>  ;)</article>
+<article class="post" id="p22672"><div class="who"><b>►M∂∩G∂™</b><span>1 ago 2016, 12:09</span></div>Ho corretto il typo e nel punto 2) ho fatto valere i miei precedenti dubbi sulla relazione tra l'azione e l'integrale del testo, sperando che adesso sia corretto</article>
+<article class="post" id="p22673"><div class="who"><b>BeppeBogna</b><span>1 ago 2016, 14:34</span></div>Tutto giusto, la staffetta è tua!</article>
+<nav class="pager"><a class="prev" href="olifis-6370.html"><small>← precedente</small>86. Colpire una torta</a><a class="next" href="olifis-6377.html"><small>successivo →</small>88. Disco</a></nav>
+</main></body></html>

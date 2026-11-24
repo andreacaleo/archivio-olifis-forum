@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>39: Un&#x27;asta che gira</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 39</a></span></nav>
+<h1>39: Un'asta che gira</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6051">forum Olifis</a></p>
+<article class="post first" id="p20402"><div class="who"><b>Simone256</b><span>17 feb 2015, 0:40</span></div>Un asta rigida è inclinata inclinata di un angolo <span class="tex">\(\alpha\)</span> rispetto all'orizzontale e ruota con velocitá angolare <span class="tex">\(\omega\)</span> attorno ad un asse verticale. Un piccolo corpo di massa m può scivolare lungo l'asta, il coefficiente di attrito vale <span class="tex">\(\mu\)</span>.<br>
+Si determini la condizione (distanza del corpo dal centro rotante) per cui il corpo rimane fisso nella stessa posizione durante la rotazione dell'asta.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/cd060dc4fdedfc28.jpg" class="postimage" alt="14241263912311101844551.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>14241263912311101844551.jpg (77.5 KiB) Visto 6281 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p20403"><div class="who"><b>sall96</b><span>17 feb 2015, 8:56</span></div>Non ho capito se la distanza dovevo calcolara rispetto all'asse di rotazione o al perno in basso, io ho fatto il secondo.<br>
+Dimmi se ti torna <span class="tex">\(d=\dfrac{g(cos(\alpha)-\mu sen(\alpha))}{{\omega}^2sen(\alpha)\cdot(sen(\alpha)+\mu cos(\alpha))}\)</span>  :)</article>
+<article class="post" id="p20404"><div class="who"><b>Simone256</b><span>17 feb 2015, 11:25</span></div>Guarda non ho provato a fare trasformazioni trigonometriche per rendere il risultato (in parte) uguale al mio! Ti avviso che comunque un po' ci assomiglia! Ma devo interromperti:<br>
+Tu hai messo che il corpo deve avere una particolare distanza dal centro! Tuttavia è più logico ipotizzare che il corpo sia compreso in un intervallo di lunghezza! Infatti se non ci fosse attrito bisognerebbe equilibrare perfettamente forza centrifuga e forza gravitazionale (nelle loro opportune componenti), con l'attrito capisci che si può in qualche modo discostarsi da questo punto di una piccola lunghezza prima che il corpo riesca effettivamente a scappare via!</article>
+<article class="post" id="p20405"><div class="who"><b>sall96</b><span>17 feb 2015, 13:44</span></div>Hai ragione non ci avevo pensato, dopo provo a correggere!</article>
+<article class="post" id="p20406"><div class="who"><b>Simone256</b><span>17 feb 2015, 13:58</span></div>Ok! ;)<br>
+<br>
+Per curiosità, questo è un problema IPhO di 40 anni fa!  :)</article>
+<article class="post" id="p20407"><div class="who"><b>sall96</b><span>17 feb 2015, 14:38</span></div>Il caso sopra era con l'attrito rivolto verso l'alto, facendo anche l'altro caso mi viene<br>
+<br>
+<span class="tex">\(\dfrac{g(sen(\alpha)-\mu cos(\alpha))}{{\omega}^2cos(\alpha)\cdot(cos(\alpha)+\mu sen(\alpha))}\leq d \leq \dfrac{g(sen(\alpha)+\mu cos(\alpha))}{{\omega}^2cos(\alpha)\cdot(cos(\alpha)-\mu sen(\alpha))}\)</span><br>
+<br>
+spero sia giusto  :? <br>
+ <br>
+EDIT: ho corretto l'angolo  :D <br>
+
+<blockquote><div><cite>Simone256 ha scritto:</cite>Per curiosità, questo è un problema IPhO di 40 anni fa!  :)</div></blockquote>
+
+Carino, ovviamente molto piu' semplice di quelli che ci sono adesso  :lol:</article>
+<article class="post" id="p20408"><div class="who"><b>Simone256</b><span>17 feb 2015, 16:20</span></div>Sicuro di non aver definito <span class="tex">\(\alpha\)</span> come il complementare di quello indicato nel disegno?<br>
+Potrei essere anch'io che faccio casino con la trigonometria eh ;)</article>
+<article class="post" id="p20410"><div class="who"><b>sall96</b><span>17 feb 2015, 16:26</span></div>che stupido...  :cry:  Non smettero' mai di fare questi errori  :roll:</article>
+<article class="post" id="p20411"><div class="who"><b>Simone256</b><span>17 feb 2015, 16:58</span></div>Hahahaha tranquillo! Se vuoi scrivi un abbozzo di soluzione e poi ti cedo il testimone :)</article>
+<article class="post" id="p20412"><div class="who"><b>sall96</b><span>17 feb 2015, 17:50</span></div>Poniamo un sistema di riferimento positivo verso l'alto e verso sinistra.<br>
+<br>
+Sulla massa agiscono 3 forze:<br>
+-Il peso <span class="tex">\(mg\)</span> <br>
+-La forza normale <span class="tex">\(N\)</span><br>
+-La forza di attrito <span class="tex">\(f_a\leq \mu N\)</span><br>
+Quest'ultima puo' essere rivolta verso il centro rotante o dall'altra parte, quindi bisogna esaminare i due casi.<br>
+<br>
+<br>
+1) Forza di attrito rivolta verso il centro rotante:<br>
+<br>
+scomposti i vari vettori sul piano verticale e orizzontale si ha<br>
+<br>
+<span class="tex">\(N\cdot cos\alpha-mg-\mu N\cdot sen\alpha=0\)</span><br>
+<br>
+<span class="tex">\(N\cdot sen\alpha+\mu N\cdot cos\alpha=mr{\omega}^2\)</span> (con r distanza dall'asse di rotazione)<br>
+<br>
+che risolto (ricordando che <span class="tex">\(r=d\cdot cos\alpha\)</span>) da<br>
+<br>
+<span class="tex">\(d=\dfrac{g(sen(\alpha)+\mu cos(\alpha))}{{\omega}^2cos(\alpha)\cdot(cos(\alpha)-\mu sen(\alpha))}\)</span><br>
+<br>
+2) per l'attrito rivolto dall'altra parte basta invertire i segni dell'attrio nelle equazioni sopra, che da <br>
+<br>
+<span class="tex">\(d=\dfrac{g(sen(\alpha)-\mu cos(\alpha))}{{\omega}^2cos(\alpha)\cdot(cos(\alpha)+\mu sen(\alpha))}\)</span><br>
+<br>
+la massa puo' quindi trovarsi tra questi due valori, da cui il risultato  :)</article>
+<article class="post" id="p20413"><div class="who"><b>Simone256</b><span>17 feb 2015, 19:12</span></div>Ottimo vai pure col prossimo  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6050.html"><small>← precedente</small>38.Una sbarretta ed un filo</a><a class="next" href="olifis-6052.html"><small>successivo →</small>40: Reticolo di resistenze</a></nav>
+</main></body></html>

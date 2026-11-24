@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>150. Play tetherball</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 150</a></span></nav>
+<h1>150. Play tetherball</h1>
+<p class="meta">17 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6705">forum Olifis</a></p>
+<article class="post first" id="p24805"><div class="who"><b>Flaffo</b><span>6 giu 2018, 10:58</span></div>Se Guido leggesse questo problema penserebbe: "ah, questo è un altro dei problemini di Flaffo"; mentre Secca esclamerebbe: "questi problemi da CIM!". <br>
+In ogni caso, trattato dai problemi irrisolti di Morin (.. sul libro ovviamente), il problema è il seguente.<br>
+<br>
+Una piccola palla è attaccata ad una corda senza massa. Nel momento iniziale l'angolo che il filo forma con la verticale è <span class="tex">\(\theta_0\)</span> e la velocità orizzontale è <span class="tex">\(v_i\)</span>. Col passare del tempo, la corda si avvolge attorno al palo. Supponiamo che:<br>
+1. il palo è abbastanza sottile in modo che la la traiettoria possa essere sempre trattata come un moto circolare,<br>
+2. il palo ha abbastanza attrito in modo che la corda non scivoli, una volta che lo tocca.<br>
+Mostra che il rapporto tra la velocità finale (appena prima che colpisca il palo) e la velocità iniziale della palle è <span class="tex">\(v_f / v_i = sin \theta_0 \)</span><br>
+<br>
+HINT 1: L'energia si conserva<br>
+<br>
+HINT 2: L'angolo finale tende a <span class="tex">\(\frac {\pi}{2}\)</span><br>
+<br>
+HINT 3: Trovare un modo per esprimere <span class="tex">\(dh\)</span> (cambiamento di quota della palla) in funzione di <span class="tex">\(d l\)</span> (cambiamento lunghezza del filo)<br>
+<br>
+HINT4: Trovare quindi un'equazione differenziale che lega <span class="tex">\(v\)</span> e <span class="tex">\(\theta\)</span></article>
+<article class="post" id="p24806"><div class="who"><b>Ilgatto</b><span>6 giu 2018, 19:41</span></div>Non vorrei aver frainteso, ma se <span class="tex">\(\theta_{0}=0\)</span>, avrei che <span class="tex">\(v_{f}=0\)</span> per qualsiasi velocità iniziale e non mi torna nella realtà. Cioè se do un colpo molto forte alla pallina e il filo è verticale alla fine va molto veloce. <br>
+<br>
+P.S.<br>
+Spero di non rubare troppo tempo alla tesina di @Flaffo  :D</article>
+<article class="post" id="p24807"><div class="who"><b>Flaffo</b><span>6 giu 2018, 20:07</span></div>Effettivamente dal testo potrebbe essere frainteso.. la velocità iniziale e l'angolo iniziale sono legati da una specifica relazione che permette alla palla di muoversi su una circonferenza che ha quindi raggio <span class="tex">\(l sin \theta\)</span> se <span class="tex">\(l\)</span> è la lunghezza della corda. Nel caso<span class="tex">\(\theta=0\)</span> va da se che la velocità iniziale e finale sia nulla. La notazione che viene fornita era intesa per far capire a cosa si riferisse l'angolo che poi compare nella formula finale. <br>
+<br>
+Hahah non ti preoccupare, la staffetta è un obbligo che va rispettato</article>
+<article class="post" id="p24808"><div class="who"><b>Aleksej99</b><span>8 giu 2018, 10:41</span></div><blockquote><div><cite>Flaffo ha scritto: <a href="olifis-6705.html#p24805" data-post-id="24805" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">6 giu 2018, 10:58</div></cite>
+Se Guido leggesse questo problema penserebbe: "ah, questo è un altro dei problemini di Flaffo"; mentre Secca esclamerebbe: "questi problemi da CIM!". <br>
+In ogni caso, trattato dai problemi irrisolti di Morin (.. sul libro ovviamente), il problema è il seguente.<br>
+<br>
+Una piccola palla è attaccata ad una corda senza massa. Nel momento iniziale l'angolo che il filo forma con la verticale è <span class="tex">\(\theta_0\)</span> e la velocità orizzontale è <span class="tex">\(v_i\)</span>. Col passare del tempo, la corda si avvolge attorno al palo. Supponiamo che:<br>
+1. il palo è abbastanza sottile in modo che la la traiettoria possa essere sempre trattata come un moto circolare,<br>
+2. il palo ha abbastanza attrito in modo che la corda non scivoli, una volta che lo tocca.<br>
+Mostra che il rapporto tra la velocità finale (appena prima che colpisca il palo) e la velocità iniziale della palle è <span class="tex">\(v_f / v_i = sin \theta_0 \)</span>
+</div></blockquote>
+
+Un ringraziamento ad Aleksej99 per aver dato la soluzione a Flaffo mi sembrava doveroso... Comunque buona fortuna per chi proverà a farlo...<br>
+ #Flafforoalleipho</article>
+<article class="post" id="p24809"><div class="who"><b>Flaffo</b><span>8 giu 2018, 13:28</span></div>Hahaha si ringrazia caldamente Alessandro per la collaborazione nella pubblicazione di questo problema come staffetta, quindi non date interamente la colpa a me...<br>
+<br>
+Aggiungerei #Flaffo&gt;98allamaturità :lol:</article>
+<article class="post" id="p24810"><div class="who"><b>Pigkappa</b><span>8 giu 2018, 18:20</span></div>Ho vaghi ricordi di aver provato a fare questo problema nella mia infanzia e averlo trovato particolarmente difficile (o forse non mi era riuscito e basta). Se nessuno lo riesce a fare in tempi ragionevoli Flaffo dia suggerimenti o posti la soluzione così da non bloccare la staffetta.</article>
+<article class="post" id="p24812"><div class="who"><b>Flaffo</b><span>9 giu 2018, 19:37</span></div>Aggiungo il primo hint, abbastanza banale (nel senso che da come il testo è scritto è ovvio che voglia quello) ma in ogni caso utile.</article>
+<article class="post" id="p24815"><div class="who"><b>Pigkappa</b><span>10 giu 2018, 23:56</span></div>Dato che questo problema mi ha stuzzicato scrivo i miei ragionamenti. Non ho ottenuto il risultato giusto, puoi dirmi cosa ho sbagliato e in che direzione devo cercare? Non so se avro' tempo di riprovarci durante la settimana, invito altri a provarci perche' e' un problema interessante.<br>
+<br>
+Fatto 1: l'energia si conserva. Abbastanza ovvio dato che la corda non striscia sul palo e non c'e' altro modo di perdere energia.<br>
+<br>
+Fatto 2: il momento angolare <span class="tex">\(\vec L\)</span> <strong class="text-strong">non</strong> si conserva. Se si conservasse, la velocita' finale della pallina sarebbe infinita se trascuriamo la dimensione del palo, o comunque molto grande se non la trascuriamo.<br>
+<br>
+Il fatto 2 mi mette sull'allerta che questo problema e' piu' insidioso di quel che sembra. Probabilmente il problema richiede di usare le approssimazioni suggerite in qualche parte della soluzione ma poi non usarle in una qualche altra parte. Il semplice fatto che la pallina scende ovviamente vuol dire che il moto non e' circolare; ma potrebbe essere necessario considerare qualcosa di piu' complicato che solo quel fatto.<br>
+<br>
+Proviamo ad assumere che <span class="tex">\(\theta \equiv \theta_0\)</span> sia costante. A vedere video su Youtube dei tetherballs, sembra plausibile. Chiamiamo <span class="tex">\(T\)</span>, <span class="tex">\(M\)</span>, <span class="tex">\(g\)</span> tensione, massa della pallina, gravita'. Chiamiamo <span class="tex">\(L\)</span> la lunghezza della corda all'istante iniziale (quando ancora niente si e' avvolto al filo). Il moto e' in un qualche senso circolare per cui non c'e' forza verticale, e la forza orizzontale serve solo a darmi l'accelerazione centrifuga. Quindi:<br>
+<span class="tex">\(T \cos \theta = M g\)</span><br>
+<span class="tex">\(T \sin \theta = M v^2 / (L \sin \theta)\)</span><br>
+Facciamo due conti e troviamo <span class="tex">\(\sin^2 \theta = \frac{v^2}{g L} \cos \theta\)</span>.<br>
+<br>
+Alla fine del moto, una quantita' <span class="tex">\(L\)</span> di corda si e' avvolta al palo e da considerazioni geometriche l'altezza e' diminuita di <span class="tex">\(L \cos \theta\)</span>. La conservazione dell'energia da':<br>
+<span class="tex">\(\frac{1}{2} M v_f^2 = M g L \cos \theta + \frac{1}{2} M v^2\)</span><br>
+<span class="tex">\(gL = \frac{1}{2 \cos \theta}(v_f^2 - v^2)\)</span><br>
+Mettendolo nella formula sopra troviamo:<br>
+<span class="tex">\(\sin^2 \theta  = 2 v^2 \cos^2 \theta \frac{1}{v_f^2 - v^2}\)</span><br>
+Da cui <span class="tex">\(v_f^2 \sin^2 \theta = v^2 \sin^2 \theta + 2 v^2 \cos^2 \theta = v^2 (1 + \cos^2 \theta)\)</span>, da cui <span class="tex">\(v_f = v \sin \theta \sqrt{1 + \cos^2 \theta}\)</span>.<br>
+<br>
+Che e' il risultato sbagliato. Possibili magagne:<br>
+1. Potrebbe essere falsa l'approssimazione che <span class="tex">\(\theta\)</span> e' costante, ma qualunque strategia per trovare <span class="tex">\(\theta(t)\)</span> che posso immaginare richiede conti molto brutti e decisamente non olimpici. D'altra parte e' un problema da 4 stelle del Morin per cui puo' anche essere molto brutto.<br>
+2. Potrebbero essere sbagliate l'equazioni del moto qua sopra perche' l'approssimazione di moto circolare potrebbe non andar bene per quelle, ma allora uno dovrebbe introdurre un'altra variabile come lo spessore del palo, e le cose si complicano. <br>
+3. Questo dubbio mi è sorto leggendo qualcosa su internet mentre cercavo la soluzione a questo problema: le "considerazioni geometriche" di cui sopra potrebbero essere sbagliate e la relazione tra <span class="tex">\(\delta H\)</span> e <span class="tex">\(\delta L\)</span> potrebbe essere piu' brutta, ma un po' mi stupirei. Se e' cosi' potresti spiegare per bene come si arriva alla relazione corretta?</article>
+<article class="post" id="p24816"><div class="who"><b>Flaffo</b><span>11 giu 2018, 13:05</span></div>Prima osservazione giusta <br>
+<br>
+Seconda osservazione giusta.. anche perché essendo il raggio del palo piccolo ma non nullo, la forza di attrito crea un momento non nullo.<br>
+<br>
+Ora, l'angolo <span class="tex">\(\theta\)</span> non è costante. Guardando l'equazione per il moto circolare che hai ottenuto, sapendo che la velocità finale può avere un valore grande o piccolo ma sempre finito e non nullo ( limitato, per la conservazione dell'energia, dalla lunghezza della corda, che in qualche modo è a sua volta legata alla differenza di altezza iniziale e finale), abbiamo che:<br>
+<br>
+<span class="tex">\(\frac{sin^2 \theta}{cos \theta}= \frac{v^2}{lg}\)</span><br>
+<br>
+Per <span class="tex">\(l\)</span> che tende a 0, il membro di sinistra tende a infinito, dunque vediamo che <span class="tex">\(\theta\)</span> tende a <span class="tex">\(\frac{\pi}{2}\)</span>, cioè in ogni caso non rimane costante.<br>
+<br>
+Immagino che <span class="tex">\(\theta (t)\)</span> sia alquanto complicato da scrivere, ma è in effetti più facile metterlo in funzione della velocità.<br>
+<br>
+Per quanto riguarda l'approssimazione del moto circolare, va bene in quanto il testo stesso dice di farlo. <br>
+<br>
+In effetti, ciò che ti manca è esprimere correttamente <span class="tex">\(d h\)</span> in funzione di <span class="tex">\(d l\)</span>. Il problema sta tutto in questa relazione. Immagina cosa succede alla corda che si avvolge...<br>
+<br>
+Spero di essere stato abbastanza chiaro, anche se la risposta potrebbe sembrare leggermente mistica in alcuni punti. Dopotutto la soluzione mi viene in poco più di mezza pagina, dunque dando un'idea avrei praticamente rovinato il problema. In ogni caso, tra un paio di giorni pubblicherò il prossimo hint, per calcolare <span class="tex">\(dh\)</span>.. se il problema rimane ancora irrisolto.</article>
+<article class="post" id="p24818"><div class="who"><b>Pigkappa</b><span>11 giu 2018, 23:32</span></div>Ci sono due altezze che contano: l'altezza <span class="tex">\(k\)</span> del punto in cui il filo e' rasente al palo, e quella <span class="tex">\(h\)</span> della pallina.<br>
+Il filo che si avvolge si attacchera' di volta in volta al palo formando sempre un angolo <span class="tex">\(\theta\)</span> (variabile) con la verticale. Direi percio' che<span class="tex">\(dk = -dl \cos \theta\)</span> e che <span class="tex">\(h = k - l \cos \theta\)</span>. Poniamo <span class="tex">\(c = \cos \theta\)</span>. Allora <span class="tex">\(dk = - c dl\)</span> e <span class="tex">\(dh = d(k - l c) = - 2 c dl - l dc\)</span>.<br>
+<br>
+Notiamo che dalle equazioni che abbiamo scritto nei post precedenti, <span class="tex">\(g l = \frac{c}{1 - c^2} (v_0^2 - gh)\)</span>, ovvero <span class="tex">\(\frac{1}{c} gl - c g l = v_0^2 - gh\)</span>. Differenziamo e togliamo la gravita' e troviamo una equazione differenziale per <span class="tex">\(l\)</span> e <span class="tex">\(c\)</span>, che a me viene:<br>
+<span class="tex">\(\frac{dl}{l} = \frac{1 + 2c^2}{c(1-c^2)} dc\)</span><br>
+Il mostro a destra e' integrabile. Il risultato mi pare sia che <span class="tex">\(l \frac{\sin^3 \theta}{\cos \theta}\)</span> e' costante.<br>
+Ora potremmo usare che dalla conservazione dell'energia <span class="tex">\(dv^2 = - g dh = -g (-2c dl - l dc)\)</span> che ormai possiamo esprimere solo in (moltissimi) termini di <span class="tex">\(l_0, g, \theta_0, \theta\)</span>. Poi potremmo integrare notando che <span class="tex">\(\theta\)</span> va da <span class="tex">\(\theta_0\)</span> a <span class="tex">\(\pi / 2\)</span> durante il moto. Questo conto mi pare orribile ma non escluderei che un problema del Morin da quattro stelle richieda di farlo, o piu' realisticamente c'e' una scorciatoia che richiede manipolazioni bislacche per usare <span class="tex">\(h\)</span> invece di <span class="tex">\(l\)</span> in questi conti e renderli piu' facili. L'ho cercata per un po' ma non l'ho trovata. Alla fine scommetterei che rimane il risultato finale.<br>
+<br>
+Il metodo e' giusto o questo conto non darebbe il risultato corretto?<br>
+<br>
+Il tuo post sembrava suggerire che c'e' una semplice relazione <span class="tex">\(dh = f(\theta) dl\)</span> che rende il problema facile, ma quel che ho trovato io qua sopra e' <span class="tex">\(dh = -2 \cos \theta dl + l \sin \theta d\theta\)</span> contiene un termine in <span class="tex">\(d\theta\)</span> che rende il tutto meno gradevole...</article>
+<article class="post" id="p24819"><div class="who"><b>Flaffo</b><span>12 giu 2018, 13:12</span></div>Purtroppo l'espressione per <span class="tex">\(dh\)</span> è sbagliata, e in effetti è più pulita (quindi risulterà anche più facile andare avanti da lì). Un suggerimento: cerca di lavorare con i differenziali per calcolare <span class="tex">\(dh\)</span> e attento ai segni...</article>
+<article class="post" id="p24820"><div class="who"><b>Pigkappa</b><span>12 giu 2018, 13:47</span></div>E' sbagliato dire che mentre il filo si avvolge attorno al palo, se una frazione <span class="tex">\(dl\)</span> del filo si avvolge, il punto di contatto si abbassa di <span class="tex">\(\cos \theta dl\)</span>? Se immagini <span class="tex">\(dl\)</span> sufficientemente piccolo che il filo si muove quasi su una superficie verticale, con angolo <span class="tex">\(\theta\)</span> fissato, questa cosa mi pare proprio sia corretta. Questo ci dice <span class="tex">\(dk = dl \cos \theta\)</span>. Mi sa che qua avevo sbagliato segno perche' sono tonto. <br>
+<br>
+Poi il fatto che <span class="tex">\(h = k - l \cos \theta\)</span> e' evidente dalla geometria del sistema. Differenziare questo e' facile e da' <span class="tex">\(dh = dk - d(l \cos \theta) = l \sin \theta d\theta \)</span>. Questo e' giusto?<br>
+<br>
+Sostituendo questo nei conti che ho fatto ieri conduce a un'equazione differenziale tra <span class="tex">\(l\)</span> e <span class="tex">\(\theta\)</span> comunque non gradevole che a prima vista e' anche peggio del conto che ho fatto ieri...</article>
+<article class="post" id="p24821"><div class="who"><b>Flaffo</b><span>12 giu 2018, 14:22</span></div>Perfetto, hai ottenuto <span class="tex">\(dh= l sin \theta d \theta\)</span> che è l'espressione giusta.. quei due termini di prima infatti si semplificano. Ora il problema è praticamente finito.<br>
+Combina in qualche modo l'equazione di equilibrio per il moto circolare e l'espressione che deriva dalla conservazione dell'energia</article>
+<article class="post" id="p24822"><div class="who"><b>Pigkappa</b><span>12 giu 2018, 15:36</span></div>Cioè c'è un modo per evitare il conto che ho fatto ieri e una equazione differenziale che collega <span class="tex">\(l\)</span> e <span class="tex">\(\theta\)</span>?<br>
+<br>
+Quando posso provo, non sono sicuro di avere tempo oggi, aspetta prima di postare la soluzione...<br>
+<br>
+Differenziando <span class="tex">\(v_0^2 = v^2 + 2gh\)</span> con le formule trovate ora trovo <span class="tex">\(\frac{dl}{l} = \frac{3c^2 + 1}{c(1-c^2)} dc\)</span>. Anche questo mostro e' integrabile e da qui trovo che <span class="tex">\(l \sin^4 \theta / \cos \theta \)</span> e' fissato. Quindi <span class="tex">\(l = L s_0^4 c / (c_0 s^4)\)</span> con ovvio significato. Allora <span class="tex">\(dh = - L (s_0^4 / c_0) c / (1 - c^2)^2 dc\)</span>. Pure questo mostro e' integrabile. Viene <span class="tex">\(h(\theta) = A / \sin^2 \theta + B\)</span>. Devo tornare al lavoro ma piu' tardi provo a vedere se mi porta da qualche parte...</article>
+<article class="post" id="p24823"><div class="who"><b>Flaffo</b><span>12 giu 2018, 16:27</span></div>Prova a trovare immediatamente un'equazione differenziale che lega <span class="tex">\(v\)</span> e <span class="tex">\(\theta\)</span>, cercando di eliminare <span class="tex">\(l\)</span></article>
+<article class="post" id="p24824"><div class="who"><b>Pigkappa</b><span>12 giu 2018, 17:23</span></div>Si' sono arrivato in fondo... Abbiamo detto che <br>
+<span class="tex">\(dh = - L \frac{s_0^4}{c_0} \frac{c}{(1-c^2)^2} dc\)</span><br>
+Integri notando che <span class="tex">\(c\)</span> varia tra <span class="tex">\(c_0\)</span> e 0. Trovi:<br>
+<span class="tex">\(\Delta h = \frac{L}{2} s_0^2 c_0\)</span>.<br>
+Notiamo che <span class="tex">\(gL = v_0^2 \frac{c_0}{s_0^2}\)</span> da formule trovate prima.<br>
+Infine <span class="tex">\(v_f^2 = v_0^2 - 2 g \Delta h = v_0^2 - 2g (\frac{L}{2} s_0^2 c_0) = v_0^2 - v_0^2 c_0^2 = v_0^2 s_0^2\)</span> e quindi <span class="tex">\(v_f = v_0 \sin \theta_0.\)</span>.<br>
+<br>
+Qui <span class="tex">\(L\)</span> era la lunghezza iniziale del filo, <span class="tex">\(s, c\)</span> sono <span class="tex">\(\sin \theta\)</span>, <span class="tex">\(\cos \theta\)</span>, <span class="tex">\(s_0, c_0\)</span> sono <span class="tex">\(\sin \theta_0\)</span>, <span class="tex">\(\cos \theta_0\)</span>, <span class="tex">\(\Delta h\)</span> la variazione di altezza tra inizio e fine.<br>
+<br>
+C'era un modo per non fare nessun integrale tipo quello che ho dovuto fare per trovare che <span class="tex">\(l s^4 / c\)</span> era costante? E se il palo è infinitamente sottile ma nonostante assorba un momento angolare finito dalla pallina non si mette a ruotare, vuol dire che da qualche parte (presumibilmente nel punto di contatto al suolo) agisce una forza infinita sul palo? Mi chiedo se le approssimazioni fatte sono sensate e in un tetherball vero si possono osservare i risultati che abbiamo trovato.</article>
+<article class="post" id="p24825"><div class="who"><b>Flaffo</b><span>12 giu 2018, 20:13</span></div>Va bene, mi torna tutto. <br>
+<br>
+Come dicevo, secondo me viene più semplice se troviamo subito l'equazione differenziale con solo <span class="tex">\(v, \theta\)</span>. Sappiamo che:<br>
+<br>
+<span class="tex">\(dh = l sin \theta d \theta\)</span><br>
+<br>
+Per la conservazione dell'energia:<br>
+<br>
+<span class="tex">\(v dv =- g dh\)</span><br>
+<br>
+Sostituendo:<br>
+<br>
+<span class="tex">\(v dv =- lg sin \theta d \theta\)</span><br>
+<br>
+La condizione di equilibrio per la palla è:<br>
+<br>
+<span class="tex">\(\frac {v^2}{lg}= \frac{sin^2 \theta }{cos \theta}\)</span><br>
+<br>
+Isolando <span class="tex">\(lg\)</span> per poi sostituirlo nell'equazione differenziale troviamo:<br>
+<br>
+<span class="tex">\(\frac{dv}{v}= - \frac{d \theta}{tan \theta}\)</span><br>
+<br>
+Integriamo. Entrambi gli integrali li darei per noti, comunque anche il secondo si ottiene velocemente<br>
+<br>
+<span class="tex">\(ln {\frac{v_f}{v_i}}= - ln{ \frac{sin {\theta}_{f}}{sin {\theta}_{i}}}\)</span><br>
+<br>
+Per quanto detto nei post precedenti <span class="tex">\(sin {\theta}_f =1\)</span>, abbiamo quindi:<br>
+<br>
+<span class="tex">\(\frac{v_f}{v_i}= sin {\theta}_i\)</span><br>
+<br>
+Il ragionamento sulla forza infinita ha senso, in effetti questo modello approssima più o meno bene la situazione reale in un certo intervallo di condizioni iniziali. Probabilmente, "il palo deve essere sottile, ma non troppo"... così come sul TST di quest'anno la stella aveva un numero di neutroni <span class="tex">\(N &gt;&gt;1\)</span>, ma comunque piccolo  :lol: <br>
+<br>
+...Ora la staffetta? Direi che passa a Pigkappa! Deliziaci con un bel problema  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6689.html"><small>← precedente</small>149. Apparente paradosso</a><a class="next" href="olifis-6709.html"><small>successivo →</small>151. Circuito di semicirconferenze</a></nav>
+</main></body></html>

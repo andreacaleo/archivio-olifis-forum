@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>91. Fluido e piano inclinato</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 91</a></span></nav>
+<h1>91. Fluido e piano inclinato</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6410">forum Olifis</a></p>
+<article class="post first" id="p22940"><div class="who"><b>AleDonda</b><span>12 set 2016, 13:34</span></div>Essendo la mia prima staffetta non so se questo problema è troppo facile, ma ci provo comunque :lol: <br>
+<br>
+Un corpo di massa <span class="tex">\(M\)</span>,costituito da un materiale di densità assoluta <span class="tex">\(\rho\)</span>,si pone in moto scendendo verticalmente di un tratto <span class="tex">\(h\)</span> entro un liquido di densità <span class="tex">\(\rho_0\)</span>.Contemporaneamente un corpo di massa<span class="tex">\(KM\)</span>,congiunto al primo mediante un filo inestensibile e  di massa trascurabile, sale (muovendosi nell'aria)lungo un piano,inclinato di un angolo <span class="tex">\(\alpha\)</span> sul piano dell'orizzontale. Alla fine della discesa i due corpi posseggono la velocità <span class="tex">\(v\)</span>.<br>
+(1)Qual è il valore dell'energia "perduta" dal sistema per vincere gli attriti?<br>
+(2)Quale risulterebbe la velocità finale se gli attriti non perturbassero il moto?<br>
+(3)Quali sarebbero in questo caso ideale i valori consentiti per il parametro <span class="tex">\(K\)</span>?<br>
+(Ovviamente il filo menzionato passa per due carrucole, una posta in cima al piano e un'altra posta sopra il contenitore del fluido).</article>
+<article class="post" id="p22944"><div class="who"><b>FedericoC.</b><span>12 set 2016, 18:01</span></div>Provo a dare le mie soluzioni  :D <br>
+<br>
+<strong class="text-strong">1)</strong>Ho calcolato la differenza tra l'energia finale del sistema e quella iniziale: <span class="tex">\(\Delta E=\frac{1}{2}Mv^2(K+1)-Mgh(1-Ksen\alpha)\)</span><br>
+<br>
+<strong class="text-strong">2)</strong>Ho calcolato l'accelerazione con la seconda legge della dinamica: <span class="tex">\(\displaystyle a=\frac{g(1-\frac{\rho_0}{\rho}-sen\alpha)}{1+K}\)</span><br>
+Ho poi trovato la velocità dalla legge delle velocità al quadrato per il moto uniformemente accelerato, cioè <span class="tex">\(V^2=2ay\)</span>, da cui si ha <span class="tex">\(\displaystyle V=\sqrt{\frac{2gh(1-\frac{\rho_0}{\rho}-sen\alpha)}{1+K}}\)</span><br>
+<br>
+<strong class="text-strong">3)</strong>Il radicando dell'equazione del punto due deve essere maggiore o uguale a zero, inoltre dato che ho preso come verso positivo quello dell'accelerazione gravitazionale <span class="tex">\(y=h\)</span> è positivo da cui: <span class="tex">\(\displaystyle\frac{1-\frac{\rho_0}{\rho}-sen\alpha}{1+K}\geqslant 0\)</span><br>
+Per trovare un intervallo preciso credo servano valori numerici, poiché in caso contrario non si può sapere se il numeratore è positivo o negativo.</article>
+<article class="post" id="p22946"><div class="who"><b>AleDonda</b><span>12 set 2016, 18:45</span></div>Attento,temo che ci sia un errore di calcolo a partire dal punto 2. La correzione di questo errore ti porterà a trovare le condizioni esatte per <span class="tex">\(K\)</span>. Correggi questa banalità e la staffetta sarà tua :D</article>
+<article class="post" id="p22947"><div class="who"><b>FedericoC.</b><span>12 set 2016, 19:06</span></div>Penso di essermi dimenticato un <span class="tex">\(K\)</span> :x <br>
+<br>
+<strong class="text-strong">2)</strong> <span class="tex">\(\displaystyle V=\sqrt{\frac{2gh(1-\frac{\rho_0}{\rho}-Ksen\alpha)}{1+K}}\)</span><br>
+<br>
+<strong class="text-strong">3)</strong> <span class="tex">\(\displaystyle 0 \leqslant K \leqslant \frac{1-\frac{\rho_0}{\rho}}{sen\alpha}\)</span><br>
+<br>
+Spero di non averne sbagliati altri  :D</article>
+<article class="post" id="p22948"><div class="who"><b>AleDonda</b><span>12 set 2016, 20:00</span></div>Giusto i punti 2 e 3. Purtroppo(scusami ma non ero a casa prima)c'è qualcosa che non va al punto 1. Hai trascurato altri termini. Comunque ricordati che per le condizioni<span class="tex">\(K\)</span> deve necessariamente essere positivo perché è un coefficiente di proporzionalità fra masse.</article>
+<article class="post" id="p22949"><div class="who"><b>FedericoC.</b><span>12 set 2016, 20:34</span></div>La mia distrazione trionfa  :lol: <br>
+Edito il post precedente per il punto tre.<br>
+Per il primo punto io ho considerato come energia iniziale unicamente quella potenziale di entrambi i blocchetti, mentre per quella finale oltre quella potenziale la cinetica. L'unica energia che credo sia coinvolta nel sistema oltre a queste è il calore assorbito dall'acqua, che pensavo coincidesse con la variazione di energia cercata.</article>
+<article class="post" id="p22950"><div class="who"><b>AleDonda</b><span>12 set 2016, 21:56</span></div>L'errore sta nel calcolo dell'energia potenziale iniziale perché per il corpo immerso nel fluido il lavoro associato alla differenza di potenziale è svolto non solo dalla forza peso,ma anche dalla spinta di Archimede  ;)</article>
+<article class="post" id="p22951"><div class="who"><b>FedericoC.</b><span>12 set 2016, 22:08</span></div>Non ci avevo proprio pensato  :( <br>
+<br>
+<span class="tex">\(\Delta E=-Mgh(1-\frac{\rho_0}{\rho})+\frac{1}{2}Mv^2(1+K)+KMghsen\alpha\)</span></article>
+<article class="post" id="p22952"><div class="who"><b>AleDonda</b><span>12 set 2016, 23:34</span></div>Esatto! La staffetta è tua :D lo sapevo che era troppo facile per essere un problema di staffetta. Mi rifarò  :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6408.html"><small>← precedente</small>90. Oscillazioni</a><a class="next" href="olifis-6412.html"><small>successivo →</small>92. Anello carico</a></nav>
+</main></body></html>

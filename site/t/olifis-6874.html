@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>196. Moto di Titano</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 196</a></span></nav>
+<h1>196. Moto di Titano</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6874">forum Olifis</a></p>
+<article class="post first" id="p25829"><div class="who"><b>Luca Milanese</b><span>1 apr 2020, 8:43</span></div>Il moto di Titano, satellite di Saturno, osservato dalla Terra, appare come un moto armonico di periodo <span class="tex">\(T_{Tit}=16 giorni\)</span> e con una elongazione <span class="tex">\(\alpha=3'12"\)</span>. Questa osservazione è stata fatta quando Saturno, Terra e Sole sono allineati in quest'ordine. Sapendo che il periodo di rivoluzione di Saturno attorno al Sole è <span class="tex">\(T_{Sat}=29,5 anni\)</span>, e considerando - il che è vero con notevole approssimazione - le orbite planetarie come cerchi, si determini la massa di Saturno.</article>
+<article class="post" id="p25830"><div class="who"><b>Pigkappa</b><span>1 apr 2020, 12:09</span></div>Rilancio. Considerando che 16 giorni sono piuttosto lunghi per assumere che la Terra, il Sole e Saturno rimangano allineati in quest'ordine, con che precisione possiamo stimare la massa di Saturno usando questo metodo? Ci sono altre fonti di errore piu' importanti? Non ho in mente una risposta precisa, ma e' qualcosa a cui pensare.</article>
+<article class="post" id="p25832"><div class="who"><b>east_beast</b><span>2 apr 2020, 17:30</span></div>Sono noti anche raggio e periodo di rivoluzione della terra? (che vabbè è 1 anno)</article>
+<article class="post" id="p25833"><div class="who"><b>Luca Milanese</b><span>2 apr 2020, 17:46</span></div>Sì, e per essere proprio precisi aggiungo che è nota anche G.</article>
+<article class="post" id="p25834"><div class="who"><b>bosone</b><span>2 apr 2020, 18:01</span></div>A me tornerebbe un pò bassina <span class="tex">\(8.10^{25}\)</span> kg. Ho calcolato il rapporto fra i cubi della distanza della Terra e di Saturno con la legge di Keplero arrivando alla differenza fra la distanza di Saturno e quella della Terra (circa 1300 milioni di Km o miliardi di metri) e calcolando il raggio dell'orbita di Titanio con l'elongazione sono giunto a questa risposta sulla massa richiesta :?:  :?:  :?: Personalmente non so raccogliere la sfida di Pigkappa</article>
+<article class="post" id="p25835"><div class="who"><b>Luca Milanese</b><span>2 apr 2020, 19:09</span></div>Il tuo procedimento è corretto, prova a ricontrollare i conti.</article>
+<article class="post" id="p25836"><div class="who"><b>bosone</b><span>3 apr 2020, 11:41</span></div>ok ricontrollo per l'ennesima volta :roll:  :roll:</article>
+<article class="post" id="p25837"><div class="who"><b>bosone</b><span>3 apr 2020, 18:03</span></div>Un errore l'avrei trovato. Quando ho calcolato l'elongazione in radianti per trovare il raggio dell'orbita di Titanio ho messo un<span class="tex">\(10^{-4}\)</span> invece di <span class="tex">\(10^{-3}\)</span> con il risultato che ora mi tornerebbe <span class="tex">\(5. 10^{26}\)</span>  kg che credo sia abbastanza prossimo al valore ufficiale. Comunque ti devo dire che a prescindere dai conti mi interessa soprattutto che hai giudicato corretto il procedimento! :)</article>
+<article class="post" id="p25838"><div class="who"><b>Luca Milanese</b><span>3 apr 2020, 18:07</span></div>Sì, il risultato numerico va bene. Vai pure col 197!</article>
+<article class="post" id="p25840"><div class="who"><b>bosone</b><span>4 apr 2020, 11:28</span></div>Grazie però concedimi 24 ore per permettere a tutti una riflessione sul rilancio di Pigkappa prima di lasciare l'argomento :roll:  :roll:</article>
+<article class="post" id="p25844"><div class="who"><b>Pigkappa</b><span>5 apr 2020, 16:33</span></div>Potete pure iniziare il 197 mentre continua la discussione qua.<br>
+<br>
+Il mio rilancio vale anche per Luca Milanese se vuole pensarci  :P</article>
+<article class="post" id="p25845"><div class="who"><b>bosone</b><span>6 apr 2020, 18:16</span></div>Provo a prendere in considerazione la sorgente di errore suggerita da Pigkappa su un terreno molto sdrucciolevole per me  :roll:  La relazione fra la massa di Saturno <span class="tex">\(M_s\)</span>e il raggio dell'orbita di Titano r è <span class="tex">\(M_s= \frac{4\pi^2.r^3}{T^2 G}\)</span> dove T è il periodo di Titano e G la costante gravitazionale. Il testo considera l'allineamento per 16 giorni alla distanza d fra la Terra e Saturno di  <span class="tex">\( 1280.10^9 m\)</span> ricavata dal teorema di Keplero mentre in realtà la distanza è diventata <span class="tex">\(d'= d + (R-Rcos \frac{16.2\pi}{365})\)</span> con R raggio dell'orbita terrestre e quindi compiendo un errore sulla distanza con questa approssimazione pari a <span class="tex">\(\Delta d= 150.10^9 m . 0,04\)</span> ovvero il 4% della distanza cioè <span class="tex">\(6.10^9 m\)</span>. Pertanto l'errore sul raggio r dell'orbita di Titanio risulta <span class="tex">\(\Delta r = 6.10^9 . \alpha  m\)</span>: infatti r appariva essere<span class="tex">\(r= 1280 . 10^9 \alpha m\)</span>mentre in realtà era <span class="tex">\(1280.10^9 \alpha m+ 6.10^9 \alpha m \)</span> ovvero (6/1280) r in più cioè <span class="tex">\(\Delta r= 4,6.10^{-3} r \)</span>. Siccome <span class="tex">\(M_s\)</span> dipende da <span class="tex">\(r^3\)</span> ciò comporta che nell' errore su <span class="tex">\(M_s\)</span> compaia <span class="tex">\((r+\Delta r)^3 - r^3 = 3r^2\Delta r = 3(1,1.10^9)^3.4,6.10^{-3}\)</span> trascurando la seconda e la terza potenza di <span class="tex">\(\Delta r\)</span>. Abbiamo in definitiva <span class="tex">\(\Delta M_s = \frac{12.\pi^2}{T^2.G}.(1,1.10^9)^3.4,6.10^{-3} kg= 6,6 .10^{25}kg\)</span>. Da notare che il mio risultato era <span class="tex">\(M_s = 5.10^{26} kg\)</span> supponendo l'allineamento per 16 giorni a <span class="tex">\(1280.10^9 m\)</span>. Con questa correzione risulterebbe <span class="tex">\(M_s= 5,66 . 10^{26}\)</span> che è quasi il risultato ufficiale. :D ma è un caso??</article>
+<article class="post" id="p25896"><div class="who"><b>Pigkappa</b><span>20 apr 2020, 2:24</span></div>Non penso sia un caso, penso che sia necessario fare la correzione per un risultato piu' preciso :) .<br>
+<br>
+Il moto di Titano non appare proprio come un moto armonico dalla Terra. Se ne avete voglia potete provare a calcolare l'equazione per l'angolo tra Saturno e Titano in funzione del tempo per come e' visto dalla Terra.<br>
+<br>
+Altre considerazioni: assumiamo che Saturno sia sul piano dell'eclittica. Magari l'orbita di Titano non e' sul piano dell'eclittica, ma ha un'inclinazione <span class="tex">\(\varepsilon\)</span> non piccola. Ce ne accorgiamo da queste osservazioni? <br>
+Controllando i numeri credo che possa davvero essere un problema - l'orbita di rivoluzione di Saturno e' inclinata di soli 2.4° rispetto all'eclittica, ma il suo equatore e' inclinato di 26.7° secondo <a href="https://en.wikipedia.org/wiki/Rings_of_Saturn#Saturn%27s_axial_inclination" class="ext" class="postlink">questo paragrafo</a>, e l'orbita di Titano e' praticamente sull'equatore con inclinazione di 0.348° secondo <a href="https://en.wikipedia.org/wiki/Titan_%28moon%29" class="ext" class="postlink">Wikipedia</a> <br>
+<br>
+In generale pensare che le orbite siano sullo stesso piano e' una buona approssimazione, a parte per Plutone, ma gli equatori dei pianeti non sono sul piano dell'orbita, e satelliti ed anelli di solito sono piu' vicini al piano dell'equatore che dell'eclittica. Ho appena scoperto che <a href="https://en.wikipedia.org/wiki/Moon#Orbit" class="ext" class="postlink">la Luna fa eccezione</a> ("Unlike most satellites of other planets...")....</article>
+<nav class="pager"><a class="prev" href="olifis-6873.html"><small>← precedente</small>195. SNS, 2018-1</a><a class="next" href="olifis-6876.html"><small>successivo →</small>197- I due recipienti</a></nav>
+</main></body></html>

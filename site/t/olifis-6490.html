@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>115. Il campo nel cilindro</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 115</a></span></nav>
+<h1>115. Il campo nel cilindro</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6490">forum Olifis</a></p>
+<article class="post first" id="p23559"><div class="who"><b>guido</b><span>1 mar 2017, 19:24</span></div>Un campo magnetico variabile nel tempo, di induzione <span class="tex">\(B=B_0.t\)</span>, riempie uniformemente un volume cilindrico di raggio <span class="tex">\(a\)</span> ed è diretto come il suo asse. Determinare la corrente che si induce su una corda del cerchio sezione ortogonale del cilindro, materializzata da un sottile conduttore rettilineo lungo <span class="tex">\(c\)</span> e di resistenza <span class="tex">\(R\)</span>.<br>
+Domanda Bonus: se fra gli estremi della corda il conduttore ha forma diversa dalla corda, ad es. un arco di circonferenza di raggio <span class="tex">\(a\)</span> e con la medesima resistenza <span class="tex">\(R\)</span>,varia la corrente? Perchè?<br>
+<br>
+Hint: si determina l'intensità del campo elettrico a distanza r dall'asse del cilindro immaginando una spira circolare di raggio r e calcolando la fem indotta ai suoi capi per mezzo della usuale legge di Faraday-Lenz. Si può calcolare poi la componente del campo sul conduttore rettilineo in funzione della distanza del conduttore dall'asse...Ricordare che il campo indotto non è conservativo..</article>
+<article class="post" id="p23560"><div class="who"><b>.Ruben.</b><span>1 mar 2017, 22:42</span></div>Il conduttore è così sottile da avere superficie nulla??</article>
+<article class="post" id="p23562"><div class="who"><b>guido</b><span>3 mar 2017, 10:56</span></div>No, non è necessario. Aggiungo al riguardo un'interessante domanda Bonus.</article>
+<article class="post" id="p23595"><div class="who"><b>guido</b><span>15 mar 2017, 18:20</span></div>Essendo passate più di due settimane dalla postazione ho ritenuto di dare un lungo e sostanzioso suggerimento...</article>
+<article class="post" id="p23622"><div class="who"><b>FedericoC.</b><span>31 mar 2017, 22:33</span></div>Dopo tanto tempo, ci provo io  :D <br>
+<br>
+Mi risulta: <span class="tex">\(\displaystyle i=\frac{B_0 c \sqrt{a^2-\frac{c^2}{4}}}{2R}\)</span></article>
+<article class="post" id="p23623"><div class="who"><b>guido</b><span>1 apr 2017, 16:59</span></div>Finalmente, disperavo che la staffetta dopo credo qualche anno finisse con il mio post nonostante l'esplicito hint di oltre due settimane fa..e non mi sarebbe piaciuto. Non credo che avrai rivali per il testimone. Posta il procedimento e risolvi ormai anche la Bonus! :D  :D</article>
+<article class="post" id="p23627"><div class="who"><b>FedericoC.</b><span>3 apr 2017, 17:18</span></div>L'induzione magnetica nel volume cilindrico preso in considerazione aumenta linearmente, una variazione di flusso magnetico induce un campo elettrico che per simmetria avrà linee di campo chiuse e circolari concentriche. La f.e.m. indotta su queste circonferenze è data dalla legge dell'induzione di Faraday <span class="tex">\(f=-\frac{d\Phi_B}{dt}\)</span>. <br>
+Considerandola circonferenza tangente alla corda si ha: <span class="tex">\(f=\pi (a^2-\frac{c^2}{4}) B_0=2\pi E \sqrt{a^2-\frac{c^2}{4}}\)</span>.<br>
+Ricavando il campo: <span class="tex">\(E=\frac{B_0}{2}\sqrt{a^2-\frac{c^2}{4}}\)</span>.<br>
+La componente parallela alla corda del campo elettrico è sempre uguale <span class="tex">\(E\)</span>, quindi la differenza di potenziale ai capi della corda è <span class="tex">\(V=Ec\)</span>. <br>
+La corrente vale dunque <span class="tex">\(i=\frac{V}{R}\)</span>, da cui: <span class="tex">\(i=\frac{B_0 c \sqrt{a^2-\frac{c^2}{4}}}{2R}\)</span>.<br>
+<br>
+Per il bonus: la corrente varia, in quanto se per esempio anzichè una corda il conduttore fosse un arco di circonferenza con lo stesso ragionamento si ottiene: <span class="tex">\(i'=\frac{acB_0}{2R}\)</span>. Penso che questo si possa interpretare in questo modo: dato che non abbiamo una spira reale cui applicare la legge di Faraday è necessario valutare il campo magnetico indotto, questo ha modulo tanto maggiore quanto più aumenta la distanza dal centro della regione cilindrica, possiamo dire in analogia con una spira reale. Per esempio considerando gli estremi del conduttore, in quei due punti nel primo caso bisogna considerare la componente parallela alla corda del vettore campo elettrico, mentre nel secondo caso il vettore è già parallelo al conduttore dato che è tangente all'arco di circonferenza.</article>
+<article class="post" id="p23628"><div class="who"><b>guido</b><span>4 apr 2017, 10:06</span></div>Bene, ti passo il testimone della staffetta  :D anche se sulla risposta alla bonus che tu dai in questo caso specifico doveva secondo me essere data la risposta generale sottolineata nel mio hint: il campo indotto NON è conservativo. Questo vuol dire che l'integrale fra due punti (fem) non dipende solo dai due punti come ad es. nel caso del campo elettrostatico conservativo ma anche dal PERCORSO di integrazione, corda o arco nel nostro caso.</article>
+<article class="post" id="p23630"><div class="who"><b>FedericoC.</b><span>4 apr 2017, 12:13</span></div>Sono pienamente d'accordo sulla giustificazione generale, ho fatto l'esempio perché l'avevi citato.<br>
+Appena riesco posto il 116 :D</article>
+<nav class="pager"><a class="prev" href="olifis-6480.html"><small>← precedente</small>114. Relatività ristretta</a><a class="next" href="olifis-6512.html"><small>successivo →</small>116. Fotoni ed elettroni</a></nav>
+</main></body></html>

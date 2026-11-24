@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>128: Compassi come lampadari</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 128</a></span></nav>
+<h1>128: Compassi come lampadari</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6614">forum Olifis</a></p>
+<article class="post first" id="p24287"><div class="who"><b>teodella99</b><span>8 gen 2018, 19:09</span></div>Trovare l'angolo di apertura di un compasso affinchè il suo fulcro (per intenderci la parte dove si incontrano le aste) sia il più elevato possibile quando questo è appeso come in figura
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/412b2bcb9195e3eb.png" class="postimage" alt="1.PNG" onclick="viewableArea(this);" /></dt>
+						<dd>1.PNG (2.38 KiB) Visto 3904 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p24289"><div class="who"><b>lance00</b><span>8 gen 2018, 20:21</span></div><span class="tex">\(\phi = \pi/2 - arcsin(1/3)\)</span>?</article>
+<article class="post" id="p24292"><div class="who"><b>teodella99</b><span>8 gen 2018, 22:24</span></div>Giusto! Posta pure il procedimento è vai col prossimo ;)</article>
+<article class="post" id="p24294"><div class="who"><b>lance00</b><span>9 gen 2018, 15:27</span></div>Chiamiamo 1 l'asta appesa e 2 l'altra. Supponiamo che le due aste siano nella posizione per la quale l'altezza del fulcro è massima. L'asta 1 formerà un angolo <span class="tex">\(\alpha\)</span> con la verticale e l'asta 2 un angolo <span class="tex">\(\beta\)</span> con l'orizzontale. Chiamiamo il punto a cui è appeso il compasso <span class="tex">\(P\)</span> e sia <span class="tex">\(P\)</span> l'origine di un piano cartesiano con l'asse x parallelo al terreno. Chiaramente l'ascissa del cdm deve essere 0, altrimenti il compasso non è in equilibrio rotazionale. Affinché sia 0, detta <span class="tex">\(2l\)</span> la lunghezza di un'asta, si deve avere <span class="tex">\(l sin\alpha = l(cos\beta-2sin\alpha)\)</span> da cui <span class="tex">\(sin \alpha = \frac{cos\beta}{3}\)</span>. Inoltre l'altezza del fulcro è <span class="tex">\(h = -2lcos\alpha = -2l\sqrt{1-\frac{cos^2\beta}{9}}\)</span> che è massima quando <span class="tex">\(cos\beta\)</span> è massimo, ossia quando <span class="tex">\(\beta = 0\)</span>. Si ha quindi <span class="tex">\(sin\alpha = \frac{cos0}{3} = \frac{1}{3}\)</span> da cui <span class="tex">\(\phi\)</span> (angolo di apertura del compasso) = <span class="tex">\(\pi/2-arcsin(\frac{1}{3})\)</span>  :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6607.html"><small>← precedente</small>127: Un pianeta di plastilina</a><a class="next" href="olifis-6616.html"><small>successivo →</small>129. Goccia d&#x27;acqua</a></nav>
+</main></body></html>

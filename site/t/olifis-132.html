@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PreIPhO 2009-Problema 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>PreIPhO 2009-Problema 3</h1>
+<p class="meta">23 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=132">forum Olifis</a></p>
+<article class="post first" id="p1248"><div class="who"><b>Rigel</b><span>9 giu 2009, 18:10</span></div>Ecco finalmente l'ultimo problema assegnato al preIPhO.<br>
+"La base di una bilancia a molla è rigidamente fissata alla scocca di un'automobile al suo interno.<br>
+La molla interna della bilancia possiede una costante elastica <span class="tex">\(k=10^4N/m\)</span>. Sul piatto della bilancia è rigidamente fissato un oggetto di massa <span class="tex">\(m=100 kg\)</span>. (La massa dell'oggetto è molto più grande della massa del piatto, pertanto è possibile trascurare quest'ultima rispetto all'altra.)<br>
+Quando l'automobile è ferma su una strada orizzontale, la bilancia segna, correttamente, il peso dell'oggetto, cioè <span class="tex">\(P=980 N\)</span>.<br>
+Si consideri ora che l'automobile sta viaggiando con una velocità orizzontale costante <span class="tex">\(v\)</span> su una strada che ha un profilo leggermente ondulato. Il profilo della strada è mostrato in figura, con <span class="tex">\(\lambda=100 m\)</span> e <span class="tex">\(A=1 m\)</span>. Si osservi che <span class="tex">\(\lambda&gt;&gt;A\)</span> eche <span class="tex">\(\lambda\)</span> è molto più grande della lunghezza dell'automobile. La forma del profilo della strada può essere approssimato da una funzione sinusoidale.<br>
+1: Disegnare un grafico che mostri il valore <span class="tex">\(W\)</span> letto dalla bilancia in funzione del tempo <span class="tex">\(t\)</span>, nell'ipotesi che la velocità sia mantenuta costante al valore <span class="tex">\(v=15 m/s\)</span>. Indicare nel grafico anche la scala temporale utilizzata. (Spiegare chiaramente la risposta, esplicitando anche tutti i calcoli che sono stati necessari per rispondere.) Quali caratteristiche del grafico cambieranno se cambia la velocità orizzontale v? Come dipendono queste caratteristiche da v? (Ricordarsi che c'è una velocità massima per l'automobile: si può assumere che la velocità massima sia circa <span class="tex">\(200 km/h\)</span>.)<br>
+Si supponga che lo smorzamento che manda a zero le oscillazioni proprie della molla sia abbastanza elevato."<br>
+<br>
+Buon divertimento...  :D
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=18" class="ext">[immagine non più disponibile]</a></dt>
+			<dd><em>Dossi</em></dd>			<dd>Dossi.jpg (6.26 KiB) Visto 9402 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p1253"><div class="who"><b>Solimano</b><span>10 giu 2009, 15:31</span></div>Provo a dare la soluzione.<br>
+Le forze agenti sulla molla sono quella di richiamo e la componente perpendicolare della forza peso. Quindi l'equazione cardinale del moto è:<br>
+<br>
+<span class="tex">\(m\frac{d^2x}{dt^2}=-kx+mgcos\theta\)</span><br>
+<br>
+<span class="tex">\(\frac{d^2x}{dt^2}+{\omega}^2x=gcos\theta\)</span>  con  <span class="tex">\({\omega}^2=\frac{k}{m}\)</span><br>
+<br>
+Questa è l'equazione di un corpo che compie delle oscillazioni forzate sinusoidali in cui la forza d'attrito viscoso è nulla; infatti per tale moto si ha:<br>
+<br>
+<span class="tex">\(\frac{d^2x}{dt^2} + \beta\frac{dx}{dt}+{\omega}^2x=\frac{F}{m}cos\theta\)</span>  con  <span class="tex">\(\beta=0\)</span>.<br>
+<br>
+Ora si sa che:<br>
+<br>
+<span class="tex">\(\theta={\Omega}{t}\)</span>         dove<br>
+<br>
+<span class="tex">\(\Omega=2{\pi}f=2{\pi}\frac{v}{\lambda}\)</span>.<br>
+<br>
+Combinando le due equazioni, si trova:<br>
+<br>
+<span class="tex">\(\frac{d^2x}{dt^2}+{\omega}^2x=gcos{(2\pi\frac{v}{\lambda}t)\)</span>.<br>
+<br>
+Tra le soluzioni dell'equazione completa delle oscillazioni forzate si ha:<br>
+<br>
+<span class="tex">\(x_{(t)}=Bcos({\Omega}t+\phi)\)</span>  in cui <span class="tex">\(\phi=0\)</span>  poichè <span class="tex">\(tan\phi=-\frac{\beta\Omega}{{\omega}^2-{\Omega}^2}\)</span>.<br>
+<br>
+La forza che la bilancia segnerà sarà dunque:<br>
+<br>
+<span class="tex">\(F_{(t)}=kBcos({\Omega}t)=kBcos(2\pi\frac{v}{\lambda}t)\)</span>.<br>
+<br>
+Scusate se non metto il grafico ma non so con cosa disegnarlo :oops:  :D !!!<br>
+Fatemi sapere se va bene!!!!!!!!!!</article>
+<article class="post" id="p1254"><div class="who"><b>Rigel</b><span>10 giu 2009, 20:59</span></div><blockquote><div><cite>Rigel ha scritto:</cite>Si supponga che lo smorzamento che manda a zero le oscillazioni proprie della molla sia abbastanza elevato."</div></blockquote>
+Ciò significa che in pratica la molla non oscilla in seguito ad una variazione della forza agente su di essa: semplicemente si porta nella nuova posizione di equilibrio.<br>
+Un'altra cosa: tu hai considerato come <span class="tex">\(\theta\)</span> l'angolo, diciamo, associato al profilo cosinusoidale della strada; invece dall'espressione della forza è evidente che <span class="tex">\(\theta\)</span> è l'angolo formato dalla normale alla strada con la verticale, cioè l'angolo tra la tangente alla strada e l'orizzontale.</article>
+<article class="post" id="p1261"><div class="who"><b>Pairo</b><span>11 giu 2009, 19:54</span></div>Come sempre grazie mille Rigel per aver postato anche l'ultimo problema!! Davvero, fa sempre molto piacere la tua disponibilità  :D .Anche se questo mi ha creato più problemi degli altri due. <br>
+<br>
+Provo a postare la mia soluzione:<br>
+Intanto scriviamo la funzione con cui interpretiamo la curva del fondo stradale. Dev'essere della forma:<br>
+<br>
+<span class="tex">\(y = a\cos bx\)</span> e imponendo le condizioni geometriche di lunghezza d'onda e ampiezza, si ha:<br>
+<br>
+<span class="tex">\(y = \frac{1}{2}\cos\frac{2\pi x}{\lambda}\)</span> che si può scrivere anche come:<br>
+<br>
+<span class="tex">\(y = \frac{1}{2}\cos\frac{2\pi vt}{\lambda}\ (1)\)</span><br>
+<br>
+Consideriamo adesso uno spostamento piccolo della macchina. Poichè <span class="tex">\(v\)</span> è la velocità orizzontale, abbiamo:<br>
+<br>
+<span class="tex">\(dx = vdt\)</span> La derivata di un punto in una curva è il coefficiente angolare della retta tangente, cioè anche la tangente dell'angolo che la retta forma con l'asse delle x. Possiamo scrivere allora:<br>
+<br>
+<span class="tex">\(dy = dx \dot f = df\)</span> per la definizione di derivata; <span class="tex">\(dy\)</span> è lo spostamento lungo y. Si noti che questo è lo spostamento della macchina, ma anche della massa, poiché K è tale da poter trascurare gli spostamenti della massa dovuti alla compressione della molla. Possiamo allora calcolare l'accelerazione nel verso perpendicolare all'asse delle x, derivando due volte la curva f del piano stradale, cioè la (1) rispetto al tempo. Otteniamo dunque:<br>
+<br>
+<span class="tex">\({a_y} = -\Bigl (\frac{1}{2}{\Bigl (\frac{2\pi v}{\lambda}\Bigl )}^2\cos \frac{2\pi vt}{\lambda}\Bigl )\ (2)\)</span><br>
+<br>
+Possiamo adesso applicare le leggi di Newton all'oggetto di massa m, ottenendo:<br>
+<br>
+<span class="tex">\(W = P + m{a_y}\)</span> con <span class="tex">\({a_y}\)</span> positiva o negativa; per la (2) abbiamo infine:<br>
+<br>
+<span class="tex">\(W = P -m\Bigl (\frac{1}{2}{\Bigl (\frac{2\pi v}{\lambda}\Bigl )}^2\cos \frac{2\pi vt}{\lambda}\Bigl )\ (3)\)</span><br>
+<br>
+Il grafico verrebbe quindi una cosinusoide traslata e dilatata. Adesso distruggetemi   :D</article>
+<article class="post" id="p1272"><div class="who"><b>Ippo</b><span>13 giu 2009, 19:06</span></div><blockquote><div><cite>Pairo ha scritto:</cite> Possiamo scrivere allora:<br>
+<br>
+<span class="tex">\(dy = dx \dot f = df\)</span> per la definizione di derivata; </div></blockquote>
+questo passaggio suona per lo meno "sospetto"  :P <br>
+In realtà è <br>
+<span class="tex">\(df=\sqrt{(dx)^2+(dy)^2}=dx\cdot \sqrt{1+{\dot f}^2}\)</span><br>
+ma forse tutto il resto è giusto visto che non si capisce se/dove l'hai usata  :? <br>
+comunque il risultato qualitativamente è giusto, i conti non li ricordo (nell'interpretazione qualitativa della funzione è importate notare il segno meno: è una cosinusoide <span class="tex">\(rovesciata\)</span>, coi minimi sui dossi e il massimo sulla cunetta).</article>
+<article class="post" id="p1275"><div class="who"><b>Pairo</b><span>13 giu 2009, 20:55</span></div>Umm.. forse intendiamo cose diverse e io ho erroneamente chiamato qualcosa che dovevo chiamare con un altro nome  :mrgreen: . Quello che mi interessava (e che poi ho usato per ricavare l'accelerazione lungo y) era proprio lo spostamento lungo y. Se io considero la definizione di derivata, ho:<br>
+<br>
+<span class="tex">\(\dot f = \frac{dy}{dx}\)</span> da cui<br>
+<br>
+<span class="tex">\(dy = \dot f dx\)</span><br>
+<br>
+che ho chiamato <span class="tex">\(df\)</span>, perché <span class="tex">\(f(x) = y\)</span> e quindi <span class="tex">\(df = dy\)</span>.<br>
+<br>
+Quella che dici tu è il differenziale della lunghezza della curva, che però non ho usato perché la velocità del problema era quella orizzontale. Sono stato il più chiaro possibile perché così è più facile trovare eventuali errori nel mio procedimento (senza mettere in dubbio che ho sbagliato a chiamare così <span class="tex">\(dy\)</span> :D ) <br>
+Comunque grazie mille  :D</article>
+<article class="post" id="p1277"><div class="who"><b>CoNVeRGe.</b><span>14 giu 2009, 0:18</span></div>Non capisco una cosa: perchè tra tutte le sinusoidali possibili è 'scontato' prendere la semplice <span class="tex">\(\displaystyle \cos (qualcosa)\)</span>?<br>
+
+<blockquote><div><cite>Pairo ha scritto:</cite>
+<span class="tex">\(y = \frac{1}{2}\cos\frac{2\pi x}{\lambda}\)</span> che si può scrivere anche come:<br>
+<br>
+<span class="tex">\(y = \frac{1}{2}\cos\frac{2\pi vt}{\lambda}\ (1)\)</span>
+</div></blockquote>
+
+Dici che l'approssimazione <span class="tex">\(\displaystyle x \approx vt\)</span> sia valida ? (o forse non è un'approssimazione e non ho capito)</article>
+<article class="post" id="p1279"><div class="who"><b>Pigkappa</b><span>14 giu 2009, 0:42</span></div>C'è scritto che la velocità orizzontale è costante, perciò <span class="tex">\(x = vt\)</span> è vero in ogni istante. <br>
+Per capire quale funzione rappresentava meglio il tracciato bisognerebbe vedere il grafico, che nessuno ha postato, perciò possiamo fidarci del fatto che assomigli a quello della funzione coseno.</article>
+<article class="post" id="p1281"><div class="who"><b>CoNVeRGe.</b><span>14 giu 2009, 1:11</span></div>Bene  :?  non avevo capito il testo. Avevo infatti provato a dare un'occhiata al problema assumendo <span class="tex">\(\displaystyle |\vec{v}|\)</span> costante (e non <span class="tex">\(\displaystyle v_x\)</span>) e non ne ero uscito fuori..<br>
+<br>
+Domani se ho tempo provo a rivedere il problema alla luce di questa grandiosa scoperta  :D .</article>
+<article class="post" id="p1287"><div class="who"><b>Ippo</b><span>14 giu 2009, 12:28</span></div>Rigel nel primo post ha messo il grafico. Avendo questo i massimi all'inizio e alla fine è comodo assumere che sia una cosinusoide così si può porre x=0 all'inizio del tracciato. Solo questione di comodità.</article>
+<article class="post" id="p1288"><div class="who"><b>CoNVeRGe.</b><span>14 giu 2009, 19:30</span></div>Ok l'ho fatto, però allo stesso modo di Pairo.. ci sono altri modi?<br>
+<br>
+<br>
+E' nota la funzione che descrive la cunetta <span class="tex">\(\displaystyle y = f(x)\)</span> e la velocità orizzontale costante <span class="tex">\(\displaystyle v_x\)</span>.<br>
+La bilancia praticamente misura l'accelerazione verticale dell'automobile, che spunta fuori per il fatto che essa traccia in uguali intervalli di tempo degli stessi spostamenti orizzontali, ma diversi spostamenti verticali, quindi:<br>
+<br>
+<span class="tex">\(\displaystyle dy = f'(x) dx \leadsto \frac{dy}{dt} = f'(x) \frac{dx}{dt} \leadsto a_y = v_x \frac{d}{dt}f'(x)\)</span><br>
+<br>
+con <span class="tex">\(\displaystyle x = vt\)</span>.</article>
+<article class="post" id="p1290"><div class="who"><b>Loren Kocillari89</b><span>14 giu 2009, 23:32</span></div>C'è qualcuno che ha interpretato il grafico postato, come se la macchina andasse invece che su e giù, a destra e a sinistra, a zig zag? tipo quando uno esce dal pub di sabato sera :evil: <br>
+kmq!.. la velocità massima serviva a qualcosa??</article>
+<article class="post" id="p1291"><div class="who"><b>Pairo</b><span>14 giu 2009, 23:39</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>C'è qualcuno che ha interpretato il grafico postato, come se la macchina andasse invece che su e giù, a destra e a sinistra, a zig zag? tipo quando uno esce dal pub di sabato sera :evil:</div></blockquote>
+
+Non credo  :D <br>
+ 
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>kmq!.. la velocità massima serviva a qualcosa??</div></blockquote>
+
+Dovrebbe servire nella discussione del grafico. Utilizzando i valori estremi di velocità minimo (v = 0) e massimo si può far vedere come si può trasformare "al massimo" la funzione.  Un valore tutto sommato inutile penso fosse invece la costante K, che non è stata utilizzata quantitativamente in nessun calcolo.</article>
+<article class="post" id="p1292"><div class="who"><b>Ippo</b><span>15 giu 2009, 10:10</span></div>Vi butto lì un'altra idea risolutiva probabilmente demenziale ma che qualcuno ha usato davvero durante il TST :P <br>
+E se considerassimo che la lettura della bilancia è la differenza tra la forza-peso agente sulla massa e la forza centripeta necessaria a tenere la massa stessa sulla curva in ogni istante?<br>
+In pratica basterebbe trovare l'espressione del raggio di curvatura locale per ogni punto della strada, dopodiché si avrebbe <br>
+<span class="tex">\(P=m\left(g \pm \frac{v^2}{r}\right)\)</span> <br>
+a seconda che la forza centripeta e la forza peso abbiano verso uguale o opposto.</article>
+<article class="post" id="p1293"><div class="who"><b>Alex90</b><span>15 giu 2009, 11:03</span></div><blockquote><div><cite>Ippo ha scritto:</cite>Vi butto lì un'altra idea risolutiva probabilmente demenziale ma che qualcuno ha usato davvero durante il TST :P <br>
+E se considerassimo che la lettura della bilancia è la differenza tra la forza-peso agente sulla massa e la forza centripeta necessaria a tenere la massa stessa sulla curva in ogni istante?<br>
+In pratica basterebbe trovare l'espressione del raggio di curvatura locale per ogni punto della strada, dopodiché si avrebbe <br>
+<span class="tex">\(P=m\left(g \pm \frac{v^2}{r}\right)\)</span> <br>
+a seconda che la forza centripeta e la forza peso abbiano verso uguale o opposto.</div></blockquote>
+
+l'ho pensato anch'io...solo che non ho idea di come si trova il raggio di curvatura locale...un hint?o</article>
+<article class="post" id="p1294"><div class="who"><b>Paolo90</b><span>15 giu 2009, 12:23</span></div>Anche io l'ho risolto cosi', inoltre pero' bisogna anche considerare che c'e' anche una variazione di peso dovuta alla pendenza, che e' di circa mezzo newton mi sembra...</article>
+<article class="post" id="p1295"><div class="who"><b>Rigel</b><span>15 giu 2009, 12:26</span></div><blockquote><div><cite>Ippo ha scritto:</cite>Vi butto lì un'altra idea risolutiva probabilmente demenziale ma che qualcuno ha usato davvero durante il TST :P
+</div></blockquote>
+Con quel qualcuno intendi tutti  :lol: ? ... (a parte vittorio e il suo circuito LC)<br>
+Comunque quell'idea sarà anche demenziale ma è la prima che mi è venuta in mente.<br>
+Credo che il grosso del problema fosse trovare un'espressione per il raggio di curvatura.<br>
+<br>
+<span style="font-size: 30%; line-height: normal">HINT: considerate un piccolo tratto di cosinusoide, tale che può essere considerato un arco di circonferenza...</span></article>
+<article class="post" id="p1296"><div class="who"><b>Rigel</b><span>15 giu 2009, 12:29</span></div><blockquote><div><cite>Paolo90 ha scritto:</cite>Anche io l'ho risolto cosi', inoltre pero' bisogna anche considerare che c'e' anche una variazione di peso dovuta alla pendenza, che e' di circa mezzo newton mi sembra...</div></blockquote>
+Sì. si poteva fare l'approssimazione che la componente normale del peso del blocco sia sempre uguale al modulo del peso, essendo <span class="tex">\(A&lt;&lt;\lambda\)</span></article>
+<article class="post" id="p1297"><div class="who"><b>CoNVeRGe.</b><span>15 giu 2009, 13:44</span></div><blockquote><div><cite>Ippo ha scritto:</cite>In pratica basterebbe trovare l'espressione del raggio di curvatura locale per ogni punto della strada, dopodiché si avrebbe <br>
+<span class="tex">\(P=m\left(g \pm \frac{v^2}{r}\right)\)</span> 
+</div></blockquote>
+Così devi calcolarti anche la velocità in qualche modo...</article>
+<article class="post" id="p1298"><div class="who"><b>Rigel</b><span>15 giu 2009, 15:00</span></div>Beh l'hai detto tu che la velocità orizzontale è costante. Con l'approssimazione <span class="tex">\(A&lt;&lt;\lambda\)</span> praticamente hai velocità tangenziale=velocità orizzontale</article>
+<article class="post" id="p1300"><div class="who"><b>CoNVeRGe.</b><span>15 giu 2009, 18:38</span></div>Occhei, occhei.. ho visto che a massima inclinazione del percorso e a massima velocità, la velocità tangenziale è 199,9 km/h  :D mi son convinto!</article>
+<article class="post" id="p1301"><div class="who"><b>Ippo</b><span>15 giu 2009, 19:54</span></div>HINT 2: <span style="font-size: 30%; line-height: normal">assumete che l'arco di circonferenza infinitesimo che considerate sia orizzontale - e che il suo asse sia verticale - in ogni punto della cosinusoide. L'errore commesso (in questo caso) è minimo.</span></article>
+<article class="post" id="p1304"><div class="who"><b>stp</b><span>16 giu 2009, 1:53</span></div>Ho capito cosa cercate di fare con i raggi di curvatura. Io invece avevo ragionato così (è equivalente, ovvio).<br>
+Abbiamo y(x), ed è facile derivarla in x. A noi però serve l’accelerazione verticale. Ovvero la derivata seconda di y in t, non in x. Quale relazione lega le due derivate seconde?<br>
+<br>
+HINT 3: <span style="font-size: 50%; line-height: normal">Basta mettere in evidenza i differenziali; l’ordine di derivazione è invertibile...</span></article>
+<nav class="pager"><a class="prev" href="olifis-105.html"><small>← precedente</small>Atterraggio su pianeta alieno</a><a class="next" href="olifis-123.html"><small>successivo →</small>Proiettile tra pianeti</a></nav>
+</main></body></html>

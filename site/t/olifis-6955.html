@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>229. Sfera radiante</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 229</a></span></nav>
+<h1>229. Sfera radiante</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6955">forum Olifis</a></p>
+<article class="post first" id="p26312"><div class="who"><b>Luca Milanese</b><span>17 ago 2020, 16:32</span></div>All’interno di una sfera di raggio <span class="tex">\(R\)</span> e conducibilità termica <span class="tex">\(\eta\)</span> viene prodotto calore in modo omogeneo. Il calore prodotto per unità di volume e unità di tempo vale <span class="tex">\(w\)</span>.<br>
+La sfera è immersa in uno spazio vuoto allo zero assoluto nel quale irraggia come un corpo nero. Calcolare la temperatura all’interno del corpo all’equilibrio.</article>
+<article class="post" id="p26313"><div class="who"><b>Leonhard Euler</b><span>17 ago 2020, 18:37</span></div>Si vuole determinare una funzione <span class="tex">\(T(x)\)</span> che misuri la temperatura all'interno della sfera a distanza <span class="tex">\(x\)</span> dal centro. L'equazione del calore di Fourier per una sfera si scrive come:<br>
+<span class="tex">\(\frac{dQ}{dt}=\eta 4\pi x^2\frac{dT}{dx}\)</span><br>
+All'equilibrio il flusso di calore condotto deve essere uguale al flusso di calore generato omogeneamente nel volume:<br>
+<span class="tex">\(\eta 4\pi x^2\frac{dT}{dx}=\frac{dQ}{dt}=w\frac{4}{3}\pi x^3\)</span><br>
+Basta integrare:<br>
+<span class="tex">\(T(x)=\frac{w}{3\eta}(R^2-x^2)\)</span><br>
+Il problema sinceramente non mi sembra più complesso di così...</article>
+<article class="post" id="p26314"><div class="who"><b>Luca Milanese</b><span>17 ago 2020, 18:47</span></div>Il tuo risultato non è corretto, guarda bene cosa succede a <span class="tex">\(x=R\)</span>.</article>
+<article class="post" id="p26315"><div class="who"><b>Leonhard Euler</b><span>17 ago 2020, 19:03</span></div>Accade che la Temperatura sulla superficie coincide con la temperatura esterna, forse non ho considerato per bene l’irraggiamento e ci si aspetta che la sfera abbia una temperatura esterna non nulla (e che si tratti quindi di una stella)?</article>
+<article class="post" id="p26316"><div class="who"><b>Luca Milanese</b><span>17 ago 2020, 19:05</span></div>Sì l'irraggiamento va considerato.</article>
+<article class="post" id="p26317"><div class="who"><b>Pigkappa</b><span>17 ago 2020, 19:09</span></div>Non ci ho pensato a fondo ma quell'equazione del calore senza derivate seconde mi sembra sospetta.</article>
+<article class="post" id="p26318"><div class="who"><b>east_beast</b><span>17 ago 2020, 19:15</span></div>L'integrale di Euler è leggermente sbagliato, infatti dovrebbe venire <span class="tex">\(T(x) - T(R) =  w(R^2-x^2)/6 \eta\)</span><br>
+Dove T(R) è la temperatura superficiale. Siccome il calore prodotto al centro all'equilibrio viene interamente irraggiato, <span class="tex">\(4 \pi R^2 \sigma T(R)^4 = (4 \pi/3) R^3 w\)</span>, ricavando T(R) ottengo <span class="tex">\(T(x) = w (R^2-x^2)/6\eta + (wR/3\sigma)^{1/4}\)</span></article>
+<article class="post" id="p26319"><div class="who"><b>Luca Milanese</b><span>17 ago 2020, 19:26</span></div>@east beast<br>
+Corretto! A te il testimone, vai pure col 230! :D <br>
+@Pigkappa <br>
+Non è sospetta, Leonhard ed east beast hanno evitato le derivate seconde ragionando direttamente sul calore prodotto entro un certo raggio <span class="tex">\(x\)</span>, come se avessero saltato uno step di integrazione.</article>
+<article class="post" id="p26320"><div class="who"><b>Pigkappa</b><span>17 ago 2020, 19:36</span></div>Ah ok, quella che di solito si chiama equazione del calore è in un'altra forma ma va bene così. Nel caso di calore generato in modo uniforme comunque questo metodo funziona bene</article>
+<nav class="pager"><a class="prev" href="olifis-6953.html"><small>← precedente</small>228. Particella e circonferenza</a><a class="next" href="olifis-6956.html"><small>successivo →</small>230. Due urti</a></nav>
+</main></body></html>

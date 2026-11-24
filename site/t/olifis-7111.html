@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>278 - Carica sul cono</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 278</a></span></nav>
+<h1>278 - Carica sul cono</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7111">forum Olifis</a></p>
+<article class="post first" id="p27209"><div class="who"><b>Rick</b><span>20 nov 2021, 19:30</span></div>Una carica <span class="tex">\(q\)</span> è posta sul vertice di un cono di apotema <span class="tex">\(l\)</span> e di densità di carica superficiale <span class="tex">\(\sigma\)</span>. Ora, supponiamo di sezionare il cono a <span class="tex">\(\frac{l}{2}\)</span> e di rimuovere la parte superiore: qual è la forza agente sulla carica <span class="tex">\(q\)</span> dovuta alla parte inferiore del cono? Determinare inoltre per quale angolo <span class="tex">\(\theta\)</span> essa è massima, detto <span class="tex">\(\theta\)</span> l'angolo di apertura del cono</article>
+<article class="post" id="p27211"><div class="who"><b>Luca Milanese</b><span>25 nov 2021, 10:01</span></div>La carica <span class="tex">\(q\)</span> sia posta nell'origine di un sistema di coordinate sferiche e l'asse delle <span class="tex">\(z\)</span> coincida con l'asse di simmetria del cilindro. Quest'ultimo giace nel semispazio delle <span class="tex">\(z\)</span> negative. La forza netta sulla carica è chiaramente diretta verticalmente. Un elemento di cono di area <span class="tex">\(r \sin \frac{\theta}{2} \text{d}r \text{d}\phi\)</span> esercita sulla carica una forza la cui componente <span class="tex">\(z\)</span> è:<br>
+<span class="tex">\(\text{d}F=\frac{q}{4\pi\varepsilon_0} \frac{  \sigma r \sin \frac{\theta}{2} \text{d}r \text{d}\phi}{r^2} \cos \frac{\theta}{2}\)</span><br>
+Dunque la forza totale si ottiene come:<br>
+<span class="tex">\(F=\frac{ q\sigma \sin \theta}{8\pi\varepsilon_0} \int_{\frac{l}{2}}^{l} \frac{\text{d}r}{r} \int_{0}^{2\pi} \text{d}\phi=\frac{q\sigma \sin\theta}{4\varepsilon_0} \ln 2\)</span><br>
+Chiaramente, la forza risulta massima per <span class="tex">\(\theta=\frac{\pi}{2}\)</span>.</article>
+<article class="post" id="p27212"><div class="who"><b>roncu</b><span>25 nov 2021, 12:11</span></div>Scusa Luca sono l'ultimo venuto e può darsi che non abbia capito e abbia equivocato quello che hai scritto. L'angolo teta di apertura del cono dovrebbe essere quello fra il suo asse e l'apotema. Ora per teta=pigreco/2 mi pare che il tronco di cono si riduca ad una corona circolare centrata in q che darebbe luogo a forze orizzontali in cui quelle generate da elementi diametralmente opposti si eliderebbero. Cioè la forza sarebbe non massima ma complessivamente nulla ??? Forse il risultato è teta=pigreco/4???</article>
+<article class="post" id="p27213"><div class="who"><b>Luca Milanese</b><span>25 nov 2021, 14:06</span></div>Io ho inteso l'angolo di apertura come il doppio dell'angolo fra asse e apotema, chiaramente in caso contrario al mio <span class="tex">\(\theta\)</span> andrebbe sostituito <span class="tex">\(2\theta\)</span> e l'angolo del massimo sarebbe <span class="tex">\(\frac{\pi}{4}\)</span>.</article>
+<article class="post" id="p27214"><div class="who"><b>Rick</b><span>25 nov 2021, 18:09</span></div>Luca il procedimento è giusto, però l'angolo di apertura è effettivamente ciò che ha detto Roncu, quindi dovresti sostituire <span class="tex">\(\theta\)</span> con <span class="tex">\(2\theta\)</span> per ottenere il risultato corretto. Visto che l'errore è stato nella mia spiegazione poco chiara direi che la staffetta è tua, vai pure col 279  :D <br>
+Mi sembrava comunque giusto far notare a chiunque volesse provare che c'è un metodo per risolverlo senza integrali doppi, che se nessuno manda posterò io più avanti</article>
+<article class="post" id="p27215"><div class="who"><b>roncu</b><span>26 nov 2021, 11:35</span></div>Tanto anche per esercitarmi a latex. Non avevo usato integrali doppi che non conosco ma integrali semplici. Detta <span class="tex">\(\lambda\)</span>la variabile corrente sull'apotema, variabile fra l/2 e l, avevo diviso la superficie troncoconica in corone circolari infinitesime di raggio <span class="tex">\(\lambda sen\theta\)</span> e spessore <span class="tex">\(d\lambda\)</span>, fatte di punti equidistanti da q che esercitano su essa la forza infinitesima dF= kq.sigma.2pigreco.<span class="tex">\(\lambda sen\theta d\lambda\)</span>/<span class="tex">\(\lambda^2\)</span> dove k è la costante di Coulomb. Pertanto il modulo della forza si ottiene integrando dF con <span class="tex">\(\lambda\)</span>variabile fra l/2 e l. Viene il ln2 e il risultato sarebbe se non ho sbagliato i conti F=2pigreco kq sen<span class="tex">\(\theta\)</span>sigma.ln2: Chiaramente F ha due componenti orizzontale e verticale. Le componenti orizzontali si elidono perchè due elementi diametralmente opposti di ogni coroncina danno luogo a forze orizzontali opposte. Le componenti verticali ottenute moltiplicando per cos<span class="tex">\(\theta\)</span>si sommano dando come risultato finale se non sbaglio F=2pigreco kq sen<span class="tex">\(\theta\)</span>sigma.ln2.cos<span class="tex">\(\theta\)</span>. Si vede facilmente che il massimo si ottiene per sen<span class="tex">\(2\theta\)</span>=1 cioè 2<span class="tex">\(\theta\)</span>=pigreco/2 e quindi <span class="tex">\(\theta=pigreco/4\)</span>.</article>
+<article class="post" id="p27216"><div class="who"><b>Luca Milanese</b><span>26 nov 2021, 13:55</span></div>Non riesco a modificare il mio messaggio originale, però @roncu ha ottenuto il risultato corretto evitando la doppia integrazione, praticamente saltando quella in <span class="tex">\(\phi\)</span> considerando direttamente le corone circolari. Pertanto, se @Rick è d'accordo, lascerei a lui il testimone.</article>
+<article class="post" id="p27217"><div class="who"><b>Rick</b><span>26 nov 2021, 15:31</span></div>@roncu perfetto, come dice @Luca Milanese la staffetta è tua  :D</article>
+<article class="post" id="p27218"><div class="who"><b>roncu</b><span>26 nov 2021, 18:20</span></div>In altra situazione non so dove avrei potuto trovare un problema adeguato a voi così avanti rispetto a me :D In questo caso però non avendo ricevuto risposte all'SNS 2021-1  vi prego di considerare quello il n.279 perchè non mi riesce di farci rientrare l'integrale suggerito - tanto non sarò solo a essere interessato al concorso di ammissione SNS!! :)</article>
+<nav class="pager"><a class="prev" href="olifis-7107.html"><small>← precedente</small>277. Monociclo!</a><a class="next" href="olifis-7110.html"><small>successivo →</small>279 - SNS 2021/1</a></nav>
+</main></body></html>

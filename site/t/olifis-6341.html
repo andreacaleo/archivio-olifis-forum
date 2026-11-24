@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>80. Urti, sfere, molle</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 80</a></span></nav>
+<h1>80. Urti, sfere, molle</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6341">forum Olifis</a></p>
+<article class="post first" id="p22441"><div class="who"><b>Francesco Mele</b><span>18 giu 2016, 15:29</span></div>Ecco che arriva l'80esimo problema della staffetta! :D <br>
+<br>
+Una sferetta di massa M che si muove con velocità Vo su un piano privo di attrito, colpisce centralmente la prima di due sferette identiche di massa m collegate tra di loro da una molla di costante elastica k , inizialmente ferme e allineate alla direzione del moto di M. L’urto è istantaneo e perfettamente elastico. Valutare il valore minimo della massa M (in funzione dei parametri del sistema) affinché la prima sferetta di massa m venga colpita anche una seconda volta da M. Risolvere numericamente l’esercizio assumendo: Vo=1m/s, m=2kg, k=1kg/s^2.</article>
+<article class="post" id="p22459"><div class="who"><b>arna1998</b><span>23 giu 2016, 18:17</span></div>Mettiamo la direzione positiva dell'asse x da sinistra verso destra. La massa <span class="tex">\(M\)</span> arriva da sinistra, e l'urto avviene in <span class="tex">\(x=0\)</span>.<br>
+Indichiamo con <span class="tex">\(m_1\)</span> la massa urtata da <span class="tex">\(M\)</span>, e <span class="tex">\(m_2\)</span> quella all'altro capo della molla. Sia inoltre <span class="tex">\(l\)</span> la lunghezza della molla.<br>
+Partiamo con il considerare l'urto tra <span class="tex">\(M\)</span> e la massa <span class="tex">\(m_1\)</span>. Assumendo l'urto istantaneo si può trascurare la forza elastica durante esso, quindi nell'istante dopo l'urto le velocità saranno rispettivamente:<br>
+<span class="tex">\(v_M=\dfrac{M-m}{M+m}v_0\)</span><br>
+<br>
+<span class="tex">\(v_{m_1}=\dfrac{2M}{M+m}v_0\)</span><br>
+<br>
+<span class="tex">\(v_{m_2}=0\)</span><br>
+<br>
+L'insieme delle masse <span class="tex">\(m_1\)</span> e <span class="tex">\(m_2\)</span> con la molla può essere considerato come un unico corpo che ha urtato con <span class="tex">\(M\)</span>, per tanto il centro di massa (che coincide con il centro della molla, siccome <span class="tex">\(m_1=m_2\)</span>) si muove ad una velocità pari a <br>
+<br>
+<span class="tex">\(v_{cdm}=\dfrac{v_{m_1}m_1+v_{m_2}m_2}{m_1+m_2}=\dfrac{v_{m_1}+v_{m_2}}{2}=\dfrac{M}{M+m}v_0\)</span><br>
+<br>
+Poniamo ora nel sistema di riferimento del cento di massa delle 2 masse <span class="tex">\(m\)</span>: esso è inerziale, dato che quest'ultimo si muove a velocità costante. Tutte le velocità si trasformano nel seguente modo <span class="tex">\(v'=v-v_{cdm}\)</span>, quindi<br>
+<span class="tex">\(v_{m_1}'=v_{m_1}-v_{cdm}=\dfrac{M}{M+m}v_0\)</span><br>
+<br>
+<span class="tex">\(v_{m_2}'=v_{m_2}-v_{cdm}=-\dfrac{M}{M+m}v_0\)</span><br>
+<br>
+Le masse si stanno muovendo simmetricamente rispetto al centro di massa, quindi entrambe seguiranno un moto armonico intorno le rispettive posizioni di equilibrio. Si vuole trovare ora l'ampiezza del moto: si osserva che nell'istante immediatamente successivo all'urto la molla è in posizione di riposo quindi l'energia potenziale elastica è nulla. Quando il moto è ad ampiezza massima è l'energia cinetica ad essere nulla, per tanto<br>
+<span class="tex">\(2 \cdot \dfrac{1}{2}m v_{m_1}'^2= \dfrac{1}{2}k (2A)^2\)</span><br>
+<br>
+<span class="tex">\(m v_{m_1}'^2= 2k A^2\)</span><br>
+<br>
+<span class="tex">\(A=\sqrt{\dfrac{m}{2k}}v'_{m_1}\)</span><br>
+<br>
+Inoltre si trova che la pulsazione del moto armonico è <span class="tex">\(\omega=\sqrt{\dfrac{2k}{m}}\)</span>, perché quando una massa è spostata di <span class="tex">\(x\)</span> rispetto al punto di equilibrio la molla è compressa di <span class="tex">\(2x\)</span>. Si può scrivere l'equazione del moto (<span class="tex">\(t=0\)</span> nell'istante dell'urto) di <span class="tex">\(m_1\)</span> nel sistema di riferimento del c.d.m.:<br>
+<span class="tex">\(x_{m_1}'(t)=A\cdot \cos{\left ( \omega t+ \dfrac{3 \pi}{2} \right ) }-\dfrac{l}{2}\)</span><br>
+dove la fase è inserita perché il moto parte dalla posizione di equilibrio e si avvicina al centro di massa. Il termine <span class="tex">\(\dfrac{l}{2}\)</span> è inserito perché la posizione di equilibrio di $m_1$ si trova a <span class="tex">\(x'=-\dfrac{l}{2}\)</span>, nel sistema di riferimento del cdm.<br>
+Torniamo nel sistema di riferimento esterno.  L'equazione del moto del centro di massa è <br>
+<span class="tex">\(x_{cdm}(t)=v_{cdm}t+\dfrac{l}{2}\)</span> dato che all'istante dell'urto il centro di massa si trova spostato di metà lunghezza della molla.<br>
+<br>
+Deve essere inoltre<br>
+<span class="tex">\(x_{m_1}'(t)=x_{m_1}(t)-x_{cdm}(t)\)</span><br>
+da cui si trova l'equazione del moto della pallina in questo sistema di riferimento:<br>
+<span class="tex">\(x_{m_1}(t)=x_{m_1}'(t)+x_{cdm}(t)=A\cdot \cos{\left ( \omega t+ \dfrac{3 \pi}{2} \right ) }-\dfrac{l}{2}+v_{cdm}t+\dfrac{l}{2}\)</span><br>
+sostituendo:<br>
+<span class="tex">\(x_{m_1}(t)=\sqrt{\dfrac{m}{2k}}\dfrac{M}{M+m}v_0\cdot \cos{\left ( \sqrt{\dfrac{2k}{m}} t+ \dfrac{3 \pi}{2} \right ) }+\dfrac{M}{M+m}v_0t\)</span>.<br>
+L'equazione del moto di <span class="tex">\(M\)</span> dopo l'urto è<br>
+<span class="tex">\(x_{M}(t)=v_Mt=\dfrac{M-m}{M+m}v_0 t\)</span><br>
+<br>
+A questo punto ho le due equazioni del moto. Non avevo grandi idee su come trovare il minimo <span class="tex">\(M\)</span>, quindi ho sostituito i dati e su Geogebra ho disegnato il grafico delle due funzioni <br>
+<span class="tex">\(y=\dfrac{M}{M+2}\cdot \cos{\left (x+ \dfrac{3 \pi}{2} \right ) }+\dfrac{M}{M+2}x\)</span><br>
+<span class="tex">\(y=\dfrac{M-2}{M+2}x\)</span><br>
+<br>
+E facendo variare un po' il parametro <span class="tex">\(M\)</span> ho trovato che il valore minimo è <span class="tex">\(M=9.21 Kg\)</span>. Se qualcuno ha un metodo migliore per trovare il minimo lo condivida (sempre che tutto quello che sta prima è giusto  :roll: ) perché questo che ho usato non è un granché.</article>
+<article class="post" id="p22460"><div class="who"><b>rocco</b><span>24 giu 2016, 6:49</span></div>Io avrei trovato <span class="tex">\(M= (3/2)\pi m\)</span> perché il sistema equivale ad una massa metà di m che oscilla attorno al punto inizialmente occupato da m stessa. Operando nel sistema del centro di massa M si allontana dal c.m. stesso. Ho imposto che questo allontanamento in 3/4 di periodo fosse inferiore o al massimo uguale all'ampiezza di oscillazione.</article>
+<article class="post" id="p22462"><div class="who"><b>arna1998</b><span>24 giu 2016, 16:32</span></div>Ho corretto nel mio post iniziale una svista, <span class="tex">\(\omega=\sqrt{\dfrac{2k}{m}}\)</span> e non <span class="tex">\(\omega=\sqrt{\dfrac{k}{m}}\)</span>, quindi anche la risposta è cambiata. <br>
+
+<blockquote><div><cite>rocco ha scritto:</cite>Io avrei trovato <span class="tex">\(M= 2\pi m\)</span> perché il sistema equivale ad una massa metà di m che oscilla attorno al punto inizialmente occupato da m stessa. Operando nel sistema del centro di massa M si allontana dal c.m. stesso. Ho imposto che questo allontanamento in un periodo fosse inferiore o al massimo uguale all'ampiezza di oscillazione.</div></blockquote>
+Sono d'accordo  che il sistema equivale a metà massa che oscilla, ma non su come hai trovato il minimo <span class="tex">\(M\)</span>. Consideriamo un tempo pari al periodo di oscillazione: la massa <span class="tex">\(m_1\)</span> è tornata nella sua posizione iniziale rispetto al cdm, e supponiamo che la massa <span class="tex">\(M\)</span> si trovi ad una distanza <span class="tex">\(1,1 A\)</span> rispetto al punto di equilibrio dell'oscillazione. Se consideriamo l'istante di tempo <span class="tex">\(t=\dfrac{3}{4}T\)</span>: la massa <span class="tex">\(M\)</span> si trova a una distanza di <span class="tex">\(1.1 \cdot \dfrac{3}{4} A=0,825A\)</span>, mentre <span class="tex">\(m_1\)</span> si trova a distanza <span class="tex">\(A\)</span>, rispetto il punto di centrale dell'oscillazione, ma questo vuol dire che <span class="tex">\(M\)</span> si trova tra <span class="tex">\(m_1\)</span> e <span class="tex">\(m_2\)</span>, che è impossibile, perché si sarebbero dovuti urtare. Spero di essermi spiegato sul perché non funziona ;)</article>
+<article class="post" id="p22463"><div class="who"><b>rocco</b><span>24 giu 2016, 17:38</span></div>Se M si trova a 1,1 A vuol dire che si è allontanato + di A il che è il contrario della condizione che ho posto io. Nel sistema del baricentro M va indietro sia rispetto al centro di oscillazione che al cm -  che ha una velocità assoluta superiore a quella di M che quindi ha velocità relativa negativa rispetto al cm. Come fa M a entrare fra le le due masse se si muove in direzione opposta rispetto a quella iniziale di m? A me sembra che se mentre m/2 fa un'oscillazione, cioè in un periodo, M non si è allontanato dal punto iniziale (e quindi anche dal c.m.) per più di un'ampiezza, m deve urtarlo di nuovo. Comunque proporrei di far pronunciare Antonio Mele anche perché personalmente non ho tempo di postare il procedimento e poi magari il mio risultato è sbagliato.</article>
+<article class="post" id="p22464"><div class="who"><b>arna1998</b><span>24 giu 2016, 17:52</span></div>Il mio esempio voleva proprio farti vedere che si urtavano :lol:, anche se l'ipotesi che avevi imposto per l'urto non era verificata. Infatti, se ho capito bene, tu dici che le 2 masse si urtano solamente se la distanza di <span class="tex">\(M\)</span> dopo il tempo di un periodo è minore o uguale dell'ampiezza. Nell'esempio che ho fatto dopo un periodo <span class="tex">\(T\)</span>, <span class="tex">\(M\)</span> è a una distanza maggiore dell'ampiezza, ma nonostante ciò si urtano comunque.<br>
+Mi scuso se prima sono stato poco chiaro oppure se ho capito male quello che volevi dire :?</article>
+<article class="post" id="p22465"><div class="who"><b>rocco</b><span>24 giu 2016, 20:19</span></div>Anche io non riesco ad essere chiaro. Mi sembra che non tieni conto che nel sistema cm M va indietro verso sinistra ed m/2 va verso destra con velocità relativa positiva rispetto al baricentro. Ma ho fatto un errore: in tutti i miei interventi quando parlo di periodo va inteso 3/4 di periodo. Per cui il risultato che sottopongo ad Antonio Mele è <span class="tex">\(M=(3/2)\pi m\)</span></article>
+<article class="post" id="p22466"><div class="who"><b>Francesco Mele</b><span>25 giu 2016, 2:14</span></div>La staffetta la vince Rocco! :D <br>
+Il risultato coincide. Muoio dalla voglia di leggere bene le vostre soluzioni, ma sono abbastanza incasinato con gli esami  :roll: (fortunatamente finisco il 2 luglio)!  Rocco, appena puoi, vai con il procedimento!  <br>
+<br>
+Ps: sono Francesco Mele, Antonio Mele è il mio gemello ahah</article>
+<article class="post" id="p22467"><div class="who"><b>arna1998</b><span>25 giu 2016, 10:10</span></div><blockquote><div><cite>rocco ha scritto:</cite>Anche io non riesco ad essere chiaro. Mi sembra che non tieni conto che nel sistema cm M va indietro verso sinistra ed m/2 va verso destra con velocità relativa positiva rispetto al baricentro. Ma ho fatto un errore: in tutti i miei interventi quando parlo di periodo va inteso 3/4 di periodo. Per cui il risultato che sottopongo ad Antonio Mele è <span class="tex">\(M=(3/2)\pi m\)</span></div></blockquote>
+Il mio esempio voleva farti vedere che il tuo risultato precedente (<span class="tex">\(M=2\pi m\)</span>) non funzionava in alcuni casi. Il controesempio di prima non funziona più con il tuo nuovo risultato :) <br>
+<br>
+Quanto al risultato, c'è ancora qualcosa che non mi convince.  Cerco di fare un controesempio come quello di prima, ma facendo le cose più chiarezza.<br>
+Poniamoci nel sistema di riferimento che ha origine nel punto dove c'è stato il primo urto che si muove alla stessa velocità del del centro di massa delle 2 masse <span class="tex">\(m\)</span>. Il moto della massa più piccala è una semplice oscillazione armonica, la sua equazione è qualcosa del tipo<br>
+<span class="tex">\(x_m(t)=A\cdot \cos{ \left ( \omega t + \dfrac{3\pi}{2} \right ) }\)</span>.<br>
+Il blocco <span class="tex">\(M\)</span> ha un'equazione del moto del tipo<br>
+<span class="tex">\(x_M(t)=-kt\)</span>, dato che dal nostro punto di riferimento si sta allontanando a velocità costante.<br>
+<br>
+A questo punto tu hai imposto che l'urto avviene solo se <br>
+<span class="tex">\(\left | x_M \left (\dfrac{3}{4}T \right ) \right | \le A\)</span>, che porta al tuo risultato anche partendo dalle equazione che ho scritto nel mio primo post.<br>
+<br>
+Qui inizia il controesempio: supponiamo che sia tale che <span class="tex">\(x_M \left (\dfrac{3}{4}T \right )=-1.01A\)</span>. Inoltre a <span class="tex">\(t=\dfrac{3}{4}T\)</span> la massa che oscilla si trova a nella posizione <span class="tex">\(-A\)</span>.<br>
+ Per la condizione che hai imposto l'urto non ci dovrebbe essere stato, dato che la massa <span class="tex">\(M\)</span> si trova a distanza maggiore di una ampiezza dopo tre quarti di periodo.<br>
+Nel controesmpio voglio farti vedere che ci sono degli istanti di tempo dove la massa <span class="tex">\(M\)</span> si trova tra le due masse più piccole, il che ovviamente è assurdo, quindi vuol dire che c'è stato il secondo urto. <br>
+Consideriamo l'istante di tempo <span class="tex">\(t=0.71 T\)</span>, che ovviamente è precedente a tre quarti del periodo. Dato che il moto è uniforme,la massa <span class="tex">\(M\)</span> ha posizione:<br>
+<br>
+<span class="tex">\(x_M \left (0.71T \right )=\dfrac{0.71}{0.75}x_M \left (\dfrac{3}{4}T \right )=\dfrac{0.71}{0.75}\cdot (-1.01A)=-0.9561 A\)</span><br>
+<br>
+La posizione della massa più piccola è<br>
+<br>
+<span class="tex">\(x_m(0.71 T)=A\cdot \cos{ \left ( 2\pi \cdot 0.71+ \dfrac{3\pi}{2} \right ) }=A\cdot \cos{ \left ( 2.92\pi \right )}=-0.9685A\)</span><br>
+<br>
+Si vede che questa cosa è assurda, quindi è impossibile che non ci sia stato un urto, anche se il tuo risultato dice così. Se vuoi prova a sostituire nelle tue equazioni il valore <span class="tex">\(M=9.30 Kg\)</span>: esso è minore di <span class="tex">\((3/2)\pi m\)</span>, ma ti accorgerai che l'urto c'è comunque stato ;) <br>
+<br>
+Spero di essermi spiegato almeno questa volta. Se invece credete che c'è qualcosa che non va in tutto quello che ho detto, aiutatemi a cercare dove sbaglio anche nel mio primo post</article>
+<article class="post" id="p22468"><div class="who"><b>rocco</b><span>26 giu 2016, 0:28</span></div>Per Arna. No, non è <span class="tex">\(x_M&lt; A\)</span>  ma <span class="tex">\(x_{cm}-x_M&lt;A\)</span> cioè interviene la velocità relativa rispetto al cm. <br>
+Si può cominciare da qui: l'allontanamento RELATIVO verso sinistra di M in 3/4 di periodo non deve eccedere A (perchè infatti m parte con velocità doppia di quella del cm in direzione opposta verso destra, arriva al punto morto di destra quando ha velocità relativa  0 perchè la sua assoluta è uguale a quella del cm, torna al centro dell'oscillazione da cui è partito con velocità opposta a quella iniziale, si avvia verso sinistra ed è in questo quarto di periodo che deve sbattere sulle spalle di M, lo deve trovare e quindi M non si deve essere allontanato più di A -  il quarto quarto di periodo sarebbe inutile perchè M si allontana dal centro ed m vi si avvicina dunque non lo potrebbe incontrare). L'ampiezza A di oscillazione della massa ridotta (m/2) è dedotta dalle equazioni del moto delle due masse m sottraendo alla prima, che dista<br>
+ (-l/2) dal cm la seconda distante (+l/2) ed ottenendo <span class="tex">\((m/2)d^2l/dt^2+ (k/2)l=0\)</span>. Risulta <span class="tex">\(A=\sqrt\frac{m}{k}.\frac{V_0.M}{m+M}\)</span> e <span class="tex">\(T= 2\pi \sqrt\frac{m}{k}\)</span>da cui la relazione<br>
+<span class="tex">\([\frac{V_0.M}{m+M}-\frac{V_0.(M-m)}{m+M}](3/4)T \leq A\)</span> e quindi il risultato<span class="tex">\(M= (3/2)\pi.m\)</span>. Si deve osservare l'inganno di chi ha steso il testo, come a volte è successo nei problemi sns: per i valori numerici è necessaria solo m, gli altri si elidono ed io ho perso un paio d'ore credendo di aver sbagliato perchè non utilizzavo tutti i dati del testo.<br>
+<br>
+P.S. Sono costretto a scrivere di notte, lunedi c'è la terza prova. Per far guadagnare tempo a tutti chiedo ad Antonio...pardon a FRANCESCO se non sia possibile far postare l'81 ad Arna che in fin dei conti ha "visto" il problema come me.</article>
+<article class="post" id="p22469"><div class="who"><b>Francesco Mele</b><span>26 giu 2016, 1:23</span></div>Certo!  :D <br>
+Arna, puoi procedere con il prossimo problema della staffetta!</article>
+<article class="post" id="p22471"><div class="who"><b>arna1998</b><span>26 giu 2016, 21:39</span></div><blockquote><div><cite>rocco ha scritto:</cite>Per Arna. No, non è <span class="tex">\(x_M&lt; A\)</span>  ma <span class="tex">\(x_{cm}-x_M&lt;A\)</span> cioè interviene la velocità relativa rispetto al cm..</div></blockquote>
+Si lo so, ho inteso <span class="tex">\(x_M\)</span> come moto relativo al cdm, infatti in questo sistema di riferimento <span class="tex">\(M\)</span> si muove a velocità costante allontanandosi dal cdm, per questo<br>
+<span class="tex">\(x_M(t)=-kt\)</span><br>
+Comunque se non ti fidi, prova a fare i conti numericamente con valore tipo <span class="tex">\(M=9.3 Kg\)</span>.<br>
+
+<blockquote><div><cite>Francesco Mele ha scritto:</cite>Certo!  :D <br>
+Arna, puoi procedere con il prossimo problema della staffetta!</div></blockquote>
+Entro domani posto un problema, per curiosità da dove arriva questo?</article>
+<article class="post" id="p22472"><div class="who"><b>Francesco Mele</b><span>26 giu 2016, 23:32</span></div>Bello, vero?<br>
+L'ho preso da un test d'ingresso della scuola superiore di Catania.  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6339.html"><small>← precedente</small>79. Blocchetto trasparente</a><a class="next" href="olifis-6344.html"><small>successivo →</small>81. Solenoidi incastrati</a></nav>
+</main></body></html>

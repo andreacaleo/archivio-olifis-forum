@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>239. Pistola a pressione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 239</a></span></nav>
+<h1>239. Pistola a pressione</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7002">forum Olifis</a></p>
+<article class="post first" id="p26530"><div class="who"><b>Luca Milanese</b><span>18 ott 2020, 11:00</span></div>Una semplice pistola è costituita da un cilindro cavo di raggio <span class="tex">\(r_c\)</span> e lunghezza <span class="tex">\(L_0\)</span>. A un'estremità si trova un setto mobile, mentre nell'altra viene inserito un proiettile anch'esso cilindrico. L'interno del cilindro è riempito con un gas perfetto che si trova inizialmente a temperatura ambiente <span class="tex">\(T_0\)</span> e pressione atmosferica <span class="tex">\(P_0\)</span>. Il proiettile viene sparato quando la pressione interna supera un certo valore <span class="tex">\(P_c\)</span>. Si supponga che la lunghezza del proiettile sia <span class="tex">\(h&lt;&lt;L_0\)</span> e che il suo raggio sia <span class="tex">\(r_c+\Delta r\)</span> (con <span class="tex">\(\Delta r&lt;&lt;r_c\)</span>). In pratica, il proiettile viene leggermente compresso quando è inserito nella pistola. Se <span class="tex">\(E\)</span> è il modulo di Young del materiale di cui è costituito il proiettile, e <span class="tex">\(\mu\)</span> è il coefficiente di attrito statico fra proiettile e cilindro:<br>
+1) determinare l'espressione di <span class="tex">\(P_c\)</span> in funzione degli altri dati;<br>
+2) dire di quanto bisogna muovere (velocemente) il setto per sparare il proiettile.<br>
+<br>
+Edit: il gas è monoatomico.</article>
+<article class="post" id="p26537"><div class="who"><b>Leo</b><span>28 ott 2020, 18:05</span></div>Seguo il forum da circa un mese(V scientifico) e non capisco i testi come questo nè so scrivere latex. Ho trovato una soluzione immaginando certi processi. Ho determinato con il modulo di Young la forza che preme sulla superficie laterale del proiettile e moltiplicandola per mu ho trovato la forza di attrito. Ho creduto che premendo il grilletto il setto mobile si movesse di un tratto s comprimendo il volume fino a innescare Pc e Tc. Ho pensato ad una adiabatica per Edit. Il proiettile parte e due forze compiono lavoro . La forza di pressione per la sezione del proiettile e la forza di attrito fino ad espellere il proiettile e a ristabilire Po e To. Ho pensato ancora all'adiabatica con il lavoro che abbassa l'energia interna. Mi rendo conto che è tutta fanrtasia mia. Mi scuso con te e capisco se non mi rispondi. Intervengo perchè tanto nessuno è intervenuto...</article>
+<article class="post" id="p26538"><div class="who"><b>Luca Milanese</b><span>28 ott 2020, 21:04</span></div>Hai fatto benissimo ad intervenire, il forum serve a questo  :D <br>
+Quello che hai scritto su forza, attrito, adiabasi ecc... mi sembra corretto. Ti consiglio di provare a completare il tuo ragionamento perché secondo me sei molto vicino alla soluzione (o magari l'hai già ottenuta  :) ).<br>
+Quanto al LaTeX, non preoccuparti. Con la pratica ti accorgerai che non è affatto difficile impararlo, e che basta poco per abituarcisi. Per adesso, scrivi pure come ti riesce meglio.<br>
+Se ti servono chiarimenti sul testo, basta chiedere.</article>
+<article class="post" id="p26539"><div class="who"><b>Leo</b><span>29 ott 2020, 11:07</span></div>Ti ringrazio. Ho scritto l'espressione di Pc in funzione dei parametri e di s spostamento del setto. Per il secondo punto ho ricavato s dall'espressione. Calcoli molto complessi. Quando sarà pubblicata la soluzione la confronterò. Mi basta questo.</article>
+<article class="post" id="p26540"><div class="who"><b>east_beast</b><span>30 ott 2020, 1:07</span></div>Affinché il setto si muovi, la forza dovuta alla pressione <span class="tex">\(P_c\)</span> dev'essere maggiore della forza d'attrito.<br>
+L'espressione della forza d'attrito è, considerando la legge di young, <span class="tex">\(F_a = \mu E (\frac{ \Delta r}{r_c+\Delta r})2\pi r_c h \)</span>, mentre la forza dovuta a <span class="tex">\(P_c\)</span> ha modulo uguale a <span class="tex">\((P_c-P_0) \pi r_c^2\)</span>.<br>
+Imponendo l'uguaglianza ed utilizzando il noto sviluppo di taylor <span class="tex">\((1+\epsilon)^x=1+x\epsilon\)</span>, ottengo <span class="tex">\(P_c=P_0 +2\mu E \frac{\Delta r}{r_c^2} h(1-\Delta r/r_c)\)</span>.<br>
+<span class="tex">\(2)\)</span> Data la velocità del processo, suppongo sia adiabatico (poiché le particelle di gas non fanno in tempo a scambiare calore con l'esterno), con indice adiabatico uguale a <span class="tex">\(5/3\)</span>, dato che il gas è monoatomico.<br>
+Dunque <span class="tex">\(PV^{5/3}=cost\)</span> ed essendo anche la sezione del cilindro costante (o meglio, quasi :D ), allora <span class="tex">\(Px^{5/3} = constante \)</span><br>
+Usando questa equazione quando il setto è all'estremità e quando il setto è stato da noi mosso, <span class="tex">\(P_0L_0^{5/3} = P_cx^{5/3}\)</span>.<br>
+Facendo i calcoli trovo <span class="tex">\(x=L_0(P_c/P_0)^{-3/5}=L_0[1+2\mu E \frac{\Delta r}{P_0r_c^2} h(1-\Delta r/r_c)]^{-3/5}\)</span>.<br>
+Per sapere quanto bisogna muovere il setto, basta sottrarre <span class="tex">\(x\)</span> a <span class="tex">\(L_0\)</span>, dunque, a meno di errori di calcolo, <span class="tex">\(\Delta x= L_0[1-(1+2\mu E \frac{\Delta r}{P_0r_c^2} h(1-\Delta r/r_c))^{-3/5}]\)</span></article>
+<article class="post" id="p26541"><div class="who"><b>Luca Milanese</b><span>30 ott 2020, 9:42</span></div>Tutto corretto! :D  :D <br>
+Ti faccio solo notare che, quando sviluppi con Taylor, puoi anche buttare via il secondo termine, in quanto <span class="tex">\(\frac{2 \mu E h \Delta r}{r_c^2}(1-\Delta r / r_c)= \frac{2 \mu E h \Delta r}{r_c^2}-\frac{2 \mu E h \Delta r^2}{r_c^3}\)</span> e il secondo addendo è dunque di secondo ordine.</article>
+<article class="post" id="p26542"><div class="who"><b>Leo</b><span>30 ott 2020, 12:00</span></div>Come supponevo non avevo capito il testo. Infatti io pensavo, e tu mi avevi risposto che ti pareva corretto, che premendo il grilletto si spostava il setto che creava Pc e Tc adiabaticamente. A questo punto partiva il proiettile. Perchè nel testo dice che lui parte quando c'è Pc e quindi qualche altro gliela deve creare...e io pensavo che fosse il setto. Dopo c'è il lavoro che è dovuto a Pc.S e alla forza di attrito e ripristivna le condizioni iniziali con la fuoriuscita del proiettile. Sto pensando alla soluzione corretta di east beast perchè non mi convince. Ma questo è il bello dei problemi..</article>
+<article class="post" id="p26543"><div class="who"><b>Luca Milanese</b><span>30 ott 2020, 14:18</span></div>A me continua a sembrare che tu abbia capito il testo da quel che scrivi. Il setto, mosso da un grilletto, si muove in modo da ridurre il volume del gas interno e quindi ne aumenta la pressione fino al valore critico <span class="tex">\(P_c\)</span>. A quel punto, la forza di pressione vince l'attrito e il proiettile parte.<br>
+Il problema è tratto dalle Olimpiadi Statunitensi del 2007, testo e soluzione ufficiale sono facilmente reperibili sul loro sito. Magari l'originale è più chiaro della mia traduzione...</article>
+<article class="post" id="p26544"><div class="who"><b>Leo</b><span>31 ott 2020, 12:14</span></div>Si si ho rivisto è tutto giusto! Dalla soluzione di East Beast mi sembrava che lui dicesse altro...Equivoco...Sono contento :D</article>
+<nav class="pager"><a class="prev" href="olifis-7001.html"><small>← precedente</small>238. Circuito</a><a class="next" href="olifis-7014.html"><small>successivo →</small>240. Conduzione in un cilindro</a></nav>
+</main></body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>112. L&#x27;ennesimo arcobaleno</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 112</a></span></nav>
+<h1>112. L'ennesimo arcobaleno</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6467">forum Olifis</a></p>
+<article class="post first" id="p23436"><div class="who"><b>CaptainJohnCabot</b><span>7 gen 2017, 20:47</span></div>Assumendo che l'indice di rifrazione dell'acqua sia <span class="tex">\(4/3\)</span> e che le gocce siano perfettamente sferiche, trova la posizione <span class="tex">\(\phi\)</span> dell'ennesimo arcobaleno rispetto alla linea che congiunge il Sole e l'osservatore. <br>
+<br>
+<em class="text-italics">Hint:</em><br>
+Puoi aiutarti trovando le posizioni del primo, del secondo e del terzo arcobaleno per poi generalizzare.</article>
+<article class="post" id="p23438"><div class="who"><b>guido</b><span>8 gen 2017, 12:21</span></div>Vorrei sapere se il primario, secondario ecc sono dovuti alle riflessioni successive all'interno della goccia: la luce del sole viene rifratta dentro la goccia, c'è una riflessione che in parte provoca un arcobaleno con la parte rifratta nell'aria e in parte provocherà un secondo arcobaleno con la parte riflessa all'interno della goccia? Non so se capisco :?:  :?:</article>
+<article class="post" id="p23439"><div class="who"><b>CaptainJohnCabot</b><span>8 gen 2017, 14:13</span></div>Per guido: considera quante volte può essere riflessa la luce nella goccia sferica. Il primo arcobaleno è formato dalla componente di luce riflessa solo una volta all'interno della goccia, il secondo da quella riflessa due volte e così via. Spero di essermi spiegato  :D</article>
+<article class="post" id="p23442"><div class="who"><b>guido</b><span>9 gen 2017, 11:20</span></div>Ti ringrazio da scuola: più o meno credo che aver capito. Nel pomeriggio ci ripenserò.</article>
+<article class="post" id="p23443"><div class="who"><b>guido</b><span>10 gen 2017, 12:34</span></div>Non essendo a scuola  :D  :D provo la mia soluzione che sarebbe, detti i ed r gli angoli di incidenza e rifrazione<br>
+<span class="tex">\(\phi_1= 4r-2i\)</span>  <span class="tex">\(\phi_2= \pi-6r+2i\)</span> <span class="tex">\(\phi_n= (n-1)\pi + 2r[2-5(n-1)]+2i[2(n-1)-1]\)</span><br>
+Per <span class="tex">\(i=60 r=40,6 \phi_1=42 , \phi_2= 56 , \phi_3=-100\)</span><br>
+Poi ho visto altre cose. Per i=70,1° r=45° per cui le riflessioni rifrazioni avvengono ai vertici del quadrato inscritto nella goccia e dunque mi pare che ci sia un ricorso periodico? sarebbe bellino... :?:  :?:</article>
+<article class="post" id="p23444"><div class="who"><b>Flaffo</b><span>10 gen 2017, 18:24</span></div>Essendo abbastanza lungo il problema, parto già dal caso n-esimo. Probabilmente, quando finirò di scrivere la soluzione, qualcun'altro avrà già risolto il problema è forse avranno unificato la relatività e la fisica quantistica <br>
+<br>
+Chiamiamo <span class="tex">\(\phi\)</span> la metà dell'angolo che ci interessa. Facendo una figura della situazione, in cui il raggio di luce viene rifatto nella goccia e viene riflesso (poiché l'angolo è maggiore di quello limite) N volte, notiamo per prima cosa che tutti gli angoli, rifatto e angoli di riflessione all'interno della goccia, sono uguali. Chiamiamo questi angoli <span class="tex">\(\beta\)</span>. Possiamo esprimere l'angolo <span class="tex">\(\alpha\)</span> incidente come:<br>
+<br>
+<span class="tex">\(\displaystyle \alpha =-90(N-1) + \beta (N+1) + \phi\)</span><br>
+<br>
+Per snell abbiamo:<br>
+<br>
+<span class="tex">\(\displaystyle sin \left[\phi -90(N-1) + \beta (N+1) \right]= n sin \beta\)</span><br>
+<br>
+Isoliamo <span class="tex">\(\phi\)</span> <br>
+<br>
+<span class="tex">\(\displaystyle  \phi=90(N-1) - \beta (N+1) + arcsin (n sin \beta)\)</span><br>
+<br>
+<span class="tex">\(\beta\)</span> ovviamente può variare, fintanto che sia maggiore dell'angolo limite. L'arcobaleno si forma nel punto in cui c'è maggiore concentrazione di luce riflessa, ovvero per l'angolo <span class="tex">\(\beta\)</span> che rende massimo <span class="tex">\(\phi\)</span>. Questo perché in quel punto la funzione ha pendenza nulla, e saranno maggiori i valori di <span class="tex">\(\beta\)</span> che portano a quel dato (intorno) di <span class="tex">\(\phi\)</span> <br>
+Deriviamo ponendo<br>
+<br>
+<span class="tex">\(\displaystyle \frac{d \phi}{d \beta}=0\)</span><br>
+<br>
+Ottenendo che <span class="tex">\(\beta_{max}\)</span> che da <span class="tex">\(\phi_{max}\)</span> massimo è:<br>
+<br>
+<span class="tex">\(\displaystyle sin \beta = \sqrt { \frac{{ \left( N+1 \right)}^2 - n^2}{n^2 \left[  { \left( N+1 \right) }^2 -1 \right]}}\)</span><br>
+<br>
+Calcoliamo quindi <span class="tex">\(\beta\)</span> dalla formuletta precedente è sostituiamo nell' equazione ricavata prima. <br>
+In conclusione le due formule che ci danno <span class="tex">\(\Phi\)</span> sono:<br>
+<br>
+<span class="tex">\(\displaystyle \Phi=180 \left(N-1 \right) - 2 \beta \left(N+1\right) +2 arcsin \left(n sin \beta \right)\)</span><br>
+<br>
+<br>
+<span class="tex">\(\displaystyle sin \beta = \sqrt { \frac{{ \left( N+1 \right)}^2 - n^2}{n^2 \left[  { \left( N+1 \right) }^2 -1 \right]}}\)</span><br>
+<br>
+Ci sono un sacco di considerazioni da fare, ma per il vostro piacere cerco di limitarmi alla soluzione. :D</article>
+<article class="post" id="p23445"><div class="who"><b>CaptainJohnCabot</b><span>10 gen 2017, 22:15</span></div>Meh con Flaffo ad un certo punto non c'è più gusto  :lol: <br>
+Tutto giusto a te la staffetta.<br>
+<br>
+Per guido: gli angoli rispettivamente per il primo, il secondo e il terzo arcobaleno sono 42°, 51° e 138°. Con il primo ci sei mentre con gli altri un po' meno...<br>
+
+<blockquote><div><cite>Flaffo ha scritto:</cite>
+Ci sono un sacco di considerazioni da fare, ma per il vostro piacere cerco di limitarmi alla soluzione. :D</div></blockquote>
+Vero, ne riporto alcune proposte dall'autore in caso si volesse continuare la discussione o anche solo per approfondimento personale:<br>
+<span style="text-decoration:underline"><strong class="text-strong">1</strong></span> Qual'è l'ordine dei colori nel primo arcobaleno? E nel secondo?<br>
+<span style="text-decoration:underline"><strong class="text-strong">2</strong></span> Quanto è 'largo' l'arcobaleno? <br>
+<span style="text-decoration:underline"><strong class="text-strong">3</strong></span> Il terzo arcobaleno risulterà visibile in condizioni normali? <br>
+<span style="text-decoration:underline"><strong class="text-strong">4</strong></span> Come varia l'intensità degli arcobaleni al crescere del numero n di riflessioni interne alla goccia?<br>
+<br>
+Guido aveva poi parlato di periodicità, idea che in un certo senso è intrinsecamente presente nel problema... Basti pensare che le posizioni angolari degli n arcobaleni devono essere tutte calcolate mod<span class="tex">\(2\pi\)</span>, e già la malefica TDN compare anche in fisica  :cry:  :lol: <br>
+<br>
+Le posizioni dei vari arcobaleni possono essere disegnate su una circonferenza che ha l'osservatore come centro. Dopo aver risposto alla domanda sulla 'larghezza' degli arcobaleni potrebbe essere interessante provare a calcolare qual'è il primo arcobaleno che si sovrappone ad un altro. Non so quanto sia difficile né se sia anche solo possibile, ma penso che anche tentare sia istruttivo...<br>
+<br>
+<br>
+P.S.: il problema è uno dei 'Weekly Problems' proposti all'Università di Harvard dal famigerato David Morin... Cercandoli potreste trovare testi (e credo anche soluzioni) di alcuni problemi interessanti tra cui anche questo   :mrgreen:</article>
+<article class="post" id="p23446"><div class="who"><b>guido</b><span>11 gen 2017, 11:41</span></div>Per la precisione ho trovato su Google (giacchè mi sembrava strano di aver sbagliato i conti)- teoria fisica dell'arcobaleno, Lorenzo Roi -  e dà la mia stessa soluzione! Perchè per es. dici che il 2 non è corretto? :?:  :?:</article>
+<article class="post" id="p23447"><div class="who"><b>CaptainJohnCabot</b><span>11 gen 2017, 23:41</span></div>Per guido: in verità ho detto che ci avevi preso un po' meno, non che avevi proprio sbagliato, infatti l'errore nel secondo è solo di qualche grado... Comunque sono andato a leggere il documento di questo Lorenzo Roi, ma come puoi vedere tu stesso l'equazione 31 restituisce 51° come angolo del secondo arcobaleno, mentre tu dai 56°. Anche considerando la dispersione cromatica questo angolo è troppo grande (il massimo si avrebbe per il violetto a 54° mi sembra). <br>
+<br>
+Comunque tra le famose riflessioni di Morin c'era anche spiegare perché si forma la banda di Alessandro, me ne sono ricordato leggendo il documento di Roi  :lol:</article>
+<article class="post" id="p23448"><div class="who"><b>guido</b><span>12 gen 2017, 12:03</span></div>Mi dispiace polemizzare ma Roi indica la mia stessa formula <span class="tex">\(\phi_2=\pi-6r+2i\)</span> e siccome per i=60 risulta r=40,6 se sostituisci i valori risulta addirittura <span class="tex">\(\phi_2=56,4\)</span>  :!:  :!: Questo dimostra che non avevo visto prima il lavoro di Roi. Ecco perchè sostengo che la mia soluzione era corretta e precedeva quella accettata. Come è successo nel salescende e successe nella giostra (sono MIE opinioni, ovviamente). Quanto alle numerose considerazioni che si possono fare sul problema ne avevo proposta anch'io una (il quadrato) su cui non ti sei espresso ma va bene così. :D <br>
+<br>
+Ho imparato una cosa. In questi pochi mesi in cui sono stato registrato non ho mai discriminato fra i problemi da risolvere nel forum. D'ora in poi starò attento a quelli che è per me opportuno tentare di risolvere nel forum e quelli che invece è meglio risolva in privato. Tanto per la preparazione al test sns è lo stesso. :roll:  :roll:</article>
+<article class="post" id="p23449"><div class="who"><b>CaptainJohnCabot</b><span>12 gen 2017, 15:57</span></div>Per guido: non capisco da dove provenga tutto questo astio. Se ti senti offeso in qualche modo mi scuso, in mia difesa dico che ho sempre cercato di valutare ogni soluzione in maniera obiettiva, e le tue non sono escluse. Anche se ormai la discussione sta diventando strana va comunque continuata dato che ancora non ti senti soddisfatto delle spiegazioni che ti ho dato. Ho quindi ricontrollato ancora una volta quello che hai scritto e il documento di Roi anche se non so se ti possano interessare le mie conclusioni dato che a questo punto sembri fermamente convinto della correttezza della tua soluzione. <br>
+<br>
+Utilizzo il formalismo di Roi tranne per le posizioni <span class="tex">\(\phi_1\)</span> e <span class="tex">\(\phi_2\)</span> degli arcobaleni. La formula che hai scritto è corretta e qui non ci piove. Poi poni i=60°. L'arcobaleno si forma nel punto in cui si concentra la luce diffusa dalle gocce d'acqua. Facendo un grafico di <span class="tex">\(\phi\)</span> su i è chiaro che questa concentrazione si ha quando <span class="tex">\(\phi\)</span> è un massimo o un minimo (ci sono più valori di i che restituiscono valori 'intorno' a <span class="tex">\(\phi_{max}\)</span>). Questo massimo/minimo può essere trovato o da un grafico o con metodi analitici. Detto questo l'espressione per l'angolo del primo arcobaleno (una riflessione) <span class="tex">\(\phi_1\)</span> è effettivamente massima per i=60° da cui il valore corretto di <span class="tex">\(\phi_1\)</span> che hai fornito. Tuttavia tale valore di i non rimane costante né per <span class="tex">\(\phi_2\)</span> né per <span class="tex">\(\phi_3\)</span> dato che le loro espressioni sono diverse da quelle per <span class="tex">\(\phi_1\)</span>. In particolare derivando o disegnando il grafico <span class="tex">\(\phi_2\)</span> su i (la figura 21 del documento di Roi) si ottiene che il massimo di <span class="tex">\(\phi_2\)</span> si ha circa per i=70° e r=44.8° che restituiscono <span class="tex">\(\phi_2\)</span>=51° come ti avevo detto. Il problema non è quindi la formula ma il valore di i che hai sostituito al suo interno. Spero che ora ti sia più chiaro  :)<br>
+<br>
+P. S. : tra l'altro alla fine i valori di i=70° e r=44.8° circa comparivano anche nella tua soluzione. Non sono riuscito a capire però perché non hai sostituito loro nella formula di <br>
+<span class="tex">\(\phi_2\)</span><br>
+<br>
+P. P. S. : sul ragionamento del quadrato non mi sono espresso perché in quanto caso particolare non l'avevo preso in esame quando ho risolto il problema né avevo il tempo di farlo dato che gli impegni scolastici erano già tornati fitti come al solito.</article>
+<article class="post" id="p23451"><div class="who"><b>guido</b><span>13 gen 2017, 11:26</span></div>Ti garantisco che non provo assolutamente alcun astio, tanto meno nei tuoi confronti. Anzi ti ringrazio di quanto scrivi. Ho detto e confermo che non è stata la prima volta in cui non mi sono trovato d'accordo con la valutazione della mia oluzione: è per questo che, come detto, sceglierò i problemi in modo da minimizzare le polemiche (non le discussioni costruttive!). Ora mi sembra inutile rientrare nel merito delle singole questioni relative a questa o alla precedente o alla passata...Niente di personale e grazie ancora. :D</article>
+<nav class="pager"><a class="prev" href="olifis-6465.html"><small>← precedente</small>111. Sale o non sale? Questo è il dilemma</a><a class="next" href="olifis-6469.html"><small>successivo →</small>113. Ancora aste!</a></nav>
+</main></body></html>

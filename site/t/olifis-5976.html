@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>14:ormai la staffetta è partita!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 14</a></span></nav>
+<h1>14:ormai la staffetta è partita!</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5976">forum Olifis</a></p>
+<article class="post first" id="p19488"><div class="who"><b>andrea96</b><span>22 set 2014, 20:13</span></div>Prendo in mano il testimone di questa staffetta e vi propongo questo problema ( secondo me molto carino ) che spero vi piaccia, e spero non l'abbiate già visto... ;)  ;)  ;) <br>
+Un corpo di massa <span class="tex">\(m\)</span> è in moto in un campo centrale completamente sconosciuto ( nel senso che non bisogna pensare a gravità elettromagnetismo ecc... bisogna solo sapere che il campo è centrale ) e sotto l'azione di questo il corpo descrive una traiettoria polare data dall'equazione <span class="tex">\(r=r_0e^{-a\theta}\)</span> con polo nel centro del campo, dove <span class="tex">\(r\)</span> è la distanza dal centro, <span class="tex">\(\theta\)</span> è l'angolo formato dal raggio vettore con una qualsiasi retta fissata, e <span class="tex">\(r_0\)</span> e <span class="tex">\(a\)</span> sono due costanti positive. Si assumano note le condizioni iniziali del moto.<br>
+1)Determinare la forma del potenziale della forza.<br>
+2)aggiungo questo punto ora perchè fino a ieri non ero sicuro che si potesse fare senza usare un calcolatore,ma stammattina mentre la mia prof spiegava manzoni, in preda alla noia più totale l' ho fatto e quindi lo aggiungo:<br>
+Considerando che l energia totale del corpo è nulla, che il suo momento angolare è noto (quest ultima condizione va assunta anche al punto 1 ) e che la funzione <span class="tex">\(\theta(t)\)</span> è tale che <span class="tex">\(\theta(0)=0\)</span>, determinare a che tempo l oggetto cadrá nel centro.</article>
+<article class="post" id="p19494"><div class="who"><b>OrsoBruno96</b><span>23 set 2014, 15:26</span></div>1) se posso trovare il potenziale della forza, vuol dire che è conservativa, quindi l'energia si conserva<br>
+<br>
+<span class="tex">\(E = \dfrac{1}{2}mr'^2+\dfrac{L^2}{2mr^2} + U(r)\)</span><br>
+<br>
+quindi <span class="tex">\(U(r) = E - \dfrac{1}{2}mr'^2+\dfrac{L^2}{2mr^2}\)</span><br>
+<br>
+ora, E, L, m sono costanti del moto note. il problema è r'<br>
+<br>
+<span class="tex">\(r' = \dfrac{dr}{dt} = \dfrac{dr}{d\theta} \dfrac{d\theta}{dt} = -ar \dfrac{d\theta}{dt}\)</span><br>
+<br>
+Ora, <span class="tex">\(L = mr^2\dfrac{d\theta}{dt}\)</span><br>
+<br>
+sostituendo, <span class="tex">\(r' = \dfrac{-aL}{mr}\)</span><br>
+<br>
+sostituendo nella formula di U, ottengo <span class="tex">\(U(r) = E - \dfrac{L^2 (1+a^2)}{2m r^2}\)</span><br>
+<br>
+<br>
+<br>
+2) qualcosa non va o in quello che ho scritto io o in quello che hai scritto tu perchè non ho usato il fatto che l'energia totale sia 0.<br>
+<br>
+per il primo punto abbiamo scritto che <span class="tex">\(r' = \dfrac{-aL}{mr}\)</span><br>
+<br>
+separo le variabili <span class="tex">\(rdr = \dfrac{-aL}{m} dt\)</span> e posso integrare perchè oltre a r e t ho solo costanti<br>
+<br>
+<span class="tex">\(\int _{r_0} ^0 rdr = \int _0 ^{\tau} \dfrac{-aL}{m} dt\)</span><br>
+<br>
+si ricava banalmente <span class="tex">\(\tau = \dfrac{r_0 ^2 m}{2La}\)</span><br>
+<br>
+Aspetto risposta ed eventuali insulti per errori ;)</article>
+<article class="post" id="p19495"><div class="who"><b>sall96</b><span>23 set 2014, 17:13</span></div><blockquote><div><cite>OrsoBruno96 ha scritto:</cite>
+<br>
+<span class="tex">\(E =\dfrac{1}{2}mr'^2+\dfrac{L^2}{2mr^2} + U(r)\)</span><br>
+
+</div></blockquote>
+
+Scusa se non capisco ma <span class="tex">\(\dfrac{1}{2}mr'^2\)</span> e <span class="tex">\(\dfrac{L^2}{2mr^2}\)</span> non sono la stessa energia? sia una che l'altra dovrebbero essere l'energia cinetica del corpo, perche' le sommi tutte e due?<br>
+<br>
+seconda cosa: quando derivi <span class="tex">\(r\)</span> non manca l'esponenziale?<br>
+<br>
+Grazie mille  :D</article>
+<article class="post" id="p19496"><div class="who"><b>OrsoBruno96</b><span>23 set 2014, 17:25</span></div><blockquote><div><cite>sall96 ha scritto:</cite><blockquote><div><cite>OrsoBruno96 ha scritto:</cite>
+<br>
+<span class="tex">\(E =\dfrac{1}{2}mr'^2+\dfrac{L^2}{2mr^2} + U(r)\)</span><br>
+
+</div></blockquote>
+
+Scusa se non capisco ma <span class="tex">\(\dfrac{1}{2}mr'^2\)</span> e <span class="tex">\(\dfrac{L^2}{2mr^2}\)</span> non sono la stessa energia? sia una che l'altra dovrebbero essere l'energia cinetica del corpo, perche' le sommi tutte e due?<br>
+<br>
+seconda cosa: quando derivi <span class="tex">\(r\)</span> non manca l'esponenziale?<br>
+<br>
+Grazie mille  :D</div></blockquote>
+
+dunque, <span class="tex">\(K = \dfrac{1}{2} m v^2\)</span><br>
+v è un vettore, che si può scrivere in funzione delle sue componenti, in particolare scomponendolo in una parte radiale e una parte perpendicolare al raggio vettore congiungente il centro del sistema del riferimento al corpo. <br>
+<br>
+concorderai che <span class="tex">\(v^2 = v(radiale) ^2 + v(perpendicolare) ^2\)</span> perchè sono perpendicolari<br>
+<br>
+scrivi quindi K come somma di due contributi energetici, quello dovuto alla velocità radiale e quella tangente. ora, <span class="tex">\(\vec L = \vec r x \vec p\)</span> (con quella x intendo un prodotto vettore)<br>
+in modulo, è esattamente L = rmv(perpendicolare)<br>
+<br>
+scrivendo quindi K in funzione di L, che è una costante del moto, e di r, mi sono levato un pezzo fastidioso dell'equazione<br>
+<br>
+2) <span class="tex">\(\dfrac {dr}{d\theta} = -ar_0 e^{-a\theta}\)</span> (secondo le banali regole di derivazione) <span class="tex">\(= -ar\)</span> sostituendo di nuovo r con la sua definizione<br>
+<br>
+meglio? :)</article>
+<article class="post" id="p19497"><div class="who"><b>sall96</b><span>23 set 2014, 17:31</span></div>Sì, ora tutto più chiaro! :)</article>
+<article class="post" id="p19498"><div class="who"><b>andrea96</b><span>23 set 2014, 20:33</span></div><blockquote class="uncited"><div>insulti per errori ;)</div></blockquote> in ogni caso non mi sarei mai permesso  :lol:  :lol:  :lol: <br>
+comunque la soluzione è corretta! :D <br>
+per il fatto dell'energia nulla hai ragione: il fatto è che scrivendo <span class="tex">\(r'=-\frac{aL}{mr}\)</span> implicitamente dici che la velocità radiale è nulla all'infinito, invece io avevo aggiunto una costante e per porla uguale a 0 avevo aggiunto quella condizione. Ora che mi hai fatto notare questa cosa ho sospettato fortemente che se la velocità radiale all'infinito non è nulla non si può ottenere quella traiettoria... e infatti è banale verificare che è proprio così! ma come hai letto la seconda parte l'ho inventata durante la spiegazione di Manzoni perchè avevo paura che qualcuno postasse la soluzione della prima prima che riuscissi a pubblicare la seconda; quindi questo fatto mi è sfuggito!  :lol: <br>
+Vai col prossimo problema!  :D</article>
+<nav class="pager"><a class="prev" href="olifis-5975.html"><small>← precedente</small>13: Problemi Attraenti</a><a class="next" href="olifis-5977.html"><small>successivo →</small>15-staffetta: tensione superficiale, questa sconosciuta</a></nav>
+</main></body></html>

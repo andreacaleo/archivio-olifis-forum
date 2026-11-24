@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>223. Insetto su un&#x27;asta</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 223</a></span></nav>
+<h1>223. Insetto su un'asta</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6940">forum Olifis</a></p>
+<article class="post first" id="p26227"><div class="who"><b>alfredark04</b><span>24 lug 2020, 19:33</span></div>Un'asta leggera è ferma, appoggiata con un'estremità ad un muro verticale e l'altra su un pavimento orizzontale. <br>
+Un insetto vuole strisciare sull'asta, dalla cima al punto più basso.<br>
+*)Come dovrebbe l'accelerazione dell'insetto dipendere dalla sua distanza dalla cima dell'asta per fare in modo che l'asta sia in equilibrio per tutto il moto dell'insetto? <br>
+La massa dell'insetto è m, la lunghezza dell'asta l, l'angolo tra pavimento e asta è α, l'asta ha massa trascurabile e tutti gli attriti sono trascurabili. <br>
+<br>
+*)Quanto tempo ci mette l'insetto ad arrivare a terra?</article>
+<article class="post" id="p26230"><div class="who"><b>Luca Milanese</b><span>25 lug 2020, 15:36</span></div>Sia <span class="tex">\(N\)</span> il modulo della reazione normale esercitata dal muro sull'asta, e <span class="tex">\(x\)</span> la distanza dell'insetto dalla sua cima. Consideriamo il sistema insetto-asta: poichè la massa dell'asta è trascurabile, possiamo considerare la posizione dell'insetto in ogni istante come posizione del centro di massa del sistema, e la sua massa totale come uguale a <span class="tex">\(m\)</span>. L'unica forza orizzontale agente sul sistema è <span class="tex">\(N\)</span>, pertanto, essendo l'accelerazione orizzontale dell'insetto uguale a <span class="tex">\(\ddot x \cos \alpha\)</span>, si ha:<br>
+<span class="tex">\(N=m \ddot x \cos \alpha\)</span><br>
+Prendendo come polo il punto <span class="tex">\(P\)</span> di contatto fra asta e pavimento, si nota che il momento angolare totale del sistema è nullo, in quanto la velocità dell'insetto è parallela alla sua posizione rispetto a <span class="tex">\(P\)</span>. Ne segue che anche il momento torcente totale agente sul sistema è nullo, perciò:<br>
+<span class="tex">\(N l \sin \alpha = mg (l-x) \cos \alpha\)</span><br>
+Eliminando <span class="tex">\(N\)</span> dalle due equazioni si ricava:<br>
+<span class="tex">\(\ddot x = \frac{g(l-x)}{l \sin \alpha}\)</span><br>
+La soluzione di questa equazione differenziale, tenuto conto che <span class="tex">\(x(0)=\dot x(0)=0\)</span>, è:<br>
+<span class="tex">\(x(t)= l \bigg[1-\cos \bigg(\sqrt{\frac{g}{l \sin\alpha}} t \bigg) \bigg]\)</span><br>
+Da qui si osserva che l'insetto giunge a terra quando <span class="tex">\(x=l\)</span>, cioè per:<br>
+<span class="tex">\(t=\frac{\pi}{2} \sqrt{\frac{l \sin \alpha}{g}}\)</span></article>
+<article class="post" id="p26231"><div class="who"><b>alfredark04</b><span>25 lug 2020, 15:47</span></div>Corretto. <br>
+Puoi passare al 224.</article>
+<nav class="pager"><a class="prev" href="olifis-6937.html"><small>← precedente</small>222. Sublimazione nel Cilindro</a><a class="next" href="olifis-6942.html"><small>successivo →</small>224. Campo magnetico da un filo piegato</a></nav>
+</main></body></html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>79. Blocchetto trasparente</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 79</a></span></nav>
+<h1>79. Blocchetto trasparente</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6339">forum Olifis</a></p>
+<article class="post first" id="p22409"><div class="who"><b>FedericoC.</b><span>14 giu 2016, 22:48</span></div>Eccoci col <span class="tex">\(79\)</span>!  :D <br>
+<br>
+Si consideri un blocchetto trasparente, assimilabile a un parallelepipedo, posto con uno dei due lati più lunghi sull'asse delle ascisse e con uno dei due più corti (lungo <span class="tex">\(d\)</span>) su quello delle ordinate (praticamente nel grafico <span class="tex">\(xy\)</span> si ha un rettangolo con uno dei lati lunghi appartenente all'asse delle ascisse, uno dei lati corti appartenente all'asse delle ordinate e il vertice <span class="tex">\(A\)</span> centrato nell'origine). <br>
+L'indice di rifrazione di tale blocchetto varia secondo la relazione <span class="tex">\(n=\frac{n_0}{1-(x/R)}\)</span> dove <span class="tex">\(n_0=1,2\)</span> è l'indice di rifrazione in <span class="tex">\(x_A=0\)</span> e <span class="tex">\(R=13cm\)</span> è una costante.<br>
+Viene immesso verticalmente un raggio di luce in <span class="tex">\(A\)</span> che riemerge dalla parte superiore del blocchetto nel punto <span class="tex">\(B\)</span> con un angolo <span class="tex">\(\alpha=\frac{\pi}{6}\)</span> rispetto alla normale.<br>
+Si trovi:<br>
+a) l'indice di rifrazione <span class="tex">\(n_B\)</span> nel punto <span class="tex">\(B\)</span>;<br>
+b) l'ascissa <span class="tex">\(x_B\)</span> del punto <span class="tex">\(B\)</span>;<br>
+c) lo spessore <span class="tex">\(d\)</span> del blocchetto (altezza del rettangolo nel grafico <span class="tex">\(xy\)</span>).</article>
+<article class="post" id="p22416"><div class="who"><b>rocco</b><span>16 giu 2016, 18:06</span></div>Bellissimo problema avere tempo...Mi pare che bisogna dividere in straterelli verticali ampi dx per i quali la normale è PARALLELA all'asse x e la traiettoria allora risulta concava verso il basso perchè andando verso destra il raggio deve avvicinarsi alla normale incontrando strati a indice maggiore. Ma l'ultima normale di cui parla il testo quella del <span class="tex">\(\pi /6\)</span> è allora parallela all'asse x?</article>
+<article class="post" id="p22417"><div class="who"><b>FedericoC.</b><span>16 giu 2016, 18:14</span></div>Il ragionamento dovrebbe essere corretto, per quanto riguarda la normale cui si fa riferimento è parallela all'asse <span class="tex">\(y\)</span>, poiché in quel caso si deve considerare quella perpendicolare alla superficie limite tra i due mezzi, il blocchetto e l'aria ;)</article>
+<article class="post" id="p22418"><div class="who"><b>rocco</b><span>17 giu 2016, 9:46</span></div>Allora secondo i miei conti se <span class="tex">\(n_A=n_0\)</span> mi verrebbe <span class="tex">\(n_B=\sqrt{4n_0^2-1}\)</span>. Per calcolare <span class="tex">\(x_B\)</span> basta applicare la formula di n. Occorre osservare che all'interno si conserva la quantità n(x).sen i(x) essendo quest'ultimo l'angolo formato con la parallela all'asse x (che è la normale). Pertanto se y(x) è la traiettoria, sarà <span class="tex">\((dy/dx)=tg i(x)\)</span> che è esprimibile in termini di n(x) e che andrebbe integrata per determinare l'ordinata d che ha ascissa <span class="tex">\(x_B\)</span>.</article>
+<article class="post" id="p22419"><div class="who"><b>FedericoC.</b><span>17 giu 2016, 10:03</span></div>Per il primo punto la relazione cui sei arrivato è sbagliata, il secondo punto è quasi banale serve solo il valore numerico del primo e sostituire, per l'ultimo l'idea mi pare giusta, sarebbe il terzo modo in cui si può fare oltre ai due che ho trovato. Prova a fare i conti  :D</article>
+<article class="post" id="p22423"><div class="who"><b>rocco</b><span>17 giu 2016, 17:11</span></div>Sono partito dall'idea che l'angolo di incidenza iniziale dall'aria fosse uguale a quello finale di emergenza come nelle lastre a facce piane e parallele. Non so se ho sbagliato concetti o conti. Quello che so è che in questo periodo non posso concentrarmi sui problemini: devo impiegare il tempo in cose meno piacevoli. Abbandono la presa..mi dispiace.</article>
+<article class="post" id="p22424"><div class="who"><b>FedericoC.</b><span>17 giu 2016, 17:25</span></div>Rispondo comunque, dato che può essere utile per qualcuno che vuole provare. L'angolo di incidenza iniziale non è uguale a quello finale, viene detto nel testo che viene immesso verticalmente  ;)</article>
+<article class="post" id="p22426"><div class="who"><b>Francesco Mele</b><span>18 giu 2016, 1:55</span></div>A me viene n(Xb)=1.118 . Non può essere accettabile come valore siccome n(x)&gt;n(0), dato che x/R è una quantità sempre positiva.<br>
+Non capisco, però, dove sbaglio :?<br>
+<br>
+Alpha è l'angolo che forma il raggio con l'asse x, dopo essere entrato nel blocchetto e gamma è l'angolo che il raggio di luce forma con l'asse delle x quando si trova in xB. Quindi, Il prodotto tra il seno dell'angolo che il raggio forma con l'asse x e n(x) si conserva. Siccome l'angolo di uscita è rispetto all'asse y, considero 90 - gamma.<br>
+Il ragionamento mi sembra molto semplice.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/f25167a6f9e58d3d.gif" class="postimage" alt="CodeCogsEqn.gif" onclick="viewableArea(this);" /></dt>
+						<dd>CodeCogsEqn.gif (3.48 KiB) Visto 6896 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p22427"><div class="who"><b>FedericoC.</b><span>18 giu 2016, 10:09</span></div><blockquote class="uncited"><div>Alpha è l'angolo che forma il raggio con l'asse x, dopo essere entrato nel blocchetto e gamma è l'angolo che il raggio di luce forma con l'asse delle x quando si trova in xB.</div></blockquote>
+
+Come ho detto nel post precedente il raggio viene immesso verticalmente, quindi l'angolo in A non può essere <span class="tex">\(\alpha\)</span>.</article>
+<article class="post" id="p22428"><div class="who"><b>Francesco Mele</b><span>18 giu 2016, 10:36</span></div>Pensavo "verticalmente" nall'aria per poi venire rifratto dal blocchetto, scusa :shock: . Comunque, mi sembra molto strano ora. Se la luce viene immessa, non so come, verticalmente (parallela all'asse y) "all'interno" del blocchetto come fa a spostarsi verso destra? Lungo l'asse y l'indice di rifrazione è costante.</article>
+<article class="post" id="p22429"><div class="who"><b>FedericoC.</b><span>18 giu 2016, 10:58</span></div><strong class="text-strong">Hint</strong>: dall'aria il raggio viene immesso verticalmente verso il blocchetto, pertanto non si ha rifrazione dall'aria al blocchetto, quindi nel punto A il raggio sarà verticale, ma l'angolo da considerare non sarà zero bensì novanta, poiché cambia la superficie su cui si ha rifrazione che è questa volta parallela al piano <span class="tex">\(yz\)</span>. <br>
+Si può pensare anche che incidendo verticalmente il raggio incida con un angolo di novanta sul successivo strato <span class="tex">\(dx\)</span> dove l'indice di rifrazione si può considerare costante, ma comunque maggiore di <span class="tex">\(n_0\)</span>.<br>
+<br>
+Ora almeno i primi due punti dovrebbero essere chiari  :)</article>
+<article class="post" id="p22430"><div class="who"><b>Francesco Mele</b><span>18 giu 2016, 11:27</span></div>Perfetto. ;) <br>
+n(xB)= 1.3 , è giusto?</article>
+<article class="post" id="p22431"><div class="who"><b>FedericoC.</b><span>18 giu 2016, 11:47</span></div>Si il primo c'è, vai col procedimento  ;)</article>
+<article class="post" id="p22433"><div class="who"><b>Francesco Mele</b><span>18 giu 2016, 12:10</span></div>Il procedimento è lo stesso che avevo adottato precedentemente tranne per la parte iniziale: il prodotto iniziale viene 1.2 (grazie al tuo chiarimento) e non 1. Il prodotto si "conserva" per tutto il blocchetto, quindi, il prodotto iniziale è uguale a quello finale. Ora, siccome il raggio esce dalla parte superiore, la normale è parallela all'asse y, quindi, l'angolo di incidenza è (90gradi-gamma). Così impostando un semplicissimo sistema di due equazione ti trovi gamma e infine n(xB).<br>
+Ora faccio gli altri due punti.<br>
+<br>
+(Vi prometto che imparerò a scrivere in LaTex al più presto ahah)
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/dc2ab3595454613c.gif" class="postimage" alt="CodeCogsEqn.gif" onclick="viewableArea(this);" /></dt>
+						<dd>CodeCogsEqn.gif (3.48 KiB) Visto 5668 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p22434"><div class="who"><b>FedericoC.</b><span>18 giu 2016, 12:13</span></div>Perfetto, comunque per il <span class="tex">\(LaTeX\)</span> prova a tenere premuto sulle formule o cliccarle col mouse, in questo modo ti esce il codice con cui sono scritte. A me è stato molto utile per imparare  ;)</article>
+<article class="post" id="p22438"><div class="who"><b>Francesco Mele</b><span>18 giu 2016, 13:31</span></div>Per il punto 2, xB=1 cm.<br>
+Per il punto, 3 ho considerato dy/dx=tg(alpha) e sen(alpha)*n(x)=1.2. Scrivendo sen(alpha) in funzione di tg(alpha) e poi andando a sostituire in quel sistemino di due equazioni, mi esce dy in funzione di x e dx. Per trovare l'altezza, devo integrare. E' una funzione un po' brutta (sempre non ho sbagliato i calcoli) e non riesco ad integrarla ahah. <br>
+Ps: scusa se non ho risposto subito, ma sono stato impegnato.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/093c0878a8378036.gif" class="postimage" alt="CodeCogsEqn.gif" onclick="viewableArea(this);" /></dt>
+						<dd>CodeCogsEqn.gif (990 Byte) Visto 5663 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p22439"><div class="who"><b>FedericoC.</b><span>18 giu 2016, 13:54</span></div>Il punto due va bene, per il tre la funzione che hai trovato è corretta e l'integrale è <span class="tex">\(\sqrt{-(x-26)x}\)</span> che tra zero e uno da <span class="tex">\(5 cm\)</span> che è corretto.<br>
+Ti passo il testimone della staffetta  :D</article>
+<article class="post" id="p22440"><div class="who"><b>Francesco Mele</b><span>18 giu 2016, 15:14</span></div>Grazie per la staffetta! :D  <br>
+Però, che cavolo, come ho fatto a non vedere quell'integrale composto notevole ahahah<br>
+Pubblico l'80-esimo problema al più presto! 8-)</article>
+<nav class="pager"><a class="prev" href="olifis-6336.html"><small>← precedente</small>78. Cilindro sul piano inclinato</a><a class="next" href="olifis-6341.html"><small>successivo →</small>80. Urti, sfere, molle</a></nav>
+</main></body></html>

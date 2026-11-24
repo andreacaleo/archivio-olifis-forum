@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>95. Giro giro tondo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 95</a></span></nav>
+<h1>95. Giro giro tondo</h1>
+<p class="meta">33 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6420">forum Olifis</a></p>
+<article class="post first" id="p23013"><div class="who"><b>Flaffo</b><span>9 ott 2016, 16:15</span></div>Anna si trova su una giostra di raggio <span class="tex">\(6m\)</span>, mentre il suo amico Bob si trova a una distanza dal centro della giostra di <span class="tex">\(12m\)</span>. A un certo punto Bob vede Anna avvicinarsi direttamente verso di lui con velocità <span class="tex">\(1 m/s\)</span>. A che velocità si avvicina Bob secondo Anna?<br>
+<br>
+EDIT:<br>
+<br>
+Per chiarezza, la retta che congiunge A,B è tangente alla giostra in quel momento.</article>
+<article class="post" id="p23016"><div class="who"><b>Ciccio98</b><span>9 ott 2016, 19:18</span></div>A me viene 0,577 m/s.</article>
+<article class="post" id="p23017"><div class="who"><b>Flaffo</b><span>9 ott 2016, 20:07</span></div>No, il risultato è sbagliato</article>
+<article class="post" id="p23018"><div class="who"><b>Ciccio98</b><span>9 ott 2016, 21:21</span></div>Ho ricontrollato il procedimento... può essere 0,5 m/s anche se non sono molto convinto!!!</article>
+<article class="post" id="p23019"><div class="who"><b>Flaffo</b><span>9 ott 2016, 21:41</span></div>Ancora no..</article>
+<article class="post" id="p23021"><div class="who"><b>guido</b><span>10 ott 2016, 9:46</span></div>Invece di darti il risultato io penso che 1 m/s sia la componente lungo r della velocità di Coriolis e che sia assoluta perchè la componente perpendicolare a r sia tale da elidersi in quella posizione con la velocità di trascinamento <span class="tex">\(\omega.r\)</span>. Quindi Anna andrebbe di moto accelerato verso il B fisso e la velocità può ricavarsi dalle formule note essendo lo spazio 18-r e determinando l'accelerazione di A. con una proporzione ; infatti l'acc. di C. sta alla sua componente lungo r (da determinare) come la vel. di Coriolis (risultante di quella su r e quella ortog. a r) sta a 1.<br>
+Può essere un'idea giusta? :roll:  :?:</article>
+<article class="post" id="p23022"><div class="who"><b>Flaffo</b><span>10 ott 2016, 17:05</span></div>Velocità di Coriolis?<br>
+Non ho capito il tuo ragionamento</article>
+<article class="post" id="p23023"><div class="who"><b>guido</b><span>10 ott 2016, 17:25</span></div>Avevo capito che A. procedeva lungo il raggio verso l'esterno in direzione di B. Se la giostra ruota mi pareva che l'unico modo fosse la deviazione di Coriolis che con una componente annullava la rotazione di trascinamento e con l'altra faceva andare A. lungo un raggio. Ma evidentemente sono fuori :roll: Comunque se A. si muove rispetto alla giostra ruotante questa deviazione ci deve essere...</article>
+<article class="post" id="p23024"><div class="who"><b>Flaffo</b><span>10 ott 2016, 17:33</span></div>Dato che stiamo lavorando con le velocità, ti conviene abbandonare questo approccio che utilizza le forze..</article>
+<article class="post" id="p23025"><div class="who"><b>CaptainJohnCabot</b><span>10 ott 2016, 20:22</span></div>Dopo aver molto meditato sono arrivato alla seguente soluzione di dubbia validità  :lol: <br>
+<br>
+Si indichi con A la posizione di Anna e con B quella di Bob, tracciando da B la tangente alla circonferenza <span class="tex">\(\gamma\)</span> della giostra con centro si ottiene il punto C su <span class="tex">\(\gamma\)</span>. Si disegnano ora le componenti della velocità tangenziale di A prendendo come asse y la congiungente con B e come x la perpendicolare. Si disegna il triangolo APQ dove la misura AP rappresenta il modulo della velocità tangenziale, AQ quello della sua componente su y. Si ha quindi <span class="tex">\(AQ=1\)</span> mentre <span class="tex">\(BC=6\sqrt3\)</span>. <br>
+<br>
+La direzione dello sguardo di Anna coincide con quella PQ quindi la ragazza vedrà Bob avvicinarsi con velocità v di modulo PQ. <br>
+<br>
+I triangoli BOC e APQ sono simili in quanto hanno tutti gli angoli congruenti. Impostando la proporzione:<br>
+<br>
+<span class="tex">\(OC:AQ=BC:PQ \implies 6:1=6\sqrt3:PQ \implies PQ=\sqrt3\)</span><br>
+<br>
+Quindi <span class="tex">\(v=\sqrt3 m/s\)</span><br>
+<br>
+Non sono molto sicuro sulla parte della direzione dello sguardo, lasciamo poi stare il fatto che ho sostituito vettori con segmenti per trattare il problema, spero comunque che non sia troppo sbagliato  :lol:  :roll:</article>
+<article class="post" id="p23026"><div class="who"><b>Flaffo</b><span>11 ott 2016, 7:21</span></div>P non dovrebbe essere coincidente con Q?</article>
+<article class="post" id="p23027"><div class="who"><b>guido</b><span>11 ott 2016, 9:54</span></div>Con approccio diverso con A. che ruota con la giostra non muovendosi rispetto alla giostra quando il suo vettore velocità è diretto verso B (un vettore che ha modulo 1 per cui la velocità angolare è l'inverso del raggio), considerato che dal punto di vista della giostra B. segue una circonferenza di raggio 12 con velocità angolare -1/r mi verrebbe che la componente della velocità di B nella direzione di A. è ancora 1 m/s  :?:</article>
+<article class="post" id="p23029"><div class="who"><b>Flaffo</b><span>11 ott 2016, 10:20</span></div>Ci stiamo avvicinando. Tuttavia il risultato di 1 m/s è sicuramente sbagliato. . Pensa il perché</article>
+<article class="post" id="p23030"><div class="who"><b>guido</b><span>11 ott 2016, 17:51</span></div>Avevo già fatto correttamente la figura poco importa 1/r o 1/6. L'unica cosa che mi viene da dire dato che oggi non posso pensarci perchè incasinato con la scuola è che la velocità angolare di B secondo A è 1/3 e la sua velocità 4 e quindi quella di avvicinamento sarebbe 2. Ma ci ripenserò...</article>
+<article class="post" id="p23031"><div class="who"><b>Flaffo</b><span>11 ott 2016, 22:11</span></div>Ok.. Ancora non è giusto</article>
+<article class="post" id="p23032"><div class="who"><b>guido</b><span>12 ott 2016, 12:09</span></div>Ho usato un metodo greve calcolando AB in funzione dell'angolo <span class="tex">\(\theta\)</span> compiuto da A e poi ho derivato AB rispetto al tempo dando per scontato che <span class="tex">\(d\theta/dt\)</span>fosse 1/6.<br>
+Nella posizione di quel momento, con <span class="tex">\(\theta\)</span>= 210°avendo messo B(0,-12), mi viene che questa derivata,che dovrebbe rappresentare la velocità richiesta, vale radice di 3/7. :roll:<br>
+Quando torno a casa continuo...perchè voglio porre in A l'origine e calcolare la derivata di AB in funzione della variazione di B sulla circonferenza di raggio 12 percorsa a v.an. -1/6.</article>
+<article class="post" id="p23033"><div class="who"><b>Flaffo</b><span>12 ott 2016, 12:54</span></div>Prova a continuare. Ti assicuro, però, che esiste una soluzione molto più semplice con pochissimi calcoli.</article>
+<article class="post" id="p23034"><div class="who"><b>Pigkappa</b><span>12 ott 2016, 13:31</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Ci stiamo avvicinando. Tuttavia il risultato di 1 m/s è sicuramente sbagliato. . Pensa il perché</div></blockquote>
+Ti chiedo io come mai su questo punto... Io avevo pensato a questo. Se le velocita' per un osservatore esterno sono <span class="tex">\(\vec{v}_{Alice}\)</span> e <span class="tex">\(\vec{v}_{Bob}\)</span>, allora Bob vede Alice muoversi a velocita' <span class="tex">\(\vec v = \vec{v}_{Alice} - \vec{v}_{Bob}\)</span> e Alice vede Bob muoversi a velocita' <span class="tex">\(\vec{v}_{Bob} - \vec{v}_{Alice} = - \vec v\)</span>. Per cui Alice vede Bob avvicinarsi direttamente verso di lei con la stessa velocita' che vede Bob. Dove sbaglio?</article>
+<article class="post" id="p23035"><div class="who"><b>Flaffo</b><span>12 ott 2016, 13:41</span></div>Penso che il tuo ragionamento presupponga che sia il sistema di riferimento di Bob che quello di Alice siano inerziali.  Tuttavia Alice ruota, ed è quindi sottoposta ad un accelerazione  (centripeta)</article>
+<article class="post" id="p23036"><div class="who"><b>Pigkappa</b><span>12 ott 2016, 15:16</span></div>Mh non credo che le cose che ho detto valgano solo in sistemi inerziali. Se vuoi puoi considerare, invece che il sistema di Bob e quello di Alice, due sistemi inerziali che all'istante <span class="tex">\(t = 0\)</span> hanno l'origine rispettivamente nelle posizioni di Bob e Alice e le stesse velocita' di Bob e Alice. Anche se questo vale solo per un'istante, gli osservatori in questi sistemi vedono esattamente le stesse velocita' di Bob e Alice (ovviamente non le stesse accelerazioni).</article>
+<article class="post" id="p23037"><div class="who"><b>guido</b><span>12 ott 2016, 17:06</span></div>Io purtroppo continuo a condividere i punto di vista di Pigkappa. Ho fatto i conti mettendo l'origine su A. e trovo per B la solita velocità di 2 m/s che ha componente nella direzione di A. 1 m/s. Provare per credere. Dal punto di vista di A. è B che ruota con velocità angolare -1/6 o è sbagliato? Perchè se questo è giusto sinceramente mi sento disarmato a meno che non ci sia qualche trucco lessicale nel "vede"...</article>
+<article class="post" id="p23038"><div class="who"><b>Flaffo</b><span>12 ott 2016, 17:13</span></div>Nessun trucco nella parola vede.<br>
+<br>
+<strong class="text-strong">Per PigKappa</strong>: per risponderti dovrei dare un accenno della soluzione. Comunque l'accelerazione è istantanea e, come tale, vale in <em class="text-italics">ogni</em> istante</article>
+<article class="post" id="p23040"><div class="who"><b>guido</b><span>12 ott 2016, 17:58</span></div>L'acc. centripeta di A fa variare la direzione ma non il modulo della sua velocità. Per cui nell'istante <em class="text-italics">successivo</em> sarà ancora di 1 m/s ma non più puntata verso B. Non riesco a vedere come questo fatto influisca nella percezione della velocità di B all'istante <em class="text-italics">precedente</em>...Continuerò a pensarci perchè nel riferimento solidale con A compare l'acc. centrifuga su A e non vedo l'influenza sulla v. di B.nel momento di cui parla il problema.</article>
+<article class="post" id="p23041"><div class="who"><b>Pigkappa</b><span>12 ott 2016, 18:19</span></div>Giusto per chiarificare, con la parola "vede" intendi quanto segue?<br>
+a) Se Bob punta un laser verso Anna e misura l'effetto doppler scopre che la velocita' di Anna verso di lui e' 1 m/s.<br>
+b) Inoltre, se Bob punta il laser e fa un'analisi cosi' precisa da essere corretta relativisticamente (!), scopre che la velocita' di Anna in direzione ortogonale alla loro congiungente e' 0.<br>
+In caso affermativo penso che puoi dirci qual e' la soluzione secondo te, in caso negativo forse ci puoi spiegare cosa intendi per "vede" :P .</article>
+<article class="post" id="p23042"><div class="who"><b>Flaffo</b><span>12 ott 2016, 18:33</span></div>Va bene, pubblico la mia soluzione. <br>
+La velocità angolare di Anna è <span class="tex">\(1/6 rad/s\)</span>. Nel suo sistema di riferimento Anna vede il mondo girare intorno a lei con velocità angolare opposta al suo verso di rotazione intorno al centro della giostra e in modulo  <span class="tex">\(1/6 rad/s\)</span>. Bob si trova ad una distanza da Anna di <span class="tex">\(6 \sqrt {3}\)</span>. La velocità di Bob, secondo Anna, sarà pertanto <span class="tex">\(v=\sqrt {3}\)</span></article>
+<article class="post" id="p23043"><div class="who"><b>Pigkappa</b><span>12 ott 2016, 19:08</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Nel suo sistema di riferimento Anna vede il mondo girare intorno a lei con velocità angolare opposta al suo verso di rotazione intorno al centro della giostra e in modulo  <span class="tex">\(1/6 rad/s\)</span></div></blockquote>
+Ammetto che sono una frana a visualizzare cose geometriche ma questa cosa non mi convince. Chiama T il tuo periodo di rotazione. Immagina di avere assi cartesiani (x,y) centrati nell'origine e fermi. Nel sistema inerziale l'origine e' (0, 0), A si trova all'inizio in (R, 0) dove R e' 6 m, B si trova verticalmente sopra A (stessa x e valore di y giusto per far tornare le distanze come dici tu). <br>
+<br>
+Ora usiamo anche altri assi cartesiani, (x1, y1), centrati in A, che ruotano con A, e ci dicono la posizione delle cose rispetto ad A. In questo sistema A ha sempre coordinate (0 ,0), B all'inizio ha coordinate (0, y1b) dove y1b e' lo stesso y di cui sopra.<br>
+<br>
+Se A vedesse B ruotare attorno a lei con la stessa velocita' angolare, dopo T/2 dovrebbe vedere B in posizione (0, -y1b)/ Invece se fai la figura e noti che nel sistema inerziale A si trova dalla parte opposta rispetto all'origine e B e' rimasto fermo, vedi che B ha un valore x1b non nullo.<br>
+<br>
+In formule, <br>
+<span class="tex">\(\vec A = (cos(wt), sin(wt)) R\)</span>, <br>
+<span class="tex">\(\vec B = (1, 6\sqrt{3}) R\)</span>,<br>
+<span class="tex">\(\vec{AB} = \vec B - \vec A = (1 - cos(wt), 6\sqrt{3} - sin(wt)) R\)</span>.<br>
+Questa e' la posizione di B nel sistema di A; non e' una circonferenza centrata nell'origine come dovrebbe essere se B ruotasse attorno ad A.<br>
+<br>
+Un altro controesempio e' questo: prendi un punto inizialmente molto vicino ad A. Se questo ruotasse attorno ad A nel sistema di A, starebbe quasi fermo. Invece e' chiaro che arrivera' a distanza <span class="tex">\(2R\)</span> da A dopo mezzo giro.</article>
+<article class="post" id="p23045"><div class="who"><b>guido</b><span>13 ott 2016, 10:50</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Va bene, pubblico la mia soluzione. <br>
+La velocità angolare di Anna è <span class="tex">\(1/6 rad/s\)</span>. Nel suo sistema di riferimento Anna vede il mondo girare intorno a lei con velocità angolare opposta al suo verso di rotazione intorno al centro della giostra e in modulo  <span class="tex">\(1/6 rad/s\)</span>. Bob si trova ad una distanza da Anna di <span class="tex">\(6 \sqrt {3}\)</span>. La velocità di Bob, secondo Anna, sarà pertanto <span class="tex">\(v=\sqrt {3}\)</span></div></blockquote>
+A parte il fatto che la tua soluzione era già stata data da Capt.John Cabot e tu hai taciuto ma B <strong class="text-strong">non ruota attorno ad A</strong>. nel sistema di A: infatti la distanza di A da B varia fra 6 m e 18 m ri spetto ad A. Pertanto ritengo la tua soluzione sbagliata. Sarebbe giusta se B ruotasse attorno ad A alla velocità di -1/6 ma B ruota a quella velocità <strong class="text-strong">attorno al centro della giostra </strong>e quindi il suo spostamento infinitesimo (e la sua velocità) è tangente alla circonferenza centrata in C e non in A. Di conseguenza la velocità vista da A è la componente di questa velocità nella direzione di A cioè 1m/s (la mia soluzione) che soddisfa anche alla giusta osservazione di Pigkappa e al buon senso che vuole che se uno si dirige a v=1m/s verso un punto FISSO a lui sembra che sia il punto fisso a muoversi verso di lui alla stessa velocità. :!:<br>
+<br>
+<strong class="text-strong">P.S. Integrando quanto detto se anche B ruotasse attorno ad A la tua velocità sarebbe PERPENDICOLARE ad AB e quindi non potrebbe rappresentare l'avvicimamento di B ad A che invece è rappresentato da un vettore che giace su AB ed è diretto da B ad A : il vettore di modulo 1 m/s la mia soluzione: infatti la risultante della tua, perpendicolare ad AB, con la mia su AB è proprio 2 ed è perpendicolare a BC.. Eppoi se ruotasse su una circonferenza attorno ad A non gli si avvicinerebbe mai. In realtà ruota su una curva chiusa i cui punti hanno una distanza minima 6 da A ed una distanza massima 18 sempre da A. </strong></article>
+<article class="post" id="p23047"><div class="who"><b>CaptainJohnCabot</b><span>13 ott 2016, 19:25</span></div><blockquote><div><cite>guido ha scritto:</cite>A parte il fatto che la tua soluzione era già stata data da Capt.John Cabot[... ] </div></blockquote>
+
+Magari...  :lol: <br>
+<br>
+Io non solo avevo considerato in cui AB non fosse tangente, cosa che poi è stata specificata, ma ho anche sbagliato il problema dal punto di vista concettuale cercando di giustificare il fatto che v non fosse 1 con interpretazioni opinabili sulle componenti delle velocità   :cry: <br>
+<br>
+Inoltre mi sono anche accorto di non aver dimostrato proprio rigorosamente la similitudine che in alcuni casi non dovrebbe proprio sussistere. Probabilmente un errore dovuto al fatto di essere andato ad occhio e di fretta  :oops: <br>
+<br>
+Insomma credo che la mia soluzione sia ben lungi da essere giusta e il fatto che il risultato sia uguale è puramente dato dal fatto casuale che una delle componenti di v fosse <span class="tex">\(\sqrt3\)</span>.<br>
+<br>
+Credo comunque che il risultato di Flaffo sia giusto sia perché, pensandoci, effettivamente, ha il suo senso, sia perché solitamente problemi così perversi sono proposti sui libri con le rispettive soluzioni.</article>
+<article class="post" id="p23050"><div class="who"><b>Flaffo</b><span>13 ott 2016, 23:24</span></div>A questo punto, in ogni caso, do la staffetta a Guido</article>
+<article class="post" id="p23051"><div class="who"><b>CaptainJohnCabot</b><span>14 ott 2016, 7:35</span></div>Approvo :D</article>
+<article class="post" id="p23054"><div class="who"><b>guido</b><span>14 ott 2016, 11:46</span></div><blockquote><div><cite>CaptainJohnCabot ha scritto:</cite><blockquote><div><cite>guido ha scritto:</cite>A parte il fatto che la tua soluzione era già stata data da Capt.John Cabot[... ] </div></blockquote>
+
+Credo comunque che il risultato di Flaffo sia giusto sia perché, pensandoci, effettivamente, ha il suo senso, sia perché solitamente problemi così perversi sono proposti sui libri con le rispettive soluzioni.</div></blockquote>
+
+Per amore di verità: la velocità data da Flaffo non può essere giusta perchè è perpendicolare ad AB e dunque non può rappresentare un avvicinamento cioè dissento quando dici che ha senso. Invece condivido il giudizio sulla perversione dei problemi da lui proposti che sono intriganti. Quindi se Flaffo accettasse proporrei che postasse anche il 96. Sareste d'accordo o cozza troppo contro le "regole" della staffetta che non conosco?</article>
+<article class="post" id="p23055"><div class="who"><b>Pigkappa</b><span>14 ott 2016, 12:12</span></div>Non ci sono regole, potete scegliere voi chi posta  :P</article>
+<article class="post" id="p23056"><div class="who"><b>Flaffo</b><span>14 ott 2016, 13:18</span></div>Ok, allora posterò il prossimo problema della staffetta</article>
+<nav class="pager"><a class="prev" href="olifis-6419.html"><small>← precedente</small>94. Gradiente di pressione</a><a class="next" href="olifis-6423.html"><small>successivo →</small>96. Periodo di un pendolo</a></nav>
+</main></body></html>

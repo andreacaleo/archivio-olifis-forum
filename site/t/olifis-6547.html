@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>123. Corda attorno a un palo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 123</a></span></nav>
+<h1>123. Corda attorno a un palo</h1>
+<p class="meta">21 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6547">forum Olifis</a></p>
+<article class="post first" id="p23834"><div class="who"><b>lance00</b><span>30 set 2017, 13:05</span></div>Una corda è avvolta N volte attorno a un palo. Un'estremità viene tirata applicando una tensione T, l'altra estremità è fissata a una barca. Sapendo che  il coefficiente di attrito statico corda-palo vale <span class="tex">\(\mu\)</span>  , e che la corda non slitta, qual è la forza applicata alla barca?</article>
+<article class="post" id="p23841"><div class="who"><b>carol</b><span>1 ott 2017, 10:34</span></div>Non vedo la posizione del palo sembrando le estremità libere, una applicata alla barca ed una dove si esercita T. Non so se proprio questa è una difficoltà del problema o se è deficitario il testo :?:  :?:</article>
+<article class="post" id="p23846"><div class="who"><b>carol</b><span>2 ott 2017, 17:58</span></div>Non riesco a risponderti in privato. Non vedo come sta il palo a cui è avvolta la corda: perpendicolare alla corda.. non lo vedo se non puoi dirmelo perchè non mi spiego pazienza :cry:  :cry:</article>
+<article class="post" id="p23848"><div class="who"><b>lance00</b><span>2 ott 2017, 19:00</span></div>Perpendicolare  :D</article>
+<article class="post" id="p23850"><div class="who"><b>carol</b><span>3 ott 2017, 11:05</span></div>Ma il palo di cui parli è fissato al terreno? :?:</article>
+<article class="post" id="p23854"><div class="who"><b>lance00</b><span>3 ott 2017, 15:08</span></div>Si</article>
+<article class="post" id="p23857"><div class="who"><b>carol</b><span>3 ott 2017, 19:50</span></div>Stasera a me non funziona il latex, cercherò di spiegarmi e dare il risultato.<br>
+Allora io vedo il vettore tensione T di un avvolgimento come il vettore velocità nel moto circ. uniforme. La sua variazione tangenziale è nulla ma la sua variazione normale che dà luogo all'acc. centripeta è v dalfa. Analogamente la variazione NORMALE di tensione relativa all'angolo d(alfa) sarà T.d(alfa). Essa provoca un'uguale reazione normale del palo come quella del collo di chi è strozzato. Quindi relativamente all'angolo d(alfa) la forza di attrito infinitesima sarà <strong class="text-strong">mu.T.d(alfa)</strong> la massima perchè si sa che la corda non scorre. Relativamente ad un avvolgimento sarà allora <strong class="text-strong">mu.T.2pigreco</strong>. Quindi la forza sulla barca considerando N avvolgimenti sarà <strong class="text-strong">N.mu.T.2pigreco</strong> :?:  :?:  :?:</article>
+<article class="post" id="p23858"><div class="who"><b>lance00</b><span>3 ott 2017, 20:23</span></div>Sicuro che la variazione tangenziale di T sia nulla?</article>
+<article class="post" id="p23859"><div class="who"><b>carol</b><span>4 ott 2017, 11:31</span></div>Allora non è vero che è come la velocità nel m.cir.unif.? Perchè pensavo che si trasmettesse inalterata lungo la corda tangenzialmente come avviene per i pesi sospesi attorno alla carrucola :?:  :?:</article>
+<article class="post" id="p23863"><div class="who"><b>lance00</b><span>4 ott 2017, 16:06</span></div>La tensione non è costante. Aumenta a causa dell'attrito  :D</article>
+<article class="post" id="p23867"><div class="who"><b>carol</b><span>5 ott 2017, 11:13</span></div>Questo vuol dire che per esempio nei tratti rettilinei esterni al palo è diversa da quella sugli avvolgimenti? Io credevo che la reazione di attrito del palo fosse dovuta alla comp. normale della tensione che è la causa. Devo pensarci perchè allora c'è interazione fra tensione e attrito e non è l'una causa dell'altro come siamo abituati con la componente normale del peso che genera una reazione normale a cui la forza d'attrito è prop.... :roll:  :roll:  :roll:</article>
+<article class="post" id="p23868"><div class="who"><b>carol</b><span>5 ott 2017, 13:19</span></div>Tornando a casa mi è allora ventuta questa idea. La forza di attrito relativa all'avvolgimento <span class="tex">\(d\alpha\)</span> che avevo calcolato in un post precedente va ad incrementare la tensione poiché dice il testo che la corda non scorre. Risulta cioè <span class="tex">\(\mu.T.d\alpha =dT\)</span>.  Separo le variabili e integro: rispetto a T viene a numer. la derivata del denomin. e quindi l'integ. è il log fra la tensione T di ingresso all'avvolgimento e quella di uscita T(u) che va alla barca; rispetto ad alfa integro fra 0 e 2Npigreco. In definitiva avrei che<br>
+<span class="tex">\(T(u) = T e^{2N \pi \mu}\)</span> :?:  :?:  :?:  :?:</article>
+<article class="post" id="p23870"><div class="who"><b>lance00</b><span>5 ott 2017, 13:51</span></div>Ti manca un <span class="tex">\(\mu\)</span> ad esponente</article>
+<article class="post" id="p23871"><div class="who"><b>carol</b><span>5 ott 2017, 14:15</span></div>Si hai ragione ho corretto. Comunque è giusto adesso?</article>
+<article class="post" id="p23873"><div class="who"><b>lance00</b><span>5 ott 2017, 18:20</span></div>si  :D</article>
+<article class="post" id="p23876"><div class="who"><b>Vinci</b><span>6 ott 2017, 15:14</span></div><blockquote><div><cite>carol ha scritto: <a href="olifis-6547.html#p23868" data-post-id="23868" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">5 ott 2017, 13:19</div></cite>
+La forza di attrito relativa all'avvolgimento <span class="tex">\(d\alpha\)</span> che avevo calcolato in un post precedente va ad incrementare la tensione poiché dice il testo che la corda non scorre. Risulta cioè <span class="tex">\(\mu.T.d\alpha =dT\)</span>.
+</div></blockquote>
+Perchè l'incremento della forza di attrito è proprio quello?</article>
+<article class="post" id="p23877"><div class="who"><b>FedeColo98</b><span>6 ott 2017, 17:45</span></div><blockquote><div><cite>Vinci ha scritto: <a href="olifis-6547.html#p23876" data-post-id="23876" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">6 ott 2017, 15:14</div></cite>
+Perchè l'incremento della forza di attrito è proprio quello?
+</div></blockquote>
+Prova a disegnare un pezzettino di corda sotteso da un angolo <span class="tex">\(d \theta\)</span>. Ora, tenendo conto che la tensione non è uguale ai capi di questo pezzettino (il mini-incremento è dovuto solamente alla forza di attrito), disegna i due vettori tensione. Scomponili in componenti e con la definizione di forza di attrito dovresti avere la strada spianata ;)</article>
+<article class="post" id="p23878"><div class="who"><b>Vinci</b><span>6 ott 2017, 17:58</span></div>Ah, si, mi esce, purchè si usi l'approssimazione <span class="tex">\(\sin\theta=\theta\)</span> per <span class="tex">\(\theta \rightarrow 0\)</span></article>
+<article class="post" id="p23879"><div class="who"><b>lance00</b><span>7 ott 2017, 10:09</span></div>Carol posta pure il 124  :D</article>
+<article class="post" id="p23880"><div class="who"><b>carol</b><span>7 ott 2017, 16:33</span></div>Io sono noioso ma per l'ultima(!!!) volta puoi proseguire tu? Mi scuso con tutti ma son sicuro che così ci guadagnamo tutti in preparazione :D  :D  :D</article>
+<article class="post" id="p23881"><div class="who"><b>lance00</b><span>7 ott 2017, 20:10</span></div>se proprio devo..  :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6540.html"><small>← precedente</small>122. La staffetta resuscita!</a><a class="next" href="olifis-6551.html"><small>successivo →</small>124. Pila di mattoni</a></nav>
+</main></body></html>

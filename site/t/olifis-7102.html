@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>274 - Triangolo di cariche</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 274</a></span></nav>
+<h1>274 - Triangolo di cariche</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7102">forum Olifis</a></p>
+<article class="post first" id="p27172"><div class="who"><b>DeoGratias</b><span>7 ott 2021, 20:33</span></div>Tre cariche puntiformi giacciono una ad ogni vertice di un triangolo. Le loro masse sono <span class="tex">\(m_1\)</span>, <span class="tex">\(m_2\)</span>, <span class="tex">\(m_3\)</span> e le loro cariche sono rispettivamente <span class="tex">\(Q_1\)</span>, <span class="tex">\(Q_2\)</span>, <span class="tex">\(Q_3\)</span>. Quando vengono rilasciate dal riposo, ognuna si muove lungo una diversa linea retta. <br>
+Il rapporto tra masse e cariche è <span class="tex">\(\frac{Q_1}{m_1}:\frac{Q_2}{m_2}:\frac{Q_3}{m_3}=1:\alpha :\beta\)</span> , con <span class="tex">\(\alpha\)</span>, <span class="tex">\(\beta\)</span> reali positivi maggiori di uno. Trovare gli angoli interni del triangolo in funzione di <span class="tex">\(\alpha, \beta\)</span></article>
+<article class="post" id="p27173"><div class="who"><b>Luca Milanese</b><span>8 ott 2021, 20:38</span></div>Assumo che l'attrazione gravitazionale sia trascurabile rispetto all'interazione elettrica fra le cariche. Poichè <span class="tex">\(\alpha\)</span> e <span class="tex">\(\beta\)</span> sono positivi, tutte le cariche hanno lo stesso segno, e si respingono. Se gli angoli restano costanti, allora la forza elettrica fa allargare le cariche in modo che i rapporti tra i lati restino pure costanti e il triangolo si dilati attorno al baricentro del sistema (che è fermo non essendoci forze esterne). Pongo lì l'origine del sistema di riferimento:<br>
+<span class="tex">\(m_1 \vec r_1 + m_2 \vec r_2 + m_3 \vec r_3 = \vec 0\)</span><br>
+Dalla Legge di Coulomb e dalla Seconda Legge di Newton si ha:<br>
+<span class="tex">\(m_1 \ddot{\vec r}_1 =\frac{Q_1}{4\pi \epsilon_0} \bigg [ \frac{Q_2 (\vec r_1 - \vec r_2)}{|\vec r_1 - \vec r_2|^3}+\frac{Q_3 (\vec r_1 - \vec r_3)}{|\vec r_1 -\vec r_3|^3} \bigg]\)</span><br>
+Inoltre, allontanandosi la prima carica radialmente dall'origine, si ha <span class="tex">\(\ddot{\vec r}_1 \propto \vec r_1\)</span>, e dunque:<br>
+<span class="tex">\(\bigg (\frac{Q_2 \vec r_2}{|\vec r_1 - \vec r_2|^3}+\frac{Q_3 \vec r_3}{|\vec r_1 - \vec r_3|^3} \bigg ) \propto \vec r_1\)</span><br>
+Sostituendo <span class="tex">\(\vec r_3=-\frac{m_1 \vec r_1 +m_2 \vec r_2}{m_3}\)</span>:<br>
+<span class="tex">\(\bigg(  \frac{Q_2 \vec r_2}{|\vec r_1 - \vec r_2|^3} - \frac{Q_3}{|\vec r_1-\vec r_3|^3} \frac{m_1 \vec r_1 + m_2 \vec r_2}{m_3} \bigg) \propto \vec r_1\)</span><br>
+Da cui:<br>
+<span class="tex">\(\vec r_2 \bigg( \frac{Q_2}{|\vec r_1 - \vec r_2|^3} - \frac{m_2}{m_3} \frac{Q_3}{|\vec r_1 - \vec r_3|^3}\bigg) \propto \vec r_1\)</span><br>
+E quindi, essendo le tre cariche non allineate, si deve avere:<br>
+<span class="tex">\(\frac{Q_2}{m_2} |\vec r_1 - \vec r_3|^3=\frac{Q_3}{m_3} |\vec r_1-\vec r_2|^3\)</span><br>
+Il ragionamento si estende facilmente alle altre cariche, perciò, detti <span class="tex">\(l_1=|\vec r_2 -\vec r_3|\)</span> e ciclici i lati del triangolo, si ha:<br>
+<span class="tex">\(l_1 \bigg (\frac{Q_1}{m_1}\bigg )^{\frac{1}{3}} =    l_2 \bigg (\frac{Q_2}{m_2}\bigg )^{\frac{1}{3}}   =      l_3 \bigg (\frac{Q_3}{m_3}\bigg )^{\frac{1}{3}} \)</span><br>
+Ovvero:<br>
+<span class="tex">\(l_1 : l_2 : l_3= 1 :\frac{1}{\alpha^{\frac{1}{3}}} : \frac{1}{\beta^{\frac{1}{3}}}\)</span><br>
+Infine, per il Teorema del Coseno:<br>
+<span class="tex">\(\cos \theta_1 = \frac{l_2^2+l_3^2-l_1^2}{2l_2 l_3}=\frac{(\frac{\beta}{\alpha})^{1/3}+(\frac{\alpha}{\beta})^{1/3}-(\alpha \beta)^{1/3}}{2}\)</span><br>
+<span class="tex">\(\cos \theta_2 =\frac{l_3^2+l_1^2-l_2^2}{2l_3 l_1}    =\frac{(\frac{1}{\beta})^{1/3}+\beta^{1/3}-(\frac{\beta}{\alpha^2})^{1/3}}{2}\)</span> <br>
+<span class="tex">\(\cos \theta_3 =\frac{l_1^2+l_2^2-l_3^2}{2l_1 l_2}    =\frac{(\frac{1}{\alpha})^{1/3}+\alpha^{1/3}-(\frac{\alpha}{\beta^2})^{1/3}}{2}   \)</span></article>
+<article class="post" id="p27174"><div class="who"><b>DeoGratias</b><span>8 ott 2021, 20:53</span></div>Esatto, vai con il 275! :D</article>
+<nav class="pager"><a class="prev" href="olifis-7101.html"><small>← precedente</small>273: Gas di dipoli magnetici</a><a class="next" href="olifis-7103.html"><small>successivo →</small>275. Campo elettrico intermittente</a></nav>
+</main></body></html>

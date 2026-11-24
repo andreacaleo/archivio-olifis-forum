@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atterraggio su pianeta alieno</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Atterraggio su pianeta alieno</h1>
+<p class="meta">33 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=105">forum Olifis</a></p>
+<article class="post first" id="p978"><div class="who"><b>Falco5x</b><span>14 mag 2009, 9:24</span></div>Tralasciando per un momento aste, molle e palle terrestri in cerca di più ampi orizzonti, mi sposto nello spazio alieno e vi propongo un incubo elaborato nel corso di una notte insonne.<br>
+<br>
+Un’astronave sorvola orizzontalmente ad altezza costante h un pianeta privo di atmosfera e con accelerazione di gravità g (assunta costante nel tratto tra il suolo e la quota di volo qui considerata).<br>
+L’astronave inizialmente lanciata a forte velocità rallenta fino a quando, raggiunta la velocità <span class="tex">\({v_0} = \sqrt {gh}\)</span> , sgancia un modulo di atterraggio dotato di razzi frenanti che operano esclusivamente in direzione tangenziale rispetto alla traiettoria seguita. Il modulo è pilotato da un computer in grado di controllare la quantità di combustibile consumato nel tempo (espulso sotto forma di gas), regolandolo in modo da far assumere alla  traiettoria la forma di un arco di circonferenza.<br>
+<br>
+<a class="lost" href="http://img89.imageshack.us/img89/1338/atterraggio.jpg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Ulteriori ipotesi:<br>
+- pianeta considerato sistema di riferimento inerziale a superficie piana<br>
+- <span class="tex">\({e_S}\)</span> energia specifica efficace del carburante (quota di energia per massa unitaria di carburante che si trasforma in energia cinetica di modulo + gas): si effettuino le opportune approssimazioni assumendo sempre <span class="tex">\({e_S} \gg {v^2}\)</span><br>
+<br>
+Si chiede quanto segue.<br>
+- Verificare che alle condizioni specificate il modulo giunge a terra indenne.<br>
+- Nota la massa iniziale <span class="tex">\({m_0}\)</span> del modulo determinare la massa del carburante consumato; applicare al caso <span class="tex">\({m_0} = 1000kg\)</span> , <span class="tex">\({v_0} = 100m/s\)</span>, <span class="tex">\({e_S} = 0,5MJ/kg\)</span></article>
+<article class="post" id="p987"><div class="who"><b>CoNVeRGe.</b><span>17 mag 2009, 10:37</span></div>Può essere che la massa sia <span class="tex">\(\displaystyle 30 kg\)</span>?</article>
+<article class="post" id="p988"><div class="who"><b>Falco5x</b><span>17 mag 2009, 15:12</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Può essere che la massa sia <span class="tex">\(\displaystyle 30 kg\)</span>?</div></blockquote>
+Premesso che la soluzione non la conosco (nel senso che questo esercizio l'ho inventato io, e quindi non è un esercizio del quale la soluzione sia già nota), e premesso anche che non sono infallibile :D , tutto ciò premesso a me viene circa 260 kg.<br>
+Sarei curioso di sapere come hai ragionato.</article>
+<article class="post" id="p989"><div class="who"><b>CoNVeRGe.</b><span>17 mag 2009, 15:32</span></div>Chiedevo appunto perchè ho fatto una cosa che non so se si puo fare...  :roll: <br>
+<br>
+Ho scritto questa equazione energetica sulla discesa del modulo:<br>
+<br>
+<span class="tex">\(\displaystyle dK = e_S dm - mg dh = (1/2) m [(v+dv)^2 - v^2]\)</span><br>
+<br>
+con <span class="tex">\(\displaystyle dK\)</span>, <span class="tex">\(\displaystyle dv\)</span>, <span class="tex">\(\displaystyle dh\)</span> e <span class="tex">\(\displaystyle dm\)</span> tutti negativi.<br>
+<br>
+Da sopra si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{e_s}{m}dm - g dh = v dv\)</span><br>
+<br>
+Ora si puo integrare tutto assieme dal punto di partenza al punto di atterraggio? Non lo so.. :?</article>
+<article class="post" id="p990"><div class="who"><b>Falco5x</b><span>17 mag 2009, 15:59</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Ho scritto questa equazione energetica sulla discesa del modulo:<br>
+<br>
+<span class="tex">\(\displaystyle dK = e_S dm - mg dh = (1/2) m [(v+dv)^2 - v^2]\)</span><br>
+<br>
+con <span class="tex">\(\displaystyle dK\)</span>, <span class="tex">\(\displaystyle dv\)</span>, <span class="tex">\(\displaystyle dh\)</span> e <span class="tex">\(\displaystyle dm\)</span> tutti negativi.
+</div></blockquote>
+Direi che non puoi fare così. Infatti come puoi immaginare la maggior parte dell'energia del combustibile si trasforma in energia cinetica dei gas espulsi (che in questo tuo bilancio non compaiono!), i quali vanno velocissimi rispetto al modulo.<br>
+Il modulo frena a causa del principio di azione-reazione, e dunque va fatto un bilancio di quantità di moto, non puoi usare così direttamente l'energia del combustibile come se fosse quella dissipata da un freno!</article>
+<article class="post" id="p991"><div class="who"><b>CoNVeRGe.</b><span>17 mag 2009, 16:11</span></div>Ah ecco, mi ero scordato cosa fosse precisamente <span class="tex">\(\displaystyle e_S\)</span>...<br>
+Ora provo a capire come si puo utilizzare.</article>
+<article class="post" id="p992"><div class="who"><b>CoNVeRGe.</b><span>17 mag 2009, 18:26</span></div>Il problema mi sta creando problemi   :evil: <br>
+<br>
+Intanto posto un paio di cose utili e la risposta alla prima richiesta, in attesa di qualche hint:<br>
+<br>
+Dal disegno si evince che la tangente alla circonferenza tracciata dal modulo è perpendicolare al suolo nel punto di contatto con il suolo stesso. L'arco descritto quindi è un quarto di circonferenza.<br>
+<br>
+Siano <span class="tex">\(\displaystyle a_r\)</span> e <span class="tex">\(\displaystyle a_t\)</span> le accelerazioni del modulo in direzione radiale e tangenziale alla circonferenza, si ha per un generico punto della circonferenza:<br>
+<br>
+<span class="tex">\(\displaystyle ma_r = mg \cos \theta\)</span><br>
+<span class="tex">\(\displaystyle ma_t = mg \sin \theta - F\)</span><br>
+<br>
+con:<br>
+<span class="tex">\(\displaystyle \theta\)</span> l'angolo che una retta verticale fa con la retta che congiunge il punto-posizione con il centro della circonferenza<br>
+<span class="tex">\(\displaystyle m\)</span> la massa del modulo<br>
+<span class="tex">\(\displaystyle F\)</span> la forza frenante <span class="tex">\(\displaystyle ma\)</span> a cui è sottoposto il modulo grazie al combustibile<br>
+<br>
+Affinchè il moto sia circolare è necessario che la forza diretta radialmente sia istante per istante centripeta, quindi:<br>
+<br>
+<span class="tex">\(\displaystyle a_r = a_c \rightarrow g \cos \theta = v^2/h \Rightarrow v = \sqrt{gh \cos \theta}\)</span> <br>
+<br>
+Il modulo al momento dell'atterraggio ha dunque velocità nulla e rimane indenne.<br>
+<br>
+<span class="tex">\(\displaystyle a_t = \dot{v} = v_0 ({\sqrt{ \cos \theta }} )'  =  -  \frac{v_0 \sqrt{\cos \theta} \tan \theta}{2} \dot{\theta} = - \frac{\sin \theta }{2} g\)</span><br>
+<br>
+perchè <span class="tex">\(\displaystyle v = h \dot{ \theta}\)</span> e <span class="tex">\(\displaystyle v = \sqrt{gh \cos \theta}\)</span>.<br>
+<br>
+Da sopra si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle a = \frac{3}{2} g \sin \theta\)</span> <br>
+<br>
+<br>
+<br>
+Ora le conservazioni dell'energia e della quantità di moto tra due istanti vicinissimi:<br>
+<br>
+<span class="tex">\(\displaystyle dK = e_S dm - mg dh = \frac{1}{2}(m - dm) [(v+dv)^2 - v^2] + \frac{1}{2}dm (V^2 - v^2)\)</span><br>
+<br>
+<span class="tex">\(\displaystyle (m + dm) v = m (v + dv) + dm V\)</span><br>
+<br>
+con<br>
+<span class="tex">\(\displaystyle V\)</span> la velocità del carburante espulso in quell'istante<br>
+<span class="tex">\(\displaystyle dm\)</span> la quantità positiva di carburante espulso<br>
+<span class="tex">\(\displaystyle dv\)</span> la variazione, negativa, della velocità del modulo<br>
+<span class="tex">\(\displaystyle dh\)</span> la variazione, negativa, della quota del modulo<br>
+<br>
+Mettendo a sistema e trascurando vari infinitesimi si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle e_S dm - mg dh = \frac{(mdv)^2}{2dm}\)</span><br>
+<br>
+Direi che non sono sulla strada giusta  :)</article>
+<article class="post" id="p993"><div class="who"><b>Falco5x</b><span>17 mag 2009, 18:54</span></div>La prima parte è sostanzialmente giusta; solo un paio di piccole osservazioni.<br>
+Il fatto che l'arco sia 1/4 di circonferenza non si deve evincere dal disegno! deve essere una conseguenza della verifica, e allora la verifica dice che se h = R, dove R è il raggio della traiettoria circolare, allora la velocità al punto di contatto col suolo è nulla. E infatti questo l'hai trovato, però hai invertito premessa e conclusione. Però poco male, le considerazioni sulle accelerazioni e i valori trovati sono corretti. Anche se quella che tu chiami a in realtà non è l'accelerazione del modulo (la quale è invece la somma vettoriale di accelerazione normale più tangenziale), ma è la forza frenante divisa per la massa, tra l'altro col segno sbagliato.<br>
+Insomma facendo un po' di pulizia direi:<br>
+<br>
+<span class="tex">\({a_N} = g\cos \theta\)</span><br>
+<br>
+<span class="tex">\({a_T} =  - \frac{g}{2}\sin \theta\)</span><br>
+<br>
+<span class="tex">\(v = \sqrt {gh \cos \theta }\)</span><br>
+<br>
+<span class="tex">\({F_m} =  - \frac{3}{2}mg\sin \theta\)</span><br>
+<br>
+dove quest'ultima è la forza motrice, ovvero in questo caso frenante perché ha segno meno, e rappresenta la spinta pura del motore.<br>
+<br>
+Per quanto riguarda il seguito prima di dire se va bene aspetto di vedere se arrivi da qualche parte... :D</article>
+<article class="post" id="p994"><div class="who"><b>CoNVeRGe.</b><span>17 mag 2009, 19:27</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>
+Anche se quella che tu chiami a in realtà non è l'accelerazione del modulo (la quale è invece la somma vettoriale di accelerazione normale più tangenziale), ma è la forza frenante divisa per la massa, tra l'altro col segno sbagliato.
+</div></blockquote>
+Avevo scritto che <span class="tex">\(\displaystyle F = ma\)</span> quindi con a intendevo l'accelerazione frenante. Sul fatto del segno è il solito discorso, non so come devo metterlo. Avevo comunque posto F col segno meno nell'equazione sulla direzione tangenziale, e questo spiega il segno positivo di a.<br>
+<br>
+Per quanto riguarda il mio primo punto effettivamente l'ho trovato un po' ambiguo, osservando il disegno ho deciso di voler far atterrare il modulo sulle zampe  :D</article>
+<article class="post" id="p995"><div class="who"><b>Pairo</b><span>17 mag 2009, 19:51</span></div>Avrei una domanda su come avete calcolato la derivata rispetto al tempo per trovare l'accelerazione tangenziale, visto che è in funzione di <span class="tex">\(\theta\)</span>? Grazie mille!</article>
+<article class="post" id="p996"><div class="who"><b>CoNVeRGe.</b><span>17 mag 2009, 20:01</span></div><blockquote><div><cite>Pairo ha scritto:</cite>Avrei una domanda su come avete calcolato la derivata rispetto al tempo per trovare l'accelerazione tangenziale, visto che è in funzione di <span class="tex">\(\theta\)</span>? </div></blockquote>
+
+<span class="tex">\(\displaystyle v = \sqrt{gh cos \theta}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle a = \frac{d}{dt} \sqrt{gh cos \theta} = \sqrt{gh} \frac{d}{dt} \sqrt{cos \theta} =\)</span><span class="tex">\(\displaystyle \sqrt{gh}  \frac{1}{2 \sqrt{cos \theta}} \frac{d}{dt} cos \theta =  \frac{\sqrt{gh}}{2 \sqrt{cos \theta}} (- sin \theta) \frac{d}{dt} \theta = - \frac{\sqrt{gh}sin \theta}{2 \sqrt{cos \theta}} \dot{\theta}\)</span></article>
+<article class="post" id="p997"><div class="who"><b>Pairo</b><span>17 mag 2009, 20:33</span></div>Ok, sinceramente non ho mai operato così per le derivate, anche perché in effetti sono molto poco pratico con il calcolo con i differenziali, non avendoli fatti a scuola. Adesso ho poco tempo, dopo provo a guardarmelo bene. La prima parte del problema comunque mi viene uguale a converge ( a cui faccio i complimenti  :D) per la seconda ci provo questa sera tardi se riesco. Comunque grazie mille!</article>
+<article class="post" id="p998"><div class="who"><b>CoNVeRGe.</b><span>17 mag 2009, 21:04</span></div>Neanch'io ho mai fatto questa cosa e i differenziali a scuola.. ho imparato qualcosa mano a mano sul forum.<br>
+Per esempio ecco il fatto della derivata nel primissimo problema del forum:<br>
+<a href="olifis-8.html#p50" class="postlink">olifis/phpBB3/viewtopic.php?p=50#p50</a></article>
+<article class="post" id="p999"><div class="who"><b>Falco5x</b><span>17 mag 2009, 21:27</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>
+Anche se quella che tu chiami a in realtà non è l'accelerazione del modulo (la quale è invece la somma vettoriale di accelerazione normale più tangenziale), ma è la forza frenante divisa per la massa, tra l'altro col segno sbagliato.
+</div></blockquote>
+Avevo scritto che <span class="tex">\(\displaystyle F = ma\)</span> quindi con a intendevo l'accelerazione frenante. Sul fatto del segno è il solito discorso, non so come devo metterlo. Avevo comunque posto F col segno meno nell'equazione sulla direzione tangenziale, e questo spiega il segno positivo di a.
+</div></blockquote>
+Ok, però per sicurezza è sempre meglio riferire le grandezze a un unico verso di riferimento: quello secondo il quale è orientata la variabile spaziale (in questo caso la <span class="tex">\(\theta\)</span>). Altrimenti si rischia un enorme polverone e sbaglio sicuro.<br>
+E poi (scusa se insisto su una pignoleria, ma lo faccio solo perchè sei bravo e allora mi posso permettere anche le pignolerie), secondo me non ha senso parlare di accelerazione frenante quando questa non è affatto un elemento cinematico del problema. Ha invece senso parlare di forza frenante, che sommata alla forza di gravità dà la forza totale, da cui dividendo per la massa si ricava l'accelerazione reale (questa sì che lo è veramente!).</article>
+<article class="post" id="p1000"><div class="who"><b>Pairo</b><span>18 mag 2009, 0:08</span></div>Ok, a questo punto anch'io sono arrivato all'equazione di converge, ma per il momento non so come andare avanti. Però visto che è tardino ci penserò domani durante le ore di filosofia  :D</article>
+<article class="post" id="p1001"><div class="who"><b>Falco5x</b><span>18 mag 2009, 8:31</span></div><blockquote><div><cite>Pairo ha scritto:</cite>...ci penserò domani durante le ore di filosofia  :D</div></blockquote>
+ :lol:  <br>
+Ottimo sistema per impegnare le ore di filosofia, lo facevo anch'io (anche se oggi un po' me ne pento... :( ).</article>
+<article class="post" id="p1007"><div class="who"><b>Pairo</b><span>18 mag 2009, 16:22</span></div>Allora, io dovrei aver trovato una soluzione sensata. Premetto che ho abbandonato la strada di ieri perché alla fine mi sembrava difficile da portare avanti.<br>
+Allora, come detto nei post precedenti, si ha:<br>
+<span class="tex">\({F_m} = -\frac{3}{2}mg\sin \theta\)</span>. Dove la massa è una funzione dell'angolo <span class="tex">\(\theta\)</span> poichè decresce espellendo carburante.<br>
+Calcoliamo il lavoro infinitesimo compiuto dai motori, tra due istanti vicinissimi. Si ha:<br>
+<br>
+<span class="tex">\(dL = {F_m}hd\theta = {e_S}dm\)</span>.<br>
+<br>
+Sostituendo la forza con quella scritta sopra si possono separare le variabili e integrare entrambe i membri, risolvendo l'equazione differenziale. Si ottiene:<br>
+<br>
+<span class="tex">\({e_S}\ln{m_\theta}+C = 3/2 gh\cos\theta\)</span>, dove C è la costante di integrazione. Ponendo poi che <span class="tex">\({m_\theta} = {m_0}\)</span>, per <span class="tex">\(\theta = 0\)</span>, si ricava C.<br>
+Si può allora riscrivere l'equazione come segue:<br>
+<br>
+<span class="tex">\({e_S}\ln({m_\theta}/{m_0}) = 3/2 gh(\cos\theta -1)\)</span><br>
+<br>
+Il valore cercato è quello che corrisonde a<span class="tex">\(\theta = 90°\)</span>; si ha quindi infine:<br>
+<br>
+<span class="tex">\(\displaystyle {m_\theta} = {m_0} e^{-3/2(gh/{e_S})} = 970 Kg\)</span>.<br>
+<br>
+Che è il carburante consumato. L'ho scritto un po' in fretta perché ora devo uscire,quindi magari c'è qualche errore di calcolo, ma il procedimento mi sembra ragionevole.</article>
+<article class="post" id="p1009"><div class="who"><b>CoNVeRGe.</b><span>18 mag 2009, 16:54</span></div>Hai ottenuto la stessa mia equazione di prima. Infatti anche a me venivano 30 kg di carburante persi.<br>
+Come Falco5x ci ha fatto notare però, quel <span class="tex">\(dL = e_S dm\)</span> è il lavoro che il combustibile compie per frenare il modulo ma anche per espellere il gas. Come dice il testo "si traduce in energia cinetica di modulo+gas".<br>
+
+<blockquote><div><cite>Falco5x ha scritto:</cite>
+secondo me non ha senso parlare di accelerazione frenante quando questa non è affatto un elemento cinematico del problema. Ha invece senso parlare di forza frenante, che sommata alla forza di gravità dà la forza totale, da cui dividendo per la massa si ricava l'accelerazione reale (questa sì che lo è veramente!).</div></blockquote>
+L'ho definita accelerazione frenante perchè avevi chiamato la forza che la genera appunto 'frenante'. E sinceramente non ho capito il fatto che non è elemento cinematico e quello scritto tra parentesi..<br>
+<br>
+<br>
+<br>
+P.S. Pignolerie sempre ben accette!  ;)</article>
+<article class="post" id="p1011"><div class="who"><b>CoNVeRGe.</b><span>18 mag 2009, 17:44</span></div>Scrivendo i differenziali<br>
+<br>
+<span class="tex">\(\displaystyle dv = - \frac{1}{2}v \tan \theta d \theta\)</span><br>
+<br>
+<span class="tex">\(\displaystyle dh = -h \sin \theta d \theta\)</span><br>
+<br>
+e sostituendo all'equazione trovata prima si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle e_S \frac{dm}{d\theta}  + v^2m \tan \theta = \frac{m^2v^2 \tan ^2 \theta}{8} \frac{d \theta}{dm}\)</span><br>
+<br>
+Ho ridotto a <span class="tex">\(\displaystyle dm\)</span> e <span class="tex">\(\displaystyle d\theta\)</span> ma non saprei risolvere l'equazione..</article>
+<article class="post" id="p1014"><div class="who"><b>Pairo</b><span>18 mag 2009, 19:09</span></div>Sì, hai ragione non avevo visto la tua. Il problema è che continuando con l'altro modo si arriva ad una equazione differenziale che non so risolvere (a me viene diversamente il primo differenziale di v, però comunque ho un'equazione differenziale quasi uguale alla tua).<br>
+A questo punto io vorrei qualche hint se possibile  :D</article>
+<article class="post" id="p1017"><div class="who"><b>Falco5x</b><span>18 mag 2009, 20:17</span></div>Ma scusate: perché rimettere tutto in gioco (energia potenziale, cinetica ed energia del carburante) quando avete già un bellissimo risultato appena trovato che potete utilizzare, ovvero la forza motrice in funzione dell'angolo?<br>
+Nota la forza motrice, utilizzando una relazione che si può facilmente ricavare tra questa e l'azione degli ugelli (usando il principio di conservazione della quantità di moto), è possibile trovare tutto.</article>
+<article class="post" id="p1020"><div class="who"><b>Pairo</b><span>18 mag 2009, 23:05</span></div>Per il terzo principio di Newton, l'impulso ha uguale intensità sulla navicella e sul gas espulso, e quindi si può uguagliare l'impulso, con la forza f calcolata in precedenza, con la variazione della quantità di moto del gas. Però poi bisogna comunque passare dal principio di conservazione dell'energia, tenendo conto della forza applicata alla navicella e all'energia cinetica acquistata dal gas. Non sono molto fiducioso però, mi sembra molto simile al percorso di prima..</article>
+<article class="post" id="p1023"><div class="who"><b>Falco5x</b><span>19 mag 2009, 1:37</span></div><blockquote><div><cite>Pairo ha scritto:</cite>Per il terzo principio di Newton, l'impulso ha uguale intensità sulla navicella e sul gas espulso, e quindi si può uguagliare l'impulso, con la forza f calcolata in precedenza, con la variazione della quantità di moto del gas. Però poi bisogna comunque passare dal principio di conservazione dell'energia, tenendo conto della forza applicata alla navicella e all'energia cinetica acquistata dal gas. Non sono molto fiducioso però, mi sembra molto simile al percorso di prima..</div></blockquote>
+Vai tranquillo, vedrai che si integra facilmente (ricorda l'approssimazione consigliata).</article>
+<article class="post" id="p1024"><div class="who"><b>Falco5x</b><span>20 mag 2009, 13:58</span></div>:o<br>
+Beh?<br>
+<br>
+Cos'è questa calma piatta?<br>
+<br>
+Non capisco se succede perché ritenete questo problema poco attraente, oppure perché l'avete archiviato in quanto troppo difficile... cosa che non solo non è vera, ma non è neppure degna di voi.<br>
+Ne avete risolti di ben più tosti!<br>
+<br>
+Forza dunque, attendo interventi risolutori.</article>
+<article class="post" id="p1025"><div class="who"><b>Pigkappa</b><span>20 mag 2009, 14:21</span></div>Magari tra le 2 di notte e l'una del pomeriggio successivo sono impegnati nel dormire e nell'andare a scuola  :P</article>
+<article class="post" id="p1026"><div class="who"><b>Falco5x</b><span>20 mag 2009, 16:12</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Magari tra le 2 di notte e l'una del pomeriggio successivo sono impegnati nel dormire e nell'andare a scuola  :P</div></blockquote>
+ :D <br>
+Vero! però tra l'una di notte del 19 (mio precedente post) fino alle 13 di oggi c'è stato anche tutto il pomeriggio di ieri e una lunga serata...<br>
+Se però hanno trovato di meglio da fare  ;) non posso certo biasimarli, anzi sono assolutamente con loro  :!:</article>
+<article class="post" id="p1027"><div class="who"><b>Pairo</b><span>20 mag 2009, 18:14</span></div>Allora ammetto che il problema mi aveva un po' scoraggiato, ma ieri invece ero a studiare per l'ultima terza prova, a cui sono riuscito a dedicare solo un pomeriggio di studio  :D . Con il problema non faccio molti passi avanti; per adesso sono arrivato qui:<br>
+<br>
+come avevo detto, per il terzo principio, con F calcolata prima, si ha:<br>
+<br>
+<span class="tex">\(Fdt = dmV\)</span>, dove V è la velocità del gas espulso. Per il principio di conservazione, eliminando gli infinitesimi di ordine superiore:<br>
+<br>
+<span class="tex">\(\frac{1}{2}dm(V^2-v^2)+mvdv=dm{e_S}\)</span>. Si può trascurare per ipotesi il termine di <span class="tex">\(v^2\)</span>, e semplificando <span class="tex">\(V\)</span> dalle due equazioni si arriva alla forma:<br>
+<br>
+<span class="tex">\(F^2(dt)^2 +2mvdvdm = 2(dm)^2{e_S}\)</span>, che considerando la relazione tra dt e dv si può ricondurre ad un'equazione a due sole variabili, che però è bruttissima.<br>
+<br>
+Dove sbaglio?</article>
+<article class="post" id="p1028"><div class="who"><b>Falco5x</b><span>20 mag 2009, 19:09</span></div>Pairo, in realtà nell'equazione finale stai eliminando la V dei gas di scarico, che invece sarebbe conveniente tenere perché sta nell'equazione principale della forza motrice.<br>
+Per determinare questa V mi aspetterei di vedere una relazione semplice perché i gas sono molto più veloci del modulo (si può assumerlo come ipotesi di lavoro e poi verificarlo a posteriori), e quindi si prendono quasi tutta l'energia del carburante. Come dire che nello sparo di un fucile quasi tutta l'energia della cartuccia va sul proiettile (e meno male, altrimenti il rinculo fracasserebbe la spalla di chi spara!).<br>
+In questo caso poi il modulo rallenta, quindi addirittura cede energia cinetica.<br>
+A margine ti faccio notare che V è la velocità relativa del gas, per cui forse nella tua equazione dell'energia non hai tenuto conto di questo (ma alla fine poco importa).<br>
+Prima di continuare aspetto di vedere se arrivano altri contributi.</article>
+<article class="post" id="p1029"><div class="who"><b>CoNVeRGe.</b><span>20 mag 2009, 20:19</span></div>La conservazione dell'energia è:<br>
+<br>
+<span class="tex">\(\displaystyle dL = e_S dm - (m + dm)g dy = \frac{1}{2}m[(v+dv)^2 - v^2] + \frac{1}{2}dm (V^2 - v^2)\)</span><br>
+<br>
+Con le dovute approssimazioni diventa:<br>
+<br>
+<span class="tex">\(\displaystyle dL = e_S dm - mg dy = mvdv + \frac{1}{2}dm (V^2 - v^2)\)</span><br>
+<br>
+La conservazione della quantità di moto:<br>
+<br>
+<span class="tex">\(\displaystyle |F| dt = - m dv = dm (V-v)\)</span><br>
+<br>
+Relazioni utili:<br>
+<br>
+<span class="tex">\(\displaystyle dy = - h \sin \theta d \theta\)</span><br>
+<br>
+<span class="tex">\(\displaystyle dv = - \frac{gh \sin \theta}{2v}d \theta\)</span><br>
+<br>
+<span class="tex">\(\displaystyle v dt = h d \theta\)</span><br>
+<br>
+Sostituendo <span class="tex">\(\displaystyle dy\)</span> e  <span class="tex">\(\displaystyle dv\)</span> nella conservazione dell'energia abbiamo:<br>
+<br>
+<span class="tex">\(\displaystyle dL = e_S dm + \frac{3}{2}mg h \sin \theta d \theta = \frac{1}{2}dm (V^2 - v^2)\)</span><br>
+<br>
+Se ricaviamo <span class="tex">\(\displaystyle V\)</span> dalla conservazione della quantità di moto e la inseriamo con il dovuto passaggio di variabile da <span class="tex">\(\displaystyle dt\)</span> a <span class="tex">\(\displaystyle d\theta\)</span> si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle dL = e_S dm + \frac{3}{2}mg h \sin \theta d \theta = \frac{9m^2g^2\sin^2 \theta (d\theta)^2}{8v^2 dm} + \frac{3}{2}mg h \sin \theta d \theta\)</span><br>
+<br>
+Semplificando, moltiplicando per <span class="tex">\(\displaystyle dm\)</span>  e facendo la radice quadrata:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{1}{m}dm = \frac{3}{2} \sqrt{ \frac{gh}{2e_S} } \frac{\sin \theta}{\sqrt{\cos \theta}} d\theta\)</span><br>
+<br>
+Quindi <br>
+<br>
+<span class="tex">\(\displaystyle \int_{m_0}^{m_{\pi/2}} \frac{1}{m}dm = \frac{3}{2} \sqrt{ \frac{gh}{2e_S} } \int_{0}^{\pi/2} \frac{\sin \theta}{\sqrt{\cos \theta}} d\theta\)</span><br>
+<br>
+<span class="tex">\(\displaystyle ln \frac{m_{\pi /2} }{m_0} = 3 \sqrt{ \frac{gh}{2e_S} }=3 \sqrt{ \frac{v^2}{2e_S} }\)</span><br>
+<br>
+Tutto ok, se non fosse per un segno meno  :shock: <br>
+
+<blockquote><div><cite>Falco5x ha scritto:</cite>:o<br>
+Beh?<br>
+Non capisco se succede perché ritenete questo problema poco attraente, oppure perché l'avete archiviato in quanto troppo difficile... cosa che non solo non è vera, ma non è neppure degna di voi.
+</div></blockquote>
+
+Sono impegnato anch'io questi giorni.. siamo indietro col programma di quinto e io sto a sua volta indietro al nostro programma.  :D <br>
+E poi con le robe differenziali sono ancora molto disorientato..</article>
+<article class="post" id="p1030"><div class="who"><b>Pairo</b><span>20 mag 2009, 20:23</span></div>Allora, intanto ringrazio Falco5x per l'infinita pazienza  :D ; alla fine dovrei essere riuscito ad arrivare al risultato numerico previsto (circa <span class="tex">\(260kg\)</span>), anche se ovviamente il mio procedimento ha tutto il diritto di essere sbagliato  :D.<br>
+Parto dalle premesse suggerite, e, nel bilancio energetico, considero solamente il contributo dato dai gas di scarico. Si ha allora<br>
+<br>
+<span class="tex">\(\displaystyle  {e_S}dm = \frac{1}{2}dmV^2\)</span> dove <span class="tex">\(V\)</span> è la velocità relativa dei gas nei confronti dell'astronave. Si ha allora:<br>
+<br>
+<span class="tex">\(\displaystyle  V = \sqrt{2{e_S}}\)</span><br>
+<br>
+Come prima, si può scrivere anche, per il terzo principio:<br>
+<br>
+<span class="tex">\(\displaystyle Fdt = dmV (1)\)</span> dove <span class="tex">\(F\)</span> è la forza calcolata prima e <span class="tex">\(V\)</span> è sempre la velocità relativa del gas.Poiché si ha inoltre:<br>
+<br>
+<span class="tex">\(\displaystyle dt = d\theta\sqrt{\frac{h}{gcos\theta}}\)</span> possiamo riscrivere l'equazione <span class="tex">\((1)\)</span> come segue:<br>
+<br>
+<span class="tex">\(-\frac{3}{2}g\sin\theta\sqrt{\frac{h}{gcos\theta}}d\theta = \frac{dm}{m}\sqrt{2{}e_S}\)</span> Risolviamo allora l'equazione differenziale, ottenendo:<br>
+<br>
+<span class="tex">\(\displaystyle {m_\theta} = e^{\frac{3{v_0}}{\sqrt{2{e_S}}}(\sqrt\cos\theta}-1)}{m_0}\)</span>.<br>
+<br>
+Da cui si ricava che la massa richiesta è <span class="tex">\({m_x} = 259 Kg\)</span>.</article>
+<article class="post" id="p1031"><div class="who"><b>Falco5x</b><span>20 mag 2009, 20:57</span></div>Bravi, ci siete arrivati e non avevo dubbi. :D <br>
+@ converge: hai sbagliato il segno perchè hai assunto la dm come positiva considerandola dal punto di vista dei gas. In realtà poiché m è invece la massa del modulo, devi considerare dm come il suo differenziale, e quindi dal punto di vista del modulo va cambiata di segno poiché la spinta si ottiene grazie a una perdita di massa.<br>
+Adesso però basta divertirvi, andate a studiare storia, filosofia, italiano, scienze, inglese, ecc. ecc. :twisted:</article>
+<article class="post" id="p1032"><div class="who"><b>Pairo</b><span>20 mag 2009, 21:09</span></div><blockquote class="uncited"><div>Adesso però basta divertirvi, andate a studiare storia, filosofia, italiano, scienze, inglese, ecc. ecc. </div></blockquote>
+Sì, ormai è ora  :D  Il problema era molto carino però..</article>
+<article class="post" id="p1033"><div class="who"><b>CoNVeRGe.</b><span>20 mag 2009, 21:15</span></div>E' vero  :!:  Alla fine è risultato molto carino e soprattutto molto utile per chi ha avuto poco a che fare con i vari dv, dt, dh, ...<br>
+<br>
+Complimenti per aver partorito questo problema e non sentirti minimamente in colpa per avermi fatto trascurare materie scolastiche  :lol:  :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-652.html"><small>← precedente</small>Universo d&#x27;acqua</a><a class="next" href="olifis-132.html"><small>successivo →</small>PreIPhO 2009-Problema 3</a></nav>
+</main></body></html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>235. Neutralità della materia.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 235</a></span></nav>
+<h1>235. Neutralità della materia.</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6983">forum Olifis</a></p>
+<article class="post first" id="p26472"><div class="who"><b>Luca Milanese</b><span>17 set 2020, 19:37</span></div>È noto che sulla superficie terrestre il campo elettrico ha un valore di circa <span class="tex">\(100 V/m\)</span>. Si supponga che ciò sia dovuto a una leggera differenza fra il modulo della carica elettrica di un protone e quello della carica elettrica di un elettrone, e la si indichi <span class="tex">\(\delta q = |q_p|-|q_e|\)</span>. Quanto può valere al massimo <span class="tex">\(\delta q\)</span>? È un valore sensato?</article>
+<article class="post" id="p26486"><div class="who"><b>east_beast</b><span>23 set 2020, 20:51</span></div>Assumendo una distribuzione omogenea e uniforme delle cariche, allora <span class="tex">\(|\vec E| =| \vec E_+ + \vec E_-| = \frac{\delta N }{4\pi \epsilon_0 R^2}\)</span><br>
+La massa delle cariche terrestri è <span class="tex">\(\sim M_T/2\)</span>, dato che gli elettroni hanno massa trascurabile rispetto a protoni e neutroni, e quest'ultimi non hanno carica. Dunque  <span class="tex">\(N = \frac{1}{2} M_T/m_p\)</span> dove <span class="tex">\(m_p\)</span> è la massa dei protoni. Dunque <span class="tex">\(E  = \frac{\delta M_T }{8m_p\pi \epsilon_0 R^2}\)</span>. Il campo gravitazionale terrestre <span class="tex">\(g = GM_T/R^2\)</span>, dunque <span class="tex">\(E =  \frac{\delta g}{8Gm_p\pi \epsilon_0}\)</span>, da cui <span class="tex">\(\delta = \frac{8Em_pG\pi \epsilon_0}{g} = 2.53 \cdot 10^{-46} C\)</span>, fatto impossibile, dato che come noto la carica è quantizzata e il valore minimo di una carica è <span class="tex">\(1.6 \cdot 10^{-19}C\)</span></article>
+<article class="post" id="p26487"><div class="who"><b>Luca Milanese</b><span>23 set 2020, 21:36</span></div>Tutto ok, compresa l'osservazione sull'ordine di grandezza di <span class="tex">\(\delta q\)</span>. Vai col 236! :D</article>
+<nav class="pager"><a class="prev" href="olifis-6980.html"><small>← precedente</small>234. Carica immagine</a><a class="next" href="olifis-6990.html"><small>successivo →</small>236. Cilindri Coassiali</a></nav>
+</main></body></html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Universo d&#x27;acqua</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Universo d'acqua</h1>
+<p class="meta">25 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=652">forum Olifis</a></p>
+<article class="post first" id="p5843"><div class="who"><b>Rigel</b><span>26 dic 2010, 16:20</span></div>Supponiamo di avere un universo pieno d'acqua (densità <span class="tex">\(\rho_a=1 g/cm^3\)</span>), cioè dove al posto dello spazio vuoto c'è dell'acqua distribuita uniformemente. immaginiamo ora che ci siano due "bolle" sferiche di raggio R a distanza r. se una è fatta d'olio (densità <span class="tex">\(\rho_o\approx 0,8 g/cm^3\)</span>) e l'altra è fatta di ferro (densità <span class="tex">\(\rho_f=7,8 g/cm^3\)</span>) e se le uniche forze sono quelle di tipo gravitazionale (dunque niente attriti viscosi supponiamo) come interagiranno le bolle?<br>
+<br>
+è un problema carino, magari non molto olimpico ma che ha dietro un'idea utile e che secondo me merita di essere visto  :)</article>
+<article class="post" id="p5849"><div class="who"><b>Enomis</b><span>26 dic 2010, 21:15</span></div>In effetti il seguente problema risulta abbastanza simpatico...<br>
+La soluzione al problema dovrebbe essere la seguente: nelle seguenti condizioni appare ovvio che tra le 2 bolle sferiche la bolla costituita da ferro effettuerà un'attrazione gravitazionale maggiore di quella d'olio, quindi considerando solo le 2 bolle la risultante sarebbe un vettore che parte dalla bolla d'olio a quella di ferro. Ma in realtà le bolle sono immerse in questo universo d'acqua,quindi considerando la minore densità della bolla d'olio nei confronti dell'acqua, la seguente bolla non potrà raggiungere la bolla di ferro.</article>
+<article class="post" id="p5850"><div class="who"><b>Pigkappa</b><span>26 dic 2010, 22:19</span></div><blockquote class="uncited"><div>quindi considerando solo le 2 bolle la risultante sarebbe un vettore che parte dalla bolla d'olio a quella di ferro.</div></blockquote>
+
+Stai dicendo che, se ci fossero solo le due sfere di olio e di ferro, la risultante delle forze interne del sistema sarebbe diversa da zero?</article>
+<article class="post" id="p5865"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Universo d&#x27;acqua</b><span>27 dic 2010, 18:23</span></div>Spero che questo spunto di riflessione non sia fantascienza. Secondo me l'idea chiave sta nel capire dove l'acqua effettivamente avverte la gravità. Essendo la forza di Archimede:<br>
+<br>
+<span class="tex">\(F=\rho_a\cdot a\cdot V\)</span><br>
+<br>
+Sulla Terra <span class="tex">\(\vec a=\vec g\)</span>, quindi la direzione della forza di Archimede è radiale. Ma in questo caso qual è la direzione di <span class="tex">\(\vec a\)</span> e quindi la direzione di <span class="tex">\(F\)</span>?</article>
+<article class="post" id="p5876"><div class="who"><b>Rigel</b><span>28 dic 2010, 19:48</span></div>capire dove punta il campo gravitazionale può essere d'aiuto, quanto alla forza di Archimede è di poco aiuto in questo caso<br>
+@enomis: non ho capito se quando dici che c'è un vettore forza che va dalla bolla d'olio a quella di ferro, ti riferisci alla forza totale tra le due bolle o solo a una parte, e se in quel caso ti trovi nell'universo d'acqua o in quello vuoto</article>
+<article class="post" id="p5879"><div class="who"><b>Enomis</b><span>29 dic 2010, 0:55</span></div>@enomis: non ho capito se quando dici che c'è un vettore forza che va dalla bolla d'olio a quella di ferro, ti riferisci alla forza totale tra le due bolle o solo a una parte, e se in quel caso ti trovi nell'universo d'acqua o in quello vuoto<br>
+<br>
+Rispondendo a Rigel ed anche a Pigkappa, nella seguente frase mi riferisco alla forza risultante tra le 2 bolle nel caso dell'universo vuoto.Spero di essere stato + chiaro  ;)</article>
+<article class="post" id="p5881"><div class="who"><b>Ippo</b><span>29 dic 2010, 3:08</span></div>@ Eagle: io non parlerei proprio di forza di Archimede in questo contesto: la forza di Archimede è data in un campo gravitazionale esterno (uniforme) assegnato, qui invece il campo gravitazionale è generato dal fluido stesso e tutto il discorso diventa abbastanza fuorviante. <br>
+@ Enomis: una forza non agisce "tra due cose", ma semmai su ciascuna delle due (e la terza legge ci dice che la risultante è nulla, con il che, alla lettera, il tuo ragionamento è sbagliato; ma forse ho capito male io?); quindi specificherei esattamente quale forza (direzione e verso) agisce su ciascuna bolla.</article>
+<article class="post" id="p5884"><div class="who"><b>pascal</b><span>29 dic 2010, 10:44</span></div>Forse conviene partire da due bolle d'acqua in acqua.</article>
+<article class="post" id="p5893"><div class="who"><b>Rigel</b><span>29 dic 2010, 16:01</span></div><blockquote><div><cite>pascal ha scritto:</cite>Forse conviene partire da due bolle d'acqua in acqua.</div></blockquote>
+Sì direi che è un'idea utile<br>
+<br>
+<span style="font-size: 25%; line-height: normal">Hint: a questo punto si può usare un trucchetto matematico che ha poco senso fisico e poi applicare il principio di sovrapposizione</span></article>
+<article class="post" id="p5905"><div class="who"><b>pascal</b><span>30 dic 2010, 13:33</span></div>Se poi si considerano in acqua due bolle vuote con superfici rigide prive di massa...</article>
+<article class="post" id="p5939"><div class="who"><b>egl</b><span>8 gen 2011, 15:15</span></div>Provo a dare una soluzione al problema: immagino innanzitutto che ci sia solo la bolla di ferro circondata da tantissima acqua. Questa bolla, per simmetria, non si muove, cioè tutti i vettori forza associati a tutte le singole interazioni particella d'acqua-ferro si annullano a vicenda. Ora immagino di prendere una bolla d'acqua vicino a quella di ferro e di sostituirla con una d'olio: il vettore forza che prima era associato alla regione d'acqua appena tolta è sostituito con uno di minore intensità. Sulla bolla di ferro allora ci dovrebbe essere una risultante la cui direzione è quella che unisce i centri delle due bolle e di verso opposto a quello ferro <span class="tex">\(\to\)</span> olio. Stesso ragionamento sulla bolla d'olio. Questa "sente" allora una forza verso l'altra bolla, ma la bolla d'olio ha densità minore del fluido in cui è immersa, per cui, se pure avverte una forza (una sorta di forza peso) questa è contrastata dalla forza di Archimede, il cui verso dovrebbe essere quello della risultante. Per cui secondo me le due bolle si allontanano.<br>
+<br>
+Tutto il mio discorso però non vale se il fatto di sostituire il vettore forza con uno di intensità minore, come ho detto all'inizio, non conta nel senso che non ha effetto poichè tutti gli altri vettori (dovuti all'interazione con l'acqua e allora infiniti, penso) annullano questa modifica o comunque la rendono totalmente ininfluente.</article>
+<article class="post" id="p5942"><div class="who"><b>Rigel</b><span>8 gen 2011, 18:54</span></div>Ok il discorso sul fatto che la bolla di ferro è respinta da quella di olio è giusto.
+<blockquote><div><cite>egl ha scritto:</cite>Tutto il mio discorso però non vale se il fatto di sostituire il vettore forza con uno di intensità minore, come ho detto all'inizio, non conta nel senso che non ha effetto poichè tutti gli altri vettori (dovuti all'interazione con l'acqua e allora infiniti, penso) annullano questa modifica o comunque la rendono totalmente ininfluente.</div></blockquote>
+mmm se ho capito bene quello che intendi allora, il ragionamento che hai fatto prima. come hai detto tu, se c'è solo il ferro la forza risultante è nulla. il sottrarre una certa forza (dovuta all'acqua che noi togliamo) e l'aggiungerne un'altra di intensità minore (è l'olio che ci mettiamo) fa variare la forza in modo non trascurabile (anche se la forza di interazione con una certa parte dell'acqua può essere molto più alta)<br>
+invece che sulla bolla d'olio agisca una forza di Archimede mi pare sbagliato. se fai lo stesso ragionamento di prima con olio e ferro scambiati trovi che se c'è solo l'olio non agisce nessuna forza su di esso, quindi non so da dove potrebbe uscire fuori se ci aggiungi il ferro</article>
+<article class="post" id="p5944"><div class="who"><b>Pigkappa</b><span>9 gen 2011, 0:22</span></div>Non so se ho capito qual è la soluzione che avete (=Rigel ed Ippo) in mente; forse è il caso che la postiate.<br>
+<br>
+<br>
+Comunque questo problema mi sembra più un'elucubrazione (per non dire di peggio  :P ) mentale che un problema fisico riconducibile alla realtà. La questione è un po' spinosa e perciò c'è sempre il rischio di dire delle stupidaggini; spero di non farlo.<br>
+<br>
+<br>
+Secondo me, se fosse un problema serio, dovremmo poterlo considerare il caso limite di qualche sistema che potrebbe esistere veramente.<br>
+<br>
+Ad esempio, mi immaginerei una grande sfera d'acqua (così grande da essere dominata dalle forze gravitazionali, perciò immaginiamola grande come un pianeta) in cui si trovano quelle due bolle di olio e ferro. La condizione che la sfera è "infinita" vorrebbe dire che il suo raggio è molto più grande del raggio delle sfere, delle distanze delle sfere dalla superficie e della distanza relativa tra le sfere.<br>
+Ebbene, in questo caso la forza che agisce su ogni bolla per effetto dell'acqua dipende dalla configurazione geometrica di queste due bolle ed il centro del pianeta. Se la distanza tra le bolle ed il centro è molto più grande del raggio delle bolle, questa forza possiamo anche calcolarla.<br>
+Se invece la forma del pianeta non è sferica, ma è qualcosa di meno regolare, la forza che l'acqua esercita sulle sfere è più difficile da calcolare e di certo non viene sempre lo stesso risultato.<br>
+Insomma, secondo me in questo quesito ci sono seri problemi dovuti agli effetti di bordo, che non sono trascurabili, e lo rendono fisicamente poco sensato.<br>
+<br>
+Provo a spiegarlo ancora in un altro modo. Se immaginiamo il pianeta di cui sopra e consideriamo una bolla d'acqua ad una certa distanza dal centro quando c'è solo acqua, questa sta ferma perchè è attratta verso l'interno dalla forza di gravità e respinta verso il fuori dalla pressione. Quando la sostituiamo con una bolla di ferro, la forza di gravità verso il dentro cambia (perchè dipende da <span class="tex">\(\rho\)</span>), ma la pressione no, e quindi c'è una forza netta sulla bolla dovuta a tutto il resto dell'acqua. Che questa forza netta sia trascurabile indipendentemente dalla configurazione geometrica mi pare falso.</article>
+<article class="post" id="p5945"><div class="who"><b>memedesimo</b><span>9 gen 2011, 10:08</span></div>Sono d'accordo con quanto scrive Pigkappa...</article>
+<article class="post" id="p5946"><div class="who"><b>Rigel</b><span>9 gen 2011, 16:04</span></div>L'ipotesi di avere una massa infinita di acqua era per evitare il problema degli effetti di bordo e quindi di una specie di spinta di Archimede, che invece esiste nella situazione che hai detto tu. Anzichè supporre che l'universo o meglio il pianeta ha dimensioni infinite, si può supporre che non solo le dimensioni delle bolle siano molto piccole rispetto al raggio del pianeta ma anche che la loro distanza dal centro sia molto più piccola del raggio del pianeta. In questo modo gli effetti di bordo sono a tutti gli effetti trascurabili.<br>
+<br>
+La soluzione a cui pensavo è questa:<br>
+se ci poniamo nella situazione in cui una bolla singola non risente di alcuna forza (quindi senza effetti di bordo), allora sulla Solla d'olio agisce una forza che la attrae verso quella di ferro (perchè c'è della massa in più che la attrae). Sulla bolla di ferro invece agisce una forza che la respinge da quella di olio (perchè c'è della massa in meno e quindi è come se la forza gravitazionale fosse dovuta a una massa negativa, che quindi la rende repulsiva). Perciò è come se la bolla di ferro fuggisse via, mentre quella di olio la rincorre.<br>
+<br>
+Nel caso limite in cui dimensioni e distanza dal centro del pianeta delle bolle sono molto più piccole del raggio del pianeta, è questo il comportamento delle bolle.<br>
+<br>
+A proposito degli effetti di bordo, vorrei fare un'osservazione. Se anzichè ferro e olio scegliamo due materiali con le densità tali che le due bolle hanno la stessa accelerazione (non ho fatto i conti ma credo che sia possibile), allore le due bolle si inseguono mantenendo sempre la stessa distanza. Ma se la gravità è una forza conservativa, allora qualsiasi energia di interazione tra le bolle non varia. Quindi da dove viene l'energia cinetica delle bolle?<br>
+Nel caso del pianeta d'acqua direi che l'energia viene dal fatto che le bolle cambiano posizione rispetto al centro del pianeta e quindi cambia anche l'energia di interazione con l'acqua.<br>
+Nel caso dell'universo infinito la questione mi sembra più spinosa e non saprei come se ne esce fuori</article>
+<article class="post" id="p5947"><div class="who"><b>Pigkappa</b><span>9 gen 2011, 17:20</span></div><blockquote><div><cite>Rigel ha scritto:</cite>L'ipotesi di avere una massa infinita di acqua era per evitare il problema degli effetti di bordo e quindi di una specie di spinta di Archimede, che invece esiste nella situazione che hai detto tu. Anzichè supporre che l'universo o meglio il pianeta ha dimensioni infinite, si può supporre che non solo le dimensioni delle bolle siano molto piccole rispetto al raggio del pianeta ma anche che la loro distanza dal centro sia molto più piccola del raggio del pianeta.</div></blockquote>
+
+Ci avevo pensato, ma purtroppo non funziona molto bene questa cosa. Non bisogna supporre che la loro distanza dal centro sia molto più piccola del raggio del pianeta, ma che sia molto più piccola del raggio delle bolle, per far sì che l'attrazione dovuta all'acqua più interna delle bolle sia trascurabile rispetto alla loro interazione.<br>
+Ma questo vorrebbe dire che le bolle si sovrappongono in buona parte, e direi che mescolando ferro ed olio non si possa dire che vale il principio di sovrapposizione e si sommano le loro densità...<br>
+<br>
+
+<blockquote><div><cite>Rigel ha scritto:</cite>Perciò è come se la bolla di ferro fuggisse via, mentre quella di olio la rincorre.</div></blockquote>
+
+Secondo me non è proprio così, a parte a <span class="tex">\(t=0\)</span>. È vero che facendo come dici tu le forze iniziali risultano dirette in questo modo; ma il fatto che le due bolle accelerino nella stessa direzione vuol dire chiaramente che la risultante delle forze è non nulla, e che quindi stanno interagendo con tutta l'acqua circostante. Per <span class="tex">\(t &gt; 0\)</span> l'andamento temo sia molto più complicato: l'acqua intorno tende a muoversi a sua volta e quindi potrebbe esserci una pressione sulle bolle che contrasta o favorisce il loro moto.</article>
+<article class="post" id="p5953"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Universo d&#x27;acqua</b><span>11 gen 2011, 16:19</span></div>Rigel, potresti scrivere il trucchetto matematico a cui hai accennato nell'hint?</article>
+<article class="post" id="p5971"><div class="who"><b>Ippo</b><span>15 gen 2011, 1:07</span></div>Il trucchetto che aveva in mente Rigel, che penso sia lo stesso che ho in mente io (questo problema o qualcosa di molto simile ci è stato proposto da un passante ( :lol: ) al pre-ipho 2008), è di "rinormalizzare la densità": immaginare di abbassare uniformemente la densità di tutto l'universo di una quantità pari alla densità dell'acqua. In questo modo restano:<br>
+- un infinito universo vuoto (sottraggo la densità dell'acqua all'acqua)<br>
+- una bolla di massa positiva (sottraggo la densità dell'acqua al ferro)<br>
+- una bolla di massa negativa (sottraggo la densità dell'acqua all'olio e mi esce un risultato negativo)<br>
+<br>
+A questo punto è un problema di interazione gravitazionale tra due corpi di cui uno ha massa negativa, ed è divertente per quanto abbastanza assurdo vedere come si comportano i segni delle varie grandezze e quindi i versi di forze e accelerazioni.<br>
+<br>
+Questa operazione è legale per quanto riguarda il campo gravitazionale, che rimane lo stesso ovunque nell'universo, ma effettivamente abbiamo cambiato abbastanza significativamente gli oggetti su cui il campo agisce, in particolare il vuoto in cui sembrano muoversi le cose dopo il trucchetto di rinormalizzare la densità non è in realtà vuoto, e ci sarebbe da considerare come dice Pig la pressione dell'acqua etc.: uno schifo. Chiaramente non essendo un vero problema di fisica di tutta questa roba non si tiene conto e ci si accontenta di queste considerazioni qualitative un po' a caso  :)</article>
+<article class="post" id="p5984"><div class="who"><b>SkZ</b><span>22 gen 2011, 4:13</span></div>fisicamente basta dire che prendiamo materia oscura (secondo la cosmologia attuale il 73% e' energia oscura, il 27% e' materia e solo il 4% e' materia barionica, quindi solo il 14% di tutta la materia) di densita' uniforme e costante; la materia oscura e' collisionless (unica interazione quella gravitazionale).<br>
+in un tale sistema il potenziale gravitazionale e' nullo ad eccezione per le 2 bolle.<br>
+<br>
+cmq in generale sottrarre cosi' la densita' del mezzo mi sembra un azzardo. soprattutto visto che la gravita' e' proporzionale alla densita' e non a differenze di densita' come invece avviene per la forza di galleggiamento.<br>
+considerato che le uniche forze sono le gravitazionali e che il sistema e' in quiete vuol dire che c'e' una forza gravitazionale esterna dalla parte della massa di ferro che attira il sistema. mi sembra strano.<br>
+<br>
+cmq una gigante rossa (densita' &lt;<span class="tex">\(0.001\;gcm^{-3}\)</span>) e una nana bianca (densita' ~<span class="tex">\(10^6\;gcm^{-3}\)</span>) messe vicine tendono a formare un close binary system e non a rincorrersi :P</article>
+<article class="post" id="p6056"><div class="who"><b>Catacian</b><span>6 feb 2011, 16:29</span></div>Salve a tutti, sono eoni che non scrivo sul forum, però stavolta ho da dire la mia. Dunque, un mio amico mi ha segnalato che su questo forum si iniziavano ad affermare troppe baggianate. Perciò, ho deciso di venire a dare una mano a Pigkappa, che mi sembra l'unico che abbia afferato il concetto ; )<br>
+<br>
+Dunque: per cominciare non è pensabile modificare la densità a tutti punti dell'universo (normalizzarla)<br>
+Immaginiamo di avere un'universo vuoto, in cui si trova solamente un pianeta fatto completamente di acqua, di densità 1. Con qualche conticino si può calcolare la pressione dell'acqua al centro del pianeta: il valore di questa pressione varia certamente con il raggio, raggiungendo il suo massimo al centro. Ora, se modifichiamo la densità dell'universo, sottraendo 1 sia allo spazio vuoto che al pianeta, otteniamo che il campo gravitazionale all'interno del pianeta è nullo in tutti i punti (Banale teorema di Gauss). Ciò implica che la pressione al suo interno è costante: contraddizione.<br>
+<br>
+Detto ciò, possiamo provare a risolvere il problema utilizzando un metodo più normale:<br>
+<br>
+Siano A e B due corpi sferici immersi in un universo isotropo pieno d'acqua. Siano sufficetemente piccoli e distanti da considerrare il valore del campo gravitazionale uniforme in un loro intorno. Inoltre sia A più denso dell'acqua e B meno denso dell'acqua.<br>
+<br>
+Diamo un verso ai campi gravitazionali:<br>
+Nella regione in cui si trova A il campo gravitazionale è diretto in direzione OPPOSTA rispetto a B. Infatti, un piano perpendicolare alla retta AB è di simmetria per l'intero universo, tranne che per il volume di B e un equivalemte volume B', pieno d'acqua, simmetrico rispetto al piano individuato prima. Ovviamente, essendo B' più massivo di B (in quanto B ha densità minore dell'acqua), il campo risultante in A sarà diretto verso B', cioè dal lato opposto di B.<br>
+<br>
+Nella regione in cui si trova B, invece, il campo è ovviamente diretto verso A, cioè verso l'oggetto più denso.<br>
+<br>
+La forza totale risultante su A è concorde con l'intensità del campo gravitazionale (supposta costante) in un suo intorno. Perciò, A subisce una forza che lo ALLONTANA da B. In formule, utilizzando il pricipio di archimede.<br>
+<span class="tex">\(F_{totale} = F_{gravitazionale}+ F_{Archimede}= V g (\rho_{A}-\rho_{acqua})\)</span><br>
+Infatti evidentemente si ha che <span class="tex">\((\rho_{A}-\rho_{acqua})&gt;0\)</span><br>
+<br>
+Analogamente, il corpo meno denso subisce una forza risultante discorde con il campo gravitazionale nella sua regione:<br>
+<span class="tex">\(F_{totale} = F_{gravitazionale}+ F_{Archimede}= V g (\rho_{B}-\rho_{acqua})\)</span><br>
+In questo caso però <span class="tex">\((\rho_{B}-\rho_{acqua})&lt;0\)</span><br>
+Quindi la forza è diretta in direzione OPPOSTA rispetto ad A.<br>
+<br>
+In definitiva, i due corpi si allontanano. Per fare altre considerazioni di fluidodinamica, conto di ripassare fra un annetto  :mrgreen:</article>
+<article class="post" id="p6130"><div class="who"><b>Claudio.</b><span>19 feb 2011, 21:34</span></div>Questo è un problema ideale, teorico, e in questo caso credo che una risposta quantitativa vada abbastanza bene  :roll: .<br>
+Comunque io credo che basti pensarla in questa maniera:<br>
+Mettiamoci nel piano di riferimento della palla di ferro, cioè dove essa è in quiete e rimane in quiete, ipotizzo che le due sfere si trovino in posizione tale che le pressioni dell'acqua siano equivalenti in ogni lato, adesso se immaginiamo l'acqua come tante sfere di volume uguale a quella d'olio queste avranno densità maggiore e saranno quindi attratte verso la sfera di ferro con maggiore forza, si addosseranno quindi attorno ad essa e spingeranno la bolla d'olio che quindi si allontanerà,e ciò è precisamente la spinta di archimede...</article>
+<article class="post" id="p6133"><div class="who"><b>Ippo</b><span>21 feb 2011, 13:21</span></div><blockquote><div><cite>Catacian ha scritto:</cite>La forza totale risultante su A è concorde con l'intensità del campo gravitazionale (supposta costante) in un suo intorno. Perciò, A subisce una forza che lo ALLONTANA da B. In formule, utilizzando il pricipio di archimede.<br>
+<span class="tex">\(F_{totale} = F_{gravitazionale}+ F_{Archimede}= V g (\rho_{A}-\rho_{acqua})\)</span><br>
+Infatti evidentemente si ha che <span class="tex">\((\rho_{A}-\rho_{acqua})&gt;0\)</span><br>
+<br>
+Analogamente, il corpo meno denso subisce una forza risultante discorde con il campo gravitazionale nella sua regione:<br>
+<span class="tex">\(F_{totale} = F_{gravitazionale}+ F_{Archimede}= V g (\rho_{B}-\rho_{acqua})\)</span><br>
+In questo caso però <span class="tex">\((\rho_{B}-\rho_{acqua})&lt;0\)</span><br>
+Quindi la forza è diretta in direzione OPPOSTA rispetto ad A.</div></blockquote>
+
+Ok. E non ti sembra che con questi conti tu stia facendo esattamente quello che proponevo io?  :mrgreen: <br>
+(stai sottraendo <span class="tex">\(\rho_{\rm acqua}\)</span> a tutto e ti rimane da studiare il moto di corpi con "massa equivalente" che può essere positiva o negativa). Non è che intendessi qualcosa di più generale di questo.<br>
+Quanto alla questione più generale della sovrapposizone lineare, non si tratta di baggianate e vediamo perché.<br>
+La linearità delle equazioni di Maxwell (perché se mettessimo cariche al posto di masse sarebbe tutto uguale, quindi di fatto stiamo parlando di cariche e campi elettrici legati dalle equazioni di maxwell statche, <span class="tex">\(\nabla \times \vec E=0\)</span> e <span class="tex">\(\nabla \cdot \vec E=4 \pi \rho\)</span>) garantisce che abbia senso fare la sovrapposizione lineare di due sistemi, nel senso che la soluzione per il campo elettrico di un sistema è uguale alla somma dei campi elettrici che risolvono due configurazioni di cui quella data è sovrapposizione. Questo si può fare. Quello che ci sarebbe di "contraddittorio" non tuo controesempio è che tu supponi che il campo ovunque nullo sia soluzione per un intero spazio tridimensionale uniformemente carico, il che è evidentemente falso perché ha divergenza nulla. Il campo gravitazionale per un universo d'acqua non può essere nullo e dipende in qualche modo da come si fa il limite all'infinito (in termini tecnici, dipende da una scelta di gauge). Esempio: si può pensare ad una sfera di raggio crescente che alla fine occupa tutto lo spazio, nel qual caso il campo risulta a simmetria radiale rispetto ad un certo punto, e linearmente crescente con la distanza; o si può pensare ad una lastra di spessore crescente, nel qual caso il campo viene perpendicolare al piano di simmetria e proporzionale alla distanza; o si può fare il limite di un cilindro di raggio crescente, nel qual caso di nuovo il campo viene radiale e linearmente dipendente dalla distanza. In ogni caso il campo nullo non è soluzione. Insomma, basta sommare alla soluzione per il tuo pianeta d'acqua la giusta soluzione per l'universo di "massa negativa uniforme" e i conti torneranno. <br>
+Questo vale solo per le soluzioni dei CAMPI; per altre grandezze come pressioni etc. non c'è a priori motivo per cui abbia senso fare questa cosa.<br>
+Mi scuso se sono stato poco chiaro e se mi sono spiegato solo ora, ma prima non avevo notato il messaggio.</article>
+<article class="post" id="p6134"><div class="who"><b>SkZ</b><span>21 feb 2011, 14:38</span></div>E' l'idea di applicare cosi' brutalmente la sottrazione che fa storcere il naso.<br>
+L'effetto e' uguale, ma l'introduzione delle "sfere-immagine" da un senso.<br>
+In effetti introducendo le 2 sfere di densita' differenti nell'universo omogeneo finisci per togliere l'omogeneita' ergo il campo gravitazionale non e' piu' esattamente uniforme<br>
+<br>
+Cmq grazie per il problema. Mi da da pensare :?<br>
+<br>
+PS per divagare completamente: per la gravitazione devi anche considerare condizioni di gauge a piu' di 3 dimensioni ;)<br>
+come essere sulla superficie di una sfera 4D<br>
+E la gravitazione e' sommabile solo in prima approssimazione.</article>
+<article class="post" id="p6139"><div class="who"><b>Claudio.</b><span>21 feb 2011, 21:08</span></div>O vedo nomi noti Skz ^^ quel gatto( sono certo che lo sia) sembra un gufo ^^<br>
+Scusata l'OT ma non si possono nascondere i messaggi.</article>
+<article class="post" id="p6140"><div class="who"><b>SkZ</b><span>21 feb 2011, 22:37</span></div>In verita' e' un tux-totoro ;)<br>
+<br>
+<a href="http://arxiv.org/abs/astro-ph/0701542" class="ext" class="postlink">http://arxiv.org/abs/astro-ph/0701542</a><br>
+a proposito di universi con densita' non nulle. anche se qui la distribuzione non e' uniforme</article>
+<nav class="pager"><a class="prev" href="olifis-53.html"><small>← precedente</small>Liquido in un cilindro che ruota.</a><a class="next" href="olifis-105.html"><small>successivo →</small>Atterraggio su pianeta alieno</a></nav>
+</main></body></html>

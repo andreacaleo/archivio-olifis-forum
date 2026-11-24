@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>225. Sistema di cariche che esplode</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 225</a></span></nav>
+<h1>225. Sistema di cariche che esplode</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6945">forum Olifis</a></p>
+<article class="post first" id="p26241"><div class="who"><b>Leonhard Euler</b><span>30 lug 2020, 16:17</span></div>Edit: mi hanno fatto notare che il problema precedente era davvero troppo noto<br>
+Un gran numero di particelle uguali con una massa <span class="tex">\(m\)</span> e carica <span class="tex">\(q\)</span>, sono distribuite uniformemente all’interno di una sfera di raggio <span class="tex">\(R\)</span>. Si rimuova la superficie che conteneva le cariche che quindi iniziano ad allontanarsi.<br>
+Determinare campo elettrico e potenziale dopo un tempo molto lungo e descrivere qualitativamente come si dispongono le cariche nello spazio.</article>
+<article class="post" id="p26245"><div class="who"><b>Luca Milanese</b><span>1 ago 2020, 19:47</span></div>Sia <span class="tex">\(N\)</span> il numero di cariche. Notiamo per prima cosa che, inizialmente, su una carica a distanza <span class="tex">\(r_0\)</span> dal centro agisce una forza repulsiva <span class="tex">\(\vec F=\frac{1}{4 \pi \epsilon_0} \frac{N q^2 r_0}{R^3}\hat r\)</span>. Infatti, per il teorema di Gauss la carica sperimenta una forza dovuta unicamente alla carica totale interna al guscio di raggio <span class="tex">\(r_0\)</span>, che, data l'iniziale uniformità della distribuzione di cariche, vale proprio <span class="tex">\(Nq \frac{r_0^3}{R^3}\)</span>. Segue che l'accelerazione iniziale della particella è <span class="tex">\(a_0 = \frac{N q^2 r_0}{4 \pi \epsilon_0 m R^3}\)</span>, proporzionale alla distanza iniziale dal centro <span class="tex">\(r_0\)</span>. Quindi cariche più lontane si allontanano più velocemente, per cui si può concludere che la carica totale racchiusa in un guscio di raggio <span class="tex">\(r(t)\)</span>, dove <span class="tex">\(r(t)\)</span> è la distanza variabile nel tempo di una carica dal centro, è costante e vale <span class="tex">\(Nq\frac{r(0)^3}{R^3}\)</span>. Sempre dal teorema di Gauss si ha allora che <span class="tex">\(m \ddot r = \frac{1}{4\pi \epsilon_0} \frac{N q^2 r_0^3}{R^3 r^2}\)</span>, cioè <span class="tex">\(\frac{d^2}{dt^2}\bigg( \frac{r}{r_0}\bigg)=\frac{Nq^2}{4 \pi \epsilon_0 m R^3} \bigg (\frac{r}{r_0} \bigg)^{-2}\)</span>. Pongo <span class="tex">\(x=\frac{r}{r_0}\)</span>: <br>
+<span class="tex">\(\ddot x=\frac{Nq^2}{4 \pi \epsilon_0 m R^3} \frac{1}{x^2}\)</span><br>
+Notiamo che questa equazione è indipendente da <span class="tex">\(r_0\)</span>, cioè vale per la legge oraria di ognuna delle cariche presenti inizialmente nella sfera (con le condizioni iniziali <span class="tex">\(x(0)=1\)</span> e <span class="tex">\(\dot x(0)=0\)</span>). Sia <span class="tex">\(x(t)\)</span> la sua soluzione: allora la distanza dal centro, in funzione del tempo, di una carica posta inizialmente a distanza <span class="tex">\(r_0\)</span> è <span class="tex">\(r(t)=r_0 x(t)\)</span>. Pertanto, la distribuzione di carica rimane uniforme in ogni istante. Allora, quando il raggio della sfera di cariche è <span class="tex">\(R(t)=Rx(t)\)</span>, l'espressione del campo elettrico è:<br>
+<span class="tex">\(\vec E(r) = \frac{1}{4 \pi \epsilon_0} \frac{Nq}{r^2} \hat r\)</span>   per <span class="tex">\(r&gt;R(t)\)</span><br>
+<span class="tex">\(\vec E(r) = \frac{1}{4 \pi \epsilon_0} \frac{Nqr}{R(t)^3} \hat r\)</span>   per <span class="tex">\(0&lt;r&lt;R(t)\)</span><br>
+Integrando, con la condizione <span class="tex">\(V(+\infty)=0\)</span>, si ottiene il potenziale elettrico nello spazio:<br>
+<span class="tex">\(V(r)=\frac{1}{4 \pi \epsilon_0} \frac{Nq}{r}\)</span> per <span class="tex">\(r&gt;R(t)\)</span><br>
+<span class="tex">\(V(r)=\frac{Nq}{8 \pi \epsilon_0 R(t)}\bigg(3-\frac{r^2}{R(t)^2} \bigg)\)</span> per <span class="tex">\(0&lt;r&lt;R(t)\)</span></article>
+<article class="post" id="p26249"><div class="who"><b>Leonhard Euler</b><span>2 ago 2020, 18:50</span></div>A te la staffetta, tutte le idee ci sono e i passaggi algebrici mi sembrano corretti.</article>
+<nav class="pager"><a class="prev" href="olifis-6942.html"><small>← precedente</small>224. Campo magnetico da un filo piegato</a><a class="next" href="olifis-6946.html"><small>successivo →</small>226. Sistema binario</a></nav>
+</main></body></html>

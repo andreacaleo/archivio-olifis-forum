@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>54: alte temperature</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 54</a></span></nav>
+<h1>54: alte temperature</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6164">forum Olifis</a></p>
+<article class="post first" id="p21285"><div class="who"><b>OrsoBruno96</b><span>17 ago 2015, 15:52</span></div>All'interno del sole avvengono molte reazioni nucleari. Una di queste è la seguente:<br>
+<br>
+<span class="tex">\(^7 Be + e^- \rightarrow ^7Li + \nu _e\)</span><br>
+<br>
+Se un nucleo di berillio fermo assorbe un elettrone fermo, il neutrino emesso ha energia <span class="tex">\(E_{\nu} = 1,44 * 10^{-13} J\)</span><br>
+<br>
+I nuclei di berillio tuttavia sono in moto casuale a causa della alta temperatura del sole e di conseguenza l'energia dei neutrini che arrivano sulla terra ha una deviazione standard di <span class="tex">\(\Delta E =5,54*10^{-17} J\)</span><br>
+<br>
+Trova la temperatura del nucleo del sole.<br>
+<br>
+(massa di un nucleo di berillio <span class="tex">\(m_{Be} = 11,65*10^{-27} Kg\)</span>. Considerare la massa dei neutrini trascurabile e trascurare lo sbilanciamento di carica della reazione.)</article>
+<article class="post" id="p21288"><div class="who"><b>Gimmy</b><span>18 ago 2015, 11:58</span></div>Sia <span class="tex">\(\vec v\)</span> la velocità del berillio, <span class="tex">\(\vec v_x\)</span> la sua proiezione lungo la direzione di vista e <span class="tex">\(\theta\)</span> l'angolo tra la direzione di vista e <span class="tex">\(\vec v\)</span>. Trattiamo il neutrino come un fotone e non una particella, data la sua massa trascurabile e scriviamo <span class="tex">\(E_\nu=hf\)</span>, dove <span class="tex">\(f\)</span> è la frequenza del neutrino emesso da un berillio fermo. Tuttavia i neutrini vengono emessi da una sorgente, il berillio, in movimento rispetto agli osservatori, quindi la frequenza misurata a Terra viene modificata a causa del Doppler. Perciò la frequenza rilevata <span class="tex">\(f'\)</span> è <span class="tex">\(f'=f\sqrt{\frac{1+\beta_x}{1-\beta_x}}\)</span>, dove <span class="tex">\(\beta_x=\frac{v_x}{c}\)</span>. Dato che, per il neutrino, <span class="tex">\(E\propto f\)</span>, vale anche <span class="tex">\(E'=E_\nu\sqrt{\frac{1+\beta_x}{1-\beta_x}}\)</span>.<br>
+Potendo il berillio emettere il neutrino in qualsiasi direzione, a Terra sarà misurata una certa distribuzione di <span class="tex">\(E'\)</span> di cui ci interessa trovare la deviazione standard.<br>
+Prima di tutto, notiamo che il valor medio di <span class="tex">\(E'\)</span> è sicuramente <span class="tex">\(E_\nu\)</span> (è come dire che <span class="tex">\(\theta\)</span> ha la stessa probabilità di essere maggiore o minore di <span class="tex">\(\pi/2\)</span>, ovvio per simmetria).<br>
+Poi, per calcolare la deviazione standard di <span class="tex">\(E'(\theta)\)</span> facciamo una media (integrale) pesata: moltiplichiamo lo scarto quadratico relativo ad <span class="tex">\(E'\)</span> (lo chiamiamo <span class="tex">\(\Delta E'(\theta)^2\)</span>) per un peso proporzionale alla probabilità che una direzione a caso formi un certo angolo <span class="tex">\(\theta\)</span> e dividiamo il tutto per la somma dei pesi. Quali sono questi pesi? "Una direzione a caso" vuol dire una retta a caso passante per il berillio, che può essere individuata univocamente (con una, diciamo, quasi-biiezione, dato che ci sono esattamente due punti per ogni retta) tramite la scelta di un punto su una superficie sferica arbitraria, facciamo di raggio <span class="tex">\(R\)</span>, di centro il berillio. I punti che individuano una retta con angolo <span class="tex">\(\theta\)</span> sono quelli appartenenti, oltre che alla superficie sferica, alla circonferenza il cui piano è perpendicolare alla direzione di vista e il cui raggio è <span class="tex">\(R\sin\theta\)</span>. Dunque anche la lunghezza della circonferenza sarà proporzionale a <span class="tex">\(\sin\theta\)</span>; ma la probabilità cercata è a sua volta proporzionale alla lunghezza della circonferenza, dunque il nostro peso è proprio <span class="tex">\(\sin\theta\)</span>.<br>
+L'ultimo accorgimento prima di passare ai conti è notare che le velocità del berillio che vengono fuori sono dell'ordine di <span class="tex">\(10^{-4}c\)</span> o <span class="tex">\(10^{-3}c\)</span>, quindi possiamo usare la formula classica del doppler anziché quella relativistica: <span class="tex">\(E'=E_\nu(1+\beta_x)=E_\nu(1+\beta\cos\theta)\)</span>, dove <span class="tex">\(\beta=v/c\)</span>. Per ottenere una stima dell'ordine di grandezza di <span class="tex">\(v\)</span> si può porre <span class="tex">\(\Delta E=E'(0)-E_\nu\)</span> e ricavare <span class="tex">\(v\)</span>.<br>
+Detto ciò, passiamo ai conti.<br>
+<span class="tex">\(\Delta E=\left(\frac{\displaystyle \int_0^\pi\Delta E'(\theta)^2\sin\theta\,\text{d}\theta}{\displaystyle\int_0^\pi\sin\theta\,\text{d}\theta}\right)^{\frac{1}{2}}=\left(\frac{\displaystyle \int_0^\pi\left(E'-E_\nu\right)^2\sin\theta\,\text{d}\theta}{\displaystyle\int_0^\pi\sin\theta\,\text{d}\theta}\right)^{\frac{1}{2}}=E_\nu\beta\left(\frac{\displaystyle \int_0^\pi\cos^2\theta\sin\theta\,\text{d}\theta}{\displaystyle\int_0^\pi\sin\theta\,\text{d}\theta}\right)^{\frac{1}{2}}=\quad=\displaystyle\frac{1}{\sqrt{3}}E_\nu\beta\)</span><br>
+da cui<br>
+<span class="tex">\(\displaystyle v=\sqrt{3}\frac{\Delta E}{E_\nu}c.\)</span><br>
+Ora è sufficiente uguagliare l'energia cinetica di un atomo di berillio a quella termica, ottenendo<br>
+<span class="tex">\(\displaystyle\frac{1}{2}m_{\text{Be}}v^2=\frac{3}{2}k_BT\implies T=\frac{m_{\text{Be}}}{k_B}\left(\frac{\Delta E}{E_\nu}\right)^2c^2.\)</span></article>
+<article class="post" id="p21289"><div class="who"><b>Simone256</b><span>18 ago 2015, 12:25</span></div><blockquote><div><cite>Gimmy ha scritto:</cite>...<br>
+Poi, per calcolare la deviazione standard di <span class="tex">\(E'(\theta)\)</span> facciamo una media (integrale) pesata: moltiplichiamo lo scarto quadratico relativo ad <span class="tex">\(E'\)</span> (lo chiamiamo <span class="tex">\(\Delta E'(\theta)^2\)</span>) per un peso proporzionale alla probabilità che una direzione a caso formi un certo angolo <span class="tex">\(\theta\)</span> e dividiamo il tutto per la somma dei pesi.</div></blockquote>
+
+WOOOW  :o  :o  :o</article>
+<article class="post" id="p21290"><div class="who"><b>OrsoBruno96</b><span>18 ago 2015, 12:43</span></div>Allora tutti i ragionamenti mi sembrano giusti, hai pure usato molte formalità nella scelta dell'angolo e il risultato viene giusto.<br>
+<br>
+C'è un solo problema: viene giusto perchè hai <span class="tex">\(\beta &lt;&lt;1\)</span><br>
+<br>
+La formula del doppler relativistico che hai scritto è valida solo se osservatore e sorgente si muovono uno verso l'altro senza componenti trasversali.<br>
+<br>
+la formula del doppler trasverso è leggermente diversa. ovviamente, visto che non avevamo velocità relativistiche, la formula classica va benissimo, ma se avessimo trovato <span class="tex">\(v = 0,99c\)</span> forse i conti sarebbero da rifare.<br>
+<br>
+A te il testimone per la staffetta :)</article>
+<article class="post" id="p21291"><div class="who"><b>Gimmy</b><span>18 ago 2015, 13:41</span></div>A dir la verità, prima di adesso, non conoscevo il Doppler trasverso, né mi ero mai posto il problema di considerare le componenti perpendicolari.<br>
+Quindi me lo andrò a vedere, anche perché lo trovo controintuitivo!  :)</article>
+<article class="post" id="p21292"><div class="who"><b>andrea96</b><span>18 ago 2015, 13:53</span></div>Giusto per aggiungere la presenza di un comune mortale in un post di soli iphoisti: il doppler trasverso è controintuitivo esattamente come lo è la dilatazione dei tempi, infatti mentre nel doppler longitudinali concorrono il "correre dietro" della sorgente all onda e la dilatazione dei tempi, nel doppler trasverso l unica causa è la seconda quindibviene a mancare la causa del doppler classico.</article>
+<article class="post" id="p21293"><div class="who"><b>sall96</b><span>18 ago 2015, 13:58</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Giusto per aggiungere la presenza di un comune mortale </div></blockquote>
+ Andrea un comune mortale...  :lol:  :lol:</article>
+<article class="post" id="p21294"><div class="who"><b>Henri Bergson</b><span>18 ago 2015, 16:56</span></div>Qui siete tutti dei comuni mortali, poveri stolti. Solo io, unico, grande, inimitabile filosofo spiritualista posso dare giudizi. <br>
+Tu andrea che parli di "dilatazione del tempo" appari ai miei occhi come un idiota che non capisce nulla di fisica e della vita. Esistono due tipi di tempi, uno è quello di cui parlavano i miei stolti compagni matematici nel periodo in cui studiavo quest'inutile disciplina all'univeristà, ed è lo stesso tipo di tempo di cui parlate voi; l'altro è il tempo interiore, quello che ordina gli eventi della coscienza, e questo tempo si dilata e si restringe continuamente ma non mi sembra sia stata spesa nemmeno una parola per questo tempo, nè una parola sull'immigrazione, nè una parola sui marò. Vergogna!</article>
+<article class="post" id="p21295"><div class="who"><b>Simone256</b><span>18 ago 2015, 17:15</span></div><blockquote><div><cite>Henri Bergson ha scritto:</cite>
+Tu andrea che parli di "dilatazione del tempo" appari ai miei occhi come un idiota che non capisce nulla di fisica</div></blockquote>
+Non tocchiamo il signor Maxwell  :o  :x <br>
+
+<blockquote><div><cite>Henri Bergson ha scritto:</cite>nemmeno una parola per questo tempo, nè una parola sull'immigrazione, nè una parola sui marò. Vergogna!</div></blockquote>
+HAHAHAHAHAHAHAHAHA</article>
+<nav class="pager"><a class="prev" href="olifis-6163.html"><small>← precedente</small>53: macchiana di atwood con filo massivo</a><a class="next" href="olifis-6166.html"><small>successivo →</small>55: una palla che gira e cade</a></nav>
+</main></body></html>

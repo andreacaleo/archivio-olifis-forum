@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1. Elettromagnetismo di base</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 1</a></span></nav>
+<h1>1. Elettromagnetismo di base</h1>
+<p class="meta">25 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4646">forum Olifis</a></p>
+<article class="post first" id="p15287"><div class="who"><b>Simone256</b><span>26 ago 2013, 8:59</span></div>Una domanda che forse ha interessato tutti durante i primi studi dell'elettromagnetismo:<br>
+Date una carica <span class="tex">\(Q\)</span> fissa e una carica <span class="tex">\(q\)</span> (inizialmente a riposo) di massa <span class="tex">\(m\)</span> e libera di muoversi ad una distanza iniziale <span class="tex">\(r\)</span>, determinare a che distanza <span class="tex">\(d\)</span> saranno dopo un tempo <span class="tex">\(t\)</span>.</article>
+<article class="post" id="p15289"><div class="who"><b>Simone256</b><span>26 ago 2013, 9:50</span></div>A me escono cose un po brutte da vedere e da calcolare...  :oops: <br>
+Forse ho sbagliato qualcosa!  :|</article>
+<article class="post" id="p15294"><div class="who"><b>Triarii</b><span>26 ago 2013, 12:32</span></div>Ma c'è una soluzione a portata? Perchè a me viene fuori una equazione differenziale non lineare obbrobriosa, e se il mio amichetto non ha sbagliato, la soluzione non mi pare per niente facile.<br>
+<a href="http://www.wolframalpha.com/input/?i=y%27%27%28t%29%3Dk%2F%28R-y%28t%29%29%5E2" class="ext" class="postlink">http://www.wolframalpha.com/input/?i=y% ... 8t%29%29^2</a> <br>
+Forse ho sbagliato io a impostare il problema...<br>
+Magari ci sono altre strade. Una che posso provare ma che mi sembra alquanto strana è di fare finta che al posto della forza elettromagnetica ci sia quella di gravità, cambiare le rispettive costanti, usare la terza legge di Keplero su un'orbita ellittica "molto schiacciata" (come qualcuno aveva fatto in un altro problema) per trovare il tempo che ci mette a collidere con l'altra carica, e poi usare la seconda legge per dire aree (infinitesimali) uguali in tempi uguali così magari ci viene una proporzione con l'area e il tempo trovato con la terza legge. Mi sembra una cosa però molto senza senso  :mrgreen:</article>
+<article class="post" id="p15295"><div class="who"><b>Simone256</b><span>26 ago 2013, 12:53</span></div>(cominciamo bene la staffetta...  :oops: )<br>
+Guarda... Mi sono reso conto anch'io che è un casino totale... Io avevo integrato due volte e la prima era soddisfacente ma la seconda...  :o <br>
+Domanda di analisi:<br>
+Visto che <span class="tex">\(S=\frac{v^2-v_0^2}{2a}\)</span> nel moto uniformemente accelerato, posso dire che <span class="tex">\(2adS=dv^2\)</span> e quindi <span class="tex">\(2 \int^{S}_{S_0} a(S) \mbox{ }dS=v^2-v_0^2\)</span> ???  :|</article>
+<article class="post" id="p15325"><div class="who"><b>Pigkappa</b><span>26 ago 2013, 18:43</span></div>Non penso che <span class="tex">\(x (t)\)</span> si possa scrivere analiticamente.<br>
+<br>
+Peraltro, ci sono complicazioni relative a questo problema che non potete immaginare. La carica <span class="tex">\(q\)</span> è accelerata, e le cariche accelerate <a href="http://en.wikipedia.org/wiki/Larmor_Radiation_formula" class="ext" class="postlink">irraggiano</a>...</article>
+<article class="post" id="p15327"><div class="who"><b>Simone256</b><span>26 ago 2013, 21:25</span></div>Ok io pensavo fosse un problema facile e invece...  :shock: <br>
+Hahahahaha  :roll: , Triarii ti lascio il testimone  ;)</article>
+<article class="post" id="p15329"><div class="who"><b>Triarii</b><span>26 ago 2013, 21:32</span></div>Woo quale onore :D Speriamo il prossimo problema vi piaccia :)</article>
+<article class="post" id="p15331"><div class="who"><b>Pigkappa</b><span>26 ago 2013, 22:47</span></div>"Ci sono complicazioni" <span class="tex">\(\displaystyle \ne\)</span> "Dovete smettere di pensarci"<br>
+<br>
+Sapendo che l'elettrone irraggia un'energia per unità di tempo data dalla formula di Larmor che è nel link di Wikipedia che ho messo sopra, come si può trovare la posizione in funzione del tempo?</article>
+<article class="post" id="p15350"><div class="who"><b>Triarii</b><span>27 ago 2013, 13:08</span></div>Dunque, al solito mi sono fermato perchè non riesco ad andare avanti  :? (Ci sta abbia interpretato male cosa dice la formula di Larmor)<br>
+Sia <span class="tex">\(E_i\)</span> l'energia meccanica iniziale della carica (pari a <span class="tex">\(-\frac {Qq} {4\pi \epsilon _0d}\)</span>), <span class="tex">\(U(t)\)</span> e <span class="tex">\(K(t)\)</span> rispettivamente l'energia potenziale e cinetica della particella in funzione del tempo e <span class="tex">\(L(t)\)</span> la quantità di energia per unità di tempo irraggiata dalla carica per l'equazione di Larmor.<br>
+Dovrebbe valere<br>
+<span class="tex">\(E_i=U(t)+K(t)-L(t)\cdot t\)</span><br>
+Svolgendola però viene una roba assurda...<br>
+Editato un errore</article>
+<article class="post" id="p15357"><div class="who"><b>Pigkappa</b><span>27 ago 2013, 21:04</span></div>Trovare un'equazione differenziale la cui soluzione dà <span class="tex">\(\displaystyle x(t)\)</span> è più che sufficiente.</article>
+<article class="post" id="p15358"><div class="who"><b>Triarii</b><span>27 ago 2013, 21:28</span></div>{editato errori]</article>
+<article class="post" id="p15359"><div class="who"><b>Pigkappa</b><span>27 ago 2013, 21:52</span></div><span class="tex">\(L(t)\)</span> non è costante, non capisco perché lo moltiplichi per t...</article>
+<article class="post" id="p15360"><div class="who"><b>Triarii</b><span>27 ago 2013, 22:00</span></div>Giusto...<br>
+L'equazione iniziale sarebbe <br>
+<span class="tex">\(E_i=U(t)+K(t)-\frac {e^2} {6\pi \epsilon _0c^3} \int_{0}^{t} \ddot x d\tau\)</span></article>
+<article class="post" id="p15363"><div class="who"><b>Pigkappa</b><span>28 ago 2013, 3:46</span></div>Ok, questa però è perfino integro-differenziale, a me piacerebbe restasse scritta  una bella equazione differenziale con le giuste condizioni iniziali, con tutti i termini scritti in funzione di costanti fondamentali e dei dati del problema, senza quantità che sono state definite (peraltro con formule sbagliate) nella pagina prima del topic.<br>
+<br>
+<br>
+(non lo chiedo perché sono pignolo, ma perché, una volta che l'equazione è scritta bene, dovrebbero venire fuori cose interessanti)</article>
+<article class="post" id="p15427"><div class="who"><b>Andg94</b><span>31 ago 2013, 0:42</span></div>Se ho ben capito le cose interessanti a cui si riferisce Pigkappa (ho letto qualcosa su Wikipedia, ma non molto, non voglio rovinarmi del tutto la sorpresa), allora vale veramente la pena risolvere questo problema per bene  ;) <br>
+Comunque provando a ricavarmi un'equazione che descrivesse l'andamento dell'accelerazione o della velocità (la mia idea era di applicare, una volta ricavata, un procedimento simile a quello usato da gilgamesh <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=12&amp;t=4434" class="ext" class="postlink">qui</a>) sono arrivato alle seguenti e vorrei sapere se ho scritto quattro cavolate oppure no:<br>
+<span class="tex">\(F \frac{dx}{dt} = \frac{q^2}{6 \pi \epsilon_0 c^3} v'^2 \, \, \to \, \, F v= k v'^2 \, \, \to \, \, m v' v = k v' v' \, \, \to \, \, v= \frac{q^2}{6 \pi \epsilon_0 c^3 m} v'\)</span><br>
+Da cui anche: <span class="tex">\(a=\frac{q^2}{6 \pi \epsilon_0 c^3 m} a'\)</span>.<br>
+Non sono molto sicuro siano corrette dato che la <span class="tex">\(v'\)</span> che c'è al primo membro direi che è differente da quella al secondo membro, ma non saprei come altro procedere. Provando a passare per l'integrale della potenza per <span class="tex">\(dt\)</span>, invece, mi blocco ad un certo punto e dopo aver integrato per parti non riesco ad andare avanti...  :?</article>
+<article class="post" id="p15428"><div class="who"><b>Pigkappa</b><span>31 ago 2013, 1:48</span></div><blockquote><div><cite>Andg94 ha scritto:</cite>Da cui anche: <span class="tex">\(a=\frac{q^2}{6 \pi \epsilon_0 c^3 m} a'\)</span></div></blockquote>
+Ci stiamo avvicinando, ma il termine della normale forza coulombiana come ha fatto a scomparire?<br>
+<br>
+Prima di parlare di paradossi temporali e formule alternative, vorrei vedere una volta un'equazione differenziale scritta bene e con i termini che mi aspetto... Basta che arrivate all'equazione differenziale senza provare a risolverla.</article>
+<article class="post" id="p15433"><div class="who"><b>gilgamesh</b><span>31 ago 2013, 10:38</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Ci stiamo avvicinando, ma il termine della normale forza coulombiana come ha fatto a scomparire?
+</div></blockquote>
+
+Credo che si stia parlando di questo termine <span class="tex">\(\frac {Qq}{4 \pi \varepsilon_0 d^2} \cdot\frac{dx}{dt}\)</span> dove <span class="tex">\(d=r+x\)</span>, per cui <span class="tex">\(\frac {Qq}{4 \pi \varepsilon_0 (r+x)^2}\cdot \frac{dx}{dt}\)</span>. Ora , dato che si sta lavorando in termini di potenza , mentre in un caso la forza culombiana agisce sulla carica accelerandola, mentre per Larmor la carica emette radiazione elettromagnetica (forse sto dicendo cavolate) , ma i termini dovranno avere segno opposto...<br>
+<br>
+<span class="tex">\(F \dot {x}= \frac {Qq}{4\pi \varepsilon_0 (r+x)^2} \dot x -\frac{q^2}{6 \pi \varepsilon_0 c^3} {\ddot {x}}^2\)</span></article>
+<article class="post" id="p15448"><div class="who"><b>Andg94</b><span>1 set 2013, 0:59</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>ma il termine della normale forza coulombiana come ha fatto a scomparire?</div></blockquote>
+Non è scomparso, semplicemente stavo tentando di ricavarmi solo l'accelerazione (o, meglio, la decelerazione) dovuta all'emissione di radiazione e non l'equazione generale includendo anche la forza coulombiana. Comunque, se il termine che ho ricavato è corretto si dovrebbe scrivere qualcosa del tipo:<br>
+<span class="tex">\(\displaystyle \ddot  {x}=  \frac{A}{(r+x)^2} - B \dddot{x}\)</span> dove <span class="tex">\(A=\frac{kQq}{m}\)</span> e <span class="tex">\(B=\frac{q^2}{6 \pi \varepsilon_0 c^3 m}\)</span>.</article>
+<article class="post" id="p15450"><div class="who"><b>Pigkappa</b><span>1 set 2013, 4:41</span></div>Dovrei dire parecchie cose, ma fino a martedì sono impossibilitato perché devo comsegnare la tesi quel giorno e non ho mezz'ora da sacrificare purtroppo, e la discussione rischierebbe di morire nel frattempo. Perció dico solo:<br>
+<br>
+- Quella formula in qualche senso ha problemi di causalità che potete leggere a <a href="http://tinyurl.com/66vmlp8" class="ext" class="postlink">http://tinyurl.com/66vmlp8</a><br>
+ (sarà un po' faticoso).<br>
+- Spesso in modelli fenomenologici si sostituisce il termine con la terza derivata con uno con la prima, così che si comporti come un attrito normale, e più o meno funziona.<br>
+- Ricordatevi da ora che particelle cariche accelerate perdono energia!</article>
+<article class="post" id="p15506"><div class="who"><b>poor</b><span>5 set 2013, 11:11</span></div>Non so ancora scrivere bene <em class="text-italics">latex</em> ma voglio esprimermi prima di martedi avendo anticipato sull'Halliday in questo periodo a causa di questo problema lo studio dell'elettrostatica che farò quest'anno. L'energia di q è sempre <br>
+E(t)= <span class="tex">\((1/2)mv^{2}+ kQq/x\)</span><br>
+dove x&gt;r è la distanza istantanea di q da Q e <span class="tex">\(k=1/4\pi\epsilon_0\)</span>. Se non ci fosse l'irraggiamento da parte di q, che deve muoversi di moto rettilineo e che non risente del campo magnetico che genera essendo una corrente, E(t) rimarrebbe costante ed uguale a kQq/r: infatti la sua derivata sarebbe sempre nulla essendo uguale a (derivata di due funzioni composte del tempo)<br>
+E'(t)= v(ma - kQq/xquadrato)<br>
+ed annullandosi la parentesi tonda per la seconda legge della dinamica ma=forza di Coulomb. v è xpunto ed a è xdue punti, come dite voi.<br>
+In presenza di irraggiamento invece deve essere<br>
+E'(t)= alla sua variazione per unità di tempo=v(ma- kQq/xquadrato)= potenza perduta =-<span class="tex">\(q^{2}a^{2}/6\pi\epsilon_0 c^{3}\)</span><br>
+Da questa uguaglianza appare evidente che per forza E'(t)&lt;0 e che quindi E(t) decresce continuamente fino a che non si annulla quando x è così grande da ritenersi infinito. Se non ci fosse irraggiamento q arriverebbe invece all'infinito con un'energia cinetica pari alla sua energia potenziale iniziale kQq/r. Mi era sorto il dubbio che esistesse qualche x per cui, compensandosi la forza di Coulomb con la forza frenante per irraggiamento, fosse a=0. Ma qui è un casino perchè a è contemporaneamente effetto della forza e causa della forza. Allora se per assurdo per qualche x finito fosse a=0 anche v=0 ma rimarrebbe la forza di Coulomb a produrre a diverso da 0. <br>
+Non so dire quant'è la distanza d all'istante t come chiede Simone 256. Non ho capito, nonostante i link di Pigkappa, perchè la carica accelerata irraggia e che c'entra la forza di Lorentz.</article>
+<article class="post" id="p15507"><div class="who"><b>Pigkappa</b><span>5 set 2013, 13:55</span></div>Il link che avevo messo purtroppo funzionava male. Questo funziona: <a href="http://tinyurl.com/66vmlp8" class="ext" class="postlink">http://tinyurl.com/66vmlp8</a><br>
+
+<blockquote><div><cite>poor ha scritto:</cite>Non ho capito, nonostante i link di Pigkappa, perchè la carica accelerata irraggia e che c'entra la forza di Lorentz.</div></blockquote>
+Perché la carica accelerata irraggia ---&gt; Questo non ho mai provato a spiegarvelo nè ci proverò. Lo si dimostra dalle equazioni di Maxwell in modo complicato (= universitario). Sulla pagina di Wikipedia della <a href="http://en.wikipedia.org/wiki/Larmor_formula" class="ext" class="postlink">formula di Larmor</a> c'è una derivazione (quella che si intitola Derivation 1: Mathematical Approach) ma capirla vi richiederebbe tantissimo lavoro e non vi suggerisco di provarci. La maggior parte dei fisici secondo me si ricorda che una carica accelerata irraggia e che lo si può dimostrare dalle equazioni di Maxwell, ma non la derivazione.<br>
+Un testo universitario di elettrodinamica che spiega bene le cose è il testo A.3 della pagina <a href="olifis-13.html" class="postlink">olifis/phpBB3/viewtopic.php?f=3&amp;t=13</a>, ma è anche il più avanzato proposto su quella discussione (forse pari con A.5) e ve lo consiglio solo se avete una buona padronanza dell'analisi e di tutti gli argomenti di fisica del liceo.<br>
+<br>
+Che c'entra la forza di Lorentz ---&gt; Niente. Si definisce la forza di Abraham–Lorentz (non so se il "Lorentz" è la stessa persona dell'altra formula) per includere gli effetti dell'irraggiamento sulla dinamica delle particelle classiche.</article>
+<article class="post" id="p15578"><div class="who"><b>poor</b><span>9 set 2013, 11:16</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Il link che avevo messo purtroppo funzionava male. Questo funziona: <a href="http://tinyurl.com/66vmlp8" class="ext" class="postlink">http://tinyurl.com/66vmlp8</a></div></blockquote>
+Due cose prima di martedi<br>
+1) la derivazione della forza frenante dovuta alla radiazione <span class="tex">\(F_r\)</span> dalla formula della potenza di Larmor si fonda sul fatto che il moto sia periodico: non mi sembra il nostro caso<br>
+2) l'integrazione di mdv/dt mi è parecchio oscura (ma questo sicuramente dipende da me)</article>
+<article class="post" id="p15585"><div class="who"><b>Pigkappa</b><span>9 set 2013, 13:17</span></div><blockquote><div><cite>poor ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>Il link che avevo messo purtroppo funzionava male. Questo funziona: <a href="http://tinyurl.com/66vmlp8" class="ext" class="postlink">http://tinyurl.com/66vmlp8</a></div></blockquote>
+Due cose prima di martedi<br>
+1) la derivazione della forza frenante dovuta alla radiazione <span class="tex">\(F_r\)</span> dalla formula della potenza di Larmor si fonda sul fatto che il moto sia periodico: non mi sembra il nostro caso<br>
+2) l'integrazione di mdv/dt mi è parecchio oscura (ma questo sicuramente dipende da me)</div></blockquote>
+
+1)Hai ragione, ma leggendo nella discussione si dice che c'è una derivazione più generale che si trova nel capitolo 11 del Griffiths (che guarda caso è il testo A.3 di <a href="olifis-13.html" class="postlink">olifis/phpBB3/viewtopic.php?f=3&amp;t=13</a>). Comunque, vi ho parlato di queste cose perché questa è una situazione al limite in cui la fisica classica comincia ad avere problemi e per molte applicazioni non si può usare davvero quella formula. Il caso più semplice in cui uno potrebbe volerla applicare è quello di un elettrone che ruota attorno al suo atomo e invece in tal caso non funziona e si finisce nella meccanica quantistica.<br>
+<br>
+2)Sinceramente è oscuro anche a me. Credo abbia fatto qualcosa di significativamente più complicato di quello che dice ("integrated once" un cavolo!) e ci abbia messo di mezzo qualche ipotesi sulle condizioni iniziale e/o finali di <span class="tex">\(v\)</span>. La qualità di quell'articolo è bassina...</article>
+<article class="post" id="p15609"><div class="who"><b>poor</b><span>11 set 2013, 11:35</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+1)Hai ragione, ma leggendo nella discussione si dice che c'è una derivazione più generale che si trova nel capitolo 11 del Griffiths (che guarda caso è il testo A.3 di <a href="olifis-13.html" class="postlink">olifis/phpBB3/viewtopic.php?f=3&amp;t=13</a>). Comunque, vi ho parlato di queste cose perché questa è una situazione al limite in cui la fisica classica comincia ad avere problemi e per molte applicazioni non si può usare davvero quella formula. <br>
+<br>
+2)Sinceramente è oscuro anche a me.  e ci abbia messo di mezzo qualche ipotesi sulle condizioni iniziale e/o finali di <span class="tex">\(v\)</span>. La qualità di quell'articolo è bassina...</div></blockquote>
+
+Allora per concludere, escludendo l'integrazione almeno per me, chiedo:<br>
+è giusto affermare che le uniche cose (un pò banali) che si possono dire sono che la derivata dell'energia di q (potenza di Larmor) è sempre negativa e che pertanto la sua energia è sempre decrescente (non esiste un x finito per cui a=0 poichè sennò a deve essere diverso da 0 e si cade in assurdo) fino ad annullarsi all'infinito? Oppure non è detto che anche v si annulli all'infinito?<br>
+Lo avevo scritto due post fa ma non ho ricevuto commenti.</article>
+<article class="post" id="p15610"><div class="who"><b>Pigkappa</b><span>11 set 2013, 12:10</span></div>Non è detto che si annulli all'infinito. Bisognerebbe risolvere l'equazione differenziale per scoprirlo.</article>
+<nav class="pager"><a class="prev" href="olifis-439.html"><small>← precedente</small>Staffetta elettromagnetica</a><a class="next" href="olifis-4654.html"><small>successivo →</small>2. Gravità e compressione</a></nav>
+</main></body></html>

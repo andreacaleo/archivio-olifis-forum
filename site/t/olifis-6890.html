@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>203. Energie potenziali.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 203</a></span></nav>
+<h1>203. Energie potenziali.</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6890">forum Olifis</a></p>
+<article class="post first" id="p25942"><div class="who"><b>Luca Milanese</b><span>1 mag 2020, 21:02</span></div>1) Un cilindro di raggio <span class="tex">\(a\)</span> e lunghezza infinita possiede una densità di carica uniforme <span class="tex">\(\rho\)</span>. Si vuole determinare la sua energia potenziale per unità di lunghezza, cioè il lavoro per unità di lunghezza compiuto per assemblarlo. La si calcoli immaginando di costruire il cilindro aggiungendo un sottile strato di carica per volta, essendo la carica inizialmente distribuita uniformemente ad una distanza <span class="tex">\(R&gt;a\)</span> dall'asse del cilindro, lungo tutta la sua lunghezza.<br>
+2) Calcolare l'energia potenziale di un pianeta di massa <span class="tex">\(M\)</span> uniformemente distribuita e raggio <span class="tex">\(R\)</span>, stavolta immaginando di costruire il pianeta portando gli elementi di massa dall'infinito (cioè fissando a distanza infinita lo zero dell'energia potenziale).</article>
+<article class="post" id="p25948"><div class="who"><b>east_beast</b><span>2 mag 2020, 19:14</span></div>Dico prima le risposte (è lungo :D )<br>
+il 2) <span class="tex">\( U = 3/5 (GM^2/R)\)</span> che è abbastanza promettente<br>
+l'1) mi viene un brutto integrale (almeno brutto per chi come me è scarso in analisi) e mi viene <span class="tex">\({\frac{{\lambda}^2}{16\pi \epsilon_0}}[1+ 4ln(\frac{R}{a})]\)</span></article>
+<article class="post" id="p25949"><div class="who"><b>Luca Milanese</b><span>2 mag 2020, 20:06</span></div>1) Cos'è <span class="tex">\(\lambda\)</span>?<br>
+2) A voler essere precisi, manca una cosa...</article>
+<article class="post" id="p25950"><div class="who"><b>east_beast</b><span>2 mag 2020, 20:12</span></div>1) Oddio scusa era una mia variabile per semplificare i conti, ora ri-sostituisco.<br>
+2) Il segno per caso è sbagliato?</article>
+<article class="post" id="p25951"><div class="who"><b>east_beast</b><span>2 mag 2020, 20:21</span></div>1) <span class="tex">\( U/l =  \pi \rho^2 a^4  [1 + 4ln(R/a) ]  /16 \epsilon_0 \)</span></article>
+<article class="post" id="p25952"><div class="who"><b>Luca Milanese</b><span>2 mag 2020, 20:30</span></div>1) È giusto! Posta il procedimento.<br>
+2) Sì, ci vuole un segno meno. Pensaci prima di scrivere qui il procedimento.</article>
+<article class="post" id="p25953"><div class="who"><b>east_beast</b><span>2 mag 2020, 21:15</span></div>1) Seguendo il tuo consiglio, dividerò il cilindro in tanti strati e li aggiungerò uno dopo l'altro.<br>
+Innanzitutto col teorema di Gauss trovo che il campo generato da un cilindro di raggio <span class="tex">\(r\)</span> è distanza R vale <span class="tex">\(E(R) =  \rho r^2 /2 \epsilon_0  R\)</span><br>
+Il lavoro che serve per portare uno "strato" del cilindro da <span class="tex">\(R\)</span> a <span class="tex">\(r\)</span> (che è la distanza dall'asse del cilindro dello strato nella configurazione finale) è <span class="tex">\(dL = dq \int _R ^r -E(R)dR = dq(\rho r^2 /2 \epsilon_0)ln(R/r) \)</span><br>
+A questo punto non mi manca che sommare tutti gli strati che aggiungo, integrando.<br>
+Se considero una porzione di cilindro di lunghezza <span class="tex">\(z\)</span>, allora <span class="tex">\(dq = 2 \rho \pi z r dr\)</span>, integrando su tutti gli strati (da 0 ad a quindi) e dividendo per z ottengo<br>
+<span class="tex">\(L/z = \int _0 ^a  (\pi \rho^2 / \epsilon_0) r^3 ln(R/r) dr\)</span> che ci fornisce la risposta, ossia <span class="tex">\(L/z = (\pi \rho^2 a^4 /16 \epsilon_0)[1+4ln(R/a)]\)</span> che è anche l'energia interna, in quanto definita come il lavoro fatto per creare il sistema.<br>
+2) Il ragionamento è analogo, solamente che U è negativa poichè l'energia gravitazionale è già attrattiva e tende a formare i pianeti, quindi dobbiamo fornire lavoro negativo. <br>
+Il procedimento che ho usato è lo stesso, dividendo però in calotte sferiche e non cilindriche e usando al posto del campo elettrico quello gravitazionale  (capitan ovvio?), per poi integrare prima da infinito ad <span class="tex">\(r\)</span> e poi da <span class="tex">\(0\)</span> ad <span class="tex">\(R\)</span>, ricavando con Gauss l'espressione del campo gravitazionale generato da una sfera di raggio r a distanza d.</article>
+<article class="post" id="p25954"><div class="who"><b>Luca Milanese</b><span>2 mag 2020, 21:27</span></div>Perfetto! Avanti col 204! :D <br>
+È interessante notare che, nel caso del cilindro, non si può porre lo zero dell'energia potenziale a distanza infinita, altrimenti il termine col logaritmo diverge, cosa che invece possiamo fare con una sfera.</article>
+<nav class="pager"><a class="prev" href="olifis-6886.html"><small>← precedente</small>202. Corsa sul ghiaccio</a><a class="next" href="olifis-6891.html"><small>successivo →</small>204. Nuotata nel fiume</a></nav>
+</main></body></html>

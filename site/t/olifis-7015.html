@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>241 Cilindro che si ribalta</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 241</a></span></nav>
+<h1>241 Cilindro che si ribalta</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7015">forum Olifis</a></p>
+<article class="post first" id="p26573"><div class="who"><b>G.kyudo</b><span>12 nov 2020, 1:24</span></div>Ecco a voi il seguente problema: Due sfere uguali di massa m e raggio r sono poste dentro un cilindro di raggio interno R=1,5r poggiato su un piano orizzontale. Trovare il peso mínimo del cilindro perché non si ribalti. Volevo allegare una immagine ma non sono capace, l'immagine non è fondamentale per la risoluzione del problema ma se mi date una mano magari potrebbe essere utile :D  :roll:</article>
+<article class="post" id="p26576"><div class="who"><b>Luca Milanese</b><span>12 nov 2020, 11:23</span></div>Non so dirti come si posta un'immagine, ma credo che possiamo spiegarci a parole. Non ho capito se il cilindro poggia lateralmente o su una sua base, e, in questo caso (che mi sembra il più probabile dati che altrimenti non potrebbe ribaltarsi), se non serve forse conoscerne l'altezza.</article>
+<article class="post" id="p26584"><div class="who"><b>G.kyudo</b><span>12 nov 2020, 20:01</span></div>Si, il cilindro è poggiato su una base, in ogni caso non necessiti della h poichè puo' essere scritta in termini di R, prova a disegnare il cilidro con le due sferette e te ne renderai conto :D</article>
+<article class="post" id="p26588"><div class="who"><b>Luca Milanese</b><span>14 nov 2020, 16:26</span></div>Dato il risultato che ottengo, non sono sicuro di aver interpretato bene il testo, per cui scrivo la mia soluzione sopratutto per farmelo chiarire.<br>
+Per come ho inteso, il cilindro è alto <span class="tex">\(h=2r \bigg(1+\frac{\sqrt{3}}{2}\bigg )\)</span>. Le due sfere all'interno hanno i centri a quote <span class="tex">\(r\)</span> e <span class="tex">\(h-r\)</span>, si tangono nel centro del cilindro e toccano ciascuna una base e la parete del cilindro. Sulla sfera più in alto è esercitata, da quella in basso, una forza, <span class="tex">\(\frac{2mg}{\sqrt{3}}\)</span>, la cui componente verticale <span class="tex">\(mg\)</span> bilancia il peso della sfera stessa, mentre quella orizzontale è bilanciata dalla reazione della parte del cilindro, di modulo <span class="tex">\(\frac{mg}{\sqrt{3}}\)</span>. Quindi sul cilindro, ad altezza <span class="tex">\(h-r\)</span>, agisce una forza orizzontale di quel modulo, e lo stesso avviene ad altezza <span class="tex">\(r\)</span>, con verso opposto. Le altre due forze che agiscono sul cilindro, oltre al suo peso <span class="tex">\(Mg\)</span>, sono la reazione normale della sfera più in basso sulla base, che ha modulo <span class="tex">\(2mg\)</span> ed è applicata a distanza <span class="tex">\(\frac{r}{2}\)</span> dall'asse del cilindro, e la reazione normale del piano sul sistema, avente modulo <span class="tex">\(2mg+Mg\)</span> e applicata a una distanza <span class="tex">\(x\)</span> dall'asse.<br>
+Prendendo come polo per i momenti torcente il centro di massa del sistema, allora il momento totale agente sul cilindro vale:<br>
+<span class="tex">\(\tau=2 \times \frac{r \sqrt{3}}{2} \frac{mg}{\sqrt{3}}-\frac{r}{2} \times 2mg-x(Mg+2mg)=-x(Mg+2mg)\)</span><br>
+Perchè ci sia equilibrio, deve essere <span class="tex">\( \tau=0\)</span> e <span class="tex">\(-\frac{3r}{2} \le x \le \frac{3r}{2}\)</span>, ma si osserva che entrambe le condizioni sono soddisfatte se <span class="tex">\(x=0\)</span>. Perciò la mia conclusione è che, qualunque sia la massa del cilindro, esso rimane in equilibrio. Dove sbaglio?</article>
+<article class="post" id="p26589"><div class="who"><b>G.kyudo</b><span>15 nov 2020, 1:24</span></div>Hai cominciato bene ma hai fatto qualche errore per quanto riguarda le altezze dei centri delle due sfere. Infatti il risultato è erroneo. Ti anche consiglierei di considerare che si tratta di un cilindro aperto in entrambi estremità, (forse questo non lo avevo detto prima  :?) Il che fa cambiare un po' i momenti da te considerati.  :D<br>
+<br>
+<br>
+In ogni caso un altra raccomandazione è quella di considerare il significato fisico della tua ultima ecuazione.</article>
+<article class="post" id="p26590"><div class="who"><b>Luca Milanese</b><span>15 nov 2020, 11:31</span></div>Ops... ho usato sia <span class="tex">\(r\)</span> che <span class="tex">\(R\)</span> nella risposta precedente ma in realtà ho sempre inteso <span class="tex">\(r\)</span>, adesso ho corretto :roll: <br>
+Comunque, adesso che hai specificato che il cilindro è aperto alle basi, mi viene un risultato ben più probabile.<br>
+Come prima, sul cilindro, prendendo come polo il centro di massa, agisce un momento torcente <span class="tex">\(mgr\)</span> dovuto alle forze normali fra sfere e parete del cilindro. Il suo peso, ancora, non fornisce momento, e l'unica altra forza a poterlo fornire è la reazione normale del tavolo, che deve avere modulo <span class="tex">\(N=Mg\)</span>.<br>
+Chiaramente, a parità di massa del cilindro, il massimo momento (in modulo) che può dare <span class="tex">\(N\)</span> è <span class="tex">\(\frac{3rMg}{2}\)</span>, che si ha quando <span class="tex">\(N\)</span> è applicata tutta nel punto del bordo inferiore della parete del cilindro che si trova verticalmente in corrispondenza col punto di tangenza fra cilindro e sfera più in alto.<br>
+Quindi, imponendo che il momento totale sia nullo, si ottiene <span class="tex">\(mrg=\frac{3rMg}{2} \Rightarrow Mg=\frac{2mg}{3}\)</span>, che è quindi il minimo valore che deve assumere il peso del cilindro affinché ci sia equilibrio.</article>
+<article class="post" id="p26591"><div class="who"><b>G.kyudo</b><span>15 nov 2020, 15:14</span></div>Giusto tutto corretto, chiedo scusa per non aver specificato il fatto che il cilindro era aperto, puoi postare il 242</article>
+<nav class="pager"><a class="prev" href="olifis-7014.html"><small>← precedente</small>240. Conduzione in un cilindro</a><a class="next" href="olifis-7017.html"><small>successivo →</small>242. Griglia LC infinita</a></nav>
+</main></body></html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>177: esplosione coulombiana</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 177</a></span></nav>
+<h1>177: esplosione coulombiana</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6808">forum Olifis</a></p>
+<article class="post first" id="p25415"><div class="who"><b>Gamow00</b><span>11 mar 2019, 21:09</span></div>Una nube sferica di raggio <span class="tex">\(R\)</span> e carica totale <span class="tex">\(Q\)</span> contiene <span class="tex">\(N\)</span> particelle (<span class="tex">\(N &gt;&gt;1\)</span> come piace a me), ciascuna di carica <span class="tex">\(q=Q/N\)</span>. Al tempo <span class="tex">\(t=0\)</span>, la densità di carica della nube è uniforme. Inoltre all'istante iniziale tutte le particelle sono ferme.<br>
+A causa della repulsione coulombiana, la nube inizia ad espandersi. Con <span class="tex">\(r_i(t)\)</span> indico la distanza dell'<span class="tex">\(i\)</span>-esima particella dal centro della nube all'istante <span class="tex">\(t\)</span>.
+<ul><li>Dimostra che se per due particelle <span class="tex">\(r_2(0) &gt; r_1(0)\)</span>, allora <span class="tex">\(r_2(t) &gt; r_1(t)\)</span> per <span class="tex">\(t&gt;0\)</span>.</li>
+<li>Dimostra che la densità di carica della nube rimane uniforme durante l'espansione.</li>
+
+
+
+</ul>
+EDIT: la densità del punto due ovviamente deve essere uniforme su tutta la sfera allo stesso istante di tempo, non costante come stupidamente avevo scritto.</article>
+<article class="post" id="p25416"><div class="who"><b>Dudin</b><span>12 mar 2019, 16:06</span></div>punto a)<br>
+<br>
+Per il teorema di Gauss  il campo elettrico dentro la sfera e' proprio <span class="tex">\(E(r)=\frac{Q}{4 \pi * \epsilon}*\frac{r}{R^3}\)</span><br>
+E' proporzionale alla distanza di conseguenza se considero due particelle a distanza <span class="tex">\(r_{1}(0)&gt; r_{2}(0)\)</span> <br>
+la prima sarà soggetta ad un'accelerazione maggiore al tempo <span class="tex">\(t=0\)</span> e quindi avrà una velocità maggiore.<br>
+Quindi visto che per simmetria il campo elettrico rimane radiale rifacendo lo stesso ragionamento ad ogni istante  posso dire che <span class="tex">\(r_{1}(t)&gt;r_{2}(t)\)</span></article>
+<article class="post" id="p25417"><div class="who"><b>Gamow00</b><span>12 mar 2019, 17:30</span></div>Buona la soluzione al punto a)</article>
+<article class="post" id="p25420"><div class="who"><b>Dudin</b><span>19 mar 2019, 20:28</span></div>punto b)<br>
+Per dimostrare che la densità di carica rimane costante considero il volume compreso tra due superfici sferiche di raggio <span class="tex">\(r_{1}(t)&gt;r_{2}(t)\)</span> e dimostro che ad ogni istante la densità di carica non dipende da <span class="tex">\(r_{1} ,r_{2}\)</span> ma soltanto dal tempo. (e da altri costanti)<br>
+<br>
+<span class="tex">\(\rho = \frac{q}{V}  \)</span><br>
+ovviamente <span class="tex">\(V=\frac{4 \pi( r_{1}(t)^3-r_{2}(t)^3)}{3}\)</span><br>
+Inoltre per il punto a) la carica compresa  tra i due strati non varia ed e' proprio pari alla carica al tempo <span class="tex">\(t=0\)</span><br>
+<span class="tex">\(q=\frac{Q \frac{4  \pi }{3}(r_{1}(0)^3-r_{2}(0)^3)}{\frac{4 \pi}{3} R^3} = \frac{Q (r_{1}(0)^3-r_{2}(0)^3)}{ R^3}\)</span><br>
+<br>
+Segue che <br>
+<span class="tex">\( \rho = \frac{3Q (r_{1}(0)^3-r_{2}(0)^3)}{4 \pi( r_{1}(t)^3-r_{2}(t)^3)R^3}\)</span><br>
+<br>
+Non mi resta che trovare l'equazione del moto di una superficie sferica.<br>
+Per il punto a) dato che la carica dentro la superficie rimane la stessa  (e considerando una particella di carica q e massa m sulla superficie della sfera considerata) posso dire che:<br>
+<span class="tex">\(ma(t)=\frac{qQ_{r'&lt;r}}{r(t)^2}=\frac{qQr(0)^3}{r(t)^2 R^3}\)</span><br>
+Non riesco a risolvere l'equazione differenziale però sicuramente sostituendo osservo che dipende da <span class="tex">\(r_{0}\)</span><br>
+che è proprio quello che ci interessa infatti nella funzione della densità si semplifica tutto e rimane solo una funzione che dipende da costanti e da una funzione <span class="tex">\(f(t)\)</span>in cui compare il tempo<br>
+<span class="tex">\( \rho = \frac{3Q }{4 \pi( f_{1}(t)^3-f_{2}(t)^3)R^3}\)</span><br>
+e ovviamente sono sicuro che in <span class="tex">\(f_{1}(t)\)</span> o  in <span class="tex">\( f_{2}(t)\)</span> non compare in nessun modo il raggio iniziale<br>
+<br>
+edit credo che l'ultimo pezzo sia sbagliato perchè dovrei dimostrare anche che <span class="tex">\(f_{1}(t) = f_{2}(t)\)</span> (altrimenti non posso raccogliere e semplificare) credo si possa fare perchè alla fine tutte le altre quantità in gioco non dipendono dalla distanza dal centro <span class="tex">\(r_{0}\)</span></article>
+<article class="post" id="p25421"><div class="who"><b>Gamow00</b><span>20 mar 2019, 20:51</span></div>Le idee ci sono tutte ma secondo me devi formalizzare un po' meglio.<br>
+Il mio consiglio è di prendere la differenziale e dire: se una certa funzione mi dice come si evolve un certo guscio, come si evolveranno gli altri?</article>
+<nav class="pager"><a class="prev" href="olifis-6805.html"><small>← precedente</small>176. sbarra conduttrice</a><a class="next" href="olifis-6825.html"><small>successivo →</small>178. Radiazione di fondo di neutrini</a></nav>
+</main></body></html>

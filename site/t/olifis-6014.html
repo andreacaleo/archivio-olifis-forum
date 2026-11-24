@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30: conduttori NON all&#x27;equilibrio</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 30</a></span></nav>
+<h1>30: conduttori NON all'equilibrio</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6014">forum Olifis</a></p>
+<article class="post first" id="p19949"><div class="who"><b>OrsoBruno96</b><span>15 dic 2014, 22:23</span></div>La prima parte di questo problema è facile e nota. Per andare avanti con la staffetta bisogna risolvere anche la seconda.<br>
+<br>
+1) Si ha un conduttore sferico di raggio R nel vuoto. la sua conducibilità elettrica è <span class="tex">\(\sigma\)</span>, uniforme e isotropa<br>
+All'istante <span class="tex">\(t_0 = 0\)</span> si è riusciti ad ottenere una distribuzione di carica uniforme <span class="tex">\(\rho (\vec r, t = 0) = \rho _0\)</span><br>
+<br>
+-Trovare <span class="tex">\(\rho (\vec r, t)\)</span> per <span class="tex">\(t&gt;0\)</span><br>
+-Dire se e come (in caso quantitativamente, se necessario inventando dati sul conduttore non forniti) se un osservatore fuori dal conduttore si può accorgere del rilassamento della distribuzione di carica<br>
+<br>
+2) Trovare <span class="tex">\(\rho (\vec r, t)\)</span> per un conduttore di stessa conducibilità, di forma generica, supponendo di sapere <span class="tex">\(\rho (\vec r, t = 0)\)</span> in ogni punto del conduttore, non necessariamente uniforme</article>
+<article class="post" id="p19956"><div class="who"><b>andrea96</b><span>16 dic 2014, 1:15</span></div>è circa un ora e mezza che fisso il foglio dove ho fatto il problema (mentre avrei dovuto studiare italiano e filosofia visto che domani mi interrogano entrambe) perchè mi è venuto un risultato che non mi aspettavo per niente quindi fondamentalmente cercavo l'errore, ma, più guardo il foglio più mi convinco che è giusta... spero di non scrivere una stupidagine  :D <br>
+Allora innanzi tutto è chiaro che se rispondo al secondo ho implicitamente risposto anche al primo.<br>
+Partendo dall'equazione che lega campo elettrico e densità di corrente:<br>
+<span class="tex">\(\vec j=\sigma \vec E\)</span><br>
+applico la divergenza a entrambe i membri, e utilizzando la legge di Gauss <span class="tex">\(\vec \nabla \cdot \vec E=\frac{\rho}{\epsilon_0}\)</span> e l'equazione di continuità <span class="tex">\(\vec \nabla \cdot \vec \j=-\frac{\partial \rho}{\partial t}\)</span><br>
+viene fuori:<br>
+<span class="tex">\(\frac{\partial \rho(r,t)}{\partial t}=-\frac{\sigma}{\epsilon_0} \rho(r,t)\)</span><br>
+che si risolve banalmente per parti: <br>
+<span class="tex">\(\rho(r,t)=Ae^{-\frac{\sigma}{\epsilon_0}t}\)</span><br>
+dove <span class="tex">\(A\)</span> si ddetermina dalle condizioni iniziali, quindi in conclusione:<br>
+<span class="tex">\(\rho(r,t)=\rho(r,t=0)e^{-\frac{\sigma}{\epsilon_0}t}\)</span><br>
+sinceramente avevo iniziato ad usare il metodo per il caso della sfera e mi aspettavo seriamente che il risultato dipendesse da r, sono rimasto sorpreso che non lo fosse, poi ragionando sul caso generale mi sono convinto che non è poi così strano, anche perchè se nel caso semplice il risultato avesse avuto dipendenza da r, certamente il risultato nel caso generale non poteva essere indipendente dalla forma del conduttore. Alla fine la cosa che sicuramente non doveva tradire le mie aspettative ( e non lo ha fatto ) è che la densità deve andare a zero quando il tempo tende all'infinito...<br>
+Insultami pure se ho sbagliato</article>
+<article class="post" id="p19957"><div class="who"><b>andrea96</b><span>16 dic 2014, 1:21</span></div>per il rilevamento da parte dell'osservatore esterno la prima cosa che mi viene in mente è che le cariche in moto emettono onde elettromagnetiche che possono essere rilevate in qualche modo dal tizio.</article>
+<article class="post" id="p19958"><div class="who"><b>Pigkappa</b><span>16 dic 2014, 2:57</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>per il rilevamento da parte dell'osservatore esterno la prima cosa che mi viene in mente è che le cariche in moto emettono onde elettromagnetiche che possono essere rilevate in qualche modo dal tizio.</div></blockquote>
+Lui ha posto la domanda solo nel caso della sfera, e in quel caso si puo' dire qualcosa di piu'.<br>
+<br>
+State facendo (bene) problemi difficili comunque, perdinci! Bravi entrambi! ;)</article>
+<article class="post" id="p19960"><div class="who"><b>OrsoBruno96</b><span>16 dic 2014, 9:46</span></div>Si infatti, si può dire qualcosa in più ;)<br>
+Comunque la risoluzione è perfetta. La parte della sfera si poteva risolvere anche senza operatori, perché potessero provare tutti. Chi vuole cimentarsi è il benvenuto<br>
+<br>
+Sistema la seconda parte del 1) e puoi procedere :) (non è semplice e non è banale da vedere. Ci sono anche più risposte, basta argomentare correttamente)</article>
+<article class="post" id="p19961"><div class="who"><b>andrea96</b><span>16 dic 2014, 12:14</span></div>Per la questione dell osservatore devo pensarci un po.... per la risoluzioje senza operatori nel caso della sfera ti riferisci all utilizzo dell equazione di continutitá e il teorema di gauss usati in forma integrale? Se è cosi appena sono a casa scrivo anche quella..</article>
+<article class="post" id="p19962"><div class="who"><b>andrea96</b><span>16 dic 2014, 17:34</span></div>Nel frattempo che mi vengano idee migliori a quelle molto confuse sulla rilevazione del rilassamento pubblico la soluzione al primo punto senza usare operatori e cercando di essere più chiaro possibile visto che non dovendo usare matematica complicata possono capire tutti (chiaramente come ha già detto Orso la soluzione possono trovarla tutti, quindi chi vuole farlo non legge oltre  :D ):<br>
+La base di partenza è sempre <span class="tex">\(\vec j=\sigma \vec E\)</span>. L'idea è quella di scrivere entrambe i vettori di quest'equazione in funzione della densità di carica. Collegare <span class="tex">\(\vec E\)</span> alla densità di carica è immediato utilizzando il teorema di gauss ( stavolta in forma integrale, quindi quella che conoscono tutti ) <br>
+<br>
+<span class="tex">\(\Phi_{\Omega}=\frac {Q_{interna}}{\epsilon_0}\)</span><br>
+<br>
+se <span class="tex">\(\Omega\)</span> è una superficie sferica concentrica al conduttore con raggio <span class="tex">\(r\)</span> si ottiene:<br>
+<br>
+<span class="tex">\(\Phi_{\Omega}=4\pi r^2 E(r)=\frac{Q_{interna}}{\epsilon_0}=\frac{1}{\epsilon_0}\int_0 ^{r} \rho (r) 4\pi r^2 dr\)</span>.<br>
+Per collegare <span class="tex">\(\vec j\)</span> alla densità di carica dobbiamo ricorrere di nuovo all'equazione di continuità, ma stavolta in forma integrale; per chi non la conosce è deducibile con questo ragionamento: se prendo una superficie chiusa la corrente totale che esce dalla superficie, per la conservazione della carica deve essere uguale alla derivata cambiata di segno della carica interna alla superficie ( in fondo è semplicemente la definizione di corrente applicata a una superficie chiusa ); nel nostro caso la corrente totale su <span class="tex">\(\Omega\)</span> è quindi <span class="tex">\(I_{\Omega}=4\pi r^2 j=-\frac{d}{dt}\int_0 ^{r} \rho(r,t) 4\pi r^2 dr\)</span>.<br>
+A questo punto dovrebbe risultare chiaro che la cosa più conveniente da fare è prendere l'equazione <span class="tex">\(\vec j=\sigma \vec E\)</span> considerarne solo i moduli e moltiplicare entrambe i membri per <span class="tex">\(4\pi r^2\)</span> e sostituirci le cose che abbiamo trovato con gauss e continuità. Visto che entrambe i membri sono integrali tra <span class="tex">\(0\)</span> e <span class="tex">\(r\)</span> di qualcosa, derivando tutto rispetto a <span class="tex">\(r\)</span> l'equazione che viene è:<br>
+<span class="tex">\(\frac{d\rho}{dt}=-\frac{\sigma}{\epsilon_0}\rho(r)\)</span><br>
+la cui soluzione, tenendo conto della condizione iniziale è:<br>
+<span class="tex">\(\rho(r,t)=\rho_0e^{-\frac{\sigma}{\epsilon_0}t}\)</span></article>
+<article class="post" id="p19964"><div class="who"><b>andrea96</b><span>16 dic 2014, 19:20</span></div><blockquote><div><cite>OrsoBruno96 ha scritto:</cite> si può dire qualcosa in più ;)
+</div></blockquote>
+ma se dico che tra la configurazione iniziale e quella finale c'è una differenza di energia ( nella sfera ) di <span class="tex">\(\Delta U=\frac{1}{10} \frac {Q^2}{4\pi\epsilon_0 R}\)</span> che deve uscire dalle sfera e può essere percepita dall'osservatore ho detto qualcosa di più??? :lol:  :lol:  :lol:</article>
+<article class="post" id="p19966"><div class="who"><b>OrsoBruno96</b><span>16 dic 2014, 20:57</span></div>Si, è dove volevo arrivare. Dove finisce questa energia? :)</article>
+<article class="post" id="p19967"><div class="who"><b>andrea96</b><span>16 dic 2014, 21:28</span></div>beh sulla radiazione non mi sbilancio perchè dovrei risolvere le equazioni di maxwell in presenza di cariche e correnti, però senza alcun dubbio almeno una parte di quell'energia è dissipata per effetto joule e trasformata in calore visto che la sfera ha una conduttività finita ( e quindi una resistenza non nulla )</article>
+<article class="post" id="p19969"><div class="who"><b>OrsoBruno96</b><span>16 dic 2014, 22:33</span></div>esatto. quindi la sfera si è scaldata. quindi irraggia di più e un osservatore se ne può accorgere. puoi continuare con la staffetta :)<br>
+<br>
+(per quanto riguarda l'effetto di irraggiamento della formula di larmor, non saprei come trattarlo, dovrei pensarci un po')</article>
+<article class="post" id="p19988"><div class="who"><b>Pigkappa</b><span>17 dic 2014, 22:03</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>beh sulla radiazione non mi sbilancio perchè dovrei risolvere le equazioni di maxwell in presenza di cariche e correnti</div></blockquote>
+Risolvile! In questo caso e' fattibile, fuori dalla sfera.<br>
+<br>
+Oppure, potete trovare la risposta dalla formula di Larmor, ma bisognerebbe usarla per davvero invece che per fare una stima e questa e' roba parecchio avanzata. Risolvere le equazioni di Maxwell in questo caso e' piu' facile.</article>
+<article class="post" id="p20014"><div class="who"><b>Pigkappa</b><span>21 dic 2014, 3:20</span></div>Ehi ragazzi sveglia! Usate la legge di Gauss in forma integrale e ditemi il campo elettrico fuori dalla sfera. Poi la legge di Faraday in forma differenziale e ditemi il campo magnetico. Quindi dite quanta energia é irradiata!</article>
+<article class="post" id="p20015"><div class="who"><b>OrsoBruno96</b><span>21 dic 2014, 12:36</span></div>Dunque<br>
+<br>
+Per quanto riguarda <span class="tex">\(\vec E\)</span>, abbiamo simmetria sferica, quindi <span class="tex">\(\Phi _E = 4 \pi r^2 E\)</span><br>
+La carica interna ad una superficie gaussiana esterna alla sfera non cambia, quindi <span class="tex">\(\vec E = \vec {costante}\)</span><br>
+<br>
+Inoltre abbiamo che <span class="tex">\(\vec B\)</span> dovrebbe essere radiale per simmetria. Se lo fosse, avremmo <span class="tex">\(\Phi _B = 4 \pi r^2 B\)</span> che è diverso da 0, che è assurdo. quindi <span class="tex">\(\vec B = \vec 0\)</span><br>
+<br>
+Essendo <span class="tex">\(\vec S = \vec E \times \vec H\)</span>, abbiamo <span class="tex">\(\vec S = 0\)</span> perchè <span class="tex">\(\vec H = 0\)</span> dunque energia irraggiata non c'è. Diventa tutta calore</article>
+<article class="post" id="p20019"><div class="who"><b>andrea96</b><span>21 dic 2014, 14:36</span></div>caspita era semplice  :o  :o  :o  perchè penso sempre alle cose più assurde :?  :? ?!?!</article>
+<nav class="pager"><a class="prev" href="olifis-6011.html"><small>← precedente</small>29:scivolamento di una sbarretta.</a><a class="next" href="olifis-6015.html"><small>successivo →</small>31: perdita di sabbia</a></nav>
+</main></body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4. Razzo vincolato</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 4</a></span></nav>
+<h1>4. Razzo vincolato</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4669">forum Olifis</a></p>
+<article class="post first" id="p15369"><div class="who"><b>Andg94</b><span>28 ago 2013, 22:50</span></div>Un razzo di massa iniziale <span class="tex">\(M_0\)</span> è ﬁssato ad un estremo di un’asta di massa trascurabile e lunghezza <span class="tex">\(l\)</span>, perpendicolarmente ad essa. L’asta può ruotare liberamente attorno all’altro estremo in un piano orizzontale. All’accensione il razzo è fermo, e da quel momento il gas viene espulso con una velocità relativa costante <span class="tex">\(-u\)</span>. Determinare la velocità del razzo in funzione della massa di gas espulso.</article>
+<article class="post" id="p15375"><div class="who"><b>Simone256</b><span>29 ago 2013, 9:11</span></div>Quindi scusa... Il razzo compie una traiettoria semicircolare attorno al perno posto sul secondo estremo dell'asta?</article>
+<article class="post" id="p15376"><div class="who"><b>gilgamesh</b><span>29 ago 2013, 9:42</span></div>Si può applicare la conservazione del momento angolare (con raggio costante e massa e velocità variabili):<br>
+<br>
+<span class="tex">\(L_0= 0\)</span><br>
+<br>
+<span class="tex">\(L_1=(M_0-m_1)v l + m_1u\)</span><br>
+<br>
+ho eliminato la notazione vettoriale in quanto l'angolo <span class="tex">\(\theta\)</span> formato tra <span class="tex">\(l\)</span> e <span class="tex">\(v\)</span> è  costantemente pari a <span class="tex">\(\frac{\pi}{2}\)</span>.<br>
+<br>
+Infine si ottiene:<br>
+<br>
+<span class="tex">\(v=\frac{m_1 u}{m_1-M_0}\)</span><br>
+<br>
+dove <span class="tex">\(m_1\)</span> è la massa di gas espulso.</article>
+<article class="post" id="p15382"><div class="who"><b>Simone256</b><span>29 ago 2013, 12:45</span></div>Io ho fatto in un altro modo... Trascurando la gravità visto che incide poco mi esce:<br>
+<br>
+<span class="tex">\(v=u \mbox{  ln }\frac{M_0}{M_0-M_E}\)</span><br>
+<br>
+Dove <span class="tex">\(M_E\)</span> è la massa di gas espulso. Non metto subito il procedimento perché temo sia stupidissimo...  :oops:  Magari dopo ci ragioniamo sopra!  :)</article>
+<article class="post" id="p15386"><div class="who"><b>Andg94</b><span>29 ago 2013, 14:21</span></div>La massa del gas viene espulsa costantemente e non tutta d'un colpo, quindi credo sia più opportuno utilizzare dei valori infinitesimali no?<br>
+Comunque prova ad esporre il tuo ragionamento Simone, e vediamo...</article>
+<article class="post" id="p15388"><div class="who"><b>Simone256</b><span>29 ago 2013, 15:56</span></div>Ci provo:<br>
+Definiamo un generico sistema a massa variabile <span class="tex">\(S\)</span> (Il razzo con il carburante ancora a bordo) sottoinsieme del sistema <span class="tex">\(S'\)</span> a massa costante (razzo con tutto il carburante... Compreso quello espulso). Il carburante viene espulso ad una velocità vettoriale (non relativa al razzo) <span class="tex">\(u\)</span>, la massa del sistema <span class="tex">\(S\)</span> è <span class="tex">\(M\)</span> e la sua velocità è <span class="tex">\(v\)</span>, la differenza di velocità e la differenza di massa nel sistema <span class="tex">\(S\)</span> generate in un intervallo di tempo <span class="tex">\(\Delta t\)</span> sono rispettivamente <span class="tex">\(\Delta v\)</span> e <span class="tex">\(\Delta M\)</span>, il sistema <span class="tex">\(S\)</span> si muove lungo un orbita circolare di raggio <span class="tex">\(R\)</span>.<br>
+<br>
+In un istante <span class="tex">\(t_0\)</span> il momento angolare nel sistema <span class="tex">\(S'\)</span> è uguale al momento angolare nel medesimo sistema nell'istante <span class="tex">\(t_1\)</span>:<br>
+<br>
+<span class="tex">\(L_0=L_1\)</span><br>
+<span class="tex">\(MvR=uR(- \Delta M)+(M+\Delta M)(v+ \Delta v)R\)</span><br>
+<br>
+Dove nel secondo membro abbiamo il primo addendo che rappresenta il momento angolare della massa espulsa (sapendo che <span class="tex">\(\Delta M\)</span> è presumibilmente negativo)... Svolgendo i conti e dividendo per il tempo <span class="tex">\(\Delta t\)</span>:<br>
+<br>
+<span class="tex">\(\frac{(v-u)\Delta M R}{\Delta t} + \frac{\Delta M \Delta v R}{\Delta t}+ \frac{\Delta v M R}{\Delta t}=0\)</span><br>
+<br>
+Poiché la velocità relativa del carburante espulso <span class="tex">\(v_{rel}\)</span> è <span class="tex">\(v_{rel}=u-v\)</span>, sostituiamo e facciamo tendere <span class="tex">\(\Delta t\)</span> a <span class="tex">\(0\)</span>:<br>
+<br>
+<span class="tex">\(MR\frac{dv}{dt}=v_{rel}R\frac{dM}{dt}\)</span><br>
+<br>
+Questo perché <span class="tex">\(\frac{dm \mbox{ }dvR}{dt}\)</span> tende a <span class="tex">\(0\)</span>.<br>
+<br>
+Ora ritorniamo al nostro problema definendo <span class="tex">\(v_{rel}=-u\)</span> e <span class="tex">\(R=l\)</span>, moltiplichiamo entrambi i membri per <span class="tex">\(dt\)</span> e dividiamoli per <span class="tex">\(R\)</span>:<br>
+<br>
+<span class="tex">\(dv=-u\frac{dM}{M}\)</span><br>
+<br>
+Integrando... Sapendo che la velocità iniziale del razzo <span class="tex">\(v_0=0\)</span>:<br>
+<br>
+<span class="tex">\(v=u \mbox{ ln }\frac{M_0}{M_F}\)</span><br>
+<br>
+La massa finale <span class="tex">\(M_F\)</span> è uguale a <span class="tex">\(M_0-M_E\)</span> pertanto il risultato finale sarà:<br>
+<br>
+<span class="tex">\(v=u \mbox{ ln }\frac{M_0}{M_0-M_E}\)</span><br>
+<br>
+<br>
+Non è tutta farine del mio sacco... L'idea è quella del trafiletto sui sistemi a massa variabile sull' Halliday  :mrgreen:</article>
+<article class="post" id="p15390"><div class="who"><b>gilgamesh</b><span>29 ago 2013, 17:41</span></div><blockquote><div><cite>Andg94 ha scritto:</cite>La massa del gas viene espulsa costantemente e non tutta d'un colpo...</div></blockquote> <br>
+Ritenevo che fosse espulsa tutta insieme all'inizio, un pò come funziona per gli atterraggi delle sonde sui pianeti.<br>
+<br>
+
+<blockquote><div><cite>Simone256 ha scritto:</cite><span class="tex">\(v=u \mbox{ ln }\frac{M_0}{M_0-M_E}\)</span>
+</div></blockquote>
+
+Per me è il risultato corretto , ho ottenuto lo stesso  ;)</article>
+<article class="post" id="p15391"><div class="who"><b>Simone256</b><span>29 ago 2013, 18:04</span></div>Credo che la gravità sia da trascurare... Non si può fare altrimenti ameno che venga definito un tempo in cui viene espulsa una certa massa... Senza riferimenti al tempo non si può tenerne conto  :| <br>
+(oppure sì?  :oops: )</article>
+<article class="post" id="p15399"><div class="who"><b>Andg94</b><span>30 ago 2013, 13:39</span></div>La soluzione è corretta, se non fosse per il fatto che l'argomento all'interno del logaritmo dovrebbe essere il reciproco a quello trovato (<span class="tex">\(\int_{M_0}^{M_0-M_E} \frac{dM}{M} = \ln {\frac{M_0-M_E}{M_0}}\)</span>)... Comunque se leggi meglio, Simone, il piano è orizzontale e non c'è motivo di tener conto della forza di gravità ;)</article>
+<article class="post" id="p15413"><div class="who"><b>Simone256</b><span>30 ago 2013, 18:52</span></div>AAAAAAAAAAAH...<br>
+Il piano è orizzontale... Che scemo  :oops: <br>
+Eh ma ho fatto l'inverso e ho tolto il meno a <span class="tex">\(u\)</span>...<br>
+Perchè sarebbe <span class="tex">\(v=-u \mbox{ ln }\frac{M_0-M_E}{M_0}\)</span> ma ho semplificato con <span class="tex">\(v=u \mbox{ ln }\frac{M_0}{M_0-M_E}\)</span>  :mrgreen:<br>
+<br>
+Quindi posso procedere con il prossimo?  :P<br>
+O lo lascio a Gilgamesh?</article>
+<article class="post" id="p15431"><div class="who"><b>gilgamesh</b><span>31 ago 2013, 9:55</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>
+<br>
+Quindi posso procedere con il prossimo?  :P<br>
+O lo lascio a Gilgamesh?</div></blockquote>
+
+E' tutto tuo  :)</article>
+<nav class="pager"><a class="prev" href="olifis-4661.html"><small>← precedente</small>3. Campo magnetico in un conduttore cilindrico</a><a class="next" href="olifis-4692.html"><small>successivo →</small>5. fune priva di massa</a></nav>
+</main></body></html>

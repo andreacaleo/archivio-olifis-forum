@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>295. Campo magnetico non uniforme.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 295</a></span></nav>
+<h1>295. Campo magnetico non uniforme.</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7144">forum Olifis</a></p>
+<article class="post first" id="p27415"><div class="who"><b>Luca Milanese</b><span>19 mar 2022, 0:57</span></div>In una zona dello spazio è presente un campo magnetico non uniforme generato da <span class="tex">\(N\)</span> spire, tenute in posizioni fisse, nelle quali scorrono delle correnti <span class="tex">\(i_1, i_2, \dots, i_N\)</span>. Da un certo punto dello spazio è lasciato partire un elettrone inizialmente a riposo, e subito accelerato con una differenza di potenziale <span class="tex">\(V_0\)</span> tale che <span class="tex">\(eV_0\)</span> non è trascurabile rispetto a <span class="tex">\(m_e c^2\)</span>, dove <span class="tex">\(m_e\)</span> è la massa dell'elettrone. In seguito, dopo aver invertito la polarità della differenza di potenziale, e cambiato le correnti nelle spire, dallo stesso punto è lasciato muoversi un protone. Si determini quali devono essere i nuovi valori <span class="tex">\(I_1, I_2, \dots, I_N\)</span> affinché il protone segua la stessa traiettoria che aveva seguito l'elettrone.</article>
+<article class="post" id="p27416"><div class="who"><b>DeoGratias</b><span>23 mar 2022, 1:19</span></div>Supponiamo che il protone percorra la stessa traiettoria dell'elettrone. indichiamo con i pedici <span class="tex">\(_e, _p\)</span> le grandezze relative all'uno e all'altro. Notiamo innanzitutto che la velocità di una particella rimane sempre costante in modulo dopo che è stata accelerata con la d.d.p.; se <span class="tex">\(s(t)\)</span> è la distanza totale percorsa lungo la curva, allora <span class="tex">\(s(t)=vt\)</span>; visto che, data la stessa curva, <span class="tex">\(\textbf{r}(t)\)</span> è univocamente determinata data da <span class="tex">\(s(t)\)</span>, si avrà <span class="tex">\(\textbf{r}_p(t)=\textbf{r}_e \left(\frac{v_p}{v_e}t\right)\)</span>.<br>
+<br>
+Derivando due volte rispetto al tempo si ottiene <br>
+<span class="tex">\(\textbf{a}_p(t)=\frac{v_p^2}{v_e^2}\textbf{a}_e\left(\frac{v_p}{v_e}t\right)\)</span><br>
+<br>
+Sfruttando il fatto che <span class="tex">\(v=cost.\Rightarrow \dot{\gamma}=0\)</span>, si ha <span class="tex">\(\textbf{F}=\frac{\mathrm{d} }{\mathrm{d} t} (\gamma m \textbf{v})=\gamma m \textbf{a}\)</span><br>
+Questo significa che<br>
+<br>
+<span class="tex">\(\frac{\textbf{F}_p(\mathbf{r_p}(t))}{\gamma_p m_p v_p^2}=\frac{\textbf{F}_e\left(\mathbf{r_e}\left(\frac{v_p}{v_e}t \right)\right)}{\gamma_e m_e v_e^2\)</span><br>
+<br>
+Cerchiamo una configurazione in cui si abbia <span class="tex">\(\mathbf{B_p}= \lambda\mathbf{B_e}\)</span> per una qualche costante <span class="tex">\(\lambda\)</span>; ciò si potrà ottenere in tutto lo spazio solo se <span class="tex">\(I_k=\lambda i_k\)</span>.<br>
+Sotto questa ipotesi, sfruttando il fatto che <span class="tex">\(\mathbf{v_e} \left(\mathbf{r_e}\left (\frac{v_p}{v_e}t \right)\right) \times \textbf{B}_e \left(\mathbf{r_e} \left(\frac{v_p}{v_e}t \right) \right)\)</span> e <span class="tex">\(\mathbf{v_p}(\mathbf{r_p}(t)) \times \textbf{B}_p(\mathbf{r_p}(t))\)</span> saranno paralleli per quanto visto finora, ci consente di concludere che <br>
+<br>
+<span class="tex">\(\frac{ev_p\lambda B_e}{\gamma_p m_p v_p^2} =-\frac{ev_e B_e}{\gamma_e m_e v_e^2}\Rightarrow \lambda =-\frac{\gamma_p m_p v_p}{\gamma_e m_e v_e}\)</span><br>
+<br>
+Possiamo calcolare <span class="tex">\(\gamma\)</span> e <span class="tex">\(v\)</span> dalla conservazione dell'energia relativistica: <span class="tex">\(\gamma _em_e c^2=m_ec^2-eV_0\Rightarrow \gamma_e=1-\frac{eV_0}{m_ec^2}, v_e=c\sqrt{1-\left(\frac{m_ec^2}{m_ec^2-eV_0}\right)^2}\)</span> (visto che <span class="tex">\(V_0&lt;0\)</span>) e analogamente per <span class="tex">\(\gamma_p, v_p\)</span>.<br>
+<br>
+Si ottiene infine <span class="tex">\(I_k=\lambda i_k\)</span>, con <span class="tex">\(\lambda=-\frac{m_p\left ( 1-\frac{eV_0}{m_pc^2} \right )\sqrt{1-\left(\frac{m_pc^2}{m_pc^2-eV_0}\right)^2}
+}{m_e\left ( 1-\frac{eV_0}{m_ec^2} \right )\sqrt{1-\left(\frac{m_ec^2}{m_ec^2-eV_0}\right)^2}} \)</span></article>
+<article class="post" id="p27418"><div class="who"><b>Luca Milanese</b><span>23 mar 2022, 9:03</span></div>Corretto!  :D <br>
+Nota che puoi semplificare l'espressione di <span class="tex">\(\lambda\)</span> ottenendo:<br>
+<span class="tex">\(\lambda=-\sqrt{\frac{eV_0-2m_p c^2}{eV_0-2m_e c^2}}\)</span><br>
+Vai pure col 296!</article>
+<article class="post" id="p27421"><div class="who"><b>roncu</b><span>24 mar 2022, 18:40</span></div>Volevo segnalare che avevo impostato il problema in maniera diversa da Deo Gratias, su "suggerimento" dell'Halliday a proposito dei campi non uniformi nel sincrotone o nella bottiglia magnetica. Se elettrone e protone devono percorrere la stessa traiettoria deve essere identico il raggio della spirale nel campo magnetico seguita dalle due particelle la cui espressione, dedotta dall'uguaglianza fra la forza di Lorentz e la forza centripeta, è <span class="tex">\(r=\frac{m_e v_e .\gamma_e}{e.B_e}=-\frac{m_p.v_p \gamma_p}{e.B_p}\)</span>. Pertanto si arriva all'uguaglianza che stabilisce il rapporto fra i campi che poi vale per le correnti e che avete chiamato <span class="tex">\( \lambda \)</span> cioè<span class="tex">\(\frac{B_p}{B_e}= - \frac{m_p v_p \gamma_p}{m_e v_e \gamma_e}\)</span>. Considerando che l'energia cinetica deve essere per entrambi <span class="tex">\((\gamma - 1)m c^2= eV_0&gt;0\)</span> si possono dedurre <span class="tex">\(\gamma_e , \gamma_p\)</span> e da queste <span class="tex">\(v_e, v_p\)</span>. Sostituite nel rapporto fra i campi magnetici si ottiene con qualche passaggio proprio l'espressione più semplice suggerita da Luca cioè <br>
+<span class="tex">\(\frac{B_p}{B_e} = - \frac{\sqrt{e V_0 - 2m_p c^2}}{\sqrt{e V_0 - 2m_e c^2}}\)</span> :D</article>
+<article class="post" id="p27423"><div class="who"><b>DeoGratias</b><span>25 mar 2022, 0:30</span></div><blockquote><div><cite>roncu ha scritto: <a href="olifis-7144.html#p27421" data-post-id="27421" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">24 mar 2022, 18:40</div></cite>
+Se elettrone e protone devono percorrere la stessa traiettoria deve essere identico il raggio della spirale nel campo magnetico seguita dalle due particelle la cui espressione, dedotta dall'uguaglianza fra la forza di Lorentz e la forza centripeta, è <span class="tex">\(r=\frac{m_e v_e .\gamma_e}{e.B_e}=-\frac{m_p.v_p \gamma_p}{e.B_p}\)</span>
+</div></blockquote>
+Il risultato che hai ottenuto è corretto, ma hai discusso soltanto un caso particolare (spirale) mentre in generale la curva può essere arbitrariamente complicata. Nel caso generico non puoi assumere che il moto avvenga lungo una spirale e usare la relazione che hai ottenuto, e non mi è venuta in mente alcuna via più rapida di dimostrare in tutti i casi possibili la relazione richiesta :D</article>
+<article class="post" id="p27424"><div class="who"><b>roncu</b><span>25 mar 2022, 18:28</span></div>@ Deo Gratias<br>
+Converrai che tu puoi pensare in astratto ad una traiettoria qualsiasi però ci sono dei dati ineludibili. 1) la zona di allocazione delle spire è LIMITATA 2) questo significa che agli estremi della zona la forza di Lorentz deve essere diretta verso il centro della zona non potendo fuggire le particelle, ora interagenti con  il campo, verso un campo nullo. 3)la zona allora si comporta come una specie di bottiglia magnetica con le particelle prigioniere del campo costrette appunto a spiralizzare avanti e indietro attorno al campo qualunque esso sia in quella limitata zona( <span class="tex">\(B_e, B_p\)</span>) 4) infatti quale traiettoria sarebbe compatibile con quei dati? Dovresti essere in grado di descriverla poichè deve essere, secondo il testo, uguale per entrambi e deve essere compatibile con i dati. <br>
+Insomma tu sostieni che la tua dimostrazione vale per ogni traiettoria ma non sai dire qual è e io sostengo che non può che essere spiraliforme.. :roll:  :?:  :?: <br>
+( Sia chiaro che non voglio fare polemica sterile con te che ne sai infinitamente più di me )</article>
+<article class="post" id="p27425"><div class="who"><b>Luca Milanese</b><span>26 mar 2022, 0:30</span></div>2) Falso. Supponi di avere una singola spira e una carica che si muove lungo l'asse della spira. Sull'asse, il campo magnetico generato dalla spira è parallelo all'asse stesso, quindi lo è anche alla velocità della carica, che si muove indisturbata verso una distanza infinita dalla spira.<br>
+<br>
+4) Se con "spiraliforme" intendi elicoidale, allora stai parlando di un tipo di orbita che si ottiene in un campo uniforme, e forse in pochissime altre configurazioni (che sarebbero estremamente particolari).<br>
+<br>
+Non è che DeoGratias non sappia dire qual è l'orbita, semplicemente ce ne sono di infinite compatibili con la situazione del problema, e la soluzione da lui trovata permette effettivamente di trattare tutti i casi in una sola volta, essendo molto generale.</article>
+<article class="post" id="p27427"><div class="who"><b>Gamow00</b><span>27 mar 2022, 17:57</span></div>La soluzione scritta da roncu è effettivamente errata, ma può essere "salvata" abbastanza facilmente.<br>
+Infatti, l'uguaglianza <span class="tex">\(F_{centrifuga}=F_{magnetica}\)</span> è in realtà valida per qualunque orbita, anche non elicoidale, se si considera la forza centrifuga come generata dal moto intorno al centro di rotazione "istantaneo". Questo moto avrà come raggio il raggio di curvatura della traiettoria in quel punto.<br>
+Siccome le due orbite coincidono, hanno in ogni punto lo stesso raggio di curvatura e ciò permette di generalizzare l'equazione ottenuta da roncu a qualunque traiettoria.</article>
+<article class="post" id="p27428"><div class="who"><b>roncu</b><span>28 mar 2022, 10:35</span></div>@Gamow00<br>
+La mia soluzione non è "errata" altrimenti non potresti "salvarla" come fai successivamente. Luca e Deo Gratias sostenevano però che non era generale, che riguardava solo un certo tipo di traiettorie. Io non ero capace di precisare la ragione della sua generalità. Tu lo fai in maniera esemplarmente lucida e te ne ringrazio perchè affrontare il test SNS richiede molta autostima. Tuttavia presumo che non ci sia bisogno di ricordarlo a te :D  :D</article>
+<article class="post" id="p27429"><div class="who"><b>Pigkappa</b><span>28 mar 2022, 15:40</span></div>Suvvia non punzecchiatevi troppo</article>
+<nav class="pager"><a class="prev" href="olifis-7143.html"><small>← precedente</small>294 - Taglio della corda</a><a class="next" href="olifis-7145.html"><small>successivo →</small>296 - Trappola magnetica</a></nav>
+</main></body></html>

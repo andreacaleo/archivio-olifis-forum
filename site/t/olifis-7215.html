@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>317. Spira in campo magnetico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 317</a></span></nav>
+<h1>317. Spira in campo magnetico</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7215">forum Olifis</a></p>
+<article class="post first" id="p28001"><div class="who"><b>Tarapìa Tapioco</b><span>2 set 2023, 9:56</span></div>Una spira circolare, fatta di un sottile filo conduttivo di raggio <span class="tex">\(r\)</span>, resistività <span class="tex">\(\rho\)</span> e densità di massa <span class="tex">\(\rho_m\)</span> e posta lungo un piano orizzontale, cade da grande altezza in un campo magnetico avente una componente verticale che varia con <span class="tex">\(z\)</span> seguendo la legge <span class="tex">\(B(z) = B_0 (1+ \alpha z)\)</span>. La spira, di diametro <span class="tex">\(D\)</span>, durante la caduta mantiene l'orientazione orizzontale e un campo uniforme lungo le direzioni <span class="tex">\(x\)</span> e <span class="tex">\(y\)</span>. Trascurando l'attrito dell'aria, calcolare la velocità finale di caduta della spira.</article>
+<article class="post" id="p28006"><div class="who"><b>Physicsguy51</b><span>2 set 2023, 11:15</span></div>Let $\vec{n}$ be the normal to the plane of the ring, then the flux created by the vertical component of the magnetic field is $\Phi=B S=B_0(1+\alpha z) S$, where $S=\frac{\pi d^2}{4}$ - the area of the EMF induction that occurs in the ring,<br>
+$$<br>
+\mathcal{E}_i=-\Phi^{\prime}(t)=-\left(B_0(1+\alpha z) S\right)^{\prime}=-B_0 S \alpha z^{\prime}(t) \text {.}<br>
+$$<br>
+The derivative $z^{\prime}(t)=-v_z$ is the projection of the ring velocity onto the $z$ axis. Thus, $\mathcal{E}_i=-B_0 S \alpha\left(-v_z\right)$. Since the ring velocity is directed against the $z$ axis, then $v_z=-v$, where $v$ is the magnitude of the ring velocity and $\mathcal{E}_i=B_0 S \alpha \nu$. An induced current $I=\frac{\mathcal{E}_i}{R}=\frac{B_0 S \alpha v}{R}$ flows through the ring. As a result, an amount of heat $Q=I^2 R \Delta t$ is released in the ring over a period of time $\Delta t$<br>
+<br>
+At a height of $z_1$, the ring has mechanical energy $W_1=m g z_1+\frac{m v^2}{2}$, at a height of $z_2-W_2=m g z_2+\frac{m v^2}{2}$ ( $v= $ const, i.e. the speed of the ring does not change). According to the law of conservation of energy $W_1=W_2+Q \Rightarrow m g z_1=m g z_2+I^2 R \Delta t \Rightarrow m g\left(z_1 z_2\right)=\left(\frac{B_0 S \alpha v}{R}\right )^2 R \Delta t \Rightarrow m g\left(z_1-z_2\right)\left(^*\right) \\ =\frac{\left(B_0 S \alpha v\right)}{R} \Delta t$<br>
+<br>
+<br>
+The difference $\left(z_1-z_2\right)$ is the distance covered by the ring during uniform motion, therefore $z_1-z_2=v \Delta t$, and equation will take the form:<br>
+$$<br>
+m g v \Delta t=\frac{\left(B_0 S \alpha v\right)^2}{R} \Delta t=\Rightarrow m g=\frac{\left(B_0 S \alpha\right)^2 v}{R} \Rightarrow v=\frac{m g R}{\left(B_0 S \alpha\right)^2}=\frac{16 m g R}{\left(B_0 \pi d^2 \alpha\right)^2}<br>
+$$<br>
+<br>
+where $m$ is mass of loop and $d$ is its diameter.</article>
+<article class="post" id="p28007"><div class="who"><b>Tarapìa Tapioco</b><span>2 set 2023, 11:25</span></div>Could you write the process using the LaTex tool on the Forum so that the language of the message is more understandable and readable? Also, I have modified the prompt, so you need to write the final result according to the data provided by the text. Sorry for the mistake.<br>
+<br>
+P.S. Mass <span class="tex">\(m\)</span> is not a datum given by the problem, but must be written as a function of what the exercise delivers.</article>
+<article class="post" id="p28008"><div class="who"><b>Physicsguy51</b><span>2 set 2023, 17:39</span></div>Ok.<br>
+Let <span class="tex">\(\vec{n}\)</span> be the normal to the plane of the ring, then the flux created by the vertical component of the magnetic field is <span class="tex">\(\Phi=B S=B_0(1+\alpha z) S\)</span>, where <span class="tex">\(S=\frac{\pi d^2}{4}\)</span> - the area of the EMF induction that occurs in the ring,<br>
+<span class="tex">\(
+\mathcal{E}_i=-\Phi^{\prime}(t)=-\left(B_0(1+\alpha z) S\right)^{\prime}=-B_0 S \alpha z^{\prime}(t) \text {.}
+\)</span><br>
+The derivative <span class="tex">\(z^{\prime}(t)=-v_z\)</span> is the projection of the ring velocity onto the <span class="tex">\(z\)</span> axis. Thus, <span class="tex">\(\mathcal{E}_i=-B_0 S \alpha\left(-v_z\right)\)</span>. Since the ring velocity is directed against the <span class="tex">\(z\)</span> axis, then <span class="tex">\(v_z=-v\)</span>, where <span class="tex">\(v\)</span> is the magnitude of the ring velocity and <span class="tex">\(\mathcal{E}_i=B_0 S \alpha \nu\)</span>. An induced current <span class="tex">\(I=\frac{\mathcal{E}_i}{R}=\frac{B_0 S \alpha v}{R}\)</span> flows through the ring. As a result, an amount of heat <span class="tex">\(Q=I^2 R \Delta t\)</span> is released in the ring over a period of time <span class="tex">\(\Delta t\)</span><br>
+<br>
+At a height of <span class="tex">\(z_1\)</span>, the ring has mechanical energy <span class="tex">\(W_1=m g z_1+\frac{m v^2}{2}\)</span>, at a height of <span class="tex">\(z_2-W_2=m g z_2+\frac{m v^2}{2}\)</span> ( <span class="tex">\(v\)</span>=  const, i.e. the speed of the ring does not change). According to the law of conservation of energy <span class="tex">\(W_1=W_2+Q \Rightarrow m g z_1=m g z_2+I^2 R \Delta t \Rightarrow m g\left(z_1 z_2\right)=\left(\frac{B_0 S \alpha v}{R}\right )^2 R \Delta t \Rightarrow m g\left(z_1-z_2\right)\left(^*\right) \\ =\frac{\left(B_0 S \alpha v\right)}{R} \Delta t\)</span><br>
+<br>
+<br>
+The difference <span class="tex">\(\left(z_1-z_2\right)\)</span> is the distance covered by the ring during uniform motion, therefore <span class="tex">\(z_1-z_2=v \Delta t\)</span>, and equation will take the form:<br>
+<span class="tex">\(
+m g v \Delta t=\frac{\left(B_0 S \alpha v\right)^2}{R} \Delta t=\Rightarrow m g=\frac{\left(B_0 S \alpha\right)^2 v}{R} \Rightarrow v=\frac{m g R}{\left(B_0 S \alpha\right)^2}=\frac{16 m g R}{\left(B_0 \pi d^2 \alpha\right)^2}
+\)</span><br>
+<br>
+where <span class="tex">\(m\)</span> is mass of loop and <span class="tex">\(d\)</span> is its diameter. I know that we were given mass density and radius but in my answer you can just substitute <span class="tex">\(2r\)</span> for diameter and <span class="tex">\(m = mass density * volume\)</span>.</article>
+<article class="post" id="p28009"><div class="who"><b>Physicsguy51</b><span>2 set 2023, 17:44</span></div>Hence final answer will be:<br>
+<span class="tex">\(
+\frac{4\rho \rho_m g}{B_{0}^{2} \pi r^2 \alpha^2}
+\)</span></article>
+<article class="post" id="p28010"><div class="who"><b>Physicsguy51</b><span>2 set 2023, 17:50</span></div>i made a calculation error. <br>
+<span class="tex">\(
+\frac{\rho_m g R^2}{4 B_{0}^{2} \pi^4 r^6 \rho}
+\)</span></article>
+<article class="post" id="p28013"><div class="who"><b>Tarapìa Tapioco</b><span>2 set 2023, 18:32</span></div>The final result is incorrect. Your first result is very very close to the official solution. But, again, you have to write it as a function of only the data provided by the text of the problem. Not only <span class="tex">\(m\)</span> but also <span class="tex">\(R\)</span> is a quantity not shown in the text.</article>
+<article class="post" id="p28016"><div class="who"><b>Physicsguy51</b><span>3 set 2023, 0:09</span></div>Ok, this is what I am getting:<br>
+<span class="tex">\(
+\frac{4\rho_m \rho g}{B_{0}^2 \alpha^2 r^6}
+\)</span></article>
+<article class="post" id="p28017"><div class="who"><b>Tarapìa Tapioco</b><span>3 set 2023, 0:16</span></div>No, unfortunately, this is not the correct solution. Most likely, the error is due to your confusion between the diameter <span class="tex">\(D\)</span> of the loop <span class="tex">\(\bigg(\)</span>which, therefore, has radius <span class="tex">\(R = \frac{D}{2}\)</span><span class="tex">\(\bigg)\)</span> and the diameter <span class="tex">\(d\)</span> of the thin conducting wire <span class="tex">\(\bigg(\)</span>which, therefore, has radius <span class="tex">\(r = \frac{d}{2}\)</span><span class="tex">\(\bigg)\)</span>.</article>
+<article class="post" id="p28018"><div class="who"><b>Physicsguy51</b><span>3 set 2023, 0:25</span></div>Oh, it seems like I neglected one of the two.. I assumed the loop to be of radius r...and directly conserved energy</article>
+<article class="post" id="p28019"><div class="who"><b>Physicsguy51</b><span>3 set 2023, 0:29</span></div><blockquote><div><cite>Tarapìa Tapioco ha scritto: <a href="olifis-7215.html#p28017" data-post-id="28017" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">3 set 2023, 0:16</div></cite>
+No, unfortunately, this is not the correct solution. Most likely, the error is due to your confusion between the diameter <span class="tex">\(D\)</span> of the loop <span class="tex">\(\bigg(\)</span>which, therefore, has radius <span class="tex">\(R = \frac{D}{2}\)</span><span class="tex">\(\bigg)\)</span> and the diameter <span class="tex">\(d\)</span> of the thin conducting wire <span class="tex">\(\bigg(\)</span>which, therefore, has radius <span class="tex">\(r = \frac{d}{2}\)</span><span class="tex">\(\bigg)\)</span>.
+</div></blockquote>
+
+Ok this is my last attempt for now, I'll retry in a few hours again.<br>
+Is the answer: <span class="tex">\(\frac{64 \rho_m \rho r^2 g}{D^4 B_{0}^2 \alpha^2}\)</span></article>
+<article class="post" id="p28021"><div class="who"><b>Tarapìa Tapioco</b><span>3 set 2023, 0:44</span></div>Sorry, but the result is still wrong. I suggest you write down, from time to time, the steps you took to arrive at the different solutions so that I can realize the errors.</article>
+<article class="post" id="p28022"><div class="who"><b>Physicsguy51</b><span>3 set 2023, 1:09</span></div>what am I missing? a numerical factor or something completely different? is my method correct?</article>
+<article class="post" id="p28023"><div class="who"><b>Tarapìa Tapioco</b><span>3 set 2023, 1:17</span></div>In your first message, you carried out a correct approach with an end result very close to the official one. I recommend that you go from there.</article>
+<article class="post" id="p28025"><div class="who"><b>Physicsguy51</b><span>3 set 2023, 2:07</span></div>Ok, so in my first result we got <span class="tex">\(\frac{16mgR}{(B_{0} D^2 \pi \alpha)^2}\)</span><br>
+Now, we need to get rid of the mass <span class="tex">\(m\)</span> and the resistance <span class="tex">\(R\)</span>. So, we can assume the resistance to be: <span class="tex">\(\frac{\rho \pi D}{\pi r^2}\)</span> where r is radius of wire cross section used to make loop and D is diameter of loop. Mass density is simply <span class="tex">\(\frac{m}{V}\)</span> where V is volume. So, volume can be written as: <span class="tex">\(\pi^2 D r^2\)</span> and substituting, we get final answer as:<br>
+<br>
+<span class="tex">\(\frac{16 \rho_m \rho g}{(B_0 D \alpha)^2}\)</span><br>
+<br>
+Now, if this is wrong, I give up. I am probably making some stupid error.</article>
+<article class="post" id="p28029"><div class="who"><b>Tarapìa Tapioco</b><span>3 set 2023, 2:49</span></div>Now the answer is correct. You can post the following problem.</article>
+<article class="post" id="p28030"><div class="who"><b>Physicsguy51</b><span>3 set 2023, 2:57</span></div>Oh my god.. finally.. now how do I post the next challenge? Is there any tag I should use or just normally post it?</article>
+<article class="post" id="p28033"><div class="who"><b>Tarapìa Tapioco</b><span>3 set 2023, 3:16</span></div>When entering text, you must mark the title with the number following the previous problem (in this case, 318). Of course, it would be desirable for you to post a problem for which you already know the solution well.</article>
+<article class="post" id="p28035"><div class="who"><b>Physicsguy51</b><span>3 set 2023, 3:28</span></div>Sure.</article>
+<article class="post" id="p28038"><div class="who"><b>Higgs</b><span>3 set 2023, 11:56</span></div>Ricollegandomi stamani ho visto la soluzione corretta di Physicsguy51 che però secondo me non è chiarissima rispetto al raggiungimento del valore costante di regime della velocità v. A me tornava lo stesso risultato corretto con il seguente ragionamento. La potenza della forza peso, motore di tutto il processo, è mgv. Avviene, a causa della corrente indotta nella spira, una dissipazione di potenza termica <span class="tex">\(i^2 R\)</span> che risulta proporzionale a <span class="tex">\(v^2\)</span>. Pertanto è ragionevole ritenere che la potenza dissipata raggiunga a un certo momento quella del peso. Da questo momento non c'è più incremento di energia cinetica cioè di v. Il valore è quello riportato nella soluzione di PhYsicsguy51.</article>
+<article class="post" id="p28039"><div class="who"><b>Tarapìa Tapioco</b><span>3 set 2023, 12:12</span></div>Hai ragione, il procedimento di Physicsguy51 non è chiarissimo; ciononostante, esso è corretto. Anche il tuo metodo mi sembra giusto, considerando anche la correttezza del risultato finale a cui sei pervenuto.</article>
+<article class="post" id="p28041"><div class="who"><b>Higgs</b><span>4 set 2023, 10:36</span></div>Il seguente procedimento mi sembra molto semplice per cui ritengo opportuno postarlo. La massa della spira è <span class="tex">\(m=\rho_m \pi^2 r^2D\)</span> mentre la sua resistenza elettrica è <span class="tex">\(R=\rho \frac{D}{r^2}\)</span>. La fem indotta in valore assoluto risulta <span class="tex">\(fem= \frac{dB}{dt}\pi(D/2)^2= B_0\alpha v \pi(D/2)^2\)</span>Essa, divisa per R, fornisce la corrente indotta nella spira che risulta <span class="tex">\(i= \frac{B_0\alpha v \pi r^2 D}{4\rho}\)</span>. Pertanto la potenza termica che si libera per effetto Joule dalla spira è<span class="tex">\(i^2 R=\frac{B_0^2 \alpha^2 v^2\pi^2r^4 D^3 \rho}{16 \rho^2 r^2}\)</span> Dal momento in cui questa potenza termica, che dipende da <span class="tex">\(v^2\)</span>, uguaglia la potenza del peso della spira mgv, che dipende da v,  la velocità non può più variare e dall'uguaglianza si può ricavare questo valore. Infatti<br>
+<span class="tex">\(mgv=\rho_m \pi^2 r^2 D gv= \frac{B_0^2 \alpha^2v^2 \pi^2 r^2 D^3}{16\rho}\)</span>. Con le semplificazioni risulta in definitiva<br>
+<span class="tex">\(v= \frac {16\rho \rho_m g}{(B_0 \alpha D)^2}\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-7214.html"><small>← precedente</small>316. Un insetto sferico</a><a class="next" href="olifis-7219.html"><small>successivo →</small>318. Semi-infinite solenoid and super conducting disc</a></nav>
+</main></body></html>

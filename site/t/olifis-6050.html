@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>38.Una sbarretta ed un filo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 38</a></span></nav>
+<h1>38.Una sbarretta ed un filo</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6050">forum Olifis</a></p>
+<article class="post first" id="p20343"><div class="who"><b>Scugnamì</b><span>10 feb 2015, 15:01</span></div>Abbiamo una sbarretta omogenea di massa <span class="tex">\(m\)</span> e lunghezza <span class="tex">\(l\)</span> attaccata ad un muro con una delle sue estremità. Per tenerla in equilibrio, all'altra estremità viene attaccato un filo ideale  e inestensibile il cui altro capo viene fissato al muro. Sapendo che la sbarretta forma un angolo <span class="tex">\(\theta\)</span> con la verticale, determinare la tensione <span class="tex">\(T\)</span> la forza normale di reazione rispetto al muro <span class="tex">\(N\)</span> e la distanza tra il punto in cui viene attaccata la sbarretta al muro e quello in cui viene fissato il filo.</article>
+<article class="post" id="p20344"><div class="who"><b>Simone256</b><span>10 feb 2015, 16:36</span></div>Non manca l'ipotesi tipo sulla lunghezza del filo?</article>
+<article class="post" id="p20345"><div class="who"><b>andrea96</b><span>10 feb 2015, 17:42</span></div>Direi di si... tra l altro io l avevo risolto con quell ipotesi senza accorgermi che non c era :lol:  :lol:  :lol:</article>
+<article class="post" id="p20346"><div class="who"><b>sall96</b><span>10 feb 2015, 18:43</span></div>secondo voi questo problema che livello e'? <br>
+Perche' se ne mettono uno cosi' ai provinciali io sarei piu' che contento  :D</article>
+<article class="post" id="p20347"><div class="who"><b>andrea96</b><span>10 feb 2015, 19:22</span></div>Potrebbe tranquillamente essere un problema dei provinciali</article>
+<article class="post" id="p20348"><div class="who"><b>Scugnamì</b><span>10 feb 2015, 19:36</span></div>Il problema l'ho preso da sessioni di lezioni che hanno organizzato a Napoli per le Olifis e lì l'abbiamo risolto senza ipotesi sulla lunghezza. quindi non ce ne dovrebbe essere bisogno. Ma potrei ricordare male  probabilmente o aver copiato male dal quaderno e stare per fare una ben magra figura. So, postate e vediamo.</article>
+<article class="post" id="p20349"><div class="who"><b>andrea96</b><span>10 feb 2015, 20:01</span></div>L ho fatto a mente mentre sciavo quindi non ho i conti scritti... comunque rispensandoci hai ragione: il fatto che viene dato l angolo fa si che l equilibrio si possa avere solo per una particolare lunghezza: i fatti oltre alle tre incognite che chiede il problema c è anche la lunghezza del filo e in effetti le condizioni da utilizzare sono 4: equilibrio dei momenti (direi la cosa piu semplice è rispetto all estremo legato alla corda ) , equilibrio delle forze verticali, di quelle orizzontali e il fatto che la corda è inestemdibile</article>
+<article class="post" id="p20350"><div class="who"><b>Simone256</b><span>10 feb 2015, 23:42</span></div>Forse sono io che sono fuso ma non mi è chiaro! In ogni caso se dico cazzate son ben felice che almeno imparo qualcosa di meccanica dalle vostre correzioni!! ;)<br>
+<br>
+In ogni caso se la sbarra è fissata con il perno ed è ad un particolare angolo, la fune che la sostiene si appende in un punto con quota maggiore o uguale alla proiezione del punto più alto della sbarretta sul muro! Almeno io così l'ho interpretato! Metto un esempio sperando si capisca:<br>
+<br>
+(P.s. non sfottete se ho detto la cacata del mese :lol:)
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/010fd5c7550e04ca.jpg" class="postimage" alt="14236046590041872764854.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>14236046590041872764854.jpg (132.35 KiB) Visto 7147 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p20351"><div class="who"><b>andrea96</b><span>11 feb 2015, 8:55</span></div>Eh in effetti era quello che avevo pensato anch io però poi pensando che ci sono 4 condizioni  avevo supposto che non fosse possibile equilibrare con qualsiasi corda, a meno che una delle 4 condizione non è contenuta nelle altre tre... purtroppo non avemdo la possibilitá di fare i calcoli fino a stasera non posso verificare queste cose.<br>
+P.S. pensate al caso il cui la corda ha la lunghezza minima per arrivare al muro e quindi è perpendicolare al muro... in quel caso non puo essere raggiunto l equilobrio perche niente puo bilanciare il peso</article>
+<article class="post" id="p20352"><div class="who"><b>Simone256</b><span>11 feb 2015, 16:57</span></div>In realtà credo di sì! Il perno del muro attaccato con la sbarretta eserciterà una forza verticale uguale al peso!</article>
+<article class="post" id="p20353"><div class="who"><b>andrea96</b><span>11 feb 2015, 17:45</span></div>Allora ho capito l inghippo tra quello che dici tu e quello che dico io: io parto dall ipotesi che il muro possa esercitare solo una forza orizzontale, mentre tu consideri che la reazione vincolare possa avere qualsiasi direzione cosi che hai una variabile in piu e se viene data la lunghezza del filo e l angolo hai quattro incognite (tensione componenti orizzonale e verticale della reazione vincolare e punto di attacco del filo ) che trovi con le quattro condizioni. Penso che l applicazioeapplicazione dell uno o dell altro metodo dipenda dal tipo di meccanismo della reazione vincolare: io mi ero immaginato la sbarretta diretta verso il basso e semplicemente appogiata al muro (che quindi puo esercitare solo fvincillforza orizzontale) , un perno vero e proprio invece puo esercitare forze in ogni direzione.</article>
+<article class="post" id="p20355"><div class="who"><b>Scugnamì</b><span>11 feb 2015, 18:16</span></div>Uhm effettivamente sono stato poco chiaro: la forza vincolare è normale rispetto alla superficie del muro è basta. Ha solo componente orizzontale. Chiedo scusa per l'ambiguità ma in capa a me tenevo il disegno con il diagrammino delle forze con cui abbiamo fatto il problema e non ho specificato. Sry.</article>
+<article class="post" id="p20356"><div class="who"><b>Simone256</b><span>11 feb 2015, 19:09</span></div>Aaaaah quindi è come se fosse appoggiata al muro senza attrito? In tal caso l'unica forza è proprio quella perpendicolare :D<br>
+Bene bene mi compiaccio che alla fine nessuno stava dicendo fesserie  :lol:</article>
+<article class="post" id="p20399"><div class="who"><b>Simone256</b><span>16 feb 2015, 19:34</span></div>Vabbè posto io allora dai!<br>
+<br>
+Sia <span class="tex">\(\alpha\)</span> l'angolo che il filo forma con la parete, imponendo l'equilibrio delle forze nelle componenti verticale e orizzontale si ottiene:<br>
+<br>
+<span class="tex">\(T \cos \alpha = mg\)</span><br>
+<span class="tex">\(T \sin \alpha = N\)</span><br>
+<br>
+Imponendo l'equilibrio dei momenti rispetto al punto di contatto tra filo e sbarretta si ottiene:<br>
+<br>
+<span class="tex">\(2N \cos \theta = mg \sin \theta\)</span><br>
+<br>
+Dall'ultima equazione si ricava facilmente che<br>
+<br>
+<span class="tex">\(N=\frac{mg \tan \theta}{2}\)</span><br>
+<br>
+E confrontando questa cosa con le prime due equazioni si ottiene<br>
+<br>
+<span class="tex">\(\tan \theta = 2 \tan \alpha\)</span><br>
+<br>
+Grazie a questa utile relazione nella prima equazione si può ottenere T solo in funzioni delle variabili indicate:<br>
+<br>
+<span class="tex">\(T=mg\sqrt{1+\frac{\tan^2 \theta}{4}}\)</span><br>
+<br>
+Inoltre dalle relazioni sugli angoli si vede bene che la proiezione della sbarretta sulla parete è lunga come la distanza cercata:<br>
+<br>
+<span class="tex">\(d=l \cos \theta\)</span></article>
+<article class="post" id="p20400"><div class="who"><b>Scugnamì</b><span>16 feb 2015, 21:27</span></div>Ovviamente giusto. Vada pure con il prossimo problema.</article>
+<article class="post" id="p20401"><div class="who"><b>Simone256</b><span>17 feb 2015, 0:32</span></div><blockquote><div><cite>Scugnamì ha scritto:</cite>Ovviamente</div></blockquote>
+
+Per fortuna! Sono molto bravo a scrivere cagate  :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6049.html"><small>← precedente</small>37: Un filo rovinato</a><a class="next" href="olifis-6051.html"><small>successivo →</small>39: Un&#x27;asta che gira</a></nav>
+</main></body></html>

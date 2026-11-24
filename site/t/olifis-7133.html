@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>291. Cilindro nel solenoide</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 291</a></span></nav>
+<h1>291. Cilindro nel solenoide</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7133">forum Olifis</a></p>
+<article class="post first" id="p27364"><div class="who"><b>Luca Milanese</b><span>24 feb 2022, 12:25</span></div>È dato un solenoide cilindrico ideale di raggio <span class="tex">\(R\)</span> fisso con asse orizzontale. Al suo interno è poggiato un cilindro di raggio <span class="tex">\(r&lt;R\)</span> e carico uniformemente con carica positiva. L'asse del cilindro è parallelo a quello del solenoide, è presente la gravità e il coefficiente di attrito tra il cilindro e la superficie interna del solenoide è abbastanza alto da impedire lo slittamento. Si comincia a far scorrere nel solenoide una corrente che cresce linearmente nel tempo. Guardando il sistema da una delle due basi del solenoide, la corrente scorre in senso antiorario. Qual è, in funzione di <span class="tex">\(r\)</span>, il verso nel quale vediamo iniziare a muoversi il cilindro carico?</article>
+<article class="post" id="p27366"><div class="who"><b>roncu</b><span>26 feb 2022, 12:33</span></div>Siccome sembrano sinonimi chiedo di sapere se la carica è distribuita sulla superficie come se fosse un conduttore o nel volume vero e proprio come sembrerebbe da ciò che scrivi :?:  :?:</article>
+<article class="post" id="p27367"><div class="who"><b>Luca Milanese</b><span>26 feb 2022, 13:46</span></div>Il cilindro è un isolante nel cui volume la carica è uniformemente distribuita.</article>
+<article class="post" id="p27370"><div class="who"><b>DeoGratias</b><span>28 feb 2022, 21:04</span></div>Al momento non sono a casa, se il risultato è giusto posterò la soluzione completa più tardi. Avrei ottenuto che, osservando dalla base del testo, il cilindro si muove in senso orario per <span class="tex">\(r&lt;\frac{2}{3}R\)</span>, antiorario per <span class="tex">\(r&gt;\frac{2}{3}R\)</span></article>
+<article class="post" id="p27371"><div class="who"><b>Luca Milanese</b><span>28 feb 2022, 21:44</span></div>Corretto, vai col procedimento appena puoi!  :D</article>
+<article class="post" id="p27372"><div class="who"><b>DeoGratias</b><span>1 mar 2022, 16:05</span></div>Mettiamoci in un sistema di coordinate cilindriche, dove <span class="tex">\(\hat{z}\)</span> punta dalla base da cui osserviamo (quella del testo) verso l'altra, <span class="tex">\(\hat{r}\)</span> è il versore radiale e <span class="tex">\(\hat{\theta}=\hat{r} \times \hat{z}\)</span> è il versore tangenziale. <br>
+Innanzitutto troviamo il campo elettrico indotto: vista la simmetria cilindrica del sistema, entrambe le componenti del campo dipenderanno solo da <span class="tex">\(r\)</span>:<span class="tex">\(\vec{E}=E_r(r)\hat{r}+E_{\theta}(r)\hat{\theta}\)</span><br>
+Per il Teorema di Gauss, si avrà <span class="tex">\(\oiint_{\Omega}  \vec{E}\cdot \textup{d}\vec{A}=\oiint_{\Omega}E_r \textup{d}A=A_{lat}E_r=0\)</span>, dove <span class="tex">\(\Omega\)</span> è la superficie di un cilindro con asse di simmetria coincidente con quello del solenoide e <span class="tex">\(A_{lat}\)</span> è la sua area laterale; si ha quindi <span class="tex">\(E_r=0\)</span>.<br>
+Per la Legge di Faraday, considerando una circonferenza <span class="tex">\(\Sigma\)</span> di raggio <span class="tex">\(r\)</span> il cui asse centrale coincide con l'asse di simmetria del solenoide, si ha <span class="tex">\(\oint_{\partial \Sigma} \vec{E}\cdot \textup{d}\vec{s}=-\frac{\mathrm{d} }{\mathrm{d} t}\iint _{\Sigma} \vec{B}\cdot \textup{d}\vec{A}=2\pi r E_{\theta}=-\pi r^2\dot{B}\)</span>, da cui <span class="tex">\(E_{\theta}=-\frac{1}{2}\dot{B}r\)</span>.<br>
+Visto che <span class="tex">\(\vec{B}\)</span> è uniforme all'interno del solenoide e <span class="tex">\(\dot{B}&gt;0\)</span>, si avrà <span class="tex">\(\vec{E}(r)=-\frac{1}{2}\dot{B}r\hat{\theta}=-\frac{1}{2}\dot{B}\vec{r}\times \hat{z}\)</span><br>
+Le forze tangenziali agenti sul cilindro saranno quella elettrica dovuta al campo indotto e quella d'attrito, <span class="tex">\(\vec{f}\)</span>. <br>
+Per trovare la forza elettrica, scriviamo <span class="tex">\(\vec{r}=\vec{r_0} +\vec{r'}\)</span>, dove <span class="tex">\(\vec{r_0}\)</span> è il vettore radiale con estremo sull'asse del cilindro. Si avrà quindi<br>
+<span class="tex">\(\vec{F}=\int_V \vec{E}\textup{d}q =\int_V-\frac{1}{2}\dot{B}\vec{r}\times \hat{z}\textup{d}q=\frac{1}{2}\dot{B}\hat{z}\times(\int_V\vec{r_0}\textup{d}q+\int_V\vec{r'}\textup{d}q)\)</span><br>
+Visto che la carica è uniformente distribuita, <span class="tex">\(\int_V\vec{r'}\textup{d}q=0\)</span> (per ogni <span class="tex">\(\vec{r'}\)</span> in <span class="tex">\(V\)</span> anche <span class="tex">\(-\vec{r'}\)</span> è in <span class="tex">\(V\)</span>, quindi, grazie al fatto che <span class="tex">\(\rho=cost\)</span>, si annullano a coppie).<br>
+Segue che <span class="tex">\(\vec{F}\)</span> è data da <span class="tex">\(\vec{F}=-\frac{1}{2}q\dot{B} (R-r)\hat{\theta}\)</span>.<br>
+Il momento torcente della forza elettrica rispetto al centro del cilindro è <span class="tex">\(\vec{\tau}=-\frac{1}{2}\dot{B}\int_V \vec{r'}\times{[(\vec{r_0}+\vec{r'})\times \hat{z}]\textup{d}q\)</span><br>
+Per gli stessi motivi di prima, si ha <span class="tex">\(-\frac{1}{2}\dot{B}\int_V \vec{r'}\times{(\vec{r_0}\times \hat{z})\textup{d}q=0\)</span>. Per quanto riguarda l'altro membro, si avrà <br>
+<span class="tex">\(\vec{\tau}=-\frac{1}{2}\dot{B}\hat{z}\int_{0}^{r}\tilde{r}^2\textup{d}q=-\hat{z}\frac{\dot{B}q}{r^2}\int_{0}^{r}\tilde{r}^3\textup{d}\tilde{r}=-\frac{1}{4}\hat{z}\dot{B}qr^2\)</span>.<br>
+La condizione di non slittamento del cilindro è <span class="tex">\(v_{CM}=\omega r\Rightarrow a_{CM}=\alpha r\)</span>. Le equazioni cardinali diventano<br>
+<br>
+<span class="tex">\(\left\{\begin{matrix}
+ ma_{CM}=\frac{1}{2}q\dot{B}(R-r)-f
+\\ \frac{1}{2}ma_{CM}=f-\frac{1}{4}q\dot{B}r
+\end{matrix}\right.\)</span><br>
+<br>
+Si ha infine <span class="tex">\(a_{CM}=\frac{q\dot{B}}{6m}(2R-3r)\)</span>, dove <span class="tex">\(a\)</span>  positiva in senso orario, negativa in senso antiorario.<br>
+Se <span class="tex">\(r&lt;\frac{2}{3}R\)</span> si muove in senso orario, se <span class="tex">\(r=\frac{2}{3}R\)</span> rimane fermo, se <span class="tex">\(R&gt;r&gt;\frac{2}{3}R\)</span> si muove in senso antiorario.</article>
+<article class="post" id="p27374"><div class="who"><b>Luca Milanese</b><span>1 mar 2022, 16:30</span></div>Buona la soluzione, ti faccio solo notare che avresti potuto giustificare un po' meglio il calcolo del campo indotto nella prima parte (ad esempio, dicendo esplicitamente perchè puoi considerare nulla la carica nella legge di Gauss nonostante la presenza del cilindro) e che l'espressione:
+<blockquote><div><cite>DeoGratias ha scritto: <a href="olifis-7133.html#p27372" data-post-id="27372" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 mar 2022, 16:05</div></cite>
+<span class="tex">\(\vec{F}=-\frac{1}{2}q\dot{B} (R-r)\hat{\theta}\)</span>.
+</div></blockquote>
+Non è del tutto corretta se non specifichi quale versore <span class="tex">\(\hat \theta\)</span>, che non è fisso, stai considerando. Dettagli a parte, le idee ci sono tutte, quindi a te la staffetta. :D</article>
+<article class="post" id="p27378"><div class="who"><b>DeoGratias</b><span>1 mar 2022, 23:52</span></div>Vedo di precisare:<br>
+1) Le uniche forze in cui siamo interessati sono quelle esterne, ovvero la forza d'attrito e quella dovuta all'azione del campo elettrico indotto; di conseguenza non ci interessa quale sia il campo generato dalla carica sul cilindro, ma solo quello dovuto alla variazione di corrente. Possiamo quindi trovare quest'ultimo trascurando la presenza del cilindro carico.<br>
+2) In effetti la notazione che ho scelto non è delle migliori :D  <br>
+Con <span class="tex">\(\hat{\theta}\)</span> (o meglio <span class="tex">\(\hat{\theta_0}\)</span>) mi riferisco al versore tangente perpendicolare a <span class="tex">\(\hat{r_0}=\frac{\vec{r_0}}{R-r}\)</span>, ovvero <span class="tex">\(\hat{\theta_0}=\hat{z} \times \frac{\vec{r_0}}{R-r}\)</span></article>
+<article class="post" id="p27379"><div class="who"><b>Luca Milanese</b><span>2 mar 2022, 0:01</span></div>Adesso è perfetto!  :)</article>
+<article class="post" id="p27380"><div class="who"><b>roncu</b><span>3 mar 2022, 12:11</span></div>@DeoGratias<br>
+Mi ha molto interessato la tua soluzione che non era assolutamente alla mia portata. Lo dimostra anche il fatto he non capisco la configurazione dei vettori <span class="tex">\(\vec r= \vec r_0 + \vec r'\)</span>. Quando hai un minuto potresti farmi uno schizzo anche a mano libera? Grazie. :D</article>
+<article class="post" id="p27382"><div class="who"><b>DeoGratias</b><span>4 mar 2022, 19:05</span></div>Avevo preparato uno schizzo ma non riesco a caricarlo :mrgreen: , quindi proverò a spiegarmi a parole.<br>
+In un sistema di assi cartesiani <span class="tex">\(x,y,z\)</span> con origine <span class="tex">\(O\)</span>, posizioniamo il solenoide in modo che il suo asse di simmetria coincida con l'asse <span class="tex">\(z\)</span> ed il cilindro carico in modo che sia tangente ad esso. <span class="tex">\(\vec{r}\)</span> è un vettore appartenente al piano <span class="tex">\(xy\)</span> con estremi <span class="tex">\(O\)</span> e un punto <span class="tex">\(P\)</span> all'interno del cilindro carico, anch'esso su <span class="tex">\(xy\)</span>. Se <span class="tex">\(O'\)</span> è il punto di intersezione tra l'asse di simmetria del cilindro carico e il piano <span class="tex">\(xy\)</span>, ogni vettore <span class="tex">\(\vec{r}=\vec{OP}\)</span> può essere scritto come somma di un vettore con estremi <span class="tex">\(O\)</span> e <span class="tex">\(O'\)</span> (<span class="tex">\(\vec{OO'}\)</span>, ovvero <span class="tex">\(\vec{r_0}\)</span>) e un vettore con estremi <span class="tex">\(O'\)</span> e <span class="tex">\(P\)</span> (<span class="tex">\(\vec{O'P}\)</span>, ovvero <span class="tex">\(\vec{r'}\)</span>). Questo ti consente di trovare più facilmente la forza applicata (visto che tutti i vettori primati si annullano a coppie) e il momento torcente. Può sembrare qualcosa caduto dal cielo, ma è una cosa abbastanza comune da fare quando si hanno campi line&lt;ri in <span class="tex">\(\vec{r}\)</span> come in questo caso.</article>
+<article class="post" id="p27386"><div class="who"><b>roncu</b><span>5 mar 2022, 13:02</span></div>Ti ringrazio tantissimo. Credo di capire i tre vettori però da quello che scrivi, non so se equivoco, il cilindro carico sembra tangente all'asse z e non appoggiato sul solenoide. O quando dici è tangente intendi tangente al solenoide e quindi appoggiato  :?:  :?:</article>
+<article class="post" id="p27389"><div class="who"><b>DeoGratias</b><span>6 mar 2022, 12:48</span></div>Intendo tangente al solenoide, visto che ci è appoggiato sopra, scusa se non sono stato chiarissimo :D</article>
+<article class="post" id="p27392"><div class="who"><b>roncu</b><span>7 mar 2022, 11:32</span></div>Ti ringrazio ancora ora mi torna :D</article>
+<nav class="pager"><a class="prev" href="olifis-7132.html"><small>← precedente</small>290- SNS 2021/4</a><a class="next" href="olifis-7137.html"><small>successivo →</small>292 - Fuoriuscita di gas</a></nav>
+</main></body></html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>286. Energia di legame</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 286</a></span></nav>
+<h1>286. Energia di legame</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7123">forum Olifis</a></p>
+<article class="post first" id="p27278"><div class="who"><b>Luca Milanese</b><span>8 gen 2022, 16:57</span></div>Una molecola biatomica che si muove inizialmente a velocità <span class="tex">\(v \ll c\)</span> è colpita da un fotone di lunghezza d'onda <span class="tex">\(\lambda\)</span>, che rompe il legame fra i due atomi che la compongono. Uno dei due si allontana con velocità <span class="tex">\(u \ll c\)</span> lungo una direzione perpendicolare a quella lungo la quale si muoveva inizialmente la molecola. La massa di ciascun atomo è <span class="tex">\(m\)</span>, e vale la disuguaglianza <span class="tex">\(mv\lambda \gg h\)</span>, dove <span class="tex">\(h\)</span> è la costante di Planck. Si determini l'energia di legame della molecola.</article>
+<article class="post" id="p27279"><div class="who"><b>DeoGratias</b><span>8 gen 2022, 17:39</span></div>Si può assumere che il fotone non venga deviato, ma che venga direttamente assorbito nel processo?</article>
+<article class="post" id="p27280"><div class="who"><b>Luca Milanese</b><span>8 gen 2022, 17:46</span></div>Sì, ho dimenticato di specificarlo.</article>
+<article class="post" id="p27281"><div class="who"><b>DeoGratias</b><span>8 gen 2022, 18:58</span></div>Visto che <span class="tex">\(v,u\ll c\)</span>, possiamo trattare il processo in modo classico. Essendo il sistema isolato, <span class="tex">\(E\)</span> e <span class="tex">\(\vec{p}\)</span> si conservano. Visto che la quantità di moto del fotone <span class="tex">\(\frac{h}{\lambda}\)</span> è trascurabile rispetto a quella del singolo atomo, detta <span class="tex">\(\vec{u'}\)</span> la velocità dell'altra particella, possiamo scrivere<br>
+<span class="tex">\(\vec{p}=2m\vec{v}=m\vec{u}+m\vec{u'}\)</span><br>
+<span class="tex">\(E=\frac{hc}{\lambda}+mv^2-U=\frac{1}{2}m(u^2+u'^2)\)</span>, dove <span class="tex">\(U\)</span> è l'energia di legame (per convenzione è negativa, da qui il segno meno con <span class="tex">\(U&gt;0\)</span>).<br>
+Visto che <span class="tex">\(2\vec{v}, \vec{u}\)</span> sono perpendicolari, si avrà <span class="tex">\(u'^2=u^2+4v^2\)</span>, da cui <span class="tex">\(U=\frac{hc}{\lambda}-m(u^2+v^2)\)</span>.<br>
+Se <span class="tex">\(\lambda\)</span> è abbastanza piccola, il fotone ha abbastanza energia per sciogliere il legame. Se invece fosse troppo grande si avrebbe <span class="tex">\(U&lt;0\)</span>, che non può verificarsi, visto che significherebbe che la molecola è più stabile quando non si ha alcun legame. In tal caso il fotone viene semplicemente deviato, visto che non ha abbastanza energia per sciogliere il legame.</article>
+<article class="post" id="p27282"><div class="who"><b>Luca Milanese</b><span>8 gen 2022, 19:01</span></div>Ottimo, a te la staffetta!</article>
+<nav class="pager"><a class="prev" href="olifis-7121.html"><small>← precedente</small>285. Carica in un conduttore</a><a class="next" href="olifis-7124.html"><small>successivo →</small>287 - Dipolo in un campo magnetico</a></nav>
+</main></body></html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>103. Neve</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 103</a></span></nav>
+<h1>103. Neve</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6431">forum Olifis</a></p>
+<article class="post first" id="p23128"><div class="who"><b>FedericoC.</b><span>28 ott 2016, 20:48</span></div>In un'ora incognita della mattinata inizia a nevicare. Uno spazzaneve parte a mezzogiorno per pulire le strade. Si sa che la neve cade con un'intensità costante e che la velocità dello spazzaneve è inversamente proporzionale all'altezza della neve. Nelle prime due ore di lavoro riesce a pulire <span class="tex">\(4 km\)</span> di strada, mentre nelle due ore successive solo due. Dire quando è iniziata la nevicata.</article>
+<article class="post" id="p23129"><div class="who"><b>arna1998</b><span>28 ott 2016, 23:50</span></div>Chiamo <span class="tex">\(c\)</span> la velocità di caduta della neve, si scrive quindi <br>
+<span class="tex">\(h=ct\)</span>.<br>
+Sia <span class="tex">\(s\)</span> lo spazio percorso dallo spazzaneve, si sa che <br>
+<span class="tex">\(\dfrac{ds}{dt}=k\dfrac{1}{h}\)</span>, sostituendo si ottiene<br>
+<br>
+<span class="tex">\(ds=\dfrac{k}{c} \dfrac{1}{t}dt\)</span>.<br>
+Sostituendo <span class="tex">\(\alpha=\dfrac{k}{c}\)</span> e integrando:<br>
+<span class="tex">\(s=\alpha \cdot ln(t)+a\)</span>.<br>
+<br>
+Si indichi con <span class="tex">\(t_i\)</span> il tempo in cui lo spazzaneve ha iniziato a lavorare (<span class="tex">\(t=0\)</span> è quando ha iniziato a nevicare). Le condizioni del testo si possono scrivere come:<br>
+<span class="tex">\(4 Km=\alpha  \cdot ln \left ( \dfrac{2 h+ t_i}{t_i} \right )\)</span> e <br>
+<br>
+<span class="tex">\(2 Km=\alpha  \cdot  ln \left ( \dfrac{4 h+ t_i}{2h+t_i} \right )\)</span>.<br>
+<br>
+Risolvendo questo sistema (sempre se non ho sbagliato i conti :roll: ) ho trovato <span class="tex">\(t_i=(\sqrt{5}-1) h\)</span>, che dovrebbe significare che ha iniziato a nevicare alle 10:46.</article>
+<article class="post" id="p23130"><div class="who"><b>FedericoC.</b><span>29 ott 2016, 7:35</span></div>Perfetto, a te il testimone  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6429.html"><small>← precedente</small>102. Protostella</a><a class="next" href="olifis-6432.html"><small>successivo →</small>104 masse che cadono</a></nav>
+</main></body></html>

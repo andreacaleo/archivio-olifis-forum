@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>276 - Effetto Stewart-Tolman</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 276</a></span></nav>
+<h1>276 - Effetto Stewart-Tolman</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7104">forum Olifis</a></p>
+<article class="post first" id="p27181"><div class="who"><b>DeoGratias</b><span>17 ott 2021, 23:10</span></div>Nel 1917, Stewart e Tolman scoprirono un passaggio di corrente attraverso una bobina avvolta attorno a un cilindro che ruotava attorno al proprio asse con una certa accelerazione angolare.<br>
+Si consideri un gran numero di anelli, con raggio <span class="tex">\(\tau\)</span> ognuno, fatti di un sottile filo metallico con resistenza <span class="tex">\(R\)</span>. Gli anelli sono disposti con densità lineare uniforme lungo un cilindro di vetro molto lungo, vuoto dentro. La loro posizione sul cilindro è fissata incollando gli anelli su di esso. Il numero di anelli per unità di lunghezza lungo l’asse di simmetria è <span class="tex">\(n\)</span>. I piani contenenti gli anelli sono perpendicolari all’asse di simmetria del cilindro.<br>
+A un certo momento il cilindro inizia a ruotare attorno al suo asse di simmetria con accelerazione angolare costante <span class="tex">\(\alpha\)</span>. Trovare il valore del campo <span class="tex">\(B\)</span> al centro del cilindro (dopo un tempo sufficientemente lungo).</article>
+<article class="post" id="p27184"><div class="who"><b>Luca Milanese</b><span>21 ott 2021, 16:11</span></div>Dopo un tempo sufficientemente lungo, la corrente elettrica che scorre in ciascun anello può essere considerata costante, e gli elettroni che scorrono in essi hanno la stessa accelerazione angolare <span class="tex">\(\alpha\)</span>. In un sistema di riferimento rotante, solidale agli anelli, la forza tangenziale apparente <span class="tex">\(-m\tau \alpha\)</span> è bilanciata da una forza che corrisponde a un campo elettrico efficace <span class="tex">\(E=-\frac{m \tau \alpha}{e}\)</span>, dove <span class="tex">\(m\)</span> è la massa di un elettrone ed <span class="tex">\(e\)</span> rappresenta la carica elementare. La circuitazione di questa forza per unità di carica sul bordo di un anello dà la forza elettromotrice <span class="tex">\(V=\frac{2\pi m\tau^2 \alpha}{e}\)</span>, la quale induce una corrente <span class="tex">\(I=\frac{V}{R}=\frac{2\pi m \tau^2 \alpha}{eR}\)</span>. Il cilindro e gli anelli incollati su di esso formano un solenoide, perciò il campo magnetico al suo centro è dato da <span class="tex">\(B=\mu_0 n I=\frac{2\pi m \tau^2 \alpha \mu_0 n}{eR}\)</span>.</article>
+<article class="post" id="p27188"><div class="who"><b>DeoGratias</b><span>25 ott 2021, 16:39</span></div>Perdonami per il ritardo, ricontrollando la mia soluzione mi sono reso conto di aver fatto un errore in un passaggio e sono sovuto ripartire da lì :mrgreen: <br>
+Il risultato comunque è corretto! L'unica precisazione da fare è che dovresti formalizzare meglio il campo efficace, ovvero ti dovresti ricondurre a un problema equivalente nel riferimento che hai scelto con quel campo (e qualcos'altro), mostrare che le leggi di Maxwell sono soddisfatte e concludere da lì.</article>
+<article class="post" id="p27195"><div class="who"><b>Luca Milanese</b><span>2 nov 2021, 9:49</span></div>Vedo di formalizzare meglio.<br>
+Nel sistema rotante (che ha accelerazione angolare <span class="tex">\(\vec \alpha\)</span> rispetto al sistema inerziale), agisce sull'elettrone una forza apparente <span class="tex">\(-m\vec a\)</span> che corrisponde a un campo elettrico apparente <span class="tex">\(\frac{m\vec a}{e}\)</span>. Perciò, se nell's.d.r. inerziale il campo elettrico è <span class="tex">\(\vec E\)</span>, in quello rotante si ha <span class="tex">\(\vec E'=\vec E +\frac{m \vec a}{e}\)</span>.<br>
+Se nel sistema inerziale, per la Terza Legge di Maxwell, ho <span class="tex">\(\oint_{\partial \Omega} \vec E \cdot \text{d} \vec s = - \frac{\text{d}}{\text{d}t} \Phi_{\Omega}(\vec B)\)</span>, voglio trovare un campo magnetico <span class="tex">\(\vec B'\)</span> che, misurato nel sistema rotante, faccia valere la stessa legge nella forma <span class="tex">\(\oint_{\partial \Omega} \vec E' \cdot \text{d} \vec s = - \frac{\text{d}}{\text{d}t} \Phi_{\Omega}(\vec B')\)</span><br>
+<span class="tex">\(\oint_{\partial \Omega} \vec E' \cdot \text{d} \vec s= -\frac{\text{d}}{\text{d}t} \Phi_{\Omega}(\vec B)+\frac{2\pi \tau ma}{e}=-\frac{\text{d}}{\text{d}t}\Phi_{\Omega}(\vec B)-\pi \tau^2 \frac{2m(-\alpha)}{e}\)</span><br>
+<span class="tex">\(=  -\frac{\text{d}}{\text{d}t}\Phi_{\Omega} \bigg(\vec B-\frac{2m\vec \alpha t}{e} \bigg) \Rightarrow \vec B' = \vec B -\frac{2m \vec \alpha t}{e} \)</span><br>
+A questo punto, considerando la legge di Ampère, trovo che anche nel sistema rotante essa è soddisfatta dalla corrente <span class="tex">\(I\)</span> misurata nel sistema inerziale, in quanto <span class="tex">\(\vec \nabla \times \frac{2m\vec \alpha t}{e} = \vec 0\)</span> (le prime due Leggi di Maxwell sono soddisfatte banalmente). Rimanendo nell's.d.r. rotante, come nel post precedente, ho che la f.e.m. indotta vale <span class="tex">\(\frac{2\pi m \tau^2 \alpha}{e}\)</span>, dunque <span class="tex">\(I=\frac{2\pi m \tau^2 \alpha}{Re}\)</span> e tornando nel sistema inerziale si ha <span class="tex">\(\vec B=\frac{2\pi m \tau^2 \vec \alpha \mu_0 n}{eR}\)</span>.</article>
+<article class="post" id="p27197"><div class="who"><b>DeoGratias</b><span>2 nov 2021, 15:58</span></div>Ora è perfetto, vai col prossimo :D</article>
+<nav class="pager"><a class="prev" href="olifis-7103.html"><small>← precedente</small>275. Campo elettrico intermittente</a><a class="next" href="olifis-7107.html"><small>successivo →</small>277. Monociclo!</a></nav>
+</main></body></html>

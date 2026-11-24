@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>246. Induzione elettrostatica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 246</a></span></nav>
+<h1>246. Induzione elettrostatica</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7035">forum Olifis</a></p>
+<article class="post first" id="p26694"><div class="who"><b>lorenzo.arienti.gdg</b><span>1 gen 2021, 12:10</span></div>Due piastre piane di metallo molto estese sono collegate a terra e formano un angolo <span class="tex">\(\theta\)</span> fra di loro.<br>
+Una barra di metallo di lunghezza <span class="tex">\(L\)</span> contiene una carica <span class="tex">\(Q\)</span> distribuita uniformemente ed è posta tra la due piastre, parallela alla linea di intersezione delle due e ad una distanza <span class="tex">\(r\)</span> da questa <span class="tex">\((L&gt;&gt;r)\)</span>.<br>
+<br>
+Trovare la forza che agisce sulla barra come risultato dell’induzione elettrostatica<br>
+a) se <span class="tex">\(\theta = 180 \degree\)</span><br>
+b) se <span class="tex">\(\theta = 18 \degree\)</span></article>
+<article class="post" id="p26697"><div class="who"><b>Leo</b><span>4 gen 2021, 13:00</span></div>Non sono sicuro di aver capito il testo, ho trovato una soluzione applicando il metodo dell'immagine. Avendo dubbi ho cercato un'altra soluzione ma non la trovo.<br>
+1. <span class="tex">\(\theta = 180\)</span> . In questo caso i due semipiani si riducono a uno che immagino verticale con L verticale a distanza r dal piano. Affinchè il potenziale del piano sia nullo si considera l'immagine speculare rispetto al piano di ogni elemento di carica su L prendendone l'opposta. Chiaramente questi elementi opposti generano potenziale nullo e così le altre coppie. Consideriamo la gaussiana cilindrica con asse la sbarra immagine  di raggio di base 2r e altezza L. Siccome L&gt;&gt;r, il campo E generato sulla sbarra Q per il teorema di Gauss dovrebbe essere dato da <span class="tex">\(E.4\pi rL = -Q/\epsilon_0\)</span> cioè <span class="tex">\(E= \frac{-Q}{4\pi rL \epsilon_0}\)</span>. Quindi la forza attrattiva agente su Q mi risulterebbe<span class="tex">\(F= \frac{-Q^2}{4 \pi rL \epsilon_0}\)</span><br>
+2. <span class="tex">\( \theta = 18 \)</span> . In questo caso L dista r dall'intersezione e <span class="tex">\(r.sen9 = r.0,15\)</span> da ciascun semipiano. Pertanto le due forze di attrazione perpendicolari a ciascun semipiano sono date dalla formula precedente sostituendo r con 0,15 r. La loro risultante è diretta verso l'intersezione e vale 2F.0,15 per cui in definitiva avevo ottenuto se non sbaglio i conti metà di prima<br>
+<span class="tex">\(F= \frac {-Q^2}{2 \pi rL \epsilon_0}\)</span> :?:  :?: E' un ragionamento sbagliato? e i conti...?</article>
+<article class="post" id="p26698"><div class="who"><b>lorenzo.arienti.gdg</b><span>4 gen 2021, 18:27</span></div>Perfetto il punto 1, per il 2 ricorda che la sbarra immagine creata da una delle due piastre influenza l'altra (e viceversa), quindi devi ripetere la "creazione" di sbarre immagine qualche altra volta</article>
+<article class="post" id="p26701"><div class="who"><b>Leo</b><span>5 gen 2021, 11:36</span></div>Grazie rifletterò su quante repliche che poi vanno riferite sempre alla sbarra Q di partenza (?), un pò di tempo perchè sono incasinato oggi e domani. Ma parlo per me..non limito certo gli altri. :D</article>
+<article class="post" id="p26705"><div class="who"><b>Leo</b><span>7 gen 2021, 12:36</span></div>Purtroppo ho il PC guasto che non mi hanno riparato. Non posso comunicare almeno fino alla prossima settimana. Scrivo dallo smartphone fai come credi.</article>
+<article class="post" id="p26709"><div class="who"><b>Luca Milanese</b><span>11 gen 2021, 21:44</span></div>Questo problema è davvero bellissimo :D <br>
+Rispondo al punto b) generalizzando al caso in cui l'angolo <span class="tex">\(\theta\)</span> fra le due piastre sia <span class="tex">\(\theta=\frac{180^\circ}{N}\)</span>, con <span class="tex">\(N \in \mathbb N_0\)</span>.<br>
+Per comodità, essendo le piastre "molto estese" e <span class="tex">\(L \gg r\)</span>, tratterò la barra come un filo infinito con densità di carica lineica <span class="tex">\(\lambda=\frac{Q}{L}\)</span> e le piastre come due semipiani. Si consideri un prisma a base <span class="tex">\(N\)</span>-gonale il cui asse di simmetria giaccia sulla stessa retta cui appartiene la linea di intersezione tra le due piastre e orientato in modo che uno dei suoi spigoli coincida con la barra. Si costruiscano altri fili infiniti sugli altri spigoli, di carica alternata <span class="tex">\(\pm \lambda\)</span>, con funzione di cariche immagine. Si noti che tutti questi fili aggiuntivi si trovano nella parte di spazio delimitata dai duei semipiani delle piastre non contenente la barra, dove sappiamo già che il potenziale elettrico vale <span class="tex">\(V=0\)</span>: questa condizione è necessaria quando si aggiungono delle cariche immagine in un problema di elettrostatica.<br>
+Si osservi inoltre che le <span class="tex">\(2N\)</span> cariche totali (la sbarra e i fili immagine) formano, rispetto a ciascuno dei due piani delle piastre, delle coppie simmetriche con segno opposto: per quanto già visto nel punto a), e applicando il principio di sovrapposizione, si ha anche in questo caso che il potenziale elettrico è uniforme e nullo su entrambe le piastre. Dunque la distribuzione descritta è quella corretta.<br>
+Ora si numerino da <span class="tex">\(1\)</span> a <span class="tex">\(N-1\)</span> le coppie di cariche immagine simmetriche rispetto al piano di simmetria delle due piastre (i due fili immagine più vicini alla barra, con densità <span class="tex">\(-\lambda\)</span>, formano la coppia <span class="tex">\(1\)</span>, i due fili successivi con densità <span class="tex">\(+\lambda\)</span> la coppia <span class="tex">\(2\)</span>, e così via). Indico con <span class="tex">\(F_n\)</span> la forza netta (diretta lungo il piano di simmetria) esercitata da ciascuna coppia sulla barra. Tramite il teorema dei seni si ricava la distanza tra la barra e i fili della coppia <span class="tex">\(n-\)</span>esima:<br>
+<span class="tex">\(d_n=r\frac{\sin (n \theta)}{\sin(\frac{\pi}{2}-\frac{n\theta}{2})}=2r\sin \bigg(\frac{n \theta}{2} \bigg )\)</span><br>
+Mentre, usando il teorema dell'angolo alla circonferenza, l'angolo fra il piano di simmetria del sistema e quello congiungere barra e uno dei due fili della coppia <span class="tex">\(n\)</span>-esima vale<br>
+<span class="tex">\(\phi_n=\frac{\pi-n\theta}{2}\)</span><br>
+Si ricava dunque l'espressione di <span class="tex">\(F_n\)</span>, tenendo conto dei segni delle cariche:<br>
+<span class="tex">\(F_n=2\frac{Q \lambda_n \cos(\phi_n)}{2\pi\epsilon_0 d_n}=\frac{Q^2 (-1)^n}{2\pi\epsilon_0 L r}\)</span><br>
+Resta da considerare la forza dovuta al filo immagine che è simmetrico alla barra rispetto alla linea da congiunzione fra piastre:<br>
+<span class="tex">\(F_N=\frac{Q^2 (-1)^N}{4\pi \epsilon_0 L r}\)</span><br>
+Sommando tutte le forze si ottiene il risultato voluto, indipendente da <span class="tex">\(N\)</span>:<br>
+<span class="tex">\(F=-\frac{Q^2}{4\pi\epsilon_0 Lr}\)</span><br>
+Dove il segno meno indica che la forza tende ad attrarre la barra verso le piastre.</article>
+<article class="post" id="p26710"><div class="who"><b>lorenzo.arienti.gdg</b><span>11 gen 2021, 22:09</span></div>Perfetto, a te il testimone.<br>
+P.s. Sembra che il risultato <span class="tex">\(-\frac{Q^2}{4 \pi \epsilon _0 Lr}\)</span> non valga solo per <span class="tex">\(N\)</span> intero, ma per qualsiasi angolo <span class="tex">\(\theta\)</span>. Per dimostrarlo non si può ovviamente usare il metodo delle cariche immagine ma non saprei proprio da dove partire.</article>
+<article class="post" id="p26711"><div class="who"><b>Luca Milanese</b><span>11 gen 2021, 22:12</span></div>Interessante! Proverò a pensarci  :)</article>
+<nav class="pager"><a class="prev" href="olifis-7034.html"><small>← precedente</small>245. Velocità Limite</a><a class="next" href="olifis-7040.html"><small>successivo →</small>247. Tubo di gomma.</a></nav>
+</main></body></html>

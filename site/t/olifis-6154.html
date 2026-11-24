@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>48 : molecole biricchine</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 48</a></span></nav>
+<h1>48 : molecole biricchine</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6154">forum Olifis</a></p>
+<article class="post first" id="p21165"><div class="who"><b>gluonstrongforce</b><span>10 ago 2015, 14:51</span></div>Ho scelto questo problema tratto dal test di ammissione SNS 1984/1985 perchè è molto elegante. A voi :<br>
+<br>
+Un fluido uniforme di densita' <strong class="text-strong"> ρ</strong> occupa una sfera di raggio <strong class="text-strong">R</strong> che varia con<br>
+il tempo. Le “molecole” del fluido si attraggono con forza gravitazionale,<br>
+e si allontanano dal centro con velocita' <strong class="text-strong">v = Hr</strong>, dove <strong class="text-strong">r</strong> e' la distanza dal `<br>
+centro ed <strong class="text-strong">H</strong> dipende solo dal tempo.<br>
+<br>
+<strong class="text-strong">(i)</strong> Si dimostri che il rapporto<strong class="text-strong"> v/v°</strong>, tra la velocita' <strong class="text-strong"> v</strong> e la velocita' di fuga `<br>
+<strong class="text-strong">v°</strong>—cioè la minima velocita' che una “molecola” a distanza   <strong class="text-strong">r</strong> deve avere<br>
+per poter sfuggire alla attrazione gravitazionale—, e' indipendente da  <strong class="text-strong">r</strong>.<br>
+<br>
+<strong class="text-strong">(ii)</strong> Si determini la densita' <strong class="text-strong">ρ°</strong> per cui <strong class="text-strong">v = v°</strong>.<br>
+<br>
+<strong class="text-strong">(iii)</strong> Si determini l’energia totale <strong class="text-strong">E°</strong> di una “molecola” quando <strong class="text-strong">v = v°</strong>.<br>
+Come si comporta il fluido quando l’energia <strong class="text-strong">E</strong> della “molecola” e'<br>
+maggiore o minore di <strong class="text-strong">E°</strong>?<br>
+<br>
+<strong class="text-strong">(iv)</strong> Indicato con<strong class="text-strong"> R(t)</strong> il valore del raggio della sfera al tempo<strong class="text-strong"> t</strong>, e supposto<br>
+<strong class="text-strong">v = v°</strong>, si esprima la velocita' <strong class="text-strong">v(t)</strong> al tempo<strong class="text-strong"> t</strong> in funzione del raggio<strong class="text-strong"> R(t)</strong><br>
+e della massa totale <strong class="text-strong">M</strong> del fluido.<br>
+<br>
+<strong class="text-strong">(v)</strong> Si dimostri che il tempo<strong class="text-strong"> t2 −t1</strong>, occorrente perche il raggio passi dal va- ´<br>
+lore <strong class="text-strong">R(t1)</strong> al valore<strong class="text-strong"> R(t2)</strong>, e' inversamente proporzionale alla radice qua- `<br>
+drata della massa.<br>
+Questo problema rappresenta una schematizzazione del processo di<br>
+espansione dell’universo.</article>
+<article class="post" id="p21166"><div class="who"><b>andrea96</b><span>10 ago 2015, 19:58</span></div>Una domanda: dal testo sembrerebbe che la densitá del fluido debba restare costante, ma sembrerebbe un po strano a meno che non si aggiungesse massa... devo assumere che la densitá diminuisca?</article>
+<article class="post" id="p21167"><div class="who"><b>gluonstrongforce</b><span>10 ago 2015, 20:00</span></div>Certamente</article>
+<article class="post" id="p21168"><div class="who"><b>phyknight</b><span>11 ago 2015, 10:26</span></div>Ad essere elegante, è elegante :D ...ma il testo non è il massimo della chiarezza (almeno secondo me), quindi scrivo una soluzione secondo quello che ho capito io (in realtà stavo aspettando che lo facesse qualcun altro per verificare la mia, ma ora sono curioso di sapere come l'hai interpretato tu :lol: )<br>
+<br>
+Chiamo tutte le variabili con lo <span class="tex">\(0\)</span> invece che con ° come hai fatto tu (così è anche più elegante a leggersi)<br>
+<br>
+1)Prendo una massa m a distanza <span class="tex">\(r_0\)</span>, ogni guscio sferico di roba che sta sotto resta sotto (la velocità dipende dalla distanza dal centro), e inoltre ogni guscio sferico ("sotto m") esercita una forza sulla particella di massa m come se tutta la massa del guscio fosse all'origine. Quindi la forza che la massa sente è<br>
+<span class="tex">\(F=-\frac{mMG}{r_0^2}\)</span> con <span class="tex">\(M=\frac{4}{3}\pi\rho r_0^3\)</span> (ovvero la massa che all'inizio è sotto m, che è sempre la stessa per quanto detto sopra)<br>
+Quindi il lavoro per portarla a infinito (i.e. l'energia potenziale) è la solita <span class="tex">\(U=\displaystyle\int_{r_0}^\infty -m\frac{4}{3}\rho\pi r_0^3G \frac{dr}{r^2}=-\frac{4}{3}m\rho\pi Gr_0^2\)</span><br>
+Trovo quindi uguagliando quell'energia all'energia cinetica della particella che <span class="tex">\(v_0=\displaystyle\sqrt{\frac{8}{3}\pi\rho G}r_0\)</span><br>
+Ora, esendo <span class="tex">\(v=Hr_0\)</span>, trovo <span class="tex">\(\displaystyle\frac{v}{v_0}=\displaystyle\frac{H}{\sqrt{\frac{8}{3}\pi\rho G}}\)</span>, indipendente da <span class="tex">\(r\)</span><br>
+<br>
+2)Ora deve essere <span class="tex">\(\frac{v}{v_0}=1\)</span>, quindi trovo <span class="tex">\(H=\sqrt{\frac{8}{3}\pi\rho_0 G}\)</span>, in altri termini <span class="tex">\(\rho_0=\displaystyle\frac{3H^2}{8\pi G}\)</span><br>
+<br>
+3)Quando <span class="tex">\(E=E_0\)</span> (se ho capito bene) allora la molecola ha velocità uguale alla velocità di fuga, ergo <span class="tex">\(E_0=0\)</span><br>
+Quando <span class="tex">\(E&gt;0\)</span> le molecole sfuggono dall'attrazione gravitazionale delle altre<br>
+Quando <span class="tex">\(E&lt;0\)</span> il tutto raggiunge una configurazione di estensione massima, poi l'energia gravitazionale la fa cadere verso il centro<br>
+<br>
+4)Sappiamo che <span class="tex">\(\rho_t=\frac{3M}{4\pi R_t^3}\)</span>, <span class="tex">\(v_t=H_tr_t\)</span>, <span class="tex">\(v_t=\sqrt{\frac{8}{3}\pi\rho_t G}r_t\)</span><br>
+Con gli stessi calcoli di prima usando le ultime due trovo <span class="tex">\(\rho_t=\frac{3H^2}{8\pi G}\)</span><br>
+Uguagliando questa alla prima delle tre che ho scritto trovo <span class="tex">\(H_t=\displaystyle\sqrt\frac{2MG}{R_t^3}\)</span><br>
+Quindi <span class="tex">\(v_t=H_tr_t=\displaystyle\sqrt\frac{2MG}{R_t^3}r_t\)</span><br>
+<br>
+5)Quello che so ora è che <span class="tex">\(\dot R=\displaystyle\sqrt\frac{2MG}{R}\)</span> risolvendo dovrebbe venir fuori(ma non importa tanto, a noi interessa solo <span class="tex">\(\sqrt{M}\)</span>): <span class="tex">\(\frac{2}{3}\left(R^{\frac{3}{2}}-R_0^{\frac{3}{2}}\right)=\sqrt{2MG}t\)</span><br>
+Da cui è ovvio che <span class="tex">\(t_2-t_1=\displaystyle\frac{1}{\sqrt{M}}\left(\displaystyle\frac{\frac{2}{3}\left(R_2^{\frac{3}{2}}-R_0^{\frac{3}{2}}\right)}{\sqrt{2G}}-\displaystyle\frac{\frac{2}{3}\left(R_1^{\frac{3}{2}}-R_0^{\frac{3}{2}}\right)}{\sqrt{2G}}\right)\)</span></article>
+<article class="post" id="p21169"><div class="who"><b>gluonstrongforce</b><span>11 ago 2015, 14:12</span></div>Bene bene. Solo 1 cosa: se noti, nell' ultima equazione R° si può semplificare. Ti ridò il testimone.</article>
+<article class="post" id="p21170"><div class="who"><b>andrea96</b><span>11 ago 2015, 14:25</span></div>Due domande (più sul testo che altro forse... ) visto che avevo fatto i primi 4 punti ma mi sono fermato perchè credevo di non aver capito il testo: 1) al primo punto si vuole trovare la velocitá di fuga SOLO dalla massa dentro il raggio r e non da tutto il sistema giusto? Sei d accordo con me che questo dal testo non si coglieva? (Io ho capito che il testo volesse dire ciò solo perchè altrimenti non si eliminava la dipendenza da r) 2) al punto 4 il testo dice che la velocitâ dovrebbe dipendere solo da M e da R, però a me veniva inevitabile, e in effetti è così anche nella soluzione di phyknight, la dipendenza da r. Anche qui sei d accordo con me che il testo è molto poco chiaro?</article>
+<article class="post" id="p21171"><div class="who"><b>phyknight</b><span>11 ago 2015, 17:00</span></div><blockquote><div><cite>gluonstrongforce ha scritto:</cite>nell' ultima equazione R° si può semplificare.</div></blockquote>
+Vero! Non avevo neanche pensato che non era uno dei dati del problema, ero completamente preso dal fatto che venisse radice di M al denominatore  ;) <br>
+
+<blockquote><div><cite>andrea96 ha scritto:</cite>al primo punto si vuole trovare la velocitá di fuga SOLO dalla massa dentro il raggio r e non da tutto il sistema giusto?</div></blockquote>
+Si, lo "fa capire" il testo quando dice <blockquote class="uncited"><div>v°—cioè la minima velocita' che una “molecola” a distanza r deve avere<br>
+per poter sfuggire alla attrazione gravitazionale</div></blockquote>
+ma sinceramente anch'io l'ho capito perché così veniva indipendente da r
+<blockquote><div><cite>andrea96 ha scritto:</cite>al punto 4 il testo dice che la velocitâ dovrebbe dipendere solo da M e da R, però a me veniva inevitabile, e in effetti è così anche nella soluzione di phyknight, la dipendenza da r.</div></blockquote>
+Eh si,...qui non so, forse quello che intendeva era trovare la velocità del guscio esterno, e quindi r era R (e si semplificava come al punto 5)...ma credo che se all'ammissione tu dici :"questo è in generale con r, poi se r=R allora viene quest'altro risultato particolare..." va bene lo stesso</article>
+<article class="post" id="p21177"><div class="who"><b>CapitanFindus</b><span>13 ago 2015, 15:19</span></div>A differenza di phyknight io l'ho risolto usando il teorema del flusso per il campo gravitazionale (che mi rendo conto che è un po la stessa cosa che ha fatto lui ma vabè)<br>
+<br>
+Però i risultati non mi escono esattamente uguali e vorrei capire il perchè<br>
+<br>
+<span class="tex">\(\Phi = 4 \pi G M\)</span> è il flusso del campo gravitazionale definito come <span class="tex">\(\oint E dS\)</span> dove E è il campo gravitazionale<br>
+<br>
+considerando un guscio a distanza r che "contiene" m, e la sfera totale di raggio R e massa M, abbiamo che la densità <span class="tex">\(\rho = \frac{m}{4/3 \pi r^3} = \frac{M}{4/3 \pi R^3}\)</span><br>
+<br>
+quindi <span class="tex">\(m = M \frac{r^3}{R^3}\)</span> <br>
+<br>
+Ora se considero il flusso ad una distanza r piccolo, al posto della massa sostituisco l'espressione precedente ottengo che il campo gravitazionale<br>
+<span class="tex">\(E(r) = G \frac{M r}{R^3}\)</span> e la forza gravitazionale <span class="tex">\(F(r) = G \frac{M m r}{R^3}\)</span><br>
+<br>
+<br>
+essendo l'energia potenziale di un campo vettoriale definita come <span class="tex">\(U(r) = - \int F(r) dr\)</span><br>
+<br>
+che svolgendo i calcoli risulta ad una distanza r dal centro <span class="tex">\(U(r) = - \frac{1}{2} G \frac{M m r^2}{R^3}\)</span><br>
+<br>
+nella soluzione di phyknight invece l'energia potenziale risulta uguale ma senza l'un mezzo davanti. (lui l'ha scritta con la densità anziche Massa totale e Raggio totale)<br>
+<br>
+Dove sbaglio?</article>
+<article class="post" id="p21179"><div class="who"><b>phyknight</b><span>14 ago 2015, 13:20</span></div>Non ho ben capito quello che hai scritto...secondo me hai confuso le variabili m e M.<br>
+Quello che tu poni costante è la densità, mentre il testo dice che la densità varia perché le molecole si allontanano.<br>
+Quello che io ho posto costante è la massa che resta sotto un determinato guscio sferico, che nella tua notazione è <span class="tex">\(m\)</span> (tu m la fai variare perché dipende da r)</article>
+<nav class="pager"><a class="prev" href="olifis-6152.html"><small>← precedente</small>47: Periodo del pendolo</a><a class="next" href="olifis-6155.html"><small>successivo →</small>49: sfera che salta 2 volte</a></nav>
+</main></body></html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>187. Secchio rotante</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 187</a></span></nav>
+<h1>187. Secchio rotante</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6863">forum Olifis</a></p>
+<article class="post first" id="p25701"><div class="who"><b>Spätzle</b><span>5 mar 2020, 16:46</span></div>Un secchio cilindrico (altezza <span class="tex">\(2H\)</span>, raggio di base <span class="tex">\(R\)</span>), messo in verticale, è riempito per metà d'acqua. Ruota attorno al suo asse con velocità angolare costante <span class="tex">\(\Omega\)</span>. Qual è l'equazione che descrive la superficie dell'acqua? Qual è la distanza minima della superficie dal fondo del secchio?<br>
+Si supponga che <span class="tex">\(\Omega\)</span> non sia sufficiente a far traboccare l'acqua.<br>
+<br>
+(problema tratto dalle Dispense)</article>
+<article class="post" id="p25702"><div class="who"><b>Luca Milanese</b><span>5 mar 2020, 21:27</span></div>Ci provo. Immaginiamo di osservare una sezione verticale del secchio lungo un suo diametro, e poniamo un sistema di assi cartesiani con l'origine nel punto in cui l'acqua è più bassa (sappiamo già intuitivamente che verrà a formarsi qualcosa di simile a una U). Consideriamo ora la quantità <span class="tex">\(dm\)</span> di acqua compresa fra i raggi <span class="tex">\(x\)</span> e <span class="tex">\(x+dx\)</span>, che forma cioè un cilindro molto sottile di altezza <span class="tex">\(y(x)\)</span>. Il suo volume è allora <span class="tex">\(2\pi xydx\)</span>, e <span class="tex">\(dm\)</span> vale <span class="tex">\(2\pi xy\rho dx\)</span>. Questo cilindro sta ruotando a una velocità angolare <span class="tex">\(\Omega\)</span>, quindi su di esso agisce una forza centripeta <span class="tex">\(dF=\Omega^2 xdm\)</span>. Questa forza è fornita dalla differenza di pressione <span class="tex">\(dp\)</span> tra l'esterno e l'interno del cilindretto, e dunque vale <span class="tex">\(dF=Adp=2\pi xy dp\)</span>. Eguagliando le espressioni di <span class="tex">\(dF\)</span> ottenute si ottiene <span class="tex">\(dp=\rho \Omega^2 xdx\)</span>. Consideriamo ora il moto lungo l'asse <span class="tex">\(y\)</span>. È evidente che, a regime, l'acqua nel secchio non si muove in verticale, quindi vale la legge di Stevino <span class="tex">\(dp=\rho g dy\)</span>. Sostituendo ancora si ottiene <span class="tex">\(dy=\frac{\Omega^2 xdx}{g}\)</span>. Infine, integrando tra <span class="tex">\(0\)</span> e un raggio arbitrario <span class="tex">\(r\)</span> otteniamo l'equazione voluta: <span class="tex">\(y=\frac{\Omega^2 r^2}{2g}\)</span>.<br>
+Ora osserviamo che la massa totale d'acqua contenuta nel secchio vale <span class="tex">\(\rho \pi R^2 H\)</span> e che ovviamente rimane costante dopo che il secchio è stato messo in rotazione. Calcoliamo allora la massa come <span class="tex">\(\rho(\pi R^2 h + X)\)</span>, dove <span class="tex">\(h\)</span> è la distanza cercata (cioè l'altezza del punto <span class="tex">\((0,0)\)</span>) e <span class="tex">\(X\)</span> è il volume compreso fra il piano <span class="tex">\(y=0\)</span> e la superficie dell'acqua. Questo volume si calcola come <span class="tex">\(X=\int_{0}^{R}\frac{\pi \Omega^2 r^3}{g}dr=\frac{\pi \Omega^2 R^4}{4g}\)</span>, essendo <span class="tex">\(\frac{\pi \Omega^2 r^3 dr}{g}=Adr=2\pi r y dr\)</span> il volume infinitesimo di un cilindretto come quelli descritti sopra. Concludiamo che <span class="tex">\(\rho \pi R^2 H=\rho\bigg(\pi R^2 h +\frac{\pi \Omega^2 R^4}{4g}\bigg)\)</span>, cioè <span class="tex">\(h=H-\frac{\Omega^2 R^2}{4g}\)</span>.</article>
+<article class="post" id="p25703"><div class="who"><b>Spätzle</b><span>6 mar 2020, 10:31</span></div>La tua soluzione è impeccabile. In questo problema, tra l'altro, si conserva anche il volume (non solo la massa).<br>
+Il testimone è tuo!</article>
+<nav class="pager"><a class="prev" href="olifis-6862.html"><small>← precedente</small>186. Satelliti Artificiali in orbita</a><a class="next" href="olifis-6864.html"><small>successivo →</small>188. Pallone sonda</a></nav>
+</main></body></html>

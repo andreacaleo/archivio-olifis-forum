@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>285. Carica in un conduttore</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 285</a></span></nav>
+<h1>285. Carica in un conduttore</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7121">forum Olifis</a></p>
+<article class="post first" id="p27263"><div class="who"><b>Pigkappa</b><span>29 dic 2021, 18:42</span></div>Si inserisce in modo casuale della carica elettrica all'interno di una sfera di rame di raggio <span class="tex">\(1\ \text{cm}\)</span> , cosi' che inizialmente il potenziale elettrico all'interno non e' uniforme. Il rame ha resistivita' <span class="tex">\(1.7 \times 10^{-8} \Omega \text{m}\)</span>. <br>
+<br>
+Usando le leggi di Maxwell, si stimi il tempo che ci mette la carica a ridistribuirsi all'interno della sfera.</article>
+<article class="post" id="p27265"><div class="who"><b>Luca Milanese</b><span>4 gen 2022, 0:07</span></div>Per la legge di continuità, se <span class="tex">\(\rho(\vec r, t)\)</span> è la densità di carica e <span class="tex">\(\vec J(\vec r, t)\)</span> è la densità di corrente:<br>
+<span class="tex">\(\vec \nabla \cdot \vec J = -\frac{\partial \rho}{\partial t}\)</span><br>
+Per la legge di Gauss, se <span class="tex">\(\vec E(\vec r, t)\)</span> è il campo elettrico e la constante dielettrica relativa del rame può considerarsi pari a <span class="tex">\(1\)</span>:<br>
+<span class="tex">\(\vec \nabla \cdot \vec E = \frac{\rho}{\epsilon_0}\)</span><br>
+Se <span class="tex">\(\sigma=\frac{1}{1.7 \times 10^{-8} \Omega \text{m}}\)</span> è la conduttività, e questa è uniforme nell'oggetto, si ha per definizione:<br>
+<span class="tex">\(\vec J= \sigma \vec E \Rightarrow \vec \nabla \cdot \vec J = \sigma \vec \nabla \cdot \vec E\)</span><br>
+Da cui:<br>
+<span class="tex">\(\frac{\partial \rho}{\partial t} = -\frac{\sigma}{\epsilon_0} \rho\)</span><br>
+Perciò si ha:<br>
+<span class="tex">\(\rho(\vec r, t)=\rho(\vec r, 0) e^{-\frac{\sigma t}{\epsilon_0}}\)</span><br>
+Ciò significa che la densità di carica all'interno del conduttore decade esponenzialmente con tempo caratteristico <span class="tex">\(\tau=\frac{\epsilon_0}{\sigma} \approx 1.50 \times 10^{-19} \text{s}\)</span>, indipendentemente dalla forma dell'oggetto, mentre la carica fluisce sulla superficie della sfera.</article>
+<article class="post" id="p27266"><div class="who"><b>Pigkappa</b><span>4 gen 2022, 3:01</span></div>Questo risultato è realistico, o c'è qualcosa che non va?</article>
+<article class="post" id="p27267"><div class="who"><b>Luca Milanese</b><span>4 gen 2022, 22:21</span></div>Non mi viene in mente nulla, però quel tempo caratteristico sembra molto breve.</article>
+<article class="post" id="p27268"><div class="who"><b>roncu</b><span>6 gen 2022, 13:04</span></div>Avevo colto l'occasione del problema per guardare le eq. di Maxwell ovviamente nella versione non differenziale sia sul libro di testo dell'Amaldi sia sull'Halliday regalatomi in questi giorni. Non conosco le vostre notazioni vettoriali. Posto il mio procedimento perchè mi verrebbe un risultato simile a quello di Luca e ovviamente per avere un giudizio.<br>
+Considero una sfera di raggio r interna a quella di rame e indico con <span class="tex">\(\rho_m\)</span> la densità di carica media dentro la sfera che ovviamente varia rispetto a r e rispetto al tempo. Per il teorema di Gauss, detta <span class="tex">\(A=4\pi r^2\)</span> la sua area e detto <span class="tex">\(V=(4/3)\pi.r^3\)</span> il suo volume, risulta<br>
+<span class="tex">\(E=\frac{\rho_m.r}{3\epsilon_0}\)</span> e quindi <span class="tex">\(\frac{dE}{dr}=\frac{\rho_m}{3\epsilon_0}\)</span>.<br>
+Da <span class="tex">\(J=E\sigma\)</span>dove <span class="tex">\(\sigma\)</span>è l'inverso della resistività del rame, si ottiene<br>
+<span class="tex">\(-\frac{d\rho_m}{dt}=\frac{dJ}{dr}=\sigma \frac{dE}{dr}=\sigma \frac{\rho_m}{3 \epsilon_0}\)</span>. <br>
+Risulta così <span class="tex">\(\frac{d\rho_m}{dt}=- \sigma \frac{\rho_m}{3 \epsilon_0}\)</span><br>
+<span class="tex">\(\int_{\rho_m(0)}^{\rho_m(T)}\frac{d\rho_m}{\rho_m}= - \int_0^t \frac{\sigma}{3\epsilon_0}\)</span><br>
+Avrei così ottenuto  <span class="tex">\(\rho_m(t)= \rho_m(0). e^{- \frac{\sigma.t}{3\epsilon_0}}\)</span> che tende chiaramente a 0 quando tutta la carica aggiuntiva si è distribuita uniformemente sulla superficie sferica del conduttore rame e all'interno rimangono tante cariche positive quante negative. La costante di tempo, trascorsa la quale a partire da 0 la densità media è (1/e), meno della metà di quella fornitagli, vale nel mio caso <br>
+<span class="tex">\(\tau = 4,5 . 10^{-19} s\)</span>.<br>
+Si tratta come dice Luca di un tempo molto breve. Per quello che ho orecchiato sulla relatività dalle lezioni del prof potrebbe essere in contrasto con il principio di indeterminazione se le incertezze sulla posizione e la qdm delle particelle granulari che costituiscono le cariche fossero dell'ordine di <span class="tex">\(10^{-19}\)</span>totalizzando <span class="tex">\(10^{-38}&lt;h/4\pi\)</span>...Ma non so di cosa parlo!</article>
+<article class="post" id="p27269"><div class="who"><b>Luca Milanese</b><span>6 gen 2022, 15:36</span></div><blockquote><div><cite>roncu ha scritto: <a href="olifis-7121.html#p27268" data-post-id="27268" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">6 gen 2022, 13:04</div></cite>
+<span class="tex">\(E=\frac{\rho_m.r}{3\epsilon_0}\)</span> e quindi <span class="tex">\(\frac{dE}{dr}=\frac{\rho_m}{3\epsilon_0}\)</span>.
+</div></blockquote>
+Attento, non sai se la distribuzione di carica abbia simmetria sferica: il campo elettrico che stai usando è in realtà il (modulo del) campo medio sulla superficie della sfera di raggio <span class="tex">\(r\)</span>; inoltre, come hai scritto tu stesso, anche <span class="tex">\(\rho_m\)</span> potrebbe a priori dipendere da <span class="tex">\(r\)</span>, per cui a rigore dovresti derivare il prodotto <span class="tex">\(r\rho_m\)</span>. 
+<blockquote><div><cite>roncu ha scritto: <a href="olifis-7121.html#p27268" data-post-id="27268" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">6 gen 2022, 13:04</div></cite>
+Da <span class="tex">\(J=E\sigma\)</span>dove <span class="tex">\(\sigma\)</span>è l'inverso della resistività del rame, si ottiene<br>
+<span class="tex">\(-\frac{d\rho_m}{dt}=\frac{dJ}{dr}=\sigma \frac{dE}{dr}=\sigma \frac{\rho_m}{3 \epsilon_0}\)</span>.
+</div></blockquote>
+Qui la prima relazione è sbagliata. Immagino che tu intedessi scrivere l'equazione di continuità per mettere in relazione il flusso di carica uscente dalla sfera di raggio <span class="tex">\(r\)</span> con la variazione di carica al suo interno. In tal caso otterresti:<br>
+<span class="tex">\(-\frac{\text{d}}{\text{d}t} \frac{4\pi r^3 \rho_m}{3}=4\pi r^2 J_m\)</span><br>
+Anche qui, devi parlare di della densità di corrente media. A questo punto, se continui i calcoli, noterai che si semplificherà il <span class="tex">\(3\)</span> di troppo che risultava dal tuo procedimento. :) <br>
+La notazione vettoriale che ho usato è un modo compatto per dire esattamente le stesse cose che hai scritto in termini dei valori medi delle quantità coinvolte.</article>
+<article class="post" id="p27270"><div class="who"><b>roncu</b><span>7 gen 2022, 11:39</span></div>Grazie, chiarissimo. Quindi si poteva fare anche senza la vostra sintetica e sofisticata forma vettoriale-differenziale che forse esula dalle competenze liceali perchè non la trovo nella mia edizione dell'Amaldi. Mi rimane ora il dubbio sulla maliziosa domanda che ti ha fatto pigkappa :D  :?:</article>
+<article class="post" id="p27271"><div class="who"><b>Luca Milanese</b><span>7 gen 2022, 11:51</span></div>In realtà, non proprio. Quello che tu hai dimostrato è che la densità media in ogni sfera interna (e quindi la densità media su ogni raggio <span class="tex">\(r\)</span>) decade esponenzialmente, ma ciò non ti dice nulla sulla densità in ogni punto del guscio. Comunque non sono sicuro che non si possa sistemare ugualmente senza utilizzare operatori.</article>
+<article class="post" id="p27272"><div class="who"><b>roncu</b><span>7 gen 2022, 12:16</span></div>Ma io avevo introdotto la media proprio perchè non so lavorare puntualmente senza la forma differenziale! Se hai tempo per vedere di quella sistemazione te ne sono grato  :D</article>
+<article class="post" id="p27273"><div class="who"><b>Luca Milanese</b><span>7 gen 2022, 12:30</span></div>Ripensandoci, è abbastanza facile: per ogni volume interno alla sfera, se <span class="tex">\(\Phi_E\)</span> è il flusso del campo elettrico sulla sua superficie e <span class="tex">\(\Phi_J\)</span> è quello della densità di corrente elettrica, si ha <span class="tex">\(Q=\epsilon_0 \Phi_E\)</span> e <span class="tex">\(-\frac{\text{d}Q}{\text{d}t} = \Phi_J =\sigma \Phi_E\)</span>, quindi <span class="tex">\(\frac{\text{d} Q}{\text{d}t}=-\frac{\sigma}{\epsilon_0}Q\)</span>. Dividendo per il volume <span class="tex">\(V\)</span> in questione e andando al limite <span class="tex">\(V \to 0\)</span>, si ottiene proprio <span class="tex">\(\frac{\text{d}\rho}{\text{d}t}=-\frac{\sigma}{\epsilon_0}\rho\)</span>, col vantaggio che, non essendoci limitati a un volume particolare (come può essere quello di una sfera concentrica all'oggetto in questione), questa relazione vale per ogni punto dell'oggetto. In effetti, l'operatore <span class="tex">\(\vec \nabla \cdot\)</span> che ho usato sopra esprime proprio il rapporto fra il flusso di un vettore e il volume considerato nel limite in cui questo tenda a zero.</article>
+<article class="post" id="p27274"><div class="who"><b>Pigkappa</b><span>8 gen 2022, 0:03</span></div>Quel a cui volevo arrivare e' notare che a questo livello, una regola semplice come la legge di Ohm non si puo' usare; se le cariche si ridistribuiscono in un tempo <span class="tex">\(10^{-19}\)</span> s in un oggetto di dimensione tipica <span class="tex">\(10^{-2}\)</span> m, l'informazione si sta muovendo al suo interno con velocita' <span class="tex">\(10^{17}\)</span> m/s che non e' possibile. <br>
+<br>
+Non saprei come risolverlo per davvero ma sicuramente il tempo per ridistribuire le cariche sara' piu' lungo<br>
+<br>
+Comunque staffetta a Luca :)</article>
+<article class="post" id="p27275"><div class="who"><b>Luca Milanese</b><span>8 gen 2022, 1:25</span></div>Giusto per aggiungere qualcosa: sono andato a riguardare la classica derivazione della Legge di Ohm che viene proposta su Electricity and Magnetism di Purcell e Morin per cercare di capire dove potesse trovarsi il problema. In un passaggio, viene messa in relazione la velocità di deriva dei portatori di carica con il campo elettrico esterno facendo uso della meccanica classica (quindi <span class="tex">\(\vec p = m \vec v\)</span>). Se, come nel caso di questo problema, l'approccio classico dà velocità superiori a <span class="tex">\(c\)</span>, l'uso di quella relazione non può essere valido, per cui direi che l'inghippo sta nel modello non relativistico che restituisce la proporzionalità diretta tra <span class="tex">\(\vec J\)</span> e <span class="tex">\(\vec E\)</span> tramite una costante non dipendente dal campo elettrico. Ciò ovviamente non risolve il problema, ma mi pareva brutto lasciarlo così "in sospeso". Magari qualcuno avrà idee migliori.  :D</article>
+<article class="post" id="p27276"><div class="who"><b>Pigkappa</b><span>8 gen 2022, 3:00</span></div>Sicuramente vicino alla velocita' della luce quella relazione non vale piu'; comunque il modello di elettroni che si muovono classicamente (o anche relativisticamente) sotto effetto della forza elettrica ha un sacco di problemi. Ci azzecca sul fatto che <span class="tex">\(\vec J\)</span> e' di solito proporzionale a <span class="tex">\(\vec E\)</span>, ma niente altro. <br>
+<br>
+La discussione a <a href="https://en.wikipedia.org/wiki/Electrical_resistivity_and_conductivity#Causes_of_conductivity" class="ext" class="postlink">https://en.wikipedia.org/wiki/Electrica ... nductivity</a> e' interessante</article>
+<article class="post" id="p27277"><div class="who"><b>roncu</b><span>8 gen 2022, 12:52</span></div>per Luca<br>
+ti ringrazio ma non sono in grado di capire. Infatti ho letto che il vettore Nabla moltiplicato scalarmente per un altro vettore ne fornisce la divergenza e moltiplicato vettorialmente ne fornisce il rotore. Non ho idea di cosa siano anche se forse qualcosa della divergenza la intuisco. Comunque in nessun problema SNS a mia conoscenza vengono tirati in ballo e questo per ora mi tranquillizza..se tu hai conoscenze diverse comunicamele..:D</article>
+<article class="post" id="p27458"><div class="who"><b>Pathos90</b><span>9 giu 2022, 14:11</span></div>Credo che la risposta sia contenuta al paragrafo 1.13 di queste dispense<br>
+<a href="http://eceweb1.rutgers.edu/~orfanidi/ewa/ch01.pdf" class="ext" class="postlink">http://eceweb1.rutgers.edu/~orfanidi/ewa/ch01.pdf</a><br>
+Quel paragrafo corregge il risultato dell'1.7 che usa la stessa procedura di Luca, basata sulla legge di continuità, che si trova in molti testi ma dà un tempo di rilassamento troppo breve.<br>
+Il risultato è irrealistico perché considera la conducibilità a basse frequenze, mentre quello che si fa per una migliore precisione è prendere il modello di Drude, che di base assume un oscillatore armonico ma senza forza di richiamo. La legge di Ohm vale ancora, ma il punto è che la conducibilità dipende dalla frequenza.<br>
+Invece di ottenere un'equazione differenziale del 1° ordine, includere questa dipendenza ne dà una del 2°, con soluzioni oscillatorie smorzate anziché un esponenziale decrescente.<br>
+Secondo me questo articolo è più chiaro nei passaggi <a href="https://aapt.scitation.org/doi/abs/10.1119/1.16220" class="ext" class="postlink">https://aapt.scitation.org/doi/abs/10.1119/1.16220</a></article>
+<nav class="pager"><a class="prev" href="olifis-7120.html"><small>← precedente</small>284. Tre masse</a><a class="next" href="olifis-7123.html"><small>successivo →</small>286. Energia di legame</a></nav>
+</main></body></html>

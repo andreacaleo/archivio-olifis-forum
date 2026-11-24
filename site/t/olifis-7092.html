@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>268-bagno elettrolitico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 268</a></span></nav>
+<h1>268-bagno elettrolitico</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7092">forum Olifis</a></p>
+<article class="post first" id="p27126"><div class="who"><b>Leo</b><span>17 ago 2021, 17:54</span></div>Un condensatore a facce piane e parallele quadrate di lato L distanti d è caricato al potenziale V e poi disconnesso dalla batteria. Successivamente viene inserito verticalmente in un bagno elettrolitico costituito da un liquido di costante dielettrica relativa <span class="tex">\(\epsilon_r\)</span> fino a che il liquido riempie metà spazio fra le armature del condensatore. Determinare a) la capacità elettrica del sistema b) l'intensità del campo elettrico fra le armature c) la densità di carica sulle facce.</article>
+<article class="post" id="p27127"><div class="who"><b>Luca Milanese</b><span>18 ago 2021, 12:15</span></div>Inizialmente, la capacità del condensatore è data, assumendo <span class="tex">\(d \ll L\)</span>, da <span class="tex">\(C_0=\frac{\epsilon_0 L^2}{d}\)</span>, perciò la carica elettrica presente su ciascuna armatura è:<br>
+<span class="tex">\(\pm Q_0= \pm \frac{\epsilon_0 L^2 V}{d}\)</span><br>
+Poiché la batteria è poi disconnessa, la carica elettrica libera totale presente su ciascuna armatura resta quella iniziale. Dopo che il condensatore è stato immerso per metà nel dielettrico, il campo elettrico nella regione fra le sue armature resta uniforme e perpendicolare alle due facce: diversi valori del campo nelle due regioni (con e senza dielettrico) implicherebbero diverse differenze di potenziale fra punti diversi delle due armature, assurdo in quanto conduttrici. Sia <span class="tex">\(E\)</span> il valore di questo campo. Lo spostamento elettrico <span class="tex">\(D\)</span> vale allora <span class="tex">\(D_1=\epsilon_r \epsilon_0 E\)</span> nella zona immersa e <span class="tex">\(D_2=\epsilon_0 E\)</span> nella zona non immersa. Per la Legge di Gauss, a tali spostamenti elettrici corrispondono uguali densità di carica libera <span class="tex">\(\pm \epsilon_r \epsilon_0 E\)</span> e <span class="tex">\(\pm \epsilon_0 E\)</span> sulle due armature, dunque la carica libera totale su ciascun piatto è:<br>
+<span class="tex">\(\pm Q_0=\pm \frac{L^2 (D_1 + D_2)}{2}=\frac{L^2 \epsilon_0 E (1+\epsilon_r)}{2}\)</span><br>
+Da ciò si ricava immediatamente <span class="tex">\(E=\frac{2V}{(1+\epsilon_r)d}\)</span>. La nuova differenza di potenziale tra le armature è quindi <span class="tex">\(V'=\frac{2V}{1+\epsilon_r}\)</span>, e la nuova capacità è <span class="tex">\(C=\frac{Q_0}{V}=\frac{(1+\epsilon_r) \epsilon_0 L^2}{2d}\)</span>. Le densità di carica libera si possono ottenere dalle formule per <span class="tex">\(D_1\)</span> e <span class="tex">\(D_2\)</span>, mentre la densità di carica elettrica totale, uniforme su ciascuna piastra, è data da <span class="tex">\(\pm \sigma = \pm \epsilon_0 E =\pm \frac{2V \epsilon_0}{(1+\epsilon_r)d}\)</span>.</article>
+<article class="post" id="p27129"><div class="who"><b>Leo</b><span>19 ago 2021, 10:27</span></div>E' tutto perfetto fino alla terza risposta dove, se capisco bene, dici che le densità di carica si ricavano da <span class="tex">\(D_1\)</span> e <span class="tex">\(D_2\)</span>: Credo che la risposta al terzo quesito c) corrisponda proprio ad esplicitarle; ci sarebbe poi anche un "uniforme"che andrebbe spiegato...e puoi passare al 269! :D</article>
+<article class="post" id="p27130"><div class="who"><b>Luca Milanese</b><span>19 ago 2021, 11:17</span></div>Uniforme su ciascun piatto è solo la densità di carica elettrica totale, cioè la somma della densità di carica elettrica libera già presente sull'armatura (<span class="tex">\(Q_0\)</span> che si redistribuisce) e della densità di carica elettrica di polarizzazione che si raccoglie sulla superficie del dielettrico. Tale densità totale di ottiene dalla Legge di Gauss nella forma <span class="tex">\(\vec \nabla \cdot \vec E = \frac{\rho}{\epsilon_0}\)</span>, dove <span class="tex">\(\rho\)</span> comprende entrambi i tipi di carica, e che sulla superficie di separazione tra conduttore e dielettrico diventa <span class="tex">\(\Delta E_{perpendicolare}=\frac{\sigma}{\epsilon_0}\)</span>. Essendo il campo elettrico nullo nel condensatore, si ottiene semplicemente <span class="tex">\(\sigma=\epsilon_0 E\)</span>, e, poiché <span class="tex">\(E\)</span> è uniforme su tutto il piatto, lo è anche <span class="tex">\(\sigma\)</span>. Il valore di <span class="tex">\(\sigma\)</span>, come ho scritto nel precedente messaggio, è in modulo <span class="tex">\(\frac{2V \epsilon_0}{(1+\epsilon_r)d}\)</span>, positiva o negativa in base al piatto scelto.<br>
+Se invece si è interessati a conoscere solo le densità di carica libera, queste si ottengono dalla Legge di Gauss nella forma <span class="tex">\(\vec \nabla \cdot \vec D = \rho_{libera}\)</span>, quindi, come sopra, <span class="tex">\(\sigma_{libera}=D\)</span>, perciò, su ciascun piatto, il valore di questa densità cambia tra la metà vuota e la metà riempita col dielettrico, valendo <span class="tex">\(\pm \frac{2V \epsilon_0}{(1+\epsilon_r)d}\)</span> nella prima e <span class="tex">\(\pm \frac{2V \epsilon_r \epsilon_0 }{(1+\epsilon_r)d}\)</span> nella seconda.</article>
+<article class="post" id="p27131"><div class="who"><b>Leo</b><span>19 ago 2021, 16:57</span></div>Si erano queste ultime densità che il testo intendeva conoscere. Vai con il 269! :D  :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-7090.html"><small>← precedente</small>267. Infinitupolo</a><a class="next" href="olifis-7094.html"><small>successivo →</small>269. Oscillazioni elettriche</a></nav>
+</main></body></html>

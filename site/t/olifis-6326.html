@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>74. Aste su un tavolo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 74</a></span></nav>
+<h1>74. Aste su un tavolo</h1>
+<p class="meta">31 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6326">forum Olifis</a></p>
+<article class="post first" id="p22307"><div class="who"><b>FedericoC.</b><span>5 giu 2016, 17:05</span></div>Per continuare con la staffetta bisogna risolvere entrambi i punti  :D <br>
+<br>
+(a)Un'asta sottile di massa <span class="tex">\(m\)</span> e lunghezza <span class="tex">\(l\)</span> ha il capo inferiore vincolato a un tavolo tramite un fulcro che gli permette di ruotare. L'asta è tenuta inclinata di un angolo <span class="tex">\(\theta\)</span> rispetto all'orizzontale ed è poi rilasciata. Trovare l'accelerazione angolare subito dopo che è lasciata libera.<br>
+<br>
+(b)Fare lo stesso per un'asta sottile non vincolata posizionata su un tavolo privo di attrito nella stessa condizione iniziale del punto (a).</article>
+<article class="post" id="p22308"><div class="who"><b>Francesco Mele</b><span>5 giu 2016, 20:18</span></div>L'accelerazione angolare dovrebbe essere uguale a 3g*cos(angolo)/ (2L), giusto?<br>
+Ora provo a fare anche la seconda domanda.</article>
+<article class="post" id="p22309"><div class="who"><b>Flaffo</b><span>5 giu 2016, 20:29</span></div>A me il primo punto viene:<br>
+<span class="tex">\(\displaystyle\alpha=\frac{3gcos\theta}{2l}\)</span></article>
+<article class="post" id="p22310"><div class="who"><b>Flaffo</b><span>5 giu 2016, 20:40</span></div>Il secondo, se non ho sbagliato i calcoli:<br>
+<span class="tex">\(\displaystyle\alpha=\frac{48gcos\theta}{13l}\)</span></article>
+<article class="post" id="p22311"><div class="who"><b>Francesco Mele</b><span>5 giu 2016, 20:47</span></div>Avevo considerato il momento d'inerzia con coefficiente "1/12" :?</article>
+<article class="post" id="p22312"><div class="who"><b>Francesco Mele</b><span>5 giu 2016, 21:13</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Il secondo, se non ho sbagliato i calcoli:<br>
+<span class="tex">\(\displaystyle\alpha=\frac{48gcos\theta}{13l}\)</span></div></blockquote>
+
+Flaffo, potresti postare il procedimento?</article>
+<article class="post" id="p22313"><div class="who"><b>FedericoC.</b><span>5 giu 2016, 21:40</span></div>Sia per Francesco che per Flaffo il primo punto va bene potete postare il procedimento  ;) <br>
+Per Flaffo invece il secondo non torna.</article>
+<article class="post" id="p22314"><div class="who"><b>Antonio Mele</b><span>5 giu 2016, 21:44</span></div>Nel primo caso l'accelerazione angolare dovrebbe essere <span class="tex">\(\alpha =\frac{ 3g\cos \theta }{2l}\)</span> .<br>
+<br>
+<br>
+Nel secondo caso invece mi esce così: <br>
+<span class="tex">\(\alpha =\frac{ 6g\cos \theta }{l}\)</span><br>
+<br>
+In questo caso ho considerato il centro di massa che cade verticalmente senza spostarsi e l'estremo inferiore dell'asta che si sposta lateralmente.</article>
+<article class="post" id="p22315"><div class="who"><b>FedericoC.</b><span>5 giu 2016, 21:56</span></div>Non torna</article>
+<article class="post" id="p22317"><div class="who"><b>Francesco Mele</b><span>5 giu 2016, 22:35</span></div>Punto 1:<br>
+Il momento d'inerzia I dell'asta che ruota intorno ad un estremo è (1/3)ML^2. Il Momento torcente è uguale (1/2)MgL*cos(angolo). L'accelerazione angolare è uguale ad M/I, che sostituendo dà proprio la soluzione precedente.</article>
+<article class="post" id="p22318"><div class="who"><b>FedericoC.</b><span>5 giu 2016, 22:45</span></div>Va bene, sotto con il punto (b) che è il più interessante ;)</article>
+<article class="post" id="p22320"><div class="who"><b>Francesco Mele</b><span>5 giu 2016, 23:21</span></div>Mi è venuta in mente una piccola variante (forse ho infranto le regole della staffetta ahah, ma sono troppo curioso):<br>
+Un'asta sottile di massa m e lunghezza l ha il capo inferiore vincolato a un tavolo tramite un fulcro che gli permette di ruotare. L'asta è tenuta inclinata di un angolo alpha rispetto all'orizzontale ed è poi rilasciata. Trovare la velocità angolare dell'istante prima dell'urto con il tavolo.</article>
+<article class="post" id="p22321"><div class="who"><b>Francesco Mele</b><span>5 giu 2016, 23:24</span></div>La forza normale applicata sull'asta al punto di contatto tra l'asta e il pavimento come si trova?</article>
+<article class="post" id="p22323"><div class="who"><b>Flaffo</b><span>6 giu 2016, 0:44</span></div>Possibile che non dipenda da <span class="tex">\(\theta\)</span> ?</article>
+<article class="post" id="p22327"><div class="who"><b>FedericoC.</b><span>6 giu 2016, 8:05</span></div>Flaffo se ti riferisci al punto (b), dipende da <span class="tex">\(\theta\)</span></article>
+<article class="post" id="p22330"><div class="who"><b>Flaffo</b><span>6 giu 2016, 11:28</span></div>Mi viene:<br>
+<span class="tex">\(\displaystyle\alpha=\frac {24gcos\theta}{7l}\)</span></article>
+<article class="post" id="p22331"><div class="who"><b>FedericoC.</b><span>6 giu 2016, 13:17</span></div>Non è ancora giusto, se metti il procedimento vediamo dove non funziona  :)<br>
+<br>
+Per rispondere a Francesco:<br>
+trovare la normale è la parte centrale del problema, non posso dirlo  ;)</article>
+<article class="post" id="p22334"><div class="who"><b>rocco</b><span>6 giu 2016, 17:23</span></div>A me viene (3g/2l) cos teta<br>
+Se torna scrivo latex sennò è inutile perchè sono dubbioso sul fatto che viene costante dato teta.</article>
+<article class="post" id="p22335"><div class="who"><b>FedericoC.</b><span>6 giu 2016, 18:06</span></div>No non torna</article>
+<article class="post" id="p22336"><div class="who"><b>rocco</b><span>6 giu 2016, 18:19</span></div>guarda la modifica</article>
+<article class="post" id="p22338"><div class="who"><b>FedericoC.</b><span>6 giu 2016, 18:38</span></div>No non va bene, anche perché è uguale a quella del primo punto</article>
+<article class="post" id="p22339"><div class="who"><b>rocco</b><span>7 giu 2016, 9:46</span></div>alfa= (g/l)(6costeta)/(1+3cosquadroteta)<br>
+Solito discorso sul latex</article>
+<article class="post" id="p22340"><div class="who"><b>FedericoC.</b><span>7 giu 2016, 10:13</span></div>Il risultato è corretto, vai col procedimento  ;)</article>
+<article class="post" id="p22341"><div class="who"><b>rocco</b><span>7 giu 2016, 11:04</span></div>Bene sono a scuola lo farò nel pomeriggio quando spero di avere tempo.</article>
+<article class="post" id="p22342"><div class="who"><b>rocco</b><span>7 giu 2016, 17:02</span></div>Le forze esterne agenti sono entrambe verticali, il peso mg applicato al centro di massa G a metà dell'asta e la reazione del tavolo senza attrito N applicata nel punto di contatto dell'asta con il tavolo. Pertanto l'ascissa di G deve rimanere costante e durante la caduta dell'asta G si muove sulla verticale (asse y) passante per il punto inizialmente occupato. Il moto consiste nell'abbassamento di G lungo y e nella rotazione dell'asta attorno a G con accelerazione angolare <span class="tex">\(\alpha\)</span> incognita. Detto <span class="tex">\(\beta\)</span> l'angolo formato ad un certo istante dall'asta con l'asse x, abbiamo allora<br>
+<span class="tex">\(y_G= (l/2)sen\beta ; v_G=(l/2)cos\beta.\omega;a_G=-(l/2)sen\beta.\omega^2+(l/2)cos\beta.\alpha\)</span> dove<span class="tex">\(\omega=(d\beta/dt); \alpha=(d\omega/dt)\)</span>. A noi interessa l'istante iniziale e dunque bisogna porre <span class="tex">\(\beta=\theta ; \omega=0\)</span>. Le equazioni del moto risultano <span class="tex">\(m.a_G= mg-N ; I_G.\alpha= N(l/2)cos\beta\)</span> dove anche qui bisogna porre<span class="tex">\(\beta = \theta\)</span> ed <span class="tex">\(I_G= m(l^2/12)\)</span>. Ricavando N dall'equazione rotazionale e sostituendola nell'equazione del moto di G si ottiene<br>
+<span class="tex">\(m(l/2)cos\theta.\alpha =mg - \frac{2I_G.\alpha}{l cos\theta}\)</span> da cui semplificando e  ricavando <span class="tex">\(\alpha\)</span> si ha <br>
+<span class="tex">\(\alpha=(g/l)\frac{6.cos\theta}{1+3cos^2\theta}\)</span></article>
+<article class="post" id="p22343"><div class="who"><b>FedericoC.</b><span>7 giu 2016, 17:16</span></div>Va bene, la staffetta è tua  :D</article>
+<article class="post" id="p22344"><div class="who"><b>sall96</b><span>7 giu 2016, 17:26</span></div>Per dare un procedimento che porta allo stesso risultato si può anche scrivere l'energia in funzione di <span class="tex">\(\theta\)</span> e porre <span class="tex">\(\displaystyle \frac{dE}{dt}=0\)</span> :)</article>
+<article class="post" id="p22346"><div class="who"><b>Francesco Mele</b><span>8 giu 2016, 8:58</span></div>Detto <span class="tex">\(\beta\)</span> l'angolo formato ad un certo istante dall'asta con l'asse x, abbiamo allora<br>
+<span class="tex">\(y_G= (l/2)sen\beta ; v_G=(l/2)cos\beta.\omega;a_G=-(l/2)sen\beta.\omega^2+(l/2)cos\beta.\alpha\)</span> dove<span class="tex">\(\omega=(d\beta/dt); \alpha=(d\omega/dt)\)</span>. <br>
+<br>
+Non capisco perché Vg e Ag è uguale a quella roba</article>
+<article class="post" id="p22348"><div class="who"><b>rocco</b><span>8 giu 2016, 11:04</span></div>Per Francesco Mele. Penso che tu non abbia dubbi sul valore dell'ordinata. Essa è una funzione composta dal seno e dall'angolo che varia con il tempo. Allora per trovare la velocità, che rappresenta la variazione dell'ordinata nell'unità di tempo, si fa la derivata rispetto al tempo (dy/dt) di una funzione composta come prodotto delle derivate delle funzioni componenti. Analogamente per trovare l'accelerazione che rappresenta la derivata della velocità rispetto al tempo (dv/dt): in questo caso è la derivata di un prodotto (derivata del primo per il secondo non derivato + il primo non derivato per la derivata del secondo).</article>
+<article class="post" id="p22349"><div class="who"><b>rocco</b><span>8 giu 2016, 11:20</span></div><blockquote><div><cite>sall96 ha scritto:</cite>Per dare un procedimento che porta allo stesso risultato si può anche scrivere l'energia in funzione di <span class="tex">\(\theta\)</span> e porre <span class="tex">\(\displaystyle \frac{dE}{dt}=0\)</span> :)</div></blockquote>
+
+Anche se dici che dà lo stesso risultato, e ti credo, mi sfugge la logica: infatti, dato teta come è dato, esiste solo l'energia potenziale perchè l'asta è inizialmente ferma. Pertanto l'energia, dato teta, è quella che è. La sua derivata dice come varia l'energia potenziale per i vari teta alle varie quote: infatti viene un coseno che si annulla per teta= 90° cioè nel suo massimo quando sta verticale. Non c'è niente di nuovo ma non vedo come si possa dedurre l'accelerazione angolare alla partenza. :?:</article>
+<article class="post" id="p22350"><div class="who"><b>sall96</b><span>8 giu 2016, 11:30</span></div>Ok scusa non sono stato molto chiaro, ho mischiato le variabili. Scrivi l'energia potenziale e cinetica in funzione di <span class="tex">\(\beta\)</span>. Dato che la somma di queste due si conserva, la somma delle derivate è zero, inoltre hai <span class="tex">\(\beta(0)=\theta\)</span> e <span class="tex">\(\dot{\beta}(0)=0\)</span> da cui puoi trovare <span class="tex">\(\ddot{\beta}\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-6324.html"><small>← precedente</small>73. Nebulose oscure</a><a class="next" href="olifis-6331.html"><small>successivo →</small>75  Condotto incurvato</a></nav>
+</main></body></html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>322. Il tavolo fragile</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 322</a></span></nav>
+<h1>322. Il tavolo fragile</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7259">forum Olifis</a></p>
+<article class="post first" id="p28513"><div class="who"><b>Pigkappa</b><span>7 lug 2024, 17:32</span></div>Un tavolo ha forma di triangolo equilatero di lato 1 m, ed è sorretto da 3 gambe identiche che si trovano ai vertici del triangolo equilatero. <br>
+<br>
+Se si pone un oggetto di massa superiore a <span class="tex">\(\displaystyle m_\text{max}\)</span> nel centro del tavolo, si sa che tutte e tre le gambe si rompono istantaneamente. <br>
+<br>
+Si pone delicatamente un oggetto di massa <span class="tex">\(\displaystyle \frac{2}{3}m_\text{max}\)</span> sul tavolo. Quanto vale l'area della parte del tavolo su cui si può poggiare l'oggetto senza che nessuna gamba si rompa?</article>
+<article class="post" id="p28514"><div class="who"><b>mantanp</b><span>7 lug 2024, 23:45</span></div>Può darsi che venga <span class="tex">\(\frac{\sqrt{3}}{16}\)</span> :?:</article>
+<article class="post" id="p28515"><div class="who"><b>Pigkappa</b><span>8 lug 2024, 0:09</span></div><blockquote><div><cite>mantanp ha scritto: <a href="olifis-7259.html#p28514" data-post-id="28514" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">7 lug 2024, 23:45</div></cite>
+Può darsi che venga <span class="tex">\(\frac{\sqrt{3}}{16}\)</span> :?:
+</div></blockquote>
+Sì</article>
+<article class="post" id="p28516"><div class="who"><b>Fibdg</b><span>8 lug 2024, 19:38</span></div>Mi sto perdendo a calcolare l'area di un triangolo "bombato", sono sulla strada giusta?</article>
+<article class="post" id="p28517"><div class="who"><b>Pigkappa</b><span>8 lug 2024, 22:25</span></div>Dipende da quanto è bombato, ma non voglio rivelare la forma della superficie prima che sia postata la soluzione..!<br>
+<br>
+Ma rivelo che non servono contacci.</article>
+<article class="post" id="p28518"><div class="who"><b>mantanp</b><span>9 lug 2024, 23:50</span></div>Io aspetterei ci pensino gli altri, appena ho il via libera pubblico la mia soluzione</article>
+<article class="post" id="p28519"><div class="who"><b>Higgs</b><span>10 lug 2024, 12:17</span></div>Io provo questo ragionamento. Se poniamo nel centro del triangolo di lato 1l massa   <span class="tex">\(m_m\)</span>, la reazione di rottura N di ciascuna gamba del tavolo vale <span class="tex">\(\frac { m_m g}{3 }\)</span>. Se poniamo nel centro la massa <span class="tex">\((2/3)m_m\)</span> la reazione N di ciascuna gamba sarà <span class="tex">\((2/9)m_m\)</span> che è più piccola del carico di rottura della quantità <span class="tex">\((1/9)m_m\)</span> su cui possiamo giocare per la determinazione dell'area richiesta. Infatti si può dire <span class="tex">\((2/9) m_m : \sqrt{ 3}/3 = (1/9)m_m : x\)</span> da cui si deduce facilmente che la distanza del centro dai suoi vertici è <span class="tex">\(\sqrt{3 }/6\)</span> proprio la metà di quella del triangolo di lato 1. Si tratta insomma del triangolo equilatero simile al dato e di lato (1/2). La sua area è dunque <span class="tex">\((1/2).(1/2).\sqrt{3 }/4 = \sqrt{3 }/16\)</span></article>
+<article class="post" id="p28520"><div class="who"><b>Pigkappa</b><span>10 lug 2024, 22:59</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7259.html#p28519" data-post-id="28519" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 lug 2024, 12:17</div></cite>
+si può dire <span class="tex">\((2/9) m_m : \sqrt{ 3}/3 = (1/9)m_m : x\)</span> 
+</div></blockquote>
+Da dove viene questa? Non è chiaro che legge fisica è stata applicata...</article>
+<article class="post" id="p28521"><div class="who"><b>Higgs</b><span>11 lug 2024, 10:46</span></div>Mah, se a <span class="tex">\((2/9)m_m\)</span> corrisponde il triangolo di lato 1 dove la distanza del centro dai vertici <span class="tex">\(\sqrt{3 }/3\)</span>ci chiediamo a quale triangolo e quindi area corrisponde <span class="tex">\(1/9 m_m\)</span>che è il margine su cui possiamo giocare. Evidentemente viene la metà distanza del centro dai vertici cioè <span class="tex">\(\sqrt{ 3}/6\)</span>che è riferito quindi al triangolo di lato 1/2 la cui area è giusto <span class="tex">\(\sqrt {3 }/16\)</span> :?:  :?: Questo ho pensato...</article>
+<article class="post" id="p28522"><div class="who"><b>Pigkappa</b><span>11 lug 2024, 15:20</span></div>"Corrisponde" in che senso? Che leggi della fisica stai usando e come?</article>
+<article class="post" id="p28523"><div class="who"><b>Fibdg</b><span>11 lug 2024, 16:37</span></div>Mi sento di proporre la strada che sto seguendo io se qualcuno mi vuole dare un feedback. Per simmetria ogni gamba supporta un momento massimo rispetto a sè uguale a <span class="tex">\(M_{max}=m_{max}gR/3\)</span>, dove R è la distanza dal vertice al centro del triangolo equilatero. Se ho una massa <span class="tex">\(\frac{2}{3}m_{max}\)</span>, per far sì che il tavolo non si rompa deve valere per ciascuna gamba <span class="tex">\((\frac{2}{3}m_{max}gd)/3\le M_{max}\)</span>, dove <span class="tex">\(d\)</span> è la distanza dal vertice ad un generico punto dove si può appoggiare l'oggetto. Sostituendo <span class="tex">\(M_{max}\)</span> la disequazione sopra citata dà <span class="tex">\(d\le \frac{3}{2}R\)</span>. Quindi, considerando un solo vertice, l'area interessata è un settore circolare tangente al triangolo equilatero (per le relazioni tra mediana e baricentro) di raggio <span class="tex">\(\frac{3}{2}R\)</span>. Se adesso consideriamo tutti e tre i vertici e intersechiamo le tre aree si ottiene un triangolo "bombato", che rappresenta tutti i punti in cui è possibile posizionare la massa <span class="tex">\(\frac{2}{3}m_{max}\)</span> senza che il tavolo si rompa, di cui è necessario calcolare l'area. Da qui non sono riuscito ad andare avanti, soprattutto perchè non riesco a trovare la parte "bombata" del triangolo. Ha senso ragionare sul momento torcente?</article>
+<article class="post" id="p28524"><div class="who"><b>Higgs</b><span>11 lug 2024, 17:59</span></div>Ma perchè mi chiedi "corrisponde in che senso"? Io ho capito che <span class="tex">\((2/3)m_m\)</span>posto nel centro del triangolo di lato 1 produce una reazione di ciascuna gamba pari a <span class="tex">\((2/9) m_m g  \)</span> dividendosi il carico sulle 3 gambe; una reazione che è possibile perchè inferiore di <span class="tex">\((1/9) m_m g \)</span>alla reazione di rottura che secondo il testo è <span class="tex">\((1/3)m_m g= (3/9)m_m g\)</span>. Dunque il triangolo dato di lato 1 "corrisponde" a equilibrare senza rompersi nelle gambe <span class="tex">\((2/9)m_m\)</span>. Mi chiedo : qual è il triangolo capace di equilibrare la metà del carico (="corrisponde" alla metà del carico ) posta nel suo centro? E' quello di lato (1/2) capace di equilibrare senza rompere le 3 gambe <span class="tex">\((1/9)m_m\)</span> ovvero 1/3 del carico di rottura posto nel suo centro. La distanza del centro dai suoi vertici è ovviamente la metà <span class="tex">\(\sqrt {3 } /6\)</span> invece di <span class="tex">\(\sqrt{ 3}/3\)</span> e la sua area è come detto in dettaglio nei miei post <span class="tex">\(\sqrt{3 }/16\)</span>. <br>
+Pertanto le mie risposte, che tu ritieni errate o non convincenti, sono 1) l'area richiesta è un triangolo equilatero simile a quello dato di lato 1; 2) la sua area è <span class="tex">\(\sqrt {3 }/16\)</span> Se è sbagliato vuol dire che il valore giusto viene per errori che si compensano o per una mia incomprensione del testo. Da parte mia credo di poter chiudere questo argomento. :D</article>
+<article class="post" id="p28525"><div class="who"><b>Pigkappa</b><span>11 lug 2024, 20:47</span></div><blockquote><div><cite>Fibdg ha scritto: <a href="olifis-7259.html#p28523" data-post-id="28523" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">11 lug 2024, 16:37</div></cite>
+ogni gamba supporta un momento massimo rispetto a sè
+</div></blockquote>
+Le gambe si rompono se la forza esercitata su di loro è troppo grande, non se il momento torcente è troppo grande... Questo mi pare intuitivo...<br>
+
+<blockquote><div><cite>Fibdg ha scritto: <a href="olifis-7259.html#p28523" data-post-id="28523" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">11 lug 2024, 16:37</div></cite>
+Ha senso ragionare sul momento torcente? 
+</div></blockquote>
+Sì. Tenere conto del momento torcente serve. Le forze esercitate dalle gambe del tavolo saranno tali da impedire che il tavolo ruoti rispetto a qualsiasi asse: equilibrio dei momenti. Ed anche ad impedire che sprofondi nel terreno o si innalzi in volo: equilibrio delle forze.</article>
+<article class="post" id="p28526"><div class="who"><b>Fibdg</b><span>12 lug 2024, 18:32</span></div>È vero ho scritto delle scemenze, grazie Pigkappa dei suggerimenti, anche a me ora viene <span class="tex">\(\frac{\sqrt3}{16}\)</span> (contacci non ce n'erano :D ).</article>
+<article class="post" id="p28527"><div class="who"><b>Pigkappa</b><span>13 lug 2024, 23:32</span></div>Ok ma mantenp o Fidbg, postate una soluzione con spiegazione corretta (o Higgs rivedi la tua così che si capisca la parte fisica), oppure la staffetta non so a chi darla :p</article>
+<article class="post" id="p28528"><div class="who"><b>Fibdg</b><span>14 lug 2024, 11:37</span></div>Per me possono andare mantanp o Higgs con le loro soluzioni</article>
+<article class="post" id="p28529"><div class="who"><b>mantanp</b><span>15 lug 2024, 18:06</span></div>Io la soluzione ce l'ho ma sono via e non ho un supporto comodo per scriverla qua. Al massimo posso spiegare come ho risolto il problema, ma per qualche giorno non riesco a scriverla bene.</article>
+<article class="post" id="p28530"><div class="who"><b>Pigkappa</b><span>15 lug 2024, 23:42</span></div>Per evitare che la staffetta resti bloccata, il primo tra mantenp, Higgs e Fibdg che ha un problema, lo può postare come 323 :) <br>
+Metto la mia soluzione qua sotto<br>
+<br>
+Il tavolo sorregge la massa e sente quindi una forza <span class="tex">\(\displaystyle F_g = m g\)</span> dove si trova la massa.<br>
+Le gambe del tavolo, ai vertici A, B e C, esercitano forze <span class="tex">\(\displaystyle F_A, F_B, F_C\)</span> sulla superficie del tavolo rispettivamente. <br>
+<br>
+Trascuro il peso della superficie del tavolo, che aggiungerebbe solo una componente <span class="tex">\(\displaystyle M_\text{tavolo} \times g / 3\)</span> a ognuna di <span class="tex">\(\displaystyle F_A, F_B, F_C\)</span>.<br>
+<br>
+Poiché la superficie del tavolo non trasla, la somma delle forze è nulla. <br>
+Poiché non ruota, <span style="text-decoration:underline">il momento torcente delle forze rispetto a qualsiasi asse è nullo</span>.<br>
+<br>
+Prendiamo come asse il lato <span class="tex">\(\displaystyle BC\)</span> e calcoliamo i momenti. <br>
+Non presto particolare attenzione ai segni ma solo ai moduli. <br>
+Il momento di <span class="tex">\(\displaystyle F_B\)</span> e <span class="tex">\(\displaystyle F_C\)</span> è zero perché la distanza dall'asse è zero. <br>
+Il momento di <span class="tex">\(\displaystyle F_g\)</span> è <span class="tex">\(\displaystyle d \times F_g\)</span> dove <span class="tex">\(\displaystyle d\)</span> è la distanza della massa dal lato BC.<br>
+Il momento di <span class="tex">\(\displaystyle F_A\)</span> è <span class="tex">\(\displaystyle h \times F_A\)</span> dove <span class="tex">\(\displaystyle h\)</span> è l'altezza del triangolo.<br>
+<br>
+Questi si devono equilibrare, quindi <span class="tex">\(\displaystyle d \times F_g = h \times F_A\)</span>, quindi <span class="tex">\(\displaystyle F_A = m g \times d/h\)</span>. <br>
+Se il corpo è nel centro del triangolo, <span class="tex">\(\displaystyle d = h/3\)</span> e troviamo <span class="tex">\(\displaystyle F_A = m g / 3\)</span> che per simmetria è chiaramente corretto. <br>
+Se il corpo è nel punto A, troviamo <span class="tex">\(\displaystyle F_A = m g\)</span> che è molto plausibile a sua volta.<br>
+<br>
+La forza massima sostenibile è <span class="tex">\(\displaystyle m_\text{max} g / 3\)</span> e la forza calcolata è <span class="tex">\(\displaystyle \frac{2}{3} m_\text{max} g \times d / h\)</span>, quindi <span class="tex">\(\displaystyle d &lt; h/2\)</span>. <br>
+Perciò il corpo non può trovarsi nel triangolino equilatero di lato <span class="tex">\(\displaystyle L/2\)</span> che ha vertici in A e nei punti medi di AB e AC.<br>
+<br>
+Lo stesso ragionamento esclude gli altri due triangoli simili con vertici in B e C. <br>
+<br>
+Rimane come zona permessa un triangolo equilatero che ha lo stesso baricentro di quello iniziale e lato <span class="tex">\(\displaystyle L/2\)</span>. <br>
+La sua area è un quarto di quella del triangolo iniziale, che calcolo come base per altezza diviso 2: <br>
+<span class="tex">\(\displaystyle A = \frac{1}{4} \times 1 \times \frac{\sqrt 3}{2} \times \frac{1}{2} = \frac{\sqrt 3}{16}\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-7255.html"><small>← precedente</small>321. Torre infinita di cilindri</a><a class="next" href="olifis-7260.html"><small>successivo →</small>323.    Serie infinita con generatori e resistenze interne</a></nav>
+</main></body></html>

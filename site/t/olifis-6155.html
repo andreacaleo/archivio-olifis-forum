@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>49: sfera che salta 2 volte</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 49</a></span></nav>
+<h1>49: sfera che salta 2 volte</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6155">forum Olifis</a></p>
+<article class="post first" id="p21172"><div class="who"><b>phyknight</b><span>12 ago 2015, 8:59</span></div>Una sfera di raggio R è lanciata in alto (è lanciata dal pavimento) con una certa velocità <span class="tex">\(v_y\)</span> (parallela all'asse <span class="tex">\(y\)</span>) e una velocità <span class="tex">\(v_z\)</span> (parallela all'asse <span class="tex">\(z\)</span> verticale) e viene fatta ruotare intorno a un asse per pendicolare al piano verticale del moto con velocità <span class="tex">\(\omega\)</span> (in altre parole la lancio nella direzione positiva delle <span class="tex">\(z\)</span> e delle <span class="tex">\(y\)</span>, e la faccio ruotare intorno a un asse parallelo all'asse <span class="tex">\(x\)</span>, quindi la sfera si muove nel piano <span class="tex">\(y-z\)</span>).<br>
+La sfera rimbalza sul pavimento senza scivolare durante il contatto con il suolo. Considerare l'urto come elastico, e che la velocità verticale <span class="tex">\(v_z\)</span> sia la stessa prima e dopo il rimbalzo.<br>
+Trovare la velocità <span class="tex">\(v_{y,2}\)</span> e la velocità angolare <span class="tex">\(\omega_2\)</span> dopo due rimbalzi con il pavimento.<br>
+<br>
+Nota: "senza scivolare durante il contatto con il suolo" non significa che rotola al contatto col suolo, la palla non rotola proprio sul suolo, lo tocca e rimbalza, il altri termini l'urto avviene in un punto</article>
+<article class="post" id="p21173"><div class="who"><b>gluonstrongforce</b><span>12 ago 2015, 16:13</span></div>Ma in quale senso ruota la palla? lo devo capire io dalle tue parole? e sopratutto : non c'è attrito?</article>
+<article class="post" id="p21174"><div class="who"><b>Simone256</b><span>13 ago 2015, 1:56</span></div>La palla ruota in un senso arbitrario e sì... C'è attrito ;)</article>
+<article class="post" id="p21176"><div class="who"><b>gluonstrongforce</b><span>13 ago 2015, 14:22</span></div>Allora tutto cambia. Anzi non proprio tutto (sbaglio comunque). Detto <span class="tex">\(K\)</span> il coefficiente di attrito tra la sfera e il piano (non so dove rendere la lettera latina) e <span class="tex">\(R\)</span> il raggio della sfera:<br>
+<br>
+<span class="tex">\(Vy''\)</span> = <span class="tex">\(Vy\)</span> <span class="tex">\(+\)</span> <span class="tex">\(4K\)</span><span class="tex">\(Vz\)</span><br>
+<br>
+<br>
+<span class="tex">\(Omega''\)</span> = <span class="tex">\(Omega\)</span> <span class="tex">\(-\)</span> <span class="tex">\(10KVz/R\)</span></article>
+<article class="post" id="p21178"><div class="who"><b>CapitanFindus</b><span>14 ago 2015, 13:15</span></div>Facendo dei ragionamenti sulla conservazione dell'energia cinetica, sulla variazione della quantità di moto sull'asse y, e sulla variazione del momento angolare mi esce ciò <br>
+<br>
+dopo il primo rimbalzo <br>
+<br>
+<span class="tex">\(w_1 = - \frac{3}{7} w_0 + \frac{10 v_0}{7r}\)</span><br>
+<span class="tex">\(v_1 = \frac{3}{7} v_0 + \frac{4 w_0 r}{7}\)</span><br>
+<br>
+dopo il secondo rimbalzo con mia grande sorpresa <br>
+<br>
+<span class="tex">\(w_2  = w_0\)</span><br>
+<span class="tex">\(v_2 = v_0\)</span><br>
+<br>
+quotato 0,9 ad 1 che è sbagliato</article>
+<article class="post" id="p21180"><div class="who"><b>phyknight</b><span>14 ago 2015, 13:26</span></div>gluonstrongforce, il risultato deve dipendere solo dai dati del problema, quindi non dall'attrito (ricorda che l'urto è elastico<span class="tex">\(\Leftrightarrow\)</span> si conseva energia), e poi l'urto avviene in un punto <br>
+CapitanFindus esatto  :D , il prossimo problema è tuo</article>
+<article class="post" id="p21181"><div class="who"><b>CapitanFindus</b><span>14 ago 2015, 18:17</span></div>wow non credevo. E' abbastanza controintuitiva sta cosa che la velocità torni la stessa.<br>
+<br>
+Per la cronaca scrivo due righe per dire come l'ho risolto.<br>
+<br>
+La quantità di moto sull'asse y non si conserva perchè vi è la forza impulsiva d'attrito<br>
+<br>
+<span class="tex">\(\Delta p = m( v_1 - v_0 ) = F_a \Delta t\)</span>   (1)<br>
+<br>
+considerando che il momento meccanico <br>
+<br>
+<span class="tex">\(\tau = \frac{\Delta L}{\Delta t}\)</span> dove L è il momento angolare la cui variazione equivale a <span class="tex">\(I \Delta \omega\)</span><br>
+<br>
+posso sostituire la <span class="tex">\(\Delta t\)</span> nella 1, che messa a sistema con la conservazione dell'energia cinetica ( e rotazionale) mi da un sistema di due equazioni con incognite <span class="tex">\(v_1 , \omega_1\)</span><br>
+<br>
+NOTA: i calcoli sembrano mostruosi ma se si raccoglie qualcosa e si usa qualche scorciatoia li si fa in mezza pagina ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6154.html"><small>← precedente</small>48 : molecole biricchine</a><a class="next" href="olifis-6156.html"><small>successivo →</small>50: Catena in caduta libera</a></nav>
+</main></body></html>

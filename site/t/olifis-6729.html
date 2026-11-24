@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>155. Pendolo mobile</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 155</a></span></nav>
+<h1>155. Pendolo mobile</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6729">forum Olifis</a></p>
+<article class="post first" id="p24920"><div class="who"><b>carlaaf</b><span>10 lug 2018, 15:07</span></div>Nel pendolo in figura la massa in alto è libera di scorrere orizzontalmente senza attrito. Determinare la frequenza delle piccole oscillazioni attorno alla posizione di equilibrio.
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/960553fb4dc301cc.jpg" class="postimage" alt="D437938E-B4E1-40C8-892D-26DBAC9A0360.jpeg" onclick="viewableArea(this);" /></dt>
+						<dd>D437938E-B4E1-40C8-892D-26DBAC9A0360.jpeg (10.86 KiB) Visto 10740 volte</dd>
+		</dl>
+		
+		
+		
+			</div></article>
+<article class="post" id="p24921"><div class="who"><b>.Ruben.</b><span>10 lug 2018, 17:36</span></div>Per caso é: <span class="tex">\(\frac{1}{2\pi} \sqrt{\frac{(m_1+m_2)g}{m_1 L}  }\)</span>?</article>
+<article class="post" id="p24922"><div class="who"><b>Gamow00</b><span>10 lug 2018, 19:26</span></div>Sì dovrebbe essere così, viene anche a me</article>
+<article class="post" id="p24923"><div class="who"><b>carlaaf</b><span>10 lug 2018, 21:18</span></div>Giusto! Posta pure la soluzione e poi la staffetta è tua!</article>
+<article class="post" id="p24924"><div class="who"><b>nicarepo</b><span>11 lug 2018, 12:53</span></div>Spero che non vada contro le regole del forum scrivere una soluzione dopo il post di un altro utente. Comunque l'esercizio si dovrebbe fare così: l'equilibrio del pendolo si ha quando le due masse sono allineate verticalmente. Se l'equilibrio viene perturbato l'unica forza agente sul sistema è il peso di <span class="tex">\(m_2\)</span>. Essendo una forza verticale, l'ascissa del centro di massa non si muove, e supponendola inizialmente zero  si può scrivere:<br>
+<br>
+<span class="tex">\(x_1m_1+x_2m_2=0\)</span>  dove <span class="tex">\(x_1\)</span> e <span class="tex">\(x_2\)</span> sono le posizioni delle due masse sulle ascisse. Quindi <span class="tex">\(x_2=-x_1m_1/m_2\)</span><br>
+<br>
+A questo punto, scomponendo il peso in componente radiale e tangenziale, e notando che <span class="tex">\(m_2\)</span> non subisce accelerazioni radiali, si può affermare che la tensione della corda è uguale a:<br>
+<br>
+<span class="tex">\(T=m_2gcos({\alpha})\)</span>  dove <span class="tex">\({\alpha}\)</span> è l'angolo di inclinazione dalla verticale. La stessa tensione agisce su <span class="tex">\(m_1\)</span>, quindi la forza orizzontale è:<br>
+<br>
+<span class="tex">\(F=Tsen({\alpha})=m_2g/2* sin(2{\alpha}) \approx m_2g{\alpha}\)</span><br>
+<br>
+Geometricamente si nota che   <span class="tex">\(lsen({\alpha})=|x_1|+|x_2|\)</span>   di conseguenza    <span class="tex">\(sen({\alpha})\aprox{\alpha}=[x_1(m_2+m_1)]/lm_2\)</span><br>
+Sostituendo:<br>
+<br>
+<span class="tex">\(F=\frac{d^2x_1}{dt^2}m_1=\frac{m_2g}{l}x_1(1+\frac{m_1}{m_2})\)</span><br>
+<br>
+Da cui la frequenza trovata in precedenza.</article>
+<article class="post" id="p24933"><div class="who"><b>carlaaf</b><span>12 lug 2018, 13:31</span></div>La soluzione di nicarepo è corretta. Se ruben è d’accordo può anche passare a te la staffetta, ergo chiunque tra voi due abbia un porblema 156 pronto può andare!</article>
+<article class="post" id="p24934"><div class="who"><b>nicarepo</b><span>12 lug 2018, 18:08</span></div>Va bene, comunque dato che è la prima volta che consulto il forum, potreste spiegarmi le regole? Per esempio quale deve essere il tipo di esercizi che si può proporre? <br>
+<br>
+Inoltre avrei una curiosità personale, coloro che prendono parte a queste discussioni sono studenti liceali che partecipano o hanno partecipato alle Olimpiadi della Fisica? Tra costoro c'è qualcuno che concorre per la Scuola Normale Superiore?</article>
+<article class="post" id="p24935"><div class="who"><b>.Ruben.</b><span>12 lug 2018, 18:11</span></div>Io sono d'accordo<br>
+Mi applicherò per risolvere la prossima :)</article>
+<article class="post" id="p24936"><div class="who"><b>Aleksej99</b><span>12 lug 2018, 18:13</span></div>@nicarepo: Si la maggior parte degli utenti più attivi ha partecipato alle olimpiadi di fisica (fase nazionale)... E credo molti del 99 proveranno in Sns, provi anche tu?</article>
+<article class="post" id="p24940"><div class="who"><b>Pigkappa</b><span>13 lug 2018, 0:08</span></div>@nicarepo<br>
+Non abbiamo mai fissato regole stringenti per la staffetta. Posta un problema di fisica che ti sembri interessante di qualsiasi livello. Se nessuno fa progressi entro 2-5 giorni posta un hint. Se nessuno fa progressi posta la soluzione. La staffetta passa a chi lo risolve o, se proprio nessuno riesce a fare nulla, può passare a chiunque la voglia prendere. Benvenuto :D<br>
+<br>
+La maggior parte degli utenti attivi sono studenti pre-università inclusi studenti che proveranno alla SNS la maggior parte dei moderatori sono ex olimpionici di fisica che hanno conseguito la laurea in fisica.</article>
+<nav class="pager"><a class="prev" href="olifis-6718.html"><small>← precedente</small>154. Camini cadenti</a><a class="next" href="olifis-6732.html"><small>successivo →</small>156. Circuito RC</a></nav>
+</main></body></html>

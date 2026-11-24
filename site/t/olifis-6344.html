@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>81. Solenoidi incastrati</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 81</a></span></nav>
+<h1>81. Solenoidi incastrati</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6344">forum Olifis</a></p>
+<article class="post first" id="p22473"><div class="who"><b>arna1998</b><span>27 giu 2016, 8:23</span></div>Un solenoide è stato parzialmente inserito all'interno di un altro. In entrambi scorre una corrente <span class="tex">\(I\)</span> e generano un campo magnetico nella stessa direzione. Entrambi hanno <span class="tex">\(N\)</span> spire e lunghezza <span class="tex">\(l\)</span>, mentre le sezioni sono rispettivamente <span class="tex">\(A_1\)</span> e <span class="tex">\(A_2\)</span>, con <span class="tex">\(A_2&lt;A_1\)</span>. <br>
+Trovare la forza necessaria per estrarre quello più piccolo.</article>
+<article class="post" id="p22488"><div class="who"><b>rocco</b><span>29 giu 2016, 17:48</span></div>Proverei a ragionare con la densità di energia magnetica <span class="tex">\([1/(2\mu_0)] B^2\)</span> dove <span class="tex">\(\mu_0\)</span>è la permeabilità magnetica e <span class="tex">\(B=\mu_0.(N/L)I\)</span> il vettore induzione. Inseriti o no ci sono le energie dei due solenoidi date dalla densità per il loro volume. Ma c'è poi l'energia della parte inserita, diciamo L-x, del più piccolo in cui è presente l'induzione 2B. L'energia magnetica di questa zona mi verrebbe <span class="tex">\(U(x) = 2\mu_0. N^2.I^2.A_2.[(L-x)/L^2]\)</span>. Ora la forza del campo è <span class="tex">\(F=-dU/dx\)</span> per cui quella necessaria esterna è <span class="tex">\(-F= - (2\mu_0.N^2I^2A_2)/L^2\)</span></article>
+<article class="post" id="p22489"><div class="who"><b>arna1998</b><span>29 giu 2016, 17:56</span></div>Ragionare con l'energia è un'idea corretta, ma manca un "pezzo di energia" che non hai considerato  :D</article>
+<article class="post" id="p22495"><div class="who"><b>rocco</b><span>30 giu 2016, 10:41</span></div>Si è quella della parte esterna x e quindi il coefficiente numerico di F non è -2 ma -3/2 ?</article>
+<article class="post" id="p22496"><div class="who"><b>arna1998</b><span>30 giu 2016, 18:36</span></div>Diciamo che c'è un altro tipo di energia da considerare oltre quella immagazzinata nel campo :)</article>
+<article class="post" id="p22497"><div class="who"><b>rocco</b><span>1 lug 2016, 16:58</span></div>Comunque quella che ho aggiunto doveva essere aggiunta? E poi io penserei che la variazione di flusso nel piccolo induce in esso una fem e quindi un campo che si oppone all'estrazione con conseguente incremento della forza necessaria: puoi dirmi per favore se sono sulla strada giusta? Perchè stento a quantificarlo anche per il tempo limitato per concentrarmici. Grazie.</article>
+<article class="post" id="p22498"><div class="who"><b>arna1998</b><span>2 lug 2016, 0:12</span></div>La parte che hai aggiunto é giusto aggiungerla. Forse però manca ancora un pezzo di energia dovuta al campo che non hai considerato, non ne sono sicuro perché la formula che hai scritto per <span class="tex">\(U(x)\)</span> non mi torna dimensionalmente e non vorrei che ci sia un errore di battitura (ho inteso le virgolette come un 2)  :?: <br>
+Il flusso varia, esattamente, è questa l'altra energia che intendevo :)</article>
+<article class="post" id="p22499"><div class="who"><b>rocco</b><span>2 lug 2016, 11:20</span></div>Si le virgolette sono un 2 per errore di battitura dato che nella tastiera sono m e M nella stessa posizione. Inoltre avevo trascurato l'esponente 2 a L al denominatore. In queste giornate ne combino una dietro un'altra...Con questa precisazione dovrebbe tornare dimensionalmente essendo una densità d'energia per un volume. Quando ho un minuto, forse in giornata, cercherò di postare il pezzo induzione che ho già appuntato indicando la lunghezza con l e l'induttanza del solenoide con L. Grazie di tutto.</article>
+<article class="post" id="p22500"><div class="who"><b>rocco</b><span>3 lug 2016, 10:23</span></div>Sempre considerando l-x la parte inserita con l lunghezza del solenoide, estraendo una lunghezza infinitesima dx nel tempo dt si provoca una variazione di flusso dell'induzione generata dal solenoide fisso uguale a <span class="tex">\([d\Phi(B_1)]/dt  = A_2.B_1.(N/l)(dx/dt)\)</span>, con <span class="tex">\(B_1=\mu_0.(N/l).I\)</span>, che risulterà uguale all'opposto della fem indotta<span class="tex">\(L(di/dt)\)</span> dove <span class="tex">\(L= \mu_0.(N^2/l).A_2\)</span> è l'induttanza del solenoide. Eliminando il denominatore dt ed integrando fino ad l-x si ottiene la corrente i indotta durante l'estrazione della parte l-x che risulta<span class="tex">\(i= A_2.B_1N(l-x)/(lL)\)</span> . Essa corrisponde all'energia <span class="tex">\((1/2)Li^2= (1/2L)A_2^2.B_1^2.N^2[(l-x)^2/l^2]\)</span> fornita dalla forza F che ha compiuto il lavoro di estrazione. La sua derivata corrisponde a questa forza esercitata dall'esterno e dovrebbe risultare, sostituendo anche le espressioni di <span class="tex">\(B_1\)</span> ed L<br>
+<span class="tex">\(F= -\mu_0.A_2.I^2.(N^2/l^3)(1-x/l)\)</span><br>
+A parte eventuali errori concettuali ce ne saranno di calcolo?</article>
+<article class="post" id="p22511"><div class="who"><b>arna1998</b><span>6 lug 2016, 18:53</span></div>Mi scuso per la risposta molto in ritardo  :roll:, il risultato è sbagliato dovrebbe essere indipendente da <span class="tex">\(x\)</span>. Sei sicuro che il flusso vari soltanto nel solenoide fisso? :)  :)</article>
+<article class="post" id="p22514"><div class="who"><b>rocco</b><span>7 lug 2016, 17:56</span></div>Io veramente ho calcolato la variazione di flusso nel solenoide mobile. Vedrò anche quella del solenoide fisso ma è proprio come Achille e la tartaruga: non arriverò al traguardo. Sarebbe il quarto aggiustamento. Ti consiglio di dare la staffetta ad un altro se domani non posto! 8-)</article>
+<article class="post" id="p22520"><div class="who"><b>Francesco Mele</b><span>12 lug 2016, 1:05</span></div>Continuiamo la staffetta? :D <br>
+(Con questo non voglio dire che voglio postare il prossimo problema ahah)</article>
+<article class="post" id="p22521"><div class="who"><b>arna1998</b><span>12 lug 2016, 9:14</span></div>In effetti sono già passate due settimane, quindi la staffetta è bloccata da un po' :? <br>
+<br>
+Io direi che il testimone lo può avere rocco perché le idee che ha avuto non sono sbagliate, andrebbero solo risistemate un pochino.<br>
+<br>
+Lascio un suggerimento per chi volesse provare ancora il problema:<br>
+Determinare innanzi tutto l'energia totale del campo magnetico in funzione di <span class="tex">\(x\)</span>, poi supponendo che il solenoide venga estratto a velocità <span class="tex">\(v\)</span>, trovare la f.e.m. indotta nei due solenoidi. A questo punto ricordando che la potenza è <span class="tex">\(Fv\)</span> si trova la forza totale.</article>
+<article class="post" id="p22525"><div class="who"><b>step98</b><span>13 lug 2016, 19:42</span></div>Da quanto ho capito la corrente è costante, e con questa assunzione a me viene:<br>
+<span class="tex">\(F=\frac{\mu_0N^2}{l^2}A_2I^2\)</span><br>
+dove <span class="tex">\(F\)</span> è la forza attrattiva sul solenoide, quindi quella necessaria per estrarlo è opposta a quest'ultima.<br>
+Se il risultato è corretto metterò anche il procedimento.</article>
+<article class="post" id="p22526"><div class="who"><b>arna1998</b><span>13 lug 2016, 22:02</span></div>Il risultato è corretto   :) <br>
+A questo punto direi che la staffetta è tua</article>
+<article class="post" id="p22534"><div class="who"><b>step98</b><span>14 lug 2016, 23:10</span></div>Come promesso, metto il procedimento:<br>
+bisogna prima calcolare il coefficiente di mutua induzione:<br>
+<span class="tex">\(M=\frac{\mu_0 N^2}{l^2} A_2 x\)</span><br>
+dove <span class="tex">\(x\)</span> è la lunghezza della parte del solenoide più che si trova dentro quello più grande (ed è considerato positivo il verso in cui il solenoide più piccolo entra in quello più grande).<br>
+I flussi nei due solenoidi sono:<br>
+<span class="tex">\(\phi_1=L_1 I+M I\)</span><br>
+<span class="tex">\(\phi_2=L_2 I+M I\)</span><br>
+Bisogna calcolarne le derivate per avere le tensioni indotte, ma la corrente e i coefficienti di autoinduzione sono costanti, quindi si ha:<br>
+<span class="tex">\(f_1=f_2=-\frac{\mathrm{d} \phi}{\mathrm{d} t}=-\frac{\mathrm{d} \phi}{\mathrm{d} x}\frac{\mathrm{d} x}{\mathrm{d} t}=-\frac{\mu_0 N^2}{l^2} A_2 v I\)</span><br>
+dove <span class="tex">\(v\)</span> è la velocità del solenoide più piccolo rispetto a quello più grande.<br>
+Il segno meno che viene fuori dalla legge di Lenz indica che il campo elettrico indotto compie un lavoro negativo sugli elettroni, cioè il sistema assorbe energia da questi ultimi.<br>
+In particolare il lavoro compiuto da ogni solenoide è:<br>
+<span class="tex">\(\mathrm{d}L_1=\mathrm{d}L_2=I f \mathrm{d}t=I f \frac{\mathrm{d} x}{v}=-\frac{\mu_0 N^2}{l^2} A_2 I^2 \mathrm{d} x\)</span><br>
+L'energia del sistema è quella immagazzinata nel campo magnetico:<br>
+<span class="tex">\(U=\frac{B^2}{2 \mu_0} A_2 (l-x) + \frac{B^2}{2 \mu_0} A_1 (l-x) + \frac{4B^2}{2 \mu_0} A_2 x + \frac{B^2}{2 \mu_0} (A_1-A_2) x\)</span><br>
+Derivando rispetto a x, dopo vari passaggi si ottiene:<br>
+<span class="tex">\(\mathrm{d} U=\frac{B^2 A_2}{\mu_0} \mathrm{d} x\)</span><br>
+Si ha quindi che il sistema assorbe dalla corrente una certa quantità di energia pari a <span class="tex">\(-(\mathrm{d} L_1 + \mathrm{d} L_2)\)</span>, e utilizza una parte di questa energia per far aumentare l'energia immagazzinata nel campo magnetico, e la restante parte per compiere lavoro sul solenoide più piccolo, che viene quindi attratto da quello più grande.<br>
+Il bilancio energetico è quindi:<br>
+<span class="tex">\(\mathrm{d} L_1 + \mathrm{d} L_2 + F \mathrm{d} x = -\mathrm{d} U\)</span><br>
+da cui si ricava:<br>
+<span class="tex">\(F = \frac{\mu_0 N^2}{l^2} A_2 I^2\)</span><br>
+La forza che bisogna esercitare dall'esterno per estrarre il solenoide è l'opposto di quest'ultima.</article>
+<nav class="pager"><a class="prev" href="olifis-6341.html"><small>← precedente</small>80. Urti, sfere, molle</a><a class="next" href="olifis-6356.html"><small>successivo →</small>82. Caduta di una corda</a></nav>
+</main></body></html>

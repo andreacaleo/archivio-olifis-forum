@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staffetta termodinamica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta</a></span></nav>
+<h1>Staffetta termodinamica</h1>
+<p class="meta">58 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=440">forum Olifis</a></p>
+<article class="post first" id="p4043"><div class="who"><b>Gauss91</b><span>30 apr 2010, 22:33</span></div>Ciao ragazzi. Penso che in questo thread non ci sia bisogno di premesse o di spiegazioni :P .<br>
+Unica cosa: in "termodinamica" penso si includa anche la teoria cinetica dei gas.<br>
+<br>
+Al mio segnale, scatenate l'inferno! Visto che siamo in termodinamica, ne avete ben donde! :lol: <br>
+<br>
+<strong class="text-strong">Problema 1</strong> (Halliday): fare l'ipotesi [off topic]assurda, ma bisogna farla[/off topic] che la temperatura atmosferica T non vari con l'altezza. Dimostrare che, sotto quest'ipotesi, la pressione atmosferica varia con l'altezza y dal suolo secondo la legge <span class="tex">\(p(y) = p_0 e^{-Mgy/RT}\)</span>, dove <span class="tex">\(p_0\)</span> è la pressione al suolo e M è la massa molare dell'aria.</article>
+<article class="post" id="p4045"><div class="who"><b>Rigel</b><span>1 mag 2010, 20:30</span></div>Ci andiamo pesanti con le equazioni diferenziali  :mrgreen:</article>
+<article class="post" id="p4046"><div class="who"><b>spn</b><span>1 mag 2010, 21:01</span></div>Vabbè dai, ne ho visti di molto più calcolosi :lol: .<br>
+<br>
+Divido l'atmosfera in più strati, ognuno di altezza <span class="tex">\(dy\)</span>, in cui la pressione può considerarsi costante.<br>
+<br>
+Fra uno strato e quello superiore, si ha <span class="tex">\(\displaystyle dP= -{dm g \over S}\)</span> , dove dm è la massa dello strato superiore, e S la superficie delle basi degli strati, (si sta cosiderando che l'altezza rispetto al suolo non sia eccessivamente elevata, in modo che il campo gravitazionale sia costante). <br>
+<br>
+Ora <span class="tex">\(dm=dn M\)</span> , ma considerando l'aria come un gas perfetto si ha: <span class="tex">\(\displaystyle dn= {P  dV \over RT}= {P  S dy \over RT}\)</span>, da cui:<br>
+<br>
+<span class="tex">\(\displaystyle dP=-P{M g \over R T} dy\)</span><br>
+<br>
+<span class="tex">\(\displaystyle {dP \over P}=- {M g \over R T} dy\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \int_{P_0}^{P(y)} {dP\over P}= - {M g \over R T} \int_{0}^{y} dy\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \ln{P(y) \over P_0}=- {M g y \over R T}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle P(y) = P_0 e^{-M g y / R T}\)</span></article>
+<article class="post" id="p4047"><div class="who"><b>spn</b><span>1 mag 2010, 23:08</span></div>Visto che sono in voga le differenziali, vorrei proporre questo problema che secondo me è un sacco istruttivo; poi probabilmente esistono metodi diversi da quello che ho usato io:<br>
+<br>
+<strong class="text-strong">Problema 2:</strong><br>
+Un recipiente adiabatico chiuso contiene 5 moli di un gas perfetto monoatomico a pressione atmosferica, e un corpo di capacità termica <span class="tex">\(C=100 J/K\)</span>. Il volume del recipiente viene diminuito, finchè diventa la metà di quello iniziale. La trasformazione avviene lentamente, in modo che questa possa essere considerata reversibile e che il corpo abbia costantemente la stessa temperatura del gas. La variazione di volume del corpo interno è trascurabile. Trovare la pressione finale del gas.</article>
+<article class="post" id="p4049"><div class="who"><b>.mg</b><span>2 mag 2010, 16:00</span></div>@spn: giusto a livello formale, hai uguagliato due volte una quantità finita a una quantità infinitesima</article>
+<article class="post" id="p4050"><div class="who"><b>spn</b><span>2 mag 2010, 17:11</span></div>Già, purtoppo sui calcoli mi perdo molte formalità. Comunque modifico per i più precisi  ;) .</article>
+<article class="post" id="p4051"><div class="who"><b>.mg</b><span>2 mag 2010, 17:29</span></div>Così va meglio :D<br>
+Se noti che<br>
+<span class="tex">\(\dfrac{PM}{RT} = \dfrac{m}{V}\)</span><br>
+è la densità dell'aria allora hai<br>
+<span class="tex">\(\dfrac{dP}{dy} = - \rho g\)</span><br>
+vale a dire la legge di Stevino in forma differenziale. Partendo da qui si fa un po' prima, ma il tuo ragionamento mi sembra che vada ugualmente bene ;)</article>
+<article class="post" id="p4053"><div class="who"><b>Ippo</b><span>2 mag 2010, 20:42</span></div>Nota: il problema 1 è sostanzialmente il 3 della simulazione di Senigallia, senza le approssimazioni suggerite lì.</article>
+<article class="post" id="p4054"><div class="who"><b>Rigel</b><span>3 mag 2010, 19:54</span></div>Scusate se tolgo la possibilità di cimentarsi col problema ad altri baldi giovani   :mrgreen:  ma non ho resistito alla tentazione di risolvere questo quesito così carino   :D <br>
+usando il primo principio della termodinamica modificato (o meglio la conservazione dell'energia) e il fatto che lo scambio di calore è nullo ho:<br>
+<span class="tex">\(dU_{gas}+dU_{corpo}+dL=\delta Q=0\)</span><br>
+il calore scambiato con l'esterno ha il <span class="tex">\(\delta\)</span> perchè non è un differenziale esatto (per saperne di più vi rimando all'Halliday  ;) )<br>
+Inoltre da un pò di termologia so che<br>
+<span class="tex">\(dU_{gas}=\frac{3}{2}nRdT\)</span> e <span class="tex">\(dU_{corpo}=CdT\)</span><br>
+mentre usando la legge dei gas perfetti:<br>
+<span class="tex">\(dL=pdV=nRT\frac{dV}{V}\)</span><br>
+separando le variabili nella prima equazione e dividendo tutto per nRT, ottengo<br>
+<span class="tex">\(\frac{dV}{V}=-(\frac{3}{2}+\frac{C}{nR})\frac{dT}{T}\)</span><br>
+integrando<br>
+<span class="tex">\(ln\frac{V_f}{V_i}=-(\frac{3}{2}+\frac{C}{nR})ln\frac{T_f}{T_i}\)</span><br>
+e sostituendo i valori numerici (perdonatemi se vi risparmio i calcoli)<br>
+<span class="tex">\(T_f=1,194 T_i\)</span><br>
+usando ancora la legge di stato dei gas perfetti ho<br>
+<span class="tex">\(p_f=2,39p_i=2,42\cdot10^5 Pa\)</span><br>
+notare che l'equazione ricavata dopo l'integrazione non è altro che una versione modificato dell'equazione di Poisson (per temperatura e volume) per una trasformazione adiabatica. in questo caso l'esponente del volume dipende oltre che da <span class="tex">\(\gamma\)</span> anche dalla capacità termica del corpo</article>
+<article class="post" id="p4062"><div class="who"><b>spn</b><span>3 mag 2010, 22:23</span></div>:mrgreen: <br>
+Il risultato dovrebbe essere corretto (almeno anche a me viene così). Come ha fatto notare Rigel, il metodo per risolverlo è sostanzialmente analogo a quello per dimostrare l'equazione per trasformazioni adiabatiche reversibili.<br>
+Vai col prossimo.</article>
+<article class="post" id="p4072"><div class="who"><b>Rigel</b><span>4 mag 2010, 20:56</span></div>siccome sono un pò pigro propongo un quesito facile uscito ieri al Certamen fisico-matematico di Maglie  :roll: <br>
+<strong class="text-strong">Problema 3:</strong><br>
+Un proiettile di piombo di massa <span class="tex">\(0,05 kg\)</span> a temperatura <span class="tex">\(T_{Pb}=20 C\)</span> che viaggia a <span class="tex">\(100 m/s\)</span> colpisce in maniera anelastica un blocco di ghiaccio fondente conficcandosi dentro di esso; il blocco è tenuto fermo durante l'urto. La temperatura del ghiaccio è <span class="tex">\(T_{gh}=0 C\)</span>, il calore specifico del piombo è <span class="tex">\(C_{Pb}=130 J/(KgC)\)</span> e il calore latente di fusione del ghiaccio è <span class="tex">\(\lambda=3,3\cdot10^5 J/Kg\)</span>. Determinare la massa di ghiaccio che si scioglie.<br>
+<br>
+per i dati vado un pò a memoria perchè mi sono scordato di tenermi il testo  :x</article>
+<article class="post" id="p4075"><div class="who"><b>Stardust</b><span>4 mag 2010, 21:51</span></div>Ottima memoria, Rigel, confermo tutti i tuoi dati direttamente dal foglio della prova.<br>
+Spero tu possa confermare la mia soluzione, invece.<br>
+Allora, all'inizio il proiettile ha energia cinetica K<br>
+<span class="tex">\(K=\frac{1}{2}m_{Pb}v^2\)</span>.<br>
+Alla fine dell'impatto, cede quest'energia e una quantità di calore che perde portando la sua temperatura a 0°C: quest'energia è completamente trasformata in calore di fusione del ghiaccio (che resta a 0°C finchè tutto il blocco di dimensioni sconosciute non è diventato liquido). <br>
+Perciò<br>
+<span class="tex">\(Q_f=\frac{1}{2}m_{Pb}v^2+m_{Pb}C\Delta T_{Pb}\)</span>, da cui:<br>
+<span class="tex">\(m_{fuso}=\displaystyle{\frac{m_{Pb}}{2\lambda _g}}(v^2+2C \Delta T)=1,15\,10^{-3}kg=1,15\,g\)</span>.<br>
+Che ne dici?</article>
+<article class="post" id="p4093"><div class="who"><b>Rigel</b><span>5 mag 2010, 22:27</span></div>Ok mi ritrovo col risultato  :) <br>
+Vai pure col prossimo!</article>
+<article class="post" id="p4107"><div class="who"><b>Stardust</b><span>8 mag 2010, 17:56</span></div>Credo di aver trovato un problema abbastanza carino dall'ammissione alla Normale '96.<br>
+<strong class="text-strong">Problema 4</strong><br>
+Una stanza di volume pari a <span class="tex">\(V=32\,m^3\)</span> ha una temperatura iniziale di 15°C, pari a quella esterna (quest'ultima è fissa). Si decide di riscaldarla, portandola alla temperatura di 25°C, in modo però da tenere costante la pressione interna, sempre pari a quella esterna (<span class="tex">\(p_0=1\,atm\)</span>).<br>
+Calcolare la variazione di energia del gas tra l'inizio e la fine del processo termodinamico e la quantità di calore minima necessaria per svolgere questa trasformazione.</article>
+<article class="post" id="p4111"><div class="who"><b>Gauss91</b><span>9 mag 2010, 17:51</span></div>Il sistema in considerazione è la stanza. Suppongo inoltre che, dato che è un test di ammissione alla Normale, si consideri l'aria un gas perfetto. A meno che le pareti non siano di gomma :P , dall'equazione di stato si trova che la quantità<br>
+<span class="tex">\(\dfrac{pV}{R} = nT\)</span> (T in Kelvin) è una costante del processo termodinamico.<br>
+L'aria può essere supposta un gas perfetto biatomico, infatti è formata prevalentemente (&gt;90%) da molecole di <span class="tex">\(O_2\)</span> e <span class="tex">\(N_2\)</span>. L'energia interna per mole dell'aria, in funzione della temperatura, si può quindi supporre <span class="tex">\(U_M = \dfrac{5}{2}RT\)</span> (T in Kelvin).<br>
+A questo punto, <span class="tex">\(U_i = n_i U_{Mi} = \dfrac{pV}{RT_i}\dfrac{5}{2}RT_i = \dfrac{5}{2}pV\)</span>, analogamente <span class="tex">\(U_f = \dfrac{5}{2}pV\)</span> e <span class="tex">\(\Delta U = 0\)</span>.<br>
+Se si fornisce al gas una quantità di calore (infinitesima) <span class="tex">\(dQ\)</span>, esso aumenta la propria temperatura di <span class="tex">\(dT\)</span>, e il processo è isobaro, quindi<br>
+<span class="tex">\(dQ = nC_pdT\)</span>. Si ha quindi <br>
+<span class="tex">\(Q = \displaystyle\int_{T_i}^{T_f}C_p ndT = C_p\displaystyle\int_{T_i}^{T_f} ndT = C_p\displaystyle\int_{T_i}^{T_f}\dfrac{pV}{RT}dT = \dfrac{C_p pV}{R}\displaystyle\int_{T_i}^{T_f}\dfrac{dT}{T} = \dfrac{C_p pV}{R}\log\dfrac{T_f}{T_i}\)</span>.<br>
+Dalla relazione di Meyer, <span class="tex">\(C_p - C_v = R\)</span>, si ha <span class="tex">\(C_p = \dfrac{7}{2}R\)</span> quindi<br>
+<span class="tex">\(Q = \dfrac{7}{2}pV\log\dfrac{T_f}{T_i} = 387 kJ\)</span>.</article>
+<article class="post" id="p4168"><div class="who"><b>Stardust</b><span>15 mag 2010, 20:10</span></div>Perfetto, ora si può proseguire la staffetta, no?</article>
+<article class="post" id="p4199"><div class="who"><b>Rigel</b><span>19 mag 2010, 19:30</span></div>Boh sembra che la staffetta sia defunta</article>
+<article class="post" id="p4200"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta termodinamica</b><span>19 mag 2010, 19:45</span></div>Scusate se mi intrometto senza alcun diritto, violando irreversibilmente le regole della staffetta: l'appello di <em class="text-italics">Rigel</em> mi ha commosso e non ho potuto resistere alla tentazione di postare un problema.<br>
+<strong class="text-strong">Problema 5</strong><br>
+Una massa <span class="tex">\(m = 0,25 Kg\)</span> di rame ad una temperatura <span class="tex">\(T\)</span> viene immersa in un recipiente contenente <span class="tex">\(0,1 Kg\)</span> di acqua alla temperatura di <span class="tex">\(320 K\)</span>. Quando il sistema raggiunge l'equilibrio termico rimangono nel recipiente <span class="tex">\(0,09 Kg\)</span> di acqua. Determinare la temperatura iniziale <span class="tex">\(T\)</span> del rame e calcolare la variazione di entropia dell'universo, trascurando gli scambi di calore con l'ambiente esterno.<br>
+Siano <span class="tex">\(c = 387 J/KgK\)</span> e <span class="tex">\(c' = 4187 J/KgK\)</span> rispettivamente i calori specifici del rame e dell'acqua. <br>
+Il calore latente di ebollizione dell'acqua vale <span class="tex">\(\lambda_e = 22,6*10^5 J/Kg\)</span></article>
+<article class="post" id="p4266"><div class="who"><b>Rigel</b><span>30 mag 2010, 19:52</span></div>La staffetta è più morta di prima  :|</article>
+<article class="post" id="p4272"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta termodinamica</b><span>30 mag 2010, 20:15</span></div>Mi dispiace, Rigel. Sembra che il mio intervento abbia peggiorato la situazione  :(</article>
+<article class="post" id="p4284"><div class="who"><b>ciccio91</b><span>30 mag 2010, 22:58</span></div>Vado io.<br>
+<br>
+Inanzitutto immagino che nel testo ci sia una condizione del tipo <span class="tex">\(T&gt; T_1\)</span> (con <span class="tex">\(T_1 = 373 K\)</span>), altrimenti l'acqua potrebbe anche essersi trasformata in ghiaccio.<br>
+<br>
+Siano <span class="tex">\(Q_1\)</span> , <span class="tex">\(Q_2\)</span> e <span class="tex">\(Q_{Cu}\)</span> rispettivamente il calore assorbito dall'acqua in fase di riscaldamento, quello assorbito dall'acqua in fase di ebollizione, e quello ceduto dal rame nel raffreddamento (espresso in modulo). Si ha che:<br>
+<br>
+<span class="tex">\(Q_1 = m_0 c' (T_1 - T_0)= 22,2 kJ\)</span><br>
+<span class="tex">\(Q_2= (m_0 - m_1) \lambda = 22,6 kJ\)</span><br>
+<span class="tex">\(Q_{Cu}=m_{Cu} c (T- T_1)\)</span><br>
+<br>
+Per il bilancio energetico:<br>
+<span class="tex">\(Q_1 + Q_2 = Q_{Cu}\)</span><br>
+Da cui <br>
+<span class="tex">\(T=836 K\)</span><br>
+<br>
+Siano ora <span class="tex">\(\Delta S_1\)</span>,<span class="tex">\(\Delta S_2\)</span> e<span class="tex">\(\Delta S_{Cu}\)</span> le variazioni di entropia nei processi detti prima, si ha che:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta S_1= \int {dQ \over T}= \int^{T_1}_{T_0} {c' m_0 dT \over T}= c' m_0 ln\left({T_1 \over T_0}\right)=64,2 J/K\)</span><br>
+<span class="tex">\(\displaystyle \Delta S_2= { \lambda (m_0 - m_1) \over T_1}=60,6 J/K\)</span><br>
+<span class="tex">\(\Delta S_{Cu}=c m_{Cu} ln\left({T_1 \over T}\right)=-78,1 J/K\)</span><br>
+<br>
+La variazione di entropia totale è quindi <span class="tex">\(\Delta S= \Delta S_1 + \Delta S_2 + \Delta S_{Cu}=46,7 J/K\)</span><br>
+<br>
+[offtopic]@Eagle: Ma non starai leccando un pò troppo? [/offtopic]</article>
+<article class="post" id="p4286"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta termodinamica</b><span>30 mag 2010, 23:11</span></div>La soluzione di ciccio91 è corretta: ergo, spetta a lui il compito di postare il prossimo problema  ;) <br>
+<br>
+[off-topic] @ciccio91: non ho capito il tuo off-topic - perché mi hai scritto questo? [/off-topic]</article>
+<article class="post" id="p4298"><div class="who"><b>ciccio91</b><span>31 mag 2010, 17:18</span></div><span style="color:#0080FF">Problema 6</span><br>
+<br>
+Ci sono due contenitori termicamente isolanti, ciascuno di volume <span class="tex">\(V_0\)</span>, che contengono lo stesso gas a pressione iniziale <span class="tex">\(P_0\)</span>.   Questi due contenitori sono messi in comunicazione da un piccolo tubo di volume trascurabile e sezione A, mantenuto orizzontale. <br>
+All'interno del tubo è presente un piccolo cilindro di massa m, il quale, potendo scorrere liberamente all'interno del tubo, è mantenuto in un moto armonico da due bobine, sistemate attorno al tubo alle due estremità del magnete, alimentate in corrente alternata sinusoidale. Si trascurino gli attriti e la conduttività termica del magnete.<br>
+Si osserva che le (piccole) oscillazioni del magnete hanno un'ampiezza maggiore quando la frequenza della corrente alternata è <span class="tex">\(f=10 Hz\)</span>. Si trovi il valore del calore specifico a volume costante del gas.<br>
+Dati:<br>
+<span class="tex">\(P_0=1,0 \cdot 10^5 Pa\)</span><br>
+<span class="tex">\(V_0=38,0 dm^3\)</span><br>
+<span class="tex">\(m=2,0 g\)</span><br>
+<span class="tex">\(A= 10,0 cm^2\)</span></article>
+<article class="post" id="p4351"><div class="who"><b>Saleh</b><span>6 giu 2010, 0:36</span></div>Questo problema ha ucciso la staffetta  :?  se avessi studiato i magneti ci avrei provato io.</article>
+<article class="post" id="p4352"><div class="who"><b>ciccio91</b><span>6 giu 2010, 3:43</span></div>Mi sa che non hai ben inquadrato il problema. Se sta nella staffetta di termodinamica ci sta un motivo.<br>
+Giusto per capirsi (anche se è un bel hint), invece delle due bobine ci potrebbe benissimo essere stata una molla collegata al corpo nel tubo, percui non è un fatto di conoscenze avanzate<br>
+<br>
+È stato, o almeno è molto simile, al problema di riserva per le IPhO del '91 (L'Avana, Cuba), ma è al livello giusto per la staffetta.</article>
+<article class="post" id="p4359"><div class="who"><b>TBPL</b><span>8 giu 2010, 14:44</span></div>Ora che ciccio ha corretto i dati, ci provo :P<br>
+<br>
+Metto lo <span class="tex">\(0\)</span> nella posizione di equilibrio del cilindro e considero le <span class="tex">\(x\)</span> positive verso destra. Quando il cilindro si trova nella posizione <span class="tex">\(x\)</span>, il volume del contenitore di sinistra aumenterà di un <span class="tex">\(\Delta V=Ax\)</span>. Poiché devo avere in ogni momento <span class="tex">\(pV^\gamma=P_0{V_0}^\gamma\)</span>, allora <span class="tex">\(\displaystyle{p=\frac{P_0{V_0}^\gamma}{(V_0+\Delta V)^\gamma}=\frac{P_0{V_0}^\gamma}{V_0+Ax}}\)</span>. Poiché sia le oscillazioni sia il valore di <span class="tex">\(A\)</span> sono piccoli, allora <span class="tex">\(\frac{Ax}{V}&lt;&lt;1\)</span>, quindi <span class="tex">\(\displaystyle{\frac{P_0{V_0}^\gamma}{(V_0+Ax)^\gamma}\approx P_0\left(1-\gamma\frac{ Ax}{V_0}\right)}\)</span>. Analogamente, a destra varrà <span class="tex">\(\displaystyle{p\approx P_0\left(1+\gamma\frac{ Ax}{V_0}\right)}\)</span>, quindi in totale agirà un forza <span class="tex">\(\displaystyle{F_p=A\Delta p=-2\gamma\frac{ A^2x}{V_0}P_0}\)</span>. A causa del campo magnetico, agisce sul magnete una forza <span class="tex">\(F_B\propto B\propto I\)</span>. Il massimo dell'ampiezza si ha quando le oscillazioni provocate dalle due forze hanno massimo contemporaneamente (volendo, si formalizza risolvendo la differenziale <span class="tex">\(\displaystyle{mx''=-k\sin{wt} - 2\gamma\frac{A^2}{V_0}P_0x}\)</span>), ossia devo avere <span class="tex">\(\displaystyle{(2\pi f)^2=\omega^2=2\gamma\frac{A^2}{mV_0}P_0}\)</span>, da cui ricavo <span class="tex">\(\gamma=1,5\)</span>. Poiché <span class="tex">\(\gamma=\frac{c_v+R}{c_v}\)</span>, ottengo <span class="tex">\(c_v=2R\)</span></article>
+<article class="post" id="p4360"><div class="who"><b>ciccio91</b><span>8 giu 2010, 16:37</span></div>Ok, il risultato è quello  ;) .<br>
+(Nel riscriverlo ti sei perso una m da qualche parte, ma comunque si capisce).</article>
+<article class="post" id="p4362"><div class="who"><b>TBPL</b><span>8 giu 2010, 20:47</span></div>Ok, aggiustate le <span class="tex">\(m\)</span> mancanti  ;) <br>
+Ora metto un problema che ci sta meglio in meccanica, ma non importa xD<br>
+Ho un cubo di lato <span class="tex">\(2l\)</span> che non consente scambi di calore con l'esterno in cui ci sono <span class="tex">\(N\)</span> particelle di un gas perfetto monoatomico, ognuna di massa <span class="tex">\(m\)</span>. Metto l'origine degli assi <span class="tex">\(x,y,z\)</span> nel centro del cubo. Il campo grazitazionale è <span class="tex">\(\vec{g}=-g\hat{y}\)</span>. So che la temperatura nell'origine è <span class="tex">\(T(0,0,0)=T_0\)</span>. Determinare la densità del gas <span class="tex">\(\rho(x,y,z)\)</span>.</article>
+<article class="post" id="p4363"><div class="who"><b>Pigkappa</b><span>8 giu 2010, 21:35</span></div>Forse volevi dire che:<br>
+<br>
+1)Il sistema è all'equilibrio termodinamico.<br>
+2)La temperatura è <span class="tex">\(T_0\)</span> in tutto il cubo.<br>
+<br>
+Mi sbaglio?</article>
+<article class="post" id="p4364"><div class="who"><b>TBPL</b><span>8 giu 2010, 21:57</span></div>Meglio precisare.. L'equilibrio non è termodinamico, ma energetico (nel senso che l'energia media delle particelle è uguale ovunque). Ah, ci sono anche le solite amenità, cioè che tutti gli urti sono elastici, il gas è abbastanza rarefatto e <span class="tex">\(2gl\)</span> è sufficientemente piccolo che il numero di particelle che non raggiunge la faccia superiore è trascurabile.<br>
+E' anche carino fare il problema a temperatura uniforme, comunque.</article>
+<article class="post" id="p4455"><div class="who"><b>TBPL</b><span>20 giu 2010, 13:06</span></div>A quanto pare il problema non è piaciuto.. Si faceva dicendo che la probabilità di trovare una particella in una striscia di altezza <span class="tex">\(h\)</span> è proporzionale al tempo che ci passa, quindi la "densità di probabilità" ad altezza <span class="tex">\(h\)</span> è <span class="tex">\(\propto \frac{1}{v(h)}\)</span>, e da qui si faceva il conto. Comunque, dopo abbastanza tempo il gas raggiunge l'equilibrio termodinamico, quindi il modello può avere senso fisico solo per tempi relativamente brevi e se il libero cammino medio delle particelle è <span class="tex">\(\lesssim 2l\)</span> (e forse anche in condizioni più restrittive). Ne propongo un altro:<br>
+<strong class="text-strong">Problema 7:</strong><br>
+Un contenitore sferico omogeneo dalle pareti molto sottili che contiene una certa quantità di ghiaccio (<span class="tex">\(\lambda_f=79,7 kcal/kg\)</span>) a 0 °C viene immerso in un grande contenitore contenente un liquido a temperatura T=200 °C, temperatura che si può considerare costante per tutto il processo. Si osserva che dopo un tempo <span class="tex">\(t=23 min\)</span> tutto il ghiaccio fonde. Dopo quanto tempo l'acqua inizia ad evaporare?</article>
+<article class="post" id="p4477"><div class="who"><b>Stardust</b><span>26 giu 2010, 10:17</span></div>La temperatura esterna è fissa, quindi alla fine il trasferimento di energia coinvolge una sorgente di partenza stabile a <span class="tex">\(T_e\)</span> e un corpo la cui temperatura più o meno lentamente raggiunge quella esterna.<br>
+Dai dati di partenza siamo in grado di osservare:<br>
+<span class="tex">\(Q_f=P_f\,\Delta t_f=m\lambda_f\)</span>.<br>
+Dato che sia la massa che il calore della fusione sono incogniti, si può solo ricavare il rapporto tra la potenza e la massa, definendo in pratica l'energia nell'unità di tempo per unità di massa nel corso di questo cambiamento di stato:<br>
+<span class="tex">\(k=\displaystyle{\frac{P_f}{m}=\frac{\lambda_f}{\Delta t_f}}\)</span>.<br>
+In seguito si ha un riscaldamento progressivo della massa d'acqua, finchè essa non raggiunge la temperatura di 100 °C, dove riprende un cambiamento di stato, l'evaporazione. Il problema richiede appunto di calcolare il tempo necessario perchè l'acqua inizi ad evaporare.<br>
+Ora il processo di riscaldamento si descrive con la formula:<br>
+<span class="tex">\(Q=m\,c_s\,\Delta T\)</span>.<br>
+In effetti il calore totale richiesto è: <span class="tex">\(Q=m\,c_s\,(T_{100}-T_0)=200\,m\,c_s\)</span>, ma questo non ci fornisce nessuna indicazione sull'andamento temporale della trasformazione. <br>
+Difatti il calore e la relativa potenza sono proporzionali alla differenza di temperatura tra i corpi coinvolti, quindi bisogna considerare che all'inizio (con <span class="tex">\(\Delta T_1=100 K\)</span>) l'energia è più "veloce" a riversarsi da un oggetto all'altro, mentre quando i corpi hanno ormai diminuito la loro differenza di temperatura questo trasferimento è meno rapido.<br>
+Sappiamo che:<br>
+<span class="tex">\(P=\displaystyle{\frac{dQ}{dt}}\)</span>.<br>
+Non sono sicuro, ma forse si potrebbe scrivere:<br>
+<span class="tex">\(\delta Q=m\,c_s\,(T_{100}-[T(t)])\;\delta T\)</span>.<br>
+Se il ragionamento è fondato allora poi basta integrare in modo definito tra 273 K e 373 K per ottenere il calore. Eppure non sono sicuro, perchè comunque non si trova traccia di riferimenti al tempo in questi passaggi. In effetti bisogna trovare il modo di espirmere il calore sia in funzione del tempo che della differenza di temperatura...<br>
+Ma non riescono a venirmi idee a questo proposito...<br>
+Qualche hint?</article>
+<article class="post" id="p4478"><div class="who"><b>Pigkappa</b><span>26 giu 2010, 12:34</span></div>Facendo qualche ipotesi ragionevole, come dipende il calore-scambiato-per-unità-di-tempo dalle temperature?</article>
+<article class="post" id="p4479"><div class="who"><b>Stardust</b><span>26 giu 2010, 18:21</span></div>Sicuramente il calore scambiato è direttamente proporzionale alla differenza di temperatura e pure alla superficie di contatto A<br>
+Magari si potrebbe scrivere:<br>
+<span class="tex">\(\displaystyle{\frac{dQ}{dt}=kA[\Delta T(t)]}\)</span>.</article>
+<article class="post" id="p4480"><div class="who"><b>Pigkappa</b><span>26 giu 2010, 19:42</span></div>E allora non basta fare i conti..?</article>
+<article class="post" id="p4482"><div class="who"><b>Stardust</b><span>26 giu 2010, 21:04</span></div>Il processo termodinamico che permette la crescita della temperatura dell'acqua nella <br>
+sfera da 0°C a 100°C avviene per conduzione. L'espressione del trasferimento di energia <br>
+in funzione della differenza di temperatura è:<br>
+<span class="tex">\(dQ=kA\displaystyle{[\Delta T(t)]\;dt=kA[T_{ext}-T(t)]\;dt}.\)</span><br>
+(Per favore lasciamo perdere che dQ non è un differenziale esatto... Ancora devo capire <br>
+che significa, quindi prendete questa imprecisione come una "licenza poetica")<br>
+<br>
+Applicando questa espressione al processo di fusione si può pervenire a:<br>
+<span class="tex">\(Q_f=m\lambda_f=kA\Delta T_0\Delta t_f\)</span>,<br>
+dove <span class="tex">\(\Delta T_0=200 \,K\)</span>, ovvero è la differenza tra la sorgente calda e quella fredda. <br>
+Dunque: <span class="tex">\(\displaystyle{\frac{\Delta T_0 \Delta t_f}{\lambda_f}=\frac{m}{kA} }\)</span>.<br>
+Ricordando che il calore in generale è calcolabile come:<br>
+<span class="tex">\(Q=m\,c_s\,\Delta T\)</span>, possiamo ricondurci alla forma differenziale che esprime <br>
+in modo più universale questo concetto:<br>
+<span class="tex">\(dQ=m\,c_s\,dT\)</span>.<br>
+Possiamo da ciò scrivere:<br>
+<span class="tex">\(\displaystyle{\frac{dQ}{dt}=m\,c_s\frac{dT}{dt}}\)</span>.<br>
+All'inizio è stata scritta la forma differenziale del calore nella conduzione, che possiamo recuperare così:<br>
+<span class="tex">\(\displaystyle{\frac{dQ}{dt}=kA[T_{ext}-T]}\)</span>.<br>
+Eguagliando le ultime due espressioni si ha:<br>
+<span class="tex">\(\displaystyle{m\,c_s\frac{dT}{dt}=kA[T_{ext}-T]=-kA[T-T_{ext}]}\)</span>.<br>
+Possiamo così manipolare l'uguaglianza per trarne informazioni preziose:<br>
+<span class="tex">\(\displaystyle{\frac{dT}{T-T_{ext}}=-\frac{kA}{mc_s}\,dt }\)</span><br>
+<br>
+<span class="tex">\(\displaystyle{\int \frac{dT}{T-T_{ext}}=-\frac{kA}{mc_s}\,\int dt }\)</span><br>
+<br>
+<span class="tex">\(\displaystyle{ln |T-T_{ext}|=- \frac{kA}{mc_s}t+k}\)</span>.<br>
+Riscrivendo quanto sopra in forma esponenziale si ottiene:<br>
+<br>
+<span class="tex">\(|T-T_{ext}|=e^{\displaystyle{-\frac{kA}{mc_s}t }+k}=he^{\displaystyle{-\frac{kA}{mc_s}t }}\)</span>.<br>
+<br>
+Bisogna osservare adesso che, sciogliendo il valore assoluto, è indifferente considerare <br>
+il segno + o -, perchè anche in caso di errore, si può modificare il segno del <br>
+coefficiente h in modo opportuno.<br>
+<br>
+Quindi abbiamo:<br>
+<span class="tex">\(T(t)=T_{ext}+he^{\displaystyle{-\frac{kA}{mc_s}t }}\)</span>.<br>
+Al tempo t=0 l'acqua inizialmente ghiacciata è ancora a 0°C ossia a 273 K. Però il valore <br>
+<br>
+h non cambia se si sceglie la scala Celsius o quella Kelvin. <br>
+La dimostrazione è equivalente (qui riporto quella per le temperature in °C):<br>
+<span class="tex">\(T(0)=T_{ext}+h\,\,\Rightarrow \,\,h=-T_{ext}=-200\)</span>.<br>
+Si nota che h equivale alla differenza di temperatura iniziale negativa <span class="tex">\(-\Delta T_0\)</span>.<br>
+Quindi la formula diventa:<br>
+<span class="tex">\(T(t)=T_{ext}-\Delta T_0e^{\displaystyle{-\frac{kA}{mc_s}t}}=T_{ext}-\Delta T_0e^{\displaystyle{-\frac{t}{\tau} }}\)</span>.<br>
+Il coefficiente che compare davanti alla variabile temporale può essere definito come <br>
+<br>
+<span class="tex">\(\tau=\displaystyle{\frac{mc_s}{kA}}\)</span>, che è stato parzialmente ricavato <br>
+<br>
+all'inizio come <span class="tex">\(\displaystyle{\frac{m}{kA}=\frac{\Delta T_0 \Delta t_f}{\lambda_f}}\)</span>.<br>
+Quindi risulta <span class="tex">\(\tau=\displaystyle{\frac{\Delta T_0 \Delta t_f}{\lambda_f}c_s}\)</span>, <br>
+<br>
+in cui il calore specifico dell'acqua è <span class="tex">\(c_s=4186 J/(kg\,K)\)</span>. Si osserva <br>
+<br>
+giustamente che <span class="tex">\(\tau\)</span> è espressa in 1/s.<br>
+Ora possiamo finalmente rispondere alla domanda della traccia: in quanto tempo l'acqua <br>
+<br>
+raggiunge i 100 °C?<br>
+Basta porre:<br>
+<span class="tex">\(100=200-200e^{-\frac{t}{\tau}}\)</span>,<br>
+quindi:<br>
+<span class="tex">\(100=200e^{-\frac{t}{\tau}}\)</span>, da cui:<br>
+<br>
+<span class="tex">\(t=\tau ln2=\displaystyle{\frac{\Delta T_0 \Delta t_f}{\lambda_f}c_s}ln2\)</span>.<br>
+Il valore numerico è però un po' anomalo...<br>
+<br>
+<br>
+@Pigkappa: il problema non è solo fare i calcoli, ma anche tradurre tutto in LaTeX... Ci ho messo buona mezz'ora.</article>
+<article class="post" id="p4483"><div class="who"><b>Stardust</b><span>26 giu 2010, 21:47</span></div>Esce più o meno:<br>
+<span class="tex">\(t=27,8\,giorni\)</span>. Non è un po' troppo?</article>
+<article class="post" id="p4484"><div class="who"><b>Pigkappa</b><span>26 giu 2010, 21:56</span></div>No, direi che hai sbagliato. In questi casi la cosa da fare è una stima semplice e grossolana per vedere più o meno cosa deve venire.<br>
+<br>
+Per 1 kg di sostanza, ci vogliono circa 335000 J per sciogliere il ghiaccio e 420000 J per portare l'acqua a 100 gradi. Se la potenza assorbita nel diventare acqua è P, quella assorbita mentre l'acqua si scalda sarà in media un po' meno di P (compresa tra P e P/2 in questo caso, perchè <span class="tex">\(\Delta T\)</span> varia tra 200 K e 100 K), quindi ci aspettiamo che il tempo che ci vuole sia un po' più di (420/335) volte quello di prima. Perciò mi aspetterei qualcosa che assomigli a 45 minuti, non a 28 giorni.</article>
+<article class="post" id="p4491"><div class="who"><b>Stardust</b><span>27 giu 2010, 9:31</span></div>Ecco l'errore:<span class="tex">\(\lambda_f\)</span> vale 333 kJ, ma io avevo dimenticato k...<br>
+A questo punto giustamente risulta <br>
+<span class="tex">\(t=2404\,s=40\,min\,4\,s\)</span>.<br>
+Purtroppo non ho modo di proporre un altro problema per la staffetta, per favore qualcuno lo faccia al mio posto. Grazie.</article>
+<article class="post" id="p4495"><div class="who"><b>Ippo</b><span>27 giu 2010, 17:26</span></div>Classico ma insomma, è bene averlo fatto una volta nella vita.<br>
+Dato un sistema composto di n corpi, dette <span class="tex">\(C_i\)</span> la capacità termica dell'i-esimo e <span class="tex">\(T_i\)</span> la sua temperatura iniziale,<br>
+dire qual è il massimo lavoro estraibile dal sistema. <br>
+Hint: <br>
+<span style="font-size: 30%; line-height: normal">"massimo lavoro" &lt;==&gt; reversibilità &lt;==&gt; S=costante</span></article>
+<article class="post" id="p4511"><div class="who"><b>Stardust</b><span>30 giu 2010, 8:06</span></div>In che senso si può estrarre lavoro da questa configurazione di oggetti a temperature inizialmente diverse?<br>
+Non dovrebbe esserci semplicemente uno scambio di calore tra essi che li porta alla stessa temperatura d'equilibrio?<br>
+<br>
+Per S intendi l'entropia del sistema. Se essa rimane costante si ha:<br>
+<br>
+<span class="tex">\(\Delta S=\sum \Delta S_i=\sum C_i ln \left(\displaystyle{\frac{T_f}{T_0}}\right)=0\)</span>.<br>
+<br>
+Questo può significare che o tutti i corpi restano ciascuno alla stessa temperatura iniziale, oppure che i termini della somma assumono valori tali da annullarsi tutti a vicenda...</article>
+<article class="post" id="p4514"><div class="who"><b>Pigkappa</b><span>30 giu 2010, 11:23</span></div><blockquote><div><cite>Stardust ha scritto:</cite>In che senso si può estrarre lavoro da questa configurazione di oggetti a temperature inizialmente diverse?</div></blockquote>
+
+Capire questa cosa fa parte del problema (che, tra l'altro, in forma un po' più semplice è stato dato sia alle IPhO che in SNS).</article>
+<article class="post" id="p4516"><div class="who"><b>Mirko93</b><span>30 giu 2010, 13:28</span></div>Spero di non dar fastidio a nessuno se tenta disperatamente un novellino come me  :roll: <br>
+<br>
+Siccome lo scambio di calore avviene solo tra i corpi, per il primo principio della termodinamica il lavoro equivale alla differenza tra l'energia interna iniziale del sistema e quella che ha una volta raggiunto l'equilibrio termodinamico. Questa differenza è maggiore quando è minore l'energia interna finale, i.e. quando la temperatura di equilibrio è minore. Il problema si riconduce quindi a trovare la temperatura minima d'equilibrio.<br>
+<br>
+Detta <span class="tex">\(T_e\)</span> la temperatura di equilibrio, la variazione di entropia dovuta a ciascun corpo è:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta E_i= {\int_{T_i}}^{T_e} \dfrac{dQ}{T} = {\int_{T_i}}^{T_e} C_i \dfrac{dT}{T}= C_i \ln{\dfrac{T_e}{T_i}} = \ln{\left( \dfrac{T_e}{T_i}\right) ^{C_i}}\)</span><br>
+<br>
+La variazione di entropia totale del sistema è data da:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta E_{tot}=\sum{\Delta E_i}=\ln \left[ \prod {\left( \dfrac{T_e}{T_i} \right)^{C_i}}\right]\)</span><br>
+<br>
+Però <span class="tex">\(\Delta E_{tot}=\ln \left[ \prod {\left( \dfrac{T_e}{T_i} \right)^{C_i}}\right] \geq 0\)</span>, percui<br>
+<br>
+<span class="tex">\(\displaystyle \prod {\left( \dfrac{T_e}{T_i} \right)^{C_i}} = { {T_e}^{\sum C_i} \over \prod\left({T_i}^{C_i}\right)} \geq 1\)</span><br>
+<br>
+<span class="tex">\(\displaystyle {T_e}^{\sum C_i} \geq \prod\left({T_i}^{C_i}\right)\)</span><br>
+<br>
+<span class="tex">\(\displaystyle T_e \geq \prod\left({T_i}^{C_i}\right)^{\frac{1}{\sum C_i}}\)</span><br>
+<br>
+Percui la temperatura minima di equilibrio è<br>
+<br>
+<span class="tex">\(\displaystyle T_{min}=\prod\left({T_i}^{C_i}\right)^{\frac{1}{\sum C_i}}\)</span><br>
+<br>
+ed il lavoro massimo fatto è<br>
+<br>
+<span class="tex">\(\displaystyle L= \Delta U_{tot}= \sum \Delta U_i =  \sum\left[C_i \left(T_i - T_{min} \right) \right]= \sum\left[C_i \left(T_i - \prod\left({T_i}^{C_i}\right)^{\frac{1}{\sum C_i}} \right) \right]\)</span><br>
+<br>
+Ho incominciato ad affrontare termodinamica da poco...percui chiedo scusa per eventuali (e sicuri) strafalcioni.</article>
+<article class="post" id="p4517"><div class="who"><b>Ippo</b><span>30 giu 2010, 14:32</span></div>Ok, nessuno strafalcione!!  :D Notiamo che il risultato è non negativo (riusciamo effettivamente a estrarre del lavoro) perché si ha<br>
+<br>
+<span class="tex">\(\displaystyle {L \over \sum C_i}={\sum C_i T_i \over \sum C_i}-\left( \prod T_i^{C_i}\right)^{1 \over \sum C_i} \geq 0\)</span><br>
+<br>
+infatti la differenza tra una media aritmetica (pesata) e una media geometrica (pesata con gli stessi pesi) è non negativa. Vale l'uguale (lavoro nullo) se e solo se tutte le temperature iniziali sono uguali (ovviamente non si può estrarre lavoro da un sistema all'equilibrio termico).<br>
+Bravo. Puoi proporre il prossimo se ne hai in mente uno...</article>
+<article class="post" id="p4520"><div class="who"><b>Pigkappa</b><span>30 giu 2010, 15:12</span></div>Per capire che questo lavoro si può effettivamente estrarre potete provare a trattare il problema con solo due corpi (uguali per semplificare i conti) invece di n. Facendo dei cicli di Carnot usando i due corpi come sorgente calda e sorgente fredda potete far vedere che, alla fine, si giunge alla stessa temperatura di equilibrio trovata prima e si estrae la quantità di lavoro determinata da Mirko93.</article>
+<article class="post" id="p4523"><div class="who"><b>Mirko93</b><span>30 giu 2010, 20:08</span></div>ok, ecco il problema<br>
+<br>
+Una stanza è costituita da un cubo di lato 4m, ed è riscaldata da una stufa da 6kW. La temperatura esterna alla stanza è di - 10°C. Se il coeff. di trasmissione termico (si chiama così?) delle pareti è di 2.1 <span class="tex">\({W \over m^2 K}\)</span> , quale sarà la temperatura della stanza?</article>
+<article class="post" id="p4527"><div class="who"><b>f.o.x</b><span>1 lug 2010, 10:13</span></div>L'unità di misusa del coefficiente di conducibilità termica è il <span class="tex">\(\frac W {m K}\)</span> mentre tu hai scritto <span class="tex">\(\frac W {m^2 K}\)</span>. Se non è un'errore significa che lo spessore delle pareti è incluso nella costante, che quindi non dipenderà solo dal materiale, ma anche da quest'ultimo.<br>
+Possiamo poi ipotizzare che la temperatura all'interno della stanza sia omogenea (essendo le pareti uguali), e che la dispersione avvenga uniformemente attrverso tutte e sei le facce del cubo. Quindi ogni parete farà passare 1/6 della potenza della stufa, ma in totale la potenza che attraversa tutte le pareti della stanza è la potenza della stufa.<br>
+Se queste ipotesi sono corrette allora la temperatura della stanza è:<br>
+<br>
+<span class="tex">\(T_s= \dfrac {P} {k l^2}+T_{ext}=- 168 C\)</span><br>
+<br>
+Come risultato è abbastanza strano :?</article>
+<article class="post" id="p4528"><div class="who"><b>Carmelo</b><span>1 lug 2010, 11:38</span></div>Sono d'accordo sul discorso delle pareti, alla fine se lo spessore dei muri è costante, fa comodo incorporarlo nella <span class="tex">\(k\)</span>...<br>
+Però magari manca un coefficiente numerico: se dividi per <span class="tex">\(l^2\)</span> è come se la potenza in uscita passasse solo attraverso una parete (o come se la stanza fosse <span class="tex">\(\sqrt 6\)</span> volte più piccola :D )<br>
+<br>
+Io proporrei che il calore passi attraverso cinque pareti, ovvero muri e soffitto; non per altro, ma fatico a immaginare una stanza con una stufa, sospesa in aria  :mrgreen:<br>
+<br>
+Onde, <span class="tex">\(T_s=\dfrac{P}{k(5l^2)}+T_{ext}=25,7\ ^\circ C\)</span></article>
+<article class="post" id="p4529"><div class="who"><b>f.o.x</b><span>1 lug 2010, 11:59</span></div>Ecco perchè il risultato era assurdo, avevo scordato il fattore 6 :oops: <br>
+Vabbè, comunque anch'io ero indeciso se prendere 5 o 6 pareti in considerazione, ma non è importante la posizione della stufa, perchè irraggia con la stessa potenza in tutte le direzioni, per un totale di 6kW. Per questo alla fine ho optato per 6, anche se poi mi sono scordato di riportarlo nell'equazione.</article>
+<article class="post" id="p4530"><div class="who"><b>Mirko93</b><span>1 lug 2010, 14:27</span></div>Ehm, non ho ben capito quali sono i motivi percui dividete per 5 invece che per 6. Io ho fatto<br>
+<br>
+<span class="tex">\(\displaystyle T_s = {P \over 6k l^2} + T_{ext}= 20 C\)</span><br>
+<br>
+Cmq i risultati non sono poi tanto diversi, visto anche ke si chiede una stima.</article>
+<article class="post" id="p4532"><div class="who"><b>f.o.x</b><span>1 lug 2010, 16:38</span></div>Infatti è 6 il numero giusto, mi ero solo un pò perso all'inizio perchè mi immaginavo il suolo sotto la casa, e che quindi il paviemento fosso meglio isolato, ma questa è una cavolata, in qualche modo mi dovevo pur complicare la vita no? :lol: <br>
+Comunque il 6 è giusto, perchè anche se ci fosse il suolo, attraverso il pavimento "scorrerebbe" la stessa quantità di calore al secondo, essendo questo sempre a -10°C.</article>
+<article class="post" id="p5830"><div class="who"><b>Meta*</b><span>24 dic 2010, 22:19</span></div>Mandiamo avanti la staffetta  :P <br>
+Un recipiente cilindrico contiene <span class="tex">\(2 dm^3\)</span> di azoto alla temperatura di 0°C e pressione di <span class="tex">\(10^4 Pa\)</span>. Nelle condizioni iniziali il recipiente è chiuso con un pistone di massa <span class="tex">\(M= 31Kg\)</span> e area <span class="tex">\(A=1.2 dm^2\)</span>. Sia il pistone che il cilindro sono termicamente siolanti.<br>
+Il cilindro è collocato in un grande ambiente, in cui è fatto il vuoto. Un esperimento prevede che siano fatte alcune misure dopo che il pistone sia stato fatto scendere lentamente dalla posizione iniziale fino a quando il suo peso venga sostenuto dalla pressione del gas. fortunatamente per gli sperimentatori, il recipiente non è ben costruito e, al termine della compressione, in esso si apre un forellino che ha il diametro di <span class="tex">\(10^-5 m\)</span> e che lascia sfuggire il gas.<br>
+Per valutare l'importanza dell'inconveniente e supponendo che tutte le molecole abbiano la stessa velocità, calcolare:<br>
+-La velocità delle molecole dopo la compressione<br>
+-Il tempo necessario perchè sia uscito l 1% del gas presente nel cilindro<br>
+-L'abbassamento del pistone nel tempo calcolato</article>
+<article class="post" id="p5864"><div class="who"><b>f.o.x</b><span>27 dic 2010, 18:22</span></div>iniziamo col primo punto.<br>
+L'energa cinetica del gas è <span class="tex">\(3/2 kT\)</span> da cui, sapendo che tutte le molecole hanno uguale velocità, <br>
+<span class="tex">\(\displaystyle {v= \sqrt {\frac {3RT}{M} }}\)</span><br>
+<br>
+ove M è la massa molare. Poi<br>
+<span class="tex">\(\displaystyle {T_f=\frac {p_fV_f}{p_iV_i}T_i}\)</span><br>
+<br>
+in cui <span class="tex">\(p_f=Mg/A\)</span> e <span class="tex">\(\displaystyle {V_f=V_i \bigg( \frac {p_i}{p_f} \bigg)^{5/7} }\)</span><br>
+<br>
+Con un po di passaggi ci ricavimo <span class="tex">\(\displaystyle {T_f=T_i \bigg( \frac {Mg}{p_iA} \bigg)^{2/7} = 356K }\)</span><br>
+<br>
+Sapendo poi che M=0,028g/mol ci troviamo che <span class="tex">\(v=563 m/s\)</span><br>
+Non so però se mi è ammesso sapere la massa molare dell'azoto.</article>
+<article class="post" id="p5901"><div class="who"><b>Meta*</b><span>30 dic 2010, 1:16</span></div>Sisi di solito questi dati vengono forniti insieme al problema<br>
+Il primo punto è ok</article>
+<article class="post" id="p5916"><div class="who"><b>f.o.x</b><span>2 gen 2011, 13:51</span></div>per l'ultimo punto:<br>
+con l'equazione di stato dei gas perfetti otteniamo:<br>
+<span class="tex">\(\Delta V=\frac {n_f}{n_i}V_i=\)</span>1% <span class="tex">\(V_i \Rightarrow h=\frac {V_i}{100 A}= 1,7 mm\)</span><br>
+e questo è l'abbassamento del pistone.</article>
+<article class="post" id="p5918"><div class="who"><b>Meta*</b><span>2 gen 2011, 14:26</span></div>Il ragionamento è questo solo che bisogna ricordare che la diminuzione di h avviene dopo che il pistone comprime il gas quindi il volume da prendere in considerazione non è <span class="tex">\(V_i\)</span> ma <span class="tex">\(V_f\)</span>  ;) <br>
+<br>
+Do un hint per il 2° punto <br>
+<span style="font-size: 50%; line-height: normal">Si determini la condizione perchè una molecola possa uscire e quante sono in questa condizione</span></article>
+<article class="post" id="p5930"><div class="who"><b>f.o.x</b><span>4 gen 2011, 20:16</span></div>Si ci avevo già pensato, diciamo che le molecole devono essere entro una semisfera che abbia come raggio il libero cammino medio, e che sia centrata nel foro. Ma non basta, infatti ogni molecola deve avere una velocità radiale. Si può determinare pure il numero di molecole in una semisfera con raggio il libero cammino medio, ma poi quante di esse punteranno verso il centro  :?</article>
+<article class="post" id="p5937"><div class="who"><b>Meta*</b><span>7 gen 2011, 13:03</span></div>Perchè una semisfera ? <br>
+è un cilindro, prova a considerarlo come un fluido che esce da una sezione.</article>
+<nav class="pager"><a class="prev" href="olifis-417.html"><small>← precedente</small>Staffetta meccanica</a><a class="next" href="olifis-439.html"><small>successivo →</small>Staffetta elettromagnetica</a></nav>
+</main></body></html>

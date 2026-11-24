@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>261. Semicilindro su un piano</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 261</a></span></nav>
+<h1>261. Semicilindro su un piano</h1>
+<p class="meta">25 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7083">forum Olifis</a></p>
+<article class="post first" id="p27014"><div class="who"><b>Pigkappa</b><span>17 giu 2021, 13:53</span></div>Nota: servono sia risposte simboliche che numeriche per ogni domanda tranne la 3. Usa i valori numerici <span class="tex">\(R = 1.0\)</span> m, <span class="tex">\(M = 3.0\)</span> kg, <span class="tex">\(m = 1.0\)</span> kg, <span class="tex">\(g = 9.8 \text{ m s}^{-2}\)</span>.<br>
+<br>
+<a class="lost" href="https://i.imgur.com/Y5r8A7e.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Un semicilindro di massa <span class="tex">\(M\)</span> e raggio <span class="tex">\(R\)</span> e di composizione uniforme poggia su un piano nella posizione di equilibrio, come in figura. Siano <span class="tex">\(C\)</span>, <span class="tex">\(G\)</span> ed <span class="tex">\(O\)</span> rispettivamente il centro del cilindro, il suo baricentro, ed il punto di contatto con il piano.<br>
+<br>
+1. Sia <span class="tex">\(d\)</span> la lunghezza <span class="tex">\(\overline{CG}\)</span>. Determina <span class="tex">\(d\)</span> in termini di <span class="tex">\(R\)</span>.<br>
+2. Sia <span class="tex">\(I_O\)</span> il momento di inerzia del semicilindro rispetto ad O. Si determini <span class="tex">\(I_O\)</span> in termini di <span class="tex">\(M\)</span> ed <span class="tex">\(R\)</span>.<br>
+<br>
+----------------------------<br>
+<br>
+<a class="lost" href="https://i.imgur.com/mPaGfr1.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Considera la situazione in figura. In questo caso, una particella di massa <span class="tex">\(m\)</span> cade sullo spigolo del semicilindro da una altezza <span class="tex">\(h\)</span>. La particella rimane attaccata dopo l'urto. Per rispondere alle domande 3 e 4 assumi che il semicilindro ruoti senza strisciare attorno al punto di contatto con il piano sia durante l'urto che dopo l'urto. Sia <span class="tex">\(\mu = M / m\)</span> il rapporto tra le masse.<br>
+<br>
+3. Si calcoli <span class="tex">\(w_0\)</span>, la velocita' angolare di rotazione attorno ad O subito dopo l'urto. Si esprima <span class="tex">\(w_0\)</span> in termini di <span class="tex">\(g\)</span>, <span class="tex">\(h\)</span>, <span class="tex">\(R\)</span> e <span class="tex">\(\mu\)</span>.<br>
+4. Si determini il minimo valore dell'altezza <span class="tex">\(h_\text{min}\)</span> necessario affinche' la massa <span class="tex">\(m\)</span> arrivi a toccare il suolo. Si esprima <span class="tex">\(h_\text{min}\)</span> in termini di <span class="tex">\(g\)</span>, <span class="tex">\(R\)</span> e <span class="tex">\(\mu\)</span>.<br>
+5. Determina il minimo valore del coefficiente di attrito statico <span class="tex">\(k\)</span> tra semicilindro e piano per assicurare che non ci sia strisciamento durante l'urto. Esprimi il risultato in termine di <span class="tex">\(\mu\)</span>.<br>
+<br>
+----------------------------<br>
+<br>
+<a class="lost" href="https://i.imgur.com/n61oZJY.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Considera la situazione in figura. In questo caso, una particella di massa <span class="tex">\(m\)</span> e' attaccata ad uno spigolo del semicilindro. <br>
+<br>
+6. Nella posizione di equilibrio, l'angolo tra superficie liscia del semicilindro ed il piano orizzontale e' <span class="tex">\(\alpha_\text{E}\)</span>. Determina <span class="tex">\(\alpha_\text{E}\)</span> in termini di <span class="tex">\(\mu = M / m\)</span>.<br>
+7. (facoltativo) Il semicilindro ruota attorno ad O senza strisciare, compiendo piccole oscillazioni attorno alla posizione di equilibrio. Determina <span class="tex">\(w = 2 \pi / T\)</span> dove <span class="tex">\(T\)</span> e' il periodo delle oscillazioni. Esprimi il risultato in termini di <span class="tex">\(\mu\)</span>, <span class="tex">\(g\)</span>, <span class="tex">\(R\)</span>. Puoi anche includere <span class="tex">\(\alpha_\text{E}\)</span> nella tua formula.</article>
+<article class="post" id="p27015"><div class="who"><b>matteofisica</b><span>17 giu 2021, 19:06</span></div>Rispondo al primo quesito in attesa di farmi venire qualche idea per il secondo. <br>
+Pongo il semicilindro in un sistema di riferimento ortogonale in cui l'asse y contiene la retta a cui appartengono C, G ed O e l'asse x contiene il diamentro del semicilindro. <br>
+<span class="tex">\(d=\frac{\int_{0}^{R}ydm}{M}\)</span>, <br>
+dove, indicando con <span class="tex">\(\rho \)</span> la densità del semicilindro e con <span class="tex">\(s\)</span> lo spessore, <br>
+<span class="tex">\(dm = \rho dV=\rho 2xsdy=\frac{M}{\frac{\pi R^{2}}{2}s}2xsdy=\frac{4M\sqrt{R^2-y^2}dy}{\pi R^2}\)</span> (nell'ultimo passaggio ho usato la condizione di appartenenza alla semicirconferenza)<br>
+Dunque, l'integrale di interesse diventa: <br>
+<span class="tex">\(d=\frac{4M}{M\pi R^2}\int_{0}^{R}y\sqrt{R^2-y^2}dy\)</span><br>
+che dà come risultato<br>
+<span class="tex">\(d=\frac{4}{3\pi }R\)</span><br>
+<br>
+Sostituendo R=1.0 m si ottiene <span class="tex">\(d=0.42\)</span> m<br>
+<br>
+Credo che per risolvere il secondo punto serva ragionare un po' con le somme/differenze di momenti d'inerzia usando il teorema di Huygens-Steiner, ma al momento non vedo niente...</article>
+<article class="post" id="p27016"><div class="who"><b>matteofisica</b><span>17 giu 2021, 19:46</span></div>Forse ho risolto anche il 6. <br>
+Nella figura, pongo l'origine del sistema di riferimento ortogonale nel punto O. Le forze che esercitano un momento rotazionale sono il peso della sferetta e il peso del semicilindro, che possiamo immaginare concentrato tutto nel punto G. <br>
+Dato che, per avere l'equilibrio, la somma dei momenti deve valere 0, abbiamo che: <br>
+<span class="tex">\(mgRcos(\alpha)=Mg\frac{4R}{3\pi }sin(\alpha )\)</span><br>
+e dunque, semplificando, si ricava <span class="tex">\(\alpha =arctan(\frac{3\pi }{4}\mu )\)</span>. <br>
+Sostituendo i dati forniti si ottiene <span class="tex">\(\alpha =38^{\circ}\)</span><br>
+<br>
+Spero di non aver scritto inesattezze!</article>
+<article class="post" id="p27017"><div class="who"><b>Pigkappa</b><span>18 giu 2021, 1:36</span></div>Si' questi due sono giusti</article>
+<article class="post" id="p27018"><div class="who"><b>matteofisica</b><span>18 giu 2021, 11:26</span></div>Per quanto riguarda le piccole oscillazioni, direi che il punto O compie un moto armonico lungo l'asse orizzontale, dovuto alla somma delle componenti lungo x delle reazioni vincolari del semicilindro rispetto alla sferetta e del piano rispetto al semicilindro. Esse hanno verso opposto. <br>
+Dunque, scrivendo <span class="tex">\(F_x =Ma=M\omega ^2R\)</span>, si ottiene <span class="tex">\((M-m)gsin(\alpha )=M\omega ^2R\)</span>.<br>
+Spostando tutto al primo membro e prendendo la radice quadrata di entrambi i membri si ottiene: <br>
+<span class="tex">\(\omega =\sqrt{\frac{(M-m)gsin(\alpha )}{MR}}\)</span><br>
+e, separando la frazione, si ha: <br>
+<span class="tex">\(\omega =\sqrt{(1-\mu )\frac{gsin(\alpha )}{R}}=2.0\)</span> rad/s, che corrisponde ad un periodo di oscillazione <span class="tex">\(T=\frac{2\pi }{\omega }=3.1\)</span> s.<br>
+<br>
+Spero sia tutto giusto: è la prima volta che svolgo un esercizio sulle piccole oscillazioni attorno a un punto! :D</article>
+<article class="post" id="p27019"><div class="who"><b>Pigkappa</b><span>18 giu 2021, 15:30</span></div>Hai invertito il significato di <span class="tex">\(\mu\)</span> rispetto al testo. Usa anzi <span class="tex">\(\mu = M / m\)</span> per favore.<br>
+<br>
+Se <span class="tex">\(\mu\)</span> e' infinito (cioe' <span class="tex">\(m\)</span> e' zero), cosa ottieni?</article>
+<article class="post" id="p27020"><div class="who"><b>matteofisica</b><span>18 giu 2021, 15:49</span></div>E' vero, ho letto male! Dunque la pulsazione è <span class="tex">\(\omega =\sqrt{\left (1-\frac{1}{\mu }  \right )\frac{gsin(\alpha )}{R}}\)</span>. <br>
+Modifico anche la formula del post di ieri per l'angolo di equilibrio: <br>
+<span class="tex">\(\alpha =arctan\left (\frac{3\pi }{4\mu }  \right )\)</span><br>
+<br>
+Se <span class="tex">\(\mu\)</span> è infinito, l'angolo di equilibrio viene 0 e dunque anche la pulsazione assume tale valore (<span class="tex">\(sin(0)=0\)</span>). Di contro, il periodo delle oscillazioni è infinito, poiché la pulsazione compare al denominatore nella formula.</article>
+<article class="post" id="p27021"><div class="who"><b>Pigkappa</b><span>18 giu 2021, 21:53</span></div>E ti sembra giusto come risultato? Se la particella non c'è e rimane solo il semicilindro, non deve oscillare intorno alla posizione di equilibrio con un periodo che non è infinito?</article>
+<article class="post" id="p27022"><div class="who"><b>matteofisica</b><span>18 giu 2021, 23:06</span></div>Mi scuso per la mia ignoranza in materia, ma non capisco se il periodo delle oscillazioni in assenza della sferetta debba essere uguale a 0 o diverso da 0 ma comunque finito. <br>
+Anche se non vedo che cosa possa causare le oscillazioni...</article>
+<article class="post" id="p27023"><div class="who"><b>Pigkappa</b><span>18 giu 2021, 23:13</span></div>Ti sei scordato la forza di attrito che agisce in O per far si' che il semicilindro ruoti senza strisciare.<br>
+<br>
+E quella non e' facile da calcolare...</article>
+<article class="post" id="p27024"><div class="who"><b>matteofisica</b><span>18 giu 2021, 23:17</span></div>È vero! Me ne ero totalmente dimenticato! Inizio a vedere un po' come fare e domani cerco di risolvere</article>
+<article class="post" id="p27028"><div class="who"><b>DeoGratias</b><span>19 giu 2021, 22:27</span></div>Provo a rispondere alle domande che mancano (la 1 e la 6 le ho risolte come matteofisica)<br>
+<br>
+2)Scegliamo un s.d.r. con asse delle x perpendicolare al piano orizzontale con origine in O. Il momento d'inerzia <span class="tex">\(I_{0}\)</span> è la somma dei momenti d'inerzia infinitesimi di piani orizzontali paralleli al piano orizzontale, di lati <span class="tex">\(L\)</span> (la lunghezza del semicilindro di partenza), <span class="tex">\(dx\)</span> e <span class="tex">\(l(x)\)</span>. La loro massa è data da <span class="tex">\(dm=\rho Ll(x)dx\)</span>. <span class="tex">\(l(x)\)</span> è dato da <span class="tex">\(2\sqrt{R^2-(R-x)^2)}\)</span>, quindi, per il teorema di Huygens-Steiner, il momento d'inerzia totale è dato da <br>
+<span class="tex">\(I_{0}=\int_{0}^{R}(\frac{1}{12}\rho Ll^3dx+\rho hlx^2dx) =\rho L(\frac{2}{3}\int_{0}^{R}(2Rx-x^2)^\frac{3}{2}dx+2\int_{0}^{R}x^2\sqrt{2Rx-x^2}dx)\)</span><br>
+Con un po' di calcoli (se è necessario li inserisco, ma sono abbastanza lunghi), ricordando che <span class="tex">\(M=\frac{1}{2}R^2L\rho \pi \)</span>, si giunge a <span class="tex">\(I_{0}=MR^2(\frac{3}{2}-\frac{8}{3\pi })\)</span><br>
+<br>
+3) Nell'istante esatto dello scontro, l'impulso dovuto alla forza di gravità tende a zero, quindi il momento angolare del sistema rispetto a O si conserva.<br>
+Per la conservazione dell'energia, la particella si scontra col cilindro a una velocità <span class="tex">\(v=\sqrt{2gh}\)</span>. La conservazione del momento angolare implica che <span class="tex">\(mR\sqrt{2gh}=\omega (2mR^2+MR^2(\frac{3}{2}-\frac{8}{3\pi }))\)</span>, dove <span class="tex">\(I_{p}=2mR^2\)</span> è il momento di inerzia della particella rispetto ad O al momento dello scontro. Raccogliendo <span class="tex">\(m\)</span>, troviamo <span class="tex">\(\omega =\frac{\sqrt{2gh}}{R(2+\mu (\frac{3}{2}-\frac{8}{3\pi }))}\)</span><br>
+<br>
+4) Dal momento dell'urto in poi, l'energia meccanica si conserva. Quando la particella viene lanciata dall'altezza minima, il semicilindro ruota di 90° fino a fermarsi. Posto <span class="tex">\(U=0\)</span> per un oggetto sul piano, l'energia cinetica iniziale è data da <span class="tex">\(K_{0}= \frac{1}{2}(I_{0}+I_{p})w_{0}^{2}=\frac{mgh}{2+\mu (\frac{3}{2}-\frac{8}{3\pi })}\)</span> ; l'energia potenziale iniziale è <span class="tex">\(U_{0}=mgR+Mgh_{cdm}=mgR(1+\mu (1-\frac{4}{3\pi }))\)</span> ; se l'altezza di partenza è minima, <span class="tex">\(K_{f}=0\)</span>, ed <span class="tex">\(U_{f}=MgR\)</span> ; uguagliando le due espressioni e risolvendo per <span class="tex">\(h_{min}\)</span>, otteniamo <span class="tex">\(h_{min}=R(\frac{4\mu }{3\pi}-1)(2+\mu(\frac{3}{2}-\frac{8}{3\pi})) = 1.080m\)</span><br>
+<br>
+5) Ancora non ho idee<br>
+<br>
+7) Chiamiamo <span class="tex">\(\theta\)</span> l'angolo tra la retta <span class="tex">\(CG\)</span> e la verticale; il momento torcente risultante, attorno al punto di equilibrio <span class="tex">\(O'\)</span>, è dato da <span class="tex">\(\tau =gR(\frac{4M}{3\pi}sin\theta -mcos\theta) =gR(\frac{4M}{3\pi}sin(\alpha-\beta) -mcos(\alpha-\beta))\)</span>, dove ho posto <span class="tex">\(\beta \equiv \alpha -\theta \)</span>. Visto che <span class="tex">\(|\beta| \ll 1\)</span> (è l'angolo delle piccole oscillazioni), usando le formule per seno e coseno, ponendo <span class="tex">\(sin\beta\approx \beta\)</span>, <span class="tex">\(cos\beta \approx 1\)</span> e ricordando che quando <span class="tex">\(\beta=0\)</span> si ha <span class="tex">\(\tau=0\)</span>, trovo <span class="tex">\(\tau=-gR(\frac{4M}{3\pi}cos\alpha+msin\alpha)\beta=I_{o'}\ddot{\beta}\)</span> <br>
+Per trovare <span class="tex">\(I_{o'}\)</span>, usiamo ancora Huygens-Steiner; prima troviamo il momento di inerzia per il cilindro, troviamo <span class="tex">\(I_{cdm}\)</span> a partire da <span class="tex">\(I_{o}\)</span> trovato in precedenza, ottenendo <span class="tex">\(I_{cdm}=I_{o}-MR^2(1-\frac{4}{3\pi})^2=MR^2(\frac{1}{2}-\frac{16}{9\pi^2})\)</span> ; poi, utilizzando Carnot per trovare la distanza tra O' e il centro di massa, applicando di nuovo H-S troviamo <span class="tex">\(I_{o' cil}=MR^2(\frac{3}{2}-\frac{8}{3\pi}cos\alpha)\)</span> ; calcoliamo poi quello per la particella, sempre applicando Carnot, che risulta essere <span class="tex">\(I_{o' part} = 2mR^2(1-sin\alpha)\)</span>. Sommando i due momenti di inerzia, troviamo l'equazione delle piccole oscillazioni:<br>
+<span class="tex">\(-g(\frac{4\mu }{3\pi}cos\alpha+sin\alpha)\beta=R(1-sin\alpha+\mu(\frac{3}{2}-\frac{8}{3\pi}cos\alpha)\ddot{\beta}\)</span><br>
+Da questa, troviamo che la pulsazione è <span class="tex">\(\omega =\sqrt{\frac{g(sin\alpha+\frac{4\mu}{3\pi}cos\alpha)}{R(1-sin\alpha+\mu(\frac{3}{2}-\frac{8}{3\pi}cos\alpha))}}\)</span>, circa <span class="tex">\(\omega = 2.35 rad/s\)</span></article>
+<article class="post" id="p27029"><div class="who"><b>matteofisica</b><span>19 giu 2021, 23:28</span></div>Per quanto riguarda il 5, la condizione che ci sia rotolamento puro è che la velocità del punto di contatto sia 0, dunque deve essere: <br>
+<span class="tex">\(a_C=\alpha R\)</span>, dove <span class="tex">\(a_C\)</span> è l'accelerazione del centro di massa e <span class="tex">\(\alpha \)</span> è l'accelerazione angolare. <br>
+La prima la si può trovare applicando <span class="tex">\(F=(m+M)a\)</span>, dove F è la forza di attrito. <br>
+Poi si scrive la somma dei momenti, che è uguale a <span class="tex">\(I\omega -Fb=I\alpha \)</span>, dove <span class="tex">\(I\)</span> è il momento d'inerzia ottenuto tenendo conto anche della pallina e <span class="tex">\(b\)</span> il braccio rispetto al centro di massa del sistema semicilindro-pallina.<br>
+Moltiplicando entrambi i membri dell'ultima equazione scritta per R e portando <span class="tex">\(I\)</span> al denominatore si ottiene <span class="tex">\(\alpha R\)</span>. <br>
+Poi si uguagliano le due espressioni e dovrebbe venire: <br>
+<br>
+<span class="tex">\(\frac{F}{m+M}=\frac{I\omega -Fb}{I}R\)</span><br>
+<br>
+e dunque <span class="tex">\(F=\frac{(m+M)RI\omega }{I+(m+M)Rb}\)</span>.<br>
+<br>
+Da qui si dovrebbe ricavare facilmente k usando la formula.<br>
+Se il procedimento è corretto, posso procedere con i calcoli.</article>
+<article class="post" id="p27030"><div class="who"><b>Pigkappa</b><span>20 giu 2021, 0:10</span></div><blockquote><div><cite>DeoGratias ha scritto: <a href="olifis-7083.html#p27028" data-post-id="27028" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">19 giu 2021, 22:27</div></cite>
+Provo a rispondere alle domande che mancano (la 1 e la 6 le ho risolte come matteofisica)<br>
+[...]
+</div></blockquote>
+
+Il 2) OK ma c'e' un modo alternativo per non fare integrali<br>
+Il 3) OK<br>
+Il 4) circa OK, ma per certi valori di <span class="tex">\(\mu\)</span> avrebbe senso spiegare che la formula non vale piu'<br>
+Il 7) mi viene leggermente diverso, possibile che nel calcolare il momento di inerzia totale, ti sei scordato un fattore 2 nel momento d'inerzia della particella?</article>
+<article class="post" id="p27031"><div class="who"><b>Pigkappa</b><span>20 giu 2021, 0:12</span></div><blockquote><div><cite>matteofisica ha scritto: <a href="olifis-7083.html#p27029" data-post-id="27029" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">19 giu 2021, 23:28</div></cite>
+Per quanto riguarda il 5, la condizione che ci sia rotolamento puro è che la velocità del punto di contatto sia 0, dunque deve essere: <br>
+<span class="tex">\(a_C=\alpha R\)</span>, dove <span class="tex">\(a_C\)</span> è l'accelerazione del centro di massa e <span class="tex">\(\alpha \)</span> è l'accelerazione angolare. <br>
+La prima la si può trovare applicando <span class="tex">\(F=(m+M)a\)</span>, dove F è la forza di attrito. <br>
+Poi si scrive la somma dei momenti, che è uguale a <span class="tex">\(I\omega -Fb=I\alpha \)</span>, dove <span class="tex">\(I\)</span> è il momento d'inerzia ottenuto tenendo conto anche della pallina e <span class="tex">\(b\)</span> il braccio rispetto al centro di massa del sistema semicilindro-pallina.<br>
+Moltiplicando entrambi i membri dell'ultima equazione scritta per R e portando <span class="tex">\(I\)</span> al denominatore si ottiene <span class="tex">\(\alpha R\)</span>. <br>
+Poi si uguagliano le due espressioni e dovrebbe venire: <br>
+<br>
+<span class="tex">\(\frac{F}{m+M}=\frac{I\omega -Fb}{I}R\)</span><br>
+<br>
+e dunque <span class="tex">\(F=\frac{(m+M)RI\omega }{I+(m+M)Rb}\)</span>.<br>
+<br>
+Da qui si dovrebbe ricavare facilmente k usando la formula.<br>
+Se il procedimento è corretto, posso procedere con i calcoli.
+</div></blockquote>
+
+Non sono sicuro di aver capito e non e' il metodo che ho usato io, ma il risultato non e' enormemente complicato, fai i calcoli che intendi fare e vediamo cosa viene :)<br>
+
+<blockquote><div><cite>matteofisica ha scritto: <a href="olifis-7083.html#p27029" data-post-id="27029" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">19 giu 2021, 23:28</div></cite>
+<span class="tex">\(I\omega -Fb=I\alpha \)</span>
+</div></blockquote>
+
+Sbaglio o questa cosa e' sbagliata dimensionalmente?<br>
+<br>
+Nota che la domanda chiede il minimo coefficiente di attrito perche' non ci sia strisciamento durante l'urto, non in tutto il moto in generale.</article>
+<article class="post" id="p27034"><div class="who"><b>DeoGratias</b><span>20 giu 2021, 17:09</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7083.html#p27030" data-post-id="27030" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">20 giu 2021, 0:10</div></cite>
+<br>
+Il 2) OK ma c'e' un modo alternativo per non fare integrali<br>
+Il 3) OK<br>
+Il 4) circa OK, ma per certi valori di <span class="tex">\(\mu\)</span> avrebbe senso spiegare che la formula non vale piu'<br>
+Il 7) mi viene leggermente diverso, possibile che nel calcolare il momento di inerzia totale, ti sei scordato un fattore 2 nel momento d'inerzia della particella?
+</div></blockquote>
+
+Per il 4), per <span class="tex">\(\mu &lt; \frac{3}{4}\pi\)</span>, quindi quando il cilindro è troppo leggero rispetto alla particella, la formula dà un'altezza negativa, poiché ho imposto che l'energia cinetica finale sia zero quando il cilindro è inclinato di 90 gradi; significa che, da qualunque altezza io lanci la particella, è talmente pesante che il semicilindro non può fermarsi in quella posizione, ma deve per forza continuare a ruotare fino a ribaltarsi completamente. Non possiamo accettare l'altezza negativa come soluzione di quell'equazione perché vorrebbe dire che la particella parte a una distanza <span class="tex">\(d&lt;R\)</span> dal piano. Ciò significa però che il semicilindro deve essere inclinato e non orizzontale, visto che la part. è agganciata sul suo spigolo, quindi la sua energia potenziale dovrà essere calcolata considerando lo spostamento verso il basso del suo cdm, mentre nella formula che ho usato si suppone che il semicilindro sia orizzontale. Comunque possiamo risolvere, in funzione di <span class="tex">\(\mu\)</span> abbastanza piccolo, per la distanza <span class="tex">\(d&lt;R\)</span> dal piano da cui serve lasciar partire la particella, ferma e già attaccata al cilindro, affinché questo si fermi quando è inclinato di 90°.<br>
+<br>
+Per il 7) è vero, la pulsazione corretta è <span class="tex">\(\omega=\sqrt{\frac{g(sin\alpha+\frac{4\mu}{3\pi}cos\alpha)}{R(2-2sin\alpha+\mu(\frac{3}{2}-\frac{8}{3\pi}))}}\)</span><br>
+<br>
+Per il 2), consideriamo il momento d'inerzia di un cilindro di massa <span class="tex">\(2M\)</span> rispetto a un asse a distanza <span class="tex">\(R\)</span> dal suo cdm; possiamo esprimerlo anche come somma dei momenti d'inerzia di 2 semicilindri di massa <span class="tex">\(M\)</span>: applicando H-S, ottengo<br>
+<span class="tex">\(I_{cil}=3MR^2=2I_{cdm(semic.)}+MR^2((1-\frac{4}{3\pi})^2+(1+\frac{4}{3\pi})^2)\)</span><br>
+Risolvendo per <span class="tex">\(I_{cdm}\)</span> ottengo <span class="tex">\(I_{cdm}=MR^2(\frac{1}{2}-\frac{16}{9\pi^2})\)</span>, e da qui applicando ancora H-S trovo il momento d'inerzia rispetto a O trovato in 2)</article>
+<article class="post" id="p27035"><div class="who"><b>matteofisica</b><span>20 giu 2021, 22:26</span></div>Avrei svolto i calcoli per la forza di attrito, che mi viene <span class="tex">\(F=\frac{(m+M)\sqrt{2gh}}{\mu \left ( \frac{5}{2}-\frac{4}{\pi } \right )+3}\)</span>. <br>
+Non penso proprio che sia corretto, perché il risultato mi viene in <span class="tex">\(kg\frac{m}{s}\)</span>, che non è decisamente l'unità di misura di una forza...<br>
+Domani provo a vedere cosa non quadra nel ragionamento</article>
+<article class="post" id="p27036"><div class="who"><b>Pigkappa</b><span>20 giu 2021, 22:37</span></div>Diciamo che l'urto e' "instantaneo", ma in realta questa e' una approssimazione, quel che vogliamo dire e' che dura un tempo <span class="tex">\(\delta t\)</span> molto piccolo. La maggior parte delle quantita' di interesse in un urto si possono calcolare senza sapere <span class="tex">\(\delta t\)</span>, ma questo non e' vero per quanto riguarda la forza nell'urto (da cui dipende la forza d'attrito in questo problema): la forza nell'urto dipende da <span class="tex">\(\delta t\)</span>. Peraltro non e' assolutamente detto che questa forza sia costante nel tempo <span class="tex">\(\delta t\)</span>, plausibilmente e' piu' piccola all'inizio dell'urto, raggiunge un punto massimo e poi ritorna a zero, in un modo non ovvio.<br>
+<br>
+Quel che sto cercando di dire e' che non si puo' calcolare esattamente la forza d'attrito durante l'urto. Devi cercare un modo per aggirarla...</article>
+<article class="post" id="p27037"><div class="who"><b>matteofisica</b><span>21 giu 2021, 8:37</span></div>Dovrei trovare quindi la forza media o determinare uno di quei parametri che non dipendono dal piccolo intervallo di tempo e da lì dedurre la forza di attrito?</article>
+<article class="post" id="p27038"><div class="who"><b>Pigkappa</b><span>21 giu 2021, 9:31</span></div>Più o meno, sì. Non troverai un valore numerico per la forza media perché dipende da delta t. Ma alla fine per il coefficiente di attrito delta t si semplifica...</article>
+<article class="post" id="p27039"><div class="who"><b>DeoGratias</b><span>21 giu 2021, 11:03</span></div>Provo il 5)<br>
+<br>
+Dobbiamo tenere in considerazione il fatto che la q.d.m varia sia sull'asse x (orizzontale) che y (verticale). Prima dell'urto la particella si muove a velocità <span class="tex">\(\vec{v_{0}} =v_{0x}\hat{i}+v_{0y}\hat{j}=-\sqrt{2gh} \hat{j}\)</span>. Dopo l'urto, visto che il semicilindro si muove in avanti con velocità <span class="tex">\(v=\omega R\)</span> e che contemporaneamente sta ruotando, <span class="tex">\(\vec{v_{f}}=v_{fx}\hat{i}+v_{fy}\hat{j}=\omega R\hat{i}-\omega R\hat{j} =\frac{\sqrt{2gh}}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}\hat{i}-\frac{\sqrt{2gh}}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}\hat{j}\)</span>. Se l'urto dura per un tempo <span class="tex">\(\delta t\)</span>, allora la risultante delle forze sul cilindro sarà <span class="tex">\(F_{y}=N-Mg-\frac{\sqrt{2gh}}{\delta t}\frac{1+\mu(\frac{3}{2}-\frac{8}{3\pi})}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}=0\)</span> ; <span class="tex">\(F_{x}=Nk-\frac{\sqrt{2gh}}{\delta t}\frac{1}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}=0\)</span> , dove <span class="tex">\(N\)</span> è la reazione vincolare. Ricavando <span class="tex">\(N\)</span>, otteniamo che <span class="tex">\(\frac{\sqrt{2gh}}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}=kMg\delta t+k\sqrt{2gh}\frac{1+\mu(\frac{3}{2}-\frac{8}{3\pi})}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}\)</span>. Facendo tendere <span class="tex">\(\delta t\)</span> a zero, <span class="tex">\(k=\frac{1}{1+\mu(\frac{3}{2}-\frac{8}{3\pi})}\approx 0.338\)</span></article>
+<article class="post" id="p27040"><div class="who"><b>Pigkappa</b><span>21 giu 2021, 13:01</span></div><blockquote><div><cite>DeoGratias ha scritto: <a href="olifis-7083.html#p27039" data-post-id="27039" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">21 giu 2021, 11:03</div></cite>
+Dobbiamo tenere in considerazione il fatto che la q.d.m varia sia sull'asse x (orizzontale) che y (verticale).
+</div></blockquote>
+
+Si', ma mi pare che stai tenendo conto solo della variazione di quantita' di moto della particella, invece secondo me devi considerare quella di tutto il sistema (particella + cilindro).<br>
+<br>
+La variazione di quantita' di moto della particella e' dovuta alla forza impulsiva tra particella e cilindro, che non ci interessa piu' di tanto.<br>
+<br>
+La forza di attrito agisce sul sistema intero (beh, agisce sul cilindro, ma se consideri cilindro+particella come sistema, la forza impulsiva tra i due si cancella perche' e' una forza interna).</article>
+<article class="post" id="p27041"><div class="who"><b>Pigkappa</b><span>24 giu 2021, 18:11</span></div>Questa e' la mia soluzione per il 5, se non siete d'accordo ditemi...<br>
+<br>
+Sia <span class="tex">\(\vec N\)</span> la forza che agisce tra piano e cilindro in O. Siano <span class="tex">\(\hat x, \hat y\)</span> le direzioni orizzontale e verticale. Se non ci fosse attrito <span class="tex">\(N_x\)</span> sarebbe 0. Dato che <span class="tex">\(\vec N\)</span> e' l'unica forza esterna agente sul sistema nell'urto (la gravita' e' trascurabile se <span class="tex">\(\delta t \rightarrow 0\)</span>), l'impulso totale <span class="tex">\(\int \vec N \text{d} t\)</span> e' uguale alla variazione di quantita' di moto del sistema nell'urto <span class="tex">\(\Delta \vec P\)</span>. Possiamo calcolare <span class="tex">\(\Delta \vec P\)</span> nel caso in cui non ci sia strisciamento perche' abbiamo studiato il moto prima e dopo l'urto nelle domande precedenti. <span class="tex">\(N_x\)</span> e' dovuta all'attrito per cui, in ogni istante, <span class="tex">\(N_x \le k N_y\)</span>, avendo scelto le direzioni in modo appropriato cosi' che <span class="tex">\(N_x, N_y\)</span> siano positive. Integrando, <span class="tex">\(\Delta P_x \le k \Delta P_y\)</span>. La forza d'attrito percio' puo' essere sufficiente solo se <span class="tex">\(k \ge \Delta P_x / \Delta P_y\)</span><br>
+<br>
+Quantita' di moto del sistema prima dell'urto: <span class="tex">\(\vec P_0 = -m v_0 \hat y\)</span>. Dopo l'urto: <span class="tex">\(\vec P_1 = (-m w_0 R - M w_0 (R-d)) \hat x - m w_0 R \hat y\)</span>. La differenza e' <span class="tex">\(\Delta \vec P = \vec P_1 - \vec P_0\)</span>. La condizione limite per evitare strisciamento e': <span class="tex">\(k = |\Delta P_x| / |\Delta P_y|\)</span>. Facendo i conti e semplificando viene indipendente da <span class="tex">\(v_0\)</span>:<br>
+<span class="tex">\( k = \frac{1 + (1 - \frac{4}{3 \pi}) \mu}{1 + (\frac{3}{2} - \frac{8}{3\pi}) \mu} = 0.92 \)</span><br>
+<br>
+Se ho contato bene DeoGratias ha risolto 4 domande (compresa la 7 che era impestata) e matteofisica 2, passerei il testimone a DeoGratias ma buon lavoro entrambi</article>
+<article class="post" id="p27042"><div class="who"><b>DeoGratias</b><span>25 giu 2021, 11:43</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7083.html#p27040" data-post-id="27040" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">21 giu 2021, 13:01</div></cite>
+<blockquote><div><cite>DeoGratias ha scritto: <a href="olifis-7083.html#p27039" data-post-id="27039" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">21 giu 2021, 11:03</div></cite>
+Dobbiamo tenere in considerazione il fatto che la q.d.m varia sia sull'asse x (orizzontale) che y (verticale).
+</div></blockquote>
+
+Si', ma mi pare che stai tenendo conto solo della variazione di quantita' di moto della particella, invece secondo me devi considerare quella di tutto il sistema (particella + cilindro).<br>
+<br>
+La variazione di quantita' di moto della particella e' dovuta alla forza impulsiva tra particella e cilindro, che non ci interessa piu' di tanto.<br>
+<br>
+La forza di attrito agisce sul sistema intero (beh, agisce sul cilindro, ma se consideri cilindro+particella come sistema, la forza impulsiva tra i due si cancella perche' e' una forza interna).
+</div></blockquote>
+ <br>
+Provo a correggere la mia soluzione del 5): <br>
+<br>
+La qdm iniziale della particella è <span class="tex">\(\vec{P}_{part(0)}= -m\sqrt{2gh}\hat{j}\)</span> , quella finale è <span class="tex">\(\vec{P}_{part(f)}=m\omega R\hat{i}-m\omega R\hat{j}\)</span> ; la qdm iniziale del semicilindro è zero, quella finale è <span class="tex">\(\vec{P}_{cil(f)}=M\vec{v_{cdm}}=m\mu \omega (R-d)\hat{i}\)</span>. Dalla terza legge di Newton, la forza esercitata sul cilindro dalla particella è <br>
+<span class="tex">\(\vec{F}_{1}=-\frac{m\sqrt{2gh}}{\delta t(2+\mu (\frac{3}{2}-\frac{8}{3\pi}))}\hat{i}-\frac{m\sqrt{2gh}(1+\mu(\frac{3}{2}-\frac{8}{3\pi}))}{\delta t(2+\mu(\frac{3}{2}-\frac{8}{3\pi})}\hat{j}\)</span> .<br>
+Per quanto riguarda le forze sul cilindro, sull'asse y si ha <span class="tex">\(N-Mg+F_{1y}=0\)</span> , sull'asse x <span class="tex">\(Nk+F_{1x}=\frac{m\mu \omega R(1-\frac{4}{3\pi})}{\delta t}\)</span> (ricordando che <span class="tex">\(F_{1x}, F_{1y}\)</span> sono negativi); combinando le equazioni, ottengo <br>
+<span class="tex">\(Mgk\delta t+\frac{m\sqrt{2gh}(1+\mu(\frac{3}{2}-\frac{8}{3\pi}))k}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}-\frac{m\sqrt{2gh}}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}=\frac{m\mu (1-\frac{4}{3\pi})\sqrt{2gh}}{2+\mu(\frac{3}{2}-\frac{8}{3\pi})}\)</span> . Facendo tendere <span class="tex">\(\delta t\)</span> a zero e risolvendo per <span class="tex">\(k\)</span> , viene sempre <span class="tex">\(k=\frac{1+\mu(1-\frac{4}{3\pi})}{1+\mu(\frac{3}{2}-\frac{8}{3\pi})}\approx 0.923\)</span></article>
+<article class="post" id="p27043"><div class="who"><b>Pigkappa</b><span>25 giu 2021, 19:16</span></div>Si' e' la stessa soluzione e risultato mio. Io ho evitato di dire cose come "la forza esercitata durante l'urto vale..." perche' sicuramente la forza non e' davvero costante nell'urto, e volevo evitare di parlare di "forza media" a meno che non fosse necessario, ma comunque il risultato e' lo stesso. Vai pure con il 262</article>
+<nav class="pager"><a class="prev" href="olifis-7082.html"><small>← precedente</small>260. Compressione di un gas.</a><a class="next" href="olifis-7085.html"><small>successivo →</small>262 - Marte e satelliti</a></nav>
+</main></body></html>

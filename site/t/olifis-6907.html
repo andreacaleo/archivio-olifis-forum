@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>n. 212- La tinozza va in ascensore</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 212</a></span></nav>
+<h1>n. 212- La tinozza va in ascensore</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6907">forum Olifis</a></p>
+<article class="post first" id="p26078"><div class="who"><b>bosone</b><span>6 giu 2020, 11:28</span></div>Una tinozza piena d'acqua è all'interno di un ascensore che possiede un'accelerazione verso l'alto <span class="tex">\(A= (1/4)g\)</span>. All'interno della tinozza si trova un oggetto di legno di volume  <span class="tex">\(V= 4 cm^{3}\)</span> e densità incognita <span class="tex">\(\rho\)</span> che è collegato al fondo della tinozza da un filo inestensibile e massa trascurabile. E' noto che la tensione del filo durante il moto della tinozza è <span class="tex">\(T=4.10^{-2}N\)</span>. <br>
+1) Quanto vale la densità dell'oggetto?<br>
+Ad un certo istante il filo viene spezzato. Se l'accelerazione dell'ascensore e della tinozza rimane costante<br>
+2)Quanto vale l'accelerazione dell'oggetto relativa alla tinozza subito dopo la rottura del filo?<br>
+(Si assuma che la densità dell'acqua sia esattamente <span class="tex">\(1 gr/cm^3\)</span>)</article>
+<article class="post" id="p26079"><div class="who"><b>east_beast</b><span>6 giu 2020, 12:42</span></div>Mi metto nel sistema dell'ascensore, chiamo <span class="tex">\(g' = g+g/4\)</span> l'accelerazione di "gravità" in questo sistema.<br>
+Scrivo <span class="tex">\(F = ma\)</span> sulla direzione verticale ottenendo <span class="tex">\(F_a - mg'  - T = 0\)</span>, dove <span class="tex">\(F_a\)</span> è la spinta di Archimede.<br>
+Esplicitando <span class="tex">\(F_a\)</span> ed  <span class="tex">\( m\)</span> arrivo a <span class="tex">\(\rho = -(T/g'V) + \rho_{h_2o} = 1.85 \cdot 10 ^{-1} g/cm^3\)</span><br>
+<br>
+Alla rottura riscrivo <span class="tex">\(F = ma\)</span> senza <span class="tex">\(T\)</span>, dunque <span class="tex">\(a = g'({\frac{\rho_{h _2o}}{\rho}}-1) = 54 m/s^2\)</span></article>
+<article class="post" id="p26081"><div class="who"><b>bosone</b><span>6 giu 2020, 17:30</span></div>@ east beast Purtroppo è stato criptato sia il testo (quando l'ho postato non lo era) che la tua risposta. Mi spiace ma attualmente non è possibile esprimere un giudizio su essa :cry:</article>
+<article class="post" id="p26082"><div class="who"><b>east_beast</b><span>6 giu 2020, 17:39</span></div>Prova a citare la mia risposta, in questo modo potrai vedere il 'codice' LaTeX che ho scritto e perlomeno dare un'occhiata, altrimenti aspettiamo che il sito si riprenda, nessun problema!</article>
+<article class="post" id="p26083"><div class="who"><b>bosone</b><span>6 giu 2020, 18:10</span></div>Ho visto ma non capisco l'espressione della spinta di Archimede. Siccome stasera non posso ricollegarmi per favore esplicitala per domattina. Grazie.</article>
+<article class="post" id="p26084"><div class="who"><b>east_beast</b><span>6 giu 2020, 18:16</span></div>La forza di Archimede è <span class="tex">\(F_a = g'V \rho_{h_2o}\)</span>  .<br>
+Avevo semplicemente saltato dei passaggi... :D</article>
+<article class="post" id="p26085"><div class="who"><b>bosone</b><span>7 giu 2020, 11:12</span></div>Concettualmente mi sembra giusto però il risultato della densità mi sembra dalla citazione <span class="tex">\(1,85 gr/cm^3\)</span> cioè maggiore di quello dell'acqua (leggo bene 1,85 volte la densità dell'acqua?) come se tu avessi addizionato T invece di sottrarla - ma può darsi che mi sbagli io con questo forum che cripta..Di conseguenza anche l'accelerazione relativa, concettualmente giusta, mi pare alterata.</article>
+<article class="post" id="p26086"><div class="who"><b>east_beast</b><span>7 giu 2020, 11:21</span></div>No la densità mi viene 1.85 * 10^(-1) gr/cm^3 , probabilmente non avrai visto l'esponente :D</article>
+<article class="post" id="p26088"><div class="who"><b>bosone</b><span>8 giu 2020, 10:34</span></div>Si, lo avevo sospettato. A questo punto per me puoi andare con il 213! :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6903.html"><small>← precedente</small>211. Sbarretta in campo magnetico</a><a class="next" href="olifis-6909.html"><small>successivo →</small>213. Tre Cilindri in rotazione</a></nav>
+</main></body></html>

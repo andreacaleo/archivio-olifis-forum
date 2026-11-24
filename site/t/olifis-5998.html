@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>24. potenziale e orbita circolare</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 24</a></span></nav>
+<h1>24. potenziale e orbita circolare</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5998">forum Olifis</a></p>
+<article class="post first" id="p19702"><div class="who"><b>phyknight</b><span>17 nov 2014, 17:46</span></div>Volevo dare questo <a href="http://forum.olifis.it/olifis/phpBB3/viewtopic.php?f=12&amp;t=5997" class="ext" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=5997</a> come problema della staffetta, ma forse richede conoscenze che i più piccoli non possono avere :D <br>
+<br>
+<br>
+Una particella di massa <span class="tex">\(m\)</span> si muove in un potenziale <span class="tex">\(V(r)=-V_0e^{-\alpha^2r^2}\)</span><br>
+Trovare il massimo momento angolare <span class="tex">\(L\)</span> che può avere la particella affinché sia possibile un'orbita circolare</article>
+<article class="post" id="p19703"><div class="who"><b>Simone256</b><span>17 nov 2014, 18:16</span></div>Forse è una totale stupidata... Possibile che il risultato sia:<br>
+<span class="tex">\(L_{max}=\frac{2}{\alpha e}\sqrt{2m V_0}\)</span></article>
+<article class="post" id="p19704"><div class="who"><b>bogcal11</b><span>17 nov 2014, 18:59</span></div>E invece mi sembra proprio giusto  ;)</article>
+<article class="post" id="p19705"><div class="who"><b>phyknight</b><span>17 nov 2014, 20:45</span></div>si, giusto<br>
+speravo che rispondesse qualcuno meno esperto, però va bene ;) <br>
+se vuoi metti il procedimento, altrimenti vai con il prossimo problema</article>
+<article class="post" id="p19706"><div class="who"><b>andrea96</b><span>17 nov 2014, 20:48</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Forse è una totale stupidata... Possibile che il risultato sia:<br>
+<span class="tex">\(L_{max}=\frac{2}{\alpha e}\sqrt{2m V_0}\)</span></div></blockquote>
+anche a me viene questo  :o quando sembra troppo facile viene sempre il dubbio di aver trascurato qualcosa di importante :lol: però sinceramente non mi sembra ci siano strani misteri nascosti a me pare giusto :D</article>
+<article class="post" id="p19707"><div class="who"><b>phyknight</b><span>17 nov 2014, 20:53</span></div>se volete un problema difficile c'è quello della sfera carica ;)</article>
+<article class="post" id="p19708"><div class="who"><b>andrea96</b><span>17 nov 2014, 21:05</span></div><blockquote><div><cite>phyknight ha scritto:</cite>se volete un problema difficile c'è quello della sfera carica ;)</div></blockquote>
+ahahah si infatti quello mi sembra molto interessante!  :D</article>
+<article class="post" id="p19710"><div class="who"><b>Simone256</b><span>17 nov 2014, 23:08</span></div>Ho scritto solamente il risultato anche perchè così posso lasciare la soluzione a qualcuno che monopolizza meno la staffetta! :P<br>
+Sennò potremmo usare l'altro come passa-testimone!! ;)</article>
+<article class="post" id="p19725"><div class="who"><b>Simone256</b><span>22 nov 2014, 16:34</span></div>Dato che non scrive più nessuno...<br>
+<br>
+La forza sará radiale e uguale a <span class="tex">\(F(r)=-\frac{dV(r)}{dr};\)</span> affinchè il moto sia circolare dovrá essere costante e uguale a <span class="tex">\(F=m\frac{v^2}{r}\)</span>; inoltre <span class="tex">\(L=mrv\)</span>.<br>
+Unendo le 3 equazioni elimino i parametri <span class="tex">\(v\)</span> e <span class="tex">\(F\)</span> e mi esce una funzione <span class="tex">\(L(r)\)</span> che derivo trovando due zeri di cui uno è dato dal caso che ci interessa (l'altro da quello che ricordo dai conti (perduti chissá dove) era per <span class="tex">\(r=0\)</span>) che verificando si scopre che è un massimo. Sostituendo si ottiene il valore scritto sopra di <span class="tex">\(L\)</span> :)<br>
+<br>
+Vi prego non fatemi scrivere i conti  :cry:</article>
+<article class="post" id="p19727"><div class="who"><b>andrea96</b><span>22 nov 2014, 17:38</span></div><blockquote><div><cite>Simone256 ha scritto:</cite> (l'altro da quello che ricordo dai conti (perduti chissá dove) </div></blockquote>
+Penso di sapere dove io dove sono: in una pagina di quaderno scritti probabilmente sul bordo sotto almeno altri 5 strati di altri conti con altri 5 colori diversi  :lol:  :lol:  :lol:  :lol:  :lol:  :lol:</article>
+<article class="post" id="p19734"><div class="who"><b>phyknight</b><span>23 nov 2014, 16:37</span></div>ok, la prima parte del problema si poteva risolvere equivalentemente con il potenziale efficace 
+<blockquote><div><cite>Simone256 ha scritto:</cite> (l'altro da quello che ricordo dai conti (perduti chissá dove) era per <span class="tex">\(r=0\)</span>)</div></blockquote>
+confermo
+<blockquote><div><cite>andrea96 ha scritto:</cite>in una pagina di quaderno scritti probabilmente sul bordo sotto almeno altri 5 strati di altri conti con altri 5 colori diversi</div></blockquote>
+quoto  :)</article>
+<article class="post" id="p19737"><div class="who"><b>Simone256</b><span>23 nov 2014, 18:00</span></div>Hahahaha  :mrgreen: <br>
+Posso procedere con un problemino nuovo? :)</article>
+<article class="post" id="p19755"><div class="who"><b>OrsoBruno96</b><span>27 nov 2014, 8:46</span></div>Si vai che il forum sembra addormentato ;)</article>
+<article class="post" id="p19757"><div class="who"><b>phyknight</b><span>27 nov 2014, 16:17</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Posso procedere con un problemino nuovo? :)</div></blockquote>
+si, scusa, sono stato un po' assente dal forum ;) <br>
+a te il prossimo problema</article>
+<article class="post" id="p19764"><div class="who"><b>Simone256</b><span>27 nov 2014, 23:25</span></div>Ottimo :)</article>
+<nav class="pager"><a class="prev" href="olifis-5995.html"><small>← precedente</small>23:bobine concentriche</a><a class="next" href="olifis-6005.html"><small>successivo →</small>25: Classico</a></nav>
+</main></body></html>

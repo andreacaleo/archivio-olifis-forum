@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>163. Corsa per biologi</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 163</a></span></nav>
+<h1>163. Corsa per biologi</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6749">forum Olifis</a></p>
+<article class="post first" id="p25095"><div class="who"><b>.Ruben.</b><span>11 ago 2018, 22:51</span></div>Un coniglio si muove arbitrariamente nel piano mantenendo il modulo della sua velo-<br>
+cità <span class="tex">\(v_c\)</span> costante. Una volpe lo insegue muovendosi anche essa con velocità costante in<br>
+modulo <span class="tex">\(v_v\)</span>, dirigendosi istante per istante nella direzione del coniglio.<br>
+Dimostrare che indipendentemente dalla traiettoria scelta dal coniglio esso verrà<br>
+raggiunto in un tempo finito se <span class="tex">\(v_v\)</span>&gt; <span class="tex">\(v_c\)</span></article>
+<article class="post" id="p25097"><div class="who"><b>lance00</b><span>12 ago 2018, 13:04</span></div>La volpe parte dall'origine di un piano cartesiano, la distanza iniziale volpe-coniglio è <span class="tex">\(\vec{d}\)</span>. Dopo un intervallo di tempo <span class="tex">\(dt\)</span> vale <span class="tex">\((\vec{d}-\vec{v_v}dt)+\vec{v_c}dt = \sqrt{d^2+(v_v^2+v_c^2)(dt)^2-2dv_vdt-2v_c(d-v_vdt)dt\cos\phi(t)}\)</span> che è massima per <span class="tex">\(\phi(t) = \pi\)</span>. Ma in questo caso è evidente che la volpe raggiunge il coniglio (si muovono su una retta)</article>
+<article class="post" id="p25100"><div class="who"><b>.Ruben.</b><span>13 ago 2018, 9:10</span></div>Non capisco perché hai semplicemente <span class="tex">\(2 d \, v_v \, dt\)</span>; mica è un prodotto scalare tra vettori paralleli?<br>
+E poi così avresti dimostrato che la migliore strategia locale per non farsi prendere dal coniglio li fa incontrare in un tempo finito. Ma nessuno ha detto che il coniglio è intelligente; non puoi sapere se esiste o no una strategia "peggiore" che richiede un tempo infinito. In sintesi, devi dimostrare che qualunque percorso facciano devono incontrarsi in un tempo finito.<br>
+Rilancio: tempo massimo prima dell'incintro?</article>
+<article class="post" id="p25101"><div class="who"><b>nicarepo</b><span>13 ago 2018, 10:06</span></div>Se ho capito bene quello che ha scritto Lance, credo che vada bene... Comunque scrivo quello che ho pensato. Non so come si inseriscono le immagini quindi descrivo a parole: si immagini di prendere un sistema di assi cartesiani in cui la volpe occupa il centro, e si immagini di posizionare il coniglio sull'ascissa positiva a distanza <span class="tex">\(d_1\)</span> dalla volpe. <br>
+<br>
+Dopo un tempo <span class="tex">\(dt\)</span> sufficientemente piccolo, i cammini dei due animali si possono immaginare rettilinei. La volpe si è mossa lungo <span class="tex">\(x\)</span> (dato che il coniglio si trovava su <span class="tex">\(x\)</span>) mentre il coniglio si è mosso in una direzione qualsiasi con angolo <span class="tex">\(\phi\)</span> rispetto alle ascisse. <br>
+<br>
+Si indichi con <span class="tex">\(d_2\)</span> la nuova distanza tra la volpe e il coniglio. Per disuguaglianza triangolare si può scrivere:<br>
+<br>
+<span class="tex">\(d_2 \le  \Delta s_c+(d_1-\Delta s_v)\)</span> dove <span class="tex">\(\Delta s_c\)</span> è la distanza infinitesima percorsa dal coniglio e <span class="tex">\(\Delta s_v\)</span> dalla volpe. Dato che <span class="tex">\(\Delta s_v \ge  \Delta s_c\)</span> (perché le velocità sono diverse) allora la disuguaglianza si può maggiorare scrivendo <span class="tex">\(d_2&lt;d_1\)</span>. <br>
+<br>
+L'uguaglianza in <span class="tex">\(d_2 \le  \Delta s_c+(d_1-\Delta s_v)\)</span> si ha solo se il coniglio si muove lungo <span class="tex">\(x\)</span> (quindi <span class="tex">\(\phi=0\)</span>). In tal caso il tempo necessario affinché la volpe prenda il coniglio è: <span class="tex">\(\Delta t = \frac{d}{v_v-v_c}\)</span> da cui si deduce che maggiore è la velocità della volpe, prima il coniglio verrà catturato.</article>
+<article class="post" id="p25102"><div class="who"><b>.Ruben.</b><span>13 ago 2018, 10:53</span></div>Okay ora ho capito anch'io</article>
+<article class="post" id="p25103"><div class="who"><b>lance00</b><span>13 ago 2018, 11:13</span></div>effettivamente non mi sono spiegato benissimo..   :lol:  :lol:</article>
+<article class="post" id="p25104"><div class="who"><b>lance00</b><span>13 ago 2018, 11:15</span></div>ma generalizzare in 3d?</article>
+<article class="post" id="p25105"><div class="who"><b>nicarepo</b><span>13 ago 2018, 11:22</span></div>Forse è uguale perché si può far sempre passare un piano per le tre posizioni degli animali (la posizione iniziale e finale del lupo e quella iniziale del coniglio sono sulla stessa retta), quindi si riconduce al caso 2D.</article>
+<article class="post" id="p25106"><div class="who"><b>Gamow00</b><span>13 ago 2018, 11:59</span></div>Effettivamente bastava una disguaglianza triangolare senza fare conti... Bravo nicarepo<br>
+<br>
+In 3d è sicuramente la stessa cosa, perché i vettori velocità dei due corpi in un dato istante sono contenuti in uno stesso piano (perché la volpe punta sempre al coniglio)</article>
+<article class="post" id="p25107"><div class="who"><b>nicarepo</b><span>13 ago 2018, 12:32</span></div>Grazie :D, comunque ho un esercizio interessante da proporre se a Lance non dispiace... <br>
+@Ruben questo problema dovrebbe essere il 163, puoi cambiarlo?</article>
+<article class="post" id="p25108"><div class="who"><b>lance00</b><span>13 ago 2018, 12:57</span></div>@Gamow00: Carnot è più figo  8-) <br>
+@nicarepo: posta pure</article>
+<article class="post" id="p25109"><div class="who"><b>nicarepo</b><span>13 ago 2018, 13:00</span></div>Grazie!</article>
+<nav class="pager"><a class="prev" href="olifis-6746.html"><small>← precedente</small>162. Giro in moto</a><a class="next" href="olifis-6750.html"><small>successivo →</small>164. Decagono</a></nav>
+</main></body></html>

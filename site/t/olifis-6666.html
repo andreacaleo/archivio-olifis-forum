@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>144: Elettroni in un cilindro</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 144</a></span></nav>
+<h1>144: Elettroni in un cilindro</h1>
+<p class="meta">39 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6666">forum Olifis</a></p>
+<article class="post first" id="p24603"><div class="who"><b>.Ruben.</b><span>24 mar 2018, 22:45</span></div>In un cilindro di raggio <span class="tex">\(R=10^{-6} m\)</span> e di altezza <span class="tex">\(H=1m\)</span> si trova una mole di elettroni all'equilibrio termico a temperatura T=400 K.<br>
+Trovare la densità ed il campo in funzione dell'altezza; trovare i loro valori al centro del cilindro, e dimostrare che la densità media dipende solo dalla geometria del problema.<br>
+Interpretare intuitivamente la soluzione ottenuta.<br>
+<br>
+Se servono hint ditelo: il problema é comunque abbastanza standard</article>
+<article class="post" id="p24604"><div class="who"><b>Aleksej99</b><span>25 mar 2018, 13:29</span></div>Potrebbe essere <span class="tex">\(E(h) = - \frac{a^2}{b ln(b-ax) + a(x+c)} \)</span> dove <span class="tex">\(a, b, c\)</span> sono delle costanti?</article>
+<article class="post" id="p24605"><div class="who"><b>.Ruben.</b><span>25 mar 2018, 16:43</span></div>Non quadra con la mia soluzione; comunque vorrei farti capire perché secondo me é sbagliato (cosí da dare contemporaneamente un hint).<br>
+Dalla legge di Gauss in forma locale sappiamo che la derivata spaziale del campo elettrico deve essere proporzionale alla densità di elettroni.<br>
+Per la simmetria del sistema, la densità in funzione dell'altezza deve essere anch'essa simmetrica intorno alla retta che ha per ascissa l'altezza media; dunque la sua derivata (il campo elettrico) deve possedere una simmetria centrale intorno al punto (h/2, 0) (in pratica se il punto di altezza media si trovasse ad ascissa 0, la funziona campo elettrico dovrebbe essere semplicemente dispari; in caso contrario é una funzione dispari traslata orizzontalmente).<br>
+Al contrario, mi sembra che la tua funzione non abbia (nemmeno riaggiustando le costanti) tali proprietà di simmetria.</article>
+<article class="post" id="p24606"><div class="who"><b>Aleksej99</b><span>25 mar 2018, 17:39</span></div>Parli di simmetria centrale, quindi non va considerata la gravità?<br>
+Comunque applicando il teorema di gauss avevo trovato che detta <span class="tex">\(d(h) \)</span> la densità di elettroni ad altezza <span class="tex">\(h\)</span> ho trovato che <span class="tex">\(\frac{dE} {dh} = \frac{e d(h)} { \epsilon} \)</span>...<br>
+ A questo punto si impostava l'equazione differenziale <span class="tex">\(\frac{3}{2N_A}TR d(h) =\frac{1}{2} \epsilon E^2(h)  + m_e g h d(h) \)</span></article>
+<article class="post" id="p24607"><div class="who"><b>Aleksej99</b><span>25 mar 2018, 19:42</span></div>Edit: avevo scritto una boiata  :lol:</article>
+<article class="post" id="p24608"><div class="who"><b>.Ruben.</b><span>25 mar 2018, 23:57</span></div>Colpa mia: andava specificato. La gravità non c'é nel problema.</article>
+<article class="post" id="p24609"><div class="who"><b>.Ruben.</b><span>26 mar 2018, 0:05</span></div>Comunque eguagliare le densità di energia come hai fatto tu non funziona; se non avessi avuto gravità o campo elettrico avresti posto <span class="tex">\(\frac{3}{2} k_B T d(h)= 0\)</span>??</article>
+<article class="post" id="p24610"><div class="who"><b>Aleksej99</b><span>26 mar 2018, 7:19</span></div>Uh si quella strada é sbagliata, comunque credo di aver sistemato il problema non considerando la forza di gravità... Appena posso posto la soluzione...</article>
+<article class="post" id="p24613"><div class="who"><b>lance00</b><span>28 mar 2018, 19:06</span></div>probabilmente sbaglio qualcosa... mi viene, detta <span class="tex">\(\rho\)</span> la densità di carica volumica, <span class="tex">\(\frac{\ddot{\rho}\rho - {\dot{\rho}}^{2}}{\rho^3} = cost\)</span></article>
+<article class="post" id="p24614"><div class="who"><b>.Ruben.</b><span>28 mar 2018, 23:36</span></div>Sinceramente mi sembra sbagliato (forse sbaglio io i conti).<br>
+Ad ogni modo io quella proprietá nella mia soluzione non l'ho usata<br>
+Prova a postare i passaggi</article>
+<article class="post" id="p24615"><div class="who"><b>.Ruben.</b><span>28 mar 2018, 23:37</span></div>Hint:<br>
+Il sistema è un gas ideale all'equilibrio termico<br>
+Va usata l'equazione dell'equilibrio idrostatico<br>
+Vale la legge di Gauss<br>
+Vi consiglio di usare la densitá volumica di numero o di mole</article>
+<article class="post" id="p24617"><div class="who"><b>Aleksej99</b><span>29 mar 2018, 9:34</span></div>Io posto il mio procedimento che mi sembra corrispondere agli hint di Ruben : <br>
+<br>
+Usando la notazione del mio precedente post ottengo imponendo la legge di Gauss che <span class="tex">\( \epsilon E'(h)= e d(h)\)</span> <br>
+Consideriamo la metà superiore del cilindro; per la legge di Gauss il campo elettrico sarà diretto verso il centro del cilindro .<br>
+Imponiamo la legge dei gas perfetti ad un disco di altezza <span class="tex">\(dh\)</span> ;<br>
+ <span class="tex">\(p(h)V=n(h)RT\)</span> e dunque <span class="tex">\(N_A p(h)=d(h)RT\)</span><br>
+Imponiamo ora dunque sempre sullo stesso disco l'equilibrio idrostatico ; <br>
+<span class="tex">\(eVE(h)d(h)+A(p(h)-p(h+dh))=0\)</span> e dunque <span class="tex">\(eE(h)d(h)= \frac{dp}{dh}\)</span><br>
+Ricaviamo dunque l'equazione differenziale <span class="tex">\(N_A e E(h)E'(h)=E''(h) RT\)</span> ...<br>
+Chiedo conferma del procedimento ...</article>
+<article class="post" id="p24620"><div class="who"><b>lance00</b><span>29 mar 2018, 11:40</span></div>Aleksej è quello che ho fatto io, solo che ho usato gauss per scrivere tutto in termini della densità e non del campo.. stasera se riesco posto il procedimento</article>
+<article class="post" id="p24621"><div class="who"><b>.Ruben.</b><span>29 mar 2018, 13:19</span></div>Il procedimento di Aleksej é giusto<br>
+Continuate così:)</article>
+<article class="post" id="p24622"><div class="who"><b>drago</b><span>29 mar 2018, 14:04</span></div>non per mettere i bastoni tra le ruote ma voglio porvi una questione su cui riflettere; chi vi dice che potete usare la legge dei gas perfetti? essa si ricava nell'ipotesi che le particelle costituenti il gas non interagiscano tra loro, e questo non è il caso.</article>
+<article class="post" id="p24623"><div class="who"><b>.Ruben.</b><span>29 mar 2018, 15:51</span></div>Analizzando opportunamente la traccia del problema si può dimostrare (facendo un'opportuna approssimazione in base ai dati forniti) che, all'equilibrio termico, vale localmente la legge dei gas perfetti.</article>
+<article class="post" id="p24624"><div class="who"><b>Aleksej99</b><span>29 mar 2018, 15:53</span></div>Credo si possa usare solo localmente, come ho fatto io, in virtù del fatto che le particelle sono influenzate da un campo elettrico esterno... Inoltre c'è l'ipotesi dell'equilibrio termico...<br>
+(Ho visto il messaggio di Ruben mentre scrivevo il mio, lo mando comunque)</article>
+<article class="post" id="p24625"><div class="who"><b>drago</b><span>29 mar 2018, 17:20</span></div>che sia all'equilibrio termico è una condizione necessaria ma non spiega la questione, si vead per esempio i gas di van der Waals sono all'equilibrio termico ma hanno un equazione di stato che non è quella classica; il punto fondamentale, come dice Aleksej99, è che preso un volumetto di gas l'interazione di un elettrone coi primi vicini è trascurabile rispetto all'interazione col campo medio generato dal resto del gas; l'ipotesi fondamentale è che siamo a densità tali da poter fare questa media ma non troppo alte da sentire effetti quantisici.<br>
+mi sembrava opportuno far notare qesto punto perchè non è così banale come possa sembrare.</article>
+<article class="post" id="p24626"><div class="who"><b>lance00</b><span>29 mar 2018, 18:08</span></div>consideriamo uno strato di spessore infinitesimo <span class="tex">\(dh\)</span> a distanza <span class="tex">\(h\)</span> dal centro del cilindro. Sia<span class="tex">\(p(h)\)</span> e <span class="tex">\(\rho(h)\)</span>rispettivamente la pressione e la densità di carica volumica in funzione di <span class="tex">\(h\)</span>. Si ha <span class="tex">\(p=\frac{k_b T}{m_e}\rho\)</span> da cui <span class="tex">\(dp = \frac{k_b T}{m_e}d\rho\)</span>. All'equilibrio si ha <span class="tex">\(dp = \rho(h)E(h)dh\)</span> da cui <span class="tex">\(\frac{k_b T}{m_e}d\rho =  \rho(h)E(h)dh\)</span>. A questo punto usiamo il teorema di gauss in forma locale il quale afferma che <span class="tex">\(\frac{dE}{dh} =\frac{\rho(h)}{\epsilon_0} =&gt;E(h) =\frac{1}{\epsilon_0} \int \rho(h)dh + C\)</span>. Sostituendo otteniamo  <span class="tex">\(\frac{k_b T}{m_e}d\rho =  \rho(h)dh (\frac{1}{\epsilon_0} \int \rho(h)dh + C) =&gt;\frac{k_b T \epsilon_0}{m_e}\frac{\dot{\rho(h)}}{\rho(h)} = \int \rho(h)dh + C\)</span>. Derivando entrambi i membri otteniamo <span class="tex">\(\frac{k_b T \epsilon_0}{m_e} \frac{\ddot{\rho}\rho - \dot{\rho}^{2}}{\rho^{3}}=1\)</span>  :?:</article>
+<article class="post" id="p24627"><div class="who"><b>.Ruben.</b><span>29 mar 2018, 23:47</span></div>@lance<br>
+Non ho capito il perché della prima eq.<br>
+E soprattutto hai scritto cose quasi giuste ma cje non ti fanno risolvete il problema<br>
+Prova a scrivere un eq.differenziale con il campo elettrico come incognita</article>
+<article class="post" id="p24628"><div class="who"><b>.Ruben.</b><span>29 mar 2018, 23:47</span></div>L'eq differenziale di aleksej é giusta (gli consiglio solo di rivedere meglio i segni)</article>
+<article class="post" id="p24640"><div class="who"><b>Gamow00</b><span>1 apr 2018, 22:53</span></div>La densità elettronica mi viene <span class="tex">\(d(x)={b \over \cos{(x\sqrt{cj}})^2}\)</span>,<br>
+<br>
+mentre il campo elettrico <span class="tex">\(E(x)=|\sqrt{c/j}\times \tan{x\sqrt{cj}|\)</span><br>
+dove <span class="tex">\(c\)</span>, <span class="tex">\(b\)</span> e <span class="tex">\(j\)</span> sono costanti semplici da calcolare ma lunghe da scrivere.</article>
+<article class="post" id="p24642"><div class="who"><b>.Ruben.</b><span>2 apr 2018, 7:26</span></div>Yes</article>
+<article class="post" id="p24643"><div class="who"><b>.Ruben.</b><span>2 apr 2018, 7:27</span></div>Se posti il procedimento e rispondi agli altri punti la staffetta è tua</article>
+<article class="post" id="p24648"><div class="who"><b>Gamow00</b><span>2 apr 2018, 16:19</span></div><blockquote><div><cite>Aleksej99 ha scritto: <a href="olifis-6666.html#p24617" data-post-id="24617" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">29 mar 2018, 9:34</div></cite>
+Usando la notazione del mio precedente post ottengo imponendo la legge di Gauss che <span class="tex">\( \epsilon E'(h)= e d(h)\)</span> <br>
+Consideriamo la metà superiore del cilindro; per la legge di Gauss il campo elettrico sarà diretto verso il centro del cilindro .<br>
+Imponiamo la legge dei gas perfetti ad un disco di altezza <span class="tex">\(dh\)</span> ;<br>
+ <span class="tex">\(p(h)V=n(h)RT\)</span> e dunque <span class="tex">\(N_A p(h)=d(h)RT\)</span><br>
+Imponiamo ora dunque sempre sullo stesso disco l'equilibrio idrostatico ; <br>
+<span class="tex">\(eVE(h)d(h)+A(p(h)-p(h+dh))=0\)</span> e dunque <span class="tex">\(eE(h)d(h)= \frac{dp}{dh}\)</span><br>
+Ricaviamo dunque l'equazione differenziale <span class="tex">\(N_A e E(h)E'(h)=E''(h) RT\)</span> 
+</div></blockquote>
+
+Per la prima parte della soluzione mi appoggio a quella di Aleksej. L'unico errore nel suo procedimento è quello di non aver considerato il segno negativo della carica degli elettroni; finchè, però, si considera il modulo del campo elettrico e non il suo verso, non c'è alcuna differenza, quindi me ne fregherò.<br>
+Andiamo quindi a risolvere l'equazione differenziale.<br>
+<span class="tex">\(N_A \epsilon _0 E(h)E'(h)=E''(h) RT\)</span><br>
+<span class="tex">\({N_A \epsilon _0 \over RT}E(h)E'(h)=E''(h) \)</span><br>
+Ora devo utilizzare il solito trucco della derivata di <span class="tex">\(E^2\)</span>, che è uguale a <span class="tex">\(2EE'\)</span>. Sostituendo nell'equazione:<br>
+<span class="tex">\({N_A \epsilon _0 \over 2RT}(E^2)'=E'' \)</span><br>
+Chiamo <span class="tex">\({N_A \epsilon _0 \over 2RT}=j\)</span><br>
+Integrando rispetto a <span class="tex">\(dE\)</span> ottengo:<br>
+<span class="tex">\(jE^2+c=E' \)</span><br>
+<span class="tex">\(jE^2+c=dE/dh \)</span><br>
+Con qualche manipolazione algebrica:<br>
+<span class="tex">\(dh={dE \over jE^2+c\)</span><br>
+Noto che posso integrare direttamente, perchè a destra ho il noto differenziale dell'arcotangente<br>
+<span class="tex">\(h={tan^{-1} ({\sqrt{j}E \over \sqrt{c}})\over \sqrt{jc}}+c_1\)</span><br>
+Al posto di trascinarmi dietro <span class="tex">\(c_1\)</span>, noto che per <span class="tex">\(h=0\)</span>, <span class="tex">\(E=0\)</span> (per questioni di simmetria il campo elettrico è nullo al centro del tubo). Sostituendo nell'equazione trovo che <span class="tex">\(c_1=0\)</span>.<br>
+<span class="tex">\(h={tan^{-1} ({\sqrt{j}E \over \sqrt{c}})\over \sqrt{jc}}\)</span><br>
+<br>
+<span class="tex">\(E=\sqrt{c/j} \tan{h \sqrt{cj}\)</span>.<br>
+<br>
+Ricordando che <span class="tex">\(\epsilon E'(h)= e d(h)\)</span> -&gt;<br>
+<br>
+<span class="tex">\(d(h)={c\epsilon \over e\times cos(h\sqrt{cj})^2}\)</span><br>
+<br>
+Ora devo trovare il valore di <span class="tex">\(c\)</span>. So che l'integrale da <span class="tex">\(-l/2\)</span>  a <span class="tex">\(l/2\)</span> di <span class="tex">\(d(h)\)</span> (moltiplicato per <span class="tex">\(A\)</span>) deve dare il numero di particelle nel cilindro, cioè <span class="tex">\(N_A\)</span>.<br>
+L'integrale definito viene:<span class="tex">\({2 \epsilon _0 A\over e}\sqrt{c/j} \tan{l\sqrt{cj}/2}=N_A\)</span><br>
+Si tratta di un'equazione trascendente, non risolvibile(credo :?: ) con metodi analitici ma la cui soluzione può essere comunque trovata con metodi numerici. Adesso non ho tempo/voglia di trovarla quindi non userò il valore numerico di <span class="tex">\(c\)</span>.<br>
+<br>
+Ora gli altri punti<br>
+Come già detto, per ragioni di simmetria il campo elettrico al centro del cilindro è 0.<br>
+Il valore di <span class="tex">\(d\)</span> al centro, invece, è <span class="tex">\(d(0)={c\epsilon \over e}\)</span>, dove <span class="tex">\(c\)</span> è la cosa bruttissima ricavata prima.<br>
+<br>
+La densità media è data semplicemente da <span class="tex">\({P_{totali} \over V_{totale}\)</span> ed è evidente che dipende solo dal volume e non da carica, temperatura o costanti varie.<br>
+<br>
+Per quanto riguarda l'interpretazione intuitiva: come si può vedere dal grafico di <span class="tex">\({1 \over cos(x)^2}\)</span>, al centro del tubo la densità elettronica sarà minore(molto minore) della densità alle estremità del cilindro. E' la stessa cosa che accade in un filo conduttore: la carica si concentra alle estremità o in altri punti acuminati.<br>
+<br>
+(Probabilmente ho fatto molti errori di battitura e mi sarò dimenticato qualche costante 8-) )</article>
+<article class="post" id="p24650"><div class="who"><b>.Ruben.</b><span>3 apr 2018, 6:49</span></div>La staffetta é tua, complimenti!</article>
+<article class="post" id="p24655"><div class="who"><b>lance00</b><span>3 apr 2018, 16:15</span></div>@Ruben dove hai trovato questo problema?</article>
+<article class="post" id="p24656"><div class="who"><b>Gamow00</b><span>3 apr 2018, 18:19</span></div>Ottimo!<br>
+Ho solo una domanda...<br>
+Nella risoluzione ho usato questa equazione: <span class="tex">\(\epsilon _0E(h)'=ed(h)\)</span>.<br>
+Essa è stata ottenuta facendo il teorema di Gauss  su un cilindretto  infinitesimo, supponendo quindi che la variazione di flusso di campo elettrico nelle basi del cilindretto è uguale a <span class="tex">\(dQ/\epsilon_0\)</span>. In pratica si sta imponendo che il flusso elettrico attraverso la superficie laterale del cilindretto è pari a zero.<br>
+Non riesco a capire come mai questa assunzione è giustificata :roll: .</article>
+<article class="post" id="p24657"><div class="who"><b>Aleksej99</b><span>3 apr 2018, 18:37</span></div>Credo sia dovuto al fatto che il cilindro è molto più alto che lungo, abbiamo insomma assunto che in generale il campo radiale é trascurabile...</article>
+<article class="post" id="p24658"><div class="who"><b>.Ruben.</b><span>3 apr 2018, 18:57</span></div>Supponiamo che ad un'altezza <span class="tex">\(h_0\)</span> ci sia un campo radiale non nullo; per la simmetria cilindrica tale campo fissato raggio e altezza non dipende dall'angolo. A questo punto immaginiamo di calcolare la circuitazione del campo elettrico lungo una circonferenza perpendicolare all'altezza del cilindro all'altezza suddetta: poiché sul percorso il campo é sempre uguale, la circuitazione non sará nulla, il che é assurdo poiché il campo é esclusivamente di natura elettrostatica.<br>
+Ovviamente a tutto questo va premessa una giustificazione del fatto che non c'è campo magnetico</article>
+<article class="post" id="p24659"><div class="who"><b>.Ruben.</b><span>3 apr 2018, 18:58</span></div>Il problema l'ho inventato io come modifica del SNS n.1 del 2016/7</article>
+<article class="post" id="p24660"><div class="who"><b>Gamow00</b><span>4 apr 2018, 7:41</span></div>@Aleksej<br>
+Anch'io ci avevo pensato ma la cosa non sta in piedi... <br>
+Se il tubo ha un diametro molto piccolo significa che la densità elettronica media è grande e la superficie laterale piccola. Tutti fattori che portano a un aumento del campo elettrico in direzione radiale<br>
+@Ruben <br>
+Non sono d'accordo. Calcolando la circuitazione come dici tu, si vanno a considerare le componenti tangenziali del campo elettrico, che ovviamente sono nulle. Di conseguenza anche la circuitazione sarà nulla, come era da aspettarsi. Questo argomento non riesce quindi a dire nulla sull'esistenza o meno di componenti radiali</article>
+<article class="post" id="p24661"><div class="who"><b>.Ruben.</b><span>5 apr 2018, 1:18</span></div>Si hai ragione mi sono sbagliato.<br>
+Penso che non si possa dire quasi nulla oltre che il campo elettrico radiale si possa approssimare come costante all'interno di ogni dischetto cilindrico di altezza infinitesima essendo il raggio molto piccolo. A questo punto vorrebbe dire che al centro del dischetto il campo elettrico, se fosse non nullo, dovrebbe avere una determinata direzione. A questo punto é fatta, infatti immaginando di girare il cilindro intorno al suo asse si avrebbe la stessa situazione e dunque un campi elettrico che punta in un altra direzione. Dunque un eventuale direzione del campo elettrico non nullo distruggerebbe la simmetrica cilindrica. Quindi, proprio grazie alla simmetria, possiamo affermare che, una volta approssimato tale campo elettrico come costante, ne si deduce che esso é nullo.<br>
+È un po' stentata come dimostrazjone ma non mi viene di meglio (non avevo pensato a questo problema nel problema).<br>
+In alternativa si potrebbe effettivamente mettersi con pazienza e trovare il campo radiale nelle condizioni della traccia.</article>
+<article class="post" id="p24662"><div class="who"><b>.Ruben.</b><span>5 apr 2018, 1:40</span></div>Si potrebbe perfino approssimare la densità come non dipendente dal raggio (poiché molto piccolo); scrivendo dunque l'eq. dell'equilibrio idrostatico in forma vettoriale si otterrebbe subito che il campo radiale é nullo.</article>
+<article class="post" id="p24663"><div class="who"><b>Gamow00</b><span>5 apr 2018, 8:32</span></div>Tu però stai parlando del campo elettrico interno al cilindro. Io intendo il campo presente appena fuori dal tubo. Le considerazioni sul campo approssimato costante in quella zona non funzionano. È evidente che appena fuori chi deve essere campo elettrico uscente in direzione radiale (o almeno con una componente radiale non nulla), perché i campi generati dagli elettroni si sommano e si intensificano.</article>
+<article class="post" id="p24664"><div class="who"><b>.Ruben.</b><span>5 apr 2018, 8:37</span></div>Si é ovvio che fuori dal cilindro il campo radiale c'é, ma ai fini del problema (si vuole calcolare la densità di elettroni all'interno) é irrilevante.</article>
+<article class="post" id="p24665"><div class="who"><b>Gamow00</b><span>5 apr 2018, 11:35</span></div>Eh in realtà no... Perché quel campo produce flusso e fa casino con il teorema di Gauss. Però va bè se dici che è giusto così ci ripenso.</article>
+<article class="post" id="p24669"><div class="who"><b>.Ruben.</b><span>5 apr 2018, 13:44</span></div>Una volta detto che, dato il fatto che il raggio é molto piccolo, il campo elettrico radiale dentro al cilindro si può approssimare come costante, dalla simmetria cilindrica deriva che esso é nullo. A questo punto il teorema di Gauss, dentro al cilindro, lo puoi usare tranquillamente, esattamente come hai giá fatto.<br>
+Quello che succede fuori dal cilindro, una volta fatte queste assunzioni, diventa irrevante ai fini del problema.</article>
+<article class="post" id="p24671"><div class="who"><b>Gamow00</b><span>5 apr 2018, 14:37</span></div>Non riesco proprio a capire :?: . Mi sembra che ci sia qualcosa di sbagliato. Fa niente grazie comunque per le risposte</article>
+<nav class="pager"><a class="prev" href="olifis-6663.html"><small>← precedente</small>143: Problema strano</a><a class="next" href="olifis-6676.html"><small>successivo →</small>145: Rotolando giù da una semisfera</a></nav>
+</main></body></html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liquido in un cilindro che ruota.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Liquido in un cilindro che ruota.</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=53">forum Olifis</a></p>
+<article class="post first" id="p383"><div class="who"><b>Pigkappa</b><span>17 feb 2009, 22:48</span></div>Un recipiente cilindrico posto in rotazione con velocità angolare <span class="tex">\(\displaystyle w\)</span> intorno al suo asse principale contiene un liquido, che ruota insieme al recipiente. È presente l'accelerazione di gravità. Determinare la forma assunta dalla superficie libera del liquido all'equilibrio.<br>
+<br>
+<br>
+<br>
+<br>
+Commenti: non è un problema che potrebbe essere dato in gara, perchè è troppo noto (è perfino riportato in alcuni libri di teoria). Tuttavia è interessante e, se non si è mai visto niente che gli assomigli, può risultare difficile. E' una di quelle cose che conviene sicuramente aver incontrato almeno una volta.</article>
+<article class="post" id="p385"><div class="who"><b>CoNVeRGe.</b><span>18 feb 2009, 12:45</span></div>provo a fare qualche passo..  :? <br>
+-mi aspetto che la forma sia ad U o a V<br>
+-in ogni punto ci deve essere la forza centripeta necessaria a compiere il moto circolare<br>
+-per questa credo che possano contribuire sia la differenza di pressione tra quel punto e quelli adiacenti, sia le pareti del cilindro (e questa osservazione non so trattarla)<br>
+-nel sistema non inerziale rotante abbiamo che la forza centrifuga aumenta linearmente con la distanza dal centro del cilindro<br>
+-per l'equilibrio è necessario che ci sia un'altra forza che aumenti anch'essa linearmente ma in verso opposto (potrebbe essere appunto per il principio di Pascal la pressione, ma anche la reazione delle pareti del cilindro..)<br>
+<br>
+non saprei come avanzare, forse dovrei vedere la situazione da un'altro punto di vista</article>
+<article class="post" id="p386"><div class="who"><b>Falco5x</b><span>18 feb 2009, 12:51</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>provo a fare qualche passo..  :? <br>
+-per l'equilibrio è necessario che ci sia un'altra forza che aumenti anch'essa linearmente ma in verso opposto (potrebbe essere appunto per il principio di Pascal la pressione, ma anche la reazione delle pareti del cilindro..)
+</div></blockquote>
+La soluzione si trova più semplicemente perché il metodo diretto e piuttosto facile... basta solo pensarci (ma questo non è proprio immediato...). Comunque meglio lasciar stare la pressione... ;)</article>
+<article class="post" id="p388"><div class="who"><b>CoNVeRGe.</b><span>18 feb 2009, 13:29</span></div>mmm ecco un'idea molto più efficace  8-)  :<br>
+-all'equilibrio dinamico la superficie del liquido si dispone in modo tale che la risultante delle forze agenti su ogni punto sia perpendicolare alla superificie stessa (e questo direi che si possa ritenere privo di dubbi)<br>
+-assumendo per positivi i versi alto e destra, l'inclinazione della risultante delle forze è (bidimensionando il problema):<br>
+<span class="tex">\(\tan \alpha = \frac{-g}{\omega^2 r}\)</span><br>
+l'inclinazione della normale quindi:<br>
+<span class="tex">\(\tan \beta = \frac{dh}{dr} = - \frac{1}{\tan \alpha} = \frac{\omega^2 r}{g}\)</span><br>
+integrando (io non lo so fare) si ottiene h in funzione di r</article>
+<article class="post" id="p390"><div class="who"><b>Falco5x</b><span>18 feb 2009, 14:13</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>mmm ecco un'idea molto più efficace  8-)  :<br>
+-all'equilibrio dinamico la superficie del liquido si dispone in modo tale che la risultante delle forze agenti su ogni punto sia perpendicolare alla superificie stessa (e questo direi che si possa ritenere privo di dubbi)<br>
+-assumendo per positivi i versi alto e destra, l'inclinazione della risultante delle forze è (bidimensionando il problema):<br>
+<span class="tex">\(\tan \alpha = \frac{-g}{\omega^2 r}\)</span><br>
+l'inclinazione della normale quindi:<br>
+<span class="tex">\(\tan \beta = \frac{dh}{dr} = - \frac{1}{\tan \alpha} = \frac{\omega^2 r}{g}\)</span><br>
+integrando (io non lo so fare) si ottiene h in funzione di r</div></blockquote>
+Bravo :!:<br>
+<br>
+<br>
+<span class="tex">\(h=\frac{\omega^2 }{2g}r^2\)</span><br>
+<br>
+Paraboloide.<br>
+ :D</article>
+<article class="post" id="p391"><div class="who"><b>pascal</b><span>18 feb 2009, 16:23</span></div>L'integrale si può evitare.<br>
+Ponendo z=dh/dr e denotando con k la costante moltiplicativa di r nella formula di z,<br>
+si ha che z=kr. Il grafico di z in funzione di r è una retta passante per l'origine degli<br>
+assi. Poichè dh = z dr, i rettangolini di base infinitesima dr e altezza z forniscono dh.<br>
+Sommando tutti i rettangolini si ottiene la variazione di h, partendo da 0, ossia h.<br>
+Ma l'unione di questi rettangolini forma un triangolo rettangolo di area <br>
+<span class="tex">\(zr/2=kr^2/2\)</span>.<br>
+Quindi <br>
+<span class="tex">\(h=\frac{\omega^2r^2}{2g}\cdot\)</span></article>
+<article class="post" id="p392"><div class="who"><b>Falco5x</b><span>18 feb 2009, 16:43</span></div><blockquote><div><cite>pascal ha scritto:</cite>L'integrale si può evitare....
+</div></blockquote>
+Non l'hai evitato, l'hai quasi dimostrato! :lol:</article>
+<article class="post" id="p393"><div class="who"><b>Ippo</b><span>18 feb 2009, 18:38</span></div>Anche utilizzando la pressione non è che venga così difficile...<br>
+prendiamo un volume infinitesimo di liquido, diciamo un cubo con facce di superficie A.<br>
+La forza risultante agente sul cubo di liquido, in direzione radiale, è <span class="tex">\(F=(p+dp)A-pA=Adp\)</span>. Uguagliandola alla forza centripeta <span class="tex">\(F_c=\rho\cdot A dr \cdot \omega^2 r\)</span> si trova che la derivata della pressione rispetto allo spostamento radiale dal centro è <span class="tex">\(\frac{dp}{dr}= \rho \omega^2 r\)</span>. Ma per la legge di Stevino (in forma differenziale) si ha che <span class="tex">\(dp=\rho g dh\)</span> quindi, sostituendo: <span class="tex">\(\frac{dh}{dr}=\frac{\omega^2 r}{g}\)</span>.<br>
+Integrando si ottiene l'equazione del paraboloide, altrimenti si può dire che la pendenza della superficie del liquido cresce linearmente con la distanza dal centro e quindi una sua sezione verticale è una parabola.<br>
+Tra l'altro è stato dato per l'ammissione alla Normale qualche anno fa (poi chiedevano anche di trattare il liquido come uno specchio e aggiungevano un quesito di ottica. Originale!)</article>
+<article class="post" id="p394"><div class="who"><b>CoNVeRGe.</b><span>18 feb 2009, 19:05</span></div><blockquote><div><cite>Ippo ha scritto:</cite>..la derivata della pressione rispetto allo spostamento radiale dal centro è <span class="tex">\(\frac{dp}{dr}= \rho \omega^2 r\)</span>. Ma per la legge di Stevino (in forma differenziale) si ha che <span class="tex">\(dp=\rho g dh\)</span> quindi, sostituendo..</div></blockquote>
+non capisco perchè sia lecito sostituire.. un'equazione si riferisce alla variazione per spostamento laterale, l'altra verticale..<br>
+<br>
+EDIT:ah ok ora ci sono.. per uno spostamento radiale <span class="tex">\(d r\)</span> la pressione DEVE aumentare in un certo modo.. (per avere la forza centripeta necessaria) e questo si ottiene se aumenta anche la profondità di un certo <span class="tex">\(d h\)</span><br>
+è questo il ragionamento che c'era dietro suppongo..</article>
+<article class="post" id="p398"><div class="who"><b>pascal</b><span>19 feb 2009, 11:16</span></div><blockquote><div><cite>Falco5x ha scritto:</cite><blockquote><div><cite>pascal ha scritto:</cite>L'integrale si può evitare....
+</div></blockquote>
+Non l'hai evitato, l'hai quasi dimostrato! :lol:</div></blockquote>
+
+Sei libero di interpretare il significato dei vocaboli. Ma se viene affermato di non aver ancora affrontato il calcolo integrale e si propone un modo diretto per ottenere la risposta, per me significa aver evitato la procedura tecnica d’integrazione, pur raggiungendo lo stesso risultato con metodi geometrici accessibili a tutti gli studenti.<br>
+Il ”quasi” poi non mi è proprio chiaro. L’area di un rettangoloide viene determinata approssimando la figura con un insieme di rettangolini. Ma l’approssimazione svanisce quando le basi dei rettangolini tendono a zero. Se dico che le basi sono infinitesime, vuol dire che è stato  già effettuato il limite verso lo zero. Nell’esempio in considerazione si ottiene esattamente l’area di un triangolo rettangolo. D’altra parte a livello scolastico questo criterio si applica diverse volte: spazio in un moto uniformemente vario, impulso, energia (elastica, elettrostatica, magnetica), lavoro termodinamico, ecc. <br>
+Bisogna anche dire che l’analisi matematica viene studiata soltanto negli ultimi anni della scuola media superiore e spesso si usano in fisica approcci alternativi. Inoltre quasi tutti i problemi di fisica assegnati alle Olimpiadi vengono impostati per essere risolti senza il supporto dell’analisi. Ma se gli studenti già conoscono il calcolo analitico sono padroni di utilizzarlo a meno che non venga esplicitamente negato.<br>
+E’ necessario ancora evidenziare, a mio avviso, che questo forum ha valenza non soltanto per gli studenti che fra poco accedono al livello nazionale delle Olimpiadi, ma anche per appassionati, curiosi, docenti e soprattutto per gli alunni che vogliono incominciare a prepararsi per la prossima edizione della gara o che vogliono migliorare la loro formazione in fisica nella soluzione di problemi ostici e desueti.</article>
+<article class="post" id="p399"><div class="who"><b>MicroM</b><span>19 feb 2009, 14:24</span></div><blockquote><div><cite>pascal ha scritto:</cite> problemi ostici e desueti.</div></blockquote>
+
+Quoto in pieno!  I problemi ostici sono per forza desueti .... ora si cerca di semplificare tutto fino alla banalità assoluta.</article>
+<article class="post" id="p400"><div class="who"><b>Falco5x</b><span>19 feb 2009, 17:57</span></div><blockquote><div><cite>pascal ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite><blockquote><div><cite>pascal ha scritto:</cite>L'integrale si può evitare....
+</div></blockquote>
+Non l'hai evitato, l'hai quasi dimostrato! :lol:</div></blockquote>
+
+Sei libero di interpretare il significato dei vocaboli....</div></blockquote>
+La mia non voleva essere una critica, spero che tu non te la sia presa. Volevo solo dire che, sia che tu lo chiami integrale oppure no, con il procedimento di limite che hai descritto hai fatto esattamente un integrale nella sostanza, niente di più. In altre parole dal concetto di integrale non si sfugge, anche quando si riesce ad aggirarne i formalismi. Ma come hai detto tu il tuo procedimento va benissimo per far capire il concetto a chi non possiede ancora gli strumenti matematici dell'analisi, nulla da eccepire in ciò.<br>
+
+<blockquote><div><cite>pascal ha scritto:</cite>Il ”quasi” poi non mi è proprio chiaro...</div></blockquote>
+Era solo un tentativo di cortesia nei confronti dei matematici, i quali sono probabilmente abituati a trattare le dimostrazioni di analisi mediante formalismi più rigorosi e astratti (non essendo io un matematico il termine "dimostrazione" lo adopero con estrema cautela  :D ).<br>
+Parlando invece da grezzo ingegnere qual sono, la tua la considero proprio una dimostrazione, ma di fronte a un matematico ci andrei prudente nel dichiararlo.<br>
+Ciao. ;)</article>
+<article class="post" id="p401"><div class="who"><b>String</b><span>19 feb 2009, 21:43</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Ippo ha scritto:</cite>..la derivata della pressione rispetto allo spostamento radiale dal centro è <span class="tex">\(\frac{dp}{dr}= \rho \omega^2 r\)</span>. Ma per la legge di Stevino (in forma differenziale) si ha che <span class="tex">\(dp=\rho g dh\)</span> quindi, sostituendo..</div></blockquote>
+non capisco perchè sia lecito sostituire.. un'equazione si riferisce alla variazione per spostamento laterale, l'altra verticale..<br>
+<br>
+EDIT:ah ok ora ci sono.. per uno spostamento radiale <span class="tex">\(d r\)</span> la pressione DEVE aumentare in un certo modo.. (per avere la forza centripeta necessaria) e questo si ottiene se aumenta anche la profondità di un certo <span class="tex">\(d h\)</span><br>
+è questo il ragionamento che c'era dietro suppongo..</div></blockquote>
+No, non ci sono su questo passaggio...Cioè aumentando la profondità si ha una maggiore pressione dovuta al peso del liquido sovrastante. Questa forza però agisce in senso verticale, come fa a fornire la forza centripeta necessaria al liquido per girare?<br>
+<br>
+@CoNVeRGe: non ho capito bene la tua soluzione, potresti per favore rispiegarla?  :roll:</article>
+<article class="post" id="p403"><div class="who"><b>pascal</b><span>19 feb 2009, 22:31</span></div>[quote="Falco5x"][quote="pascal"][quote="Falco5x"][quote="pascal"]<br>
+<br>
+L'importante è aver chiarito la questione.<br>
+Io come fisico e tu come ingegnere possiamo concludere di<br>
+aver parlato del significato geometrico dell'integrale definito<br>
+utile ai fini didattici.<br>
+Calorosi saluti</article>
+<article class="post" id="p404"><div class="who"><b>CoNVeRGe.</b><span>19 feb 2009, 22:38</span></div><blockquote><div><cite>String ha scritto:</cite>
+No, non ci sono su questo passaggio...Cioè aumentando la profondità si ha una maggiore pressione dovuta al peso del liquido sovrastante. Questa forza però agisce in senso verticale, come fa a fornire la forza centripeta necessaria al liquido per girare?<br>
+<br>
+@CoNVeRGe: non ho capito bene la tua soluzione, potresti per favore rispiegarla?  :roll:</div></blockquote>
+
+<br>
+provo a spiegare qualcosa.. :D <br>
+per quanto riguarda la mia soluzione:<br>
+-all'equilibrio dinamico la superficie dell'acqua nel cilindro si stabilizza assumendo una forma precisa<br>
+-è noto che un liquido si orienta in modo tale che la perpendicolare alla superficie sia la direzione risultante delle forze applicate in quel punto (esclusa la reazione vincolare che la annulla)<br>
+pensando di non essere chiaro faccio un esempio: la superifice del mare è punto per punto perpendicolare alla verticale gravimetrica (se fosse calmo!)<br>
+-nel sistema rotante abbiamo che, oltre alla forza gravitazionale verticale, c'è un'altra forza orizzontale in verso uscente dal cilindro che varia al variare dalla distanza dall'asse di rotazione: la forza centrifuga<br>
+a questo punto il resto si dovrebbe capire: ho calcolato l'inclinazione delle forze applicate in un generico punto della superficie (rapporto tra quella verticale e quella orizzontale) e poi sono passato allla perpendicolare che, dunque, altro non è che la superficie del liquido (derivata dell'altezza rispetto allo spostamento radiale)<br>
+<br>
+la soluzione di ippo (o meglio la mia interpretazione):<br>
+(mi metto anche qui nel sistema rotante)<br>
+-l'equilibrio in direzione orizzontale della superficie è reso possibile da una forza che si oppone a quella centrifuga; questa forza non è altro che la differenza di pressione moltiplicata per l'unità di superficie<br>
+la pressione non agisce in un verso preciso: è uno scalare no? agisce quindi anche lateralmente oltre che verso il basso.<br>
+<br>
+dunque per avere questa forza è necessario che la colonna di cubetti affianco sia alta <span class="tex">\(dh\)</span> in più, cosicchè il cubetto adiacente a quello preso in considerazione lo spinga con la giusta forza verso l'asse di rotazione</article>
+<article class="post" id="p444"><div class="who"><b>Ippo</b><span>23 feb 2009, 15:18</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>la soluzione di ippo (o meglio la mia interpretazione):<br>
+(mi metto anche qui nel sistema rotante)<br>
+-l'equilibrio in direzione orizzontale della superficie è reso possibile da una forza che si oppone a quella centrifuga; questa forza non è altro che la differenza di pressione moltiplicata per l'unità di superficie<br>
+la pressione non agisce in un verso preciso: è uno scalare no? agisce quindi anche lateralmente oltre che verso il basso.<br>
+<br>
+dunque per avere questa forza è necessario che la colonna di cubetti affianco sia alta <span class="tex">\(dh\)</span> in più, cosicchè il cubetto adiacente a quello preso in considerazione lo spinga con la giusta forza verso l'asse di rotazione</div></blockquote>
+
+Esattamente. Mi scuso se sono stato poco chiaro. Il concetto-chiave è che la pressione è uno scalare.</article>
+<nav class="pager"><a class="prev" href="olifis-104.html"><small>← precedente</small>Urto contro uno scalino</a><a class="next" href="olifis-652.html"><small>successivo →</small>Universo d&#x27;acqua</a></nav>
+</main></body></html>

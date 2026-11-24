@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>205 - Srotolamento di due fili inestensibili</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 205</a></span></nav>
+<h1>205 - Srotolamento di due fili inestensibili</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6893">forum Olifis</a></p>
+<article class="post first" id="p25967"><div class="who"><b>bosone</b><span>7 mag 2020, 17:40</span></div>Osserviamo un disco pesante di raggio R, che rotola verso il basso con velocità angolare <span class="tex">\(\omega\)</span> in senso orario.   Il moto del disco provoca lo srotolamento di due fili inestensibili, ad esso arrotolati entrambi in senso antiorario, i cui estremi liberi sono fissati al soffitto. Le direzioni dei fili, che rimangono tesi durante il processo, formano un angolo <span class="tex">\(\alpha\)</span> fra loro. I fili risultano tangenti al cilindro rispettivamente nel punto A e nel punto B.<br>
+Dobbiamo determinare il modulo della velocità verso il basso del centro del disco.</article>
+<article class="post" id="p25968"><div class="who"><b>bosone</b><span>10 mag 2020, 10:34</span></div>Ritengo di dover dare qualche hint. Il centro istantaneo di rotazione del disco è il punto di incontro delle perpendicolari alle velocità per es. nei punti A e B. La velocità di un punto del filo sovrapposto a un punto del disco è quella del punto del disco. Quando il punto del filo arriva in A (B) la sua velocità si annulla diventando uguale a quella dell'estremo del filo fissato al soffitto. Pertanto il filo si srotola in un secondo della velocità di un punto del disco. Questo srotolamento provoca uno spostamento verso il basso dei punti della corda AB nella direzione di AB medesima perchè lo spostamento in un secondo di A in direzione AB  è uguale a quello nello stesso secondo di B sempre in direzione di AB. Ma AB è una corda del disco quindi la cosa riguarda anche i punti del disco fra cui il suo centro O....E' un concetto inusuale e complicato...spero di essermi spiegato senza dare il risultato numerico... :roll:  :?:  :?:</article>
+<article class="post" id="p25969"><div class="who"><b>Luca Milanese</b><span>10 mag 2020, 18:38</span></div><span class="tex">\(v=R\omega \cos(\frac{\alpha}{2})\)</span>? Se confermi posto il procedimento (o meglio il poco che resta da fare dopo il tuo hint).</article>
+<article class="post" id="p25970"><div class="who"><b>bosone</b><span>11 mag 2020, 10:13</span></div>Ottimo.  Vai con il procedimento e con il 206! :D</article>
+<article class="post" id="p25971"><div class="who"><b>Luca Milanese</b><span>11 mag 2020, 10:28</span></div>Proseguo direttamente da quanto hai scritto nell'hint. Dal momento che la corda AB si muove verso il basso e nella direzione stessa di AB, ciò significa che i due punti si trovano uno sopra l'altro in verticale. Da considerazioni geometriche si vede che l'angolo <span class="tex">\(\alpha\)</span> fra i due fili è lo stesso che sottende la corda, quindi l'angolo fra un filo e la verticale è <span class="tex">\(\frac{\alpha}{2}\)</span>. La velocità lineare sul bordo del disco è <span class="tex">\(\omega R\)</span>. Poichè la velocità in verticale di un punto del filo che arriva in A o B si annulla, si deve quindi avere <span class="tex">\(v=\omega R \cos\bigg(\frac{\alpha}{2}\bigg)\)</span>.</article>
+<article class="post" id="p25980"><div class="who"><b>Gamow00</b><span>14 mag 2020, 10:54</span></div>Credo che la risposta data sia sbagliata.<br>
+Il risultato dovrebbe essere <span class="tex">\(v = \frac{\omega R}{\cos{\alpha /2}}\)</span>, per il seguente motivo.<br>
+Diamo dei nomi: <span class="tex">\(O\)</span> è il centro del disco, mentre <span class="tex">\(C\)</span> è il punto di intersezione tra le linee che contengono i due fili.<br>
+<br>
+La velocità dei punti <span class="tex">\(A\)</span> e <span class="tex">\(B\)</span> è diretta radialmente, poichè tali punti non possono allontanarsi dall'estremità fissa del filo. Quindi il centro instantaneo di rotazione è il punto di intersezione tra i due fili, ovvero <span class="tex">\(C\)</span>.<br>
+<br>
+Dai soliti teoremi sul corpo rigido, il disco ruota instantanemente attorno a <span class="tex">\(C\)</span>, con una velocità angolare che è la stessa con la quale il disco ruota intorno ad <span class="tex">\(A\)</span>. Tale velocità angolare è quindi <span class="tex">\(\omega\)</span>.<br>
+La velocità del disco sarà <span class="tex">\(v = \omega \cdot \overline{OC} = \omega \cdot \frac{R} {cos{\alpha /2}}\)</span><br>
+<a class="lost" href="https://i.imgur.com/2SEl7Su.jpg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p25981"><div class="who"><b>bosone</b><span>14 mag 2020, 11:14</span></div>Ha assolutamente ragione Gamow che ringrazio. Quando ho giudicato ottima la risposta di Luca mi pareva di ricordare dai miei appunti e dalla risposta al testo ufficiale che la risposta fosse quella (sono molto simili ma molto diverse..). Stamani Gamow mi ha... risvegliato, sono andato a rivedere i miei appunti ed effettivamente la risposta giusta è la sua! Grazie a lui perchè la verità nel nostro gioco è sacrosanta anche se uno ci fa una brutta figura perchè ha controllato frettolosamente! Quindi propongo di lasciare la staffetta inalterata e di proseguire confidando che, meno male, ..... da lassù qualcuno ci controlla!! :roll:</article>
+<article class="post" id="p25982"><div class="who"><b>Luca Milanese</b><span>14 mag 2020, 11:19</span></div>Concordo con bosone, in effetti mi rendo conto adesso di aver scritto parecchie cavolate nella mia "soluzione". In effetti se AB fosse sempre verticale, come avevo detto, allora i fili non potrebbero arrivare al soffitto  :lol: . La prossima volta vedró di essere più attento. :roll:</article>
+<article class="post" id="p25983"><div class="who"><b>Gamow00</b><span>14 mag 2020, 11:45</span></div>Lieto di essere stato utile :D  Buon allenamento</article>
+<nav class="pager"><a class="prev" href="olifis-6891.html"><small>← precedente</small>204. Nuotata nel fiume</a><a class="next" href="olifis-6894.html"><small>successivo →</small>206. Poligono regolare.</a></nav>
+</main></body></html>

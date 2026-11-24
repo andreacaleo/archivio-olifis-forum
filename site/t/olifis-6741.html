@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>160. Distanza crescente</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 160</a></span></nav>
+<h1>160. Distanza crescente</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6741">forum Olifis</a></p>
+<article class="post first" id="p25022"><div class="who"><b>lance00</b><span>5 ago 2018, 13:30</span></div>Qual è il massimo angolo <span class="tex">\(\phi\)</span> (rispetto al terreno) con cui puoi lanciare una palla affinchè la sua distanza da te non diminuisca mai durante il volo?</article>
+<article class="post" id="p25024"><div class="who"><b>Dudin</b><span>5 ago 2018, 17:39</span></div><span class="tex">\( \phi = 51.2\)</span>° ?<br>
+<br>
+<br>
+non riesco a mettere lo spoiler</article>
+<article class="post" id="p25025"><div class="who"><b>lance00</b><span>5 ago 2018, 18:50</span></div>No</article>
+<article class="post" id="p25026"><div class="who"><b>.Ruben.</b><span>5 ago 2018, 19:03</span></div><span class="tex">\(arcsin\left(\sqrt{\frac{8}{9}}\,\right)\,?\)</span></article>
+<article class="post" id="p25027"><div class="who"><b>lance00</b><span>5 ago 2018, 19:22</span></div>Si  :D</article>
+<article class="post" id="p25028"><div class="who"><b>.Ruben.</b><span>5 ago 2018, 22:36</span></div>Domani posto la soluzione completa</article>
+<article class="post" id="p25029"><div class="who"><b>.Ruben.</b><span>6 ago 2018, 7:31</span></div>Scrivo l'eq.del moto per la palla in coordinate polari centrate nel punto da cui essa viene lanciata.<br>
+<span class="tex">\(   r cos(\phi) = v cos(\theta) t;    r sin(\phi) = v sin(\theta) t - 0.5 g t^2 \)</span><br>
+Elevando al quadrato e sommando: <span class="tex">\(r^2 = t^2 [  v^2 - v g sin(\theta)  + p
+0.25 g^2 t^2 ]\)</span>.<br>
+Dunque  <span class="tex">\(\frac{d(r^2)}{dt} = 2t v^2 - 3t^2 v g sin(\theta) + g^2 t^3\)</span>.<br>
+Se la palla si allontana solo dal punto da cui viene lanciata, allora <span class="tex">\(   \frac{d(r^2)}{dt} &gt; 0 \)</span>, ossia:<br>
+<span class="tex">\( 2v^2 - 3t v g sin(\theta) + g^2 t^2 &gt; 0 \)</span>. Se tale disuguaglianza vale per ogni valore di t, allora <span class="tex">\(\Delta = 9 v^2 g^2 sin^2(\theta) - 8 v^2 g^2&lt;0\)</span>, da cui la soluzione.</article>
+<article class="post" id="p25030"><div class="who"><b>lance00</b><span>6 ago 2018, 8:36</span></div>Bene! Vai col prossimo  8-)</article>
+<article class="post" id="p25092"><div class="who"><b>Doc</b><span>10 ago 2018, 18:30</span></div>Credo di aver trovato un metodo più semplice per risolvere questo problema. <br>
+Durante il suo moto, il proiettile è caratterizzato da una velocità radiale <strong class="text-strong">VR</strong> (che giace nella stessa direzione del vettore posizione R), e da una velocità tangenziale<strong class="text-strong">VT</strong> (che è perpendicolare al vettore posizione R) rispetto al punto di lancio O(0;0). <br>
+Ora, se la velocità radiale <strong class="text-strong">VR</strong>  mantiene per tutto il moto il verso centrifugo, cioè se la velocità radiale punta nel verso opposto rispetto a quello verso la posizione di lancio O(0;0), allora il proiettile si allontanerà sempre durante il suo moto, dalla posizione di lancio.<br>
+L'equazione che esprime la velocità radiale <strong class="text-strong">VR</strong> in funzione del tempo è <strong class="text-strong"><em class="text-italics">VR=V0Xcos(ϕ)+(V0Y-gt)cos(90-ϕ)</em></strong> , e si ottiene sommando le componenti lungo la direzione del vettore posizione di VX e VY in funzione del tempo. V0X è la componente velocità iniziale lungo l'asse x , V0Y la componente lungo l'asse y e ϕ l'angolo tra l'asse x e il vettore posizione R in un dato istante t. <br>
+Sapendo che <strong class="text-strong">cos(ϕ)=VOXt/D</strong> e <strong class="text-strong">sin(ϕ)=(VOYt-1/2gt^2)/D</strong> dove D è la distanza variabile in funzione del tempo t tra O (0;0) e la posizione del proiettile in un dato istante t,  sviluppo l'equazione di qui sopra e impongo la condizione di continuo allontanamento , cioè VR&gt;0 , e ottengo: <br>
+<strong class="text-strong"><em class="text-italics">t(1/2(gt)^2- 3/2(gV0Yt)+V0^2)&gt;/=0</em></strong><br>
+raccogliendo per t ottengo un' equazione di secondo grado, esprimibile come parabola. La condizione che permette che VR&gt;0  per qualsiasi valore di t è <strong class="text-strong"><em class="text-italics">b^2-4ac&gt;/=0</em></strong>, applicata a questo caso diventa <strong class="text-strong"><em class="text-italics">9/4(gV0Y)^2-4(1/2(g^2))(V0^2)&gt;/=0</em></strong> Considerando il caso in cui quest'ultima equazione sia uguale a zero, otteniamo il valore  massimo dell'angolo di lancio α, dato che V0Y=VOsin(α), e questo è uguale ad arcsin(√( 8/9))</article>
+<article class="post" id="p25098"><div class="who"><b>lance00</b><span>12 ago 2018, 13:11</span></div>sostanzialmente è quello che ha fatto Ruben, comunque va bene  :)</article>
+<nav class="pager"><a class="prev" href="olifis-6738.html"><small>← precedente</small>159. Bolle di sapone</a><a class="next" href="olifis-6744.html"><small>successivo →</small>161. Urto reale</a></nav>
+</main></body></html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>146: La formica che non arriva</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 146</a></span></nav>
+<h1>146: La formica che non arriva</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6682">forum Olifis</a></p>
+<article class="post first" id="p24707"><div class="who"><b>Ilgatto</b><span>14 apr 2018, 18:08</span></div>Una formica si avvicina a un muro da una distanza <span class="tex">\(x\)</span> e sa che impiegherà un tempo <span class="tex">\(t\)</span> a raggiungere il muro con la velocità che ha in quel momento, dopo aver compiuto uno spazio infinitesimo la formica sa che il tempo che manca alla nuova velocità è sempre <span class="tex">\(t\)</span>. Insomma la formica non arriverà mai al muro perchè qualsiasi sia la sua distanza dal muro starà decelerando in modo non uniforme. Se mi sono spiegato troppo male, pensate che la velocità della formica in ogni punto è lo spazio tra la formica e il muro diviso <span class="tex">\(t\)</span>.<br>
+1) Trovare dopo quanto tempo in funzione di <span class="tex">\(t\)</span> la formica dimezza la distanza dal muro<br>
+2) Trovare la legge oraria del moto sempre in funzione di <span class="tex">\(t\)</span><br>
+3) Modifichiamo il problema: la formica si muove in direzione di un palo (avvicinandosi come se fosse il muro di prima) che si trova al centro di un disco spostandosi su di un raggio e il suo moto lungo il raggio ha legge oraria come quella al punto 2. Sapendo che il disco ruota a velocità angolare <span class="tex">\(\omega\)</span> intorno al palo quando la formica dista <span class="tex">\(R\)</span> dal palo e sapendo che il disco ha momento d'inerzia <span class="tex">\(I\)</span> trovare quanti giri compie il disco in un tempo pari a <span class="tex">\(5t\)</span>. La formica ha massa <span class="tex">\(m\)</span>.<br>
+<br>
+Hint: <span class="tex">\(\int \frac{1}{1-ak^{-x}}dx =\frac{\ln(k^x-a)}{\ln(k)}\)</span> <br>
+Il fatto che potrebbe comparire un numero negativo nel logaritmo non dovrebbe dare problemi, in quanto si finisce nei complessi e robe varie, comunque poi si torna ai reali definendo l'integrale</article>
+<article class="post" id="p24708"><div class="who"><b>Vinci</b><span>15 apr 2018, 9:32</span></div>Per caso la risposta ai primi due punti è <br>
+<span class="tex">\(\tilde{T}=-t\cdot ln\left(\dfrac{1}{2}\right)\)</span> è il tempo di dimezzamento e la legge oraria è <span class="tex">\(X(T)=x\cdot e^{-\frac{T}{t}}\)</span>?</article>
+<article class="post" id="p24709"><div class="who"><b>Vinci</b><span>15 apr 2018, 10:06</span></div>Forse ho sbagliato qualche conto, ma l'angolo percorso dal disco in funzione del tempo T mi viene<br>
+<span class="tex">\(\theta(T)=\dfrac{w(I+mR^2)}{I}\cdot \dfrac{t}{2}\cdot ln\left( \dfrac{I\cdot e^{\frac{2T}{t}}+mR^2}{I+mR^2} \right)\)</span></article>
+<article class="post" id="p24710"><div class="who"><b>Ilgatto</b><span>15 apr 2018, 17:32</span></div>Il punto 1 e 2 sono corretti. Per il punto 3 c'è un problema: ho ricontrollato i calcoli che avevo fatto e ho visto che avevo dimenticato un quadrato  :roll: <br>
+I calcoli sono molto più complicati così e l'hint è inutile. Il tuo risultato mi sembra possa funzionare. Posta il procedimento se vuoi, altrimenti provvedo a cambiare quel punto</article>
+<article class="post" id="p24711"><div class="who"><b>Ilgatto</b><span>15 apr 2018, 17:33</span></div>Il punto 1 e 2 sono corretti. Per il punto 3 c'è un problema: ho ricontrollato i calcoli che avevo fatto e ho visto che avevo dimenticato un quadrato  :roll: <br>
+I calcoli sono molto più complicati così e l'hint è inutile. Il tuo risultato mi sembra possa funzionare. Posta il procedimento se vuoi, altrimenti provvedo a cambiare quel punto</article>
+<article class="post" id="p24712"><div class="who"><b>Vinci</b><span>15 apr 2018, 17:35</span></div>In realtà ho utilizzato l'hint per il punto 3, però l'argomento del logaritmo era sempre positivo, quindi non capivo cosa intendevi con quello che hai scritto dopo, ora posto il procedimento.</article>
+<article class="post" id="p24713"><div class="who"><b>Vinci</b><span>15 apr 2018, 18:15</span></div><strong class="text-strong">PUNTO 2</strong><br>
+Sia <span class="tex">\(X\)</span> la posizione della formica sulla retta su cui si muove, con l'origine nel punto dove è il palo e punto iniziale sul semiasse positivo. Avremo <span class="tex">\(X(T=0)=x\)</span> e la velocità sarà <br>
+<span class="tex">\(v(X)=-\frac{X}{t}\)</span><br>
+dove il segno meno è dovuto al fatto che si muove verso l'origine. Per la regola di derivazione delle funzioni composte si ha <br>
+<span class="tex">\(\frac{dv}{dT}=\frac{dv}{dX}\cdot \frac{dX}{dT}=-\frac{v}{t}\)</span><br>
+in quanto la derivata di <span class="tex">\(X\)</span> rispetto al tempo è proprio la velocità della formica. Risolviamo quest'equazione separando le variabili e integrando, e si ha<br>
+<span class="tex">\(ln|v|=\int \frac{dv}{v}=\int -\frac{dT}{t}=-\frac{T}{t}+c_1\)</span><br>
+che, elevando in base e, e ponendo la condizione iniziale <span class="tex">\(v(T=0)=-x/t\)</span> ci dà<br>
+<span class="tex">\(|v|=\frac{x}{t}e^{-\frac{T}{t}} \quad \Rightarrow \frac{dX}{dT}=v(T)=-\frac{x}{t}e^{-\frac{T}{t}}\)</span><br>
+in quanto la velocità è negativa. Separando le variabili X e T ed integrando nuovamente otteniamo<br>
+<span class="tex">\(X(T)=\int -\frac{x}{t}e^{-\frac{T}{t}}dT=x\cdot e^{-\frac{T}{t}}+c_2\)</span><br>
+che ponendo la condizione iniziale <span class="tex">\(X(T=0)=x\)</span> ci dà la legge oraria<br>
+<span class="tex">\(X(T)=x\cdot e^{-\frac{T}{t}}\)</span><br>
+<br>
+<strong class="text-strong">PUNTO 1</strong><br>
+Ponendo nell'equazione oraria <br>
+<span class="tex">\(X(\tilde{T})=\dfrac{x}{2}\)</span><br>
+si ottiene facilmente <br>
+<span class="tex">\(\tilde{T}=-t\cdot ln\left( \dfrac{1}{2} \right)\)</span><br>
+<br>
+<strong class="text-strong">PUNTO 3</strong><br>
+Essendo la sommatoria dei momenti delle forze esterne rispetto al centro del disco nulla, il momento angolare totale del sistema si conserva. In particolare si conserva tra l'inizio e un qualunque istante T nel quale la formica si trova a distanza r(T) dal palo (ed il disco gira ad una velocità angolare w(T)):<br>
+<span class="tex">\(Iw+mRw=Iw(T)+mr(T)\cdot v(T)=Iw(T)+mr(T)^2w(T)\)</span><br>
+Sapendo che w è la derivata dell'angolo percorso rispetto al tempo e l'equazione oraria della formica sul raggio, si ottiene<br>
+<span class="tex">\(w(I+mR^2)=\frac{d\theta}{dT}\left( I+mr(T)^2 \right)=\frac{d\theta}{dT}\left( I+m\left( R^2\cdot e^{-\frac{2}{t}\cdot T} \right) \right)\)</span><br>
+Separando le variabili e integrando (se volete riporto i calcoli), si ottiene ( portando opportune costanti fuori e utilizzando l'hint con <span class="tex">\(a=-\frac{mR^2}{I} \quad \quad k=e^{\frac{2}{t}}\)</span> e ponendo la condizione iniziale che <span class="tex">\(\theta(T=0)=0\)</span>) il risultato che ho scritto prima.<br>
+<br>
+PS perdonate eventuali typo ed il fatto che non ho riporato i calcoli dell'ultimo integrale.</article>
+<article class="post" id="p24714"><div class="who"><b>Vinci</b><span>15 apr 2018, 18:21</span></div>Nota: <span class="tex">\(v(T)\)</span> è la componente della velocità della formica perpendicolare al raggio su cui si muove la formica.<br>
+Per ottenere il numero di giri sostituiamo <span class="tex">\(T=5t\)</span> e dividiamo per <span class="tex">\(2\pi\)</span></article>
+<article class="post" id="p24715"><div class="who"><b>Ilgatto</b><span>15 apr 2018, 21:37</span></div>Perfetto Vinci, lascio a te il testimone.<br>
+Avevo posto l'origine del sistema di riferimento nel punto di partenza, quindi la legge oraria mi veniva <span class="tex">\(x(1-e^{-\frac{T}{t}})\)</span> che poi mi metteva un segno meno nel logaritmo e incasinava l'integrale quando la elevavo al quadrato. Complimenti comunque per la chiarezza e la rapidità di risposta</article>
+<nav class="pager"><a class="prev" href="olifis-6676.html"><small>← precedente</small>145: Rotolando giù da una semisfera</a><a class="next" href="olifis-6684.html"><small>successivo →</small>147: Palline!</a></nav>
+</main></body></html>

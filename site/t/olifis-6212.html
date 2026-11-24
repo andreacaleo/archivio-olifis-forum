@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>57: carrucola</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 57</a></span></nav>
+<h1>57: carrucola</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6212">forum Olifis</a></p>
+<article class="post first" id="p21562"><div class="who"><b>phyknight</b><span>17 nov 2015, 20:43</span></div>Una corda (inestensibile e senza massa) passa su una carrucola (senza massa, ecc.). Ogni capo della corda è avvolto intorno a un anello verticale. (a picture is worth a thousand words...)<br>
+Gli anelli, di masse e raggi <span class="tex">\(M_1, R_1\)</span> e <span class="tex">\(M_2, R_2\)</span> con <span class="tex">\(M_2&gt;M_1\)</span>, tendono a cadere e ruotare.<br>
+Trovare tutto...cioè la tensione della corda, e poi le accelerazioni dei due anelli (ma trovata la tensione il problema è finito)
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/ae1a2fdf9f8b4a75.png" class="postimage" alt="forum.png" onclick="viewableArea(this);" /></dt>
+						<dd>forum.png (4.65 KiB) Visto 6914 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p21952"><div class="who"><b>OrsoBruno96</b><span>2 mar 2016, 16:51</span></div>Up!<br>
+<br>
+<br>
+La staffetta è una buona tradizione, vi consiglio di continuare a tenerla viva</article>
+<article class="post" id="p21957"><div class="who"><b>FedericoC.</b><span>2 mar 2016, 18:29</span></div>Scusa se non posto il procedimento, ma non so usare il LaTeX  :cry: <br>
+<br>
+La tensione mi risulta:<br>
+T=m2g(1-(m2-m1)/(m1+m2))=m1g(1+(m2-m1)/(m1+m2))<br>
+<br>
+L'accelerazione del disco 2:<br>
+a2=g/r2 (1-(m2-m1)/(m1+m2))<br>
+<br>
+L'accelerazione del disco 1:<br>
+a1=g/r1 (1+(m2-m1)/(m1+m2))<br>
+<br>
+Spero sia giusto  :D</article>
+<article class="post" id="p21960"><div class="who"><b>phyknight</b><span>2 mar 2016, 22:42</span></div><blockquote><div><cite>OrsoBruno96 ha scritto:</cite>Up!<br>
+<br>
+La staffetta è una buona tradizione, vi consiglio di continuare a tenerla viva</div></blockquote>
+Che pro che è orsobruno in versione moderatore: dice up! e la staffetta torna in vita  8-)  <br>
+<br>
+FedericoC., sei sicuro che non manchi qualcosa nel risultato? (tipo un fattore <span class="tex">\(\frac{1}{2}\)</span>...)</article>
+<article class="post" id="p21963"><div class="who"><b>OrsoBruno96</b><span>3 mar 2016, 0:16</span></div><blockquote><div><cite>FedericoC. ha scritto:</cite>Scusa se non posto il procedimento, ma non so usare il LaTeX  :cry: </div></blockquote>
+
+<br>
+C'è una sezione del forum dedicata al come scrivere in LaTeX :)<br>
+<br>
+<a href="http://forum.olifis.it/olifis/phpBB3/viewtopic.php?f=11&amp;t=5" class="ext" class="postlink">http://forum.olifis.it/olifis/phpBB3/vi ... p?f=11&amp;t=5</a><br>
+<br>
+Inoltre un truccone: se sei sul PC, lascia il mouse su una formula e comparirà il codice da inserire. Se invece sei da cellulare dovrebbe funzionare tener premuto sulla formula. (Io uso chrome, non so se funziona anche con gli altri browser)</article>
+<article class="post" id="p21967"><div class="who"><b>FedericoC.</b><span>3 mar 2016, 19:45</span></div>Grazie al consiglio di orsobruno di cliccare sulle formule per capire come utilizzare il <span class="tex">\(LaTex\)</span> ora provo a postare il mio procedimento, dopo averlo rivisto:<br>
+<br>
+considero inizialmente il sistema come se gli anelli non ruotassero e ne calcolo l'accelerazione <span class="tex">\(a\)</span>:<br>
+<br>
+<span class="tex">\(a = g \frac{m_2-m_1}{m_1+m_2}\)</span><br>
+<br>
+ora calcolo l'accelerazione lineare <span class="tex">\(a_2\)</span> dovuta alla rotazione della massa <span class="tex">\(m_2\)</span> partendo dalla seconda legge della dinamica rotazionale:<br>
+<br>
+<span class="tex">\(\tau = I \alpha = T r_2 = I \frac{a_2}{r_2}\)</span>     da qui trovo che:     <span class="tex">\(a_2 = \frac{T}{m_2}\)</span><br>
+<br>
+adesso considerando che l'accelerazione effetiva della massa <span class="tex">\(m_2\)</span> è <span class="tex">\(A = a + a_2\)</span> (se non sbaglio) applicando il secondo principio della dinamica sempre sulla massa <span class="tex">\(m_2\)</span> ottengo:<br>
+<br>
+<span class="tex">\(T = \frac{1}{2} m_2 g ( 1 - \frac{m_2 - m1}{m_1 +m_2})\)</span><br>
+<br>
+Spero di aver scritto tutto correttamente  :D</article>
+<article class="post" id="p21974"><div class="who"><b>phyknight</b><span>4 mar 2016, 21:32</span></div>Il risultato è giusto<br>
+<br>
+la staffetta è tua</article>
+<nav class="pager"><a class="prev" href="olifis-6167.html"><small>← precedente</small>56: specchio relativistico</a><a class="next" href="olifis-6271.html"><small>successivo →</small>58: connessione tridimensionale di resistori</a></nav>
+</main></body></html>

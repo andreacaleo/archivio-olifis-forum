@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>44: Pulegge infinite</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 44</a></span></nav>
+<h1>44: Pulegge infinite</h1>
+<p class="meta">34 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6083">forum Olifis</a></p>
+<article class="post first" id="p20698"><div class="who"><b>CapitanFindus</b><span>4 apr 2015, 10:58</span></div>Continuo io la staffetta!<br>
+<br>
+Questo è un problema che mi ha tenuto impegnato non poco. Purtroppo non avevo dimestichezza con le progressioni geometriche quindi mi sono fatto anche un bel ripasso sul quell'argomento! <img src="../img/5cd426100d264bca.gif" class="postimage" alt="Immagine"><br>
+<br>
+Un sistema di pulegge infinite è disposto come in figura, con <span class="tex">\(m_0=1/(1-t)\)</span> e <span class="tex">\(m_n=t^{n-1}\)</span> con <span class="tex">\(n&gt;1\)</span> e <strong class="text-strong"><span class="tex">\(0&lt;t&lt;1\)</span></strong><br>
+<br>
+Nel momento iniziale quando il sistema inizia a muoversi, qual'è l'accelerazione di <span class="tex">\(m_0\)</span>?<br>
+<br>
+<span class="tex">\(nota\)</span><br>
+<br>
+la seria geometrica (la somma di infiniti termini di una progressione geometrica) si scrive<br>
+<span class="tex">\(\sum_{k=0}^{n} r^k = \frac{1-r^{n+1}}{1-r}\)</span><br>
+<br>
+Prego!</article>
+<article class="post" id="p20699"><div class="who"><b>andrea96</b><span>4 apr 2015, 11:14</span></div>P. S. Comunque esiste anche una soluzione con mezzo calcolo che non utilizza le serie (come in quasi tutti i problemi di iterazione )</article>
+<article class="post" id="p20700"><div class="who"><b>andrea96</b><span>4 apr 2015, 13:11</span></div>scusa! fai finta che non abbia detto niente :( ero mezzo addormentato e pensavo che le masse fossero tutte uguali!  :lol:  :lol:  :lol:</article>
+<article class="post" id="p20702"><div class="who"><b>CapitanFindus</b><span>4 apr 2015, 15:13</span></div>ahahah infatti mi stavo scervellando per capire a che soluzione ti riferissi! ho pensato: proprio un genio se riesce a farlo con un calcolo e basta!</article>
+<article class="post" id="p20705"><div class="who"><b>Tex96</b><span>5 apr 2015, 10:29</span></div>Per caso viene qualcosa del genere: <span class="tex">\(a=g{2t-1 \over{} 2t+1}\)</span>?</article>
+<article class="post" id="p20706"><div class="who"><b>Carlo96</b><span>5 apr 2015, 11:05</span></div>a me viene 0!! Possibile??</article>
+<article class="post" id="p20707"><div class="who"><b>Tex96</b><span>5 apr 2015, 11:20</span></div>Però così non consideri che  <span class="tex">\(m_k\)</span> è diverso da <span class="tex">\(\sum_{i=k+1}^\infty m_{i}\)</span> per  <span class="tex">\(t\neq1/2\)</span> e che quindi le altre masse cominciano a muoversi..</article>
+<article class="post" id="p20708"><div class="who"><b>Carlo96</b><span>5 apr 2015, 11:30</span></div>Ma per risolvere il problema non serve considerare che le altre masse si muovono. Tutto ciò che sta appeso dall'altra parte di m0 è soggetto a due sole forze esterne, la massa totale moltiplicata per g e la tensione che viene applicata anche a m0. Se calcoli la massa totale trovi che è uguale a m0 e quindi m0 non si muove se inizialmente era ferma.</article>
+<article class="post" id="p20711"><div class="who"><b>andrea96</b><span>5 apr 2015, 15:05</span></div><blockquote><div><cite>Carlo96 ha scritto:</cite>Ma per risolvere il problema non serve considerare che le altre masse si muovono. Tutto ciò che sta appeso dall'altra parte di m0 è soggetto a due sole forze esterne, la massa totale moltiplicata per g e la tensione che viene applicata anche a m0. Se calcoli la massa totale trovi che è uguale a m0 e quindi m0 non si muove se inizialmente era ferma.</div></blockquote>
+Quindi secondo te se abbiamo un sistema in cui ai capi di una puleggia ci sono una massa e un altra puleggia ai cui due capi ci sono due masse la cui somma è uguale alla massa attaccata alla prima puleggi, quest ultima resta ferma perchè la massa totale attaccata dall altra parte è uguale? Fatti il conto e vedi se è vero... se non lo è datti una giustificazione.</article>
+<article class="post" id="p20712"><div class="who"><b>andrea96</b><span>5 apr 2015, 16:34</span></div>Scusa forse sono ancora rimbambito dal pranzo pasquale ma... quanto vale <span class="tex">\(m_1\)</span></article>
+<article class="post" id="p20713"><div class="who"><b>Carlo96</b><span>5 apr 2015, 16:44</span></div>M1 vale 1. Nel tuo esempio quello che ho detto io non è vero, ma non so se è la stessa cosa che c'è nel problema. A te cosa viene??</article>
+<article class="post" id="p20714"><div class="who"><b>andrea96</b><span>5 apr 2015, 16:52</span></div>No questo problema non ho ancora provato a farlo. Comunque quell esempio lo avevo fatto per farti capire che il fatto che la somma delle masse a destra è uguale a quella iniziale non implica che qualla iniziale resta ferma poichè se cosi fosse i moti delle masse a destra genererebbero una tensione nella seconda corda che non è la metá di quella nella prima. Invece come dice tex96, se ogni massa è la somma di tutte quelle successive allora il sistema resta fermo, perchè in questo modo puoi capire facilmente che ogni tensione è la metá della precedente. Di cknseguenza facendo questo problema bisogna aspettarsi che il risultato si riduca a zero quando t è 1/2. Ma per altri valori di t non deve venire zero.</article>
+<article class="post" id="p20715"><div class="who"><b>andrea96</b><span>5 apr 2015, 16:53</span></div>Comunque perchè <span class="tex">\(m_1=1\)</span>?</article>
+<article class="post" id="p20716"><div class="who"><b>Carlo96</b><span>5 apr 2015, 16:56</span></div>Perché t^0=1</article>
+<article class="post" id="p20717"><div class="who"><b>andrea96</b><span>5 apr 2015, 17:00</span></div>Si ma il testo dice che quella progressione vale per n&gt;1. Per n=1 non puoi applicarla!</article>
+<article class="post" id="p20718"><div class="who"><b>Carlo96</b><span>5 apr 2015, 17:03</span></div>Sai che hai ragione, non so perché ma ho dato per scontato che 1 fosse ammesso. Allora proprio non saprei!!</article>
+<article class="post" id="p20719"><div class="who"><b>Simone256</b><span>5 apr 2015, 17:06</span></div>Credo sia un typo :)<br>
+<br>
+A me la soluzione viene tipo:<br>
+<br>
+<span class="tex">\(\displaystyle a=g \frac{(2t-1)^2}{4t^2-6t+1}\)</span><br>
+<br>
+Positiva se sale  :roll:</article>
+<article class="post" id="p20720"><div class="who"><b>andrea96</b><span>5 apr 2015, 17:06</span></div><blockquote><div><cite>Carlo96 ha scritto:</cite>Sai che hai ragione, non so perché ma ho dato per scontato che 1 fosse ammesso. Allora proprio non saprei!!</div></blockquote>
+Per 5 minuti hai pensato che ero completamente scemo vero??  :lol: no non lo sono! O almeno... lo spero :lol:  :lol:  <br>
+Comunque spero sia un errore di battitura.</article>
+<article class="post" id="p20721"><div class="who"><b>Simone256</b><span>5 apr 2015, 17:09</span></div><blockquote><div><cite>CapitanFindus ha scritto:</cite> con <span class="tex">\(n&gt;1\)</span>  </div></blockquote>Quello che intendo dire è che sono andato a fiducia che questo sia in realtá un <span class="tex">\(\geq\)</span> :P<br>
+<br>
+P.s. Non ho usato la formula della somma di una progressione geometrica, quindi boh  :|</article>
+<article class="post" id="p20722"><div class="who"><b>Carlo96</b><span>5 apr 2015, 17:11</span></div>E invece sono scemo io!!! :lol:</article>
+<article class="post" id="p20723"><div class="who"><b>andrea96</b><span>5 apr 2015, 18:15</span></div>Ho appena fatto il problema e mi viene lo stesso risultato di simone! Nemmeno io usato la serie ed ero sicurissimo di non averne bisogno. Il problema secondo me è molto bello perchè per farlo (almeno come l ho fatto io) ci vogliono molte idee furbe e un paio di assunzioni per niente banali.</article>
+<article class="post" id="p20724"><div class="who"><b>andrea96</b><span>5 apr 2015, 18:22</span></div>P. S.  Comunque (almeno per la mia soluzione ) non è necessario che m0 abbia quel valore. Qualunque valore diate a m0 riuscite a trovare una soluzione.</article>
+<article class="post" id="p20725"><div class="who"><b>Simone256</b><span>5 apr 2015, 18:23</span></div>Ottimo  8-) <br>
+Attendiamo una conferma o una smentita  :lol:</article>
+<article class="post" id="p20727"><div class="who"><b>CapitanFindus</b><span>5 apr 2015, 19:31</span></div>complimenti a Simone e ad Andrea! il risultato è giusto<br>
+<br>
+postate la vostra soluzione!<br>
+<br>
+sono proprio curioso di vedere come avete fatto a farlo senza le serie<br>
+<br>
+formalmente la soluzione sarebbe <br>
+<br>
+per t ≥1/ 4 , a = −g ,<br>
+per t =1/2 , a = 0<br>
+e per altri valori di t , a = g/[ 1 - 2t/ (1-2t)^2 ]</article>
+<article class="post" id="p20728"><div class="who"><b>andrea96</b><span>5 apr 2015, 19:36</span></div>Se posso mettere solo l impostazione e i conti ognuno se li fa per se la posto subito. Altrimenti lascio l onore (e l onere) a simone :D</article>
+<article class="post" id="p20729"><div class="who"><b>andrea96</b><span>5 apr 2015, 21:37</span></div>Provo a spiegarlo cercando di essere più chiaro possibile e rischiando anche di essere pignolo visto che alcuni punti del procedimento se non vengono giustificati bene possono sembrare assunzioni campate in aria. Come ho detto salto la risoluzione delle equazioni che mi vengono alla fine tanto quelle potete farle da voi.<br>
+Innanzi tutto... LEMMA DEL DADO: cos'è? se lo cercate su wikipedia non esiste, se lo cercate su un qualsiasi libro non esiste... ma esiste! esiste perchè è il nome con cui io e qualche altro ragazzo definiamo un tipo di risoluzione in cui si sfrutta il fatto che un problema è iterativo ( il nome viene dal fatto che il principale problema di questo tipo è quello in cui si chiede la probabilità di vittoria se lanciano un dado si vince con 5,6 si perde con 1,2,3 e si rilancia con 4 ); cosa c'è qui di iterativo? beh, il fatto che passando da una puleggia alla successiva la situazione è identica a meno di qualche fattore ( che è il punto piu interessante della soluzione ); innanzi tutto notiamo che da <span class="tex">\(m_1\)</span> in poi ogni massa si ottiene dalla precedente moltiplicandola per <span class="tex">\(t\)</span>; per convenzione chiamo livello <span class="tex">\(k\)</span> quello in cui c'è un puleggia a cui è attaccata la massa numero <span class="tex">\(k\)</span>.<br>
+Osserviamo prima il livello zero: La corda ha una tensione <span class="tex">\(T_0\)</span> e la massa ha un accelerazione ( che prendo positiva verso l'alto ) <span class="tex">\(a_0\)</span>; dall'altra parte è attaccato tutto quel sistema di altre carrugole che avrà un influenza sul moto di <span class="tex">\(m_0\)</span>, quest'influenza la schematiziamo con una massa fittizia <span class="tex">\(M\)</span> che non ci è dato conoscere. IMPORTANTE: <span class="tex">\(M\)</span> non è la somma di tutte le masse dall'altra parte visto che non c'è una giustificazione sensata per dire una cosa del genere! <span class="tex">\(M\)</span> è l'analogo di una resistenza equivalente in elettrodinamica, riproduce gli effetti del sistema e possiamo conoscerla solo a posteriori, non possiamo fare ipotesi a priori sul valore di <span class="tex">\(M\)</span>, però è importantissimo capire da cosa dipende <span class="tex">\(M\)</span>: certamente è proporzionale alle masse che si trovano dall'altra parte, infatti si immaginassimo di moltiplicare tutte le masse dall'altra parte per un certo fattore, sicuramente l'influenza di tutto quel sistema di masse sulla prima cambierebbe di quel fattore; cosa ancora più importante: può dipendere dall'accelerazione di gravità? no! infatti l'influenza di tutte quelle masse sulla prima è <span class="tex">\(Mg\)</span> e se immaginassimo di diminuire la gravità l'influenza diminuirebbe linearmente con essa dunque <span class="tex">\(M\)</span> non può dipendere da <span class="tex">\(g\)</span>.<br>
+Ora scriviamo le equazioni per il livello zero:<br>
+<span class="tex">\(a_0 m_0=T_0-m_0 g\)</span><br>
+<span class="tex">\(a_0 M=Mg-T_0\)</span>.<br>
+Ora passiamo al livello 1: prima cosa banale da dire è che il fatto che la carrugola sia prima di massa implica che la risultante su di essa deve essere nulla, dunque <span class="tex">\(T_1=T_0 /2\)</span> visto che la forza <span class="tex">\(T_1\)</span> è applicata sulla carrugola da entrambe i lati.<br>
+Ora mettiamoci nel sistema di riferimento della carrugola 1, qui <span class="tex">\(m_1\)</span> si muove verso l'alto con un accelerazione <span class="tex">\(a_1\)</span>, mentre dall'altra parte abbiamo una massa fittizia <span class="tex">\(M'\)</span>. Ora due considerazioni importanti: 1) la considerazione sul livello due la sto facendo in un sistema non inerziale che si muove verso il basso con accelerazione <span class="tex">\(a_0\)</span> quindi nelle equazioni del moto dobbiamo aggiungere a ogni massa <span class="tex">\(m\)</span> una forza apparente traslazionale verso l'alto, <span class="tex">\(ma_0\)</span>, 2) la massa fittizia <span class="tex">\(M'\)</span> non è una nuova incognita, ma è legata alla massa fittizia <span class="tex">\(M\)</span>, ed è qui che utiliziamo finalmente il famigerato lemma del dado: infatti se guardiamo il sistema al livello 1 è ignoriamo ciò che c'è sopra, la situazione è analoga a quella nel livello zero solo che le masse a destra sono tutte moltiplicate per <span class="tex">\(t\)</span> e c'è una forza apparente che però possiamo intelligentemente considerare alla stregua di una diminuzione dell'accelerazione gravitazionale che diventa quindi <span class="tex">\(g'=g-a_0\)</span>, e visto che abbiamo detto che le masse fittizie devono essere indipendenti dalla gravità, questa nuova massa fittizia non è influenzata dalla forza apparente ma solo dal fattore <span class="tex">\(t\)</span> che moltiplica tutte le masse; quindi <span class="tex">\(M'=Mt\)</span>.<br>
+Siamo allora pronti per scrivere le equazioni del secondo livello:<br>
+<span class="tex">\(a_1m_1=\frac{T_0}{2}-m_1(g-a_0)\)</span><br>
+<span class="tex">\(a_1Mt=Mt(g-a_0)-\frac{T_0}{2}\)</span><br>
+Praticamente abbiamo finito! riassumo le equazioni che ho trovato:<br>
+<span class="tex">\(a_0 m_0=T_0-m_0 g\)</span><br>
+<span class="tex">\(a_0 M=Mg-T_0\)</span><br>
+<span class="tex">\(a_1m_1=\frac{T_0}{2}-m_1(g-a_0)\)</span><br>
+<span class="tex">\(a_1Mt=Mt(g-a_0)-\frac{T_0}{2}\)</span><br>
+che costituiscono un sistema di 4 eq. 4 incognite nelle variabili <span class="tex">\(a_0\)</span>, <span class="tex">\(T_0\)</span>, <span class="tex">\(M\)</span> e <span class="tex">\(a_1\)</span>; se vi interessa potete anche trovarvele tutte ma lo scopo del problema è quello di trovare <span class="tex">\(a_0\)</span> che viene:<br>
+<span class="tex">\(a_0=\frac{4t^2-4t+1}{4t^2-6t+1}\)</span>.<br>
+Se co sono punti che non avete capito dite pure :D</article>
+<article class="post" id="p20731"><div class="who"><b>Simone256</b><span>5 apr 2015, 23:51</span></div>Mammamia io sinceramente non avrei avuto voglia di scrivere tutto questo! Il mio procedimento comunque è identico e posso vantarmi di essere uno dei portatori della novella del <em class="text-italics">Lemma del Dado</em>  :lol: .<br>
+Comunque meriti tu di impossessarti del testimone anche perchè or ora ho in mente solo vecchi problemi di senigallia (che è quello che sto facendo negli ultimi giorni) e dubito possano interessare molto visto che li potete trovare quando volete!<br>
+Comunque complimenti a CapitanFindus per il problema davvero molto molto bello :)</article>
+<article class="post" id="p20733"><div class="who"><b>6frusciante9</b><span>6 apr 2015, 12:49</span></div>@andrea96 Scusa la mia ottusaggine ma potresti scrivermi ( anche in mp ) cos'è e a cosa serve la massa fittizia <span class="tex">\(M\)</span> ? Grazie</article>
+<article class="post" id="p20734"><div class="who"><b>Simone256</b><span>6 apr 2015, 16:12</span></div>Se vuoi ti rispondo io! Il sistema costituito da un infinito numero di pullegge si comporta in maniera strana! Ha una massa molto grande ma parti di questa sono accellerate verso il basso con valori diversi e molto incasinati! Così se tu avessi un numero stragrande di resistenze e metti un generatore ai capi del circuito, ti risulterá facile (misurando la corrente) dare un valore R riassuntivo che assume la funzione di resistenza equivalente! In questo caso tu fai finta che a sinistra al posto macello ci sia una massa M che assume (sia in termini di inerzia che in termini gravitazionali) le stesse caratteristiche! :)</article>
+<article class="post" id="p20735"><div class="who"><b>andrea96</b><span>6 apr 2015, 16:23</span></div>Lo scrivo qui così lo chiarisco per tutti. La massa fittizia è una massa che messa al posto di tutta la parte del sistema dopo di quella non cambia nulla nella parte del sistema prima di quella. Non ha un interpretazione fisica rilevante ma è utile per risolvere il problema per io fatto che riesci a trovare una relazione semplice tra le masse fittizie di due livelli successivi. Teoricamente infatti potresti anche anche schematizzare l azione del sistema al dilá di una massa con una forza F, ma faresti piu difficoltá a dedurre una relazione tra le F di due livelli successivi. <br>
+P. S. Non pensare che l idea di mettere la massa fittizia mi sia venuta in  mente per magia, l idea di sostituire un sistema complesso con qualcosa di più semplice è molto utilie e usata in fisica, l esempio piu classico è il metodo delle immagini in elettrostatica. Se sei abituato a fare cose nel genere   è piu probabile che in un problema del genere ti venga in mente di sostutuire un sistema complesso con una massa che riproduce la stessa cosa. <br>
+se c'è qualcosa che non ti è chiaro chiedi pure.</article>
+<article class="post" id="p20736"><div class="who"><b>andrea96</b><span>6 apr 2015, 16:25</span></div>Perfetto mentre scrivevo ha risposto anche simone! Ora hai due spiegazioni dai è meglio :lol:  :lol:</article>
+<article class="post" id="p20737"><div class="who"><b>CapitanFindus</b><span>6 apr 2015, 17:25</span></div>Tanto di cappello! E' una soluzione molto interessante che richiede molto intuito sopratutto.<br>
+Vi stavo per scrivere la mia ma forse è meglio che vi posto la soluzione ufficiale del problema ( che ho tratto dalla fisica di Feynman ) anche se è in inglese.<br>
+(questa soluzione è molto più noiosa rispetto a quella proposta da andrea e simone)<br>
+<br>
+<a href="http://www.feynmanlectures.info/solutions/infinite_pulleys_sol_1.pdf" class="ext" class="postlink">http://www.feynmanlectures.info/solutio ... _sol_1.pdf</a><br>
+<br>
+grazie @Simone256 per i complimenti! Se volete altri problemi simili e tanto interessanti li potete trovare qui <a href="http://www.feynmanlectures.info/exercises.html" class="ext" class="postlink">http://www.feynmanlectures.info/exercises.html</a><br>
+<br>
+aspetto caldamente il prossimo problema della staffetta!!!</article>
+<article class="post" id="p20738"><div class="who"><b>andrea96</b><span>6 apr 2015, 18:28</span></div>Va bene allora stasera posti un problemino!   :D</article>
+<article class="post" id="p20739"><div class="who"><b>6frusciante9</b><span>6 apr 2015, 19:21</span></div>Grazie per le risposte ... Adesso ho capito anche se il paragone elettromagnetico per me é un po' inutile dato che sono in seconda e ho finito ora il quinto capitolo dell'Halliday (fisica 1)</article>
+<nav class="pager"><a class="prev" href="olifis-6079.html"><small>← precedente</small>43: bobina in campo magnetico</a><a class="next" href="olifis-6088.html"><small>successivo →</small>45: cavità come rampa di lancio</a></nav>
+</main></body></html>

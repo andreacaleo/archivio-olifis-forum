@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>255- Condensatore sferico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 255</a></span></nav>
+<h1>255- Condensatore sferico</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7069">forum Olifis</a></p>
+<article class="post first" id="p26910"><div class="who"><b>Leo</b><span>10 apr 2021, 11:43</span></div>Si considerino due sfere metalliche spesse concentriche: la sfera interna ha raggi <span class="tex">\(a_1&lt;a_2\)</span> e quella esterna <span class="tex">\(b_1&lt;b_2\)</span>. Lo spazio fra le due sfere è riempito con materiale dielettrico isolante di costante <span class="tex">\(\epsilon_1\)</span>. Una carica <span class="tex">\(Q_1\)</span> è depositata sulla sfera interna ed una carica <span class="tex">\(Q_2\)</span> su quella esterna.<br>
+Determinare: 1) le densità superficiali di carica e le densità superficiali di polarizzazione 2) Se <span class="tex">\(Q_2 = -Q_1\)</span>,  la capacità del condensatore.</article>
+<article class="post" id="p26925"><div class="who"><b>Luca Milanese</b><span>14 apr 2021, 14:07</span></div>Definisco le densità di carica superficiale libera <span class="tex">\(\sigma_{a_1}\)</span>, <span class="tex">\(\sigma_{a_2}\)</span>, <span class="tex">\(\sigma_{b_1}\)</span>, <span class="tex">\(\sigma_{b_2}\)</span> con ovvio significato. Inoltre siano <span class="tex">\(\sigma_{pa}\)</span> e <span class="tex">\(\sigma_{pb}\)</span> le densità di carica di polarizzazione sulle superfici di raggi <span class="tex">\(a_2\)</span> e <span class="tex">\(b_1\)</span>.<br>
+La carica totale libera sulla sfera interna è <span class="tex">\(Q_1=4\pi (a_1^2 \sigma_{a_1}+a_2^2 \sigma_{a_2})\)</span>, e similmente <span class="tex">\(Q_2=4\pi (b_1^2 \sigma_{b_1}+b_2^2 \sigma_{b_2})\)</span>. Per il Teorema di Gauss, il campo elettrico tra i raggi <span class="tex">\(a_1\)</span> e <span class="tex">\(a_2\)</span> vale <span class="tex">\(\vec E_a=\frac{\sigma_{a_1} a_1^2 \hat r}{\epsilon_0 r^2}\)</span>; allo stesso modo, fra i raggi <span class="tex">\(b_1\)</span> e <span class="tex">\(b_2\)</span>, esso vale <span class="tex">\(\vec E_b =\frac{Q_1+4\pi \sigma_{b_1} b_1^2}{4\pi \epsilon_0 r^2} \hat r\)</span>. Tuttavia, essendo le due sfere metalliche, esse sono conduttrici, e quindi al loro interno, se si è in condizioni di elettrostatica, il campo elettrico è nullo:<br>
+<span class="tex">\(\vec E_a = \vec 0 \Rightarrow \sigma_{a_1}=0\)</span><br>
+<span class="tex">\(\vec E_b = \vec 0 \Rightarrow \sigma_{b_1}=-\frac{Q_1}{4\pi b_1^2}\)</span><br>
+Da ciò, con le equazioni di sopra, si ricavano anche:<br>
+<span class="tex">\(\sigma_{a_2}=\frac{Q_1}{4 \pi a_2^2}\)</span><br>
+<span class="tex">\(\sigma_{b_2}=\frac{Q_1+Q_2}{4 \pi b_2^2}\)</span><br>
+Tra i raggi <span class="tex">\(a_2\)</span> e <span class="tex">\(b_1\)</span>, dove è presente il materiale dielettrico, il campo elettrico vale <span class="tex">\(\vec E=\frac{Q_1 \hat r}{4\pi \epsilon_1 r^2}\)</span>. La polarizzazione vale <span class="tex">\(\vec P=\epsilon_0 \chi_e \vec E\)</span>, essendo <span class="tex">\(\chi_e=\epsilon_r-1=\frac{\epsilon_1}{\epsilon_0}-1\)</span>, perciò <span class="tex">\(\vec P(r)=\frac{Q_1(\epsilon_1-\epsilon_0)\hat r}{4 \pi \epsilon_1 r^2}\)</span>. La densità di carica superficiale di polarizzazione si ottiene come <span class="tex">\(\sigma_p=\vec P \cdot \hat n\)</span>, essendo <span class="tex">\(\hat n\)</span> il versore normale alla superficie.<br>
+A <span class="tex">\(r=a_2\)</span> si ha <span class="tex">\(\hat n =-\hat r\)</span>, quindi <span class="tex">\(\sigma_{pa}=-\vec P(a_2) \cdot \hat r = \frac{Q_1(\epsilon_0-\epsilon_1)}{4\pi \epsilon_1 a_2^2}\)</span>.<br>
+A <span class="tex">\(r=b_1\)</span> invece è <span class="tex">\(\hat n=\hat r\)</span> e quindi <span class="tex">\(\sigma_{pb}=\frac{Q_1(\epsilon_1-\epsilon_0)}{4\pi b_1^2 \epsilon_1}\)</span><br>
+Infine, la differenza di potenziale fra i due gusci si ottiene come:<br>
+<span class="tex">\(\Delta V=\int_{a_2}^{b_1} \vec E\cdot \text{d}\vec r =\frac{Q_1(b_1-a_2)}{4 \pi \epsilon_1 a_2 b_1}\)</span>.<br>
+Per definizione si ha <span class="tex">\(C=\frac{Q}{\Delta V}\)</span>, quindi <span class="tex">\(C=\frac{Q_1}{\Delta V}=\frac{4\pi \epsilon_1 a_2 b_1}{b_1-a_2}\)</span></article>
+<article class="post" id="p26927"><div class="who"><b>Leo</b><span>15 apr 2021, 11:17</span></div>Mah, direi che i risultati sono corretti e che il procedimento è inappuntabile. Vai pure con il prossimo che sarà ben più complicato ! :D  :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-7067.html"><small>← precedente</small>254. Bolla carica.</a><a class="next" href="olifis-7070.html"><small>successivo →</small>256. Quadrato che striscia e ruota.</a></nav>
+</main></body></html>

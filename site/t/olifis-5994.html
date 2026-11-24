@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>22. Rendimento &quot;perfetto&quot;</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 22</a></span></nav>
+<h1>22. Rendimento &quot;perfetto&quot;</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5994">forum Olifis</a></p>
+<article class="post first" id="p19671"><div class="who"><b>Lasker</b><span>12 nov 2014, 19:11</span></div>Un gas perfetto biatomico passa da uno stato A caratterizzato da pressione <span class="tex">\(p_A\)</span> e volume 2 litri ad uno stato B di pressione pari ad una atmosfera e volume 8 litri mediante una espansione rappresentabile nel piano di Clapeyron con una linea retta; dopodiché ritorna allo stato A comprimendosi adiabaticamente (e completando quindi il ciclo). Sapendo che a questo ciclo termodinamico corrisponde il funzionamento di una particolare macchina termica, qual è il rendimento di questo motore?</article>
+<article class="post" id="p19673"><div class="who"><b>sall96</b><span>12 nov 2014, 19:51</span></div>Chiamo <span class="tex">\(B\)</span> il secondo stato del ciclo.<br>
+<br>
+Per qualsiasi gas vale la realzione <span class="tex">\(\dfrac{P_AV_A}{T_A}=\dfrac{P_BV_B}{T_B}\)</span> (che segue dall'equazione di stato dei gas perfetti) che riscrivo come <span class="tex">\(\dfrac{T_B}{T_A}=\dfrac{P_BV_B}{P_AV_A}\)</span><br>
+<br>
+Il rendimento di una macchina termica e'<br>
+<span class="tex">\(\eta=1-\dfrac{T_B}{T_A}\)</span><br>
+<br>
+e sostituendo dalla prima eq. ottengo <span class="tex">\(\eta=1-\dfrac{P_BV_B}{P_AV_A}\)</span><br>
+<br>
+So che la seconda trasformazione e' adiabatica, quindi vale la relazione<br>
+<span class="tex">\(P_A{V_A}^{\gamma}=P_B{V_B}^{\gamma}\)</span> e per un gas biatomico <span class="tex">\(\gamma=\dfrac{7}{5}=1.4\)</span><br>
+<br>
+Riscrivendo l'eq. precedente si ottiene <span class="tex">\(P_A=P_B(\dfrac{V_B}{V_A})^{\gamma}\)</span> che sostituita al rendimento da<br>
+<span class="tex">\(\eta=1-(\dfrac{V_A}{V_B})^{\gamma -1}\)</span> e sostituendo i valori numerici<br>
+ <br>
+<span class="tex">\(\eta=\displaystyle 1-(\frac{2}{8})^{0.4}=0.425=42.5\)</span> %<br>
+<br>
+Spero sia giusta  :D</article>
+<article class="post" id="p19674"><div class="who"><b>andrea96</b><span>12 nov 2014, 20:04</span></div><blockquote><div><cite>Lasker ha scritto:</cite>Un gas perfetto biatomico passa da uno stato A caratterizzato da pressione <span class="tex">\(p_A\)</span> e volume 2 litri ad uno stato B di pressione pari ad una atmosfera e volume 8 litri mediante una compressione rappresentabile nel piano di Clapeyron con una linea retta; dopodiché ritorna allo stato A espandendosi adiabaticamente (e completando quindi il ciclo). Sapendo che a questo ciclo termodinamico corrisponde il funzionamento di una particolare macchina termica, qual è il rendimento di questo motore?</div></blockquote>
+per caso hai invertito le parole compressione ed espansione?</article>
+<article class="post" id="p19675"><div class="who"><b>Lasker</b><span>12 nov 2014, 20:57</span></div>@andrea96: sì, ho invertito i due termini  :roll: . Adesso dovrebbe essere a posto.<br>
+<br>
+@Sall96: mi sembra di vedere un errore in questo punto:
+<blockquote><div><cite>Sall96 ha scritto:</cite>Il rendimento di una macchina termica è<br>
+<span class="tex">\(\displaystyle \eta=1-\frac{T_f}{T_c}\)</span></div></blockquote>
+Questo vale per la macchina di Carnot, ma la nostra è tutt'altro (agisce tra infinite sorgenti...), il massimo che dovresti poter dire (se non ho dimenticato la fisica di terza  :? ) è che quello è il MASSIMO rendimento possibile, quindi facendo i conti dovrebbe venire di meno. Dovresti usare la più generale<br>
+<span class="tex">\(\eta=\frac{L}{|Q_{assorbito}|}\)</span></article>
+<article class="post" id="p19679"><div class="who"><b>andrea96</b><span>12 nov 2014, 23:10</span></div>Giusto per sapere: esiste un metodo "non diretto" che evita le due pagine di conti che ho fatto io? Se non esiste spero che accetti anche una soluzione non dettagliata del tipo che spiego il procedimento metto e equazioni principali e alla fine scrivo se volete sapere il risultato sostituite tutta la roba che c è dentro... perchè seno sarebbe davvero lungo da scrivere tutto dettagliato</article>
+<article class="post" id="p19680"><div class="who"><b>andrea96</b><span>12 nov 2014, 23:16</span></div>Giusto per sapere: esiste un metodo "non diretto" che evita le due pagine di conti che ho fatto io? Se non esiste spero che accetti anche una soluzione non dettagliata del tipo che spiego il procedimento metto e equazioni principali e alla fine scrivo se volete sapere il risultato sostituite tutta la roba che c è dentro... perchè seno sarebbe davvero lungo da scrivere tutto dettagliato</article>
+<article class="post" id="p19685"><div class="who"><b>OrsoBruno96</b><span>13 nov 2014, 21:31</span></div>La soluzione che conosco io è interessante ma richiede abbastanza conti, quindi credo che tu possa semplicemente dire che equazioni hai usato e perché e poi lasciare perdere l'algebra, perché non è la parte succosa del problema</article>
+<article class="post" id="p19686"><div class="who"><b>Lasker</b><span>13 nov 2014, 21:36</span></div><blockquote><div><cite>Orsobruno96 ha scritto:</cite>La soluzione che conosco io è interessante ma richiede abbastanza conti, quindi credo che tu possa semplicemente dire che equazioni hai usato e perché e poi lasciare perdere l'algebra, perché non è la parte succosa del problema</div></blockquote>
+Ovviamente sono d'accordo, basta che mi convinci che seguendo il tuo metodo si arriva fino in fondo in modo senza bisogno di essere un cinese (magari non lesinando troppo sui punti chiave, visto che la fisica mi è abbastanza oscura in generale  :roll: ) e ti cedo volentieri il testimone  :mrgreen:</article>
+<article class="post" id="p19687"><div class="who"><b>andrea96</b><span>13 nov 2014, 21:53</span></div>allora vediamo un po...:<br>
+innanzi tutto visto che i due stati sono collegati da un adiabatica troviamo subito che <span class="tex">\(p_a=p_b(\frac{V_b}{V_a})^{\gamma}\)</span>.<br>
+Dopo di che la prima trasformazione ha equazione<span class="tex">\(p(V)=p_a+\frac{p_b-p_a}{V_b-V_a}(V-V_a)=p_a+k(V-V_a)\)</span>. Ora ci serve il lavoro totale e il calore assorbito totale; per il lavoro si potrebbe scrivere anche l'equazione dell'adiabatica e fare gli integrali però per fare prima si può andre semplicemente a calcolare il calore totale scambiato nella prima trasformazione che deve essere uguale al lavoro visto che nella seconda trasformazione non si scambia calore. Visto che è utile anche dopo è utile calcolare la funzione <span class="tex">\(Q(V)\)</span> che sarebbe il calore totale scambiato nella prima trasformazione fino al volume <span class="tex">\(V\)</span>. Chiaramente <span class="tex">\(Q(V)=U(V)-\frac{l}{2}p_aV_a+W(V)\)</span> dove <span class="tex">\(W(V)\)</span> è il lavoro fatto dal sistema fino al volume <span class="tex">\(V\)</span>. Ora per quello che ho detto prima si ha <span class="tex">\(Q(V_b)=W_{totale}\)</span> e viene (dopo essersi trovati l'espressione esplicita di <span class="tex">\(Q(V)\)</span>) <span class="tex">\(W_{totale}=\frac{6(V_bp_b-V_ap_a)+p_aV_b-p_bV_a}{2}\)</span>. Ora chi si ricava <span class="tex">\(Q(V)\)</span> si accorgerà che è una bella parabola con il vertice in alto, ciò significa che fino a un certo <span class="tex">\(V_0\)</span> viene assorbito calore dopo di che viene ceduto. Il <span class="tex">\(V_0\)</span> si può ricavare semplicemente ponendo uguale a zero la derivata di <span class="tex">\(Q(V)\)</span>. Taglio corto e dico che ovviamente si ha <span class="tex">\(\eta=\frac{Q(V_b)}{Q(V_0)}\)</span></article>
+<article class="post" id="p19688"><div class="who"><b>Lasker</b><span>14 nov 2014, 16:23</span></div>L'idea fondamentale c'è e il ragionamento mi sembra filare, prosegui pure con la staffetta  :)</article>
+<nav class="pager"><a class="prev" href="olifis-5992.html"><small>← precedente</small>21: Incroci!</a><a class="next" href="olifis-5995.html"><small>successivo →</small>23:bobine concentriche</a></nav>
+</main></body></html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>27. La fisica a servizio della distruzione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 27</a></span></nav>
+<h1>27. La fisica a servizio della distruzione</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6007">forum Olifis</a></p>
+<article class="post first" id="p19790"><div class="who"><b>bogcal11</b><span>7 dic 2014, 12:29</span></div>Un missile balistico (a quanto pare un missile che data una velocità iniziale, si muove per inerzia), viene lanciato dal polo nord. Il bersaglio si trova ad una latitudine <span class="tex">\(\phi\)</span> (<span class="tex">\(&gt;0\)</span> se si trova nell'emisfero nord e <span class="tex">\(&lt;0\)</span> se si trova nell'emisfero sud). A quale angolo (rispettto all'orizzonte) bisogna lanciare il missile per far sì che raggiunga l'obiettivo con una velocità di lancio minima?</article>
+<article class="post" id="p19791"><div class="who"><b>Simone256</b><span>7 dic 2014, 21:55</span></div>Esprimendolo in gradi:<br>
+<span class="tex">\(\displaystyle \theta =\frac{\phi + 90}{4}\)</span><br>
+??  :roll:</article>
+<article class="post" id="p19792"><div class="who"><b>bogcal11</b><span>7 dic 2014, 23:01</span></div>Esatto! :) Però sono curioso dello svolgimento perché esistono tipo 3 o 4 soluzioni carine e se a qualcuno interessa le vediamo tutte ;)</article>
+<article class="post" id="p19793"><div class="who"><b>andrea96</b><span>8 dic 2014, 0:00</span></div>ma devo considerare la terra sferica o ellittica?</article>
+<article class="post" id="p19794"><div class="who"><b>bogcal11</b><span>8 dic 2014, 0:28</span></div>Sferica va bene, se riesci a trovare l'angolo considerando la terra ellittica ancora meglio comunque (io sono riuscito a fare solo il caso sferico)</article>
+<article class="post" id="p19795"><div class="who"><b>andrea96</b><span>8 dic 2014, 0:35</span></div>però con la terra sferica mi trovo in difficoltà a capire come l'angolo possa non essere zero... l'energia potenziale è la stessa al polo e sul bersaglio, per la conservazione del momento angolare la velocità angolare è la stessa e quindi per avere la minima velocità ( per la conservazione dell'energia ) dovrei avere velocità radiale nulla...</article>
+<article class="post" id="p19796"><div class="who"><b>Simone256</b><span>8 dic 2014, 1:16</span></div>Orrida soluzione in geometria analitica:<br>
+Pensando a risultati assurdi mi sono tirato su le maniche e l'ho picchiato con i conti; voglio trovare l'orbita ellittica che richieda il minor dispendio di energia, quindi quella con l'asse maggiore <span class="tex">\(a\)</span> minore possibile (l'energia associata ad un'orbita ellittica vale <span class="tex">\(E=-\frac{mMG}{2a}\)</span>). Sappiamo che il centro della terra occupa uno dei due fuochi e che il polo nord e il punto di atterraggio sono simmetrici rispetto a un asse dell'orbita ellittica. A questo punto comincia la parte mortale: Si risolve in coordinate cartesiane, si ottengono una famiglia di ellissi e si ricava la lunghezza dell'asse maggiore in funzione dell'asse minore; si trova il minimo e quindi la lunghezza dell'asse maggiore! A questo punto si può ricavare la velocità totale di lancio e con molti altri conti il momento angolare del missile... Con altri conti si trova il rapporto tra la velocità radiale e la velocità totale nell'istante del lancio che sarebbe il coseno del risultato; con magheggi algebrici si trova l'espressione scritta sopra!  :twisted: <br>
+<br>
+Soluzione strafica in geometria sintetica:<br>
+Vista la semplicità del risultato ho pensato che si potesse raggiungere lo scopo con un po' di angle-chasing! L'ellisse è il luogo dei punti del piano tali che la somma delle distanze dai fuochi è costante, tale somma è la lunghezza dell'asse maggiore. Metto in allegato la figura:<br>
+Affinchè la somma <span class="tex">\(ON+OF\)</span> (dove <span class="tex">\(O\)</span> è il centro della terra, <span class="tex">\(N\)</span> il polo nord e <span class="tex">\(F\)</span> il secondo fuoco dell'orbita) sia minima <span class="tex">\(NF\)</span> deve essere perpendicolare all'asse maggiore e quindi al raggio terrestre!!! A questo punto ci viene in aiuto una proprietà formidabile dell'ellisse (e in generale delle coniche): se <span class="tex">\(KL\)</span> è la tangente all'ellisse nel punto <span class="tex">\(N\)</span> allora gli angoli <span class="tex">\(ONK\)</span> e <span class="tex">\(FNL\)</span> sono congruenti!!! A questo punto se si ricorda che <span class="tex">\(FNM\)</span> è angolo alla circonferenza rispetto all'angolo al centro <span class="tex">\(NOA\)</span> il gioco è fatto:<br>
+<br>
+<span class="tex">\(\theta=FNL-FNM=\frac{180-FNO}{2}-\frac{AON}{2}=\frac{180-(90-FON)}{2}-\frac{90-\phi}{2}=\frac{180-(90-\frac{90-\phi}{2})}{2}-\frac{90-\phi}{2}=\frac{90+\phi}{4}\)</span>
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/364106f9cd9d19f5.jpg" class="postimage" alt="20141208_001650.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>20141208_001650.jpg (113.62 KiB) Visto 6992 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p19797"><div class="who"><b>bogcal11</b><span>8 dic 2014, 1:47</span></div>Devi minimizzare <span class="tex">\(ON + NF\)</span>, ma dato che lo hai fatto sono sicuro sia un errore di battitura ;) per il resto perfetto! Vai con il prossimo!<br>
+<br>
+Andrea, perché dovrebbero avere la stessa velocità angolare?</article>
+<article class="post" id="p19798"><div class="who"><b>Simone256</b><span>8 dic 2014, 2:00</span></div>Hai perfettamente ragione errore mio ;)<br>
+Butti un indizio per un'altra soluzione possibile? :)</article>
+<article class="post" id="p19799"><div class="who"><b>andrea96</b><span>8 dic 2014, 2:34</span></div><blockquote><div><cite>bogcal11 ha scritto:</cite>
+Andrea, perché dovrebbero avere la stessa velocità angolare?</div></blockquote>
+beh perchè visto che <span class="tex">\(L=mr^2\omega\)</span> ,se la terra è sferica il punto e il bersaglio si trovano alla stessa distanza dal centro e visto che il momento angolare si conserva allora la velocità angolare al polo nord deve essere uguale alla velocità angolare al bersaglio</article>
+<article class="post" id="p19800"><div class="who"><b>Simone256</b><span>8 dic 2014, 10:26</span></div>Si la velocitá angolare all'impatto è uguale a quella nel lancio! Se diminuisci questa velocitá angolare dovrai tirare l'oggetto più in alto! Come lanciare un sasso: se vuoi lanciarlo a 40 metri dandogli poca velocitá orizzontale dovrai lanciarlo molto forte verso l'alto! Sai che la condizione che minimizza il dispendio di energia è a 45 gradi!</article>
+<nav class="pager"><a class="prev" href="olifis-6006.html"><small>← precedente</small>26: oscillatori su un cerchio</a><a class="next" href="olifis-6008.html"><small>successivo →</small>28: Meccanica fotoelettrica</a></nav>
+</main></body></html>

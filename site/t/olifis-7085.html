@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>262 - Marte e satelliti</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 262</a></span></nav>
+<h1>262 - Marte e satelliti</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7085">forum Olifis</a></p>
+<article class="post first" id="p27044"><div class="who"><b>DeoGratias</b><span>26 giu 2021, 22:59</span></div>Marte, che dista dal Sole 1,52 volte la distanza della Terra dal Sole (<span class="tex">\(d_{MS}=1.52d_{TS}\)</span>), ha una luna, Deimos, con un periodo di 30.3 ore e un'orbita di raggio <span class="tex">\(d_{DM}=1.6*10^{-4}d_{TS}\)</span>. Calcolare il rapporto tra la massa di Marte e la massa del Sole, supponendo di non conoscere la costante gravitazionale <span class="tex">\(G\)</span> (SNS 1999)</article>
+<article class="post" id="p27045"><div class="who"><b>matteofisica</b><span>27 giu 2021, 10:05</span></div>Provo a risolverlo!<br>
+Ricavando la terza legge di Keplero dalla legge di gravitazione universale, si ottiene, per il sistema Marte-Deimos: <br>
+<span class="tex">\(\frac{d_D^{3}}{T_D^{2}}=\frac{Gm_M}{4\pi ^2}\)</span><br>
+da cui ricavo la massa di Marte: <span class="tex">\(m_M=\frac{4\pi ^2}{G}\frac{d_D^3}{T_D^2}\)</span><br>
+Ora applico la terza legge di Keplero al sistema solare: <br>
+<span class="tex">\(\frac{d_M^3}{T_M^2}=\frac{d_T^3}{T_T^2}\)</span><br>
+Da cui ricavo T di Marte: <span class="tex">\(T_M^2=\frac{T_T^2d_M^3}{d_T^3}\)</span><br>
+Da qui, sapendo che la costante della terza legge di Keplero per il sistema solare è <span class="tex">\(\frac{Gm_S}{4\pi ^2}\)</span>, si può ricavare facilmente il rapporto richiesto: <br>
+<span class="tex">\(\frac{m_M}{m_S}=\frac{d_D^3}{T_D^2}\frac{T_T^2}{d_T^3}\)</span>, dove non è richiesto conoscere G perché si semplifica.</article>
+<article class="post" id="p27046"><div class="who"><b>DeoGratias</b><span>30 giu 2021, 18:37</span></div>@matteofisica scusa se rispondo tardi, la soluzione è corretta (manca soltanto il valore numerico, che è <span class="tex">\(3.4*10^{-7}\)</span>), procedi pure col 263 :D</article>
+<article class="post" id="p27047"><div class="who"><b>matteofisica</b><span>30 giu 2021, 18:43</span></div>Che emozione! La mia prima staffetta! :D Oggi penso al problema e domani mattina lo posto</article>
+<nav class="pager"><a class="prev" href="olifis-7083.html"><small>← precedente</small>261. Semicilindro su un piano</a><a class="next" href="olifis-7086.html"><small>successivo →</small>263. Polvere nello spazio</a></nav>
+</main></body></html>

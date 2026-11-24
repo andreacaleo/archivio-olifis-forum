@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>104 masse che cadono</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 104</a></span></nav>
+<h1>104 masse che cadono</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6432">forum Olifis</a></p>
+<article class="post first" id="p23131"><div class="who"><b>arna1998</b><span>29 ott 2016, 13:14</span></div>Si hanno 104 sfere rispettivamente di massa <span class="tex">\(m_1\)</span>, <span class="tex">\(m_2\)</span>, ..., <span class="tex">\(m_{104}\)</span>. Sono disposte in modo che tutti i centri siano allineati su una retta perpendicolare al suolo, la massa <span class="tex">\(m_1\)</span> è quella più in alto, mentre <span class="tex">\(m_{104}\)</span> è quella più in basso. La distanza tra una massa è quella sottostante è molto piccola. Le masse vengono lasciate cadere simultaneamente.Trovare il rapporto <span class="tex">\(\dfrac{m_{104}}{m_1}\)</span> affinché in seguito a tutti gli urti:<br>
+(A) La massa <span class="tex">\(m_1\)</span> riceva la percentuale di energia cinetica più grande possibile.<br>
+(B) La massa <span class="tex">\(m_1\)</span> vada più in alto possibile. Inoltre determinare l'altezza che raggiunge in questo caso se inizialmente si trova ad altezza <span class="tex">\(H\)</span>, mentre la massa <span class="tex">\(m_{104}\)</span> inizialmente è ad altezza <span class="tex">\(h\)</span>.<br>
+È sufficiente considerare i primi 2 urti di ogni massa, e tutti gli urti sono perfettamente elastici.</article>
+<article class="post" id="p23137"><div class="who"><b>CaptainJohnCabot</b><span>29 ott 2016, 20:11</span></div>Mi sembra molto strano ma è possibile che il punto <em class="text-italics">a</em> sia una roba tipo <span class="tex">\(m_{104} /m_1=3^{103}\)</span>  ?  :lol:  :roll:</article>
+<article class="post" id="p23138"><div class="who"><b>arna1998</b><span>30 ott 2016, 9:35</span></div>No, non è quello :(</article>
+<article class="post" id="p23140"><div class="who"><b>CaptainJohnCabot</b><span>30 ott 2016, 11:35</span></div>Ecco appunto  :lol: <br>
+<br>
+Avevo provato al volo a farlo a mente sul treno iterando il procedimento usato per due masse, direi che avevo decisamente sopravvalutato le mie abilità   :roll:  :lol: <br>
+<br>
+Effettivamente il rapporto tra due masse consecutive non dovrebbe essere costante, dato che cambiano le varie velocità di risalita   :roll:</article>
+<article class="post" id="p23141"><div class="who"><b>guido</b><span>30 ott 2016, 11:41</span></div>Io pensavo che percorressero tutte lo stesso tratto, quello di <span class="tex">\(m_{104}\)</span>, giungendo tutte con la stessa velocità agli urti e che data la piccolezza della loro distanza praticamente è come se avvenisse l'urto direttamente fra la prima e l'ultima che è respinta dal suolo mentre le altre è come se fossero ferme e trasmettessero semplicemente la quantità di moto di <span class="tex">\(m_{104}\)</span> su m_1. Posso lavorare a quest'idea o sono fuori :?:</article>
+<article class="post" id="p23142"><div class="who"><b>arna1998</b><span>30 ott 2016, 12:03</span></div>È giusto dire che le masse arrivano tutte con la stessa velocità all'urto, dato che percorrono lo stesso tratto. Non è vero però che si può considerare l'urto direttamente tra la prima e l'ultima massa, dato che la distanza che c'è tra una massa e l'altra fa si che gli urti avvengano tutti in istanti diversi, seppur vicinissimi.</article>
+<article class="post" id="p23145"><div class="who"><b>step98</b><span>31 ott 2016, 2:19</span></div>La risposta al punto a potrebbe essere <span class="tex">\(\frac{m_{104}}{m_1}=5460\)</span>?</article>
+<article class="post" id="p23146"><div class="who"><b>arna1998</b><span>31 ott 2016, 10:00</span></div>Corretta! :D</article>
+<article class="post" id="p23147"><div class="who"><b>step98</b><span>31 ott 2016, 14:17</span></div>Ok allora vado con il procedimento:<br>
+se si vuole trasferire all'ultima sfera la massima energia possibile bisogna imporre che in ogni urto la sfera più in basso rimanga ferma dopo l'urto, cioè deve essere:<br>
+<span class="tex">\(v_{CM(n-1,n)}=\frac{v_n}{2}\)</span><br>
+dove <span class="tex">\(v_{CM(n-1,n)}\)</span> è la velocità del centro di massa dell'n-esima e (n-1)-esima sfera e <span class="tex">\(v_n\)</span> è la velocità dell'n-esima sfera prima dell'urto. In questo modo la velocità dopo l'urto dell'(n-1)-esima sfera sarà:<br>
+<span class="tex">\(v_{n-1}=v_{CM(n-1,n)}-(-v-v_{CM(n-1,n)})=2v_{CM(n-1,n)}+v=v_n+v\)</span> (si stanno considerando positive le velocità rivolte verso l'alto)<br>
+dove <span class="tex">\(v\)</span> è la velocità che hanno tutte le sfere prima che inizino gli urti.<br>
+Quindi si ha, considerando che <span class="tex">\(v_{104}=v\)</span>:<br>
+<span class="tex">\(v_n=(105-n)v\)</span><br>
+Poichè si è imposto che dopo ogni urto la sfera più in basso rimanesse ferma, si ha per la conservazione dell'energia:<br>
+<span class="tex">\(\frac{1}{2}m_n(v_n)^2=\frac{1}{2}\sum_{i=n}^{104}m_iv^2\)</span><br>
+trascurando le velocità che le altre sfere hanno assunto per via della gravità poichè gli urti sono tutti molto ravvicinati nel tempo.<br>
+Sostituendo l'espressione trovata per <span class="tex">\(v_n\)</span>:<br>
+<span class="tex">\(\frac{1}{2}m_n(105-n)^2v^2=\frac{1}{2}\sum_{i=n}^{104}m_iv^2\)</span><br>
+Cioè:<br>
+<span class="tex">\(m_n=\frac{\sum_{i=n}^{104}m_i}{(105-n)^2}\)</span><br>
+Scrivendo le espressioni di <span class="tex">\(m_n\)</span> e <span class="tex">\(m_{n-1}\)</span> si vede che:<br>
+<span class="tex">\(m_{n-1}=\frac{(105-n)^2}{(106-n)^2-1}m_n=\frac{105-n}{107-n}m_n\)</span><br>
+A questo punto scrivendo anche <span class="tex">\(m_{n-2}\)</span> e <span class="tex">\(m_{n-3}\)</span> in funzione di <span class="tex">\(m_n\)</span> si vede che:<br>
+<span class="tex">\(m_{n-k}=\frac{(106-n)(105-n)}{(107+k-1-n)(107+k-2-n)}m_n=\frac{(106-n)(105-n)}{(106-n+k)(105-n+k)}m_n\)</span><br>
+Ponendo <span class="tex">\(n=104\)</span> e <span class="tex">\(k=103\)</span> si ha:<br>
+<span class="tex">\(m_1=\frac{2m_{104}}{105 \cdot 104}\)</span><br>
+Cioè <br>
+<span class="tex">\(\frac{m_{104}}{m_1}=5460\)</span><br>
+Al momento non ho ancora provato a fare il punto b e non so se avrò tempo, quindi invito anche gli altri a provare per evitare che  la staffetta si blocchi.</article>
+<article class="post" id="p23148"><div class="who"><b>Flaffo</b><span>31 ott 2016, 17:25</span></div>Partendo dal teorema (facilmente dimostrabile dalla conservazione dell'energia e della quantità di moto) secondo cui la velocità relativa tra due palle prima e dopo l'urto deve essere uguale in modulo, è facile capire che, affinché la palla  più in alto <span class="tex">\(m_{n+1}\)</span> esca dall'urto con velocità maggiore possibile, la massa in basso <span class="tex">\(m_n\)</span> deve mantenere la sua velocità praticamente inalterata prima e dopo lo scontro. Ciò accade se <span class="tex">\(m_{n+1}&lt;&lt;m_n\)</span>. Il rapporto chiesto <span class="tex">\(\frac {m_{104}}{m_1}\rightarrow \infty\)</span><br>
+In questo caso possiamo scrivere:<br>
+<br>
+<span class="tex">\(v_{n+1}= 2v_n +\sqrt {2gh}\)</span><br>
+<br>
+Per semplicità chiamiamo da ora <span class="tex">\(m_1\)</span> la palla più in basso e <span class="tex">\(m_{104}\)</span> quella più in alto. Iterando la formula precedente si ricava: <br>
+<br>
+<span class="tex">\(v_n=\left ( 2^n -1 \right) \sqrt {2gh}\)</span><br>
+<br>
+La velocità della palla più  in alto  è, allora:<br>
+<br>
+<span class="tex">\(v_{104} =    \left ( 2^{104} -1 \right) \sqrt {2gh}\)</span><br>
+<br>
+Che ovviamente va ben oltre la velocità della luce...<br>
+<br>
+A questo punto andrebbe usata la relatività.. il risultato comunque sarà molto prossimo a <span class="tex">\(c\)</span>, per cui sarà inutile andare a cercare dal vicino la 12, 13, 14, 15.. 104 in quanto vagheranno inesorabilmente nello spazio. Un inutile spreco di palle!</article>
+<article class="post" id="p23149"><div class="who"><b>arna1998</b><span>1 nov 2016, 15:03</span></div>@step98: Mi sembra tutto corretto :) <br>
+<br>
+@Flaffo: Tutto giusto. Non avevo fatto caso che alla fine le velocità in gioco venissero decisamente troppo grandi e che quindi non ha neanche tanto senso chiedersi a che altezza finiscono le palline (anche perché nel caso ignorassimo questo problema sulla velocità, verrebbe fuori un altezza che è circa <span class="tex">\(10^{46}\)</span> anni luce  :lol:)<br>
+<br>
+Detto questo, bisogna scegliere a chi va il testimone. Avete fatto metà problema per uno, ma forse la parte (a) era un po' più laboriosa (inizialmente volevo mettere solo quella), quindi direi che il testimone può andare a step98 (anche perché se no una volta su 2 il testimone è di flato, così cambiamo un po' :lol:  :lol: )</article>
+<article class="post" id="p23150"><div class="who"><b>Flaffo</b><span>1 nov 2016, 16:04</span></div>Sono d'accordo :D</article>
+<nav class="pager"><a class="prev" href="olifis-6431.html"><small>← precedente</small>103. Neve</a><a class="next" href="olifis-6434.html"><small>successivo →</small>105. Palla su foglio di carta</a></nav>
+</main></body></html>

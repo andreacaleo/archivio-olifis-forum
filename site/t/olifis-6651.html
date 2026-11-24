@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>139: Catena (rotante) in caduta libera</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 139</a></span></nav>
+<h1>139: Catena (rotante) in caduta libera</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6651">forum Olifis</a></p>
+<article class="post first" id="p24465"><div class="who"><b>Gamow00</b><span>17 feb 2018, 13:06</span></div>Una catena con densità lineare di massa <span class="tex">\(\rho\)</span> uniforme è avvolta intorno a due pulegge cilindriche.Gli assi delle pulegge sono paralleli al vettore di accelerazione di gravità <span class="tex">\(\vec{g}\)</span>.  Le pulegge ruotano e fanno muovere la catena a una velocità costante <span class="tex">\(v\)</span>. Per qualche ragione, la catena scivola istantaneamente giù dalle pulegge e cade verticalmente.<br>
+<strong class="text-strong">Come cambia la forma della catena durante la caduta?</strong><br>
+<br>
+<a class="lost" href="https://i.imgur.com/Xbq6Bhv.png" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p24516"><div class="who"><b>Aleksej99</b><span>24 feb 2018, 11:51</span></div>Rimane sempre la stessa, giusto?</article>
+<article class="post" id="p24517"><div class="who"><b>Gamow00</b><span>24 feb 2018, 12:39</span></div>Giusto :D  :D <br>
+Vai con la dimostrazione</article>
+<article class="post" id="p24540"><div class="who"><b>Aleksej99</b><span>28 feb 2018, 12:50</span></div>Allora, dimostro che tolti i due cilindri la forma della catena rimane la stessa <br>
+Sia <span class="tex">\(R\)</span> il raggio di curvatura della catena in un certo punto sotteso da in angolo<span class="tex">\(da\)</span> : avremo allora che la risultante delle forze sul pezzettino sarà la forza centripeta  <span class="tex">\(F da=dm v^2 / R =  \)</span> dalla quale ricaviamo <span class="tex">\(F=pv^2\)</span> che é indipendente dal raggio di curvatura...<br>
+Abbiamo dunque dimostrato che su ogni pezzettino della catena agisce una forza risultante che non dipende da nient'altro se non dalla massa e dalla velocità che la catena aveva all'inizio del moto e dunque questa non cambierà cadendo la sua forma</article>
+<article class="post" id="p24541"><div class="who"><b>Gamow00</b><span>28 feb 2018, 15:30</span></div>Yes  8-) <br>
+Interessante vero?</article>
+<article class="post" id="p24542"><div class="who"><b>Aleksej99</b><span>28 feb 2018, 15:43</span></div>Si molto interessante, soprattutto per la generalità del problema... Se una catena ha una determinata forma e velocità di scorrimento la mantiene se non agiscono nuove forze anche togliendo i sostegni... Da dove hai preso il problema?</article>
+<article class="post" id="p24543"><div class="who"><b>Gamow00</b><span>28 feb 2018, 19:32</span></div>L'ho preso dai "200 Puzzling Physics Problems"</article>
+<article class="post" id="p24544"><div class="who"><b>Aleksej99</b><span>28 feb 2018, 19:40</span></div>Molto bello quel libro anche se i problemi sono diversi e più difficili di quelli delle olifis, non trovi?</article>
+<article class="post" id="p24546"><div class="who"><b>Gamow00</b><span>28 feb 2018, 20:11</span></div>Si, sono problemi meno guidati e decisamente più truccosi. Alcuni eccessivamente secondo me. Sicuramente è un libro ben fatto che stimola a usare la testa. Alcuni problemi in particolare sono davvero degni di nota.<br>
+<br>
+Ah dimenticavo: il testimone è tuo ovviamente 8-)</article>
+<nav class="pager"><a class="prev" href="olifis-6648.html"><small>← precedente</small>138: Strani incontri</a><a class="next" href="olifis-6657.html"><small>successivo →</small>140: Gli inglesi che cambiano il giorno</a></nav>
+</main></body></html>

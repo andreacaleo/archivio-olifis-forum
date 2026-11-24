@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>45: cavità come rampa di lancio</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 45</a></span></nav>
+<h1>45: cavità come rampa di lancio</h1>
+<p class="meta">40 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6088">forum Olifis</a></p>
+<article class="post first" id="p20750"><div class="who"><b>andrea96</b><span>6 apr 2015, 23:10</span></div>una sfera di massa <span class="tex">\(m\)</span> si sta muovendo senza attrito su un piano con velocità <span class="tex">\(v_0\)</span> verso un grosso blocco di massa <span class="tex">\(M\)</span> all'interno del quale è stata scavata una cavità che parte dal punto in cui la sfera urta il blocco ed è ben arrotondato fino a sbucare VERTICALMENTE dell'estremità in alto del blocco ( potete immaginarvi la cavità come una specie di percorso all'interno del blocco, simile a quelli che i vermi fanno nelle mele ); la cavità è tale che la sfera riesce a passarci perfettamente ( se fosse poco piu grande non passerebbe ) e senza attrito, e tutti gli urti sono elastici. La sfera sbuca dall'estremità superiore e schizza verso l'alto raggiungendo un altezza molto molto maggiore dell'altezza del blocco, dopo di che ricade si rinfila nel blocco e esce dall'estremità inferiore. Quanto tempo trascorre da quando la pallina urta il blocco a quando torna nel punto in cui era avvenuto quell'urto? esprimere il risultato in funzione di <span class="tex">\(\beta=\frac{M}{m}\)</span>.<br>
+P.S. per anticipare probabili commenti del tipo "ma non dovrebbe dipendere anche da..." , "ma tra i dati non manca sapere..." ecc..., rispondo subito di no! il problema va risolto solo con le cose che ho detto sopra e non è così difficile  :D</article>
+<article class="post" id="p20751"><div class="who"><b>CapitanFindus</b><span>6 apr 2015, 23:51</span></div>l'ho letto un po di volte ma non mi è chiara la situazione. Il blocco sarebbe come un cubo su un piano? E perchè la sfera dovrebbe urtare il blocco se entra nella cavità? <br>
+<br>
+Non potresti fare un disegno?  :roll:  :roll:  :roll:  :roll:  :roll:</article>
+<article class="post" id="p20752"><div class="who"><b>andrea96</b><span>6 apr 2015, 23:59</span></div>Domani provo a fare un disegno comunque il blocco è come un cubo su un piano e per urto si intende il momento in cui la sfera giunge dove c è il blocco, poi entra dentro ecc... però per urto intendevi quel momento.</article>
+<article class="post" id="p20753"><div class="who"><b>gluonstrongforce</b><span>7 apr 2015, 0:40</span></div>È questo?
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/5bae9e53fc25ac39.jpg" class="postimage" alt="20150407_003617.jpg" onclick="viewableArea(this);" /></dt>
+			<dd><em>È questo?</em></dd>			<dd>20150407_003617.jpg (68.52 KiB) Visto 9396 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p20755"><div class="who"><b>Davide96</b><span>7 apr 2015, 10:19</span></div>Viene cosí anche a me   :D .</article>
+<article class="post" id="p20756"><div class="who"><b>Simone256</b><span>7 apr 2015, 11:19</span></div>Intanto per chi avesse bisogno del disegno... :)
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/79dd28cf0bd5d5ba.jpg" class="postimage" alt="IMG-20150407-WA0001.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>IMG-20150407-WA0001.jpg (4.43 KiB) Visto 9360 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p20758"><div class="who"><b>andrea96</b><span>7 apr 2015, 13:15</span></div>@simone256 grazie!! Perche non sono capace a postare le immagini :D <br>
+comunque quel risultato è sbagliato. Tra l altro ti viene che se M&gt;m hai un tempo negativo ed è un po assurda la cosa visto che se consideri il caso limite in cui il blocco è molto piu pesante della sfera il primo resta fermo e la sfera tornerá certamente in quel punto.</article>
+<article class="post" id="p20759"><div class="who"><b>Carlo96</b><span>7 apr 2015, 14:54</span></div>Nella  marea di calcoli è molto possibile che mi sia perso qualche costante, ma come dipendenza da beta a me viene<br>
+<br>
+<span class="tex">\(t=\frac{v_{0}}{g}\cdot \frac{\beta^{2}}{\beta^{2}-1}\)</span><br>
+<br>
+È possibile che manchi un 2 da qualche parte!! :)</article>
+<article class="post" id="p20760"><div class="who"><b>andrea96</b><span>7 apr 2015, 16:23</span></div>no non viene quello.<br>
+Però se nessuno posta per lo meno l'idea che l'ha portato al suo risultato non posso dirvi dove avete sbagliato e penso vi interessi...</article>
+<article class="post" id="p20763"><div class="who"><b>gluonstrongforce</b><span>7 apr 2015, 17:27</span></div>Nel caso M&gt;&gt;m
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/9e4d72d3ae6dbf4e.jpg" class="postimage" alt="20150407_151747.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>20150407_151747.jpg (69.58 KiB) Visto 9281 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p20764"><div class="who"><b>Davide96</b><span>7 apr 2015, 17:47</span></div>Io ho usato la conservazione dell'energia e della quantitá di moto ma a questo punto credo di averlo strasemplificato. Non riesco a mettere la foto peró.</article>
+<article class="post" id="p20765"><div class="who"><b>andrea96</b><span>7 apr 2015, 18:32</span></div>@davide96 prova a riassumere il procedimento mettendo i risultati che ti vengono volta per volta senza scrivere i calcoli. <br>
+@gluonstrongforce attento quell equazione è sbagliata dimensionalmente e tra l altro assumendo valida quella condizione che hai detto si potrebbe anche semplificare. <br>
+P. S. se avete capito l idea fondamentale per risolvere il problema il caso M&gt;&gt;m dovrebbe essere cosi banale che potete farlo a mente durante una partita a pallone mentre vi trovate a tu per tu con il portiere avversario.</article>
+<article class="post" id="p20766"><div class="who"><b>gluonstrongforce</b><span>7 apr 2015, 18:56</span></div>Si, scusa. Mi è scappato un quadrato di troppo. Inoltre, riflettendoci, penso che se M&gt;&gt;m, allora è come se M non si muovesse affatto e quindi T= 2V°/g</article>
+<article class="post" id="p20767"><div class="who"><b>CapitanFindus</b><span>7 apr 2015, 18:58</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>
+P. S. se avete capito l idea fondamentale per risolvere il problema il caso M&gt;&gt;m dovrebbe essere cosi banale che potete farlo a mente durante una partita a pallone mentre vi trovate a tu per tu con il portiere avversario.</div></blockquote>
+
+addirittura ahahahahah<br>
+<br>
+io devo finire la mia tabella di marcia di preparazione per senigallia adesso ma stasera lo provo a fare!</article>
+<article class="post" id="p20768"><div class="who"><b>Simone256</b><span>7 apr 2015, 19:02</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>dovrebbe essere cosi banale che potete farlo a mente durante una partita a pallone mentre vi trovate a tu per tu con il portiere avversario.</div></blockquote>
+Ameno che la partita sia importantissima! Tipo la finale di champions o la partita in spiaggia che ci attende a senigallia  :twisted:</article>
+<article class="post" id="p20769"><div class="who"><b>gluonstrongforce</b><span>7 apr 2015, 19:05</span></div>vengo a Senigallia solo per quella!</article>
+<article class="post" id="p20770"><div class="who"><b>andrea96</b><span>7 apr 2015, 19:34</span></div>@gluonstronforce esatto viene quello nel caso M&gt;&gt;m<br>
+@simone256 si ma nella partita di venerdì per trovarci davanti alla porta avversaria dovremmo correre per molto molto tempo visto che il campo è misurato in unitá astronomiche.</article>
+<article class="post" id="p20771"><div class="who"><b>6frusciante9</b><span>7 apr 2015, 19:41</span></div>Anche a me nel caso M&gt;&gt;m mi veniva così ma non credo di essere sulla buona strada nella risoluzione del problema  :mrgreen:</article>
+<article class="post" id="p20773"><div class="who"><b>quazar18</b><span>7 apr 2015, 20:54</span></div>Potrebbe essere?<br>
+<span class="tex">\(t=\frac{2v_0}{g}\sqrt{1-\frac{1}{\beta}}\)</span></article>
+<article class="post" id="p20774"><div class="who"><b>andrea96</b><span>7 apr 2015, 21:02</span></div>Ti sembra possibile che se le masse sono uguali viene t=0?</article>
+<article class="post" id="p20775"><div class="who"><b>Davide96</b><span>7 apr 2015, 21:03</span></div>Ora sta la grande juve, poi domani in treno riprovo e cerco anche di capire come mettere le foto.</article>
+<article class="post" id="p20777"><div class="who"><b>quazar18</b><span>7 apr 2015, 21:08</span></div>Effettivamente no... ci penserò anche io in treno ;)</article>
+<article class="post" id="p20778"><div class="who"><b>andrea96</b><span>7 apr 2015, 21:10</span></div>misa che domani trenitalia festeggierà il record di pensieri nei suoi treni.  :D</article>
+<article class="post" id="p20779"><div class="who"><b>Davide96</b><span>7 apr 2015, 21:44</span></div>Ma poi, nel caso M&gt;&gt;m il blocco non dovrebbe restare fermo? Con t=2v/g indipendente da M/m?</article>
+<article class="post" id="p20781"><div class="who"><b>sall96</b><span>7 apr 2015, 21:57</span></div>Probabilmente no ma <span class="tex">\(\displaystyle t=2\dfrac{v_0}{g}\sqrt{\dfrac{\beta}{\beta+1}}\)</span> ?</article>
+<article class="post" id="p20782"><div class="who"><b>Tex96</b><span>7 apr 2015, 22:00</span></div>Anche a me viene lo stesso! Però puoi semplificare un <span class="tex">\(\beta +1\)</span></article>
+<article class="post" id="p20783"><div class="who"><b>sall96</b><span>7 apr 2015, 22:04</span></div>Ah giusto ora lo faccio  :lol:</article>
+<article class="post" id="p20785"><div class="who"><b>andrea96</b><span>7 apr 2015, 23:05</span></div>@davide96 si<br>
+@sall96 no</article>
+<article class="post" id="p20789"><div class="who"><b>Simone256</b><span>7 apr 2015, 23:48</span></div><blockquote><div><cite>Davide96 ha scritto:</cite>Ora sta la grande juve</div></blockquote>
+
+L'hai chiamata  :lol:  :mrgreen: <br>
+3 è proprio un gran bel numero!</article>
+<article class="post" id="p20790"><div class="who"><b>Simone256</b><span>7 apr 2015, 23:57</span></div>Comunque ragazzi un intervallo di tempo è dato da salita più discesa! Dipende solo dalla velocitá di salita iniziale che si ricava usando qualche conservazione. Poi il tempo di ritorno si ricava grazie alla distanza percorsa dal blocco nel primo intervallo tempo e alla velocitá con cui torna la pallina (anche questa ricavabile con qualche conservazione)!</article>
+<article class="post" id="p20791"><div class="who"><b>Davide96</b><span>8 apr 2015, 9:53</span></div><blockquote><div><cite>Simone256 ha scritto:</cite><blockquote><div><cite>Davide96 ha scritto:</cite>Ora sta la grande juve</div></blockquote>
+
+L'hai chiamata  :lol:  :mrgreen: <br>
+3 è proprio un gran bel numero!</div></blockquote>
+
+Be la settimana é iniziata bene :D</article>
+<article class="post" id="p20792"><div class="who"><b>Davide96</b><span>8 apr 2015, 10:11</span></div>Cosí?
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/28817ef26e89782e.png" class="postimage" alt="Screenshot_2015-04-08-10-08-53-1.png" onclick="viewableArea(this);" /></dt>
+						<dd>Screenshot_2015-04-08-10-08-53-1.png (172.46 KiB) Visto 7279 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p20793"><div class="who"><b>Davide96</b><span>8 apr 2015, 10:13</span></div>Wow fa niente se é sbagliato sono riuscito a mettere la foto finalmente!</article>
+<article class="post" id="p20796"><div class="who"><b>andrea96</b><span>8 apr 2015, 12:58</span></div>No</article>
+<article class="post" id="p20829"><div class="who"><b>andrea96</b><span>12 apr 2015, 13:08</span></div>Visto che sembra che il problema sia troppo difficile ( sono state tirate fuori decine di risultati sbagliati ) scrivo il risultato corretto e il primo che posta un procedimento per arrivare a quel risultato può proseguire senza aspettare che do l'ok.<br>
+<span class="tex">\(t=\frac{2v_0}{g}\frac{\beta}{\beta-1}\sqrt{\frac{\beta}{\beta+1}}\)</span>.</article>
+<article class="post" id="p20830"><div class="who"><b>sall96</b><span>12 apr 2015, 21:44</span></div>Mi continua a venire sempre la stessa cosa  :evil: <br>
+Pero' non capisco il risultato: se <span class="tex">\(M&lt;m\)</span> viene un tempo negativo?</article>
+<article class="post" id="p20832"><div class="who"><b>andrea96</b><span>12 apr 2015, 22:42</span></div><blockquote><div><cite>sall96 ha scritto:</cite>
+Pero' non capisco il risultato: se <span class="tex">\(M&lt;m\)</span> viene un tempo negativo?</div></blockquote>
+certo! come fai a essere sicuro che per ogni rapporto delle due masse la sfera riesce a tornare nel punto in cui è avvenuto l'ingresso?</article>
+<article class="post" id="p20833"><div class="who"><b>sall96</b><span>12 apr 2015, 22:51</span></div>Ecco l'errore! Io pensavo che fosse un'ipotesi del testo  :roll:</article>
+<article class="post" id="p21000"><div class="who"><b>phyknight</b><span>18 mag 2015, 20:30</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Visto che sembra che il problema sia troppo difficile ( sono state tirate fuori decine di risultati sbagliati ) scrivo il risultato corretto e il primo che posta un procedimento per arrivare a quel risultato può proseguire senza aspettare che do l'ok.<br>
+<span class="tex">\(t=\frac{2v_0}{g}\frac{\beta}{\beta-1}\sqrt{\frac{\beta}{\beta+1}}\)</span>.</div></blockquote>
+
+Dato che la staffetta è morta e io (forse) ho un bel problema da proporre...posso proseguire io?<br>
+Ah, poi, se proprio vogliamo fare le cose con correttezza, qui si usa la conservazione di quantità di moto e energia cinetica ai due urti e si trovano tutte le velocità, si fanno i due conti che escono e viene il tuo risultato<br>
+Ma forse era anche inutile dirlo</article>
+<article class="post" id="p21001"><div class="who"><b>andrea96</b><span>18 mag 2015, 20:34</span></div>Sisi vai pure!  :D <br>
+Poi se qualcuno volesse sapere la soluzione di sto problema (ma non credo visto come si è sviluppato il tutto) l ho preso dal sito delle olimpiadi americane di fisica.</article>
+<nav class="pager"><a class="prev" href="olifis-6083.html"><small>← precedente</small>44: Pulegge infinite</a><a class="next" href="olifis-6123.html"><small>successivo →</small>46: Giocare con l&#x27;aria</a></nav>
+</main></body></html>

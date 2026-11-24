@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>190. Aste pendenti.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 190</a></span></nav>
+<h1>190. Aste pendenti.</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6866">forum Olifis</a></p>
+<article class="post first" id="p25731"><div class="who"><b>Luca Milanese</b><span>9 mar 2020, 18:00</span></div>Due aste sono incernierate, ciascuna per un estremo, in due punti diversi di un piano orizzontale. Esse hanno  la stessa densità lineica. Incontrandosi in un piano verticale, formano un angolo retto, con una delle due aste sporgente di un tratto infinitesimo sull'altra. Quest'ultima forma con l'orizzontale un angolo <span class="tex">\(\theta\)</span>. Il coefficiente di attrito fra le due aste è <span class="tex">\(\mu\)</span>. Qual è il minimo valore che <span class="tex">\(\theta\)</span> può assumere affinchè le due aste non cadano?<br>
+<br>
+Anche questo problema è tratto dal Morin. Se non si capisce qualcosa dalla mia traduzione approssimativa, chiedete pure.</article>
+<article class="post" id="p25732"><div class="who"><b>east_beast</b><span>9 mar 2020, 18:35</span></div>Incernierate significa che la forza che il piano orizzontale esercita su ognuna delle aste non è necessariamente normale ad esso, ma può avere anche una componente orizzontale?</article>
+<article class="post" id="p25733"><div class="who"><b>Luca Milanese</b><span>9 mar 2020, 19:02</span></div>Sì. Vuol dire che possono ruotare attorno a quel punto fisso, ma non allontanarsene.</article>
+<article class="post" id="p25734"><div class="who"><b>east_beast</b><span>9 mar 2020, 19:25</span></div>Mi sono accorto che non serviva scegliendo come poli per calcolare il momento proprio i punti di contatto  :D <br>
+Allora chiamo <span class="tex">\(1 (P_1, l_1)\)</span> l'asta che forma un angolo <span class="tex">\({\theta}\)</span> con l'orizzontale, e l'altra asta <span class="tex">\(2 (P_2, l_2)\)</span>.<br>
+Imponendo l'equilibrio dei momenti, usando come pivot point i punti di contatto col piano: <br>
+<span class="tex">\({P_1l_1cos{\theta} = 2l_1F     \)</span><br>
+<span class="tex">\(
+ 2l_2N = P_2(l_2+dl)sin{\theta}    }\)</span> Ricordando che <span class="tex">\({\lambda} = {\frac{P_1}{l_1}} =  {\frac{P_2}{l_2}}\)</span> , <span class="tex">\(F {\leq} {\mu}N\)</span>, <br>
+<span class="tex">\({\frac{l_1}{l_2} } = ctg{\theta}\)</span> e <span class="tex">\(dl {\approx} 0\)</span> per quanto riguarda il momento,<br>
+<span class="tex">\(ctg{\theta} {\leq} {\sqrt{\frac{{\mu}} {2} } } \)</span>, oppure <span class="tex">\(tg{\theta} {\geq}  {\sqrt{\frac{2} {{\mu}} } }\)</span><br>
+<br>
+O.T. Potresti spiegarmi come si fa un sistema di equazioni in <span class="tex">\(LaTeX\)</span> sorry?</article>
+<article class="post" id="p25735"><div class="who"><b>Luca Milanese</b><span>9 mar 2020, 20:29</span></div>Penso che tu ti sia dimenticato di semplificare un <span class="tex">\(2\)</span>... per il resto, la soluzione è corretta. Vai col 191!<br>
+<br>
+\begin{cases}<br>
+Roba 1 \\<br>
+Roba 2 \\<br>
+Roba 3 \\<br>
+\end{cases}</article>
+<article class="post" id="p25736"><div class="who"><b>east_beast</b><span>10 mar 2020, 0:01</span></div>Ah sì, grazie mille!</article>
+<nav class="pager"><a class="prev" href="olifis-6865.html"><small>← precedente</small>189. Piano inclinato con molla e attrito</a><a class="next" href="olifis-6867.html"><small>successivo →</small>191. Forze di attrito su una sfera</a></nav>
+</main></body></html>

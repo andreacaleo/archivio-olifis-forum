@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>126. Bilanciare una penna</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 126</a></span></nav>
+<h1>126. Bilanciare una penna</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6606">forum Olifis</a></p>
+<article class="post first" id="p24225"><div class="who"><b>lance00</b><span>26 dic 2017, 21:31</span></div>Visto che il problema 125 è rimasto irrisolto per più di due mesi, mi riapproprio del testimone (scusa Ruben!  :lol: )<br>
+<br>
+Si consideri una penna disposta verticalmente rispetto a un piano orizzontale. La si idealizzi come una massa puntiforme <span class="tex">\(m\)</span> all'estremità di un'asta priva di massa di lunghezza <span class="tex">\(l\)</span>. <br>
+(a) Assumendo che la penna formi inizialmente un (piccolo) angolo <span class="tex">\(\theta_0\)</span> con la verticale e abbia una velocità angolare iniziale <span class="tex">\(\omega_0\)</span>, trovare <span class="tex">\(\theta(t)\)</span> finché è piccolo <span class="tex">\((sin\theta \approx \theta)\)</span><br>
+(b) si potrebbe pensare che sarebbe possibile (almeno teoricamente) mantenere la penna in equilibrio per un periodo di tempo arbitrariamente lungo, se si rendono <span class="tex">\(\theta_0\)</span> e <span class="tex">\(\omega_0\)</span> abbastanza piccoli. Invece si può dimostrare, applicando il principio di indeterminazione di Heisenberg (<span class="tex">\((l\theta_0)(ml\omega_0) &gt;= \hbar\)</span>, che la penna non può stare in equilibrio per più di un tempo <span class="tex">\(t\)</span>. Trovare <span class="tex">\(t\)</span></article>
+<article class="post" id="p24227"><div class="who"><b>Dudin</b><span>27 dic 2017, 13:02</span></div>per il punto a:<br>
+considero il punto di contatto tra l'asta e il piano orizzontale come polo<br>
+allora:<br>
+<span class="tex">\( I*\alpha = \tau = mg\Theta \)</span> (usando l'approssimazione) <br>
+cioè  <br>
+<span class="tex">\( \alpha =  \frac{mg\Theta} {ml^2} = \frac{g\Theta} {l^2}   \)</span> <br>
+<br>
+quindi:<br>
+<span class="tex">\(   \theta = \theta\ped{0}  + \omega\ped{0}t + \frac{t^2 g\theta} {2l^2} \)</span></article>
+<article class="post" id="p24228"><div class="who"><b>Dudin</b><span>27 dic 2017, 13:06</span></div>scusate ho dovuto  rimettere il messaggio a causa di alcuni errori<br>
+per il punto a:<br>
+considero il punto di contatto tra l'asta e il piano orizzontale come polo<br>
+allora:<br>
+<span class="tex">\( I*\alpha = \tau =  lmg\theta \)</span> (usando l'approssimazione) <br>
+cioè  <br>
+<span class="tex">\( \alpha =  \frac{lmg\theta} {ml^2} = \frac{g\theta} {l}   \)</span> <br>
+<br>
+quindi:<br>
+<span class="tex">\(   \theta = \Theta   + \omega t + \frac{t^2 g\theta} {2l} \)</span></article>
+<article class="post" id="p24229"><div class="who"><b>Gamow00</b><span>27 dic 2017, 14:28</span></div>Dudin, penso che tu abbia commesso un'errore nell'ultimo passaggio. Hai sostituito l'accelerazione nella formula del moto uniformemente accelerato, che tanto uniforme non è. Continuo io da quel punto.<br>
+<span class="tex">\(\alpha={g\theta \over l}\)</span><br>
+E' un'equazione differenziale simile a quella del moto armonico, ma con il segno diverso. Si risolve allo stesso modo (sostituendo <span class="tex">\(e^{\lambda t}\)</span>) e restituisce una soluzione molto simile, solo con le funzioni iperboliche. Vi risparmio (e mi risparmio) tutti i passaggi, che comunque scriverò se qualcuno non li trova chiari.<br>
+<br>
+<span class="tex">\(\theta=\theta_0 \cosh {t\sqrt{g/l}}+{\omega \over \sqrt{{g \over l}}}\sinh{t\sqrt{g/l}}\)</span><br>
+<br>
+Questa è la mia soluzione al punto a.<br>
+Per il punto b) non mi è ancora chiaro come procedere; penso bisogni fare da qualche parte un'approssimazione ma non so dove.</article>
+<article class="post" id="p24230"><div class="who"><b>lance00</b><span>27 dic 2017, 15:39</span></div>Buona Gamow00!  :) Prova a scriverla come <span class="tex">\(\theta(t) = Ae^{at} + Be^{-at}\)</span> per fare le approssimazioni</article>
+<article class="post" id="p24232"><div class="who"><b>Gamow00</b><span>27 dic 2017, 16:54</span></div>Ok, dovrei esserci.<br>
+Per definizione <span class="tex">\(\cosh{x}={e^{x}+e^{x} \over 2}\)</span> e <span class="tex">\(\sinh{x}={e^{x}-e^{x} \over 2}\)</span>. Quindi per <span class="tex">\(x\)</span> abbastanza grandi (ma neanche troppo), posso scrivere <span class="tex">\(\cosh{x}=\sinh{x}={e^{x} \over 2}\)</span>.<br>
+Sostituendo nell'equazione:<br>
+<br>
+<span class="tex">\(\theta \approx {1 \over 2}{(\theta_0 + {\omega_0 \over \sqrt{{g \over l}}})\exp{t\sqrt{{g \over l}}}\)</span><br>
+<br>
+Utilizzando il principio di inderminazione di Heisenberg (per semplicità uso il caso dell'uguaglianza):<br>
+<br>
+<span class="tex">\(\theta \approx {1 \over 2}{(\theta_0 + {\hbar \over ml^2\sqrt{{g \over l}}})\exp{t\sqrt{{g \over l}}}\)</span><br>
+<br>
+A questo punto, <span class="tex">\(t\)</span> sarà massimo quando <span class="tex">\({\theta_0 +{\hbar \over \theta_0ml^2\sqrt{{g \over l}}}\)</span> è minimo. Derivando rispetto a <span class="tex">\(\theta_0\)</span>, trovo che il valore minimo dell'espressione è <span class="tex">\(2\sqrt{{\hbar \over ml^2\sqrt{{g \over l}}}\)</span><br>
+<br>
+Quindi:<span class="tex">\(\theta \approx \sqrt{{\hbar \over ml^2\sqrt{{g \over l}}}} \times{\exp{t_{max}\sqrt{{g \over l}}}\)</span><br>
+<br>
+Risolvendo per <span class="tex">\(t_{max}\)</span>:<br>
+<br>
+<span class="tex">\(t_{max} \approx {1 \over \sqrt{{g \over l}}} \ln{{\theta \sqrt{mgl^3} \over \sqrt{\hbar}}\)</span><br>
+<br>
+Ora, <span class="tex">\(\theta\)</span> sarà un angolo "di non ritorno", superato il quale la matita sicuramente comincerà a cadere. Prendo come valore numerico <span class="tex">\(\theta=0.01 rad\)</span>. Come <span class="tex">\(m\)</span> prendo <span class="tex">\(5 \times 10^{-3} kg\)</span> e pongo <span class="tex">\(l=0,15m\)</span>. Il valore di <span class="tex">\(\hbar\)</span> è <span class="tex">\(1,05 \times 10^{-34} Js\)</span>.<br>
+<br>
+Sostituendo nella formula ottengo <span class="tex">\(t \approx 3,85s\)</span>, che è sorprendentemente breve.</article>
+<article class="post" id="p24233"><div class="who"><b>lance00</b><span>27 dic 2017, 17:21</span></div>tutto giusto, solo che secondo me nell'ultimo passaggio ti sei scordato una radice:<br>
+<span class="tex">\(t_{max} = \sqrt{\frac{l}{g}}  ln[\theta \sqrt{\frac{m\sqrt{gl^3}}{\hbar}}]\)</span> che se uno vuole può riscrivere come <span class="tex">\(t_{max} = \frac{1}{4} \sqrt{\frac{l}{g}} ln \frac{m^2l^3g}{\hbar^2}\)</span><br>
+comunque puoi postare il 127  ;)</article>
+<article class="post" id="p24237"><div class="who"><b>Gamow00</b><span>27 dic 2017, 20:31</span></div>Sì giusto mi è proprio scappata quella radice.<br>
+Bel problema comunque! :D</article>
+<nav class="pager"><a class="prev" href="olifis-6555.html"><small>← precedente</small>125. I limiti della fisica classica</a><a class="next" href="olifis-6607.html"><small>successivo →</small>127: Un pianeta di plastilina</a></nav>
+</main></body></html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>40: Reticolo di resistenze</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 40</a></span></nav>
+<h1>40: Reticolo di resistenze</h1>
+<p class="meta">20 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6052">forum Olifis</a></p>
+<article class="post first" id="p20414"><div class="who"><b>sall96</b><span>17 feb 2015, 19:16</span></div>Sempre un IPhO vecchio, semplice ma molto carino  :D <br>
+<br>
+Si consideri un reticolo infinito di resistenze (tutte di resistenza <span class="tex">\(r\)</span>) come in figura. Si trovi la resistenza <span class="tex">\(R_{AB}\)</span> tra i due punti A e B.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/3f23a1c7d34b338b.png" class="postimage" alt="Resistenze.PNG" onclick="viewableArea(this);" /></dt>
+						<dd>Resistenze.PNG (3.19 KiB) Visto 7415 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p20415"><div class="who"><b>Simone256</b><span>17 feb 2015, 19:21</span></div>Hahahahaha il buon vecchio lemma del dado &lt;3  :lol:</article>
+<article class="post" id="p20416"><div class="who"><b>andrea96</b><span>17 feb 2015, 19:23</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Hahahahaha il buon vecchio lemma del dado &lt;3  :lol:</div></blockquote> :D  :D  :D  :D  :D  :D</article>
+<article class="post" id="p20417"><div class="who"><b>sall96</b><span>17 feb 2015, 19:23</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Hahahahaha il buon vecchio lemma del dado &lt;3  :lol:</div></blockquote>
+
+Ehm..., cosa??  :D</article>
+<article class="post" id="p20418"><div class="who"><b>Simone256</b><span>17 feb 2015, 19:34</span></div>Per coinvolgere il mondo del forum nell'ambito del lemma del dado (ideato alla scuola estiva di fisica).<br>
+<br>
+Lanciando un dado:<br>
+se esce 1, 2, 3 hai perso;<br>
+se esce 4 lanci ancora;<br>
+se esce 5, 6 hai vinto.<br>
+Qual è la probabilitá di vittoria?<br>
+<br>
+Trovo che la soluzione di questo problema sia moooolto simile all'idea che si deve avere per risolvere il problema della staffetta. In generale quest'idea è stata definita a sigillo "lemma del dado" :lol:</article>
+<article class="post" id="p20419"><div class="who"><b>andrea96</b><span>17 feb 2015, 19:42</span></div>Per rendervi conto dell'incredibile potenza di questo lemma, tenete presente che alla scuola estiva lo abbiamo pensato ( più che altro ci siamo resi conto che tanti problemi diversi potevano essere ricondotti a quella stessa idea ) quando mi è venuta la geniale idea di tirare in ballo il problema 2 di matematica di ammissione alla normale del 2013. Se siete interessati al "lemma del dado" provate ad applicarlo anche in quel problema :D</article>
+<article class="post" id="p20420"><div class="who"><b>sall96</b><span>17 feb 2015, 19:49</span></div>A proposito di ammissione alla normale: oggi mi sono accorto che il problema 3 di questa IPhO è identico al problema 4 di ammissione di quest'anno  :) <br>
+Forse conviene veramente farle le IPhO vecchie  :lol:</article>
+<article class="post" id="p20421"><div class="who"><b>Scugnamì</b><span>17 feb 2015, 20:21</span></div>Uhm dato che l'idea mi sembra molto interessante vi chiedo prima di tutto chiarimenti sul "lemma del dado". In particolare quel problema di probabilità io lo risolverei così:per vincere posso beccare i punteggi favorevoli a prima botta ( con probabilità <span class="tex">\(\displaystyle \frac{1}{3}\)</span>) oppure beccare il 4 (con probabilità <span class="tex">\(\displaystyle \frac{1}{6}\)</span> ) e poi ritirare e vincere oppure ritirare ancora e vincere oppure ritirare ancora una volta in più e poi vincere e così via. In sintesi dovrei avere una roba del tipo <span class="tex">\(\displaystyle \frac{1}{3} +\frac{1}{6} \cdot \frac{1}{3}+...= \frac{1}{3} \sum_{k=0}^\infty\left( \frac{1}{6} \right)^k=  \frac{2}{5}\)</span>. E' giusto?<br>
+<br>
+Ora passando al problema io avevo pensato di farlo così: cerchiamo di trovare una formula che mi descriva per il <span class="tex">\(k\)</span>esimo con <span class="tex">\(k\)</span> finito la resistenza e di portarla all'infinito.<br>
+ Ora detta <span class="tex">\(x_n \cdot r\)</span> la resistenza all'<span class="tex">\(n\)</span> "colonna" , ci si rende conto che per come è fatto il circuito per passare a <span class="tex">\(x_{n+1}\)</span> si deve mettere in parallelo  una resistenza di <span class="tex">\(x_n \cdot r\)</span> con una resistenza <span class="tex">\(r\)</span> e il loro parallelo in serie con un'altra resistenza <span class="tex">\(r\)</span>.<br>
+ <br>
+Otteniamo allora una successione descritta da <span class="tex">\(\displaystyle x_1=2 \wedge x_{n+1}=\frac{x_n}{x_n+1}+1\)</span>. Ora la serie è decrescente ma positiva ed ogni termine è maggiore di <span class="tex">\(1\)</span> per cui ammetterà limite finito e lo troviamo scrivendo: <span class="tex">\(x_{n+1}=x_n \Rightarrow \frac{x_n}{x_n+1}+1=x_n\)</span>. Il tutto ci porta ad un' equazione di secondo grado la cui soluzione positiva vale <span class="tex">\(\displaystyle X=\frac{1+ \sqrt{5}}{2}\)</span>. A ben vedere il risultato era prevedibile dato che maneggiando un po' con la serie ci si rendo conto che è composta da frazioni il cui numeratore e denominatore sono numeri di Fibonacci consecutivi(il che btw l'ho trovato fighissimo XD). <br>
+Detto ciò al resistenza dovrebbe allora essere <span class="tex">\(\displaystyle R_{AB}=\frac{1+ \sqrt{5}}{2} \cdot r\)</span>. E' corretto?</article>
+<article class="post" id="p20422"><div class="who"><b>sall96</b><span>17 feb 2015, 20:31</span></div>Giusto! Vai con il prossimo  :D <br>
+<br>
+Per il problema del dado, senza ricorrere a serie geometriche si poteva fare così:<br>
+<br>
+Sia <span class="tex">\(p\)</span> la probabilità di vincere. Allora<br>
+<br>
+<span class="tex">\(p=\dfrac{1}{3}+\dfrac{1}{6}p\)</span>   da cui otteniamo <span class="tex">\(p=\dfrac{2}{5}\)</span>   :)  (bello come i trucchi da olimpiadi della matematica si possano usare anche in fisica  :D )</article>
+<article class="post" id="p20423"><div class="who"><b>andrea96</b><span>17 feb 2015, 20:34</span></div>Si la probabilità è <span class="tex">\(\frac{2}{5}\)</span> però si puo fare in altri due modi molto piu semplici, uno dei quali è molto molto molto simile a quello che hai usato per trovare la resistenza.</article>
+<article class="post" id="p20424"><div class="who"><b>andrea96</b><span>17 feb 2015, 20:37</span></div>Perfetto uno dei due metodi è quello che dice Sall96. L'altro (piu da fisici) è questo: il fatto che se prendi il numero 4 ritiri e quindi ti ritrovi nella situazione iniziale comporta che il numero 4 è come se non ci fosse e i casi possibili diventano quindi 5. Ti  ritrovi quindi con un evento con 5 casi totali di cui 2 favorevoli cioè p=2\5</article>
+<article class="post" id="p20425"><div class="who"><b>sall96</b><span>17 feb 2015, 20:41</span></div>Sai che ci avevo pensato? Poi mi sono detto: "no dai è troppo semplice come metodo!"   :lol:  :lol:</article>
+<article class="post" id="p20426"><div class="who"><b>Simone256</b><span>17 feb 2015, 20:48</span></div>Il lemma del dado può essere "formalizzato" così:<br>
+Sia <span class="tex">\(M\)</span> un oggetto molto grosso e sia <span class="tex">\(m\)</span> un oggetto molto piccolo che se unito a <span class="tex">\(M\)</span> crea un oggetto molto uguale a <span class="tex">\(M\)</span>. Allora si scrive un'equazione facile e si trova <span class="tex">\(M\)</span> :D :lol:<br>
+<br>
+Altro esempio figo:<br>
+scrivere in forma compatta in funzione di <span class="tex">\(n\)</span> sta cosa:<br>
+<span class="tex">\(\sqrt{n-\sqrt{n-\sqrt{n-\sqrt{...}}}}\)</span></article>
+<article class="post" id="p20427"><div class="who"><b>andrea96</b><span>17 feb 2015, 20:56</span></div><blockquote><div><cite>sall96 ha scritto:</cite>Sai che ci avevo pensato? Poi mi sono detto: "no dai è troppo semplice come metodo!"   :lol:  :lol:</div></blockquote> eh invece in molti casi di "lemma del dado" questo è il modo migliore per applicarlo. Anche in quel problema di ammissione che dicevo prima con questo ragionamento si fa in un attimo!</article>
+<article class="post" id="p20428"><div class="who"><b>quazar18</b><span>17 feb 2015, 21:30</span></div>Correggetemi se sbaglio:<br>
+<span class="tex">\(k = \sqrt{n-\sqrt{n-\sqrt{n-\sqrt{...}}}}\)</span><br>
+Ora notiamo che:<br>
+<span class="tex">\(k=\sqrt{n-k}\)</span><br>
+Risolvendo per k e togliendo la soluzione negativa:<br>
+<span class="tex">\(k=\frac{\sqrt{4n+1}-1}{2}\)</span><br>
+<br>
+E' corretto?</article>
+<article class="post" id="p20429"><div class="who"><b>Simone256</b><span>18 feb 2015, 0:01</span></div>Esatto quazar18 ;) ;)</article>
+<article class="post" id="p20430"><div class="who"><b>quazar18</b><span>18 feb 2015, 0:13</span></div>Ok, quindi se non ho sbagliato i conti mi viene che la resistenza risultante è pari a:<br>
+<br>
+<span class="tex">\(R_{TOT} = R\frac{1+\sqrt{5}}{2}\)</span><br>
+<br>
+Numero carino  ;)</article>
+<article class="post" id="p20431"><div class="who"><b>andrea96</b><span>18 feb 2015, 13:38</span></div>Ho un piccolo dubbio dovuto alla mia scarsezza in matematica olimpica: la quella cosa delle radici per n=1 è evidente che é indeterminato perchè facendo ul calcolo iterato viene una volta 0 e una volta 1. Dalla formula non viene ne 0 ne 1. Il punto è : il fatto che è indeterminato fa si che quella formula non ha senso per n=1?</article>
+<article class="post" id="p20434"><div class="who"><b>Pigkappa</b><span>18 feb 2015, 14:14</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>il fatto che è indeterminato fa si che quella formula non ha senso per n=1?</div></blockquote>
+Si'.<br>
+<br>
+Si puo' formalizzare la cosa. Se la successione <span class="tex">\(a_n = f(a_{n-1})\)</span> (dove <span class="tex">\(f\)</span> e' una funzione continua) ha limite <span class="tex">\(L\)</span>, allora uno puo' fare il limite di quella relazione e dire che <span class="tex">\(L = f(L)\)</span>. Ma se la successione non ha un limite, allora non si puo' fare questa cosa. In un esame di matematica, dovreste prima dimostrare che il limite esiste, e poi potreste calcolarlo in quel modo.</article>
+<article class="post" id="p20435"><div class="who"><b>andrea96</b><span>18 feb 2015, 15:09</span></div>Chiarissimo! Grazie :D</article>
+<nav class="pager"><a class="prev" href="olifis-6051.html"><small>← precedente</small>39: Un&#x27;asta che gira</a><a class="next" href="olifis-6054.html"><small>successivo →</small>41. Asta ed urto(SNS 2011)</a></nav>
+</main></body></html>

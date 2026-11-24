@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>326. Ruota inclinata sul suolo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 326</a></span></nav>
+<h1>326. Ruota inclinata sul suolo</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7265">forum Olifis</a></p>
+<article class="post first" id="p28573"><div class="who"><b>Higgs</b><span>21 set 2024, 17:58</span></div>Un asse senza massa ha una estremità attaccata al centro di una ruota (un disco di massa m e raggio r) e l'altra attaccata ad un pivot fissato al suolo. <br>
+La ruota rotola senza strisciare sul suolo con l'asse che forma un angolo costante <span class="tex">\(\theta\)</span> con l'orizzontale. Il punto di contatto della ruota con il suolo  descrive una circonferenza con frequenza <span class="tex">\(\Omega\)</span>.<br>
+<br>
+a) Dimostrare che <span class="tex">\(\omega\)</span> (frequenza di rotazione della ruota attorno al suo centro) punta verso destra con componente orizzontale pari a  <span class="tex">\(\frac{ \Omega}{tang\theta }\)</span><br>
+<br>
+b) Dimostrare che la forza normale N fra suolo e ruota è  <span class="tex">\(N= mg cos^2\theta + mr\Omega^2 [(1/4) cos\theta sen^2 \theta + (3/2) cos^3 \theta]\)</span><br>
+<br>
+(Edit  con  hints ) Si tratta di un problema tratto da <em class="text-italics">Introduction to Classical Mechanics</em> di David Morin. Rispetto ad a) tenere conto della condizione di rotolamento ruota/suolo. Il quesito b) è più complicato: bisogna considerare le componenti di <span class="tex">\(\vec \omega\)</span>ovvero <span class="tex">\(\omega_2= \omega sen\theta ,\omega_3 = \omega cos\theta\)</span> e riportarle quindi sugli assi cartesiani <span class="tex">\(x_2,x_3\)</span> con origine nel pivot ma direzioni da determinare. Si deve trovare il momento angolare <span class="tex">\(\vec L = I_2\vec \omega_2 + I_3 \vec \omega_3\)</span> dove <span class="tex">\(I_2,I_3\)</span> sono i momenti di inerzia della ruota rispetto a <span class="tex">\(x_2,x_3\)</span> e poi la sua componente orizzontale.....</article>
+<article class="post" id="p28574"><div class="who"><b>Marco Balsamo</b><span>8 ott 2024, 19:08</span></div>a)  La <span class="tex">\(\vec{\omega}\)</span> che si vuole determinare è dovuta a due contributi. Il primo che chiamo <span class="tex">\(\vec{\omega_c}\)</span>: la velocità angolare di rotazione del disco attorno al suo centro che è uscente dallo stesso (come si può facilmente verificare). C'è poi anche una velocità angolare di precessione del centro di massa della ruota attorno al pivot, ovvero <span class="tex">\(\vec{\Omega}\)</span>, diretta verso il basso e perpendicolare al suolo. Inoltre il punto di contatto della ruota con il suolo è istantaneamente fermo. La somma vettoriale delle due velocità angolari deve essere dunque nella direzione determinata dai due punti di contatto con il suolo che sono istantaneamente fermi, quello del pivot e quello della ruota/suolo. Cioè: <span class="tex">\(\omega_c\cdot\sin\theta=\Omega\)</span> e <span class="tex">\(\omega_c\cdot\cos\theta=\omega\)</span>. Facendo il rapporto membro a membro della seconda eq. sulla prima si trova proprio: <span class="tex">\(\omega = \frac{\Omega}{\tan\theta}\)</span></article>
+<article class="post" id="p28575"><div class="who"><b>Higgs</b><span>9 ott 2024, 11:15</span></div>Corretto. Sei sulla strada giusta. Forza con il punto b)tenendo conto dell'hint :D</article>
+<article class="post" id="p28576"><div class="who"><b>Marco Balsamo</b><span>9 ott 2024, 19:03</span></div>Ho riguardato il problema 325 ed ho provato circa la stessa strada che hai utilizzato per determinare la frequenza. Per cui ho preso <span class="tex">\(x_1\)</span> parallelo all'asta/asse e <span class="tex">\(x_2\)</span> perpendicolare a quest'ultimo. Da cui: <span class="tex">\(\vec L=(\vec L_{1};\vec L_{2})=(I_1\vec \omega_1;I_2\vec \omega_2)\)</span>. Con <span class="tex">\(I_1=\frac{mr^2}{2}\)</span> e <span class="tex">\(I_2= \frac{mr^2}{4}+m(\frac{r}{\tan\theta})^2\)</span> per Huygens-Steiner. Perciò: <span class="tex">\(L=(\frac{mr^2}{2}\omega\cos\theta;[\frac{mr^2}{4}+m(\frac{r}{\tan\theta})^2](-\omega\sin\theta))\)</span>.<span class="tex">\(\vec L\)</span>, in generale, varia nel tempo, ma scomponendolo nelle direzioni perpendicolare e parallela al suolo, questa variazione è espressa se non altro dalla rotazione di <span class="tex">\(\vec{L}_{parallelo}\)</span>. Da cui <span class="tex">\(\tau =\frac{d\vec L}{dt}=\vec{\Omega}\times \vec{L}_{parallelo}\)</span> per il teorema di Poisson. Con <span class="tex">\({L}_{parallelo}= L_1\cos\theta-L_2\sin\theta\)</span>. Da cui, sostituendo <span class="tex">\(L_1\)</span> e <span class="tex">\(L_2\)</span> ed essendo <span class="tex">\(\vec{\omega}\)</span> e <span class="tex">\(\vec{L}_{parallelo}\)</span> perpendicolari fra loro risulta, dopo un po' di calcoli <span class="tex">\(\frac{d\vec L}{dt} = \frac{mr^2\Omega^2}{\tan\theta}[\frac{3(\cos\theta)^2}{2}+ \frac{(\sin\theta)^2}{4}]\)</span>. Ora calcolo il momento torcente rispetto al pivot: <span class="tex">\(\tau = -mgr\frac{(\cos\theta)^2}{\sin\theta}+\frac{Nr}{\sin\theta}=\frac{mr^2\Omega^2}{\tan\theta}[\frac{3(\cos\theta)^2}{2}+ \frac{(\sin\theta)^2}{4}]\)</span>. Cioè: <span class="tex">\(N = mg(\cos\theta)^2+mr\Omega^2\cos\theta[\frac{3(\cos\theta)^2}{2}+\frac{(\sin\theta)^2}{4}]\)</span>, ovvero: <span class="tex">\(N = mg(\cos\theta)^2+mr\Omega^2[(1/4)\cos\theta(\sin\theta)^2+(3/2)(\cos\theta)^3]\)</span></article>
+<article class="post" id="p28577"><div class="who"><b>Higgs</b><span>10 ott 2024, 10:59</span></div>Bravissimo complimenti mi sembra corretto. La staffetta è tua! :D  :D  :D</article>
+<article class="post" id="p28578"><div class="who"><b>Higgs</b><span>14 ott 2024, 17:14</span></div>@ marco balzamo   Sono usciti gli ultimi quesiti di Fisica 24-25 per l'ammissione in Normale. Se non hai di meglio comincia dal n. 1 ! :D</article>
+<article class="post" id="p28579"><div class="who"><b>Marco Balsamo</b><span>15 ott 2024, 19:40</span></div>@Higgs effettivamente stavo prendendomi del tempo per la scelta di un problema che non sia stato già trattato sul forum. Non ho avuto modo di vedere ancora i problemi dell'ammissione di quest'anno, ma a questo punto a breve mi impegnerò. In ogni caso apro un nuovo thread Sns n.1 2024 !</article>
+<nav class="pager"><a class="prev" href="olifis-7263.html"><small>← precedente</small>325 . Asta scivola nel circolo</a><a class="next" href="olifis-7274.html"><small>successivo →</small>327 - SNS n.2, 2024</a></nav>
+</main></body></html>

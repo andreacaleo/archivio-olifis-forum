@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>15-staffetta: tensione superficiale, questa sconosciuta</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 15</a></span></nav>
+<h1>15-staffetta: tensione superficiale, questa sconosciuta</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5977">forum Olifis</a></p>
+<article class="post first" id="p19499"><div class="who"><b>OrsoBruno96</b><span>23 set 2014, 20:47</span></div>Una bolla di raggio r=5.00 cm, che contiene un gas perfetto biatomico, è formata da una pellicola di sapone di spessore h=10.0 μm ed è posta nel vuoto. La pellicola di sapone ha una tensione superficiale σ=4.00∙〖10〗^(-2)  N/m  e una densità ρ=1.10 g/cm^3 . <br>
+<br>
+<br>
+1) Trovare la formula per la capacità termica molare del gas nella bolla per un processo in cui il gas è riscaldato così lentamente che la bolla rimane in equilibrio meccanico e successivamente calcolarne il valore.<br>
+<br>
+<br>
+2) Si consideri ora che il raggio della bolla possa variare. Trovare la formula per la frequenza ω delle piccole oscillazioni del raggio e calcolarne il valore assumendo che la capacità termica della pellicola di sapone sia molto maggiore della capacità termica del gas nella bolla. Si assuma anche che l’equilibrio termico all’interno della bolla sia raggiunto molto più rapidamente della durata del periodo di oscillazione.<br>
+(Si può approssimare qualche formula in qualche punto, basandosi sui dati numerici, vedete voi dove ;) )</article>
+<article class="post" id="p19503"><div class="who"><b>andrea96</b><span>24 set 2014, 15:19</span></div>Visto che di tensione superficiale so molto poco ( direi niente... ho cercato qualcosa su wikipedia e sto provando a fare qualcosa di molto molto casuale) c'è un fatto che non ho capito: allora mi sembra da aver capito che la tensione superficiale è dovuta all'attrazione intermolecolare del fluido sulle molecole della superficie, di conseguenza il gas non ha chiaramente tensione superficiale ma ce l'ha il sapone; però, devo considerare il sapone come la superficie del gas e quindi ai fini dei calcoli sulla pressione superficiale considerarlo come uno "strato" cioè senza spessore ( quindi lo spessore che viene dato servirebbe a qualcos altro), oppure, cosa che ritengo più probabile, il fluido a cui devo applicare i ragionamenti di tensione suoerficiale è il volume di sapone, e il gas è solo un qualcosa che fa pressione su questo? non so se ho espresso bene quello che non mi è chiaro...</article>
+<article class="post" id="p19504"><div class="who"><b>Simone256</b><span>24 set 2014, 15:28</span></div>Un piccolo <span class="tex">\(dQ\)</span> fornito si può scrivere come:<br>
+<br>
+<span class="tex">\(dQ=dE-dL=C_vdTn+dVp\)</span><br>
+<br>
+dove <span class="tex">\(C_v\)</span> è il calore molare a volume costante.<br>
+Per trovare il calore molare del processo:<br>
+<br>
+<span class="tex">\(\displaystyle C=\frac{dQ}{n dT}=C_v+\frac{dV p}{n dT}\)</span><br>
+<br>
+<span class="tex">\(C_v\)</span> lo sappiamo ed è <span class="tex">\(\frac{5}{2}R\)</span> poichè il gas è biatomico.<br>
+<br>
+Calcoliamo <span class="tex">\(\frac{dV}{dT}\)</span> col la pessima analisi che conosco:<br>
+poichè per una legge facile da dimostrare che ora non scrivo si ha <span class="tex">\(p=\frac{4\sigma}{r}\)</span> si ha (elevando al cubo) che <span class="tex">\(Vp^3=k\)</span> con <span class="tex">\(k\)</span> una costante (nella condizione di equilibrio della pellicola di sapone). Ossia <span class="tex">\(\frac{T^3}{V^2}=k\)</span> con <span class="tex">\(k\)</span> sempre una costante a caso diversa da quella di prima. Ora <span class="tex">\(T=\sqrt[3]{kV^2}\)</span> e derivando si ottiene qualcosa come <span class="tex">\(\frac{dT}{dV}=\frac{2}{3}\sqrt[3]{\frac{k}{V}}\)</span>. Poichè <span class="tex">\(k=\frac{T^3}{V^2}\)</span> si ha che <span class="tex">\(\frac{dT}{dV}=\frac{2T}{3V}\)</span>.<br>
+<br>
+Sostituendo nell'espressione di <span class="tex">\(C\)</span> si ottiene <span class="tex">\(\displaystyle C=\frac{5}{2}R+\frac{3}{2}R=4R\)</span>.<br>
+<br>
+<br>
+Per le oscillazioni considero un quadratino di superficie <span class="tex">\(S\)</span> di apertura angolare rispettivamente <span class="tex">\(d\theta\)</span> e <span class="tex">\(d\phi\)</span>. I processi interni li considero isotermi visto che gli scambi di calore con la pellicola non fanno variare la temperatura del sapone in maniera non trascurabile (capacità termica molto alta) e visto che l'equilibrio con questa temperatura avviene quasi subito.<br>
+Chiamiamo <span class="tex">\(x\)</span> la variazione di raggio della bolla e determiniamo la forza della tensione superficiale che agisce su di esso, la pressione che agisce su di esso e la sua area in modo da trovare la forza che agisce dall'interno.<br>
+<br>
+1) la forza della tensione superficiale è <span class="tex">\(\displaystyle F(X)=4 \sigma (r+x) d\theta d\phi\)</span><br>
+<br>
+il quadratino individuato dagli angoli avrà i lati di <span class="tex">\((r+x)d\theta\)</span> e <span class="tex">\((r+x)d\phi\)</span>; la forza per unità di lunghezza è data da <span class="tex">\(2\)</span> volte la tensione superficiale visto che sono due le superfici della bolla (interna e esterna); in più dobbiamo trovare solo la componente radiale di tale forza perchè quella tangenziale si annulla... A voi verificare che la formula scritta sopra sia giusta perchè scriverlo qui risulterebbe incomprensibile senza una figura  :( <br>
+<br>
+2) La pressione interna sarà di <span class="tex">\(\displaystyle p(x)=\frac{p_0}{(1+\frac{x}{r})^3}\)</span> dove <span class="tex">\(p_0\)</span> è per <span class="tex">\(x=0\)</span> (<span class="tex">\(p_0=\frac{4 \sigma}{r}\)</span>).<br>
+<br>
+Questo deriva dalla trasformazione isoterma interna e quindi <span class="tex">\(4 \pi p (r+x)^3/3=4 \pi p_0 r^3/3\)</span>.<br>
+<br>
+3) l'area del quadratino in questione sarà <span class="tex">\((r+x) d\theta \cdot (r+x) d\phi\)</span>. Da cui <span class="tex">\(A(x)=r^2(1+\frac{x}{r})^2 d\theta d\phi\)</span>.<br>
+<br>
+<br>
+La massa del quadratino sarà <span class="tex">\(m=A(0) \rho h=r^2 \rho h d\theta d\phi\)</span>. Questo perchè anche se aumenta il raggio avremo un assottiliamento dello spessore. Quindi mantenendo costanti gli angoli la massa sarà costante.<br>
+<br>
+Ricaviamo ora l'accelerazione della superficie in funzione di <span class="tex">\(x\)</span>:<br>
+<br>
+<span class="tex">\(\displaystyle a(x)=-\frac{F(x)-p(x)A(x)}{m}=-\frac{4 \sigma (r+x) d\theta d\phi-\frac{4 \sigma}{r(1+\frac{x}{r})^3} \cdot r^2(1+\frac{x}{r})^2 d\theta d\phi}{r^2 \rho h d\theta d\phi}=-\frac{8 \sigma x}{h \rho r^2}\)</span><br>
+<br>
+Dove nell'ultimo passaggio si è utilizzato <span class="tex">\((1+\frac{x}{r})^{-1} \sim 1-\frac{x}{r}\)</span> visto che le oscillazioni saranno piccole.<br>
+<br>
+Questo è un moto armonico da cui si ricava facilmente la pulsazione:<br>
+<br>
+<span class="tex">\(\displaystyle \omega=\frac{2}{r}\sqrt{\frac{2 \sigma}{\rho h}}\)</span>.<br>
+<br>
+I calcoli saranno sbagliati? Possibile... Ora però meglio non starci troppo a pensare e inviare subito che mentre scrivevo sta soluzione il computer si è bloccato 3 volte e se mi cancella tutto sto lavoro gli do fuoco  :evil:</article>
+<article class="post" id="p19505"><div class="who"><b>Simone256</b><span>24 set 2014, 15:30</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Visto che di tensione superficiale so molto poco ( direi niente... ho cercato qualcosa su wikipedia e sto provando a fare qualcosa di molto molto casuale) c'è un fatto che non ho capito: allora mi sembra da aver capito che la tensione superficiale è dovuta all'attrazione intermolecolare del fluido sulle molecole della superficie, di conseguenza il gas non ha chiaramente tensione superficiale ma ce l'ha il sapone; però, devo considerare il sapone come la superficie del gas e quindi ai fini dei calcoli sulla pressione superficiale considerarlo come uno "strato" cioè senza spessore ( quindi lo spessore che viene dato servirebbe a qualcos altro), oppure, cosa che ritengo più probabile, il fluido a cui devo applicare i ragionamenti di tensione suoerficiale è il volume di sapone, e il gas è solo un qualcosa che fa pressione su questo? non so se ho espresso bene quello che non mi è chiaro...</div></blockquote>
+Se vuoi ti invio per foto le due paginette dell'Halliday dove viene spiegata (abbastanza velocemente) la tensione superficiale!  :D</article>
+<article class="post" id="p19506"><div class="who"><b>andrea96</b><span>24 set 2014, 15:36</span></div>grande!  :lol: vorrei capirci qualcosa!</article>
+<article class="post" id="p19507"><div class="who"><b>OrsoBruno96</b><span>24 set 2014, 18:09</span></div>buono, simone. vai con il prossimo :)</article>
+<article class="post" id="p19508"><div class="who"><b>Simone256</b><span>24 set 2014, 21:43</span></div>yeeeep tempo di trovarne uno carino! Magari un po' più semplice degli ultimi per far felici grandi e piccini  :mrgreen:</article>
+<nav class="pager"><a class="prev" href="olifis-5976.html"><small>← precedente</small>14:ormai la staffetta è partita!</a><a class="next" href="olifis-5978.html"><small>successivo →</small>16: La luce è furba!!!</a></nav>
+</main></body></html>

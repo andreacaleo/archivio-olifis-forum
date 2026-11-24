@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>253 Pioggia su un pianeta</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 253</a></span></nav>
+<h1>253 Pioggia su un pianeta</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7065">forum Olifis</a></p>
+<article class="post first" id="p26876"><div class="who"><b>Ein Bonner</b><span>23 mar 2021, 14:41</span></div>Un pianeta di massa <span class="tex">\(M\)</span> e temperatura <span class="tex">\(T_{p}\)</span> e' in equilibrio termico con la sua stella, di temperatura  <span class="tex">\(T_{s}\)</span>. La distanza tra i due corpi celesti e' <span class="tex">\(d\)</span>. Il raggio del pianeta e' <span class="tex">\(\frac{1}{4}\)</span> del raggio della stella. Il pianeta ruota su se stesso con  velocita angolare <span class="tex">\(\omega\)</span>. <br>
+L'atmosfera del pianeta e' tale che si formano nuvole ad un altezza <span class="tex">\(h\)</span> dal terreno. Le nuvole creano pioggia che cade in un' atmosfera rarefatta  con attrito trascurabile. Possiamo anche assumere per semplicita che <span class="tex">\(h\)</span> e' molto piccola e trascurabile rispetto al raggio del pianeta. Supponiamo che le nuvole e la pioggia si trovino a una colatitudine  <span class="tex">\(\theta\)</span>. <br>
+Di quanto viene deflessa verso est una goccia di pioggia, nel momento in cui tocca suolo?</article>
+<article class="post" id="p26886"><div class="who"><b>Luca Milanese</b><span>27 mar 2021, 17:52</span></div>Poichè il pianeta è in equilibrio termico con la sua stella, la potenza che riceve da quest'ultima per irraggiamento è uguale a quella che il esso stesso emette, in modo che l'energia del pianeta resti costante e quindi anche la sua temperatura.<br>
+Stimando pari all'unità l'emissività di entrambi i corpi celesti, abbiamo, detto <span class="tex">\(R\)</span> il raggio del pianeta:<br>
+<span class="tex">\(P_p=4\pi R^2 \sigma T_p^4\)</span><br>
+<span class="tex">\(P_s= 4\pi (4R)^2 \sigma T_s^4\)</span><br>
+Dove <span class="tex">\(P_p\)</span> e <span class="tex">\(P_s\)</span> sono le potenze irraggiate rispettivamente dal pianeta e dalla stella, e <span class="tex">\(\sigma\)</span> è la costante di Stefan-Boltzmann.<br>
+Se la stella irraggia uniformemente, l'intensità della sua radiazione a distanza <span class="tex">\(d\)</span> è <span class="tex">\(I_s=\frac{16 R^2 \sigma T_s^4}{d^2}\)</span>. Supponendo che sia <span class="tex">\(d \gg R\)</span>, l'area utile per cui il pianeta riceve l'energia è circa uguale alla sua sezione <span class="tex">\(\pi R^2\)</span>, perciò la potenza ricevuta è:<br>
+<span class="tex">\(P_r=\frac{16 \pi R^4 \sigma T_s^4}{d^2}\)</span><br>
+Dall'uguaglianza fra <span class="tex">\(P_p\)</span> e <span class="tex">\(P_r\)</span> si ricava <span class="tex">\(R=\frac{d T_p^2}{2 T_s^2}\)</span>. Pertanto, vicino alla superficie del pianeta, il campo gravitazionale ha modulo <span class="tex">\(g=\frac{GM}{R^2}=\frac{4GMT_s^4}{d^2 T_p^4}\)</span>.<br>
+Ora passo a un sistema non inerziale solidale a un osservatore che si trovi sulla Terra esattamente sotto al punto in cui si forma la goccia. In questo sistema di riferimento, oltre alla gravità, agiscono sulla goccia altre forze (fittizie). Se, com'è anche sulla Terra, la gravità è abbastanza forte rispetto alla velocità di rotazione del pianeta (<span class="tex">\(g \gg R\omega^2\)</span>), il moto in direzione verticale è sostanzialmente un moto uniformemente accelerato, e si ha <span class="tex">\(y(t)=h-\frac{gt^2}{2}\)</span>.<br>
+In direzione orizzontale è presente una deflessione dovuta alla forza di Coriolis: poichè <span class="tex">\(h \ll R\)</span>, l'effetto della forza non è tale da modificare in maniera apprezzabile la direzione della velocità della goccia, pertanto quest'ultima può essere considerata verticale in ogni istante e la forza, essendo <span class="tex">\(\vec F_c = -2m \vec \omega \times \vec v \)</span>, risulta orizzontale. Pertanto in questa direzione abbiamo: <br>
+<span class="tex">\(\ddot x \approx |2\vec \omega \times \vec v| \approx |2 \omega\sin \theta \dot y(t)|=2\omega\sin \theta g t\)</span> <br>
+Da cui, integrando due volte:<br>
+<span class="tex">\(x(t)=\frac{\omega \sin \theta g t^3}{3}\)</span><br>
+La goccia raggiunge il suolo quando <span class="tex">\(y=0 \Rightarrow t=\sqrt{\frac{2h}{g}}\)</span>, perciò la deflessione vale:<br>
+<span class="tex">\(d=\frac{2\omega h \sin\theta}{3}\sqrt{\frac{2h}{g}} = \frac{\omega h \sin\theta d T_p^2 }{3 T_s^2} \sqrt{\frac{2h}{GM}}\)</span></article>
+<article class="post" id="p26887"><div class="who"><b>Pigkappa</b><span>28 mar 2021, 12:14</span></div>Secondo me dietro questo problema c'è fisica interessante. Spiegaci un po' se e perché i dati che dai sono realistici e come si trovano. Nel senso, come si fa a misurare il rapporto tra raggio del pianeta e stella, la distanza tra i due, come si misura la temperatura di una stella e di un pianeta, la velocità di rotazione del pianeta...</article>
+<article class="post" id="p26888"><div class="who"><b>Luca Milanese</b><span>28 mar 2021, 19:35</span></div>Provo a rispondere alle domande di Pigkappa non sapendo nulla di come si facciano certe misurazioni nella realtà e sperando di non dire troppe assurdità  :lol: <br>
+Per la temperatura della stella, credo sia possibile ricavarla dalla legge di Wien se è possibile ricevere la radiazione emessa dall'astro e misurarne la lunghezza d'onda; d'altronde non penso che ci siano molti altri modi di ottenere informazioni su corpi celesti lontani. Probabilmente lo stesso procedimento può essere applicato per ottenere la temperatura del pianeta.<br>
+Per la velocità di rotazione del pianeta mi viene in mente il quesito della gara di secondo livello di quest'anno, in cui era richiesto di applicare l'effetto Doppler per ottenere la velocità di rotazione del Sole. Ciò presuppone, come per la temperatura, che noi siamo in grado di misurare con sufficiente precisione la radiazione emessa dal corpo celeste. Questo metodo comunque non mi convince moltissimo; nel problema si parlava di righe dell'idrogeno, perciò potrebbe essere inapplicabile a un pianeta roccioso. In alternativa, se il pianeta è dotato di atmosfera, potremmo dedurre qualcosa sulla sua rotazione osservando i moti di eventuali nubi (ammesso di avere un telescopio abbastanza potente).<br>
+Per la distanza tra i due corpi ho pensato a due possibilità: la prima, semplicemente, è che ci troviamo nelle condizioni di poterla misurare osservando per almeno un periodo il moto di rivoluzione del pianeta (la distanza massima osservata corrisponderebbe a quella cercata); la seconda, ben più improbabile, è che si possa ricavare dalla legge di Keplero conoscendo il periodo di rivoluzione del pianeta (che penso sia misurabile) e la massa della stella. Non ho davvero un'idea decente di come di potrebbe misurare quest'ultima in generale (magari esiste qualche relazione fra la temperatura superficiale e la massa di una stella?), ma ho pensato che, nel caso in cui più pianeti orbitano attorno alla stessa stella, la sua costante di Keplero (e quindi la sua massa) può essere ricavata misurando i periodi di rivoluzione dei pianeti e i rapporti fra le loro distanze dalla stella (penso che almeno il rapporto sia determinabile al telescopio).<br>
+Per il rapporto dei raggi di pianeta e stella, alzo le mani. L'unica idea che mi viene è confrontarli quando il pianeta passa esattamente davanti alla stella (cioè si trovano allineati con la nostra visuale), che però ha senso solo se la distanza tra i due è molto minore di quella fra noi e quel sistema stellare (il che penso sia abbastanza vero per ogni sitema escluso quello Solare) e se è possibile ottenere risoluzioni così alte (e già avevo i miei dubbi per la distanza tra i due, che dovrebbe comunque essere molto maggiore dei loro raggi).<br>
+Ora aspetto di sapere da Pigkappa quanto ci sono andato vicino (immagino poco :lol: ).</article>
+<article class="post" id="p26889"><div class="who"><b>Ein Bonner</b><span>28 mar 2021, 20:03</span></div>Hei la soluzione è corretta, complimenti. Puoi continuare la staffetta.</article>
+<article class="post" id="p26908"><div class="who"><b>Pigkappa</b><span>9 apr 2021, 19:47</span></div>Io ho chiesto le domande sopra non perche' io so tutte le risposte, ma perche' speravo di impararle :P<br>
+
+<blockquote class="uncited"><div>Per la temperatura della stella, credo sia possibile ricavarla dalla legge di Wien se è possibile ricevere la radiazione emessa dall'astro e misurarne la lunghezza d'onda</div></blockquote>
+Si' questo e' giusto<br>
+
+<blockquote class="uncited"><div>Probabilmente lo stesso procedimento può essere applicato per ottenere la temperatura del pianeta.</div></blockquote>
+A questo ci credo meno. I pianeti emettono pochissimo, che si possa catturare e riconoscere la luce che arriva dal pianeta mi sembra difficile. Un metodo molto molto approssimato e' questo: se  e' nota la distanza stella-pianeta (che qua era data) e la luminosita' della stella (che dallo spettro credo si possa stimare, anche se con parecchia incertezza), e assumendo un valore sensato per l'albedo del pianeta, una stima si puo' fare. Ma penso ci sia qualche trucco migliore che non mi viene in mente.<br>
+
+<blockquote class="uncited"><div>Per la velocità di rotazione del pianeta mi viene in mente il quesito della gara di secondo livello di quest'anno</div></blockquote>
+Anche a questo ci credo poco. E non ho idea di come misurare quella velocita'. Se il pianeta e' vicino alla stella probabilmente le forze di marea lo fanno girare su se stesso alla stessa velocita' con cui gira attorno al pianeta (tipo Luna e Terra)... Ma non e' affatto garantito. Sarei curioso di sapere come si fa.<br>
+
+<blockquote class="uncited"><div> osservando i moti di eventuali nubi (ammesso di avere un telescopio abbastanza potente).</div></blockquote>
+No, non ce l'abbiamo un telescopio cosi' :P . Stimami quanto dovrebbe essere grosso per avere la risoluzione giusta per distinguere nubi su un pianeta a distanza 1 parsec...<br>
+
+<blockquote class="uncited"><div>Per la distanza tra i due corpi ho pensato a due possibilità: la prima, semplicemente, è che ci troviamo nelle condizioni di poterla misurare osservando </div></blockquote>
+Secondo me non c'e' speranza di "vedere" il pianeta, nel senso distinguere la luce che viene dal pianeta e vederlo in una immagine come un puntino luminoso separato dalla stella. Troppo poco luminoso e/o piccolo e/o vicino alla stella. <br>
+
+<blockquote class="uncited"><div>dalla legge di Keplero </div></blockquote>
+Si' penso sia cosi'.<br>
+<br>
+Forse possiamo stimare il periodo di rivoluzione del pianeta attorno alla stella vedendo un calo di luminosita' periodico della stella, se siamo fortunati e il pianeta le passa davanti e oscura parte della superficie. "Siamo fortunati" e' una cosa un po' subdola qua: potremmo "essere fortunati" perche' cerchiamo apposta pianeti che passano davanti alle loro stelle, perche' e' un modo facile di trovarli. <br>
+Un altro modo forse e' quello di vedere oscillazioni nello spettro della stella dovuta al fatto che la stella si muove attorno al centro di massa che ha con il pianeta. Queste sarebbero visibili a meno che l'angolo tra linea di vista e il piano dell'orbita del pianeta non sia troppo vicino a 90 gradi. Tuttavia, mi aspetto siano abbastanza piccole (quanto? fai un conto con Sole / Giove, e guarda come dipende dalla distanza stella-pianeta).<br>
+<br>
+Trovato il periodo di rivoluzione, con la terza legge di Keplero si sa la distanza tra i due corpi, se sappiamo la massa della stella. Che dallo spettro (con molta incertezza) penso possiamo stimare.<br>
+
+<blockquote class="uncited"><div>(magari esiste qualche relazione fra la temperatura superficiale e la massa di una stella?)</div></blockquote>
+Si' e no. <br>
+<br>
+Se sai solo la temperatura, secondo me e' dura.<br>
+<br>
+Ma se possiamo guardare tutto lo spettro, possiamo carpire un sacco di informazioni sulla stella, in particolare in che fase della sua vita e'. Se e' in sequenza principale, e non e' una stella strana per qualche motivo, e' facile linkare massa, luminosita', raggio, temperatura... Una qualsiasi di queste variabili fissa le altre (non esattamente, ovviamente, ci sono altri fattori tipo metallicita' e campo magnetico da considerare). In un corso di astronomia di solito si imparano relazioni euristiche tra queste variabili. Se non e' in sequenza principale, la cosa e' un po' piu' complessa, ma a meno che non sia in una fase molto strana della sua vita secondo me riusciamo quasi sempre a fittarci sopra un modello stellare e capire che proprieta' ha.<br>
+
+<blockquote class="uncited"><div>nel caso in cui più pianeti orbitano attorno alla stessa stella</div></blockquote>
+E' raro che ci siano piu' pianeti di cui riusciamo a misurare cose intorno alla stessa stella... E di sicuro non ne risolviamo le orbite con un telescopio.<br>
+
+<blockquote class="uncited"><div>se è possibile ottenere risoluzioni così alte </div></blockquote>
+Non hai bisogno di avere un'immagine della stella in cui "vedi" il pianeta che ci passa davanti e lo risolvi. Hai solo bisogno di calcolare di quanto e' calata la luminosita' apparente della stella: quello ti da' la frazione di superficie oscurata.<br>
+<br>
+Hai gia' fatto un buon lavoro indovinando risposte giuste a buona parte di queste cose, ma se ne hai voglia ti do' altri compiti a casa: usa Google / wikipedia / libri, trova risposte alle cose a cui non ho saputo rispondere qua, e scrivi quel che hai scoperto :P. Sono particolarmente curioso di come fanno a sapere che succede nell'atmosfera del pianeta, so che le studiano e non solo con modelli teorici, ma non so come.</article>
+<nav class="pager"><a class="prev" href="olifis-7063.html"><small>← precedente</small>252 - Sfera con buco</a><a class="next" href="olifis-7067.html"><small>successivo →</small>254. Bolla carica.</a></nav>
+</main></body></html>

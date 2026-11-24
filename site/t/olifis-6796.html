@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>175. Stella di Betlemme</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 175</a></span></nav>
+<h1>175. Stella di Betlemme</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6796">forum Olifis</a></p>
+<article class="post first" id="p25353"><div class="who"><b>nicarepo</b><span>24 dic 2018, 18:16</span></div>La stella cometa <span class="tex">\((m=2 \cdot 10^{14} kg)\)</span> quest'anno è passata un po' troppo vicino alla Terra: il 24 dicembre si trova sulla verticale sopra il polo Nord ad un'altezza <span class="tex">\(h=100km\)</span> dalla superficie. Ha una velocità di modulo <span class="tex">\(v_0=150m/s\)</span> e direzione perpendicolare alla congiungente con il centro della Terra. Trascurando ogni attrito, calcolare l'angolo di impatto con la superficie terrestre. Supponendo che l'impatto sia completamente anelastico, trovare l'energia sprigionata nell'urto.</article>
+<article class="post" id="p25363"><div class="who"><b>nicarepo</b><span>4 gen 2019, 17:10</span></div>Bisogna applicare i principi di conservazione, ricordando che il momento angolare si ricava da una relazione vettoriale... Il corpo si può considerare puntiforme e si possono trascurare gli attriti con l'atmosfera terrestre.</article>
+<article class="post" id="p25364"><div class="who"><b>lance00</b><span>5 gen 2019, 11:24</span></div><span class="tex">\(\phi = \arccos \frac{(R+h)v_0}{R \sqrt{v_0^2+\frac{2GMh}{R(R+h)}}} \)</span></article>
+<article class="post" id="p25365"><div class="who"><b>nicarepo</b><span>5 gen 2019, 11:35</span></div>Si è corretto. Se metti la soluzione la staffetta è tua  :)</article>
+<article class="post" id="p25366"><div class="who"><b>lance00</b><span>5 gen 2019, 11:45</span></div>cons momento angolare: <span class="tex">\((R+h)v_0 = Rv_f \cos \phi\)</span><br>
+cons energia: <span class="tex">\(1/2mv_0^2-GmM/(R+h) = 1/2mv_f^2-GmM/R\)</span><br>
+usando la (2) per ottenere v_f in funzione delle variabile note si giunge alla formula che ho postato  :D</article>
+<article class="post" id="p25406"><div class="who"><b>Dudin</b><span>7 mar 2019, 19:46</span></div>Mandate avanti la staffetta plz</article>
+<nav class="pager"><a class="prev" href="olifis-6793.html"><small>← precedente</small>174 due piani inclinati</a><a class="next" href="olifis-6805.html"><small>successivo →</small>176. sbarra conduttrice</a></nav>
+</main></body></html>

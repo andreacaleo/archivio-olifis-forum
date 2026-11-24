@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>185. Filo che si avvolge.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 185</a></span></nav>
+<h1>185. Filo che si avvolge.</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6861">forum Olifis</a></p>
+<article class="post first" id="p25684"><div class="who"><b>Luca Milanese</b><span>1 mar 2020, 22:20</span></div>Dalle Dispense di Fabio Zoratti:<br>
+Un disco di raggio <span class="tex">\(R\)</span> è fissato rigidamente ad un piano orizzontale, e in punto del suo bordo è fissato un filo inestensibile di lunghezza <span class="tex">\(l\)</span>. All’altro estremo è fissata una massa <span class="tex">\(m\)</span> che viene lanciata con velocità iniziale di modulo <span class="tex">\(v_0\)</span> in direzione perpendicolare al filo. Calcolare in funzione del tempo:<br>
+a) la velocità della massa;<br>
+b) la sua traiettoria;<br>
+c) la tensione del filo.</article>
+<article class="post" id="p25685"><div class="who"><b>east_beast</b><span>2 mar 2020, 20:08</span></div>Ciao! Sono nuovo del forum, provo a rispondere anche se essendo al quarto non ho molta familiarità con le equazioni differenziali più difficili.<br>
+Scusami ma non sono molto familiare con il LaTeX, quindi faccio ciò che posso :( <br>
+Innanzitutto considero un sistema di coordinate polari <span class="tex">\({\hat{\theta}} , {\hat{r}} \)</span> che ha origine nel centro del disco, con <span class="tex">\({\theta}\)</span> che è l'angolo che spazza la parte di filo "arrotolata" al disco.<br>
+Se chiamo <span class="tex">\({\vec{r}}\)</span> il vettore posizione della massa m allora:<br>
+<span class="tex">\( {\vec{r}} = (l - R{\theta}){\hat{\theta}} + R{\hat{r}} \)</span><br>
+vado a trovarmi la velocità, derivando rispetto al tempo e ricordando che <br>
+<span class="tex">\( \newline
+{\dot{\hat{\theta}}} = {\dot{\theta}}{{\hat{r}}}   \newline
+{\dot{\hat{r}}} = - {\dot{\theta}}{{\hat{\theta}}}   \newline
+\)</span><br>
+allora<br>
+<span class="tex">\(
+{\vec{v}}={\dot{\vec{r}}} = -{\dot{\theta}}{\hat{r}}(l-R{\theta})   \)</span>   considerando che il modulo della velocità <span class="tex">\(|{\vec{v}|\)</span> è <span class="tex">\({\dot{\theta}}(l-R{\theta}) \)</span><br>
+<span class="tex">\(
+{\vec{v}} = -v{{\hat{r}} \)</span>che è sempre normale al filo, quindi alla tensione. Derivo ulteriormente trovando l'accelerazione<br>
+<span class="tex">\({\vec{a}} = {\dot{\vec{v}}} = -{\dot{v}{\hat{r} -v{\dot{\theta}}{\dot{\hat{\theta}}}
+\)</span> <br>
+siccome l'unica forza agente è la tensione <span class="tex">\({\vec{T}\)</span>, che ha direzione <span class="tex">\({\hat{\theta}}\)</span>, il secondo principio della dinamica ci dice che (1) <span class="tex">\({\dot{v}} = 0\)</span> e (2) <span class="tex">\( mv{\dot{\theta}} = T\)</span>. Quindi v è costante tutto il tempo, possiamo quindi ottenere <span class="tex">\({\theta}(t)\)</span> a partire da <br>
+<span class="tex">\(
+v = {\dot{\theta}}(l-R{\theta}) \)</span> integrando in rispetto al tempo abbiamo che<br>
+<span class="tex">\( vt = l{\theta} -{\frac{R{\theta}^2}{2}}\)</span><br>
+da cui ottengo (escludendo il segno + dal <span class="tex">\({\pm}\)</span> grazie alle condizioni iniziali, ossia che <span class="tex">\({\theta}(0)=0 \)</span>) che <br>
+<br>
+<span class="tex">\({\theta}(t) = {\frac{l}{R}}(1- {\sqrt{\frac{ l^2 - 2vRt}{l^2}}})
+\)</span><br>
+derivando l'espressione e sostituendo nella 2, otteniamo che <span class="tex">\(T(t) = {\frac{mv^2}{\sqrt{l^2-2vRt}}}
+\)</span><br>
+Per quanto riguarda la traiettoria, devo trovare un modo di esplicitarla, magari in coordinate polari, comunque intuisco sia una spirale. Spero di non aver sbagliato i conti o la sintassi (cosa che sono sicuro avverrà)</article>
+<article class="post" id="p25686"><div class="who"><b>Luca Milanese</b><span>2 mar 2020, 21:47</span></div>La soluzione è corretta! Ci sono solo degli errori che penso essere di battitura (dove hai scritto le derivate dei versori e dove hai scritto l'accelerazione), ma nulla di rilevante.<br>
+Per la traiettoria, aspetto ancora qualche giorno prima di postare la soluzione (nel caso qualcun altro volesse provarci). Intanto, puoi tranquillamente postare il 186!</article>
+<article class="post" id="p25688"><div class="who"><b>Neutrino</b><span>2 mar 2020, 23:47</span></div>Beh, per essere onesti east_beast ha già trovato la traiettoria in coordinate polari, avendo scritto che:<br>
+<br>
+<span class="tex">\( \vec r = (l - R \theta )  \hat \theta + R \hat r \)</span><br>
+<br>
+ed anche che:<br>
+<br>
+<span class="tex">\({\theta}(t) = {\frac{l}{R}}(1- {\sqrt{\frac{ l^2 - 2vRt}{l^2}}})\)</span><br>
+<br>
+Al più, se uno vuole, prendendo un sistema di riferimento cartesiano <span class="tex">\(x-y\)</span> con origine nel centro del disco ed orientato in modo che il punto in cui è attaccato il filo sia posto in <span class="tex">\( {\vec{r_0}} = (R,0)\)</span> si ha:<br>
+<br>
+<span class="tex">\( {\hat{\theta}}\cdot{\hat{x}}=-\sin{\theta}, \quad {\hat{\theta}}\cdot{\hat{y}}=\cos{\theta}, \quad {\hat{r}}\cdot{\hat{x}}=\cos{\theta}, \quad {\hat{r}}\cdot{\hat{y}}=\sin{\theta} \)</span><br>
+<br>
+quindi:<br>
+<br>
+<span class="tex">\(x(t)= \vec r \cdot \hat x = - (l - R \theta (t)) \sin ( \theta (t)) + R \cos ( \theta (t)) \)</span><br>
+<br>
+<span class="tex">\(y(t)= \vec r \cdot \hat y = + (l - R \theta (t)) \cos ( \theta (t)) + R \sin ( \theta (t)) \)</span></article>
+<article class="post" id="p25689"><div class="who"><b>east_beast</b><span>3 mar 2020, 0:51</span></div><blockquote><div><cite>Neutrino ha scritto: <a href="olifis-6861.html#p25688" data-post-id="25688" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 mar 2020, 23:47</div></cite>
+<br>
+Al più, se uno vuole, prendendo un sistema di riferimento cartesiano <span class="tex">\(x-y\)</span> con origine nel centro del disco ed orientato in modo che il punto in cui è attaccato il filo sia posto in <span class="tex">\( {\vec{r_0}} = (R,0)\)</span> si ha:<br>
+<br>
+<span class="tex">\( {\hat{\theta}}\cdot{\hat{x}}=-\sin{\theta}, \quad {\hat{\theta}}\cdot{\hat{y}}=\cos{\theta}, \quad {\hat{r}}\cdot{\hat{x}}=\cos{\theta}, \quad {\hat{r}}\cdot{\hat{y}}=\sin{\theta} \)</span><br>
+<br>
+quindi:<br>
+<br>
+<span class="tex">\(x(t)= \vec r \cdot \hat x = - (l - R \theta (t)) \sin ( \theta (t)) + R \cos ( \theta (t)) \)</span><br>
+<br>
+<span class="tex">\(y(t)= \vec r \cdot \hat y = + (l - R \theta (t)) \cos ( \theta (t)) + R \sin ( \theta (t)) \)</span>
+</div></blockquote>
+
+Neutrino riusciresti a spiegarmi perché <span class="tex">\( {\hat{\theta}}\cdot{\hat{x}}=-\sin{\theta}, \quad {\hat{\theta}}\cdot{\hat{y}}=\cos{\theta}, \quad {\hat{r}}\cdot{\hat{x}}=\cos{\theta}, \quad {\hat{r}}\cdot{\hat{y}}=\sin{\theta} \)</span>?</article>
+<article class="post" id="p25690"><div class="who"><b>Neutrino</b><span>3 mar 2020, 1:05</span></div>Per definizione il prodotto scalare fra due vettori è il modulo del primo per il modulo del secondo per il coseno dell'angolo compreso. Qui si tratta di versori, quindi tutti i moduli fanno 1. Di conseguenza il prodotto scalare fra due versori è semplicemente il coseno dell'angolo compreso. Ora, se fai un disegno di <span class="tex">\( \hat r \)</span> e <span class="tex">\( \hat {\theta} \)</span> sul piano cartesiano vedi subito che l'angolo compreso tra <span class="tex">\( \hat r \)</span> e <span class="tex">\( \hat x \)</span> è proprio <span class="tex">\( {\theta} \)</span>, l'angolo compreso tra <span class="tex">\( \hat r \)</span> e <span class="tex">\( \hat y \)</span> è <span class="tex">\( 90°-{\theta} \)</span>, l'angolo compreso tra <span class="tex">\( \hat {\theta} \)</span> e <span class="tex">\( \hat x \)</span> è <span class="tex">\( 90°+{\theta} \)</span>,  l'angolo compreso tra <span class="tex">\( \hat {\theta} \)</span> e <span class="tex">\( \hat y \)</span> è <span class="tex">\( {\theta} \)</span>.<br>
+<br>
+Poi <span class="tex">\( \cos ({90°-{\theta}})=\sin{\theta} \)</span> e <span class="tex">\( \cos ({90°+{\theta}})=-\sin{\theta} \)</span></article>
+<article class="post" id="p25691"><div class="who"><b>Luca Milanese</b><span>3 mar 2020, 10:15</span></div><blockquote><div><cite>Neutrino ha scritto: <a href="olifis-6861.html#p25688" data-post-id="25688" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 mar 2020, 23:47</div></cite>
+Beh, per essere onesti east_beast ha già trovato la traiettoria</div></blockquote>Sì, avevo sbagliato a scrivere l'esercizio. La traiettoria non era da calcolare in funzione del tempo (come east_beast ha fatto), ma scrivendo una delle due coordinate della posizione in funzione dell'altra. Per esempio, detta <span class="tex">\(r=\sqrt{R^2+(l-\theta R)^2}\)</span> la lunghezza del segmento che congiunge la massa all'origine, e detto <span class="tex">\(\phi\)</span> l'angolo che questo segmento forma con l'asse delle ascisse, abbiamo <span class="tex">\(\phi=\theta+\arctan\frac{l-\theta R}{R}\)</span><br>
+da cui, con alcuni passaggi, <span class="tex">\(\phi=\frac{l}{R}-\sqrt{\frac{r^2}{R^2}-1}+\arctan\bigg(\frac{r^2}{R^2}-1\bigg)\)</span><br>
+equazione che lega <span class="tex">\(r\)</span> e <span class="tex">\(\phi\)</span>.</article>
+<article class="post" id="p25692"><div class="who"><b>Neutrino</b><span>3 mar 2020, 10:37</span></div>OK</article>
+<nav class="pager"><a class="prev" href="olifis-6860.html"><small>← precedente</small>n. 184- SNS 2016</a><a class="next" href="olifis-6862.html"><small>successivo →</small>186. Satelliti Artificiali in orbita</a></nav>
+</main></body></html>

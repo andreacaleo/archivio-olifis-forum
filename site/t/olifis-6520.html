@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>120. Equilibro nel guscio</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 120</a></span></nav>
+<h1>120. Equilibro nel guscio</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6520">forum Olifis</a></p>
+<article class="post first" id="p23672"><div class="who"><b>lance00</b><span>14 apr 2017, 14:09</span></div>Un guscio sferico di raggio R ruota attorno a un asse verticale passante per il suo centro con velocità angolare ω. All'interno del guscio vi è un piccolo blocco di massa m che si muove assieme alla sfera all'altezza di R/2 dal punto più basso del guscio. Qual è il minimo coefficiente d'attrito necessario a mantenere in equilibrio il blocco? <br>
+<br>
+RISPOSTA: <span style="color:#BFFFBF">0,226</span></article>
+<article class="post" id="p23673"><div class="who"><b>guido</b><span>14 apr 2017, 17:58</span></div>Secondo me nel sistema del guscio agiscono 3 forze: il peso <span class="tex">\(mg\)</span> verticale, la forza centrifuga orizzontale<span class="tex">\(m.\omega^2. R\sqrt{3}/2\)</span> ,poichè l'angolo fra il raggio R e quello verticale passante per il punto più basso è <span class="tex">\(\pi/3\)</span> e la forza di attrito tangenziale al cerchio sezione ed uguale al massimo al coefficiente di attrito per la reazione normale lungo R (somma delle componenti lungo R del peso e della forza centrifuga) cioè <span class="tex">\(\mu.(m/2)[g+(3/2)\omega^2.R]\)</span>. Essendo essa la massima possibile deve essere maggiore o uguale alla somma delle componenti del peso e della forza centrifuga lungo la tangente. Quindi il coefficiente di attrito deve essere almeno uguale, se non sbaglio i conti e/o il procedimento, a <span class="tex">\(\frac{[g\sqrt{3}-\omega^2.R.(\sqrt{3}/2)]}{[g+(3/2)\omega^2.R]}\)</span></article>
+<article class="post" id="p23674"><div class="who"><b>lance00</b><span>14 apr 2017, 19:11</span></div>Buona!  ;)  vai pure col 121</article>
+<nav class="pager"><a class="prev" href="olifis-6518.html"><small>← precedente</small>119. Gioca a bocce</a><a class="next" href="olifis-6522.html"><small>successivo →</small>121. Due cilindri</a></nav>
+</main></body></html>

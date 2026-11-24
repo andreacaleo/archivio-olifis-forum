@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17: acqua su una nuvola</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 17</a></span></nav>
+<h1>17: acqua su una nuvola</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5979">forum Olifis</a></p>
+<article class="post first" id="p19514"><div class="who"><b>phyknight</b><span>26 set 2014, 13:59</span></div>Consideriamo una nuvola come un insieme di tante gocce (sferiche) sospese nell'aria (distribuite uniformemente e a riposo).<br>
+Ad un certo punto cade una goccia d'acqua sulla nuvola (quindi sull'insieme di gocce sospese). Ogni volta che la goccia colpisce una goccia della nuvola a riposo, le due gocce si uniscono.<br>
+Le gocce sono da considerarsi sempre sferiche, e gli urti (che sono anelastici) sono istantanei (e sono istantanee anche le unioni tra gocce).<br>
+Qual è l'accelerazione della goccia che cade nella nuvola?<br>
+<br>
+<em class="text-italics">Hint</em>: il risultato è solo in funzione di <span class="tex">\(g\)</span></article>
+<article class="post" id="p19515"><div class="who"><b>andrea96</b><span>26 set 2014, 20:22</span></div>dico subito che la mia soluzione potrebbe essere una boiata pazzesca perchè non ho capito se devo considerare l'accelerazione della goccia costante, cioè se il problema dice trova il valore dell'accelerazione e non la sua funzione temporale. A me è sembrato che dal testo del problema si deduceva che la costanza della goccia vada assunta come ipotesi anche perchè se va dimostrato dico subito di non avere in mente alcun metodo per dimostrarlo che non sia: mi sembra che sia così da considerazioni abbastanza qualitative...<br>
+Comunque consideriamo questa goccia di raggio <span class="tex">\(r\)</span> che al tempo <span class="tex">\(t\)</span> ha massa <span class="tex">\(m(t)\)</span> e velocità <span class="tex">\(v(t)\)</span>.<br>
+Il sistema su cui andiamo a ragionare è quello costituito dalla goccia di massa <span class="tex">\(m(t)\)</span> e dalla "massa di nuvola" <br>
+<br>
+<span class="tex">\(dm=\pi r^2 \rho v(t) dt\)</span> <br>
+<br>
+<br>
+che la goccia ingloba nel tempo <span class="tex">\(dt\)</span>, dove <span class="tex">\(\rho\)</span> è la densità della nuvola che per curiosità potremmo dire che è uguale a quella dell'aria per far stare la nuvola in equilibrio. Assumeremo che la dinamica dell'inglobazione ( che non so se sia un termine esistente ) sia tale che la parte di nuvola inglobata aumenti la massa della goccia ma non il suo raggio, cioè l'unione delle gocce corrisponde a un aumento di massa e basta.Questo fatto potrebbe essere giustificato "molto alla buona" dicendo che il vapore acqueo presente nella nuvola al contatto con la goccia condensa e diminuisce di moltissimo il suo volume che quindi è trascurabile rispetto a quello della goccia.<br>
+Ora: <br>
+<br>
+<span class="tex">\(m(t+dt)v(t+dt)-m(t)v(t)=(m(t)+\pi r^2\rho v(t)dt)(v(t)+adt)-m(t)v(t)=m(t)gdt\)</span> <br>
+<br>
+dove abbiamo trascurato la spinta di archimede dell'aria perchè la densità dell'acqua è molto maggiore di quella dell'aria.<br>
+Quindi trascurando il termine proporzionale a <span class="tex">\(dt^2\)</span> perchè è un infinitesimo di ordine maggiore a tutti gli altri si ottiene:<br>
+<br>
+<span class="tex">\(am(t)+\pi r^2 \rho v(t)^2=gm(t)\)</span><br>
+<br>
+Ora il problema è il <span class="tex">\(dm\)</span>... si potrebbe integrare <span class="tex">\(dm\)</span> tra <span class="tex">\(0\)</span> e <span class="tex">\(t\)</span> ma ci si porterebbe appresso un integrale perchè non conosciamo la funzione <span class="tex">\(v(t)\)</span>. Allora deriviamo rispetto al tempo l'ultima equazione e si trova ( considerando <span class="tex">\(a\)</span> costante:<br>
+<br>
+<span class="tex">\(m(t)'a+2\pi r^2v(t) v(t)' \rho=g m(t)'\)</span><br>
+<br>
+Ma considerando che <span class="tex">\(m'(t)=\pi r^2\rho v(t)\)</span><br>
+si trova:<br>
+<br>
+<span class="tex">\(a=\frac{g}{3}\)</span><br>
+Se la soluzione sarà sbagliata probabilemnte sarà per aver trascurato la variazione di volume della goccia, tenendone conto il procedimento resterebbe più o meno lo stesso bisognerebbe solo introdurre la derivata di r rispetto a t che allungherebbe di moltissimo i conti...</article>
+<article class="post" id="p19516"><div class="who"><b>phyknight</b><span>26 set 2014, 21:08</span></div>Il risultato non è giusto...e il perché lo hai capito anche da solo <blockquote class="uncited"><div> per aver trascurato la variazione di volume della goccia </div></blockquote>
+Le gocce nella nuvola sono d'acqua, quindi la densità di tutte le gocce è sempre la stessa. Non devi giustificare perché le gocce sono in equilibrio...lo assumi e basta per il problema (che è un modello molto semplificato ma è sempre un modello). Poiché la densità dell'acqua è costante, direi che non puoi considerare il volume costante se le gocce si sommano.
+<blockquote class="uncited"><div>bisognerebbe solo introdurre la derivata di r rispetto a t che allungherebbe di moltissimo i conti</div></blockquote> no, se fatti in modo furbo i conti non si allungano(solo alla fine c'è qualcosa in più da calcolare...sempre però in modo furbo :) )<br>
+E poi <blockquote class="uncited"><div>se devo considerare l'accelerazione della goccia costante</div></blockquote>
+si, l'accelerazione è costante per motivi di "simmetria" nel senso che se sta" un po' più su" nella nuvola o "un po' più giù" le due situazioni sono identiche, e quindi l'accelerazione è costante...come dicevi tu, da considerazioni qualitative</article>
+<article class="post" id="p19517"><div class="who"><b>andrea96</b><span>26 set 2014, 23:13</span></div>ti dico la verità... mi sono accorto che il volume della goccia doveva variare dopo aver scritto la soluzione quando stavo per pubblicarla allora visto che ero arrabbiato per aver sprecato tempo a scrivere la soluzione ho aggiunto i pezzi <blockquote class="uncited"><div>Questo fatto potrebbe essere giustificato "molto alla buona" dicendo che il vapore acqueo presente nella nuvola al contatto con la goccia condensa e diminuisce di moltissimo il suo volume che quindi è trascurabile rispetto a quello della goccia</div></blockquote> e <blockquote class="uncited"><div>Se la soluzione sarà sbagliata probabilmente sarà per aver trascurato la variazione di volume della goccia, tenendone conto il procedimento resterebbe più o meno lo stesso bisognerebbe solo introdurre la derivata di r rispetto a t che allungherebbe di moltissimo i conti</div></blockquote> e l'ho pubblicata lo stesso sperando che per caso anche chi ha scritto la soluzione di questo problema aveva trascurato l'aumento di volume ( anche se è evidente che non è sensato trascurarlo ). Comunque penso che per il resto l'impostazione sia corretta quindi se domani riesco a trovare il metodo furbo che dici tu per evitare di impostare le condizioni in moto bruto sulla variazione di volume ( che probabilmente porterebbero lo stesso al risultato ma impestano talmente tanto il problema e sono talmente poco intelligenti e troppo meccaniche che mi rifiuto di fare il problema in quel modo, anche perchè sarebbe più da ingegnere che da fisico ) cercherò di modificare la soluzione, se devo farla col metodo bruto preferisco aspettare che posti qualcun altro il metodo per la condizione di aumento di volume... :D</article>
+<article class="post" id="p19518"><div class="who"><b>Simone256</b><span>26 set 2014, 23:30</span></div><blockquote><div><cite>phyknight ha scritto:</cite>si, l'accelerazione è costante per motivi di "simmetria" nel senso che se sta" un po' più su" nella nuvola o "un po' più giù" le due situazioni sono identiche, e quindi l'accelerazione è costante...come dicevi tu, da considerazioni qualitative</div></blockquote>
+Scusa ma non ho capito bene sto passaggio   :oops:</article>
+<article class="post" id="p19520"><div class="who"><b>andrea96</b><span>27 set 2014, 14:09</span></div>consideriamo questa goccia che al tempo <span class="tex">\(t\)</span> ha raggio <span class="tex">\(r(t)\)</span>, massa <span class="tex">\(m(t)\)</span> e velocità <span class="tex">\(v(t)\)</span>.<br>
+Il sistema su cui andiamo a ragionare è quello costituito dalla goccia di massa <span class="tex">\(m(t)\)</span> e dalla "massa di nuvola" <br>
+<br>
+<span class="tex">\(dm=\pi r(t)^2 \rho v(t) dt\)</span> <br>
+<br>
+<br>
+che la goccia ingloba nel tempo <span class="tex">\(dt\)</span>, dove <span class="tex">\(\rho\)</span> è la densità della nuvola. <br>
+Ora: <br>
+<br>
+<span class="tex">\(m(t+dt)v(t+dt)-m(t)v(t)=(m(t)+\pi r(t)^2\rho v(t)dt)(v(t)+adt)-m(t)v(t)=m(t)gdt\)</span> <br>
+<br>
+<br>
+Quindi trascurando il termine proporzionale a <span class="tex">\(dt^2\)</span> perchè è un infinitesimo di ordine maggiore a tutti gli altri si ottiene:<br>
+<br>
+<span class="tex">\(am(t)+\pi r(t)^2 \rho v(t)^2=gm(t)\)</span><br>
+<br>
+Ora siamo costretti a fare delle considerazioni su <span class="tex">\(r(t)\)</span>: nel tempo <span class="tex">\(dt\)</span> nel quale la goccia ingloba la massa <span class="tex">\(dm\)</span>, questa ha anche un volume <span class="tex">\(dV=\frac{dm}{\rho}=\pi r(t)^2  v(t) dt\)</span>, ma visto che a noi serve qualcosa su <span class="tex">\(r(t)\)</span> e non su <span class="tex">\(V(t)\)</span> facciamo la considerazione che <br>
+<br>
+<span class="tex">\(\frac{dV}{dt}=\frac{dV}{dr} \frac{dr}{dt}=4\pi r(t)^2 r'(t)=\pi r(t)^2  v(t)\)</span><br>
+<br>
+da cui:<br>
+<span class="tex">\(r'(t)=\frac {v(t)}{4}\)</span><br>
+ora derivando rispetto al tempo entrambe i membri di <br>
+<br>
+<span class="tex">\(am(t)+\pi r(t)^2 \rho v(t)^2=gm(t)\)</span><br>
+ <br>
+e inserendo le funzioni <span class="tex">\(r'(t)\)</span> e <span class="tex">\(m'(t)\)</span> nell'espressione si ottiene<br>
+<br>
+<span class="tex">\(3ar(t)+\frac{v^2(t)}{2}=r(t)g\)</span><br>
+<br>
+Ora derivando di nuovo si ottiene<br>
+<br>
+<span class="tex">\(a=\frac{g}{7}\)</span><br>
+<br>
+considerando il raggio variabile mi è venuto in mente solo questo, che però non mi sembra affato un idea furba come dicevi tu quindi ho paura di aver sbagliato di nuovo. Anche se non capisco in quale parte del procedimento ci sia la falla.</article>
+<article class="post" id="p19521"><div class="who"><b>OrsoBruno96</b><span>27 set 2014, 14:36</span></div>Andrea, sono d'accordo con quello che scrivi, ma solo se partiamo dall'assunzione che a sia costante, che non mi sembra così ovvia<br>
+<br>
+avevo pensato di impostare il problema in modo generale, ovvero senza imporlo, per vedere se effettivamente l'accelerazione dopo poco tende ad un valore fisso, ma mi viene un'equazione differenziale bruttissima che non ho ancora provato a risolvere ma mi sembra piuttosto impestata<br>
+<br>
+c'è quindi un modo per spiegarlo in maniera convincente?</article>
+<article class="post" id="p19522"><div class="who"><b>andrea96</b><span>27 set 2014, 14:45</span></div><blockquote><div><cite>OrsoBruno96 ha scritto:</cite>Andrea, sono d'accordo con quello che scrivi, ma solo se partiamo dall'assunzione che a sia costante, che non mi sembra così ovvia<br>
+<br>
+avevo pensato di impostare il problema in modo generale, ovvero senza imporlo, per vedere se effettivamente l'accelerazione dopo poco tende ad un valore fisso, ma mi viene un'equazione differenziale bruttissima che non ho ancora provato a risolvere ma mi sembra piuttosto impestata<br>
+<br>
+c'è quindi un modo per spiegarlo in maniera convincente?</div></blockquote>
+si infatti era il primo problema che mi ero posto io al primo post, perchè da come è impostato il problema sembra dire: se assumiamo che sia costante trova il suo valore.<br>
+dimostrarlo come hai detto tu non è per niente semplice, e non sono nemmeno troppo convinto che sia davvero costante.<br>
+Mi sembra che tu abbia tentato di dimostrare che l'accelerazione sia asintotica e quindi il problema viene svolto per valori molto molto vicini a tale valore asintotico. In quel caso la situazione sarebbe un po piu reale.<br>
+Anche io come simone non ho capito minimamente la spiegazione di phyknight.... vorrei anch'io capire se esiste una spiegazione che non passi per complicatissime equazioni differenziali...</article>
+<article class="post" id="p19523"><div class="who"><b>andrea96</b><span>27 set 2014, 15:14</span></div>dimmi che ne pensi di questo ragionamento:<br>
+l'equazione per <span class="tex">\(v(t)\)</span> è chiaramente <br>
+<span class="tex">\(v'(t)m(t)+\pi r(t)^2 \rho v(t)^2=gm(t)\)</span> perchè per arrivare a questa non ho mai utilizzato l'ipotesi che <span class="tex">\(v''(t)=0\)</span>.<br>
+Ora visto che per la massa e il raggio valgono lo stesso quelle equazioni, cioè <span class="tex">\(m'(t)=\rho \pi r(t)^2v(t)\)</span> e <span class="tex">\(r'(t)=\frac{v(t)}{4}\)</span> visto che come per quell'altra per ricavarle non sia usa assolutamente l'ipotesi di accelerazione costante. Allora risulta evidente che la prima equazione che ho scritto è un equazione per <span class="tex">\(v(t)\)</span> visto che le altre funzioni che compaiono dipendonono da questa.<br>
+Adesso io non so ( perchè non ci ho provato ) se facendo un determinato numero di derivazioni quell'equazione si trasforma in un equazione differenziale per <span class="tex">\(v(t)\)</span>, però certamente scritta così è un equazione integrale.<br>
+Se io vado a ricercare una soluzione nella forma <span class="tex">\(v'(t)=a\)</span> dove <span class="tex">\(a\)</span> è una costante, ottengo il risultato per <span class="tex">\(a\)</span> ( cioè <span class="tex">\(\frac{g}{7}\)</span>) di conseguenza io so che <span class="tex">\(v'(t)=a\)</span> è una soluzione dell'equazione per <span class="tex">\(v(t)\)</span>. Non so se ce ne sono altre ( e questo mi sembra parecchio duro da verificare ) però so certamente che il mettere accelerazione costante funziona. Ora però si pone un altro problema, l'accelerazione deve avere quel valore anche all'istante iniziale, ciò significa che il tutto va bene se la goccia non cade sulla nuvola come una particella in un campo gravitazionale ma deve essere forzata ad avere quell'accelerazione e poi viene lasciata in balia della nuvola. Poi ci si può porre la domanda: e se cambiamo le condizioni iniziali dicendo che all'inizio l'accelerazione è g? allora bisogna trovare la soluzione generale di quell'equazione intergale e imporre quella condizione iniziale, ma per fare questo ci vuole per lo meno la nazionalità cinese!  :lol:  :lol:  :lol:</article>
+<article class="post" id="p19525"><div class="who"><b>phyknight</b><span>27 set 2014, 18:55</span></div>Per prima cosa scusate per il problema, che, pensandoci, fa un po' schifo :oops: <br>
+<br>
+Fatto1
+<blockquote class="uncited"><div>Scusa ma non ho capito bene sto passaggio :oops:</div></blockquote> <blockquote class="uncited"><div>Anche io come simone non ho capito minimamente la spiegazione di phyknight....</div></blockquote>
+non avete capito perché non c'è nulla da capire  :oops: quello che ho scritto non ha senso...era un modo per dire: pensandoci un po' può venire in mente che l'accelerazione rimane costante...ma in realtà quando io ho risolto il problema non mi sono posto il problema dell'accelerazione...l'ho evitato in un modo che non piacerà a nesuno...che tra un attimo vedrete(e poi non so se questo modo si possa considerare effettivamente corretto...)<br>
+<br>
+Fatto2<br>
+Andrea, la tua soluzione è giusta, e quindi vai avanti con un altro problema  :) <br>
+<br>
+Fatto3<br>
+L'accelerazione è costante. <blockquote class="uncited"><div>c'è quindi un modo per spiegarlo in maniera convincente?</div></blockquote> credo di no, come già avrete capito anche voi...però ho un modo non convincente per spiegarlo.<br>
+E' per questo che avevo messo l'hint che diceva che l'accelerazione era indipendente dal tempo  :oops:  :cry: <br>
+<br>
+Fatto4<br>
+come densità se ho capito bene avete considerato che quella delle gocce e quella della nuvola sono le stesse; io le avevo poste diverse ma comunque alla fine si semplificavano, quindi in quello che scrivo ora le considero uguali(tanto viene lo stesso risultato) così non creo ancora più confusione<br>
+<br>
+Fatto5<br>
+L'ultima soluzione proposta da andrea è più simile alla mia, quindi parto da quella per provare a spiegare come ho risolto(?) la questione dell'accelerazione.<br>
+Prendo <span class="tex">\(\dot v(t)m(t)+\pi r(t)^2\rho v(t)^2=gm(t)\)</span> e divido tutto per m, quindi viene<br>
+<span class="tex">\(\dot v(t)+\dfrac{3}{4}\dfrac{v(t)^2}{r(t)}=g\)</span><br>
+Ora non sostituisco <span class="tex">\(\dot r\)</span>, ma <span class="tex">\(v(t)\)</span> (dalla stessa relazione<span class="tex">\(\dot r(t)=\dfrac{v(t)}{4}\)</span>) e quindi <br>
+<span class="tex">\(4\ddot r(t)+\dfrac{12(\dot r(t))^2}{r(t)}=g\)</span> cioè <span class="tex">\(4r(t)\ddot r(t)+12(\dot r(t))^2=gr(t)\)</span><br>
+Questa non so risolverla (non so neanche se esista un modo sensato per risolverla, ho provato a porre la derivata uguale a una funzione di r ma niente...), quindi (e qui temo per la mia incolumità) proseguo con l'analisi dimensionale  :roll: <br>
+Nell'equazione compare solo <span class="tex">\(g\)</span>, quindi di cosa può essere funzione il nostro <span class="tex">\(r\)</span>? Di <span class="tex">\(g\)</span> e di <span class="tex">\(t\)</span> !!! <br>
+Quindi, per analisi dimensionale  <span class="tex">\(r(t)=\varphi gt^2\)</span> dove <span class="tex">\(\varphi\)</span> è una costante numerica<br>
+Sostituendo nell'equazione trovo <span class="tex">\(\varphi=\dfrac{1}{56}\)</span>, quindi trovo <span class="tex">\(r(t)\)</span>, e poi trovo <span class="tex">\(v(t)=4 \dot r(t)\)</span> e <span class="tex">\(a(t)\)</span> che mi viene indipendente da <span class="tex">\(t\)</span><br>
+<br>
+che ne pensate? :oops:</article>
+<article class="post" id="p19527"><div class="who"><b>andrea96</b><span>27 set 2014, 19:26</span></div>:o  :o  :o  risolvere equazioni differenziali mediante l'analisi dimensionale è una cosa che non avevo mai visto  :lol:  :lol:  :lol: <br>
+delle volte in alcuni problemi che non si riescono a risolvere si ha una buona probabilità di risolverli con l'analisi dimensionale, però secondo me quando si ha a che fare con equazioni differenziali è abbastanza improbabile che funzioni anche perchè spesso escono fuori esponenziali che sono adimensionali e potresti aggiungere o togliere nelle equazioni senza cambiare le dimensioni.<br>
+Se hai letto il mio commento di prima li si vede come se la goccia entra nella nuvola gia con accelerazione <span class="tex">\(\frac{g}{7}\)</span> allora l'accelerazione resta costante. Ora orsobruno mi ha ispirato dicendo che aveva provato a dimostrare che l'accelerazione in ogni caso è asintotica a quel valore; allora io ho pensato: se la goccia entra con accelerazione maggiore di quel valore ( diciamo entra con accelerazione g) allora sicuramente la nuvola avrà un effetto di frenamento sulla goccia così che questa diminuirà la sua accelerazione e "più si avvicina a <span class="tex">\(\frac{g}{7}\)</span> più l'effetto di frenamento è ridotto". Questo ragionamento molto molto qualitativo mi convince parecchio che l'accelerazione sia asintotica; allora ho pensato perchè non provare a cercare una soluzione dell'equazione per <span class="tex">\(v(t)\)</span> nella forma <span class="tex">\(v'(t)=\frac{g}{7}(6e^{-\alpha t}+1)\)</span>? notate che <span class="tex">\(v'(0)=g\)</span> e la funzione è asintotica a <span class="tex">\(v'=\frac{g}{7}\)</span>. Ho provato a fare i conti per vedere se esiste un <span class="tex">\(\alpha\)</span> tale che quella sia soluzione, ma i calcoli anche se sono fattibili, sono parecchio lunghi, quando avrò un po di tempo farò questa verifica...<br>
+penso che con equazioni di questo tipo l'unica strada si questa: cioè fare ipotesi sul moto e cercare soluzioni in una forma che rispecchia l'ipotesi, però certo, è un modo di andare a tentoni e non è bellissimo...</article>
+<nav class="pager"><a class="prev" href="olifis-5978.html"><small>← precedente</small>16: La luce è furba!!!</a><a class="next" href="olifis-5980.html"><small>successivo →</small>18: acqua in un recipiente</a></nav>
+</main></body></html>

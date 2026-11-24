@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>309. Gas di fotoni</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 309</a></span></nav>
+<h1>309. Gas di fotoni</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7198">forum Olifis</a></p>
+<article class="post first" id="p27829"><div class="who"><b>matteofisica</b><span>11 lug 2023, 9:48</span></div>La radiazione elettromagnetica può essere descritta dal punto di vista termodinamico come un gas con energia interna <span class="tex">\(U=bVT^4\)</span> e pressione <span class="tex">\(p=\frac{1}{3}bT^4\)</span>, dove <span class="tex">\(b\)</span> è una costante. Rappresentare un ciclo di Carnot per questo gas nel piano <span class="tex">\(p-V\)</span>. Calcolare inoltre la variazione di entropia del gas durante un'isoterma reversibile, confrontandola con la variazione di entropia durante un'isoterma di un gas ideale.</article>
+<article class="post" id="p27832"><div class="who"><b>Higgs</b><span>12 lug 2023, 18:12</span></div>Provo a fare qualche considerazione. Dai dati del testo si ricava che le isoterme del ciclo di Carnot sono anche isobare<span class="tex">\(p_1=(1/3)bT_1^4\)</span>e <span class="tex">\(p_2=(1/3)bT_2^4\)</span> e che inoltre <span class="tex">\(U=bVT^4 = 3pV\)</span>. Le due isoterme, parallele all'asse V nel piano p,V, sono raccordate dalle due adiabatiche, la prima di espansione del gas di fotoni e la seconda di compressione. Da notare che durante le isoterme varia l'energia interna perché dipende anche da V, contrariamente al caso del gas ideale. Prendendo ora in esame la prima isoterma alla temperatura <span class="tex">\(T_1\)</span>, fra i valori <span class="tex">\((p_1,V_1)(p_1,V_2)\)</span>nel piano p,V , si osserva che <span class="tex">\(L_1=p_1(V_2-V_1)\)</span> mentre <span class="tex">\(\Delta U_1=3p_1(V_2-V_1)=3L_1\)</span>. Per cui sembra agevole ottenere <span class="tex">\(\Delta S_1=\frac{Q_1}{T_1}=\frac{L_1 + \Delta U_1}{T_1}=\frac{4L_1}{T_1}\)</span>. Questa variazione, quattro volte  quella del gas ideale dove <span class="tex">\(\Delta S=\frac{Q_1}{T_1}=\frac{L_1}{T_1}\)</span>, è dovuta alla variazione di energia interna che dipende anche dal volume nel gas di fotoni. :roll:  :?:  :?:</article>
+<article class="post" id="p27833"><div class="who"><b>matteofisica</b><span>13 lug 2023, 9:08</span></div>Mi sembra tutto corretto! Ora puoi andare con le adiabatiche  ;)</article>
+<article class="post" id="p27835"><div class="who"><b>Higgs</b><span>13 lug 2023, 10:30</span></div>Scusa ma non capisco. Non veniva richiesto l'esame delle adiabatiche ma solo il confronto con il gas ideale per quanto riguardava la variazione entropica in una isoterma. Io leggo questo nel tuo testo o non capisco. Infatti ho detto che le isoterme sono anche isobare e quindi parallele all'asse V una sopra a <span class="tex">\(p_1\)</span>e l'altra sotto a <span class="tex">\(p_2\)</span> e che sono raccordate dalle adiabatiche, una espansiva con aumento di volume e diminuzione di temperatura  e l'altra viceversa come in ogni ciclo di Carnot. Cosa non vedo? :?:  :?: A meno che non si debba imporre che siano adiabatiche ovvero<span class="tex">\(\delta Q= dU+\delta L =0\)</span> cioè <span class="tex">\(3pdV+3Vdp=-pdV\)</span>. Quest'ultima integrata per separazione di variabili condurrebbe a <span class="tex">\((\frac{p_2}{p_3})^{(1/4)}=(\frac{V_2}{V_3})^{(1/3)}\)</span>. Non so aspetto tue indicazioni sulla mia comprensione del testo.... :?:  :?:</article>
+<article class="post" id="p27837"><div class="who"><b>matteofisica</b><span>13 lug 2023, 12:20</span></div>Esatto, per "rappresentare un ciclo di Carnot" intendevo sostanzialmente scrivere le equazioni delle trasformazioni. Scusami per la poca chiarezza... comunque alla fine dal tuo risultato si ottiene <span class="tex">\(pV^{\frac{4}{3}}=k\)</span>, con <span class="tex">\(k\)</span> costante. A te la staffetta! :D</article>
+<article class="post" id="p27901"><div class="who"><b>Ken Adams</b><span>11 ago 2023, 4:56</span></div>La descrizione "La radiazione elettromagnetica può essere descritta termodinamicamente come un gas con energia e pressione" può fare riferimento alla descrizione della luce da una prospettiva termodinamica. Questa è una metafora, non un'interpretazione esatta della radiazione elettromagnetica. È come applicare concetti della teoria dei gas per descrivere la propagazione della luce.<br>
+<br>
+In questa descrizione, "gas" è usato per indicare che la radiazione elettromagnetica può viaggiare attraverso lo spazio come la propagazione delle molecole in un gas. "Energia" qui può rappresentare la natura ondulatoria della luce e la sua capacità di trasmettere energia dalla sorgente al punto ricevente. "Pressione" può riferirsi alla capacità della luce di interagire con gli oggetti, come la pressione della luce sulle superfici.<br>
+<br>
+Tuttavia, va notato che la radiazione elettromagnetica non è in realtà un gas ed è improbabile che esista nello spazio come un gas. Di solito è descritto dall'onda elettromagnetica e dalla teoria nucleare (quantistica) e non si presenta come un gas come descritto sopra.</article>
+<nav class="pager"><a class="prev" href="olifis-7196.html"><small>← precedente</small>308. Carica e sfera conduttrice</a><a class="next" href="olifis-7200.html"><small>successivo →</small>310 - Rampa discendente seguita da anello della morte</a></nav>
+</main></body></html>

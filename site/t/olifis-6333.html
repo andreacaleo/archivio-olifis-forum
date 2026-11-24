@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>76. Condensatore e molla</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 76</a></span></nav>
+<h1>76. Condensatore e molla</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6333">forum Olifis</a></p>
+<article class="post first" id="p22391"><div class="who"><b>FedericoC.</b><span>11 giu 2016, 16:01</span></div>Eccoci col problema <span class="tex">\(76\)</span>!  :D <br>
+Si consideri un condensatore a facce piane e parallele nella cui intercapedine c'è il vuoto, con una faccia fissa e una mobile attaccata a una molla, a sua volta collegata ad un muro. Nella situazione iniziale le armature del condensatore di area <span class="tex">\(A\)</span> sono separate da una distanza <span class="tex">\(d\)</span> e la sua capacità è <span class="tex">\(C_0=\epsilon_0\frac{A}{d}\)</span>, in tale situazione la molla di costante elastica <span class="tex">\(k\)</span> non è nè allungata nè compressa. Vengono poste una carica <span class="tex">\(+Q\)</span> e una carica <span class="tex">\(-Q\)</span> rispettivamente sulle due armature e si lascia che il sistema raggiunga l'equilibrio meccanico.<br>
+Trovare:<br>
+1)la forza elettrica <span class="tex">\(F\)</span> con cui le armature si attraggono l'un l'altra;<br>
+<br>
+2)lo spostamento <span class="tex">\(x\)</span> dell'armatura connessa alla molla;<br>
+<br>
+3)la differenza di potenziale tra le armature;<br>
+<br>
+4)il rapporto <span class="tex">\(\frac{C}{C_0}\)</span>;<br>
+<br>
+5)l'energia totale del sistema.</article>
+<article class="post" id="p22392"><div class="who"><b>BeppeBogna</b><span>11 giu 2016, 16:25</span></div>1) Il campo elettrico prodotto da una piastra è<br>
+<br>
+<span class="tex">\(E=\frac{Q}{2\epsilon _0A}\)</span><br>
+<br>
+Pertanto la forza con cui le due piastre si attraggono è<br>
+<br>
+<span class="tex">\(F=\frac{Q^2}{2\epsilon_0A}\)</span><br>
+<br>
+2) Basta imporre <span class="tex">\(F=kx\)</span> e si ottiene <br>
+<br>
+<span class="tex">\(x=\frac{Q^2}{2\epsilon_0Ak}\)</span><br>
+<br>
+3) Le due cariche hanno segno opposto, quindi nella situazione di equilibrio la distanza tra le piastre sarà <span class="tex">\(d'=d-x\)</span>.<br>
+La capacità è quindi <span class="tex">\(C=C_0\frac{d}{d-x}\)</span>, da cui <br>
+<br>
+<span class="tex">\(V=\frac{Q}{C}=\frac{Q}{C_0}\left(1-\frac{x}{d}\right)\)</span><br>
+<br>
+4) Praticamente l'ho già scritta al punto 3), <span class="tex">\(\frac{C}{C_0}=\frac{d}{d-x}\)</span><br>
+<br>
+5) L'energia è quella immagazzinata nel condensatore e nella molla, quindi<br>
+<br>
+<span class="tex">\(U=\frac{Q^2}{2C}+\frac{1}{2}kx^2=\frac{Q^2}{2C_0}\left(1-\frac{Q^2}{4\epsilon_0Adk}\right)\)</span><br>
+<br>
+Spero sia tutto giusto</article>
+<article class="post" id="p22393"><div class="who"><b>FedericoC.</b><span>11 giu 2016, 17:05</span></div>Tutto giusto, a te il testimone della staffetta  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6331.html"><small>← precedente</small>75  Condotto incurvato</a><a class="next" href="olifis-6334.html"><small>successivo →</small>77. Campo magnetico</a></nav>
+</main></body></html>

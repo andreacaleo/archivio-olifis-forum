@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>178. Radiazione di fondo di neutrini</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 178</a></span></nav>
+<h1>178. Radiazione di fondo di neutrini</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6825">forum Olifis</a></p>
+<article class="post first" id="p25494"><div class="who"><b>GabriManga</b><span>20 lug 2019, 18:21</span></div>Oltre alla radiazione cosmica di fondo di fotoni ne è presente una di neutrini, ad una temperatura effettiva  <span class="tex">\( T=1.95k \)</span> .<br>
+Stimare la densità di neutrini ed antineutrini per metro cubo.<br>
+<br>
+<br>
+<br>
+I neutrini sono Fermioni: obbediscono al principio di indeterminazione di Pauli. Non è possibile che due occupino lo stesso stato quantico: si può dimostrare che la distribuzione del numero medio di stati occupati da neutrini di energia <span class="tex">\( E \)</span> è <span class="tex">\( n=  \frac {1}{e^\frac{E}{k_b T}+1} \)</span>. Si tratta della statistica di Fermi-Dirac, dove il potenziale chimico è nullo (per curiosità, è dovuto al fatto che coppie neutrino-antineutrino venivano create liberamente e quindi il numero totale considerato non è fisso). Un esempio di distribuzione più familiare è quella di Maxwell-Boltzmann.<br>
+<br>
+Qui una distribuzione nello spazio delle fasi  <span class="tex">\( (x,y,z,p_x,p_y,p_z) \)</span> formato da posizioni e quantità di moto è una funzione  <span class="tex">\( f_{(\vec r , \vec p )}\)</span> tale che  <span class="tex">\( f_{(\vec r , \vec p )} \, dx \, dy\, dz\,  dp_x \, dp_y \, dp_z \)</span> è il numero di punti all'interno dell'elemento di volume  <span class="tex">\( d^3r \,d^3p\)</span>  centrato in <span class="tex">\((\vec r , \vec p )\)</span> (con naturale cambio di notazione). Non si tratta di infinitesimi, ma elementi di volume <span class="tex">\( d^3r \)</span> e <span class="tex">\(d^3p\)</span> (questo nello spazio delle quantità di moto) finiti che contengono un grande numero di molecole pur essendo "puntiformi" rispetto a dimensioni macroscopiche.<br>
+ Approssimiamo quindi la sommatoria sui vari elementi di volume in cui è diviso lo spazio delle fasi con <span class="tex">\( \int  f_{(\vec r , \vec p )} \,  d^3r \,d^3p	\)</span>.<br>
+Si può dimostrare (l'ho presente nel caso della radiazione di corpo nero) che l'elemento unidimensionale  <span class="tex">\( dp_x  \, dx\)</span> contiene <span class="tex">\( c\)</span> stati, con <span class="tex">\( c= \frac{1}{h}\)</span>. Purtroppo di solito non viene data alcuna giustificazione del fattore  <span class="tex">\( \frac{1}{h^3}\)</span> se non dimensionale (anche perché la suddivisione dello spazio delle fasi in elementi di volumi ha una certa arbitrarietà, vedi paragrafo precedente).<br>
+<br>
+<br>
+Assumere che i neutrini abbiamo massa trascurabile (quindi dalla relatività  <span class="tex">\( E=pc \)</span> ) e che ne esistano tre specie.<br>
+<br>
+<br>
+<br>
+P.S: dopo vari mesi era il momento di riportare in vita la staffetta con un'azione decisa, spero non dispiaccia  :lol: . <br>
+<br>
+<br>
+<br>
+<br>
+Può essere utile sapere che <span class="tex">\( \int_{0}^{\infty} \frac{x^N \, e^{-x}}{1-ae^{-x}}    \, dx = n! \, \sum_{k=0}^{\infty} \frac{a^k}{(k+1)^{n+1}} \)</span>. I primi termini sono sufficienti per avvicinarsi molto al valore a cui converge nel caso del problema.<br>
+<br>
+Bonus: dimostrare quest'identità (nonostante le apparenze non è difficile!).<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <span class="tex">\( \)</span></article>
+<article class="post" id="p25497"><div class="who"><b>nicarepo</b><span>31 lug 2019, 13:36</span></div>Perdona la domanda ingenua, ma si può risolvere in modo elementare (fisica del liceo e un po' di ingegno) o serve qualche conoscenza in più?</article>
+<article class="post" id="p25498"><div class="who"><b>GabriManga</b><span>2 ago 2019, 23:11</span></div>A prima vista non sembra, ma leggendo con calma sono fornite le nozioni che servono per permettere anche a uno studente del liceo che conosca un minimo di analisi di risolverlo.<br>
+Non è facile, però c'è solo da collegare i vari pezzi tra loro e contare quanti sono gli stati con (...)<br>
+Per partire conviene scegliere la quantità di moto come variabile rispetto cui integrare.<br>
+<br>
+Non abbiate paura di sbagliare su concetti con cui non siete ancora famigliari: questo problema è pensato per introdurli.</article>
+<article class="post" id="p25501"><div class="who"><b>Triforce127</b><span>26 ago 2019, 16:17</span></div>La funzione <span class="tex">\(f(\vec{r},\vec{p})\)</span> è il numero di particelle contenute nell'elemento di volume <span class="tex">\(d^3rd^3p\)</span> nello spazio delle fasi; essa equivale quindi al numero di stati totali contenuti in questo elemento di volume per il numero medio di particelle per stato. Il numero di stati totali nell'elemento di volume è <span class="tex">\(\frac{1}{h^3}\)</span>, poichè ogni elemento unidimensionale <span class="tex">\(dp_xdx\)</span> contribuisce con <span class="tex">\(\frac{1}{h}\)</span> stati; il numero medio di particelle per stato è semplicemente <span class="tex">\(n\)</span>. Poichè tutti gli stati nell'elemento di volume hanno stessa energia, si ha <span class="tex">\(f(\vec{r},\vec{p}) = \frac{n}{h^3} = \frac{1}{h^3(1+e^{\beta c \sqrt{p_x^2+p_y^2+p_z^2}})}\)</span>, con <span class="tex">\(\beta = \frac{1}{k_bT}\)</span> e <span class="tex">\(E = pc =\sqrt{p_x^2+p_y^2+p_z^2} \)</span>.<br>
+A questo punto per trovare il numero di particelle totali per metro cubo basta integrare <span class="tex">\(\int f(\vec{r},\vec{p})d^3rd^3p\)</span> per un volume <span class="tex">\(V = 1 m^3\)</span> e per tutte le possibili quantità di moto, visto che non ci interessa la velocità delle particelle ma solo che esse siano all'interno del metro cubo.<br>
+Si ha quindi <span class="tex">\(N = \int f(\vec{r},\vec{p})d^3rd^3p = \frac{V}{h^3} \iiint \frac{dp_xdp_ydp_z}{1+e^{\beta c \sqrt{p_x^2+p_y^2+p_z^2}}} \)</span>. Passando a coordinate sferiche <span class="tex">\(N= \frac{V}{h^3} \iiint \frac{(p^2\sin{\theta}dp d\theta d\phi)}{1+e^{\beta cp}} = \frac{4\pi V}{(h\beta c)^3} \int \frac{(h\beta c)^2e^{-\beta cp}}{1-(-1)e^{-\beta cp}}d(h\beta c)\)</span>.<br>
+Si ottiene così <span class="tex">\(N = 8\pi V (\frac{k_b T}{hc})^3 \sum_{k =0}^\infty \frac{(-1)^k}{(k+1)^3} = 5,64 \cdot 10^7\)</span> particelle<span class="tex">\(/m^3\)</span> (ho utilizzato wolfram alpha per il valore numerico della somma, anche se essendo a segni alterni bastano pochi termini per una buona approssimazione). Infine, visto che ci sono tre specie di neutrini (e di conseguenza anche di antineutrini) la densità di neutrini e antineutrini a metro cubo è <span class="tex">\(\rho = \frac{6N}{V} = 3,38 \cdot 10^8 \)</span> particelle<span class="tex">\(/m^3\)</span>.</article>
+<article class="post" id="p25515"><div class="who"><b>GabriManga</b><span>1 set 2019, 20:57</span></div>Bravo, la staffetta è tua! <br>
+Un modo intuitivo di giustificare l'elemento di volume in coordinate sferiche in questo caso è che stai contando (nel volume V) gli stati tra |p| e |p+dp|, cioé in un guscio sferico di volume (4*pi*|p|^2*dp).</article>
+<article class="post" id="p25589"><div class="who"><b>Luca Milanese</b><span>9 dic 2019, 14:45</span></div>Provo il Bonus:<br>
+<span class="tex">\(\displaystyle A=\int_0^{+\infty}\frac{x^n×e^{-x}}{1-ae^{-x}}\, dx\)</span><br>
+<span class="tex">\(\displaystyle \int \frac{x^n×e^{-x}}{1-ae^{-x}}\, dx=\frac{1}{a}\int \frac{x^n×ae^{-x}}{1-ae^{-x}}\, dx\)</span><br>
+<span class="tex">\(\displaystyle =\frac{x^n}{a}\ln(1-ae^{-x})-\frac{n}{a}\int x^{n-1}\ln(1-ae^{-x})\, dx\)</span> integrando per parti.<br>
+<span class="tex">\(\displaystyle \ln(1-ae^{-x})=(-ae^{-x})-\frac{(-ae^{-x})^2}{2}+\dots\)</span> per Taylor, dunque la roba di prima vale:<br>
+<span class="tex">\(\displaystyle -x^n\big(e^{-x}+\frac{ae^{-2x}}{2}+\cdots\big)+n\int x^{n-1}\big(e^{-x}+\frac{ae^{-2x}}{2}+\cdots\big)\, dx\)</span>, quindi:<br>
+<span class="tex">\(\displaystyle A=-\bigg[\frac{x^n}{e^x}+\frac{ax^n}{2e^{2x}}+\cdots\bigg]_0^{+\infty}+n\int_0^{+\infty}x^{n-1}e^{-x}\, dx\)</span><br>
+<span class="tex">\(\displaystyle + n\int_0^{+\infty}x^{n-1}\frac{ae^{-2x}}{2}\, dx+\cdots\)</span> per linearità dell'integrale. Applicando De L'Hopital, la prima parentesi vale <span class="tex">\(0\)</span>, mentre la somma di integrali si può scrivere come:<br>
+<span class="tex">\(\displaystyle n\sum_{k=0}^{\infty}\frac{a^k}{k+1}\int_0^{+\infty}x^{n-1}e^{-(k+1)x}\, dx=A\)</span>.<br>
+<span class="tex">\(\displaystyle \int_0^{+\infty} x^{n-1}e^{-(k+1)x}\, dx=\bigg[-\frac{x^{n-1}e^{-(k+1)x}}{k+1}\bigg]_0^{+\infty}+\frac{n-1}{k+1}\int_0^{+\infty} x^{n-2}e^{-(k+1)x}\, dx\)</span><br>
+<span class="tex">\(=\displaystyle \bigg[-\frac{x^{n-1}
+}{(k+1)e^{(k+1)x}}\bigg]_0^{+\infty}+\frac{n-1}{k+1}\int_0^{+\infty} x^{n-2}e^{-(k+1)x}\, dx=\frac{n-1}{k+1}\int_0^{+\infty}x^{n-2}e^{-(k+1)}\, dx\)</span>.<br>
+Da qui si ottiene facilmente che:<br>
+<span class="tex">\(\displaystyle \int_0^{+\infty}x^{n-1}e^{-(k+1)x}\, dx=\frac{(n-1)!}{(k+1)^{n-1}}\int_0^{+\infty}e^{-(k+1)x}\, dx=\bigg[-\frac{(n-1)!e^{-(k+1)x}}{(k+1)^n}\bigg]_0^{+\infty}\)</span><br>
+<span class="tex">\(\displaystyle =\frac{(n-1)!}{(k+1)^n}\)</span>. Concludiamo che:<br>
+<span class="tex">\(\displaystyle A=n\sum_{k=0}^{\infty}\frac{a^k}{k+1}\frac{(n-1)!}{(k+1)^n}=n!\sum_{k=0}^{\infty}\frac{a^k}{(k+1)^{n+1}}\)</span>.<br>
+Pregherei qualcuno con più esperienza di controllare, perchè non sono sicuro di ciò che ho scritto.</article>
+<article class="post" id="p25618"><div class="who"><b>GabriManga</b><span>9 gen 2020, 21:40</span></div>Sì è corretto! Un po' più lungo di come lo farei: puoi scrivere <span class="tex">\( \frac{1}{1-ae^{-x}}= 1+ae^{-x}+( ae^{-x})^2+... \)</span> e integrare per parti N volte.<br>
+Scusa se ci ho messo tanto, non mi ero accorto che ci fosse una risposta.</article>
+<article class="post" id="p25619"><div class="who"><b>Luca Milanese</b><span>9 gen 2020, 21:51</span></div>Grazie per la risposta! Effettivamente è più veloce sviluppare la serie geometrica, ma non ci avevo proprio pensato.</article>
+<nav class="pager"><a class="prev" href="olifis-6808.html"><small>← precedente</small>177: esplosione coulombiana</a><a class="next" href="olifis-6849.html"><small>successivo →</small>179. Attrito atipico</a></nav>
+</main></body></html>

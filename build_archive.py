@@ -25,18 +25,21 @@ SITE_NAME = 'Archivio del forum Olifis'
 FORUM_STATS = {'topics': '2.622', 'posts': '19.681', 'members': '1.529', 'last': '2026'}
 # sections of chosen discussions; their topics are listed in selezioni.json and were downloaded to raw/sezioni/<folder>
 SECTIONS = [
-    {'key': 'teorici', 'folder': 'problemi-teorici', 'page': 'problemi-teorici.html', 'total': 1463,
-     'title': 'Problemi teorici',
-     'lede': 'La sezione più grande del forum: problemi di fisica proposti, risolti e discussi dagli utenti. Qui le discussioni migliori, al di là dei problemi di ammissione alla Normale.',
-     'card': 'Le discussioni migliori della sezione più grande del forum: problemi proposti, risolti e discussi.'},
-    {'key': 'olimpiadi', 'folder': 'olimpiadi-di-fisica', 'page': 'olimpiadi.html', 'total': 251,
-     'title': 'Olimpiadi di Fisica',
-     'lede': 'Le gare italiane e internazionali raccontate da chi le ha preparate e fatte: prove, problemi, preparazione, risultati.',
-     'card': 'Le gare italiane e internazionali, raccontate da chi le ha fatte.'},
-    {'key': 'caffe', 'folder': 'caffe', 'page': 'caffe.html', 'total': 266,
-     'title': 'Caffè',
-     'lede': 'La sezione per parlare di tutto il resto: libri, università, carriera, curiosità di fisica e non solo.',
-     'card': 'Libri, università, curiosità: le chiacchiere migliori del forum.'},
+    {'key': 'teorici', 'folder': 'problemi-teorici', 'page': 'problemi-teorici.html', 'total': 1463, 'title': 'Altri problemi teorici',
+     'lede': ''},
+    {'key': 'olimpiadi', 'folder': 'olimpiadi-di-fisica', 'page': 'olimpiadi-caffe.html', 'total': 251, 'title': 'Olimpiadi di Fisica',
+     'lede': 'Le gare italiane e internazionali raccontate da chi le ha preparate e fatte: prove, preparazione, risultati.'},
+    {'key': 'caffe', 'folder': 'caffe', 'page': 'olimpiadi-caffe.html', 'total': 265, 'title': 'Caffè',
+     'lede': 'La sezione per parlare di tutto il resto: università, curiosità, attualità.'},
+]
+# pages of chosen discussions: one or more sections each
+PAGES = [
+    {'page': 'problemi-teorici.html', 'title': 'Altri problemi teorici', 'keys': ['teorici'],
+     'lede': 'Problemi di fisica proposti, risolti e discussi nella sezione più grande del forum, oltre a quelli della staffetta e delle prove di ammissione: una selezione.',
+     'card': 'Una selezione degli altri problemi proposti, risolti e discussi sul forum.'},
+    {'page': 'olimpiadi-caffe.html', 'title': 'Olimpiadi di Fisica e Caffè', 'keys': ['olimpiadi', 'caffe'],
+     'lede': 'Una selezione di discussioni dalle sezioni dedicate alle gare e a tutto il resto.',
+     'card': 'Le gare raccontate da chi le ha fatte, e le chiacchiere migliori del forum.'},
 ]
 MATHJAX_FILE ='tex-svg-full.js'  # the full build: every TeX extension is inside, nothing is loaded later
 MATHJAX_URL = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/' + MATHJAX_FILE
@@ -418,6 +421,14 @@ mjx-container [data-mml-node="merror"] { fill:currentColor !important; stroke:no
 .card.big { grid-column:1 / -1; padding:22px 24px; border-color:var(--chip-fg); background:var(--chip); }
 .card.big b { font-size:24px; color:var(--chip-fg); }
 .card .kicker { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--chip-fg); }
+h2.part { font:600 26px/1.2 var(--serif); text-transform:none; letter-spacing:0; color:var(--fg); margin-top:48px; }
+h3.tema { font:600 13px var(--sans); text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:28px 0 10px; }
+ol.relay { list-style:none; padding:0; margin:0; columns:2; column-gap:28px; font-size:15px; }
+ol.relay li { break-inside:avoid; padding:3px 0; display:flex; gap:8px; align-items:baseline; }
+ol.relay .num { flex:0 0 2.6em; text-align:right; font:600 13px var(--sans); color:var(--faint); font-variant-numeric:tabular-nums; }
+ol.relay a { text-decoration:none; }
+ol.relay a:hover { text-decoration:underline; }
+@media (max-width:600px) { ol.relay { columns:1; } }
 ul.picks { list-style:none; padding:0; margin:0; }
 ul.picks li { padding:14px 0; border-top:1px solid var(--line); }
 ul.picks li:first-child { border-top:none; }
@@ -560,6 +571,12 @@ def main():
                     (RAW / 'olifis' / f.name).write_bytes(f.read_bytes())
             if k not in wanted:
                 wanted.append(k)
+    # the numbered relay of problems: staffetta.json
+    staff = json.loads((ROOT / 'staffetta.json').read_text(encoding='utf8'))
+    staff_keys = [('olifis', t) for t in staff['prime_staffette']] + [('olifis', e['t']) for e in staff['problemi']]
+    for k in staff_keys:
+        if k not in wanted:
+            wanted.append(k)
     # any topic already downloaded with its whole section is copied rather than fetched again
     for forum, t in wanted:
         if forum == 'olifis' and not raw_path(forum, t, 0).exists():
@@ -583,7 +600,8 @@ def main():
         title, posts = load_topic(forum, t)
         posts = [p for p in posts if p['id'] not in excluded_posts]  # spam, listed in selezioni.json
         if posts:
-            topics[(forum, t)] = {'title': title or f'Discussione {t}', 'posts': posts}
+            title = re.sub(r'^\s*Re:\s*', '', title or '') or f'Discussione {t}'  # a few topics were titled like a reply
+            topics[(forum, t)] = {'title': title, 'posts': posts}
         else:
             errors.setdefault(f'{forum}/{t}', 'nessun messaggio: discussione cancellata o non leggibile')
     topic_pages = {k: f'{k[0]}-{k[1]}.html' for k in topics}
@@ -651,6 +669,13 @@ def main():
     crumbs = {k: f'<a href="../sns.html">{c}</a>' for k, c in crumbs.items()}
     # previous / next: the physics list for the admission problems, the page's order for each section
     sequence = {k: order for k in order}
+    # the relay comes first for its own problems, admission problems included: it is a strict sequence
+    staff_seq = [k for k in staff_keys if k in topics]
+    staff_label = {('olifis', e['t']): e['n'] for e in staff['problemi']}
+    for k in staff_seq:
+        n = staff_label.get(k, '')
+        crumbs[k] = '<a href="../staffetta.html">La staffetta' + (f', problema {n}' if n.isdigit() else '') + '</a>'
+        sequence[k] = staff_seq
     for sec in SECTIONS:
         seq = [('olifis', e['t']) for e in selections.get(sec['key'], []) if ('olifis', e['t']) in topics]
         for k in seq:
@@ -694,6 +719,7 @@ def main():
     listed = {key_of(h) for _, links in idx['fisica'] + idx['matematica'] + idx['chimica_biologia'] for _, h in links}
     listed |= {('olifis', t) for t in extra['orali'] + extra['preparazione']}
     listed |= {('olifis', e['t']) for sec in SECTIONS for e in selections.get(sec['key'], [])}
+    listed |= set(staff_keys)
     li = lambda ts: ''.join(f'<li><a href="t/{topic_pages[("olifis", t)]}">{plain(topics[("olifis", t)]["title"])}</a></li>'
                             for t in ts if ('olifis', t) in topics)
     orali, preparazione = li(extra['orali']), li(extra['preparazione'])
@@ -737,34 +763,88 @@ def main():
         ys = sorted({int(m) for p in topics[k]['posts'] for m in re.findall(r'\b(20\d\d|19\d\d)\b', p['date'])})
         return '' if not ys else (str(ys[0]) if ys[0] == ys[-1] else f'{ys[0]}–{ys[-1]}')
 
-    cards = []
-    for sec in SECTIONS:
-        entries = [e for e in selections.get(sec['key'], []) if ('olifis', e['t']) in topics]
+    # the relay: every problem in order, in blocks of 50
+    def staff_title(k):
+        return plain(re.sub(r'^\s*(?:Re:\s*)?\d{1,3}\s*(?:[-.:)°]\s*)?', '', html.unescape(re.sub('<[^>]+>', '', topics[k]['title'])))) or plain(topics[k]['title'])
+    blocks, cur, last = [], [], 0
+    for e in staff['problemi']:
+        k = ('olifis', e['t'])
+        if k not in topics:
+            continue
+        n = int(e['n']) if e['n'].isdigit() else last
+        if cur and (n - 1) // 50 != (last - 1) // 50:
+            blocks.append(cur); cur = []
+        cur.append(f'<li><span class="num">{html.escape(e["n"]) if e["n"].isdigit() else "s.n."}</span>'
+                   f'<a href="t/{topic_pages[k]}">{staff_title(k)}</a></li>')
+        last = n
+    if cur:
+        blocks.append(cur)
+    nums = [int(e['n']) for e in staff['problemi'] if e['n'].isdigit()]
+    block_html = ''
+    for b in blocks:
+        first = re.search(r'class="num">(\d+)', b[0])[1]
+        lastn = [m for x in b for m in re.findall(r'class="num">(\d+)', x)][-1]
+        block_html += f'<h2>Problemi {first}–{lastn}</h2><ol class="relay">' + ''.join(b) + '</ol>'
+    prime = ''.join(f'<li><a href="t/{topic_pages[("olifis", t)]}">{plain(topics[("olifis", t)]["title"])}</a>'
+                    f'<span class="when">{years_of(("olifis", t))} · {len(topics[("olifis", t)]["posts"])} messaggi</span></li>'
+                    for t in staff['prime_staffette'] if ('olifis', t) in topics)
+    staff_n = sum(1 for e in staff['problemi'] if ('olifis', e['t']) in topics)
+    first_k, last_k = ('olifis', staff['problemi'][0]['t']), ('olifis', staff['problemi'][-1]['t'])
+    sbody = f"""<h1>La staffetta</h1>
+<p class="lede">Chi risolve un problema ne propone uno nuovo. Dal {years_of(first_k)[:4]} al {years_of(last_k)[-4:]} la staffetta del forum è arrivata
+al problema {max(nums)}: qui ci sono tutti, in ordine.</p>
+<p class="meta">{staff_n} discussioni. Il 18 è stato usato due volte; dopo il 328 tre problemi sono stati proposti senza numero (s.n.) e la numerazione riprende dal 330.</p>
+<h2>Le prime staffette</h2>
+<p class="notes">Prima della staffetta numerata, nel 2010 e 2011, ce n'erano tre in un'unica discussione ciascuna.</p>
+<ul class="picks">{prime}</ul>
+{block_html}"""
+    (SITE / 'staffetta.html').write_text(page(f'La staffetta · {SITE_NAME}', sbody, 0, False), encoding='utf8')
+
+    # pages of chosen discussions
+    def picks(entries, head):
         groups = {}
         for e in entries:
             groups.setdefault(e.get('tema', ''), []).append(e)
-        parts = []
+        out = []
         for tema, es in groups.items():
             if tema:
-                parts.append(f'<h2>{html.escape(tema)}</h2>')
+                out.append(f'<{head} class="tema">{html.escape(tema)}</{head}>')
             items = []
             for e in es:
                 k = ('olifis', e['t'])
-                n = len(topics[k]['posts'])
                 items.append(f'<li><a href="t/{topic_pages[k]}">{plain(topics[k]["title"])}</a>'
-                             f'<span class="when">{years_of(k)} · {n} messaggi</span>'
+                             f'<span class="when">{years_of(k)} · {len(topics[k]["posts"])} messaggi</span>'
                              f'<p>{html.escape(e.get("nota", ""))}</p></li>')
-            parts.append('<ul class="picks">' + ''.join(items) + '</ul>')
-        sbody = (f'<h1>{sec["title"]}</h1><p class="lede">{sec["lede"]}</p>'
-                 f'<p class="meta">{len(entries)} discussioni scelte su {sec["total"]} della sezione</p>' + ''.join(parts))
-        (SITE / sec['page']).write_text(page(f'{sec["title"]} · {SITE_NAME}', sbody, 0, False), encoding='utf8')
-        cards.append((sec, len(entries)))
+            out.append('<ul class="picks">' + ''.join(items) + '</ul>')
+        return ''.join(out)
 
-    sns_card = (f'<a class="card big" href="sns.html"><span class="kicker">In evidenza</span><b>Problemi di ammissione alla Normale</b>'
-                f'<span>I problemi di fisica delle prove di ammissione alla Scuola Normale Superiore di Pisa dal 1960 al {years[-1][-4:]}, '
-                f'quasi tutti risolti e discussi sul forum: {len(order)} discussioni, ordinate anno per anno.</span></a>')
-    other_cards = ''.join(f'<a class="card" href="{s["page"]}"><b>{s["title"]}</b><span>{s["card"]}</span>'
-                          f'<span class="count">{n} discussioni</span></a>' for s, n in cards if n)
+    cards = []
+    for pg in PAGES:
+        secs = [s for s in SECTIONS if s['key'] in pg['keys']]
+        total = 0
+        body_parts = []
+        for s in secs:
+            entries = [e for e in selections.get(s['key'], []) if ('olifis', e['t']) in topics]
+            total += len(entries)
+            if len(secs) > 1:
+                body_parts.append(f'<h2 class="part">{s["title"]}</h2><p class="notes">{s["lede"]} {len(entries)} discussioni su {s["total"]}.</p>'
+                                  + picks(entries, 'h3'))
+            else:
+                body_parts.append(f'<p class="meta">{len(entries)} discussioni scelte su {s["total"]} della sezione</p>' + picks(entries, 'h2'))
+        pbody = f'<h1>{pg["title"]}</h1><p class="lede">{pg["lede"]}</p>' + ''.join(body_parts)
+        (SITE / pg['page']).write_text(page(f'{pg["title"]} · {SITE_NAME}', pbody, 0, False), encoding='utf8')
+        cards.append((pg, total))
+    for old in ('olimpiadi.html', 'caffe.html'):  # pages of an earlier layout
+        if (SITE / old).exists():
+            (SITE / old).unlink()
+
+    card = lambda href, title, text, count: (f'<a class="card" href="{href}"><b>{title}</b><span>{text}</span>'
+                                             f'<span class="count">{count} discussioni</span></a>')
+    sns_card = card('sns.html', 'Problemi di ammissione alla Normale',
+                    f'I problemi di fisica delle prove di ammissione alla Scuola Normale Superiore di Pisa dal 1960 al {years[-1][-4:]}, quasi tutti risolti e discussi, anno per anno.',
+                    len(order))
+    staff_card = card('staffetta.html', 'La staffetta', f'Chi risolve un problema ne propone uno nuovo: tutti i {max(nums)} problemi, in ordine.', staff_n + len(staff['prime_staffette']))
+    other_cards = staff_card + ''.join(card(p['page'], p['title'], p['card'], n) for p, n in cards if n)
     home = f"""<h1>{SITE_NAME}</h1>
 <p class="lede">Dal 2009 il forum delle Olimpiadi di Fisica, su forum.olifis.it, è stato il luogo dove studenti, insegnanti ed ex olimpionici
 discutevano di problemi di fisica, di gare e di tutto il resto. Questa è una copia statica di una selezione delle sue discussioni, fatta nel {time.strftime('%Y')}

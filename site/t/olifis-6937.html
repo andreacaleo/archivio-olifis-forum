@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>222. Sublimazione nel Cilindro</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 222</a></span></nav>
+<h1>222. Sublimazione nel Cilindro</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6937">forum Olifis</a></p>
+<article class="post first" id="p26218"><div class="who"><b>east_beast</b><span>16 lug 2020, 23:52</span></div>Sul fondo di un contenitore cilindrico situato nel vuoto si trova uno strato di una sostanza solida di massa molare <span class="tex">\(\mu \)</span>.<br>
+La sostanza inizia a sublimare lentamente (ossia passa da solida a gassosa), spingendo il cilindro verso il basso.<br>
+Detta <span class="tex">\(T\)</span> la temperatura all'interno del cilindro, <span class="tex">\(m\)</span> la massa iniziale della sostanza solida, <span class="tex">\(M\)</span> la massa del cilindro vuoto, con <span class="tex">\(m&lt;&lt;M\)</span> e <span class="tex">\(A\)</span> la sezione del cilindro, stimare la velocità finale del contenitore, ossia quando tutta la sostanza è sublimata. Ignorare la gravità.</article>
+<article class="post" id="p26220"><div class="who"><b>alfredark04</b><span>20 lug 2020, 1:08</span></div>Immaginiamo molte trasformazioni discrete in cui la sostanza passa dallo stato solido a quello gassoso.<br>
+Se consideriamo una grande quantità di molecole, statisticamente la somma delle componenti sulla x e sulla y della velocità delle molecole dopo che si sono staccate dal solido si annullano. Il corpo si muoverà per questo solo verso il basso. Bisogna ora creare un modello che descriva la velocità delle molecole dopo che si sono staccate dal solido. Usiamo la distribuzione di Boltzmanm. Le molecole sono costrette a salire verso l'alto, mentre la distribuzione di Boltzmann considera entrambi i versi. Dopo aver integrato bisogna quindi moltiplicare per due. <br>
+Chiamiamo <span class="tex">\(M_m\)</span> la massa di una molecola. Scriviamo la distribuzione di Boltzmann:<br>
+<span class="tex">\(f(v)=\sqrt{\frac{M_m}{2\pi kT}} e^{\frac{-M_mv^2}{2kT}\)</span>. <br>
+Bisogna ora integrare per calcolare la qdm media=<br>
+<span class="tex">\(p_{tot}=\int{mvf(v)dv}\)</span>. Sostituendo <span class="tex">\(v^2=t\)</span> l'integrale da 0 a infinito è <span class="tex">\(m\sqrt{\frac{M_m}{2\pi kT}}\)</span>. Basta ora sostituire <span class="tex">\(M_m=\frac{\mu}{N_A}\)</span> con <span class="tex">\(N_A\)</span> numero di Avogadro e moltiplicare per 2 come detto in precedenza. <br>
+Per conservazione della qdm <span class="tex">\(Mv_c=p_{tot}\)</span>. <br>
+Quindi <span class="tex">\(v_c=2\frac{m}{M}\sqrt{\frac{\mu}{2\pi N_AkT}}\)</span>. <br>
+Spero sia corretta e che non abbia sbagliato a texare.</article>
+<article class="post" id="p26221"><div class="who"><b>east_beast</b><span>20 lug 2020, 18:39</span></div>Ok il risultato è sbagliato dimensionalmente credo, forse devi fare il reciproco della radice.<br>
+L'autore del problema (che è Kalda) suggerisce l'approccio cinetico a questo problema, piuttosto che un'integrazione diretta a partire da Boltzmann, e infatti il risultato è diverso dal tuo. Infatti la distribuzione di Boltzmann è raro che serva alle olimpiadi, almeno fino a livello ipho. :D <br>
+Il tuo approccio però dovrebbe essere quello esatto, ricontrolla i calcoli e magari se vuoi prova anche la stima per via cinetica, molto più facile e veloce secondo me. Poi puoi andare avanti con la staffetta :D</article>
+<article class="post" id="p26222"><div class="who"><b>alfredark04</b><span>20 lug 2020, 21:27</span></div>Ops ho sbagliato I conti dell'integrale, farlo all'una di notte non è stata una buona idea   :cry:.<br>
+Comunque, ho rifatto i conti (ovvero, ho chiesto a Luca Milanese di farlo perché ero fuori) e il risultato, se il ragionamento torna, è:<br>
+<span class="tex">\(\frac{2m}{M} \sqrt{\frac{8kTN_a}{\pi \mu}}\)</span>. <br>
+Stavolta dimensionalmemte torna ahaha.</article>
+<article class="post" id="p26223"><div class="who"><b>east_beast</b><span>20 lug 2020, 22:39</span></div>é corretto a meno di una costante, e ciò è dovuto al fatto che hai voluto fare il calcolo esatto con Boltzmann, per me puoi andare avanti postando il 223! :D</article>
+<article class="post" id="p26224"><div class="who"><b>Pigkappa</b><span>21 lug 2020, 2:23</span></div>Giusto per far vedere che una stima si poteva fare senza Boltzmann, uno di voi due scriva la soluzione che non lo usa.</article>
+<article class="post" id="p26225"><div class="who"><b>east_beast</b><span>21 lug 2020, 14:40</span></div>Dalla teoria cinetica, <span class="tex">\(&lt;v_z&gt; = \sqrt{RT/\mu}\)</span>, dunque siccome non ci sono forze esterne al cilindro <span class="tex">\(\vec{p_{tot}} = 0 = m\vec{&lt;v_z&gt;} + M\vec{V}\)</span> da cui<br>
+<span class="tex">\(V= (m/M)\sqrt{RT/\mu}  \)</span></article>
+<nav class="pager"><a class="prev" href="olifis-6927.html"><small>← precedente</small>221. Cilindro e oggetto.</a><a class="next" href="olifis-6940.html"><small>successivo →</small>223. Insetto su un&#x27;asta</a></nav>
+</main></body></html>

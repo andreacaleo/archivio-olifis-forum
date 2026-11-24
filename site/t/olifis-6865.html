@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>189. Piano inclinato con molla e attrito</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 189</a></span></nav>
+<h1>189. Piano inclinato con molla e attrito</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6865">forum Olifis</a></p>
+<article class="post first" id="p25725"><div class="who"><b>east_beast</b><span>7 mar 2020, 17:16</span></div>Tratto dal Morin.<br>
+Si consideri un piano inclinato scabro di angolo <span class="tex">\({\theta}\)</span> e con coefficiente di attrito statico <span class="tex">\({\mu}\)</span>, all'estremo inferiore del piano è collegata una molla di costante <span class="tex">\(k\)</span> e lunghezza a riposo <span class="tex">\(L_0\)</span>, che sostiene un blocco di massa <span class="tex">\(m\)</span>, appoggiata sul piano (più in alto rispetto alla molla).<br>
+a) Trovare la compressione massima della molla <span class="tex">\({\Delta}L\)</span> che permetta al blocco di stare in equilibrio<br>
+<br>
+b) Nella posizione trovata in a), in qualche modo riesci a rendere il piano liscio, e il blocco si muove di conseguenza.<br>
+Qual è la relazione tra <span class="tex">\({\theta}\)</span> e <span class="tex">\({\mu}\)</span> affinché il blocco raggiunge l'altezza massima quando la molla è alla sua lunghezza di riposo <span class="tex">\(L_0\)</span>?</article>
+<article class="post" id="p25729"><div class="who"><b>Luca Milanese</b><span>9 mar 2020, 12:06</span></div>Fissiamo un sistema di riferimento cartesiano con l'asse <span class="tex">\(x\)</span> parallelo al piano, orientato verso il basso, e l'asse <span class="tex">\(y\)</span> perpendicolare al piano e orientato verso l'alto.<br>
+a) Sul blocco di massa <span class="tex">\(m\)</span> agiscono quattro forze: il suo peso, l'attrito, la reazione normale del piano e la forza elastica della molla. All'equilibrio queste forze si annullano:<br>
+<span class="tex">\(\Sigma F_x=mg\sin\theta+f-k\Delta L=0 \Rightarrow mg\sin\theta+f=k\Delta L\)</span>.<br>
+<span class="tex">\(\Sigma F_y=N-mg\cos\theta=0 \Rightarrow N=mg\cos\theta\)</span>.<br>
+Dalla prima equazione si ricava <span class="tex">\(\Delta L=\frac{f+mg\sin\theta}{k}\)</span>; dalla seconda, ricordando che <span class="tex">\(f \leq \mu N\)</span>, si ottiene <span class="tex">\(f\leq \mu mg\cos\theta\)</span>. Pertanto, il valore massimo che assume <span class="tex">\(\Delta L\)</span> è quello che si ha quando <span class="tex">\(f=\mu mg \cos\theta\)</span>, cioè <span class="tex">\(\Delta L_{max} = \frac{mg}{k}(\sin\theta + \mu\cos\theta)\)</span>.<br>
+b) Una volta tolto l'attrito, le forze che agiscono sul blocco lungo l'asse <span class="tex">\(x\)</span> (cioè quelle che ci interessano) sono solo la forza elastica e la componente <span class="tex">\(x\)</span> della forza peso. Poichè entrambe queste forze sono conservative, conviene risolvere il problema in termini di energia. Pongo <span class="tex">\(U_i=\frac{k\Delta L^2}{2}\)</span> l'energia potenziale iniziale del blocco, avendo definito lo zero dell'energia potenziale gravitazionale alla quota in cui si trova. Se il blocco raggiunge l'altezza massima quando la molla è alla lunghezza a riposo, vuol dire che la sua energia cinetica in quel punto è nulla, quindi la sua energia totale sarà uguale a quella gravitazionale, cioè <span class="tex">\(U_f=mg\Delta L sin \theta\)</span>. Eguagliando <span class="tex">\(U_i\)</span> e <span class="tex">\(U_f\)</span>, e sostituendo a <span class="tex">\(\Delta L\)</span> il valore precedentemente trovato:<br>
+<span class="tex">\(\frac{k\Delta L^2}{2}=mg\Delta L sin \theta \Rightarrow mg( \sin \theta +\mu \cos \theta)=2mg(\sin \theta) \Rightarrow \mu=\tan\theta\)</span>.</article>
+<article class="post" id="p25730"><div class="who"><b>east_beast</b><span>9 mar 2020, 15:24</span></div>Soluzione perfetta!! :D <br>
+Avanti col 190!</article>
+<nav class="pager"><a class="prev" href="olifis-6864.html"><small>← precedente</small>188. Pallone sonda</a><a class="next" href="olifis-6866.html"><small>successivo →</small>190. Aste pendenti.</a></nav>
+</main></body></html>

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un blocco su un piano inclinato.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Un blocco su un piano inclinato.</h1>
+<p class="meta">46 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=16">forum Olifis</a></p>
+<article class="post first" id="p56"><div class="who"><b>Pigkappa</b><span>13 gen 2009, 1:15</span></div>Si consideri il sistema in figura. Non c'è attrito nè tra il blocco di massa m ed il piano di massa M, nè tra il piano di massa M e il piano di appoggio. La distanza tra la posizione iniziale della massa m, che parte da ferma, e la fine del piano inclinato è L.<br>
+<br>
+<a class="lost" href="http://img171.imageshack.us/img171/5261/problemamorinlb1.jpg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+1)Determinare lo spostamento del piano di massa M quando il blocco è arrivato in fondo.<br>
+2)Trovare l'accelerazione A del piano durante la discesa del blocco.<br>
+<br>
+<br>
+<br>
+Difficoltà approssimativa secondo me: punto 1 regionali, punto 2 tra regionali e Senigallia.</article>
+<article class="post" id="p60"><div class="who"><b>Alex90</b><span>13 gen 2009, 14:19</span></div>Ci provo tanto metà dei problemi di pig li sbaglio e l'altra metà non li so fare  :D <br>
+<br>
+Per la conservazione della quantità di moto lunga l'asse x si avrà che <span class="tex">\(m v_{1x_0}+ M v_{2_0} = m v_{1x_f}+ M v_{2_f} = 0\)</span><br>
+<br>
+Per la conservazione dell'energia meccanica del sistema si ha che <span class="tex">\(U = K_1 + K_2 \Rightarrow mgL\sin\theta = \frac{1}{2}m{v_{1_f}}^2 + \frac{1}{2}M{v_{2_f}}^2\)</span><br>
+<br>
+per il momento è giusto?  :roll:</article>
+<article class="post" id="p62"><div class="who"><b>Pigkappa</b><span>13 gen 2009, 15:42</span></div>Sì, ma il problema chiedeva altro... La prima domanda è molto facile, comunque...</article>
+<article class="post" id="p63"><div class="who"><b>CoNVeRGe.</b><span>13 gen 2009, 15:56</span></div>ricordo un problema con la stessa situazione dove però chiedeva la velocità del piano inclinato nell'istante in cui il blocchetto toccava il piano orizzontale.. è più tosto, lo pongo come terzo quesito (uhm, senza intregrali)</article>
+<article class="post" id="p64"><div class="who"><b>Alex90</b><span>13 gen 2009, 16:49</span></div>Continuo da sopra:<br>
+<br>
+Il piano di massa <span class="tex">\(M\)</span> si sposta di <span class="tex">\(S = \bar{v} \cdot t = \frac{v_2}{2} \cdot t\)</span> dove t è il tempo in cui il blocco di massa <span class="tex">\(m\)</span> sarà giunto alla fine del piano, ovvero <span class="tex">\(t=\sqrt{\frac{2L}{g\sin\theta}}\)</span><br>
+<br>
+Risolvendo il sistema di sopra si trova <span class="tex">\(v_2=\sqrt{\frac{2m^2gL\sin\theta\cos^2\theta}{M(m\cos^2\theta + M)}}\)</span> e quindi <span class="tex">\(S=\frac{1}{2}\sqrt{\frac{2m^2gL\sin\theta\cos^2\theta}{M(m\cos^2\theta + M)}}\cdot\sqrt{\frac{2L}{g\sin\theta}}=\frac{mL\cos\theta}{\sqrt{M(m\cos^2\theta + M)}}\)</span></article>
+<article class="post" id="p65"><div class="who"><b>CoNVeRGe.</b><span>13 gen 2009, 17:02</span></div><blockquote><div><cite>Alex90 ha scritto:</cite> <span class="tex">\(\bar{v} = \frac{v_2}{2}\)</span> </div></blockquote>
+puoi chiarire questo?</article>
+<article class="post" id="p66"><div class="who"><b>String</b><span>13 gen 2009, 17:32</span></div>Punto 1)<br>
+Nel sistema massa-piano inclinato, si conservano l'energia totale dato che non ci sono forze di attrito, e la componente orizzontale della quantità di moto dato che non ci sono forze esterne parallele ad essa. Poichè all'inizio la quantità di moto del sistema è nulla, lo sarà anche durante il moto, quindi sia la velocità che la posizione del centro di massa del sistema non variano. Detto  <span class="tex">\(s_x\)</span> lo spostamento del blocco che vale <span class="tex">\(L\cos \theta\)</span> e <span class="tex">\(s_x'\)</span>  lo spostamento del piano inclinato, quando il blocco sarà giunto in fondo si avrà:<br>
+<br>
+<span class="tex">\(\displaystyle \frac {mx_1+Mx_2}{m+M}=\frac {m(x_1+s_x-s_x')+M(x_2-s_x')}{m+M}\)</span> <br>
+<br>
+che porta a<br>
+<br>
+<span class="tex">\(s_x'=\displaystyle \frac {mL\cos \theta }{m+M}\)</span><br>
+<br>
+Potrebbe essere giusto?</article>
+<article class="post" id="p68"><div class="who"><b>Alex90</b><span>13 gen 2009, 18:27</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Alex90 ha scritto:</cite> <span class="tex">\(\bar{v} = \frac{v_2}{2}\)</span> </div></blockquote>
+puoi chiarire questo?</div></blockquote>
+
+il moto non è uniformemente accelerato? quindi la velocità media è la metà della finale visto ke parte da fermo...domanda retorica perchè sicuramente cè un errore...ma dove?</article>
+<article class="post" id="p70"><div class="who"><b>eli9o</b><span>13 gen 2009, 19:25</span></div>@ String: il risultato del punto 1 mi viene uguale.<br>
+<br>
+Punto (2):<br>
+in ogni istante del moto <span class="tex">\(m_2\)</span> esercita una forza sul blocco perpendicolare alla superficie obliqua di modulo <span class="tex">\(mg\cos \theta\)</span>. La componente orizzontale di questa forza è <span class="tex">\(mg\cos \theta \sin \theta\)</span> quindi l'accelerazione del blocco sarà <span class="tex">\(\frac{mg\cos \theta \sin \theta}{M}=\frac{mg\sin{2 \theta}}{2M}\)</span><br>
+<br>
+E intanto Ciao a tutti!</article>
+<article class="post" id="p72"><div class="who"><b>CoNVeRGe.</b><span>13 gen 2009, 20:25</span></div><blockquote><div><cite>eli9o ha scritto:</cite>in ogni istante del moto <span class="tex">\(m_2\)</span> esercita una forza sul blocco perpendicolare alla superficie obliqua di modulo <span class="tex">\(mg\cos \theta\)</span></div></blockquote>
+se il piano inclinato fosse fermo</article>
+<article class="post" id="p73"><div class="who"><b>BigGian</b><span>13 gen 2009, 20:30</span></div>per la risoluzione del punto 1 io ho pensato:<br>
+dato che il piano è privo di attrito, vale il principio di conservazione del centro di massa, cioè fissato un sistema di riferimento (in questo caso faccio coincidere la posizione delle masse nell'origine), vale che<br>
+(mLcos(theta)+Md)/(m+M)=0 (scusate ma non so scrivere le formule... :oops: ) dove d è lo spostamento del piano.<br>
+di conseguenza mi esce come risultato<br>
+d=-(mlcos(theta))/M<br>
+<br>
+il meno è comprensibile dato che si muove nel verso opposto.<br>
+dove pecca questo ragionamento?  :?  :?  :?</article>
+<article class="post" id="p74"><div class="who"><b>CoNVeRGe.</b><span>13 gen 2009, 20:35</span></div><blockquote><div><cite>BigGian ha scritto:</cite>dove pecca questo ragionamento? </div></blockquote>
+pecca perchè <span class="tex">\(L cos \theta\)</span> è lo spostamento del blocco rispetto al piano inclinato e non rispetto al sistema del centro di massa (devi quindi anche al blocco sottrarre lo spostamento d del piano inclinato)</article>
+<article class="post" id="p75"><div class="who"><b>BigGian</b><span>13 gen 2009, 20:47</span></div>punto 2<br>
+<br>
+dato che nel sistema, la quantità di moto si conserva, vuol dire che la risultante delle forze agenti deve essere 0.<br>
+poichè il piano si muove, vuol dire che la forza peso di m scomposta lungo la perpendicolare imprime una forza sul piano stesso in direzione del moto <span class="tex">\(mg\cos^2\theta\)</span><br>
+a questa forza si aggiunge la reazione del peso di m scomposto lungo la parallela al piano che per il terzo principio della dinamica agisce sul piano, cioè <span class="tex">\(mg\sin\theta\cos\theta\)</span>.<br>
+<br>
+l'accellerazione totale del piano si ottiene sommando le due formule precedenti e dividendo tutto per M, cioè:<br>
+<br>
+<span class="tex">\(a = (m g cos\theta(cos\theta+\sin\theta))/M\)</span><br>
+<br>
+spero che vada bene così... ;)<br>
+<br>
+ps le frazionik non le so ancora scrivere... mi mancano le graffe  :cry:  :cry:  :cry:</article>
+<article class="post" id="p76"><div class="who"><b>Timmo</b><span>13 gen 2009, 20:51</span></div><blockquote><div><cite>eli9o ha scritto:</cite>@ String: il risultato del punto 1 mi viene uguale.<br>
+<br>
+Punto (2):<br>
+in ogni istante del moto <span class="tex">\(m_2\)</span> esercita una forza sul blocco perpendicolare alla superficie obliqua di modulo <span class="tex">\(mg\cos \theta\)</span>. La componente orizzontale di questa forza è <span class="tex">\(mg\cos \theta \sin \theta\)</span> quindi l'accelerazione del blocco sarà <span class="tex">\(\frac{mg\cos \theta \sin \theta}{M}=\frac{mg\sin{2 \theta}}{2M}\)</span><br>
+<br>
+E intanto Ciao a tutti!</div></blockquote>
+
+Se si usa quelle due accellerazioni allora<br>
+<br>
+<span class="tex">\(\displaystyle S= \frac{1}{2}  \frac{mg\cos \theta \sin \theta}{M}  t^2\)</span><br>
+e<br>
+<span class="tex">\(\displaystyle  L= \frac {1}{2} g\cos \theta t^2\)</span> <br>
+<br>
+Risulterebbe <span class="tex">\(S= \frac{m}{M} \sin \theta L\)</span></article>
+<article class="post" id="p77"><div class="who"><b>eli9o</b><span>13 gen 2009, 21:05</span></div>Sì sì, mi sono convinto che la mia è sbagliata... Ora pensiamo a farla giusta  ;)</article>
+<article class="post" id="p78"><div class="who"><b>CoNVeRGe.</b><span>13 gen 2009, 21:07</span></div><blockquote><div><cite>Alex90 ha scritto:</cite><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Alex90 ha scritto:</cite> <span class="tex">\(\bar{v} = \frac{v_2}{2}\)</span> </div></blockquote>
+puoi chiarire questo?</div></blockquote>
+
+il moto non è uniformemente accelerato? quindi la velocità media è la metà della finale visto ke parte da fermo...domanda retorica perchè sicuramente cè un errore...ma dove?</div></blockquote>
+no semplicemente non avevo capito.. :) l'errore è un altro:<br>
+il moto del piano inclinato dovrebbe essere uniformemente accelerato, si, ma proprio per questo motivo il tempo che il blocco impiega per arrivare a toccar terra non è quello che hai trovato perchè considera il piano inclinato immobile<br>
+<br>
+<br>
+dai un' occhiata alla conservazione del centro di massa, è un facile strumento per risolvere problemi simili ;) (che poi non è altro che la conservazione della quantità di moto..)</article>
+<article class="post" id="p79"><div class="who"><b>Alex90</b><span>13 gen 2009, 22:00</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+<br>
+no semplicemente non avevo capito.. :) l'errore è un altro:<br>
+il moto del piano inclinato dovrebbe essere uniformemente accelerato, si, ma proprio per questo motivo il tempo che il blocco impiega per arrivare a toccar terra non è quello che hai trovato perchè considera il piano inclinato immobile<br>
+<br>
+<br>
+dai un' occhiata alla conservazione del centro di massa, è un facile strumento per risolvere problemi simili ;) (che poi non è altro che la conservazione della quantità di moto..)</div></blockquote>
+
+grazie mille  :D</article>
+<article class="post" id="p80"><div class="who"><b>Pigkappa</b><span>13 gen 2009, 22:20</span></div>Alla domanda 1 avete risposto bene (il CDM sta fermo), alla domanda 2 non è ancora stata data la risposta giusta. Non tirate a caso, avete prodotto un sacco di risposte quasi senza dimostrazione. Pensate bene a cosa usate e giustificate tutto.</article>
+<article class="post" id="p82"><div class="who"><b>Timmo</b><span>13 gen 2009, 22:24</span></div>Conservazione quantità di moto<br>
+<span class="tex">\(M v_1=m v_2\)</span><br>
+e quindi<br>
+<span class="tex">\(M a_1 t = m a_2 t\)</span><br>
+<br>
+<span class="tex">\(a_1=\frac{m}{M} g \sin \theta\)</span><br>
+<br>
+Conservazione energia<br>
+<span class="tex">\(mgL \sin \theta = \frac{1}{2}M v_{1}^2 + \frac{1}{2}m v_{2}^2\)</span><br>
+ da cui<br>
+<span class="tex">\(K_1=\frac{m^2 gL \sin \theta}{m+M}\)</span><br>
+Poichè<br>
+<span class="tex">\(K=W=F\cdot S= M\cdot a_1 \cdot S\)</span><br>
+Allora<br>
+<span class="tex">\(S=\frac{mL}{m + M}\)</span></article>
+<article class="post" id="p83"><div class="who"><b>Aust</b><span>13 gen 2009, 22:25</span></div><blockquote><div><cite>BigGian ha scritto:</cite>ps le frazionik non le so ancora scrivere... mi mancano le graffe  :cry:  :cry:  :cry:</div></blockquote>
+
+Alt 123 {<br>
+Alt 125 }  ;)</article>
+<article class="post" id="p89"><div class="who"><b>Davide90</b><span>14 gen 2009, 15:33</span></div><blockquote><div><cite>Aust ha scritto:</cite><blockquote><div><cite>BigGian ha scritto:</cite>ps le frazionik non le so ancora scrivere... mi mancano le graffe  :cry:  :cry:  :cry:</div></blockquote>
+
+Alt 123 {<br>
+Alt 125 }  ;)</div></blockquote>
+Oppure:<br>
+Alt Gr + Maiusc + "è" <span class="tex">\(\rightarrow \{\)</span> <br>
+Alt Gr + Maiusc + "+" <span class="tex">\(\rightarrow \}\)</span>  :)</article>
+<article class="post" id="p91"><div class="who"><b>CoNVeRGe.</b><span>14 gen 2009, 17:14</span></div>quando il blocco tocca terra gli spostamenti sono quelli del punto uno:<br>
+<span class="tex">\(\displaystyle x_m = L cos \theta \frac{M}{m + M}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle y_m = L sen \theta\)</span><br>
+<br>
+<span class="tex">\(\displaystyle x_M = L cos \theta \frac{m}{m + M}\)</span><br>
+poichè valgono le relazioni <span class="tex">\(\displaystyle \frac{x_m}{y_m} = \frac{a_m_x}{a_m_y}\)</span> e <span class="tex">\(M A_M = m a_m_x\)</span> abbiamo le accelerazioni <span class="tex">\(a_m_x\)</span> e <span class="tex">\(a_m_y\)</span> in funzione di quella <span class="tex">\(A_M\)</span> che il secondo punto richiede (le acc. sono rispetto al sistema del centro di massa)<br>
+<br>
+<br>
+inserendo tutto nella legge di conservazione dell'energia del caso otteniamo:<br>
+<span class="tex">\(\displaystyle A_M = \frac{m g tg \theta}{M + tg^2 \theta (m + M)}\)</span><br>
+<br>
+(con <span class="tex">\(\displaystyle |v_m^2| = v_m_x^2 + v_m_y^2 = (a_m_x t)^2 + (a_m_y t)^2\)</span>, <span class="tex">\(\displaystyle v_M^2 = (A_M t)^2\)</span> e  <span class="tex">\(\displaystyle t^2 = \frac{2 x_M}{A_M}\)</span>)<br>
+<br>
+credo di non essermi saltato nulla..  :geek:  è corretto?</article>
+<article class="post" id="p98"><div class="who"><b>ilvago</b><span>15 gen 2009, 0:08</span></div>Premetto che la prima soluzione viene anche a me <span class="tex">\(S=\frac{mL cos\theta}{m + M}\)</span> <br>
+<br>
+2) Considero a come l'accelerazione della massa m lungo il piano inclinato <span class="tex">\(a = g sen\theta\)</span> e la distanza che compie L<br>
+<span class="tex">\(L= \frac{1}{2} a t^2\)</span><br>
+Lo spostamento del piano è <br>
+<span class="tex">\(S=\frac{1}{2} A t^2\)</span><br>
+Mettendole a sistema viene fuori che <span class="tex">\(A=\frac{a\cdot S}{L}\)</span><br>
+Sapendo già S possiamo scrivere <span class="tex">\(A=\frac{m g cos\theta sen\theta}{m+M}\)</span><br>
+<br>
+Ma probabilmente non è giusta perche mi sembra troppo facile   :lol: <br>
+<br>
+Ciao a tutti</article>
+<article class="post" id="p105"><div class="who"><b>String</b><span>17 gen 2009, 13:52</span></div>Punto 2)<br>
+Per la conservazione dell'energia, quando il blocco è sceso si ha:<br>
+<br>
+<span class="tex">\(mgL\sin \theta =\displaystyle \frac {1}{2}mv^2+\frac {1}{2}MV^2\)</span><br>
+<br>
+Per la conservazione della quantità di moto sull'asse orizzontale abbiamo che <br>
+<br>
+<span class="tex">\(0=mv-MV\Rightarrow v=\displaystyle \frac {MV}{m}\)</span><br>
+<br>
+Sostituendo questa relazione nell'equazione della conservazione dell'energia si ottiene che<br>
+<br>
+<span class="tex">\(\displaystyle V^2=\frac {2m^2gL\sin \theta }{M(M+m)}\)</span><br>
+<br>
+Lo spazio percorso dal piano inclinato quando il blocco è sceso da esso è quello trovato al punto 1) e che vale <br>
+<br>
+<span class="tex">\(s=\displaystyle \frac {mL\cos \theta}{M+m}\)</span><br>
+<br>
+Lo spostamento del piano è anche uguale a <br>
+<br>
+<span class="tex">\(s=\displaystyle \frac {1}{2}At^2\)</span>  <br>
+<br>
+Poichè la velocità finale raggiunta dal piano è <span class="tex">\(V=At\)</span> possiamo ricavare <br>
+<br>
+<span class="tex">\(t=\displaystyle \frac {v}{a}\)</span> <br>
+<br>
+che sostituito nella precedente equazione del moto uniformemente accelerato dà<br>
+<br>
+<span class="tex">\(A=\displaystyle \frac {V^2}{2s}=\frac {2m^2gL\sin \theta (M+m)}{2mL\cos \theta M(M+m)}=\frac {mg\tan \theta}{M}\)</span><br>
+<br>
+E' giusto?</article>
+<article class="post" id="p107"><div class="who"><b>Pigkappa</b><span>18 gen 2009, 19:02</span></div>Fate una quantità incredibile di errori veramente banali. Il problema non è ovvio, visto che ho detto che è di livello pari circa a Senigallia: non basta scrivere due formule di conservazione facili e ricavare.<br>
+<br>
+Ad esempio, String ha applicato il principio di conservazione della quantità di moto orizzontale, mettendoci invece della velocità orizzontale della massa <span class="tex">\(\displaystyle m\)</span> tutta la sua velocità. Così il problema sembra facile, ma evidentemente questa cosa è sbagliata.<br>
+<br>
+Un'altra cosa che dovreste imparare a valutare sono i casi limite. Si intuisce che se l'angolo diventa molto vicino a 0 o a 90°, l'accelerazione del piano è piccola. Se perciò la vostra risposta diverge in uno di questi casi, dovete sospettare molto che possa essere sbagliata.<br>
+<br>
+La risposta giusta è quella di Converge; ci sono comunque altri modi di fare il problema (si può fare direttamente con le forze, si può fare nel sistema di riferimento accelerato, si può fare scrivendo la lagrangiana (ma questo lasciamolo stare  :mrgreen: )), e vi invito a provarci ancora  ;) .</article>
+<article class="post" id="p117"><div class="who"><b>String</b><span>18 gen 2009, 20:03</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite> String ha applicato il principio di conservazione della quantità di moto orizzontale, mettendoci invece della velocità orizzontale della massa <span class="tex">\(\displaystyle m\)</span> tutta la sua velocità. Così il problema sembra facile, ma evidentemente questa cosa è sbagliata.
+</div></blockquote>
+Non ho capito perchè dici che ci metto tutta la velocità della massa <span class="tex">\(\displaystyle m\)</span>... Potresti spiegarti meglio?</article>
+<article class="post" id="p118"><div class="who"><b>CoNVeRGe.</b><span>18 gen 2009, 20:22</span></div><blockquote><div><cite>String ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite> String ha applicato il principio di conservazione della quantità di moto orizzontale, mettendoci invece della velocità orizzontale della massa <span class="tex">\(\displaystyle m\)</span> tutta la sua velocità. Così il problema sembra facile, ma evidentemente questa cosa è sbagliata.
+</div></blockquote>
+Non ho capito perchè dici che ci metto tutta la velocità della massa <span class="tex">\(\displaystyle m\)</span>... Potresti spiegarti meglio?</div></blockquote>
+come hai tu stesso scritto, la conservazione è della quantità di moto orizzontale; però utilizzando la formula non ne hai considerata la proiezione orizzontale della velocità di m, bensì tutto il suo modulo..</article>
+<article class="post" id="p119"><div class="who"><b>Alex90</b><span>18 gen 2009, 20:28</span></div><blockquote><div><cite>String ha scritto:</cite>Non ho capito perchè dici che ci metto tutta la velocità della massa <span class="tex">\(\displaystyle m\)</span>... Potresti spiegarti meglio?<br>
+<br>
+Per la conservazione della quantità di moto sull'asse orizzontale abbiamo che <br>
+<span class="tex">\(0=mv-MV\Rightarrow v=\displaystyle \frac {MV}{m}\)</span></div></blockquote>
+
+Tu dici che si conserva la quantità di moto lungo l'asse x, ma la particella <span class="tex">\(\displaystyle m\)</span> non ha velocità parallela all'asse x quindi la sua componente orizzontale della velocità non è <span class="tex">\(\displaystyle v\)</span> bensì <span class="tex">\(\displaystyle v\cos\theta\)</span><br>
+<br>
+EDIT anticipato  :D</article>
+<article class="post" id="p120"><div class="who"><b>String</b><span>18 gen 2009, 20:30</span></div>Ma quando il blocco è sceso la sua velocità non è solo orizzontale?</article>
+<article class="post" id="p122"><div class="who"><b>CoNVeRGe.</b><span>18 gen 2009, 20:43</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>la sua componente orizzontale della velocità è <span class="tex">\(\displaystyle v\cos\theta\)</span> </div></blockquote>
+però la componente orizzontale non è quella: il modulo della velocità istantanea del blocco durante la discesa non forma l'angolo <span class="tex">\(\displaystyle \theta\)</span> con l'orizzontale ma un angolo maggiore perchè nel frattempo il piano inclinato si sposta.. (in sostanza: visualizzate la traiettoria del blocco rispetto la situazione iniziale; appare ovvio che il blocco non possa compiere una traiettoria parallela al piano inclinato proprio perchè nella discesa questo si sposta)</article>
+<article class="post" id="p124"><div class="who"><b>CoNVeRGe.</b><span>18 gen 2009, 22:15</span></div><blockquote><div><cite>String ha scritto:</cite>Ma quando il blocco è sceso la sua velocità non è solo orizzontale?</div></blockquote>
+e come la spiegheresti la fase dell'impatto a terra?</article>
+<article class="post" id="p128"><div class="who"><b>Luca90</b><span>18 gen 2009, 23:09</span></div>Scusate sono nuovo e avrei una domanda: come faccio a scrivere in frazione e con i simboli e operatori ecc.?<br>
+<br>
+Comunque a me l'accelerazione del piano viene a=Mxmxgxsen alla seconda di e.<br>
+Ho calcolato la forza di reazione della massa M sulla massa m e questa l'ho scomposta in due forze:una verso il pavimento e l'altra orizzontalmente al pavimento.Quest'ultima è quella che determina poi l'accelerazione della massa M.<br>
+è corretto?</article>
+<article class="post" id="p129"><div class="who"><b>Aust</b><span>18 gen 2009, 23:30</span></div><blockquote><div><cite>Luca90 ha scritto:</cite>Scusate sono nuovo e avrei una domanda: come faccio a scrivere in frazione e con i simboli e operatori ecc.?</div></blockquote>
+
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code> [tex] \frac {qualcosa}{qualcos'altro} [/tex] </code></pre></div>
+
+<span class="tex">\(\frac {qualcosa}{qualcos'altro}\)</span><br>
+
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code> [tex] \cdot=X e^x x_{125}[/tex] </code></pre></div>
+
+<span class="tex">\(\cdot e^x x_{125}\)</span><br>
+<br>
+puoi anche avvicinare il puntatore su ciò che è stato già scritto e ti appare il codice da inserire  ;)</article>
+<article class="post" id="p184"><div class="who"><b>String</b><span>29 gen 2009, 23:37</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>ci sono comunque altri modi di fare il problema (si può fare direttamente con le forze, si può fare nel sistema di riferimento accelerato, si può fare scrivendo la lagrangiana (ma questo lasciamolo stare  :mrgreen: )), e vi invito a provarci ancora  ;) .</div></blockquote>
+Provo a risolvere il problema considerando un sistema di riferimento solidale con il blocco.<br>
+Le forze che agiscono su di esso sono il peso, la reazione normale del piano, la forza apparente dovuta all'accelerazione del piano. Poichè l'accelerazione del piano inclinato è dovuta alla componente orizzontale di una forza uguale ed opposta alla reazione normale, ci calcoliamo quanto vale quest'ultima:<br>
+<br>
+<span class="tex">\(N=\displaystyle mg\cos \theta -mA\sin \theta\)</span> <br>
+<br>
+dove <span class="tex">\(\displaystyle mA\sin \theta\)</span> è la forza apparente agente sul blocco nella direzione perpendicolare al piano inclinato.<br>
+La forza che accelera il piano è quindi<br>
+<br>
+<span class="tex">\(\displaystyle F=MA=N\sin \theta=mg\cos \theta \sin \theta -mA\sin ^2 \theta\)</span><br>
+<br>
+da cui si ottiene <br>
+<br>
+<span class="tex">\(\displaystyle A=\frac {mg\cos \theta \sin \theta}{M+m\sin ^2\theta}=\frac {mg\tan \theta}{M+\tan ^2\theta (m+M)}\)</span><br>
+<br>
+che è la stessa formula trovata da CoNVeRGe, quindi suppongo che il ragionameno sia giusto...vero?</article>
+<article class="post" id="p188"><div class="who"><b>Falco5x</b><span>30 gen 2009, 14:43</span></div>Non ho letto le 4 pagine di post, ma mi sono fermato all'ultima formula, nella quale non mi ci trovo.<br>
+Applicando i seguenti concetti:<br>
+ :arrow: il baricentro del sistema rimane fermo orizzontalmente<br>
+<br>
+ :arrow: il piano inclinato si sposta a sinistra per una distanza<span class="tex">\(X = \frac{m}{{M + m}}L\cos \theta\)</span><br>
+ :arrow:l''energia cinetica finale totale è uguale a quella iniziale potenziale della massa m<br>
+ :arrow: questa energia cinetica totale si divide in due parti sui due oggetti componenti, con il vincolo che la quantità di moto orizzontale totale dell'intero sistema deve rimanere nulla<br>
+ :arrow: l'energia cinetica del piano inclinato è uguale alla sua massa per la sua accelerazione (costante) per il suo spostamento X già calcolato<br>
+<br>
+desumo per l'accelerazione il semplice risultato che segue: <span class="tex">\(a = \frac{m}{M}g\tan \theta\)</span><br>
+<br>
+Why not?<br>
+ :D <br>
+Ciao!</article>
+<article class="post" id="p190"><div class="who"><b>Pigkappa</b><span>30 gen 2009, 15:56</span></div>Direi che l'errore è qui:<br>
+
+<blockquote><div><cite>Falco5x ha scritto:</cite> :arrow: l'energia cinetica del piano inclinato è uguale alla sua massa per la sua accelerazione (costante) per il suo spostamento X già calcolato</div></blockquote>
+
+La distanza efficace su cui agisce la forza è diversa di quella percorsa dal piano, perchè anche il blocco nel frattempo si sta spostando.</article>
+<article class="post" id="p193"><div class="who"><b>Falco5x</b><span>30 gen 2009, 16:14</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Direi che l'errore è qui:<br>
+
+<blockquote><div><cite>Falco5x ha scritto:</cite> :arrow: l'energia cinetica del piano inclinato è uguale alla sua massa per la sua accelerazione (costante) per il suo spostamento X già calcolato</div></blockquote>
+
+La distanza efficace su cui agisce la forza è diversa di quella percorsa dal piano, perchè anche il blocco nel frattempo si sta spostando.</div></blockquote>
+
+Sarebbe a dire?<br>
+Io vedo un oggetto (il piano) soggetto a una forza che lo spinge verso sinistra. Dal momento in cui questa forza inizia ad agira al momento nel quale cessa di agire, il piano inclinato percorre la distanza <span class="tex">\(X = \frac{m}{{M + m}}L\cos \theta\)</span><br>
+Il lavoro fatto da questa forza è pari alla forza per questo spostamento. Questo è tutto, secondo me. Il risultato è quello che ho indicato (oppure come al solito pago da bere).</article>
+<article class="post" id="p199"><div class="who"><b>Pigkappa</b><span>31 gen 2009, 0:32</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>(oppure come al solito pago da bere).</div></blockquote>
+
+Ti sei già indebitato nell'altro topic, guarda che con questa media i tuoi debiti diventano preoccupanti  :twisted: <br>
+
+<blockquote><div><cite>Falco5x ha scritto:</cite>Io vedo un oggetto (il piano) soggetto a una forza che lo spinge verso sinistra. Dal momento in cui questa forza inizia ad agira al momento nel quale cessa di agire, il piano inclinato percorre la distanza <span class="tex">\(X = \frac{m}{{M + m}}L\cos \theta\)</span></div></blockquote>
+
+[EDIT: MEA CULPA - L'ESEMPIO CHE SEGUE E' SBAGLIATO, LE COSE IN EFFETTI FUNZIONANO]<br>
+<br>
+Sì, ma il punto di applicazione della forza non è sempre lo stesso. Ti faccio un esempio che forse ti farà capire. Considera lo stesso problema in un sistema di riferimento che si muove a velocità costante<span class="tex">\(v = 10 m/s\)</span> verso destra. E' un sistema inerziale, perciò la forza è la stessa e l'accelerazione del piano deve risultare la stessa. Eppure è evidente che in questo sistema la forza agisce per una distanza maggiore, perchè il piano ha anche una velocità di <span class="tex">\(10 m/s\)</span> verso sinistra. Perciò così otteresti una accelerazione diversa.<br>
+<br>
+Usare <span class="tex">\(\displaystyle L = F*\Delta S\)</span> in certe situazioni è un po' spinoso (anche se ci si può riuscire). Secondo me risulta un pochino più sicuro usare che la potenza è <span class="tex">\(\displaystyle P = \vec{F}\cdot \vec{v}\)</span>, dove v in questo caso è la velocità relativa tra il blocco e il piano.</article>
+<article class="post" id="p201"><div class="who"><b>Falco5x</b><span>31 gen 2009, 14:12</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>(oppure come al solito pago da bere).</div></blockquote>
+
+Ti sei già indebitato nell'altro topic, guarda che con questa media i tuoi debiti diventano preoccupanti  :twisted: </div></blockquote>
+
+Ti ringrazio per il consiglio, ma io non mi tiro indietro se c'è da offrire! :D<br>
+E poi per l'altro topic passi (adesso comunque ho rimediato anche là), ma su questo voglio mantenere il punto.<br>
+E vado a spiegarmi.<br>
+L'esempio che tu fai (quello del sistema in traslazione uniforme) mi offre l'opportunità di confermare che studiando quel caso e applicando il mio metodo, la accelerazione risulta esattamente la stessa!<br>
+Per scrupolo ha fatto i calcoli, ma se non fosse successo mi sarei sorpreso, perché a scuola mi hanno insegnato che le traslazioni uniformi non devono cambiare la sostanza delle leggi fisiche, come quella del Lavoro, per esempio.<br>
+Infatti assumendo che il sistema trasli con velocità di trascinamento uniforme verso destra, è ben vero che l'energia cinetica aumenta di molto (se calcolata rispetto al sistema fisso), però è anche vero che pure il Lavoro della Forza aumenta, poiché aumenta di pari passo anche lo spostamento. Quindi con il metodo che ho usato io la forza (e quindi l'accelerazione) risulta invariante alla traslazione, cosa alquanto confortevole. Il che significa anche, naturalmente, che il metodo da me applicato è corretto.<br>
+Riguardo invece al problema in oggetto e venendo al punto di applicazione variabile della forza... beh, io so che lo spostamento inerente il calcolo del lavoro per un corpo rigido in traslazione pura si calcola <span style="text-decoration:underline">moltiplicando la forza per lo spostamento del baricentro del corpo</span>; lo spostamento del punto di applicazione non c'entra nulla.<br>
+Per farti un esempio limite, se a un corpo ancorato e immobile applico una forza con punto di applicazione variabile che però non lo sposta, il lavoro è comunque nullo perché il corpo non si muove e il delta x del suo baricentro è zero!<br>
+Il punto di applicazione conta nel calcolo dei momenti, ma questo è altro paio di maniche.<br>
+Vedrai che anche tu pagherai da bere prima o poi... :twisted:</article>
+<article class="post" id="p202"><div class="who"><b>CoNVeRGe.</b><span>31 gen 2009, 15:26</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>
+ :arrow: l'energia cinetica del piano inclinato è uguale alla sua massa per la sua accelerazione (costante) per il suo spostamento X già calcolato<br>
+<br>
+desumo per l'accelerazione il semplice risultato che segue: <span class="tex">\(a = \frac{m}{M}g\tan \theta\)</span></div></blockquote>
+puoi essere più chiaro? cioè: con quale conservazione arrivi a quel risultato?</article>
+<article class="post" id="p204"><div class="who"><b>Falco5x</b><span>31 gen 2009, 16:33</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>
+ :arrow: l'energia cinetica del piano inclinato è uguale alla sua massa per la sua accelerazione (costante) per il suo spostamento X già calcolato<br>
+<br>
+desumo per l'accelerazione il semplice risultato che segue: <span class="tex">\(a = \frac{m}{M}g\tan \theta\)</span></div></blockquote>
+puoi essere più chiaro? cioè: con quale conservazione arrivi a quel risultato?</div></blockquote>
+Ecco i dettagli.<br>
+Posto v il modulo della velocità orizzontale (secondo x) del blocco, e V il modulo di quella del piano inclinato (i versi sono tra loro opposti), si ha:<br>
+<br>
+<span class="tex">\(h = L\sin \theta\)</span><br>
+(h= altezza iniziale del blocco)<br>
+<br>
+<span class="tex">\(\Delta U = mgh = mgL\sin \theta  = \Delta E\)</span><br>
+<span class="tex">\(\Delta E = \frac{1}{2} \left( {m{v^2} + M{V^2}}\right)= \frac{1}{2}\left( {\frac{{{m^2}{v^2}}}{m} + \frac{{{M^2}{V^2}}}{M}}\right)\)</span><br>
+(Delta U= variazione energia potenziale intero sistema)<br>
+(Delta E=energia cinetica finale dell'intero sistema)<br>
+<br>
+<span class="tex">\(mv = MV\)</span><br>
+(conservazione quantità di moto orizzontale)<br>
+<br>
+<span class="tex">\(\Delta E = \frac{1}{2}{M^2}{V^2}\left( {\frac{1}{m} + \frac{1}{M}} \right) = mgL\sin \theta\)</span><br>
+<br>
+<span class="tex">\(\Delta {E_M} = \frac{1}{2}M{V^2} = \frac{{mgL\sin \theta }}{{\left( {\frac{1}{m} + \frac{1}{M}} \right)M}} = \frac{{{m^2}gL\sin \theta }}{{m + M}} = Ma\Delta x\)</span><br>
+(Delta EM=Energia cinetica finale del solo piano inclinato di massa M)<br>
+(Delta x= spazio percorso dal piano inclinato)<br>
+<br>
+<span class="tex">\(\Delta x = \frac{m}{{m + M}}L\cos \theta\)</span><br>
+<br>
+<span class="tex">\(\Delta {E_M} = \frac{{{m^2}gL\sin \theta }}{{m + M}} = Ma\frac{m}{{m + M}}L\cos \theta\)</span><br>
+<br>
+<span class="tex">\(a = \frac{{mg\sin \theta }}{{M\cos \theta }} = g\frac{m}{M}\tan \theta\)</span></article>
+<article class="post" id="p205"><div class="who"><b>CoNVeRGe.</b><span>31 gen 2009, 16:45</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>  <span class="tex">\(\Delta E = \frac{1}{2} {m{v^2} + M{V^2}}\)</span> </div></blockquote>
+non capisco perchè qui non consideri tutto il modulo della velocità del blocco e neanche <span class="tex">\(M{V^2}\)</span> :(</article>
+<article class="post" id="p206"><div class="who"><b>Falco5x</b><span>31 gen 2009, 19:08</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>  <span class="tex">\(\Delta E = \frac{1}{2} {m{v^2} + M{V^2}}\)</span> </div></blockquote>
+non capisco perchè qui non consideri tutto il modulo della velocità del blocco e neanche <span class="tex">\(M{V^2}\)</span> :(</div></blockquote>
+Abbi pazienza, l'interprete Latex non mi accetta le parentesi  :evil: (per qualche mistrìerioso motivo che al momento non capisco). Approfondirò e spero di riuscire a correggere. Ovviamente dopo l'1/2 il resto deve essere chiuso tra parentesi, così come nel prosieguo della stessa riga dopo l'=<br>
+<br>
+<br>
+p.s. Ecco, adesso ci sono riuscito, ho modificato, ho dovuto spezzare in due la riga... misteri di Latex!!!</article>
+<article class="post" id="p207"><div class="who"><b>Pigkappa</b><span>31 gen 2009, 22:11</span></div>Allora, qui abbiamo un problema. Tu hai un tuo modo di risolvere il problema, che io dico che è sbagliato. Tu dici che è giusto.<br>
+<br>
+La tua risposta è diversa dalla risposta data da altri che siamo certi abbiano usato il metodo giusto (e che è giusto 1)lo dico io, 2)lo dice il libro da cui viene il problema, 3)lo dice il fatto che se si fa il problema con la lagrangiana viene quel risultato). Perciò bisogna dedurne che il tuo risultato è sbagliato e quindi il tuo procedimento è sbagliato.<br>
+<br>
+Perciò dovremmo cercare di capire dove sta l'errore, non di dimostrare a tutti costi che il tuo metodo è giusto. Se ti dico che il risultato giusto è quello di String e Converge, cioè:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{mg \tan{\theta}}{M+(\tan{\theta})^2m}\)</span><br>
+<br>
+Non lo faccio perchè sono cattivo, ma perchè sono sicurissimo che sia giusto. Ci sono tanti modi per vedere che la tua risposta non va bene. Ad esempio, tende a infinito per l'angolo che diventa grande, e sarai d'accordo che questo è molto strano, perchè è facile vedere che il blocco ci mette comunque un tempo finito a scendere dal piano, e quindi da questa configurazione si arriverebbe ad avere una velocità infinita per il piano nel momento del distacco. E questo viola molto palesemente la conservazione dell'energia.<br>
+<br>
+La questione della forza * spostamento è abbastanza spinosa da spiegare e anche io dovrei sicuramente pensarci un po' meglio per spiegarti il punto esatto in cui sbagli nell'affrontare la soluzione. Però nel frattempo potresti cercare di convincerti che la tua risposta è sbagliata.<br>
+<br>
+A parte questo, un errore grossolano lo hai fatto nel considerare solo la componente x della velocità del blocco nel calcolo dell'energia cinetica, che ovviamente dipende anche dalla componente y.</article>
+<article class="post" id="p209"><div class="who"><b>Falco5x</b><span>1 feb 2009, 4:30</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>A parte questo, un errore grossolano lo hai fatto nel considerare solo la componente x della velocità del blocco nel calcolo dell'energia cinetica, che ovviamente dipende anche dalla componente y.</div></blockquote>
+Ma no! il calcolo delle energie cinetiche <span style="text-decoration:underline">finali </span> è effettuato nell'istante in cui il blocco termina la rampa e tocca il piano orizzontale sul quale inizia a muoversi! in quel momento la velocità è tutta e solo lungo l'asse x. Tant'è che uso proprio quelle velocità sia per l'energia cinetica che per le quantità di moto!<br>
+Al di là di questo ragioniamo e diciamoci pure con calma i nostri punti di vista; non penserei mai che tu sia cattivo. Qui di cattivo ci sono solo le soluzioni sbagliate, che però prima o poi vengono sempre smascherate. ;)<br>
+<br>
+Venendo adesso alla discrepanza tra i nostri risultati, <strong class="text-strong">credo di aver capito dove sta l'inghippo.</strong><br>
+<br>
+Finché il blocco scende dalla rampa l'accelerazione è quella che dite voi; il valore di accelerazione che ho trovato io è invece l'accelerazione media comprendente anche l'evento che accade quando il blocco tocca terra e comincia a muoversi in senso orizzontale sul piano. Cerco di spiegarmi.<br>
+Quando il blocco tocca terra la sua quantità di moto in senso orizzontale ha un gradino, poiché passa istantaneamente dal valore mvCos(theta) al valore mv. Il mio bilancio di energia e di quantità di moto è fatto un istante dopo questo evento.<br>
+Allora quando il blocco tocca terra e comincia a correre orizzontalmente anche la quantità di moto della rampa subisce un gradino. Dunque se io prendo la sua energia e la divido per la massa e per lo spazio percorso trovo l'accelerazione media. Il grafico dell'accelerazione del piano inclinato è costituito da un valore costante pari a quello da voi trovato, più un impulso di dirac finale nel punto in cui il blocco tocca terra e cambia bruscamente di direzione. L'area complessiva sottesa a questo grafico (moltiplicata per la massa) dà l'energia cinetica della rampa, e la sua ordinata di compenso (rappresentante l'accelerazione media) è il valore che ho trovato io.<br>
+Ciò spiega anche la tendenza a infinito del mio valore e la tendenza a zero del vostro nel caso di rampa tendente e verticale. Infatti quando il blocco cade sfiorando la rampa verticale, la rampa non si muove e la sua accelerazione è zero. Però nel momento in cui il blocco tocca terra e comincia a correre verso destra, in quel momento conferisce un impulso alla rampa che accelera in un tempo infinitesimo con accelerazione infinita (qui il grafico è costituito dal solo dirac).<br>
+Io sarei a questo punto soddisfatto perché credo di aver capito come mai due metodi apparentemente corretti danno valori diversi.<br>
+Ciao.<br>
+<br>
+<br>
+P.S.: proprio per sfizio estremo ho provato ad applicare il mio metodo nel caso in cui si facciano i bilanci di energia e quantità di moto appena prima che il corpo tocchi il piano orizzontale. I calcoli vengono però inutilmente complessi, e allora in questo caso è senz’altro preferibile il metodo usato da String e Converge. La complicazione deriva dal fatto che la traiettoria del corpo che scivola è bensì rettilinea, però si svolge con un angolo “phi” maggiore di “theta”, e i due stanno nella seguente relazione:<br>
+<span class="tex">\(\tan \phi  = \frac{{m + M}}{M}\tan \theta\)</span><br>
+Siccome però io sono un masochista, ho svolto comunque i calcoli e il risultato che ho trovato è :<br>
+<span class="tex">\(a = \frac{{mg\tan \theta }}{{M + \left( {M + m} \right){{\tan }^2}\theta }}\)</span><br>
+cioè assolutamente identico a quello trovato da String e Converge con metodo moooolto più semplice  e diretto.<br>
+E con ciò riterrei chiuso questo argomento del quale ho parlato fin troppo.</article>
+<article class="post" id="p349"><div class="who"><b>MicroM</b><span>13 feb 2009, 17:32</span></div>Quando si include la separazione dei due corpi nel bilancio c'è una piccola insidia nel fenomeno che può spiegare in parte anche la querelle.<br>
+La conservazione dell'energia meccanica dopo che i corpi si separano si può applicare, come ha fatto Falco5x, solo nell'ipotesi che alla fine della discesa vi sia un raccordo liscio in modo che il corpo in caduta lasci il blocco con velocità assoluta orizzontale. Infatti, se così non fosse, vi sarebbe un urto contro il piano e il successivo moto non sarebbe orizzontale. Nel caso in cui il corpo fosse costretto a rimanere nel piano dopo averlo raggiunto (per esempio a causa di un vincolo bilaterale) senza il raccordo l'urto non sarebbe elastico e non avremmo conservazione dell'energia meccanica.<br>
+<br>
+ciao</article>
+<nav class="pager"><a class="prev" href="olifis-7222.html"><small>← precedente</small>Sfera in una doppia guida</a><a class="next" href="olifis-69.html"><small>successivo →</small>Biliardo a dischi</a></nav>
+</main></body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>232. Fluido incomprimibile in un tubo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 232</a></span></nav>
+<h1>232. Fluido incomprimibile in un tubo</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6971">forum Olifis</a></p>
+<article class="post first" id="p26443"><div class="who"><b>east_beast</b><span>30 ago 2020, 23:07</span></div>Una botte piena d'acqua (densità <span class="tex">\(\rho\)</span>) a livello <span class="tex">\(h_0\)</span>costante è collegata nella sua parte inferiore a un tubo orizzontale di diametro <span class="tex">\(d\)</span> e lunghezza <span class="tex">\(l\)</span>.<br>
+Una valvola si trova all'estremità del tubo più lontana dalla botte.<br>
+Al momento <span class="tex">\(t = 0\)</span>, la valvola passa da completamente bloccata a completamente aperta. <br>
+Per semplicità, ignorare la viscosità e ipotizzare che in ogni sezione del tubo la velocità è uniforme (indipendentemente dalla distanza dal centro del tubo).<br>
+<br>
+Trovare <span class="tex">\(u(t)\)</span> e la pressione <span class="tex">\(p(x,t)\)</span> all'interno del tubo nel caso generale.</article>
+<article class="post" id="p26444"><div class="who"><b>Luca Milanese</b><span>2 set 2020, 12:13</span></div>Considero la porzione di acqua compresa tra le ascisse <span class="tex">\(0\)</span> e <span class="tex">\(x\)</span>, con <span class="tex">\(0\)</span> preso nel punto in cui il tubo è attaccato alla botte. La forza netta agente su questa parte di fluido è <span class="tex">\(F=\frac{(p(0)-p(x))d^2 \pi}{4}\)</span>, mentre la sua q.d.m. è <span class="tex">\(P=\frac{\rho d^2 \pi x u}{4}\)</span>, dato che, essendo il fluido incomprimibile, <span class="tex">\(\rho\)</span> è costante e uniforme e dunque <span class="tex">\(u\)</span> non dipende da <span class="tex">\(x\)</span>. Quindi dalla seconda legge di Newton:<br>
+<span class="tex">\(F=\frac{dP}{dt} \Rightarrow p(0)-p(x)=\rho x \dot u\)</span><br>
+All'estremità aperta del tubo la pressione è quella atmosferica, quindi <span class="tex">\(p(l)=p_0\)</span>, da cui:<br>
+<span class="tex">\(p(0)-p_0=\rho l \dot u\)</span>.<br>
+Assumo che la botte abbia sezione <span class="tex">\(A&gt;&gt;\frac{d^2 \pi}{4}\)</span>: posso dunque ritenere che al suo interno la velocità sia pressocche stazionaria, e che sia nulla sulla sua superficie superiore. Applico dunque il teorema di Bernoulli su una linea di flusso che va da <span class="tex">\(h=h_0\)</span> all'inizio del tubo:<br>
+<span class="tex">\(p_0+\rho h_0 g =p(0)+\frac{\rho u^2}{2} \Rightarrow p(0)-p_0=\rho \bigg (h_0 g -\frac{u^2}{2}\bigg )\)</span><br>
+Eliminando la differenza di pressione tra le due equazioni ottengo:<br>
+<span class="tex">\(l \dot u = h_0 g - \frac{u^2}{2} \Rightarrow \frac{du}{dt} = \frac{2h_0 g - u^2}{2 l} \Rightarrow \frac{du}{2h_0 g - u^2}=\frac{dt}{2l}\)</span><br>
+Integrando tra <span class="tex">\(0\)</span> e <span class="tex">\(u(t)\)</span> e fra <span class="tex">\(0\)</span> e <span class="tex">\(t\)</span> si ottiene:<br>
+<span class="tex">\(u(t)=\sqrt{2h_0 g} \tanh \bigg(\sqrt{\frac{h_0 g}{2}} \frac{t}{l} \bigg)\)</span><br>
+Quindi <span class="tex">\(\dot u(t) = \frac{h_0 g}{l}\bigg (1-\tanh^2\bigg(\sqrt{\frac{h_0 g}{2}}\frac{t}{l}\bigg ) \bigg)\)</span>, <span class="tex">\(p(0)=p_0+\rho l \dot u =p_0+\rho h_0 g \bigg (1-\tanh^2\bigg(\sqrt{\frac{h_0 g}{2}}\frac{t}{l} \bigg) \bigg)\)</span> e, infine:<br>
+<span class="tex">\(p(x, t) =p(0)-\rho x \dot u =p_0+\rho h_0 g \bigg(1-\frac{x}{l}\bigg) \bigg(1-\tanh^2 \bigg(\sqrt{\frac{h_0 g}{2}}\frac{t}{l}\bigg) \bigg)\)</span></article>
+<article class="post" id="p26445"><div class="who"><b>east_beast</b><span>2 set 2020, 12:34</span></div>Tutto perfetto! :D  :D <br>
+Per <span class="tex">\(t  \)</span> che tende a <span class="tex">\(\infty\)</span> tra l'altro si ha il risultato canonico <span class="tex">\(v = \sqrt{2gh_0}\)</span>.<br>
+A te la staffetta!</article>
+<nav class="pager"><a class="prev" href="olifis-6967.html"><small>← precedente</small>231. Velocità delle stelle.</a><a class="next" href="olifis-6973.html"><small>successivo →</small>233. Legge di Murphy.</a></nav>
+</main></body></html>

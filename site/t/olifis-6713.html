@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>152. Tick tack</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 152</a></span></nav>
+<h1>152. Tick tack</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6713">forum Olifis</a></p>
+<article class="post first" id="p24844"><div class="who"><b>Flaffo</b><span>17 giu 2018, 23:52</span></div>Spero sia un problema più umano, la soluzione si può sia intuire (o meglio, claimare a caso), sia dimostrare per bene con un pò di integrali.<br>
+<br>
+Calcolare il tempo massimo che un oggetto, proveniente dall'esterno del sistema solare, può trascorrere all'interno dell'orbita terrestre (cioè distanza dal sole <span class="tex">\(r&lt; R_t\)</span>).</article>
+<article class="post" id="p24850"><div class="who"><b>lance00</b><span>18 giu 2018, 22:32</span></div>Allora...<br>
+chiamiamo <span class="tex">\(\theta\)</span> l'angolo tra il raggio vettore <span class="tex">\(r\)</span> e la velocità <span class="tex">\(v\)</span>. Sia inoltre P il punto dell'orbita più vicino al Sole (diciamo a distanza <span class="tex">\(d\)</span>) e <span class="tex">\(v_d\)</span> la velocità dell'asteroide in P. Per la conservazione del momento angolare si ha <span class="tex">\(rv \sin\theta = dv_d\)</span>. Possiamo quindi ricavarci <span class="tex">\(\cos\theta\)</span> che ci servirà in seguito: <span class="tex">\(\cos\theta = \sqrt{1-\frac{d^2v_d^2}{r^2v^2}}\)</span>. Abbiamo che <span class="tex">\(t = \int_R^d \frac{ds}{v} = \frac{dr}{v \cos\theta}\)</span> per ragioni geometriche. Sostituendo <span class="tex">\(\cos\theta\)</span>, <span class="tex">\(t =\int_R^d \frac{r dr}{\sqrt{r^2v^2-d^2v_d^2}}\)</span>. Ma <span class="tex">\(v^2 = v_d^2 + \frac{2GM}{r}-\frac{2GM}{d}\)</span> per la conservazione dell'energia quindi <span class="tex">\(t =\int_R^d \frac{r dr}{\sqrt{r^2v_d^2+2GMr-\frac{2GMr^2}{d}-d^2v_d^2}}= \int_R^d \frac{dr}{\sqrt{(\frac{2E_{tot}}{m}}+\frac{2GM}{r}-\frac{d^2v_d^2}{r^2})} \)</span>. Per rendere massimo il tempo rendiamo minimo il denominatore ponendo <span class="tex">\(E= 0 ==&gt; parabola\)</span>. Infatti l'orbita non può essere un'ellisse (E&lt;0) perchè il corpo proviene da fuori il sistema solare. L'integrale diventa quindi <span class="tex">\(\int_R^d \frac{dr}{\sqrt{\frac{2GM}{r}-\frac{d^2v_d^2}{r^2}}}\)</span> e, sostituendo <span class="tex">\(v_d = \sqrt{\frac{2GM}{d}}\)</span>, <span class="tex">\(t = \frac{1}{\sqrt{2GM}} \int_R^d \frac{rdr}{\sqrt{r-d}} = \frac{2}{3 \sqrt{2GM}}[\sqrt{R-d}(2d+R)]\)</span>. Per trovare il massimo imponiamo <span class="tex">\(\frac{\partial t}{\partial d} =0 =&gt;\frac{R-2d}{\sqrt{R-d}} = 0 =&gt; d = r/2 \)</span> quindi <span class="tex">\(t = \frac{4}{3} \sqrt{\frac{R^3}{GM}} \approx 77g\)</span>  :D  :D</article>
+<article class="post" id="p24852"><div class="who"><b>Flaffo</b><span>19 giu 2018, 10:11</span></div>Bravo Andrea! Alcuni passaggi all'inizio si potevano fare in un'altro modo più breve, comunque tutto giusto. A te la staffetta  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6709.html"><small>← precedente</small>151. Circuito di semicirconferenze</a><a class="next" href="olifis-6714.html"><small>successivo →</small>153. Scaling</a></nav>
+</main></body></html>

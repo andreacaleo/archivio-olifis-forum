@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>308. Carica e sfera conduttrice</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 308</a></span></nav>
+<h1>308. Carica e sfera conduttrice</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7196">forum Olifis</a></p>
+<article class="post first" id="p27818"><div class="who"><b>Higgs</b><span>6 lug 2023, 18:00</span></div>Una carica puntiforme<strong class="text-strong"> q</strong> è posta a distanza <strong class="text-strong">R</strong> dal centro di una sfera metallica di raggio  <strong class="text-strong">r&lt;R</strong>. La sfera è isolata ed elettricamente neutra.<br>
+a) Trovare il potenziale elettrostatico sulla superficie della sfera<br>
+b) Trovare modulo direzione e verso della forza agente sulla carica</article>
+<article class="post" id="p27824"><div class="who"><b>Pigkappa</b><span>10 lug 2023, 1:04</span></div>Sembriamo bloccati... Posta un hint per favore, o se vuoi lo posto io. Suggerirei di dare un hint dettagliato, che permetta di arrivare al trucco che serve a risolverlo anche chi non lo ha mai visto.</article>
+<article class="post" id="p27825"><div class="who"><b>Higgs</b><span>10 lug 2023, 10:50</span></div>Si raccolgo volentieri l'invito anche se non sono trascorsi tanti giorni dalla proposta. Si intuisce che la carica induce cariche di segno opposto nella parte più vicina del conduttore e dello stesso segno nella parte più lontana in modo da generare un potenziale costante sulla superficie sferica. Sarebbe estremamente complesso individuare la distribuzione delle cariche indotte. Si usa allora il cosiddetto "metodo della carica immagine". Ovvero quello di far equivalere la distribuzione indotta a cariche puntiformi interne alla sfera e disposte sul segmento che congiunge q con il centro della sfera. Consiglio di cominciare dal caso in cui la sfera è collegata a terra per cui il potenziale sulla sua superficie è nullo. Si tratta di individuare la carica q', di segno opposto a quello di q, e la sua posizione sulla  congiungente. Due incognite e due equazioni ottenute imponendo che il potenziale per es. nei due estremi del diametro sulla congiungente (facilmente calcolabile) sia nullo. La ragione di q' è semplice: in questo caso q si trova di fronte a un conduttore enorme, la sfera e la terra, in cui la parte più vicina è la sfera che quindi si carica negativamente.<br>
+Usiamo questi valori quando ci riferiamo al caso in questione della sfera isolata e scarica. Si tratta di determinare una ulteriore carica q'' di segno uguale a quello di q, posta nel centro della sfera....risulterà un potenziale costante sulla superficie sferica che si determinerà agevolmente sfruttando i risultati precedenti.</article>
+<article class="post" id="p27826"><div class="who"><b>matteofisica</b><span>10 lug 2023, 12:02</span></div>Posto che è la prima volta che tento un problema con le cariche-immagine, provo a dare una soluzione! :D <br>
+<br>
+Prima di tutto consideriamo il caso della sfera messa a terra: il potenziale deve essere zero su tutta la superficie del conduttore. Ponendo l'origine del sistema di riferimento nel centro della sfera, calcolo l'espressione del potenziale in A(r,0) e in B(-r,0). <br>
+<span class="tex">\(V_A=k_0\frac {q}{R-r}+k_0\frac{q_1}{r-d}\)</span> e <span class="tex">\(V_B=k_0\frac {q}{R+r}+k_0\frac{q_1}{r+d}\)</span>, dove ho indicato con d la coordinata x della carica <span class="tex">\(q_1\)</span>. Ponendo uguali a zero entrambe le equazioni si ottiene un sistema 2x2 che dà come soluzione: <span class="tex">\((q_1,d)=\left (-\frac{r}{R}q,\frac{r^2}{R} \right )\)</span>. <br>
+Ora, sfruttando il principio di sovrapposizione, bisogna trovare la carica <span class="tex">\(q_2\)</span> per cui la sfera è isolata e di carica netta 0. Ciò può essere fatto ponendo nell'origine una carica <span class="tex">\(q_2=-q_1\)</span>, che genera un potenziale uniforme su tutta la superficie sferica pari a <span class="tex">\(V=k_0\frac{q_2}{r}=k_0\frac{q}{R}\)</span>. <br>
+La forza che viene esercitata su q è data dalla somma vettoriale delle forze (dirette entrambe lungo l'asse x) dovute alle due cariche. <br>
+<span class="tex">\(F=k_0\frac{q\cdot q_1}{(R-d)^2}+k_0\frac{q\cdot q_2}{R^2}=k_0\frac{q^2\cdot r}{R}\left (\frac{1}{R^2}-\frac{1}{(R-d)^2} \right )\)</span>, diretta dunque verso le x negative.</article>
+<article class="post" id="p27827"><div class="who"><b>Francesco Leccese</b><span>10 lug 2023, 13:12</span></div>Mi hai battuto sul tempo, ma i miei risultati sono gli stessi. Aspettiamo comunque conferma da Higgs</article>
+<article class="post" id="p27828"><div class="who"><b>Higgs</b><span>10 lug 2023, 17:20</span></div>Bravissimi i risultati sono corretti! :D  Comunque la staffetta va a Matteofisica che ha preceduto Leccese di poco più di un'ora.  :D <br>
+Tuttavia penso di essere un pessimo suggeritore. Ho preso troppo alla lettera il consiglio di Pigkappa dando un hint troppo dettagliato. Dopo tutto dobbiamo imparare e si impara poco se uno quasi ti dice come si risolve....Mi consola che Matteo (e presumo anche Leccese)non aveva prima mai risolto un problema con il metodo della carica immagine e dunque almeno questo per lui era nuovo :D</article>
+<article class="post" id="p27830"><div class="who"><b>Pigkappa</b><span>11 lug 2023, 14:50</span></div>La soluzione sopra funziona nel senso che dà il risultato giusto... Ma proporrei come punto bonus quello di aggiungere tutti i dettagli che servono per convincere uno studente che non ha mai visto prima questo metodo.<br>
+Quindi aggiungerei due componenti:<br>
+<br>
+1. Dimostrare che la superficie del conduttore è tutta allo stesso potenziale.<br>
+2. Dimostrare che questa è l'unica soluzione possibile che rispetta le condizioni di potenziale uniforme per la sfera, e di zero carica sulla sfera.</article>
+<article class="post" id="p27834"><div class="who"><b>matteofisica</b><span>13 lug 2023, 9:31</span></div>Per quanto riguarda il punto 1., direi che si può sfruttare il principio di sovrapposizione degli effetti. Abbiamo una configurazione di tre cariche, due delle quali, q e q1, danno potenziale nullo su tutta la superficie del conduttore. Dunque il potenziale sarà dovuto soltanto alla carica <span class="tex">\(q_2\)</span>. Applico il teorema di Gauss per il campo elettrico a una superficie sferica di centro in <span class="tex">\(q_2\)</span> e raggio <span class="tex">\(r\)</span>. Il campo elettrico, come è noto, vale <span class="tex">\(E=k_0 \frac{q_2}{r^2}\)</span>. Ricordando ora che il campo elettrico è la derivata (a meno del segno) del potenziale e ponendo il potenziale all'infinito pari a zero, si ottiene l'espressione riportata nella soluzione. Questa dipende da <span class="tex">\(\frac{1}{r}\)</span>, per cui tutti i punti con la stessa distanza dal centro <span class="tex">\(q_2\)</span> si trovano allo stesso potenziale. Segue che la superficie del conduttore (che coincide con la nostra gaussiana) è tutta allo stesso potenziale. <br>
+Un altro modo per dimostrarlo è procedere per assurdo: dopo un certo tempo da quando la carica <span class="tex">\(q\)</span> è stata posta nelle vicinanze del conduttore, l'induzione di cariche si arresta e si giunge a una configurazione di equilibrio elettrostatico. Ma se la superficie del conduttore non fosse tutta allo stesso potenziale, vorrebbe dire che le cariche potrebbero migrare su di essa, portandosi verso i punti a potenziale maggiore. Questo va contro l'ipotesi di equilibrio elettrostatico, conducendo a contraddizione. Dunque, la superficie del conduttore deve essere equipotenziale. <br>
+Spero di aver detto tutto giusto e di non aver equivocato la richiesta... :roll:  :?: <br>
+Se così non è, passo a lavorare sulla seconda.</article>
+<article class="post" id="p27836"><div class="who"><b>Pigkappa</b><span>13 lug 2023, 10:55</span></div><blockquote><div><cite>matteofisica ha scritto: <a href="olifis-7196.html#p27834" data-post-id="27834" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">13 lug 2023, 9:31</div></cite>
+Due delle quali, q e q1, danno potenziale nullo su tutta la superficie
+</div></blockquote>
+A me sembrava mancasse questo passaggio; lo abbiamo dimostrato solo sul punto della sfera più vicino e quello più lontano.</article>
+<article class="post" id="p27838"><div class="who"><b>matteofisica</b><span>13 lug 2023, 16:40</span></div>D'accordo. Allora provo a dimostrare che, se <span class="tex">\((q_1,d)=\left (-q \frac{r}{R}, \frac{r^2}{R} \right )\)</span>, allora il potenziale è pari a zero su tutta la sfera. Considero nel piano x,y un punto P di coordinate <span class="tex">\((x,\sqrt{r^2-x^2})\)</span>. Il potenziale in questo punto vale <span class="tex">\(V_P=k_0\frac{q}{\sqrt{(R-x)^2+y^2}}+k_0\frac{q_1}{\sqrt{(x-d)^2+y^2}}\)</span>. <br>
+Sostituendo tutto ciò che conosciamo e svolgendo i conti, otteniamo: <span class="tex">\(V_P=k_0q \cdot \frac{R\sqrt{d^2-2dx+r^2}-r\sqrt{R^2-2Rx+r^2}}{R\sqrt{(d^2-2dx+r^2)(R^2-2Rx+r^2)}}\)</span>. Considero ora solo il numeratore: ricordando l'espressione di <span class="tex">\(d\)</span>, si ottiene alla fine <span class="tex">\(R \sqrt{\frac{r^4-2Rxr^2+R^2r^2}{R^2}}-r\sqrt{R^2-2Rx+r^2}\)</span>. Ora, se nel primo termine semplifichiamo per <span class="tex">\(R\)</span> e raccogliamo <span class="tex">\(r^2\)</span> fuori dalla radice, si ottiene esattamente il secondo termine. Dunque la differenza fa zero, per cui il potenziale in P è zero.<br>
+Lo stesso ragionamento si può applicare in tre dimensioni, e ciò dovrebbe provare la tesi. <br>
+<br>
+Ammetto di non essere troppo soddisfatto di questa dimostrazione... c'è un motivo più profondo che dovrei cercare? :?:</article>
+<article class="post" id="p27839"><div class="who"><b>Pigkappa</b><span>13 lug 2023, 18:31</span></div>Ok ottimo. <br>
+Che io sappia... No, non c'è un motivo più profondo. Si può fare il conto in trigonometria invece che coordinate per farlo un po' più breve, ma comunque rimane vero che è solo fortuitamente che si può scegliere una carica immagine che rende uguale il potenziale alla superficie. Per una superficie generica, non sferica, non si può fare.</article>
+<article class="post" id="p27840"><div class="who"><b>matteofisica</b><span>13 lug 2023, 21:06</span></div>Grazie mille! Penso al secondo punto! :D</article>
+<article class="post" id="p27842"><div class="who"><b>matteofisica</b><span>14 lug 2023, 22:15</span></div>Sono andato a studiarmi per bene le dispense degli stage in SNS, dove, per dimostrare l'unicità della soluzione, si utilizza il Teorema di Poisson. Verifico dunque che il sistema analizzato ne soddisfi le ipotesi: <br>
+1) Devo considerare una regione di spazio <span class="tex">\(\Gamma \)</span> avente bordo <span class="tex">\(\partial \Gamma \)</span>: nel nostro caso, si tratta della sfera di centro O(0,0,0) e raggio r. <br>
+2) Sul bordo, dev'essere noto il valore di <span class="tex">\(V\)</span> oppure della componente del campo elettrico perpendicolare al bordo. Anche questa condizione è soddisfatta, poiché risolvendo il problema abbiamo trovato un'espressione per <span class="tex">\(V\)</span> su tutta la superficie sferica in funzione di valori dati. <br>
+Pertanto, il Teorema di Poisson ci assicura che la soluzione è unica, ed è quella trovata. <br>
+<br>
+Può andar bene come dimostrazione? Mi chiedo se ci si potrebbe arrivare anche non conoscendo il Teorema di Poisson...  :?:</article>
+<article class="post" id="p27843"><div class="who"><b>Pigkappa</b><span>15 lug 2023, 0:00</span></div>Il metodo è quello anche se mi sa che lo hai impostato in po' male. In questo caso stiamo risolvendo per il campo al di fuori della sfera e quindi le condizioni da imporre sono potenziale uniforme sulla superficie della sfera; e carica nulla nella sfera che implica integrale del campo elettrico sulla superficie della sfera uguale a zero; e campo elettrico Q/r^2 attorno alla carica puntiforme Q che conosciamo.<br>
+<br>
+Comunque, sì, i teoremi di unicità garantiscono che la soluzione con queste condizioni è unica.<br>
+<br>
+Se vuoi, puoi provare a dimostrare il teorema di unicità. Non è così difficile costruire almeno un argomento fisico sul perché la soluzione deve essere unica. Questo è uno di quei casi in cui anche senza fare una dimostrazione matematica rigorosa, si può essere convincenti.</article>
+<nav class="pager"><a class="prev" href="olifis-7194.html"><small>← precedente</small>307. L&#x27;eclisse delle due lune</a><a class="next" href="olifis-7198.html"><small>successivo →</small>309. Gas di fotoni</a></nav>
+</main></body></html>

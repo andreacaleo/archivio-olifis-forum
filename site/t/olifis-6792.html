@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scivolando su un piano</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 173</a></span></nav>
+<h1>Scivolando su un piano</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6792">forum Olifis</a></p>
+<article class="post first" id="p25324"><div class="who"><b>lance00</b><span>15 dic 2018, 12:52</span></div>(i) Un blocco parte da fermo e scivola su un piano inclinato di un angolo <span class="tex">\(\phi\)</span>. Trovare <span class="tex">\(\phi\)</span> tale che il blocco percorra una data distanza <span class="tex">\(b\)</span> in orizzontale nel minor tempo possibile <span class="tex">\(t\)</span>. Quanto vale <span class="tex">\(t\)</span>?<br>
+(ii) Aggiungiamo adesso un coefficiente d'attrito dinamico <span class="tex">\(\mu\)</span>. Trovare <span class="tex">\(\phi\)</span> e <span class="tex">\(t\)</span>.</article>
+<article class="post" id="p25329"><div class="who"><b>Dudin</b><span>16 dic 2018, 13:23</span></div>1) Il blocco scivola con accelerazione diretta lungo il piano inclinato di modulo:<br>
+<span class="tex">\(a=gsin(\theta)\)</span><br>
+Quindi l'accelerazione lungo l'asse <span class="tex">\(x\)</span> e':<br>
+<span class="tex">\(a_{x}=a*cos(\theta) =gsin(\theta)cos(\theta) = \frac{g}{2}sin(2\theta)\)</span><br>
+Questa funzione e' massima quando <span class="tex">\(sin(2\theta) = 1 \rightarrow \theta=\frac{\pi}{4}\)</span><br>
+Quindi l'accelerazione e' <span class="tex">\(a_{x}=\frac{g}{2}\)</span><br>
+il moto e' uniformemente accelerato perciò il tempo impiegato per percorrere uno spazio b e':<br>
+<span class="tex">\(2b=a_{x}t^2 \rightarrow t=\sqrt{\frac{4b}{g}}\)</span></article>
+<article class="post" id="p25331"><div class="who"><b>lance00</b><span>16 dic 2018, 19:14</span></div>Giusta  :D Adesso prova il punto ii) che è più tosto</article>
+<article class="post" id="p25332"><div class="who"><b>Dudin</b><span>16 dic 2018, 20:27</span></div>2)<br>
+Stesso procedimento solo che considero la forza di attrito:<br>
+L'accelerazione lungo il piano inclinato e':<br>
+<span class="tex">\(a= g*sin(\theta)-g\mu*cos(\theta)\)</span><br>
+Da cui ricavo l'accelerazione lungo l'asse x:<br>
+<span class="tex">\(a_{x}= g*sin(\theta)cos(\theta)-g\mu*cos^2(\theta) = g\frac{sin(2\theta)}{2}-g\mu*cos^2(\theta) \)</span><br>
+Quindi per massimizzare questa funzione faccio la derivata e la pongo uguale a 0: <br>
+<span class="tex">\(a_{x}' =cos^2(\theta)-sin^2(\theta)+2\mu*sin(\theta)cos(\theta)=0 \)</span><br>
+E' un equazione goniometrica: scrivo tutto in funzione di <span class="tex">\(2\theta\)</span><br>
+<span class="tex">\( cos(2\theta)+ \mu*sin(2\theta)=0 \rightarrow \sqrt{1-sin^2(2\theta)}=-\mu*sin(2\theta)\)</span><br>
+Quindi elevo al quadrato:<br>
+<span class="tex">\(1=(1+\mu^2)sin^2(2\theta) \rightarrow  \sqrt{\frac{1}{1+\mu^2}} = sin(2\theta)\)</span><br>
+Da questa relazione posso trovare theta utilizzando l'arcoseno.<br>
+Inoltre da questa relazione ricavo anche che:<br>
+<span class="tex">\(cos(2\theta)=\frac{-\mu}{\sqrt{1+\mu^2}}\)</span><br>
+Non mi resta che sostituire per ricavare <span class="tex">\(a_{x}\)</span><br>
+<span class="tex">\(a_{x}=g\frac{sin(2\theta)}{2}-g\mu*cos^2(\theta) =g\frac{sin(2\theta)}{2}-g\mu\frac{cos(2\theta)+1}{2}  \)</span><br>
+cioe sostituendo:<br>
+<span class="tex">\(a_{x}= g\frac{ \sqrt{\frac{1}{1+\mu^2}} }{2}-g\mu\frac{\frac{-\mu}{\sqrt{1+\mu^2}}+1}{2}\)</span><br>
+<span class="tex">\(a_{x}= \frac{g(1+\mu^2)}{2*\sqrt{(1+\mu^2)}} -\frac{g\mu}{2}  = g\frac{\sqrt{1+\mu^2}-\mu}{2}\)</span><br>
+Infine dato che il moto e' accelerato in modo costante:<br>
+<span class="tex">\(2b=a_{x}t^2 \rightarrow t=\sqrt{\frac{4bg}{(\sqrt{1+\mu^2}-\mu)}}\)</span></article>
+<article class="post" id="p25333"><div class="who"><b>Dudin</b><span>16 dic 2018, 20:33</span></div>il segno meno a <span class="tex">\(cos(2\theta)\)</span> e' giustificato perche' <span class="tex">\(\theta\)</span> e' compreso tra 0 e 90 gradi quindi il coseno di <span class="tex">\(2\theta\)</span> e' sicuramente negativo</article>
+<article class="post" id="p25334"><div class="who"><b>Dudin</b><span>16 dic 2018, 21:00</span></div>ah mi sono appena accorto di aver scritto una cavolata  :lol:  :lol: <br>
+il segno meno e' giustificato solo se il coefficiente d'attrito e' minore di 1... altrimenti l'angolo sarebbe minore di 45. Comunque credo sia accettabile perche' il coefficiente di attrito dinamico e praticamente sempre minore di 1... altrimenti dovrei fare due casi e uscirebbe un'altra soluzione piu' brutta</article>
+<article class="post" id="p25335"><div class="who"><b>lance00</b><span>16 dic 2018, 21:40</span></div>A parte un piccolo typo (g sta al denominatore) la soluzione è perfetta. A te il testimone  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6787.html"><small>← precedente</small>172. Il fischio del treno</a><a class="next" href="olifis-6793.html"><small>successivo →</small>174 due piani inclinati</a></nav>
+</main></body></html>

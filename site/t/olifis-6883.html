@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>200. Viva la staffetta!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 200</a></span></nav>
+<h1>200. Viva la staffetta!</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6883">forum Olifis</a></p>
+<article class="post first" id="p25885"><div class="who"><b>Luca Milanese</b><span>19 apr 2020, 11:10</span></div>Cosa si dice in questi casi? Ah, sì... Altre 200 di queste staffette! :D <br>
+<br>
+Abbiamo un'asta rigida di lunghezza <span class="tex">\(l\)</span> e priva di massa ai cui estremi si trovano due punti materiali di massa <span class="tex">\(m\)</span> ciascuno. L'asta è posta in posizione quasi verticale, appoggiata a una parete, in modo che ci sia soltanto una distanza infinitesima fra la massa più in basso e la parete. L'asta comincia quindi a cadere, con la massa in alto che scivola lungo la parete e quella in basso che striscia sul pavimento. Non c'è attrito su nessuna superficie.<br>
+Calcolare le velocità dei due punti materiali nel momento in cui l'asta si stacca dalla parete.</article>
+<article class="post" id="p25886"><div class="who"><b>east_beast</b><span>19 apr 2020, 15:03</span></div>Prima di postare i calcoli tento le risposte, viene per caso <span class="tex">\({\frac{2 {\sqrt{5gR} }}   {27}    } {\hat{y}}   \)</span> per l'estremo più basso, e <span class="tex">\({\frac{4 {\sqrt{gR} }}   {27}    } {\hat{x}} \)</span> per quello più alto? Dove <span class="tex">\(R = l/2\)</span><br>
+Potrei aver fatto confusione coi prodotti vettoriali, mi confermi che il distacco avviene a <span class="tex">\(cos{\theta} = 2/3\)</span>, dove <span class="tex">\({\theta}\)</span> è l'angolo tra l'asta e la verticale, e che la velocità del CM al distacco è <span class="tex">\({\sqrt{\frac{gR}{3}}}\)</span>?<br>
+<br>
+edit 2: quel 27 è in realtà un <span class="tex">\({\sqrt{27}} \)</span>... maledetto Latex</article>
+<article class="post" id="p25887"><div class="who"><b>Luca Milanese</b><span>19 apr 2020, 15:25</span></div>L'angolo è giusto, invece le velocità non mi tornano (non ho capito poi quale sarebbe quella in alto e quale quella in basso...) e non ho capito cosa indichi con <span class="tex">\(R\)</span>.</article>
+<article class="post" id="p25888"><div class="who"><b>east_beast</b><span>19 apr 2020, 15:30</span></div>Ah gia scusami, ho fatto di fretta. <br>
+Per comodità <span class="tex">\(R = l/2\)</span> mentre la prima è quella dell'estremo piu basso, la seconda quella dell'estremo piu alto. <br>
+Edito il messaggio precedente</article>
+<article class="post" id="p25889"><div class="who"><b>Luca Milanese</b><span>19 apr 2020, 15:36</span></div>Ok adesso la velocità del cdm mi torna  :D .</article>
+<article class="post" id="p25890"><div class="who"><b>east_beast</b><span>19 apr 2020, 17:14</span></div>Sinceramente le velocità dei due estremi, analogamente a prima, continuano a venirmi <span class="tex">\({\vec{v_1}} = {\frac{-2{\sqrt{5}}}{3}}v_{cm} {\hat{y}} \)</span><br>
+e <span class="tex">\({\vec{v_2}} = {\frac{4}{3}}v_{cm} {\hat{x}} \)</span><br>
+1 è l'estremo superiore, 2 quello inferiore</article>
+<article class="post" id="p25891"><div class="who"><b>Luca Milanese</b><span>19 apr 2020, 17:50</span></div>Ho letto adesso il secondo edit, le velocità sono corrette! Posta pure il procedimento.</article>
+<article class="post" id="p25892"><div class="who"><b>east_beast</b><span>19 apr 2020, 18:33</span></div>Allora, innanzi tutto so che se chiamo l'estremo superiore 1 e quello inferiore 2, <span class="tex">\({\vec{v_i}}= {\vec{v_{cm}} + {\vec{{\omega}}{\times}{\vec{r_i}}\)</span> . per entrambi gli estremi (anzi in realtà vale per ogni punto, ma vabbè).   <span class="tex">\({\vec{r_i}}\)</span> è ovviamente il vettore che unisce il CM e il punto i.<br>
+Mi basta trovare <span class="tex">\({\vec{v_{cm}}}\)</span> e <span class="tex">\({\omega}\)</span> al distacco per avere le velocità di entrambi gli estremi.<br>
+Chiamo <span class="tex">\({\theta}\)</span> l'angolo tra l'asta e la verticale, fisso un SdR centrato nel "vertice della parete", chiamo x la distanza di 2 dall'origine e y la distanza di 1 il CM avrà allora coordinate <span class="tex">\(({\frac{x}{2}},{\frac{y}{2}})\)</span>. Noto che l'asta è rigida, quindi la sua lunghezza non varia, e per pitagora ho che <span class="tex">\(x^2+y^2=l^2\)</span>, dividendo per 4:    <span class="tex">\((x/2)^2+(y/2)^2 = (l/2)^2\)</span>, ossia il CM si muove su una circonferenza di raggio <span class="tex">\(l/2\)</span> con centro l'origine. <br>
+Per comodità sostituisco <span class="tex">\(R = l/2\)</span>, noto che l'angolo che il CM spazza nel suo moto è proprio uguale a <span class="tex">\(\theta\)</span>, in quanto si viene a formare istante per istante un triangolo isoscele con due lati uguali ad <span class="tex">\(R\)</span>. <br>
+L'energia si conserva, quindi<br>
+<span class="tex">\(2mgR(1-cos{\theta}) = mv^2 + (1/2)I{\dot{\theta}}^2\)</span>  con <span class="tex">\(I = 2mR^2\)</span> e <span class="tex">\(v = {\dot{\theta}}R\)</span><br>
+Da cui ottengo <span class="tex">\(v = {\sqrt{gR(1-cos{\theta})}}\)</span>. Vogliamo sapere quando il CM non avrà piu accelerazione lungo x, quindi quando <span class="tex">\({\vec{v}}\cdot{\hat{x}} = {\sqrt{gR(1-cos{\theta})}}cos\theta \)</span> è massimo. Ponendo la derivata rispetto a theta uguale a 0, vedo che il distacco si ha quando <span class="tex">\(cos\theta = 2/3\)</span>, ovvero <span class="tex">\(sin\theta = {\sqrt{5}}/3\)</span> (serve per dopo il seno, tanto vale calcolarlo ora)<br>
+Ora torno nell'espressione di v, sostituisco, e poi faccio i due prodotti vettoriali ottenendo la risposta (se vuoi posto pure quelli, ma sono già morto di Latex :D  :D )<br>
+P.S. cosa ho vinto per aver risolto il 200? :lol:  :lol:  :lol:<br>
+Spero non porti male perlomeno</article>
+<article class="post" id="p25893"><div class="who"><b>Luca Milanese</b><span>19 apr 2020, 18:45</span></div>Mi sembra che vada tutto bene, ho dato un'occhiata veloce ma se i risultati sono quelli corretti è difficile che sia errato il procedimento.<br>
+Per aver risolto il magico 200 vinci... il diritto di postare il 201! :lol: <br>
+Vai pure, ma lascio una domanda bonus che mi era venuta in mente risolvendolo:<br>
+Le reazioni vincolari di parete e pavimento, in questo caso, sono sempre perpendicolari agli spostamenti delle masse cui sono applicate. Tuttavia, ciascuna delle due compie un lavoro diverso da zero, poichè c'è sia una componente orizzontale che una verticale dello spostamento del cdm. Dimostrare allora che il lavoro totale compiuto dalle due è nullo (cioè che vale la conservazione dell'energia).<br>
+Magari è banale, ma mi era sembrata una cosa interessante. :D</article>
+<article class="post" id="p25894"><div class="who"><b>east_beast</b><span>19 apr 2020, 19:40</span></div>Poi faccio i conti, ma a naso mi viene da pensare che combinando le due equazioni cardinali, scomponendo la prima lungo i versori radiale e tangenziale (rispetto alla traiettoria del CM) magari insieme al fatto che prima di <span class="tex">\(cos{\theta} = 2/3\)</span> i due estremi non possono staccarsi dalle pareti, potrebbe uscire fuori che la somma vettoriale delle due reazioni è radiale? Può aver senso? nel caso poi provo</article>
+<article class="post" id="p25895"><div class="who"><b>Luca Milanese</b><span>19 apr 2020, 19:46</span></div>Probabilmente funziona, ma non so dirti con certezza perché non ho usato le coordinate polari (sono sempre rimasto in cartesiane nella soluzione).</article>
+<nav class="pager"><a class="prev" href="olifis-6882.html"><small>← precedente</small>199. Traiettorie che si incontrano</a><a class="next" href="olifis-6885.html"><small>successivo →</small>201. Ruote e gocce d&#x27;acqua</a></nav>
+</main></body></html>

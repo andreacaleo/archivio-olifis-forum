@@ -1,58 +1,257 @@
 {
  "_about": "Chosen discussions from whole forum sections, shown on the section pages. 'tema' groups them on the page; 'nota' is the line shown under the title; 'escludi' lists post ids left out (spam). Downloaded by download_sections.py into raw/sezioni/.",
  "olimpiadi": [
-  {"t": 13, "tema": "Come prepararsi", "nota": "La guida ai libri e ai siti per prepararsi alle Olimpiadi, curata da Pigkappa e aggiornata dal 2009 al 2021. È la discussione più letta di tutto il forum."},
-  {"t": 3446, "tema": "Come prepararsi", "nota": "Come funziona la prova sperimentale della gara nazionale, come viene corretta e come allenarsi a casa."},
-  {"t": 7175, "tema": "Come prepararsi", "nota": "Come si passa dalla gara di secondo livello a Senigallia: vincitori di polo, ripescaggi e posti disponibili, spiegati per bene."},
-  {"t": 6599, "tema": "Come prepararsi", "nota": "La prima scuola invernale non ufficiale, organizzata nel 2018 a Pisa da studenti della Normale ex olimpionici per preparare alla gara nazionale e internazionale."},
-  {"t": 387, "tema": "Le gare", "nota": "Una delle discussioni più vive sulla gara di febbraio: impressioni, soluzioni confrontate, dubbi di ottica e l'attesa dei risultati. Edizione 2010."},
-  {"t": 752, "tema": "Le gare", "nota": "La gara nazionale di Senigallia 2011 raccontata dai partecipanti: le prove teorica e sperimentale, le fasce di merito, i commenti."},
-  {"t": 182, "tema": "Le gare", "nota": "La squadra italiana alle IPhO 2009 in Messico annuncia i risultati: due argenti e tre bronzi."},
-  {"t": 515, "tema": "Le gare", "nota": "IPhO 2010 a Zagabria: i punteggi di ogni italiano problema per problema, i cutoff delle medaglie e una discussione sui problemi."},
-  {"t": 825, "tema": "Le gare", "nota": "IPhO 2011: i risultati e una discussione su come si preparano le squadre degli altri paesi, Cina in testa."},
-  {"t": 7197, "tema": "Le gare", "nota": "Il diario delle IPhO 2023 a Tokyo, scritto giorno per giorno dalla squadra italiana: viaggio, prove, alloggi e risultati."}
+  {
+   "t": 13,
+   "tema": "Come prepararsi",
+   "nota": "La guida ai libri e ai siti per prepararsi alle Olimpiadi, curata da Pigkappa e aggiornata dal 2009 al 2021. È la discussione più letta di tutto il forum."
+  },
+  {
+   "t": 3446,
+   "tema": "Come prepararsi",
+   "nota": "Come funziona la prova sperimentale della gara nazionale, come viene corretta e come allenarsi a casa."
+  },
+  {
+   "t": 7175,
+   "tema": "Come prepararsi",
+   "nota": "Come si passa dalla gara di secondo livello a Senigallia: vincitori di polo, ripescaggi e posti disponibili, spiegati per bene."
+  },
+  {
+   "t": 6599,
+   "tema": "Come prepararsi",
+   "nota": "La prima scuola invernale non ufficiale, organizzata nel 2018 a Pisa da studenti della Normale ex olimpionici per preparare alla gara nazionale e internazionale."
+  },
+  {
+   "t": 387,
+   "tema": "Le gare",
+   "nota": "Una delle discussioni più vive sulla gara di febbraio: impressioni, soluzioni confrontate, dubbi di ottica e l'attesa dei risultati. Edizione 2010."
+  },
+  {
+   "t": 752,
+   "tema": "Le gare",
+   "nota": "La gara nazionale di Senigallia 2011 raccontata dai partecipanti: le prove teorica e sperimentale, le fasce di merito, i commenti."
+  },
+  {
+   "t": 182,
+   "tema": "Le gare",
+   "nota": "La squadra italiana alle IPhO 2009 in Messico annuncia i risultati: due argenti e tre bronzi."
+  },
+  {
+   "t": 515,
+   "tema": "Le gare",
+   "nota": "IPhO 2010 a Zagabria: i punteggi di ogni italiano problema per problema, i cutoff delle medaglie e una discussione sui problemi."
+  },
+  {
+   "t": 825,
+   "tema": "Le gare",
+   "nota": "IPhO 2011: i risultati e una discussione su come si preparano le squadre degli altri paesi, Cina in testa."
+  },
+  {
+   "t": 7197,
+   "tema": "Le gare",
+   "nota": "Il diario delle IPhO 2023 a Tokyo, scritto giorno per giorno dalla squadra italiana: viaggio, prove, alloggi e risultati."
+  }
  ],
  "teorici": [
-  {"t": 8, "tema": "Storia della sezione", "nota": "Tre masse collegate da due aste, da un compito di Fisica dell'università di Pisa: il primo problema pubblicato in questa sezione del forum, nel 2009."},
-  {"t": 417, "tema": "Storia della sezione", "nota": "La prima staffetta del forum: chi risolve un problema di meccanica ne propone uno nuovo, per oltre duecento messaggi tra il 2010 e il 2011."},
-  {"t": 7165, "tema": "Storia della sezione", "nota": "Il problema numero 300 della staffetta: un modello di forza impulsiva, con la dimostrazione che spostamento, velocità e lavoro non dipendono dalla forma della forza."},
-  {"t": 24, "tema": "Meccanica", "nota": "Macchina di Atwood con infinite carrucole: la discussione arriva al metodo che sfrutta il fatto che il sistema si ripete uguale a se stesso, e chiarisce la tensione su una carrucola senza massa."},
-  {"t": 640, "tema": "Meccanica", "nota": "Il classico problema della pila di mattoni sporgente: con il centro di massa si trova la sporgenza massima, che cresce come la serie armonica."},
-  {"t": 644, "tema": "Meccanica", "nota": "Una vedetta insegue un motoscafo puntando sempre verso di lui: più soluzioni a confronto, tra cui una molto breve ed elementare."},
-  {"t": 5992, "tema": "Meccanica", "nota": "Quattro macchinine in moto rettilineo uniforme: se avvengono cinque incroci avviene anche il sesto. Due dimostrazioni eleganti, una con il tempo come terza coordinata."},
-  {"t": 6886, "tema": "Meccanica", "nota": "Un ragazzo che corre sul ghiaccio deve girare da nord a est nel minor tempo possibile: la soluzione più bella ragiona nel piano delle velocità."},
-  {"t": 2327, "tema": "Meccanica", "nota": "Una pallina legata a un filo che si avvolge attorno a un piolo: perché la conservazione del momento angolare, usata in molti testi, qui non vale."},
-  {"t": 29, "tema": "Meccanica", "nota": "Il famoso problema dell'asta che scivola appoggiata a un muro liscio e a un certo punto se ne stacca, con una soluzione senza integrali."},
-  {"t": 433, "tema": "Meccanica", "nota": "Un'asta che gira descrivendo un cono viene liberata dal perno: un esempio chiaro di momento angolare e velocità angolare non paralleli."},
-  {"t": 346, "tema": "Meccanica", "nota": "Il momento d'inerzia di un'asta ridotta all'insieme di Cantor, dal Morin, risolto sfruttando il fatto che la figura si ripete uguale a se stessa."},
-  {"t": 7255, "tema": "Meccanica", "nota": "Una torre infinita di cilindri e assi, dal Morin, con la soluzione completa confrontata con quella pubblicata da Harvard."},
-  {"t": 7222, "tema": "Meccanica", "nota": "Una sfera rotola in una guida ad angolo retto inclinata: si confrontano risultati pubblicati in fonti diverse e si mostra che due descrizioni del moto sono equivalenti."},
-  {"t": 6465, "tema": "Meccanica", "nota": "Un'asta appesa a due fili: se si taglia un filo, l'altra estremità sale o scende? Una discussione vivace e una dimostrazione valida per qualunque distribuzione di massa."},
-  {"t": 6434, "tema": "Meccanica", "nota": "Una palla rotola su un foglio tirato a caso: quando torna sul tavolo ha la stessa velocità di prima. La trattazione vettoriale viene corretta con cura."},
-  {"t": 6445, "tema": "Meccanica", "nota": "Un satellite frenato dall'atmosfera accelera invece di rallentare: la discussione spiega perché e ricava la densità dell'aria a 200 km di quota."},
-  {"t": 356, "tema": "Elettromagnetismo", "nota": "Il classico problema della resistenza tra due nodi vicini di una griglia infinita di resistori, con la soluzione per sovrapposizione e i suoi punti delicati."},
-  {"t": 927, "tema": "Elettromagnetismo", "nota": "Quale forza tiene unite le due metà di una sfera conduttrice carica: perché non si può concentrare la carica nel centro di ogni metà, e tre metodi a confronto."},
-  {"t": 528, "tema": "Elettromagnetismo", "nota": "La forza su una faccia di un cubo con facce cariche: perché il campo appena dentro e appena fuori una superficie carica sono diversi."},
-  {"t": 101, "tema": "Elettromagnetismo", "nota": "Un apparente paradosso sull'energia di una calamita che si orienta in un campo magnetico, sciolto con spiegazioni pazienti sulla differenza tra energia del campo ed energia del dipolo."},
-  {"t": 1397, "tema": "Elettromagnetismo", "nota": "Una nuvola carica sopra il suolo, risolta con le cariche immagine, e una spiegazione del perché il metodo funziona."},
-  {"t": 6017, "tema": "Elettromagnetismo", "nota": "Due lastre cariche in moto parallelo: la forza magnetica può bilanciare quella elettrica? Il paradosso che ne nasce si risolve nel riferimento in cui le lastre sono ferme."},
-  {"t": 6059, "tema": "Elettromagnetismo", "nota": "Un elettrone tra due cilindri coassiali in un campo magnetico: il campo critico, trovato con un ragionamento sul momento angolare che evita di calcolare la traiettoria."},
-  {"t": 7182, "tema": "Elettromagnetismo", "nota": "Per un insieme di cariche ferme, energia potenziale nulla ed equilibrio vanno di pari passo? Un controesempio e un ragionamento accurato."},
-  {"t": 884, "tema": "Elettromagnetismo", "nota": "La conservazione della carica ricavata dalle equazioni di Maxwell in forma integrale, fino all'equazione di continuità."},
-  {"t": 6647, "tema": "Termodinamica e fisica statistica", "nota": "I vertici di un piatto triangolare sono tenuti a temperature fisse: la temperatura del centro si trova con linearità e simmetria, dopo aver chiarito perché non si può ragionare con tre sbarrette."},
-  {"t": 111, "tema": "Termodinamica e fisica statistica", "nota": "Un gas e uno strato solido in un cilindro isolato, compressi lentamente oppure di colpo, con una spiegazione chiara della differenza tra entropia scambiata ed entropia prodotta."},
-  {"t": 5983, "tema": "Termodinamica e fisica statistica", "nota": "La ruota dentata di Feynman tra due gas a temperature diverse, risolta passo passo con la legge di Boltzmann."},
-  {"t": 6320, "tema": "Termodinamica e fisica statistica", "nota": "Un palloncino gonfiato con l'idrogeno di un serbatoio rigido può sollevare il serbatoio? La risposta dipende solo dalla resistenza e dalla densità del materiale."}
+  {
+   "t": 8,
+   "tema": "Storia della sezione",
+   "nota": "Tre masse collegate da due aste, da un compito di Fisica dell'università di Pisa: il primo problema pubblicato in questa sezione del forum, nel 2009."
+  },
+  {
+   "t": 24,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Macchina di Atwood con infinite carrucole: la discussione arriva al metodo che sfrutta il fatto che il sistema si ripete uguale a se stesso, e chiarisce la tensione su una carrucola senza massa."
+  },
+  {
+   "t": 640,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Il classico problema della pila di mattoni sporgente: con il centro di massa si trova la sporgenza massima, che cresce come la serie armonica."
+  },
+  {
+   "t": 644,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Una vedetta insegue un motoscafo puntando sempre verso di lui: più soluzioni a confronto, tra cui una molto breve ed elementare."
+  },
+  {
+   "t": 2327,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Una pallina legata a un filo che si avvolge attorno a un piolo: perché la conservazione del momento angolare, usata in molti testi, qui non vale."
+  },
+  {
+   "t": 29,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Il famoso problema dell'asta che scivola appoggiata a un muro liscio e a un certo punto se ne stacca, con una soluzione senza integrali."
+  },
+  {
+   "t": 433,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Un'asta che gira descrivendo un cono viene liberata dal perno: un esempio chiaro di momento angolare e velocità angolare non paralleli."
+  },
+  {
+   "t": 346,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Il momento d'inerzia di un'asta ridotta all'insieme di Cantor, dal Morin, risolto sfruttando il fatto che la figura si ripete uguale a se stessa."
+  },
+  {
+   "t": 7222,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Una sfera rotola in una guida ad angolo retto inclinata: si confrontano risultati pubblicati in fonti diverse e si mostra che due descrizioni del moto sono equivalenti."
+  },
+  {
+   "t": 16,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Un blocco scende senza attrito su un piano inclinato libero di muoversi: spostamento e accelerazione del piano, e un dibattito su cosa succede quando il blocco arriva al tavolo."
+  },
+  {
+   "t": 69,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Un problema originale di biliardo con un disco che urta la sponda con attrito, e una buona discussione sull'attrito durante un urto e sul lavoro che compie."
+  },
+  {
+   "t": 104,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Un problema delle selezioni per le IPhO 2001, una sfera che urta un gradino, con la spiegazione di come usare il momento angolare rispetto allo spigolo."
+  },
+  {
+   "t": 53,
+   "tema": "Meccanica e gravitazione",
+   "nota": "La superficie di un liquido in un recipiente che ruota è un paraboloide: un classico, con un ragionamento che evita l'integrale."
+  },
+  {
+   "t": 652,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Un ipotetico universo pieno d'acqua: un dibattito acceso su come trattarlo, con le sfere immagine, e la domanda se il problema abbia senso fisico."
+  },
+  {
+   "t": 105,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Un problema originale di atterraggio con massa variabile, proposto e risolto sul forum."
+  },
+  {
+   "t": 132,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Il problema 3 della PreIPhO 2009: una bilancia a molla su una strada ondulata, risolto un passo alla volta."
+  },
+  {
+   "t": 123,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Un problema della PreIPhO su un proiettile da lanciare tra due pianeti, con una discussione su quale sia il punto migliore da cui lanciarlo."
+  },
+  {
+   "t": 580,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Una stella perde l'1% della sua massa: quanto diventa eccentrica l'orbita di un pianeta?"
+  },
+  {
+   "t": 190,
+   "tema": "Meccanica e gravitazione",
+   "nota": "Il primo problema delle IPhO 2009, sul sistema Terra e Luna, trascritto e affrontato sul forum."
+  },
+  {
+   "t": 356,
+   "tema": "Elettromagnetismo",
+   "nota": "Il classico problema della resistenza tra due nodi vicini di una griglia infinita di resistori, con la soluzione per sovrapposizione e i suoi punti delicati."
+  },
+  {
+   "t": 927,
+   "tema": "Elettromagnetismo",
+   "nota": "Quale forza tiene unite le due metà di una sfera conduttrice carica: perché non si può concentrare la carica nel centro di ogni metà, e tre metodi a confronto."
+  },
+  {
+   "t": 528,
+   "tema": "Elettromagnetismo",
+   "nota": "La forza su una faccia di un cubo con facce cariche: perché il campo appena dentro e appena fuori una superficie carica sono diversi."
+  },
+  {
+   "t": 101,
+   "tema": "Elettromagnetismo",
+   "nota": "Un apparente paradosso sull'energia di una calamita che si orienta in un campo magnetico, sciolto con spiegazioni pazienti sulla differenza tra energia del campo ed energia del dipolo."
+  },
+  {
+   "t": 1397,
+   "tema": "Elettromagnetismo",
+   "nota": "Una nuvola carica sopra il suolo, risolta con le cariche immagine, e una spiegazione del perché il metodo funziona."
+  },
+  {
+   "t": 6017,
+   "tema": "Elettromagnetismo",
+   "nota": "Due lastre cariche in moto parallelo: la forza magnetica può bilanciare quella elettrica? Il paradosso che ne nasce si risolve nel riferimento in cui le lastre sono ferme."
+  },
+  {
+   "t": 884,
+   "tema": "Elettromagnetismo",
+   "nota": "La conservazione della carica ricavata dalle equazioni di Maxwell in forma integrale, fino all'equazione di continuità."
+  },
+  {
+   "t": 7251,
+   "tema": "Elettromagnetismo",
+   "nota": "Una scala infinita di resistori, con una soluzione generale e pulita."
+  },
+  {
+   "t": 111,
+   "tema": "Termodinamica e fisica statistica",
+   "nota": "Un gas e uno strato solido in un cilindro isolato, compressi lentamente oppure di colpo, con una spiegazione chiara della differenza tra entropia scambiata ed entropia prodotta."
+  },
+  {
+   "t": 525,
+   "tema": "Termodinamica e fisica statistica",
+   "nota": "Particelle con due soli livelli di energia in contatto con un serbatoio: il rapporto tra le popolazioni ricavato dalla definizione statistica dell'entropia, e perché qui non vale l'equipartizione."
+  },
+  {
+   "t": 122,
+   "tema": "Fisica moderna",
+   "nota": "Il primo problema della PreIPhO 2009, un urto tra atomi di idrogeno ed elio: velocità minima perché venga emesso un fotone ed effetto Doppler, con una soluzione completa e una più rapida nel centro di massa."
+  }
  ],
  "caffe": [
-  {"t": 11, "tema": "La vita del forum", "nota": "I primi auguri al forum appena aperto, nel 2009, quando la fisica lasciava la sezione che aveva sul forum delle Olimpiadi di Matematica."},
-  {"t": 107, "tema": "La vita del forum", "nota": "L'annuncio della squadra italiana per le IPhO 2009, con il tifo e le scommesse degli altri utenti."},
-  {"t": 6246, "tema": "Giochi e curiosità", "nota": "Il celebre indovinello degli isolani dagli occhi blu: due soluzioni in apparenza convincenti, e la ricerca dell'errore in quella sbagliata."},
-  {"t": 6382, "tema": "Giochi e curiosità", "nota": "Quanto pagheresti per un gioco con vincita media infinita? Il paradosso di San Pietroburgo, proposto come possibile domanda d'orale.", "escludi": [28394]},
-  {"t": 535, "tema": "Giochi e curiosità", "nota": "Un servizio del TG2 sostiene che un 6 al Superenalotto diventa più probabile se non esce da tempo: la discussione fa i conti."},
-  {"t": 730, "tema": "Fisica e attualità", "nota": "L'incidente di Fukushima nel 2011: cosa vuol dire una dose di radiazioni, e quanto c'era da preoccuparsi in Italia."},
-  {"t": 394, "tema": "Dopo il liceo", "nota": "Come scegliere l'università e il corso di laurea, con i consigli di chi ci era appena passato."},
-  {"t": 829, "tema": "Dopo il liceo", "nota": "Pisa o Padova per studiare Fisica? Cosa rende buona un'università e quanto valgono le classifiche."},
-  {"t": 6716, "tema": "Dopo il liceo", "nota": "Studiare a Cambridge invece che in Italia: costi, preparazione e porte che apre, con i consigli di chi ha fatto il dottorato nel Regno Unito."}
+  {
+   "t": 11,
+   "tema": "La vita del forum",
+   "nota": "I primi auguri al forum appena aperto, nel 2009, quando la fisica lasciava la sezione che aveva sul forum delle Olimpiadi di Matematica."
+  },
+  {
+   "t": 107,
+   "tema": "La vita del forum",
+   "nota": "L'annuncio della squadra italiana per le IPhO 2009, con il tifo e le scommesse degli altri utenti."
+  },
+  {
+   "t": 6246,
+   "tema": "Giochi e curiosità",
+   "nota": "Il celebre indovinello degli isolani dagli occhi blu: due soluzioni in apparenza convincenti, e la ricerca dell'errore in quella sbagliata."
+  },
+  {
+   "t": 6382,
+   "tema": "Giochi e curiosità",
+   "nota": "Quanto pagheresti per un gioco con vincita media infinita? Il paradosso di San Pietroburgo, proposto come possibile domanda d'orale.",
+   "escludi": [
+    28394
+   ]
+  },
+  {
+   "t": 535,
+   "tema": "Giochi e curiosità",
+   "nota": "Un servizio del TG2 sostiene che un 6 al Superenalotto diventa più probabile se non esce da tempo: la discussione fa i conti."
+  },
+  {
+   "t": 730,
+   "tema": "Fisica e attualità",
+   "nota": "L'incidente di Fukushima nel 2011: cosa vuol dire una dose di radiazioni, e quanto c'era da preoccuparsi in Italia."
+  },
+  {
+   "t": 394,
+   "tema": "Dopo il liceo",
+   "nota": "Come scegliere l'università e il corso di laurea, con i consigli di chi ci era appena passato."
+  },
+  {
+   "t": 829,
+   "tema": "Dopo il liceo",
+   "nota": "Pisa o Padova per studiare Fisica? Cosa rende buona un'università e quanto valgono le classifiche."
+  },
+  {
+   "t": 6716,
+   "tema": "Dopo il liceo",
+   "nota": "Studiare a Cambridge invece che in Italia: costi, preparazione e porte che apre, con i consigli di chi ha fatto il dottorato nel Regno Unito."
+  }
  ]
 }

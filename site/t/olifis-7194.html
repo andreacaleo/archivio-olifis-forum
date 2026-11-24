@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>307. L&#x27;eclisse delle due lune</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 307</a></span></nav>
+<h1>307. L'eclisse delle due lune</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7194">forum Olifis</a></p>
+<article class="post first" id="p27808"><div class="who"><b>Francesco Leccese</b><span>30 giu 2023, 21:35</span></div>Supponete che la Terra abbia un secondo satellite naturale, chiamato Luna2 e identico alla Luna, ma posto a una distanza media pari al doppio della distanza media Terra-Luna, e che il suo piano orbitale coincida con il piano orbitale della Luna. Ogni quanto tempo un osservatore posto sulla Terra vedrebbe la Luna2 perfettamente allineata dietro la Luna? A quanto ammonterebbe questo intervallo di tempo se il moto orbitale della Luna2 attorno alla Terra fosse retrogrado? Considerate le orbite della Luna e della Luna2 circolari.<br>
+.<br>
+Dati necessari:<br>
+Semiasse maggiore dell'orbita della Luna = <span class="tex">\(384.4\cdot 10^3 km\)</span><br>
+Periodo siderale della Luna = <span class="tex">\(27.322 g\)</span><br>
+<br>
+Nota (<strong class="text-strong">rettifica</strong>): il problema richiede di trovare ogni quanto tempo è possibile osservare un'eclisse in generale dalla Terra, non da una stessa località. Il dato relativo al periodo di rotazione della Terra è quindi superfluo.</article>
+<article class="post" id="p27810"><div class="who"><b>Francesco Leccese</b><span>2 lug 2023, 20:58</span></div>In assenza di risposte, domani intorno a quest'ora pubblicherò un hint</article>
+<article class="post" id="p27812"><div class="who"><b>Higgs</b><span>3 lug 2023, 10:43</span></div>Approfitto di questa tua intenzione perché In realtà da un paio di giorni sono di fronte ad un problema. Io interpreto che  il senso della Nota sia quello di  non cercare sovrapposizioni (eclissi) in qualsiasi posizione ma nella stessa da cui si parte. Questo per me vorrebbe dire che se avviene un'eclisse poniamo con allineamento sull'asse x orizzontale, dobbiamo ricercare la prossima sullo stesso asse. Se questa interpretazione della tua Nota fosse corretta, vorrebbe dire che ciascuna delle due, nel periodo di eclisse,  dovrebbe compiere un numero diverso ma <strong class="text-strong">intero</strong> di giri, ovvero che il rapporto fra i giri di Luna e di Luna2 sarebbe un numero<strong class="text-strong"> razionale.</strong> Ma ora è proprio qui che mi casca l'asino. Secondo la terza legge di Keplero applicata alle 2 Lune, a me tornerebbe che il periodo di Luna2, che rappresenta il tempo impiegato da Luna2 a compiere un giro,  è <span class="tex">\(T_{L2}=T_L. 2\sqrt{2}\)</span>dove <span class="tex">\(T_L\)</span> rappresenta il periodo della Luna di 27.322 giorni, uguale a quello della sua rotazione in modo da presentare a noi sempre la stessa faccia.. Ovvero il rapporto fra i due periodi è invece <strong class="text-strong">IRRAZIONALE</strong>. Quindi sembrerebbe che fosse impossibile che si riproducesse l'eclisse sull'asse x. <br>
+Mi auguro di aver male interpretato il testo e/o la Nota. :?:  :?:</article>
+<article class="post" id="p27813"><div class="who"><b>Torros</b><span>3 lug 2023, 11:12</span></div>Io avevo capito in un altro modo Higgs. Penso si intenda che, stando in una stessa posizione sulla Terra, l’osservatore veda le due lune allineate nel cielo e, passato un certo periodo di tempo da ricavare, l’osservatore veda la stessa situazione in un altro punto del cielo. L’asse di allineamento non credo debba essere sempre lo stesso, almeno da come è scritto il testo. Mi chiedo tuttavia, se così fosse, come si possa trovare il tempo che divide le due osservazioni non disponendo delle condizioni iniziali.</article>
+<article class="post" id="p27814"><div class="who"><b>Higgs</b><span>3 lug 2023, 11:37</span></div>Scusa Torros per curiosità cosa vuol dire per te la Nota che raccomanda che non si tratti di eclissi qualsivoglia?</article>
+<article class="post" id="p27815"><div class="who"><b>Francesco Leccese</b><span>3 lug 2023, 12:34</span></div>Buongiorno,<br>
+ho rifatto i calcoli e ricontrollato l'esercizio. La nota che ho messo è errata, infatti si cerca non quanto tempo passa da un'eclisse a un'altra rispetto a uno stesso osservatore, ma in generale dalla Terra.<br>
+Mi scuso, perché avevo interpretato male l'esercizio. Adesso eliminerò/modificherò la nota.<br>
+Per quanto riguarda il periodo trovato da Higgs, <span class="tex">\(T_{L2} = 2\sqrt {2} T_{L1}\)</span>, è corretto. Inoltre, per rispondere alla sua perplessità dovuta al rapporto irrazionale dei periodi, credo che la soluzione sia nel fatto che le due Lune non sono particelle ma corpi estesi, con un certo diametro apparente.<br>
+In ogni caso, questa informazione non è importante ai fini del nostro problema perché, appunto, non si cerca un'eclisse rispetto a un solo osservatore ma dalla Terra in generale.<br>
+Per mettere in chiaro una volta per tutte, si cerca quanto tempo passa tra un allineamento delle due Lune e l'altro <strong class="text-strong">rispetto alla Terra</strong>, e non è quindi necessario il dato relativo alla rotazione sul proprio asse di quest'ultima.<br>
+Se avete altre domande, non esitate a chiedere.</article>
+<article class="post" id="p27816"><div class="who"><b>Higgs</b><span>4 lug 2023, 18:19</span></div>Tento una mia soluzione visto anche che nessuno ci si prova....Ma non so se ora ho capito il nuovo testo e la nuova nota...<br>
+Essendo <span class="tex">\(T_{L2}= 2\sqrt{2}T_L\)</span>risulta facilmente che la velocità angolare di Luna2 sarà <span class="tex">\(\omega_{L2} =\frac{\omega}{2\sqrt{2}}\)</span>. Pertanto a partire da questo momento e immaginando che ci sia l'eclisse di Luna2 all'inizio sull'asse x, la Luna fa un giro completo<span class="tex">\(2\pi=\omega T\)</span> in 27,322 giorni inseguita da Luna2 che ne fa invece circa un terzo. Ovviamente non si è verificata nessuna nuova eclisse non essendoci possibilità di sovrapposizione.. Se iniziamo a misurare il tempo t dopo T la nuova eclisse si verificherà quando la Luna e la Luna2 avranno compiuto lo <strong class="text-strong">stesso angolo </strong>cioè quando <span class="tex">\(\omega_{L2}(T+t)=\omega_L t\)</span>. Il periodo dell'eclisse è<span class="tex">\(\tau=T+t\)</span>. Si può ricavare t dall'espressione dello stesso angolo cioè <span class="tex">\(t=\frac{\omega_{L2}.T}{\omega_L-\omega_{L2}}\)</span><br>
+da cui avremo il periodo di eclisse <span class="tex">\(\tau=t+T=\frac{\omega_L T}{\omega_L-\omega_{L2}}\)</span> ovviamente maggiore di T. <br>
+Quando invece L2 è retrograda l'eclisse avviene quando i due angoli sono <strong class="text-strong">supplementari</strong> generando un periodo di eclisse minore di T in questo caso. Sarà il tempo <span class="tex">\(t=\tau\)</span>facilmente determinato da <span class="tex">\(\omega_L t+\omega_{L2} t= \omega_L T=2\pi\)</span>In questo caso ricaviamo <span class="tex">\(t=\tau=\frac{\omega_L T}{\omega_L+\omega_{L2}}\)</span>. Chiaramente si possono sostituire i valori numerici ricordando ancora che T=27,322 giorni da cui si possono dedurre <span class="tex">\(\omega_L, \omega_{L2}\)</span>...... :?:  :?:  :?:</article>
+<article class="post" id="p27817"><div class="who"><b>Francesco Leccese</b><span>4 lug 2023, 18:53</span></div>È corretto!  :) <br>
+Inserendo i dati si ottiene:<br>
+Per l'orbita prograda: t = 42.265 giorni<br>
+Per l'orbita retrograda: t = 20.185 giorni.<br>
+Il problema era dalla prova teorica della categoria Junior 2 dei Campionati Italiani di Astronomia di quest'anno. In fondo a questa pagina troverete le prove teoriche e pratiche di tutte le categorie:<br>
+<br>
+<a href="http://www.campionatiastronomia.it/finale-nazionale-2023-i-vincitori/" class="ext" class="postlink">http://www.campionatiastronomia.it/fina ... vincitori/</a><br>
+<br>
+Sarebbe interessante ripetere i calcoli per il problema che avevo posto (erroneamente) all'inizio, cioè cercare ogni quanto è possibile osservare un'eclisse da una stessa località.<br>
+Ad ogni modo, a te la staffetta!</article>
+<nav class="pager"><a class="prev" href="olifis-7193.html"><small>← precedente</small>306. Catena che cade</a><a class="next" href="olifis-7196.html"><small>successivo →</small>308. Carica e sfera conduttrice</a></nav>
+</main></body></html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>102. Protostella</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 102</a></span></nav>
+<h1>102. Protostella</h1>
+<p class="meta">25 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6429">forum Olifis</a></p>
+<article class="post first" id="p23108"><div class="who"><b>CaptainJohnCabot</b><span>26 ott 2016, 7:20</span></div>Si consideri una protostella in collasso gravitazionale come una sfera di gas di massa <span class="tex">\(m\)</span> . Quando il raggio è <span class="tex">\(r_0\)</span> si possono trascurare gli scambi di calore a causa dell'irraggiamento (il collasso è adiabatico). Trovare approssimativamente, anche senza determinare i coefficienti adimensionali, il raggio <span class="tex">\(r\)</span> e la temperatura <span class="tex">\(T\)</span> quando la stella smette di collassare (si considera <span class="tex">\(T\)</span> comunque minore della temperatura di fusione).</article>
+<article class="post" id="p23109"><div class="who"><b>guido</b><span>26 ott 2016, 11:53</span></div>Nella fase iniziale trascurare gli scambi con l'esterno vuol dire che il collasso è adiabatico o che si mantiene in equilibrio termico con l'ambiente e quindi il collasso è isotermo in questa prima fase. E' una questione linguistica decisiva. Grazie.</article>
+<article class="post" id="p23111"><div class="who"><b>CaptainJohnCabot</b><span>26 ott 2016, 15:10</span></div>Il collasso è adiabatico  :D</article>
+<article class="post" id="p23112"><div class="who"><b>Pigkappa</b><span>26 ott 2016, 16:59</span></div>Vi lascio uno schema molto semplificato di quel che succede per evitare vi vengano idee confuse :P . Se non sbaglio succede questo:<br>
+<br>
+1.) In una prima fase iniziale la materia e' molto dispersa. Comincia a collassare e mentre collassa aumentano densita', pressione, temperatura, in particolare nelle zone centrali. L'aumento di temperatura causa emissione di luce che viene dispersa.<br>
+<br>
+2.) A un certo punto la densita' e' abbastanza grande da far si' che i fotoni emessi vengono riassorbiti prima di uscire dalla struttura (immaginate ci sia nebbia). Tuttavia la pressione non e' ancora sufficiente a fermare il collasso. Il tempo scala <span class="tex">\(t_{emissione}\)</span> in cui la radiazione sfugge dalla struttura e' molto piu' lungo di quello di collasso <span class="tex">\(t_{dinamico}\)</span>. In questo senso possiamo dire che il collasso e' adiabatico. In fisica stellare, questi due tempi si chiamano rispettivamente "tempo di Kelvin-Helmoltz" e "tempo di caduta libera".<br>
+<br>
+3.) A un certo punto la pressione e' aumentata a sufficienza da fermare il collasso. Da questo momento in poi la struttura non collassa piu' in un tempo <span class="tex">\(t_{dinamico}\)</span>. Tuttavia, continua a perdere energia interna, e quindi temperatura e pressione, in un tempo <span class="tex">\(t_{emissione}\)</span>. Per cui continua a collassare, ma piu' lentamente, su un tempo <span class="tex">\(t_{emissione}\)</span>.<br>
+<br>
+4.) A un certo punto la pressione e temperatura centrali sono diventate cosi' grandi che iniziano a esserci reazioni nucleari nel nocciolo della struttura. La stella continua a perdere energia in un tempo <span class="tex">\(t_{emissione}\)</span> ma nuova energia viene generata nel centro per cui il collasso rallenta ancora di piu'. Il nuovo tempo scala <span class="tex">\(t_{nucleare}\)</span> e' quello in cui si esaurisce il combustibile nucleare (ad esempio per il Sole circa 10 miliardi di anni, necessari per finire di bruciare l'idrogeno).<br>
+<br>
+Il problema di CaptainJohnCabot si riferisce al punto 2. La struttura si chiama "protostella" nelle fasi 1-3 e "stella" a partire dalla fase 4.</article>
+<article class="post" id="p23113"><div class="who"><b>guido</b><span>26 ott 2016, 17:54</span></div>Se il collasso è adiabatico il lavoro di contrazione effettuato dalla forza gravitazionale è uguale alla variazione di energia interna. Considerando il gas perfetto abbiamo <span class="tex">\(p_fV_f^\gamma= p_0.V_0^\gamma=k\)</span> che è possibile determinare in funzione di <span class="tex">\(r_0 e T_0\)</span> e sono <span class="tex">\(V_f=(4/3)\pi r_f^3 , V_0=(4/3)\pi r_0^3\)</span> . Se come mi sembra <span class="tex">\(T_0\)</span>non è data, a parte la difficoltà dei conti, si può determinarla sfruttando la ulteriore relazione <span class="tex">\(T_f.V_f^{\gamma -1}= T_0.V_0^{\gamma -1}\)</span>. Ma secondo me il punto centrale è: fino a quale r continua il collasso? Secondo me fino a quando la pressione interna del gas uguaglia quella prodotta dalla forza gravitazionale. Io non trovo di meglio che approssimare questa pressione finale con quella di una colonna di gas alta <span class="tex">\(r_f\)</span> con acc. di gravità quella competente a <span class="tex">\(r_f\)</span> ovvero <span class="tex">\(a(r_f)= Gm/r_f^2\)</span> Sarà<span class="tex">\(p_f= \rho.a(r_f).r_f= (\rho/\mu).RT_f\)</span> in funzione della densità che si elimina e del peso molecolare. Si possono determinare <span class="tex">\(r_f e T_f\)</span> ma prima di postare i risultati vorrei sapere se <span class="tex">\(T_0\)</span>è data e se questo procedimento può andare :?:  :?:<br>
+<br>
+P:S. Ahimé quando sono andato a inviare questo messaggio ho letto quello di Pigkappa!!! Lascio il mio tuttavia per vedere quanto poco ci avevo capito :roll:  :roll:  :roll:</article>
+<article class="post" id="p23114"><div class="who"><b>FedericoC.</b><span>26 ott 2016, 18:35</span></div>Il problema è proprio bello spero di averci preso  :D <br>
+<br>
+Ho ragionato con l'energia, il collasso gravitazionale implica una diminuzione dell'energia gravitazionale e un aumento della temperatura.<br>
+Per calcolare l'energia potenziale gravitazionale ho considerato l'energia guadagnata da un guscio sferico portato dall'infinito nella sua posizione. Definito il potenziale gravitazionale come <span class="tex">\(\displaystyle V=\frac{4}{3}G\pi\rho r^2\)</span>, cioè l'energia potenziale per unità di massa, si può calcolare l'energia totale integrando:<br>
+<span class="tex">\(\displaystyle dU=\frac{16}{3}\pi^2G\rho^2 r^4 dr\)</span><br>
+<br>
+<span class="tex">\(\displaystyle U=\int^r_0{\frac{16}{3}\pi^2G\rho^2 r^4 dr}=\frac{3}{5}Gm^2\frac{1}{r}\)</span>, avendo sostituito il corrispettivo valore di <span class="tex">\(\displaystyle \rho=\frac{m}{\frac{4}{3}\pi r^3}\)</span><br>
+<br>
+Dalla conservazione dell'energia: <span class="tex">\(\displaystyle \frac{3}{5}Gm^2(\frac{1}{r}-\frac{1}{r_0})=C_vn(T-T_0)\)</span><br>
+<br>
+Ora dato che la compressione è adiabatica: <span class="tex">\(\displaystyle T_0r_0^{3\gamma -3}=Tr^{3\gamma -3}\)</span><br>
+<br>
+Dalle due equazioni precedenti si può ricavare sia <span class="tex">\(T\)</span> che <span class="tex">\(r\)</span>, i calcoli non li ho fatti, in caso fosse giusto posso farli.<br>
+Non so se sia lecito considerare note<span class="tex">\(T_0, \gamma\)</span> e <span class="tex">\(n\)</span>o il peso molecolare  :roll:</article>
+<article class="post" id="p23116"><div class="who"><b>CaptainJohnCabot</b><span>26 ott 2016, 22:59</span></div>Molto approfondite entrambe le soluzioni e un grazie a pigkappa per il suo fantastico intervento chiarificatore  :D <br>
+<br>
+Era lecito considerare note <span class="tex">\(T_0\)</span>, <span class="tex">\(\gamma\)</span> ecc... Nel problema originale venivano ricavati dai dati iniziali nelle varie parti che non ho riportato. Imprecisione mia nell'adattamento   :?  :roll: <br>
+<span style="text-decoration:underline"><br>
+<em class="text-italics">Per Federico</em></span>:<br>
+<br>
+Il procedimento è sicuramente giusto a livello concettuale, quindi a meno di errori di calcolo i risultati dovrebbero venirti. Basta che posti l'espressione, anche senza i vari passaggi risolutivi, di <span class="tex">\(r\)</span> o <span class="tex">\(T\)</span>, e ti passo la staffetta. Mi serve giusto come conferma e per dare una conclusione formale al problema. <br>
+<br>
+<span style="text-decoration:underline"><em class="text-italics">Per guido</em></span>:<br>
+<br>
+Il tuo metodo di risoluzione è uguale, o almeno molto simile, al mio. Bilanciare la pressione 'idrostatica' con quella del gas perfetto, dato che non sono necessari coefficienti adimensionali, permette di risolvere, anche se brutalmente, il problema molto più velocemente. Il quesito completo è il terzo delle IPhO del 2012, e nelle varie soluzioni alle domande vengono preferiti analoghi espedienti risolutivi in grado di velocizzare molto i calcoli. <br>
+<br>
+In questo caso, anche se entrambi gli approcci sono corretti, ho deciso, dopo che avrà postato i risultati, di dare la staffetta a Federico, dato che è riuscito a determinare in più i famosi coefficienti adimensionali.</article>
+<article class="post" id="p23117"><div class="who"><b>guido</b><span>27 ott 2016, 17:08</span></div>Per Federico e Cap. John Cabot.<br>
+Scusatemi mi sonono potuto riricollegare solo ora. Federico non ha ancora postato i risultati per cui vorrei chiedere qualcosa rispetto a quello che io ho considerato come problema principale: perchè l'r che Federico calcola è quello a cui la stella smette di collassare?<br>
+Dalla sua soluzione non lo capisco forse non vedo qualcosa  :?:</article>
+<article class="post" id="p23118"><div class="who"><b>FedericoC.</b><span>27 ott 2016, 17:37</span></div><strong class="text-strong">Per Guido:</strong> <span class="tex">\(r\)</span> è il raggio a cui si ferma il collasso gravitazionale poiché, essendo questo adiabatico e avendo una relazione tra la temperatura e il volume di tale trasformazione, il raggio è univocamente determinato. Cerco di spiegarmi meglio, se il collasso fosse minore o maggiore non potrebbe essere adiabatico.<br>
+<br>
+<strong class="text-strong">Per Captain:</strong> senza l'approssimazione <span class="tex">\(r_0&gt;&gt;r\)</span> è veramente troppo contoso, spero me la passerai per buona.<br>
+<span class="tex">\(\displaystyle r=r_0 (\frac{5\frac{R}{\gamma-1}T_0r_0}{3Gm\mu })^\frac{1}{3\gamma-4}\)</span><br>
+<br>
+Probabilmente si poteva approssimare meglio per avere qualcosa di più decente  :lol:</article>
+<article class="post" id="p23119"><div class="who"><b>CaptainJohnCabot</b><span>27 ott 2016, 20:17</span></div>Ok Federico, procedi pure con il 103   :mrgreen:</article>
+<article class="post" id="p23121"><div class="who"><b>guido</b><span>28 ott 2016, 10:06</span></div>Non sono assolutamente convinto dalla vostra spiegazione. Se dai due relazioni in due incognite il raggio è univocamente determinato per ogni punto del processo adiabatico indipendentemente dal fatto che sia quello a cui cessa il collasso. Secondo te poi il processo senza collasso non sarebbe adiabatico...Il problema è proprio questo: dato il processo adiabatico, trovare il raggio per cui cessa il collasso. Ribadisco che questo avviene nel momento in cui la <strong class="text-strong">pressione interna uguaglia quella gravitazionale </strong>(vedi la mia soluzione).<br>
+Dico questo non per contestare il testimone ma perchè credo che sia così fino a prova contraria( e non giudico tale la tua). Infatti in altre circostanze ho ceduto il testimone (guadagnato) di buon grado perchè mi diverto di più a postare soluzioni (se ci riesco) che problemi.</article>
+<article class="post" id="p23122"><div class="who"><b>Pigkappa</b><span>28 ott 2016, 11:26</span></div>Di solito cerco di non intervenire ma i problemi di astrofisica mi piacciono per cui intervengo :P. Anche a me sembrava inizialmente che il procedimento di Federico si applichi tra due istanti qualsiasi durante il collasso adiabatico. Adesso penso di aver capito perche' la sua soluzione funziona.<br>
+<br>
+Premessa: si fanno molte approssimazioni in astrofisica perche' la materia e' difficile. Molti fenomeni avvengono allo stesso tempo. Sia Federico che guido hanno fatto forti assunzioni e approssimazioni senza giustificarle e forse senza accorgersene.<br>
+
+<blockquote><div><cite>FedericoC. ha scritto:</cite>Dalla conservazione dell'energia: <span class="tex">\(\displaystyle \frac{3}{5}Gm^2(\frac{1}{r}-\frac{1}{r_0})=C_vn(T-T_0)\)</span></div></blockquote>
+Dal messaggio di Federico sembra che mentre la stella collassa, l'energia gravitazionale diventa energia interna, e lui ha usato l'equazione qua sopra. Il problema e' che se questa equazione vale ad ogni istante, e <span class="tex">\(p V^\gamma = const\)</span> vale ad ogni istante, allora non si capisce come mai possiamo ricavare il raggio al termine del collasso <span class="tex">\(r\)</span> da queste due equazioni invece che un raggio qualsiasi. La risposta e' che l'equazione qua sopra vale solo al termine del collasso. <br>
+<br>
+Il motivo e' che durante il collasso adiabatico, in cui come ho descritto sopra la pressione non riesce a fermare le particelle, l'energia gravitazionale diventa energia cinetica delle particelle che cadono verso il centro. In questo caso l'energia cinetica delle particelle <strong class="text-strong">non</strong> e' l'energia interna: la loro velocita' non e' affatto distribuita uniformemente nelle tre direzioni ma e' diretta verso il centro della struttura. Per fare una analogia, immaginate una cascata; mentre l'acqua cade acquista velocita' verso il basso ma la sua temperatura non aumenta. Questo succede solo quando l'acqua si schianta nella valle sotto la cascata.<br>
+<br>
+La relazione sopra vale quando la velocita' e' diventata circa distribuita uniformemente nelle tre direzioni, e questo avviene quando le particelle sono state quasi fermate dalla pressione, e cioe' al termine del collasso.<br>
+<br>
+Il rischio che si corre con questi problemini di astrofisica e' di far sembrare questi argomenti troppo semplici. Se vi danno un problema di solito vuol dire che c'e' una soluzione, e facendo un po' di esperimenti spesso sembra facile trovarne una e probabilmente e' quella giusta (perche' il numero di equazioni che potete usare tutto sommato e' un numero piccolo). Fate attenzione a cercare di capire sempre tutta la fisica coinvolta nel problema.<br>
+<br>
+Domande aggiuntive a cui potreste pensare sono (non fermate la staffetta per queste pero' perche' non sono facili :P ):<br>
+1.) Avete sempre assunto che <span class="tex">\(\rho\)</span> e' uniforme. Ha senso?<br>
+2.) Quando il collasso della struttura e' avvenuto, la struttura continua lentamente a contrarsi, come vi ho spiegato sopra. Cosa succede alla nuova energia gravitazionale che si accumula? Quanta resta nella struttura e quanta viene emessa?<br>
+3.) Come si stima il tempo di collasso <span class="tex">\(t_{dinamico}\)</span>?<br>
+4.) Come si stima il tempo di collasso nella fase successiva, <span class="tex">\(t_{emissione}\)</span>?<br>
+5.) E' facile osservare stelle durante la fase di collasso adiabatico?</article>
+<article class="post" id="p23123"><div class="who"><b>CaptainJohnCabot</b><span>28 ott 2016, 14:20</span></div>Illuminante direi  :lol: <br>
+<br>
+Per il punto 3 avevo pensato, assumendo che il raggio finale sia molto minore di quello iniziale, di considerare la traiettoria rettilinea di collasso come un'ellisse ultraellittica, e da qui usare le leggi di Keplero. <br>
+<br>
+Altrimenti integrali senza ritegno  ;)</article>
+<article class="post" id="p23125"><div class="who"><b>Pigkappa</b><span>28 ott 2016, 15:34</span></div>Se ho capito bene, vuoi usare quel metodo per studiare il moto di una delle particelle sulla superficie; assumendo che si mantenga la simmetria sferica e che le particelle non si sorpassino (nel senso che una particella che adesso e' sulla superficie, rimarra' per sempre sulla superficie), puoi usarlo.<br>
+<br>
+Tuttavia a questo punto dovrebbe essere chiaro che possiamo fare forti approssimazioni perche' stiamo trascurando cosi' tanti effetti che la nostra risposta sara' lo stesso imprecisa. Ci sono approssimazioni che ti portano a una risposta sensata senza integrali o altre complicazioni. Ad esempio, potresti assumere che l'accelerazione sia costante...</article>
+<article class="post" id="p23126"><div class="who"><b>guido</b><span>28 ott 2016, 17:05</span></div>Per Pigkappa<br>
+ho letto il tuo giudizio sulla soluzione di Federico e sulle forti approssimazioni che la rendono "funzionante" ma che non mi pare trasparissero dalla soluzione medesima. Sono d'accordo.<br>
+Vorrei sapere però qual è il tuo giudizio sull'approssimazione che invece ho usato io (prima che uscisse la soluzione di Federico). Essa consiste 1) nel dichiarare la fine del collasso quando la pressione interna del gas stellare uguaglia quella gravitazionale 2) nello stimare quest'ultima come una pressione "idrostatica" sul centro della sfera da parte di una colonna di gas alta r e con competente acc. Gm/<span class="tex">\(r^2\)</span>. Grazie.</article>
+<article class="post" id="p23127"><div class="who"><b>Pigkappa</b><span>28 ott 2016, 17:27</span></div>Considerare <span class="tex">\(\rho, T\)</span> uniformi nella struttura e' una approssimazione forte. Questo vorrebbe dire che anche <span class="tex">\(P\)</span> e' uniforme per la legge dei gas perfetti. Ma (qua <span class="tex">\(x\)</span> e' la distanza dal centro, spero il resto si capisca) <span class="tex">\(\frac{d P(x)}{dx} = - \rho g(x) = - \rho G M(x) / x^2 = - \rho G \frac{4 \pi x^3 \rho}{3} / x^2 = - \alpha x\)</span> ci dice che la pressione e' piu' grande al centro. Il che non concorda con il fatto che <span class="tex">\(\rho, T\)</span> sono uniformi. L'errore sul raggio finale comunque mi aspetto sia solo in coefficienti numerici non troppo diversi da 1.<br>
+<br>
+Le equazioni <span class="tex">\(P(x) = C \rho(x)^\gamma\)</span> e <span class="tex">\(\frac{d P(x)}{dx} = - \rho(x) g(x)\)</span> si possono risolvere insieme trovando <span class="tex">\(P(x)\)</span> e il raggio della struttura, definito come il punto in cui <span class="tex">\(\rho(x) = 0\)</span>. In base al valore di <span class="tex">\(\gamma\)</span>, e' possibile ci sia una soluzione analitica, oppure no; di solito no. Puoi divertirti a guardare i dettagli sulla Lane-Emden equation su Wikipedia inglese (per qualche motivo il forum non mi lascia mettere il link).</article>
+<article class="post" id="p23132"><div class="who"><b>guido</b><span>29 ott 2016, 15:49</span></div>Volevo osservare che <span class="tex">\(\rho\)</span> nella mia soluzione si elide e quindi non pesa. T è quella dell'arresto del collasso come r, semmai l'approssimazione forte è nella pressione "idrostatica". Volevo poi osservare un'altra cosa anche se sono <em class="text-italics">l'ultimo a poter parlare</em>. Incuriosito dall'intervento di CJC che,dopo le nostre proposte di soluzione, accennò a IPHO 2012 sono andato a vedere sul web e ho trovato la posizione ufficiale che dà la soluzione  di Federico come prima e in alternativa consiglia la mia come seconda. La soluzione del problema di Flaffo (per una volta deludente...)sul numero di collisioni era addirittura sul testo dell'Halliday che stavo rivedendo in quei giorni. In conclusione vorrei dire di evitare problemi le cui soluzioni ufficiali sono ben reperibili perchè altrimenti si impara molto di meno...</article>
+<article class="post" id="p23133"><div class="who"><b>Pigkappa</b><span>29 ott 2016, 17:09</span></div>Per calcolare la pressione dovuta alla colonna di gas immagino tu abbia assunto che la densità è costante...</article>
+<article class="post" id="p23135"><div class="who"><b>CaptainJohnCabot</b><span>29 ott 2016, 19:44</span></div><blockquote><div><cite>guido ha scritto:</cite> In conclusione vorrei dire di evitare problemi le cui soluzioni ufficiali sono ben reperibili perchè altrimenti si impara molto di meno...</div></blockquote>
+Prima di reperirle però devi sapere la fonte, per questo la metto sempre a soluzione postata  ;)  <br>
+Sono comunque d'accordo che i problemi 'aperti' diano spazio a discussioni più formative, il problema è che non sono facilissimi da trovare e/o da inventare. Inoltre se sono di una certa difficoltà si rischia anche di sbagliare la soluzione senza accorgersene, quindi direi che anche usare i testi delle vecchie gare ha i suoi pregi. Intanto non credo che qualcuno si vada a guardare le soluzioni, sia per una questione di correttezza e di coerenza, sia perché trovare un determinato problema o una parte di esso è praticamente impossibile dato il grandissimo numero di fonti possibili. <br>
+
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Se ho capito bene, vuoi usare quel metodo per studiare il moto di una delle particelle sulla superficie; assumendo che si mantenga la simmetria sferica e che le particelle non si sorpassino puoi usarlo.</div></blockquote>
+Si era questo quello che volevo dire, anche se non mi ero reso proprio conto di tutte le approssimazioni  :lol:  :roll: <br>
+<br>
+Comunque stavo pensando al modo di determinare il tempo di emissione... L'unica cosa che mi è venuta in mente è vedere in quanto tempo la stella esaurisce per irraggiamento la sua energia termica e gravitazionale, usando gli integrali. Non so quanto possa essere sensato, dato che non sono nemmeno sicuro che questo tempo corrisponda a quello di emissione. In caso posso provare a postare qualche calcolo per spiegarmi meglio.</article>
+<article class="post" id="p23136"><div class="who"><b>Pigkappa</b><span>29 ott 2016, 19:47</span></div>L'idea è giusta, non mi è chiaro che integrali vuoi fare...</article>
+<article class="post" id="p23139"><div class="who"><b>guido</b><span>30 ott 2016, 11:11</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Per calcolare la pressione dovuta alla colonna di gas immagino tu abbia assunto che la densità è costante...</div></blockquote>
+
+Si ma questa che rappresenta la pressione gravitazionale è uguagliata alla pressione interna con l'eq. di stato espressa sempre in funzione di <span class="tex">\(\rho\)</span> (vedi la mia soluzione del 26 ottobre). Ecco perchè mi sembra che non sia rilevante.. :?:</article>
+<article class="post" id="p23144"><div class="who"><b>Pigkappa</b><span>30 ott 2016, 20:37</span></div><blockquote><div><cite>guido ha scritto:</cite>fino a quale r continua il collasso? Secondo me fino a quando la pressione interna del gas uguaglia quella prodotta dalla forza gravitazionale. Io non trovo di meglio che approssimare questa pressione finale con quella di una colonna di gas alta <span class="tex">\(r_f\)</span> con acc. di gravità quella competente a <span class="tex">\(r_f\)</span> ovvero <span class="tex">\(a(r_f)= Gm/r_f^2\)</span> Sarà<span class="tex">\(p_f= \rho.a(r_f).r_f= (\rho/\mu).RT_f\)</span> in funzione della densità che si elimina e del peso molecolare.</div></blockquote>
+Questa e' la tua soluzione del 26 Ottobre; non svolgi i calcoli per intero per cui commentarla e' difficile. Se qua <span class="tex">\(r_f\)</span> e' il raggio della stella al collasso, non capisco perche' dici che <span class="tex">\(p_f\)</span> (che immagino sia la pressione alla superficie) sia uguale al peso della colonna di gas alta <span class="tex">\(r_f\)</span>; la pressione alla superficie sara' 0. Se invece <span class="tex">\(p_f\)</span> e' la pressione al centro, allora concordo che si calcola a partire dal peso della colonna di gas, ma la formula <span class="tex">\(\rho a(r_f) r_f\)</span> non la capisco; per calcolare il peso dovrai integrare dal centro alla superficie tenendo conto del fatto che <span class="tex">\(\rho, a\)</span> dipendono dalla posizione. E scoprirai che non lo puoi fare perche' non sai in che modo dipendono dalla posizione. Il problema va risolto imponendo allo stesso tempo che <span class="tex">\(P \rho^{-\gamma}\)</span> e' costante e che valga l'equilibrio idrostatico.<br>
+<br>
+Comunque ti consiglio di guardare la discussione sulla equazione di Lane-Emden su Wikipedia, o cercare il libro di Carroll e Ostlie oppure le dispense del prof. Paolicchi che raccomando nella discussione sui testi consigliati; non mi mettero' a risolvere il problema per esteso qua :P .</article>
+<article class="post" id="p23151"><div class="who"><b>guido</b><span>2 nov 2016, 18:09</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite> Se invece <span class="tex">\(p_f\)</span> e' la pressione al centro, allora concordo che si calcola a partire dal peso della colonna di gas, ma la formula <span class="tex">\(\rho a(r_f) r_f\)</span> non la capisco; per calcolare il peso dovrai integrare dal centro alla superficie tenendo conto del fatto che <span class="tex">\(\rho, a\)</span> dipendono dalla posizione. E scoprirai che non lo puoi fare perche' non sai in che modo dipendono dalla posizione. Il problema va risolto imponendo allo stesso tempo che <span class="tex">\(P \rho^{-\gamma}\)</span> e' costante e che valga l'equilibrio idrostatico.</div></blockquote>
+
+<span class="tex">\(p_f\)</span>rappresenta il valore comune che devono avere alla cessazione del collasso la pressione gravitazionale al centro calcolata come quella idrostatica di una colonna di gas alta appunto <span class="tex">\(r_f\)</span> e la pressione interna del gas calcolata con l'eq. di stato. Entrambe contengono la densità che quindi si elide. <span class="tex">\(a(r_f)= Gm/r_f^2\)</span> rappresenta l'acc. gravitazionale ( e qui sta la grande approssimazione, averla presa appunto indipendentemente dalla posizione come dici tu) con cui si "pesa" la colonna. Questo è ciò che intendevo.<br>
+<br>
+P:S: Ti ribadisco che questa approssimazione, insieme a quella di Flaffo, è consigliata come puoi constatare dalla soluzione (ufficiale ?) che si trova sulle pagine web suggerite da CJC.</article>
+<article class="post" id="p23153"><div class="who"><b>Pigkappa</b><span>2 nov 2016, 23:13</span></div>Non dubito la soluzione delle Ipho accetti questa approssimazione, lo scopo di questi problemi è fare stime non calcoli di precisione che si possono fare solo con metodi più avanzati. Puoi fidarti che conosco questi argomenti, la settimana scorsa ho consegnato la mia tesi di PhD in astrofisica stellare ;)</article>
+<article class="post" id="p23154"><div class="who"><b>guido</b><span>3 nov 2016, 11:17</span></div>Anche se è poco che sono iscritto so chi sei! Lungi da me l'aver dubitato delle tue competenze ma figuriamoci... :twisted: mi dispiace tanto di averti dato questa impressione. Io ti ho risposto per mettere alla prova quello che avevo fatto io. Infatti sono stato io a chiedere il tuo giudizio e non tu a fornirmelo spontaneamente e l'ho chiesto proprio perchè mi sento come uno che balbetta qualche nozione elementare al tuo confronto. Ti scrivo da scuola V scientifico. :!:</article>
+<nav class="pager"><a class="prev" href="olifis-6428.html"><small>← precedente</small>101. Continuo del 100...</a><a class="next" href="olifis-6431.html"><small>successivo →</small>103. Neve</a></nav>
+</main></body></html>

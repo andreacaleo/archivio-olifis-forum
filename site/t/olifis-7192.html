@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>305. Rombi stiracchiati</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 305</a></span></nav>
+<h1>305. Rombi stiracchiati</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7192">forum Olifis</a></p>
+<article class="post first" id="p27786"><div class="who"><b>Pigkappa</b><span>25 giu 2023, 22:51</span></div>Componendo opportunamente delle stecche di legno attraverso le quali vengono piantati dei chiodi, si costruisce la struttura in figura. La struttura e' composta da tre rombi, attaccati al muro a sinistra, e incernierati nei punti <span class="tex">\(\displaystyle A_1, A_2, A_3\)</span>. I lati dei tre rombi sono rispettivamente <span class="tex">\(\displaystyle l, 2l, 3l\)</span>. Il punto <span class="tex">\(\displaystyle A_3\)</span> viene tirato con velocita' <span class="tex">\(\displaystyle v_0\)</span> costante orizzontale.<br>
+<br>
+1.) Nel momento in cui tutti gli angoli dei rombi sono di 90 gradi, quanto vale il modulo della velocita' di <span class="tex">\(\displaystyle B_2\)</span>?<br>
+2.) Nel momento in cui tutti gli angoli dei rombi sono di 90 gradi, quanto vale il modulo della accelerazione di <span class="tex">\(\displaystyle B_2\)</span>?<br>
+3.) Se hai usato le derivate nella soluzione dei punti precedenti, dimostra i tuoi risultati senza usarle.<br>
+<br>
+<a class="lost" href="https://i.imgur.com/TQ8CNaU.png" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p27787"><div class="who"><b>Giulio</b><span>26 giu 2023, 2:45</span></div>Chiamo <span class="tex">\(2\theta\)</span> l'angolo in <span class="tex">\(B\)</span>. Allora:<br>
+<span class="tex">\(x_{B_1} = l \sin\theta\)</span><br>
+<span class="tex">\(x_{A_1} = 2 x_{B_1} = 2l \sin\theta\)</span><br>
+<span class="tex">\(x_{B_2} = x_{A_1} + 2l \sin\theta = 4l \sin\theta\)</span><br>
+<span class="tex">\(y_{B_2} = 2l\cos\theta\)</span><br>
+<span class="tex">\(x_{A_2} = x_{B_2} + 2l \sin\theta = 6l \sin\theta\)</span><br>
+...<br>
+<span class="tex">\(x_{A_3}=12l\sin\theta\)</span><br>
+Poiché <span class="tex">\( v_{A_3} = 12 l \frac{\mathrm{d} }{\mathrm{d} t}\sin\theta = 12l \dot{\theta} \cos\theta = v_0\)</span>, si ha che <span class="tex">\(\dot{\theta} = \frac{v_0}{12l \cos\theta}\)</span><br>
+<span class="tex">\(v_{{B_2}x} = 4l \frac{\mathrm{d} }{\mathrm{d} t}\sin\theta = \frac{v_0}{3}\)</span>, costante<br>
+<span class="tex">\(v_{{B_2}y} = 2l \frac{\mathrm{d} }{\mathrm{d} t}\cos\theta = -2l\dot{\theta}\sin\theta = -\frac{v_0}{6}\tan\theta\)</span>, ottenuto tramite l'espressione trovata in precedenza per <span class="tex">\(\dot{\theta}\)</span>.<br>
+Il rombo è un quadrato quando <span class="tex">\(\theta = \frac{\pi}{4}\)</span>, quindi <span class="tex">\(v_{{B_2}y} = -\frac{v_0}{6}\)</span> nell'istante di tempo richiesto dal problema.<br>
+Di conseguenza <span class="tex">\(v_{B_2} = v_0 \sqrt{\frac 1 9 + \frac 1 {36}} = \frac {\sqrt5} 6 v_0\)</span><br>
+<br>
+L'accelerazione del punto <span class="tex">\(B_2\)</span> è verticale, in quanto la sua velocità orizzontale è costante.<br>
+<span class="tex">\(a_{B_2} = \frac{\mathrm{d} }{\mathrm{d} t}v_{{B_2}y} = -\frac{v_0}{6} \frac{\mathrm{d} }{\mathrm{d} t} \tan\theta = -\frac{v_0}{6\cos^2\theta}\dot{\theta} = -\frac{v^2_0}{72l\cos^3\theta}\)</span><br>
+Di conseguenza nell'istante di tempo richiesto dal problema vale <span class="tex">\(|a_{B_2}| = \frac{\sqrt2}{36} \frac{v_0}{l}\)</span>.<br>
+<br>
+Per farlo senza derivate direi che si può sfruttare il fatto che, essendo <span class="tex">\({B_2}=(4l \sin\theta,2l\cos\theta)\)</span>, il punto compie un moto ellittico (la sua traiettoria è la dilatazione di una circonferenza). Quindi anche la sua velocità sarà dilatata rispetto a quella di un moto circolare.<br>
+Quando <span class="tex">\(\theta=\frac\pi 4\)</span>, in un moto circolare di raggio <span class="tex">\(2l\)</span> la velocità verticale è uguale a quella orizzontale in modulo; se quindi dilatiamo di un fattore 2 l'asse x, la velocità in una direzione resterà quella e nell'altra raddoppierà. Sommiamo in quadratura le velocità e otteniamo che la velocità dopo la dilatazione vale <span class="tex">\(v'=\sqrt5 u\)</span>, dove <span class="tex">\(u\)</span> è la velocità verticale, uguale alla velocità prima della dilatazione. Resta da determinare la velocità prima della dilatazione, ovvero la velocità in un moto circolare di raggio <span class="tex">\(2l\)</span>. La posizione orizzontale del punto <span class="tex">\(B_2\)</span> è direttamente proporzionale alla posizione orizzontale del punto <span class="tex">\(A_3\)</span> che si muove a velocità costante <span class="tex">\(v_0\)</span>, perciò anche tra le velocità ci sarà lo stesso rapporto. In particolare la velocità orizzontale (quindi già dilatata) del punto <span class="tex">\(B_2\)</span> vale <span class="tex">\(\frac {v_0} 3\)</span>. Quindi <span class="tex">\(u = \frac {v_0} 6\)</span> e quindi <span class="tex">\(v' = \frac {\sqrt5} 6 v_0\)</span>, che è lo stesso risultato di prima.<br>
+Ragioniamo in modo del tutto analogo per l'accelerazione. La velocità orizzontale è costante, quindi l'accelerazione è verticale. Possiamo calcolare l'accelerazione centripeta come se il moto fosse avesse una velocità angolare costante e considerare la sola componente verticale. In particolare si ha che il raggio del moto circolare è <span class="tex">\(2l\)</span> (la componente verticale infatti non è dilatata) e la velocità del moto è <span class="tex">\(\frac {v_0}{3}\)</span>. Nell'istante di tempo iniziale, infatti, la velocità tangenziale coincide con la velocità orizzontale, che abbiamo dimostrato essere costante e valere proprio <span class="tex">\(\frac {v_0}{3}\)</span>. Quindi <span class="tex">\(a_y = \frac {\sqrt2}{2} \left(\frac {v_0}{3}\right)^2\left(\frac {1}{2l}\right) = \frac {\sqrt2}{36} \frac{v_0}l\)</span>.</article>
+<article class="post" id="p27788"><div class="who"><b>Pigkappa</b><span>26 giu 2023, 14:16</span></div>Penso sia tutto giusto, bello il metodo dell'ellisse trasformata in cerchio, ma potresti spiegare meglio la parte finale sulla accelerazione? Rispetto a che punto vedi il moto come circolare, perché conta solo la velocità orizzontale...</article>
+<article class="post" id="p27789"><div class="who"><b>Giulio</b><span>26 giu 2023, 18:13</span></div>Il moto è circolare rispetto all'origine degli assi, che è il punto in cui il rombo più piccolo a sinistra è vincolato al supporto fisso. Conta solo la velocità orizzontale in quanto è la velocità che ha il moto circolare nell'istante di tempo iniziale (e qui stiamo trattando il moto <strong class="text-strong">come se</strong> fosse uniforme per calcolare l'accelerazione centripeta; ovviamente il moto non è circolare uniforme e l'accelerazione non è centripeta).<br>
+<br>
+Spiegatemi però per favore come funziona questa cosa della staffetta che la scopro ora... Devo pubblicare un problema nei prossimi giorni e numerarlo 306?</article>
+<article class="post" id="p27790"><div class="who"><b>Pigkappa</b><span>26 giu 2023, 23:58</span></div>Si'! Hai tu la staffetta</article>
+<nav class="pager"><a class="prev" href="olifis-7188.html"><small>← precedente</small>304 - Ancora cubi!</a><a class="next" href="olifis-7193.html"><small>successivo →</small>306. Catena che cade</a></nav>
+</main></body></html>

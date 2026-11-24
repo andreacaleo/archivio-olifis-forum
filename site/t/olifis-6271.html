@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>58: connessione tridimensionale di resistori</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 58</a></span></nav>
+<h1>58: connessione tridimensionale di resistori</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6271">forum Olifis</a></p>
+<article class="post first" id="p21975"><div class="who"><b>FedericoC.</b><span>4 mar 2016, 23:25</span></div>Dato che la staffetta era snobbata da un po', ripartiamo da un problema fattibile  :D <br>
+<br>
+Si consideri un tetraedro regolare di vertici <span class="tex">\(OABC\)</span>, costituito da sei resistori di resistenza <span class="tex">\(r\)</span>. Si applichi una differenza di potenziale <span class="tex">\(V\)</span> tra <span class="tex">\(O\)</span> e <span class="tex">\(M\)</span>, il punto medio del lato <span class="tex">\(BC\)</span>, in modo tale che fluisca una corrente <span class="tex">\(I\)</span> in <span class="tex">\(O\)</span> che poi fuoriesca in <span class="tex">\(M\)</span>. <br>
+<br>
+1)Esprimere la corrente <span class="tex">\(i\)</span> che fluisce dal punto <span class="tex">\(O\)</span> al punto B in funzione di <span class="tex">\(I\)</span>. Inoltre esprimere le correnti che fluiscono da <span class="tex">\(O\)</span> a <span class="tex">\(C\)</span>, da <span class="tex">\(O\)</span> ad <span class="tex">\(A\)</span>, da <span class="tex">\(A\)</span> a <span class="tex">\(B\)</span>, da <span class="tex">\(A\)</span> a <span class="tex">\(C\)</span>, da <span class="tex">\(B\)</span> a <span class="tex">\(M\)</span> e da <span class="tex">\(C\)</span> a <span class="tex">\(M\)</span>, sempre in funzione di <span class="tex">\(I\)</span>.<br>
+<br>
+2)Trovare la resistenza risultante tra <span class="tex">\(O\)</span> e <span class="tex">\(M\)</span>.</article>
+<article class="post" id="p21976"><div class="who"><b>wotzu</b><span>5 mar 2016, 0:05</span></div>io non ho capito una cosa , i sei resistori deduco si trovino uno su ogni lato ,ma sul lato dove si trova M il resistore sta sopra sotto oppure si divide in r/2 sopra e r/2 sotto?</article>
+<article class="post" id="p21977"><div class="who"><b>FedericoC.</b><span>5 mar 2016, 8:34</span></div>Ogni lato è un resistore, quindi il lato <span class="tex">\(BC\)</span> è diviso da <span class="tex">\(M\)</span> in due  :D</article>
+<article class="post" id="p21979"><div class="who"><b>arna1998</b><span>5 mar 2016, 17:11</span></div>Inizio a postare i risultati, sperando siano giusti :| (non sono sicuro di avere capito in maniera corretta cosa intendi per corrente che fluisce tra 2 punti. Io ho inteso per esempio che la corrente che fluisce da O a C è tutta la corrente che passa in C, e non solo quella che attraversa il resistore OC. Correggimi se ho capito male :roll: )<br>
+<span class="tex">\(i_{OB}=i_{OC}=i_{BM}=i_{CM}=\dfrac{I}{2}\)</span><br>
+<span class="tex">\(i_{AB}=i_{AC}=\dfrac{I}{8}\)</span><br>
+<span class="tex">\(i_{OA}=\dfrac{I}{4}\)</span><br>
+<span class="tex">\(R_{OM}=\dfrac{5}{8}r\)</span></article>
+<article class="post" id="p21980"><div class="who"><b>FedericoC.</b><span>5 mar 2016, 18:00</span></div>Hai inteso giusto, scusa se non mi sono espresso benissimo, ma ho voluto tradurre il testo originale del problema, che è in inglese, nel modo più fedele possibile.  :D <br>
+Per quanto riguarda i risultati, due sono sbagliati cioè <span class="tex">\(I_{OB}\)</span> e <span class="tex">\(I_{OC}\)</span> gli altri sono corretti</article>
+<article class="post" id="p21981"><div class="who"><b>poor</b><span>5 mar 2016, 18:11</span></div>Secondo me c'è qualche errore perchè la somma delle correnti che arrivano a O non è I. Scusate se il messaggio è inutile perchè proprio in questi minuti è arrivata la correzione che non avevo visto.</article>
+<article class="post" id="p21986"><div class="who"><b>wotzu</b><span>6 mar 2016, 20:00</span></div>per simmetria <span class="tex">\(i=i_{OC}=i_{OB}\)</span> quindi <span class="tex">\(I=2i+i_{OA}\)</span> , sempre per simmetria <span class="tex">\(i_{AC}=i_{AB}=\frac{i_{OA}}{2}\)</span> ma allora <span class="tex">\(\Delta V_{OC}=\frac{3}{2}i_{OA}r=ir\)</span>.Mettendo le equazioni a sistema ricavi <span class="tex">\(i=\frac{3}{8}I\)</span>.</article>
+<article class="post" id="p21987"><div class="who"><b>FedericoC.</b><span>6 mar 2016, 23:41</span></div>È corretto, il testimone della staffetta è tuo  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6212.html"><small>← precedente</small>57: carrucola</a><a class="next" href="olifis-6279.html"><small>successivo →</small>59: Acqua riscaldante</a></nav>
+</main></body></html>

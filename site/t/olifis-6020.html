@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>33: resistenza tra due cavità cilindriche</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 33</a></span></nav>
+<h1>33: resistenza tra due cavità cilindriche</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6020">forum Olifis</a></p>
+<article class="post first" id="p20038"><div class="who"><b>andrea96</b><span>24 dic 2014, 20:13</span></div>Gli ultimi problemi mi sono sembrati parecchio difficili, quindi... ne metto uno ancora più difficile  :lol:  :lol:  :lol: <br>
+Il problema non è molto noto quindi dubito che qualcuno già lo conosca, se crea troppa difficoltà aggiungo una parte che dovrebbe aiutare ( avevo pensato di metterla subito, però il problema è molto più bello se è formulato cosi come lo formulo ora... :D  ):<br>
+Si considerino due cavità cilindriche di raggio <span class="tex">\(R\)</span>, lunghezza infinita e con gli assi paralleli distanti tra loro <span class="tex">\(d\)</span>. Una delle due cavità è tenuta a potenziale <span class="tex">\(+V_0\)</span> l'altra a potenziale <span class="tex">\(-V_0\)</span> e lo spazio dove si trovano è riempito da un materiale di conduttività <span class="tex">\(\sigma\)</span>. Trovare la resistenza tra le due cavità.</article>
+<article class="post" id="p20055"><div class="who"><b>OrsoBruno96</b><span>26 dic 2014, 12:17</span></div>Ho mandato la mia soluzione ad Andrea e mi ha detto che è giusta, ma visto che al momento non ho altri problemi da pubblicare mi limito a dare un hint sperando di essere preceduto ;)<br>
+<br>
+La resistenza è definita come <span class="tex">\(R = \dfrac{\Delta V}{i}\)</span><br>
+<br>
+Pensate al campo <span class="tex">\(\vec J\)</span>, al campo <span class="tex">\(\vec E\)</span>, a come ottenere uno o l'altro per poi collegarli e usarli in maniera intelligente</article>
+<article class="post" id="p20063"><div class="who"><b>OrsoBruno96</b><span>27 dic 2014, 15:08</span></div>Visto che nessuno si butta, io metto un altro hint ;)<br>
+<br>
+Il potenziale fisso delle due cavità deve essere generato da qualcosa. E questo qualcosa può servire a determinare altre quantità importanti</article>
+<article class="post" id="p20113"><div class="who"><b>andrea96</b><span>30 dic 2014, 2:37</span></div>visto che nessuno fa passi avanti aggiungo un punto al problema che dovrebbe aiutare, fate conto sia il punto 1 cioè va fatto prima di quello che è nel testo.<br>
+PUNTO 1: trovare la funzione potenziale elettrico <span class="tex">\(V(x,y,z)\)</span> generato da due distribuzioni lineari di carica con densità lineare di carica <span class="tex">\(\lambda\)</span>; le due distribuzioni si trovano nel piano x-z, sono entrambe parallele all'asse z e sono separate da una distanza <span class="tex">\(a\)</span></article>
+<article class="post" id="p20118"><div class="who"><b>Simone256</b><span>30 dic 2014, 15:38</span></div>Credo che a malincuore... Rinunciando a trucchetti come il circolo di Apollonio... Mi metterò a fare i conti  :cry:</article>
+<article class="post" id="p20120"><div class="who"><b>andrea96</b><span>30 dic 2014, 15:45</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Credo che a malincuore... Rinunciando a trucchetti come il circolo di Apollonio... Mi metterò a fare i conti  :cry:</div></blockquote>
+YEAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHH  :lol:  :lol:  :lol:  :lol:  :lol:</article>
+<article class="post" id="p20215"><div class="who"><b>Simone256</b><span>5 gen 2015, 13:54</span></div>Dopo aver trovato la voglia di rispolverare la geometria analitica ho provato a risolvere il problema! Fra l'altro i conti non erano neanche super mortali  :roll: <br>
+<br>
+Spero abbia senso il risultato che provo a scrivere per primo (ho definito <span class="tex">\(d\)</span> come la distanza tra i centri dei cilindri e l'asse di simmetria del sistema per maggiore chiarezza del risultato, in poche parole quello che prima era <span class="tex">\(d\)</span> adesso è <span class="tex">\(2d\)</span>):<br>
+<br>
+<span class="tex">\(\displaystyle Rl= \frac{ \mbox{ln }\left( \frac{d+\sqrt{d^2-R^2}}{d-\sqrt{d^2-R^2}}\right) }{2 \pi \sigma}\)</span></article>
+<article class="post" id="p20217"><div class="who"><b>Simone256</b><span>6 gen 2015, 15:56</span></div>La risposta mi è stato detto che è corretta, quindi scrivo un abbozzo di soluzione:<br>
+<br>
+Il problema fondamentale è ricreare il potenziale <span class="tex">\(V_0\)</span> sulle superfici cilindriche perchè per il teorema di unicità (qui non so perfettamente quello che sto dicendo, mi è stato detto che è vero per l'equazione di Laplace, in questo caso comunque funziona :)) basta trovare una distribuzione di carica che permette tale situazione per essere sicuri che il campo elettrico esterno alle superfici cilindriche sia anche quello richiesto dal problema, che risulta univocamente determinato.<br>
+<br>
+A intuito uno pone a distanza <span class="tex">\(2a\)</span> in maniera totalmente simmetrica due distribuzioni lineari di densità di carica lineica <span class="tex">\(\lambda\)</span>, per trovare il potenziale nel piano cartesiano <span class="tex">\(x\)</span>, <span class="tex">\(y\)</span> (rendo noto che ho disposto le linee di carica lungo la direzione <span class="tex">\(z\)</span>). Integrando il campo elettrico per entrambe le distribuzioni e sommando algebricamente abbiamo i due termini all'infinito che si semplificano e otteniamo:<br>
+<br>
+<span class="tex">\(\displaystyle V_{xy}=\frac{\lambda \mbox{ ln }\left( \frac{(a+x)^2+y^2}{(a-x)^2+y^2} \right)}{4 \pi \varepsilon_0}\)</span><br>
+<br>
+Ponendo l'argomento del logaritmo pari ad una costante <span class="tex">\(C\)</span> tale che <span class="tex">\(V_{xy}=V_0\)</span> per tutti i punti <span class="tex">\((x;y)\)</span> nel nostro piano che individuano una circonferenza di raggio <span class="tex">\(R\)</span> traslata di <span class="tex">\(\frac{d}{2}\)</span> rispetto all'asse <span class="tex">\(x\)</span> (utilizzando la definizione di <span class="tex">\(d\)</span> data nel problema) otteniamo i valori necessari di <span class="tex">\(a\)</span> e di <span class="tex">\(\lambda\)</span> e verifichiamo che i filamenti sono interni ai cilindri. Grazie al valore di <span class="tex">\(\lambda\)</span> otteniamo il flusso <span class="tex">\(\Phi_E\)</span> del campo elettrico attraverso le superfici cilindriche per unità di lunghezza con il teorema di Gauss.<br>
+<br>
+Abbiamo inoltre le relazioni <span class="tex">\(j=\sigma E\)</span> dove <span class="tex">\(j\)</span> è la densità di corrente per unità di superficie. E' facile quindi intuire che <span class="tex">\(i=\sigma \Phi_E\)</span> dove <span class="tex">\(i\)</span> è la corrente per unità di lunghezza uscente dai cilindri.<br>
+<br>
+Legando queste informazioni con la prima legge di Ohm e ricordando che la differenza di potenziale è in realtà <span class="tex">\(2 V_0\)</span> otteniamo il risultato soprascritto.</article>
+<article class="post" id="p20218"><div class="who"><b>andrea96</b><span>6 gen 2015, 16:43</span></div>va beneeee :D  :D  :D dopo taaaaaaanto tempo  :lol: vai col prossimo!!!!! :)</article>
+<article class="post" id="p20219"><div class="who"><b>Simone256</b><span>6 gen 2015, 17:48</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>va beneeee :D  :D  :D dopo taaaaaaanto tempo  :lol: vai col prossimo!!!!! :)</div></blockquote>
+Hahahaha il prossimo lo metto più umano :P</article>
+<article class="post" id="p20249"><div class="who"><b>phyknight</b><span>9 gen 2015, 22:35</span></div>[quello che sto per scrivere non ha (quasi) significato per questo problema(i.e. non ci perdete tempo a pensarci), è una citazione che è passata alla storia e che spero Simone256 capisca  :D ]
+<blockquote><div><cite>Simone256 ha scritto:</cite>per il teorema di unicità</div></blockquote>
+quando fai una cosa del genere ricorda sempre di controllare i bordi<br>
+<br>
+p.s.: "e, IMPORTANTISSIMO, non dimenticare di controllare i bordi dei bordi!"</article>
+<nav class="pager"><a class="prev" href="olifis-6018.html"><small>← precedente</small>32: Quantitá di Moto 2.0 [SNS 2008 n.5]</a><a class="next" href="olifis-6030.html"><small>successivo →</small>34: SNS 1980 - 5</a></nav>
+</main></body></html>

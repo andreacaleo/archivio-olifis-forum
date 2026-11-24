@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>127: Un pianeta di plastilina</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 127</a></span></nav>
+<h1>127: Un pianeta di plastilina</h1>
+<p class="meta">21 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6607">forum Olifis</a></p>
+<article class="post first" id="p24240"><div class="who"><b>Gamow00</b><span>28 dic 2017, 22:24</span></div>Si vuole produrre il campo gravitazionale più intenso possibile <span style="text-decoration:underline">in un dato punto dello spazio</span> usando un blocco di plastilina di densità <span class="tex">\(\rho\)</span> e volume <span class="tex">\(V\)</span>.
+<ol style="list-style-type:lower-alpha"><li>In che forma deve essere modellata la plastilina?</li>  
+<li>Qual è il modulo di questo campo gravitazionale?</li></ol>
+
+Per la risoluzione del punto b. potrebbe essere utile conoscere il valore del seguente integrale definito: :D  :D <br>
+<br>
+    <span class="tex">\( \hspace{0.2cm}\int_{0}^{\pi \over 2} {\cos^{3/2}{\phi}} \hspace{0.2cm} {\sin^3 {\phi}  \hspace{0.2cm}d\phi={8 \over 45} \)</span></article>
+<article class="post" id="p24245"><div class="who"><b>lance00</b><span>29 dic 2017, 14:24</span></div>Partiamo prima dal caso bidimensionale. Chiamiamo il punto <span class="tex">\(P\)</span>. Il nostro campo gravitazionale massimo punterà in una direzione, su questa direzione poniamo l'asse x. Costruiamo quindi un piano cartesiano xy con P all'origine. Chiaramente la massa dovrà stare o dalla parte delle x positive o da quella delle x negative ma non da tutte e tue (altrimenti il campo non è massimo). Osserviamo che ogni punto del contorno della nostra massa dovrà produrre un campo massimo (lungo x) in P quindi tutti i punti del contorno devono generare lo stesso campo (se così non fosse, basta spostare un punto che genera un campo minore affianco a uno che ne genera uno maggiore). Dunque si ha <span class="tex">\(\frac{Gm}{d^2} cos\theta = C (costante) =&gt; x^2+y^2 = Ccos\theta = C\frac{x}{\sqrt{x^2+y^2}}\)</span> =&gt; <span class="tex">\(y^2 = C^\frac{2}{3}x^\frac{2}{3}-x^2\)</span>  disegnando il grafico con wolphram alpha, si vede che assomiglia ad un'ellisse un po' schiacciata da una parte (più o meno  :lol: ). Adesso facciamo ruotare questa superficie intorno all'asse x e otteniamo il solido che produce il maggiore campo gravitazionale in P (di cui non so scrivere l'equazione)</article>
+<article class="post" id="p24246"><div class="who"><b>Gamow00</b><span>29 dic 2017, 15:38</span></div><blockquote class="uncited"><div>ogni punto del contorno della nostra massa dovrà produrre un campo massimo (lungo x) in P quindi tutti i punti del contorno devono generare lo stesso campo </div></blockquote>
+L'idea vincente è questa  :D. Il problema adesso è ricavare esplicitamente l'equazione del solido; siccome sei riuscito a ottenere un'equazione che lega l'angolo e la distanza dall'origine, perchè non provi con le coordinate polari? 8-)</article>
+<article class="post" id="p24264"><div class="who"><b>lance00</b><span>3 gen 2018, 18:43</span></div>perché le polari non le so usare  :lol:  comunque usando le cartesiane mi verrebbe <span class="tex">\(dg = Gdm \frac{x\sqrt{x^2+z^2}}{\sqrt{x^2+y^2}\sqrt{{(x^2+y^2+z^2)}^{3}}} = cost\)</span> (ponendo il campo risultante parallelo all'asse x e il punto P nell'origine)</article>
+<article class="post" id="p24265"><div class="who"><b>lance00</b><span>3 gen 2018, 18:47</span></div>quindi, quadrando, l'equazione del solido è qualcosa del tipo: <br>
+<span class="tex">\(\frac{x^2(x^2+z^2)}{(x^2+y^2)(x^2+y^2+z^2)^3} = k \)</span><br>
+con questa equazione si ricava qualcosa di interessante: prendendo il caso bidimensionale (y = 0) l'equazione rimane <br>
+<span class="tex">\(x^2+z^2 = cost\)</span> quindi la figura che produce un campo massimo è il cerchio</article>
+<article class="post" id="p24266"><div class="who"><b>carol</b><span>5 gen 2018, 12:09</span></div>Visto che non si sblocca provo a dire due cose 1) trovo difficoltà anche io ad usare le coordinate polari nello spazio  2) andandole a vedere su internet a me risulterebbe che si dovrebbe rendere costante e massimo il rapporto x/r e si tratterebbe di un cono con vertice nell'origine, asse x e molto appuntito. Ma i conti successivi mi risultano ostici e li approfondirò solo se è una strada possibile :roll:  :?:  :?:  :?:  :?:  :roll:  :roll:  :roll:</article>
+<article class="post" id="p24269"><div class="who"><b>Gamow00</b><span>7 gen 2018, 19:04</span></div>Scusate se rispondo solo ora.<br>
+Non fatevi spaventare dalle coordinate polari: semplicemente mettono in relazione la distanza di un punto con l'angolo che questo punto forma con un dato asse. L'equazione polare del solido richiesta dal problema l'ha già trovata lance00 (senza saperlo oserei dire :D ) ed è<br>
+<span class="tex">\({\cos{\phi} \over r^2}=cost\)</span> o meglio <span class="tex">\( r=C \times \sqrt{\cos{\phi}\)</span> , dove <span class="tex">\(r\)</span> è la distanza e <span class="tex">\(\phi\)</span> l'angolo.<br>
+A questo punto si può fare il plot (come ha fatto lance) e notare che si tratta di una sagoma quasi piatta vicino all'origine e leggermente appuntita dall'altra parte. Per trovare il valore di <span class="tex">\(C\)</span> e proseguire con i calcoli sarà meglio trasformare l'equazione polare in una parametrica. Intendo, passare a una forma del tipo<br>
+<span class="tex">\(\begin{cases}
+
+   x=x(t)  \\  y=y(t) 
+
+   \end{cases}\)</span>          dove <span class="tex">\(t\)</span> è un parametro comodo, che in questo caso può essere l'angolo.<br>
+Una volta trovate queste relazioni, si può procedere notando che il volume racchiuso dalla nostra curva (l'integrale) deve essere uguale al volume della plastilina, cioè <span class="tex">\(V\)</span> 8-) . Ora si potrà calcolare la costante e andare avanti con il punto b. del problema. <br>
+Spero di essere stato abbastanza chiaro con le spiegazioni e non troppo spinto con gli hint :D</article>
+<article class="post" id="p24270"><div class="who"><b>lance00</b><span>7 gen 2018, 19:50</span></div>Può essere che venga qualcosa del tipo <span class="tex">\(C = {(\frac{15V}{4 \pi})}^{1/3} \)</span>?</article>
+<article class="post" id="p24271"><div class="who"><b>lance00</b><span>7 gen 2018, 20:02</span></div>e  <span class="tex">\(g = G \rho {(\frac{4 \pi}{15})}^{2/3} V^{1/3}\)</span> ?</article>
+<article class="post" id="p24273"><div class="who"><b>lance00</b><span>7 gen 2018, 20:58</span></div>come non detto, g è sbagliato  :cry:</article>
+<article class="post" id="p24274"><div class="who"><b>Gamow00</b><span>7 gen 2018, 22:32</span></div>Grande lance! :D <br>
+<span class="tex">\(C\)</span> è corretto! <br>
+<span class="tex">\(g\)</span> invece è sbagliato, ma ci sei molto, molto vicino 8-)  Prova a ricontrollare le costanti di integrazione...</article>
+<article class="post" id="p24275"><div class="who"><b>carol</b><span>8 gen 2018, 12:02</span></div>@ Gamow<br>
+Non so se ti chiedo troppo ma vorrei un giudizio su quella che era la mia risposta al punto 1.<br>
+ Secondo me la plastilina deve essere modellata a forma di cono con il vertice nell'origine. Infatti deve essere resa massima e costante la componente del campo elettrico lungo l'asse x rispetto a cui la figura deve avere simmetria circolare. Deve essere resa costante  allora <span class="tex">\(\frac{1}{r^2}.\frac{x}{r}\)</span> dove l'ultima frazione è cos<span class="tex">\(\phi\)</span>. In coordinate cartesiane <span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3/2}}\)</span>. Derivando ed uguagliando a 0 si trova <span class="tex">\((y^2+z^2)=2x^2\)</span> che ho trovato su internet essere l'equazione di un cono essendo quelle circonferenze su piani paralleli al piano yz le sezioni del cono aventi per raggio <span class="tex">\(x\sqrt{2}\)</span>. Il cono ha altezza x. E' possibile dal volume trovare allora l'altezza del cono e l'area di base ovvero <span class="tex">\(x_{max} , r_{max}\)</span> essendo <span class="tex">\(V=(1/3)\pi 2 x_{max}^2.x_{max}\)</span> da cui mi risulterebbe un'altezza del cono <span class="tex">\(x_{max}\)</span>pari a <span class="tex">\((\frac{3V}{2\pi})^{1/3}\)</span> ed<span class="tex">\(r_{max}=x_{max}\sqrt{3}\)</span> :?:  :?:  :?: <br>
+Ti ringrazio in anticipo per il tuo tempo.</article>
+<article class="post" id="p24276"><div class="who"><b>teodella99</b><span>8 gen 2018, 16:25</span></div>Secondo i meie conti al risultato del punto b) dato da @lance00 manca un fattore <span class="tex">\(3^{\frac{1}{3}}\)</span></article>
+<article class="post" id="p24277"><div class="who"><b>lance00</b><span>8 gen 2018, 16:53</span></div>verrebbe, se non ho sbagliato i conti, <span class="tex">\(g = \int_0^c \int_0^{\sqrt{c^{2/3}x^{2/3}-x^2}} 2\pi G \rho \frac{xy dx dy}{(x^2+y^2)^{3/2}}\)</span>, ora il problema è calcolarlo  :lol:</article>
+<article class="post" id="p24278"><div class="who"><b>Gamow00</b><span>8 gen 2018, 17:17</span></div>@carol<br>
+Scusami di non aver considerato prima il tuo messaggio.
+<blockquote><div><cite>carol ha scritto: <a href="olifis-6607.html#p24275" data-post-id="24275" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">8 gen 2018, 12:02</div></cite>
+In coordinate cartesiane <span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3/2}}\)</span> ...
+</div></blockquote>
+Immagino che tu volessi scrivere <span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3}}\)</span> in coerenza con la formula( corretta ) <span class="tex">\(\frac{1}{r^2}.\frac{x}{r}\)</span>
+<blockquote><div><cite>carol ha scritto: <a href="olifis-6607.html#p24275" data-post-id="24275" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">8 gen 2018, 12:02</div></cite>
+Derivando ed uguagliando a 0 si trova <span class="tex">\((y^2+z^2)=2x^2\)</span> 
+</div></blockquote>
+Questo passaggio non mi convince :?:. 
+<ul><li>Rispetto a cosa stai derivando?</li> <li>A cosa serve questa derivata?</li></ul>
+<span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3}}=cost\)</span> è già l'equazione della tua figura. Ti basta fare qualche manipolazione algebrica per ottenerla nella forma <br>
+<br>
+<span class="tex">\(y^2+z^2=\frac{x^{1/3}}{c}-x^2\)</span> Ponendoci nel piano <span class="tex">\(xy\)</span> l'equazione diventa <span class="tex">\(y=\sqrt{\frac{x^{1/3}}{c}-x^2}\)</span>, che è la relazione cartesiana tanto agognata.
+<blockquote><div><cite>carol ha scritto: <a href="olifis-6607.html#p24275" data-post-id="24275" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">8 gen 2018, 12:02</div></cite>
+ Il cono ha altezza x. E' possibile dal volume trovare allora l'altezza del cono e l'area di base ovvero <span class="tex">\(x_{max} , r_{max}\)</span> essendo <span class="tex">\(V=(1/3)\pi 2 x_{max}^2.x_{max}\)</span> da cui mi risulterebbe un'altezza del cono <span class="tex">\(x_{max}\)</span>pari a <span class="tex">\((\frac{3V}{2\pi})^{1/3}\)</span> ed<span class="tex">\(r_{max}=x_{max}\sqrt{3}\)</span> :?:  :?:  :?: <br>
+Ti ringrazio in anticipo per il tuo tempo.
+</div></blockquote>
+Questi passaggi sono giusti ma si basano sui presupposti errati visti sopra. L'errore è che hai usato la derivata per minimizzare una formula che era già "minimizzata". Spero di essere stato abbastanza chiaro.  ;)  ;) <br>
+<br>
+<br>
+@teodella99<br>
+<br>
+Ci sei quasi,davvero ;) <br>
+<br>
+@lance 00 <br>
+<br>
+Mi fido dell'integrale ;)  ma non è proprio la strada giusta. Devi cercare di scriverti il contributo di ogni "guscio" in una forma comoda e trasformare l'integrale in qualcosa che assomigli all'integrale definito che vi ho dato nell'hint :D</article>
+<article class="post" id="p24279"><div class="who"><b>teodella99</b><span>8 gen 2018, 17:55</span></div>A sto punto scrivo il mio procedimento e attendo correzioni.<br>
+<span class="tex">\(g=\rho G \int_{V} \frac{dV}{r^2} \cos \phi\)</span><br>
+Ma sfruttando i risultati precedenti sappiamo che <span class="tex">\(V=\frac{4 \pi}{15} c^3\)</span> (da cui <span class="tex">\(dV=\frac{4 \pi}{5} c^2 dc\)</span>) e <span class="tex">\(r^2=c^2 \cos \phi\)</span><br>
+Riscrivendo il tutto si ottiene <br>
+<span class="tex">\(g=\rho G \int_{0}^{(\frac{15V}{4\pi})^{\frac{1}{3}}} \frac{4\pi}{5} dc = 3^{\frac{1}{3}} ({\frac{4\pi}{5}})^{\frac{2}{3}} \rho G V^{\frac{1}{3}} \)</span></article>
+<article class="post" id="p24280"><div class="who"><b>carol</b><span>8 gen 2018, 18:13</span></div><blockquote><div><cite>Gamow00 ha scritto: <a href="olifis-6607.html#p24278" data-post-id="24278" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">8 gen 2018, 17:17</div></cite>
+Immagino che tu volessi scrivere <span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3}}\)</span> in coerenza con la formula( corretta ) <span class="tex">\(\frac{1}{r^2}.\frac{x}{r}\)</span><br>
+<br>
+<br>
+Ma <span class="tex">\(r=(x^2+y^2+z^2)^{1/2}\)</span>per cui se lo elevo al cubo dovrebbe venire elevato a (3/2) :?:  :?:  :?: <br>
+Ora, avevo ragionato, se <span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3/2}}\)</span>deve essere costante rispetto ad x, la sua derivata RISPETTO ad x deve annullarsi. Forse non ho compreso il testo, dove sto sbagliando :?:  :?:  :roll:<br>
+Scusami se ti rompo ma questo è il punto. So bene come dici che il resto successivamente è una conseguenza. :roll:  :roll:</div></blockquote></article>
+<article class="post" id="p24281"><div class="who"><b>Gamow00</b><span>8 gen 2018, 18:18</span></div>Bravo teodella!  :D  :D <br>
+La tua soluzione è corretta,solo che differisce dalla soluzione di lance per un fattore <span class="tex">\(3\)</span>, non <span class="tex">\(3^{1/3}\)</span>. Ti ricordo che la soluzione di lance era <span class="tex">\(g=G\rho{(\frac{4\pi}{15})}^{2/3}V^{1/3}\)</span> e non <span class="tex">\(g=G\rho{(\frac{4\pi}{5})}^{2/3}V^{1/3}\)</span><br>
+<br>
+Passo a te il testimone! Non lo do a lance perchè so che lo prende sempre ;)  ;)</article>
+<article class="post" id="p24282"><div class="who"><b>Gamow00</b><span>8 gen 2018, 18:35</span></div>Per la questione del <span class="tex">\(3/2\)</span> hai ragione tu, mi sono proprio confuso.Era giusta la tua espressione originale.<br>
+<br>
+L'errore sta nella questione della derivata rispetto a x. <br>
+<span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3/2}}\)</span> rappresenta l'equazione di un guscio sul contorno del quale ogni "pezzettino" da lo stesso contributo al campo gravitazionale. Gusci diversi, però, hanno contributo diverso. In particolare si può trovare che il contributo di ogni guscio sale linearmente con l'allontanarsi dall'origine. 
+<blockquote><div><cite>carol ha scritto: <a href="olifis-6607.html#p24280" data-post-id="24280" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">8 gen 2018, 18:13</div></cite>
+Ora, avevo ragionato, se <span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3/2}}\)</span>deve essere costante rispetto ad x, la sua derivata RISPETTO ad x deve annullarsi. Forse non ho compreso il testo, dove sto sbagliando
+</div></blockquote>
+Il fatto non è che <span class="tex">\(\frac{x}{(x^2+y^2+z^2)^{3/2}}\)</span> è costante rispetto a x, ma che sul confine di questa sagoma i punti danno lo stesso contributo gravitazionale.<br>
+Non so se mi spiego</article>
+<article class="post" id="p24284"><div class="who"><b>carol</b><span>8 gen 2018, 18:55</span></div>Ti ringrazio vuol dire che avevo equivocato nettamente sul testo. Quando si dice che la condizione preliminare per risolvere un problema è la corretta comprensione del testo... :!:  :!:  :!:  :cry:  :cry:</article>
+<article class="post" id="p24285"><div class="who"><b>lance00</b><span>8 gen 2018, 19:06</span></div>bella soluzione teodella99  :D  <br>
+io invece avevo pensato a qualcosa del genere:<br>
+consideriamo il campo <span class="tex">\(dg(x)\)</span> che produce una fetta di solido distante <span class="tex">\(x\)</span> dall'asse y e poi calcoliamo <span class="tex">\(\int_0^c dg(x)\)</span>. <br>
+Osserviamo che la nostra fetta è composta da tante coroncine circolare di raggio variabile <span class="tex">\(y\)</span>, spessore <span class="tex">\(dy\)</span> e larghezza <span class="tex">\(dx\)</span>. Il volume di una coroncina è <span class="tex">\(dV(y) = 2\pi y dy dx\)</span> e produce un campo pari a <span class="tex">\(dg'(x) = \frac{G \rho dV}{r^2}cos\theta = \frac{2 \pi \rho G xy dx dy}{(x^2+y^2)^{3/2}}\)</span>. Ora, tenendo costante <span class="tex">\(x\)</span> e integrando rispetto a <span class="tex">\(y\)</span> otteniamo <span class="tex">\(dg(x)\)</span>:<br>
+<span class="tex">\(dg(x) = 2 \pi \rho G x dx \int_0^{\sqrt{c^{2/3}x^{2/3}-x^2}}\frac{ydy}{(x^2+y^2)^{3/2}}\)</span> = <span class="tex">\(2 \pi \rho G x dx (1-\frac{x}{\sqrt{c^{2/3}x^{2/3}}})\)</span> <br>
+e integrando dg(x) otteniamo <span class="tex">\(g = \int_0^c 2 \pi \rho G x dx (1-\frac{x}{\sqrt{c^{2/3}x^{2/3}}}) = 2 \pi \rho G (c-\frac{3c^{4/3}}{5})\)</span> che però non mi torna dimensionalmente ... cosa sbaglio?</article>
+<nav class="pager"><a class="prev" href="olifis-6606.html"><small>← precedente</small>126. Bilanciare una penna</a><a class="next" href="olifis-6614.html"><small>successivo →</small>128: Compassi come lampadari</a></nav>
+</main></body></html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>70: PROIETTILE ALL&#x27;ANTIPODE</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 70</a></span></nav>
+<h1>70: PROIETTILE ALL'ANTIPODE</h1>
+<p class="meta">20 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6318">forum Olifis</a></p>
+<article class="post first" id="p22236"><div class="who"><b>Flaffo</b><span>28 mag 2016, 18:59</span></div>Si vuole lanciare un proiettile all'antipode (punto della superficie terrestre diametralmente opposto al luogo del lancio). Assumiamo che la terra non ruoti attorno al proprio asse. La massima altezza raggiunta dal proiettile è <span class="tex">\(6R\)</span> dove R indica il raggio della terra.<br>
+1. Calcolare la velocità iniziale <span class="tex">\(v_0\)</span> che il proiettile deve avere e l'angolo al quale deve essere lanciato (rispetto all'orizzontale).<br>
+2. Calcolare la velocità minima del proiettile nel suo percorso.<br>
+3. Dire se è possibile vedere il proiettile ad occhio nudo quando si trova a distanza massima dalla terra, e stimarne la luminosità (raggio della sfera <span class="tex">\(r=40cm\)</span>).<br>
+4. Calcolare il tempo di volo totale del proiettile: da quando viene lanciato, a quando raggiunge l'obiettivo.<br>
+Si aggiudica la staffetta chi risolve più punti, o chi fa solo il 4 (jackpot)<br>
+<br>
+Ripetere tutte le misure considerando la rotazione dalla terra</article>
+<article class="post" id="p22237"><div class="who"><b>nace26</b><span>29 mag 2016, 2:14</span></div>Tornato a casa colmo di tristezza per la sconfitta dell'atletico, mi sono cimentato nei primi due punti :D ... I risultati che mi sono usciti sono però un po' bruttini da vedere, quindi prima di scrivere eventualmente il procedimento (cosa che a quest'ora non avrei comunque intenzione di fare   :lol:  ) ti chiedo se sono sensati:<br>
+<span class="tex">\(v_0=\sqrt{\frac{61GM}{36R}}\)</span>,   <span class="tex">\(\alpha=39,8^\circ\)</span>,   <span class="tex">\(v_{min}=\sqrt{\frac{GM}{36R}}\)</span>.</article>
+<article class="post" id="p22238"><div class="who"><b>Flaffo</b><span>29 mag 2016, 8:33</span></div>I risultati sono sbagliati, pero dimensionalmente ci stiamo ;)</article>
+<article class="post" id="p22239"><div class="who"><b>nace26</b><span>29 mag 2016, 10:17</span></div>Mi è venuto in mente un dubbio: da dove misuri l'altezza? Perché io l'ho presa dal centro della Terra, ma ora che ci penso non era ovvio...</article>
+<article class="post" id="p22240"><div class="who"><b>Flaffo</b><span>29 mag 2016, 10:33</span></div>Eh infatti.. Si misura dalla superficie</article>
+<article class="post" id="p22241"><div class="who"><b>nace26</b><span>29 mag 2016, 10:39</span></div>allora mi viene <span class="tex">\(v_0=\sqrt{\frac{85GM}{49R}}   \alpha=40,6^\circ    v_{min}=\sqrt{\frac{GM}{49R}}\)</span></article>
+<article class="post" id="p22242"><div class="who"><b>Flaffo</b><span>29 mag 2016, 10:58</span></div>La <span class="tex">\(v_0\)</span> e la <span class="tex">\(v_{min}\)</span> sono giuste, però l'angolo no. <br>
+1,5 punti per nace26  :)</article>
+<article class="post" id="p22243"><div class="who"><b>arna1998</b><span>29 mag 2016, 11:16</span></div>Confermo i risultati di nace26, ma per l'angolo dico:<br>
+<span class="tex">\(\sin \alpha= \sqrt{\dfrac{49}{85}}\)</span> che vuol dire <span class="tex">\(\alpha = 49,4\)</span>°</article>
+<article class="post" id="p22244"><div class="who"><b>nace26</b><span>29 mag 2016, 11:28</span></div>Metto il procedimento allora :D <br>
+<br>
+Per le leggi di Keplero la traiettoria è ellittica; per la conservazione dell'energia il modulo della velocità è uguale alla partenza e all'arrivo, per quella del momento angolare lo è anche l'angolo rispetto all'orizzontale. Insomma la situazione è simmetrica rispetto all'asse della congiungente i due punti agli antipodi, quindi anche il secondo fuoco giace su questo asse.<br>
+<br>
+Detta <span class="tex">\(r\)</span> la distanza del secondo fuoco dal centro della terra e <span class="tex">\(a\)</span> il semiasse maggiore dell'ellisse, deve verificarsi<br>
+<br>
+<span class="tex">\(2a = R + \sqrt{R^2 + r^2} = 7R + (7R - r)\)</span>, risolvendo trovo <span class="tex">\(r=\frac{84}{13}R\)</span> e <span class="tex">\(2a=\frac{98}{13}R\)</span>.<br>
+<br>
+Ora la conservazione dell'energia si scrive   <span class="tex">\(\displaystyle \frac{1}{2}mv^2 - G \frac{Mm}{d} = -G \frac{Mm}{2a}\)</span>   ove <span class="tex">\(d\)</span> è la distanza dal centro della Terra in un dato momento e <span class="tex">\(v\)</span> è la velocità.<br>
+<br>
+Se sostituisco <span class="tex">\(d=R\)</span> trovo facilmente <span class="tex">\(\displaystyle v_0 = \sqrt{\frac{85GM}{49R}}\)</span>.<br>
+<br>
+La velocità è minima all'apogeo, quindi posto <span class="tex">\(d = 7R\)</span> trovo <span class="tex">\(\displaystyle v_{min} = \sqrt{\frac{GM}{49R}}\)</span>.<br>
+<br>
+Ora sono un po' perplesso per quanto riguarda l'angolo di lancio. Io avevo impostato la conservazione del momento angolare come <span class="tex">\(\displaystyle L = mv_0Rcos(\alpha) = mv_{min}7R\)</span> da cui mi esce appunto il risultato che ho detto. Ma notando che l'angolo trovato da arna1998 è esattamente il complementare del mio, è evidente che ancora una volta ho cannato una definizione, nel senso che con "rispetto all'orizzontale" avevo inteso quello che il vettore forma con la tangente alla superficie terrestre in quel punto  :oops:</article>
+<article class="post" id="p22245"><div class="who"><b>Flaffo</b><span>29 mag 2016, 12:40</span></div>Interessante il procedimento per il primo e secono punto, io l'avevo fatto in modo diverso</article>
+<article class="post" id="p22246"><div class="who"><b>nace26</b><span>29 mag 2016, 12:47</span></div>Allora ci penserò su :D <br>
+Tu invece come hai fatto primo e secondo punto? Sarebbe interessante vedere più procedimenti!</article>
+<article class="post" id="p22247"><div class="who"><b>Flaffo</b><span>29 mag 2016, 13:20</span></div>Il raggio dell'afelio è:<br>
+<span class="tex">\(\displaystyle r_{afelio}=a\left(1+e\right)\)</span> <br>
+Dove e indica l'eccentricità.<br>
+Ma la distanza massima è anche 7R quindi:<br>
+<span class="tex">\(\displaystyle a\left(1+e\right)=7R\)</span><br>
+Il punto di lancio si trova sul "latus rectum" dell'ellisse, ovvero sulla retta perpendicolare all'asse focale e passante per il fuoco. Se lavori con l'equazione dell'ellisse trovi che questo misura:<br>
+<span class="tex">\(\displaystyle r_0=a\left(1-e^2\right)\)</span><br>
+E dato che questo, a sua volta, è uguale al raggio terrestre:<br>
+<span class="tex">\(\displaystyle a\left(1-e^2\right)=R\)</span><br>
+Dividendo le due equazioni otteniamo l'eccentricità e:<br>
+<span class="tex">\(\displaystyle e=\frac{6}{7}\)</span> <br>
+Sostituendo troviamo a:<br>
+<span class="tex">\(\displaystyle a=\frac{49}{13}R\)</span><br>
+Per la conservazione dell'energia:<br>
+<span class="tex">\(\displaystyle v_0=\sqrt{GM\left(\frac{2}{R}-\frac{1}{a}\right)}\)</span><br>
+E sostituendo si trova la velocità.. lo stesso per la velocità minima, ma al posto di R si mette la distanza all'afelio.</article>
+<article class="post" id="p22248"><div class="who"><b>arna1998</b><span>29 mag 2016, 13:51</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Non puoi usare quella formula perché sai dicendo che il momento angolare si deve conservare rispetto ad un asse passante per il centro della Terra che, tuttavia, non coincide con il centro dell'orbita (ellittica) del proiettile (si trova in un fuoco). Quindi noti che la forza gravitazionale e il 'raggio vettore' non sono paralleli... esiste quindi un momento che modifica il momento angolare.. Se vuoi essere masochista, quindi, prova a considerare il momento angolare rispetto al centro dell'ellisse, ma esiste un metodo MOLTO più semplice </div></blockquote>
+Ho ricontrollato i conti sull'angolo, e ora concordo con nace (ho invertito un seno con un coseno :roll:). ll momento angolare si conserva per l'asse passante per il centro della terra e perpendicolare all'orbita, dato che la forza gravitazionale è sempre diretta lungo il raggio-vettore, quindi non c'è momento. Non capisco perché parli del centro dell'ellisse<br>
+<br>
+Per quanto riguarda il punto 3, non servono le dimensioni del proiettile :oops: ? Probabilmente non ho capito io...<br>
+<br>
+Punto 4: <br>
+Usiamo la seconda legge di Keplero: <em class="text-italics">Il proiettile spazza aree uguali in tempi uguali.</em>. Traducendo in formule: <br>
+<span class="tex">\(\dfrac{T_p}{T}=\dfrac{A_S}{A}\)</span> dove <span class="tex">\(T_p\)</span> è il tempo di volo, <span class="tex">\(T\)</span> il periodo, <span class="tex">\(A_S\)</span> l'area spazzata dal proiettile e <span class="tex">\(A\)</span> l'area dell'ellisse.<br>
+<br>
+Per la terza legge di Keplero: <span class="tex">\(T=2 \pi \sqrt{\dfrac{a^3}{GM}}\)</span><br>
+<br>
+L'area dell'ellisse è <span class="tex">\(A=ab \pi\)</span>. Il semiasse minore è <span class="tex">\(b=\sqrt{a^2- \left (\dfrac{r}{2} \right ) ^2}=\dfrac{7 \sqrt{13}}{13}R\)</span>. Calcolando <span class="tex">\(A=\dfrac{343 \sqrt{13}}{169}R^2\)</span>.<br>
+<br>
+Ora non ci resta che calcolare l'area spazzata dal proiettile. La formula magica(magica=presa da internet :lol: ) per l'area di un segmento ellittico è: <br>
+<span class="tex">\(A_A=ab \left ( arcos{\dfrac{h}{a}}-\dfrac{h}{a^2} \sqrt{a^2-h^2} \right )\)</span><br>
+L'area spazzata dal proiettile è la differenza tra l'area dell'ellisse e quella del segmento ellittico partenza-arrivo-perielio. Abbiamo quindi <span class="tex">\(h=2R\)</span>:<br>
+<span class="tex">\(A_S=ab \left ( \pi -arcos \dfrac{26}{49}+\dfrac{65 \sqrt{69}}{49^2} \right )\)</span><br>
+A questo punto basta fare:<br>
+<span class="tex">\(T_p=\dfrac{A_S}{A}T\)</span> che non scrivo in forma completa per ovvi motivi :lol: <br>
+Cercando un valore numerico:<br>
+<span class="tex">\(T_p= 34,466\sqrt{\dfrac{R^3}{GM}}\)</span><br>
+<br>
+Sicuramente ci sarà qualche errore nei conti, ma spero che l'idea non sia da buttare</article>
+<article class="post" id="p22249"><div class="who"><b>Flaffo</b><span>29 mag 2016, 14:40</span></div>Il tempo è sbagliato, però è giusto considerare il rapporto delle aree..<br>
+Nel punto 3. mi sono dimenticato il raggio della sfera, adesso modifico.<br>
+Per quanto riguarda l'angolo, invece, non sono sicuro perché non funzioni la conservazione del momento angolare.. forse perché stai considerando un angolo rispetto ad una circonferenza.. appena mi viene in mente qualcosa ve lo dico</article>
+<article class="post" id="p22250"><div class="who"><b>CaptainJohnCabot</b><span>29 mag 2016, 17:49</span></div>Ah nace mi ha battuto sul tempo con i primi due punti...  :lol:  Provo il tutto per tutto con il  bonus  :evil:<br>
+Premetto che anche a me l'angolo viene 40,6 gradi, anche se ho utilizzato metodi meno sofisticati rispetto al momento angolare (=Geogebra, link a fine soluzione  :lol:  :roll: ).<br>
+<br>
+Come ha detto arna il trucco è usare la terza legge di Keplero e poi la seconda.<br>
+<br>
+Dalla terza legge di Keplero:<br>
+<br>
+<span class="tex">\(\displaystyle T=2 \pi \sqrt{\dfrac{a^3}{GM}} \hspace{2cm}(\approx 10,3 h)\)</span><br>
+<br>
+Dalla seconda legge di Keplero sappiamo invece che la velocità areolare è costante quindi:<br>
+<br>
+<span class="tex">\(\dfrac{dA}{dt}=costante\)</span> , quindi possiamo considerare le velocità areolari medie.<br>
+<br>
+Si considera l'ellisse di equazione <span class="tex">\(\varepsilon: \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\)</span> dove <span class="tex">\(a=\dfrac{98}{26}R\)</span> e <span class="tex">\(b=\dfrac{7 \sqrt{13}}{13}R\)</span>, che rappresenta la traiettoria del proiettile.<br>
+<br>
+Siano <span class="tex">\(A\)</span> l'area di un quarto di ellisse e <span class="tex">\(S\)</span> l'area di metà della parte di orbita non percorsa; si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{4A}{T}=\dfrac{2S}{t} \implies t=\dfrac{S}{2A}T\)</span><br>
+<br>
+Si calcolano ora <span class="tex">\(A\)</span>, <span class="tex">\(S\)</span> e <span class="tex">\(s\)</span>:<br>
+<br>
+<span class="tex">\(\displaystyle A=\int_{0}^{a} \sqrt\bigg(b^2\bigg(1-\dfrac{x^2}{a^2}\bigg)\bigg) dx\)</span>;<br>
+<span class="tex">\(\displaystyle S=\int_{c}^{a} \sqrt\bigg(b^2\bigg(1-\dfrac{x^2}{a^2}\bigg)\bigg) dx\)</span> con <span class="tex">\(c=r/2=84/26\)</span>;<br>
+<br>
+Allora dato che il tempo di volo <span class="tex">\(T_v=T-t\)</span> si ha:<br>
+<br>
+<span class="tex">\(\displaystyle T_v=T - \dfrac{S}{2A}T \implies T_v=T \bigg(1-\dfrac{S}{2A}\bigg)\)</span><br>
+<br>
+Da cui:<br>
+<br>
+<span class="tex">\(\displaystyle T_v=\Bigg(2 \pi \sqrt{\dfrac{a^3}{GM}}\Bigg)\Bigg(1-\dfrac{S}{2A}\Bigg)\)</span><br>
+<br>
+Sostituendo, il risultato numerico viene:<br>
+<br>
+<span class="tex">\(T_v \approx 9,9 h\)</span><br>
+
+<div class="inline-attachment"><!-- ia0 -->https://www.geogebra.org/m/uSTMqH53?doneurl=%2Fjohncabot<!-- ia0 --></div>
+
+Ho messo <span class="tex">\(\approx\)</span> per il risultato finale a causa delle approssimazioni che ho fatto per il calcolo degli integrali e la costruzione dell'ellisse, spero che il risultato non sia sbagliato di troppo e che non ci siano errori concettuali  :mrgreen:</article>
+<article class="post" id="p22251"><div class="who"><b>Flaffo</b><span>29 mag 2016, 18:11</span></div>Entro le approssimazioni, diciamo che è giusto. Comunque esistono modi più belli di fare questo problema che sparando integrali su integrali e ancora integrali (che solo Wolfram sa risolvere) :lol:  :lol:</article>
+<article class="post" id="p22252"><div class="who"><b>Flaffo</b><span>29 mag 2016, 19:31</span></div>La staffetta è tua CaptainJohnCabot. Comunque continuate a provare con l'angolo..</article>
+<article class="post" id="p22253"><div class="who"><b>CaptainJohnCabot</b><span>29 mag 2016, 19:37</span></div>Ok se riesco posto il problema stasera, altrimenti comunque entro domani  :D <br>
+<br>
+<em class="text-italics">Per Flaffo</em><br>
+Per quanto riguarda l'angolo vedi se riesci a visualizzare l'allegato alla mia soluzione, così almeno ci confermi se abbiamo capito com'è questo benedetto angolo  :lol: (anche perché viene a tutti uguale  :roll: ).<br>
+<br>
+Rimane comunque il punto sulla luminosità da risolvere  8-)  ;) . Vediamo di eliminarlo prima di continuare la staffetta  :lol:</article>
+<article class="post" id="p22442"><div class="who"><b>nace26</b><span>18 giu 2016, 17:29</span></div>Mi è tornato in mente questo problema e la questione ancora aperta dell'angolo di lancio... Siccome è passato un po' di tempo, @Flaffo potresti spiegare come andava risolto? <br>
+<br>
+E già che ci siamo anche un piccolo hint per la luminosità che non so come calcolare :oops:</article>
+<article class="post" id="p22552"><div class="who"><b>Flaffo</b><span>16 lug 2016, 14:33</span></div>Riguardo all'angolo di lancio, comincio a pensare che le soluzioni ufficiali delle IOAA, da cui ho preso il problema, siano sbagliate. Effettivamente con la conservazione del momento angolare l'angolo dovrebbe venire giusto.. Le soluzioni ufficiali si basano su un ragionamento geometrico, però nel farlo, da quanto ho capito, partono da un presupposto sbagliato.<br>
+<br>
+La luminosità, invece, è una grandezza che si esprime in magnitudini e vale la formula:<br>
+<br>
+<span class="tex">\(\displaystyle m_1-m_2=-2,5log\left(\frac{F_1}{F_2}\right)\)</span><br>
+<br>
+Dove <span class="tex">\(m_1\)</span> e <span class="tex">\(m_2\)</span> indicano le magnitudini di due oggetti e <span class="tex">\(F_1\)</span> e <span class="tex">\(F_2\)</span> indicano i rispettivi flussi (potenza per unità di superficie). L'idea base per calcolare il flusso è confrontare l'oggetto con un corpo i cui parametri siano noti e.g. Sole, Luna..<br>
+<br>
+Invece per calcolare il tempo, il risultato veniva pulitissimo con un doppio integrale o, in alternativa, si poteva approssimare in qualche modo l'orbita (data l'alta eccentricità) e, con semplici considerazioni geometriche, si arrivava al risultato.</article>
+<nav class="pager"><a class="prev" href="olifis-6317.html"><small>← precedente</small>69. Sfere riscaldate</a><a class="next" href="olifis-6319.html"><small>successivo →</small>71. Achille e la Tartaruga</a></nav>
+</main></body></html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>191. Forze di attrito su una sfera</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 191</a></span></nav>
+<h1>191. Forze di attrito su una sfera</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6867">forum Olifis</a></p>
+<article class="post first" id="p25738"><div class="who"><b>east_beast</b><span>12 mar 2020, 22:21</span></div>Tratto (ancora, sono a corto di idee) dal Morin.<br>
+Una sfera di massa <span class="tex">\(M\)</span> e raggio <span class="tex">\( R\)</span> si muove con velocità <span class="tex">\(V\)</span> in una regione dello spazio che contiene particelle di massa <span class="tex">\(m\)</span>. Ci sono <span class="tex">\(n\)</span> particelle per unità di volume. Assumendo che <span class="tex">\(m &lt;&lt; M\)</span> e che le particelle non interagiscano fra di loro, qual è la forza d'attrito sulla sfera (la forza che le particelle esercitano su questa in poche parole)</article>
+<article class="post" id="p25740"><div class="who"><b>bosone</b><span>14 mar 2020, 12:43</span></div>Mi era venuto in mente di considerare una specie di galleria del vento con le particelle di massa m che investono la semisfera di massa M e raggio R. L'avrei divisa in corone circolari infinitesime di raggio <span class="tex">\(R sen \theta\)</span> e spessore<span class="tex">\(R d\theta\)</span> se <span class="tex">\(\theta \)</span> è l'angolo di incidenza uguale a quello di riflessione. Non so se è un'idea sbagliata.. Facendo i conti introducendo il numero di particelle che incidono in un secondo la variazione della loro qdm troverei F come variazione di qdm al secondo con l'integrazione <span class="tex">\(\theta\)</span> variabile fra 0 e <span class="tex">\(\pi/2\)</span>mi risulterebbe <span class="tex">\(F= 2\pi.nmR^2.V^2\)</span>. Ti chiedo se ci sono errori di concetto o di calcolo :?:  :?:  :roll:</article>
+<article class="post" id="p25741"><div class="who"><b>east_beast</b><span>14 mar 2020, 14:53</span></div>Il tuo risultato differisce di un fattore 2 rispetto alla soluzione di Morin, attenzione che le corone circolari hanno raggio <span class="tex">\(Rsin{\theta}\)</span>, comunque si concettualmente tutto corretto, se vuoi correggi la soluzione e poi vai con 192!</article>
+<article class="post" id="p25744"><div class="who"><b>bosone</b><span>15 mar 2020, 12:05</span></div>Si si per quanto riguarda R sen<span class="tex">\(\theta\)</span> l'ho usato nei conti e poi nel messaggio ho messo il coseno. Quindi nessuna rilevanza sul risultato. Invece per il fattore 2 ho rifatto e rifatto i conti e mi verrebbe da dire che...sbaglia il Morin, se non fosse uno sproposito! Se sei d'accordo prima del 192 ci riguarderò ancora e ancora!... :roll:</article>
+<article class="post" id="p25745"><div class="who"><b>Neutrino</b><span>15 mar 2020, 18:21</span></div>Io ho fatto i conti per conto mio e ottengo <span class="tex">\(F= \pi nmR^2 V^2\)</span>  quindi senza il fattore 2.<br>
+<br>
+E' interessante che il risultato è esattamente lo stesso sia che gli urti vengano schematizzati come elastici sia che siano trattati come completamente anelastici.</article>
+<article class="post" id="p25746"><div class="who"><b>east_beast</b><span>15 mar 2020, 20:10</span></div>Il morin corregge poi la velocità v di ogni particella con un bel cos<span class="tex">\({\theta}\)</span> per considerare solo la componente parallela al moto della sfera, magari è per quello che non ti torna perfettamente l'integrale</article>
+<article class="post" id="p25747"><div class="who"><b>Neutrino</b><span>15 mar 2020, 20:13</span></div>ma su quel libro quanto viene?</article>
+<article class="post" id="p25748"><div class="who"><b>Luca Milanese</b><span>15 mar 2020, 20:24</span></div>(Forse un po' OT) il problema mi sembra molto simile, almeno nel processo risolutivo, a quello degli emisferi di Magdeburgo (per chi non lo conoscesse, la pagina su Wikipedia è esaustiva al riguardo).</article>
+<article class="post" id="p25749"><div class="who"><b>Neutrino</b><span>15 mar 2020, 20:33</span></div><blockquote><div><cite>Luca Milanese ha scritto: <a href="olifis-6867.html#p25748" data-post-id="25748" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">15 mar 2020, 20:24</div></cite>
+(Forse un po' OT) il problema mi sembra molto simile, almeno nel processo risolutivo, a quello degli emisferi di Magdeburgo (per chi non lo conoscesse, la pagina su Wikipedia è esaustiva al riguardo).
+</div></blockquote>
+
+Un po' si e un po' no. se consideri gli urti come anelastici allora si, la forza su un disco viene la stessa che sulla (semi)sfera, ma se consideri urti elastici la forza su un disco viene il doppio che sulla sfera.</article>
+<article class="post" id="p25750"><div class="who"><b>Neutrino</b><span>15 mar 2020, 20:45</span></div>...e nel problema originale di questo thread gli urti sono chiaramente elastici</article>
+<article class="post" id="p25752"><div class="who"><b>Luca Milanese</b><span>15 mar 2020, 22:10</span></div>Infatti mi riferivo non tanto all'equivalenza fra semisfera e cerchio piano, quanto all'idea comune di base di dividere la sfera in tante corone infinitesime.</article>
+<article class="post" id="p25753"><div class="who"><b>Neutrino</b><span>15 mar 2020, 23:19</span></div>Se tu mi permetti, per calcolare la forza sugli emisferi di Magdeburgo c'è un modo molto meno matematico e molto più fisico, e semplice, piuttosto che dividere la sfera in tante corone infinitesime.<br>
+<br>
+il problema è calcolare la forza che comprime i due emisferi uno contro l'altro quando venga fatto il vuoto all'interno. Immaginiamo che uno dei due emisferi venga messo a contatto non con l'altro emisfero ma con un disco piatto dello stesso raggio, e che all'interno dello spazio emisferico così creato venga fatto il vuoto.<br>
+<br>
+ora, su questo solido a forma di Igloo eschimese la forza totale esercitata dalla pressione atmosferica è zero, altrimenti esso accelererebbe da solo, cosa evidentemente falsa. Se ne conclude che la forza esercitata sull'emisfero, che è la nostra incognita, è uguale e contraria alla forza esercitata sul disco. Ma questa è facilissima da calcolare, è PπR^2. Di conseguenza la forza che la pressione atmosferica esercita su ognuno degli emisferi di Magdeburgo vale PπR^2 senza bisogno di fare nessun integrale.<br>
+<br>
+Quello che nessuno fa rilevare è che era del tutto inutile mettere 15 cavalli da una parte e 15 cavalli dall'altra. Uno dei due emisferi sarebbe potuto essere legato ad un muro e 15 cavalli legati all'altro emisfero avrebbero esercitato esattamente la stessa forza, risparmiando così la fatica a 15 animali.</article>
+<article class="post" id="p25754"><div class="who"><b>Luca Milanese</b><span>15 mar 2020, 23:34</span></div>Certo che permetto :) . Fa sempre bene vedere più modi per risolvere lo stesso problema. Personalmente conoscevo entrambi i metodi, ma penso che a chi vede il problema per la prima volta, se conosce un po' di analisi, venga molto più spontaneo fare l'integrale sulle corone circolari piuttosto che fare il ragionamento fisico. Comunque sull'Halliday c'è un problema che fa rilevare anche quello che dici tu sul numero di cavalli.</article>
+<article class="post" id="p25755"><div class="who"><b>Neutrino</b><span>15 mar 2020, 23:39</span></div>Ah, OK, Sicuramente lo sapeva anche Von Guericke, però allora come adesso più cavalli metti in scena e più ne parlano i giornali.....</article>
+<article class="post" id="p25759"><div class="who"><b>east_beast</b><span>16 mar 2020, 1:38</span></div>Neutrino sul Morin viene esattamente come hai scritto tu!</article>
+<article class="post" id="p25760"><div class="who"><b>bosone</b><span>16 mar 2020, 11:27</span></div>Dunque io non avevo diviso per 2 nell'integrazione avevo messo V cos<span class="tex">\(\theta\)</span>e ora il mio risultato sarebbe <span class="tex">\(F= \pi n m R^2V^2\)</span>  come quello di neutrino. Comunque lascio a te la decisione sul 192 che mi avevi già invitato a postare.. :?:</article>
+<article class="post" id="p25761"><div class="who"><b>east_beast</b><span>16 mar 2020, 11:54</span></div>Ma io direi che lo puoi pure postare, alla fine l'integrale avresti potuto controllarlo pure sul fratello Wolfram, il ragionamento era corretto</article>
+<article class="post" id="p25762"><div class="who"><b>Neutrino</b><span>16 mar 2020, 12:07</span></div>vai tu bosone, colpisci duro.</article>
+<nav class="pager"><a class="prev" href="olifis-6866.html"><small>← precedente</small>190. Aste pendenti.</a><a class="next" href="olifis-6868.html"><small>successivo →</small>192- SNS 2019-2020</a></nav>
+</main></body></html>

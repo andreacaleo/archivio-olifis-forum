@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>29:scivolamento di una sbarretta.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 29</a></span></nav>
+<h1>29:scivolamento di una sbarretta.</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6011">forum Olifis</a></p>
+<article class="post first" id="p19821"><div class="who"><b>andrea96</b><span>11 dic 2014, 16:48</span></div>Dopo la quantità di problemi sulle sbarrette che sono usciti lo scorso anno tra fase locale e nazionale si spera che quest'anno non se ne vedano :lol: quindi ne metto uno io!<br>
+Una sbarretta uniforme di lunghezza <span class="tex">\(l\)</span> è appoggiata al muro con la sua estremità più alta e al pavimento con quella più bassa che è a una distanza infinitesima del muro. Non c'è nessun tipo di attrito. Appena la sbarretta viene lasciata libera di muoversi l'estremità più in alto scivola sul muro verso il basso e quella più in basso scivola sul pavimento verso destra.<br>
+Determinare la componente orizzontale della velocità nell'istante in cui l'estremo più in alto della sbarretta perde contatto con il muro.</article>
+<article class="post" id="p19927"><div class="who"><b>Simone256</b><span>13 dic 2014, 17:35</span></div>Provo il risultato:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{2}{3} \sqrt{\frac{lg}{3}}\)</span></article>
+<article class="post" id="p19928"><div class="who"><b>andrea96</b><span>13 dic 2014, 20:29</span></div>No non mi torna... :|</article>
+<article class="post" id="p19929"><div class="who"><b>Simone256</b><span>13 dic 2014, 23:54</span></div>'Rcoggiuda fa finta che non abbia scritto niente allora  :oops:<br>
+Edit: Ho dimenticato di tirare in ballo l'energia cinetica rotazionale  :roll:  :lol:</article>
+<article class="post" id="p19934"><div class="who"><b>andrea96</b><span>14 dic 2014, 14:17</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>'Rcoggiuda fa finta che non abbia scritto niente allora  :oops:<br>
+Edit: Ho dimenticato di tirare in ballo l'energia cinetica rotazionale  :roll:  :lol:</div></blockquote>
+va beneeeeee :D <br>
+Appena hai il risultato considerando l'energia rotazionale posta la soluzione :D</article>
+<article class="post" id="p19935"><div class="who"><b>Simone256</b><span>14 dic 2014, 18:54</span></div>So che Orso è in fase di risoluzione! :P<br>
+Lascio tutto il terreno a lui e mi concentro sull'ultima verifica del 2014 di domani  :evil:</article>
+<article class="post" id="p19936"><div class="who"><b>OrsoBruno96</b><span>14 dic 2014, 19:57</span></div>In questo problema, per la prima volta sono riuscito ad utilizzare gli strumenti avanzati che ho imparato con grandi fatiche ;)<br>
+<br>
+Spero che ci sia una soluzione più furba della mia, che è molto brute force<br>
+<br>
+Considerazioni:<br>
+1)l'istante in cui la sbarra si stacca dal muro è quando il muro non deve più esercitare alcuna forza sulla sbarra, ovvero la reazione vincolare è 0. visto che è anche l'unica forza orizzontale, la componente orizzontale dell'accelerazione è 0.<br>
+2) mi è risultato molto più facile fare i conti esprimendo tutto in funzione dell'angolo <span class="tex">\(\alpha\)</span> che la sbarra forma con il piano orizzontale e delle sue derivate. Per non morire di latex, chiamerò l'angolo a (e le sue derivate nel tempo a' e a'');)<br>
+<br>
+Soluzione:<br>
+<br>
+<span class="tex">\(x_{cm} = l/2 cos a\)</span><br>
+<span class="tex">\(y_{cm} = l/2 sin a\)</span><br>
+<span class="tex">\(v_{x, cm} = -l/2 sin(a) a'\)</span><br>
+<span class="tex">\(v_{y, cm} = l/2 cos(a) a'\)</span><br>
+<br>
+<span class="tex">\(K =1/2 m v_{cm} ^2 + 1/2 I (a') ^2\)</span><br>
+ma <span class="tex">\(I = 1/12 ml^2\)</span> e <span class="tex">\(v_{cm} ^2 = v_{x, cm} ^2 + v_{y, cm} ^2\)</span><br>
+rimaneggiando, <span class="tex">\(K = 1/6 ml^2 (a') ^2\)</span><br>
+mentre <span class="tex">\(U = 1/2 mlg sin(a)\)</span><br>
+<br>
+L = K - U<br>
+<br>
+<span class="tex">\(\dfrac{d}{dt} \dfrac{\partial L}{\partial a'} - \dfrac {\partial L}{\partial a} = 0\)</span> equazione del moto di lagrange<br>
+<br>
+facendo le opportune derivate si ottiene l'equazione del moto <span class="tex">\(a'' = \dfrac{3g}{2l} cos(a)\)</span> che non ho alcuna intenzione di risolvere ma mi serve.<br>
+<br>
+mettiamo da parte questa equazione che ci serve fra poco e torniamo alla condizione di distacco<br>
+<span class="tex">\(a_{x, cm} = 0\)</span><br>
+<br>
+ma <span class="tex">\(a_{x, cm} = \dfrac{d}{dt} v_{x,cm}\)</span><br>
+<br>
+facendo la derivata e ponendola uguale a 0 si ottiene l'equazione <span class="tex">\(cos(a) * (a')^2 = sin(a) * a''\)</span><br>
+<br>
+sostituendo la derivata seconda dell'angolo con l'equazione del moto, si ottiene l'equazione <span class="tex">\((a') ^2= sin(a) \dfrac{3g}{2l}\)</span><br>
+<br>
+Ora sfrutto il fatto che l'energia meccanica totale si conserva<br>
+<br>
+<span class="tex">\(1/2 mlg = 1/6 ml^2 (a') ^2 + 1/2mlg sin(a)\)</span><br>
+<br>
+mettendola a sistema con la condizione di distacco ottengo la soluzione <span class="tex">\(sin(a) = \dfrac{2}{3}\)</span>;     <span class="tex">\(a' = \sqrt{\dfrac{g}{l}}\)</span><br>
+<br>
+che finalmente dopo immensa fatica posso sostituire trovando <span class="tex">\(v_{x, cm} = \dfrac{1}{3} \sqrt{gl}\)</span><br>
+<br>
+detto questo, spero che qualcuno abbia una soluzione più furba della mia ;) chiedo scusa se ho saltato un po' di conti ma ho una simulazione di terza prova da affrontare.</article>
+<article class="post" id="p19937"><div class="who"><b>andrea96</b><span>14 dic 2014, 20:27</span></div>Per un momento ho temuto che avessi risolto l'equazione del moto ma fortunatamente questo non è successo :D  :D  :D <br>
+Il metodo è lo stesso che ho utilizzato io  :D  :D  :D Fortunatamente ho appena visto che la soluzione che porta il libro da cui ho preso il problema ( che è il morin ) è completamente diversa e appena avrò il tempo la posterò! :D <br>
+Nel frattempo puoi andare con il prossimo problema!<br>
+<br>
+P.S. Per quelli che non conoscono la meccanica lagrangiana l'equazione del moto può essere trovata anche scrivendo l'equazione del momento angolare e sostituendo le reazioni vincolari con le espressioni che vengono dall'equazione dei Newton. Se non sono stato chiaro ve lo spiego meglio... comunque penso che ci voglia più tempo a fare i calcoli in questo modo che a studiare la meccanica lagrangiana che, sempre per chi non la conosce, è un formalismo equivalente alla meccanica Newtoniana che ha il vantaggio di essere fondata su equazioni "pure" cioè equazioni in cui non compaiono reazioni vincolari, e quindi è parecchio utile nei problemi in cui le coordinate non sono tra loro indipendenti ( in questo ad esempio x e y potevano essere scritti in funzione di a, come ha fatto orso, e scrivere poi l'equazioni di lagrange per quest unica variabile, e tutto questo sottintende la presenza di reazioni vincolari...); ho scritto questa roba poco comprensibile per incuriosire chi non conosce l'argomento  :lol:  :lol:  :lol:</article>
+<article class="post" id="p19938"><div class="who"><b>andrea96</b><span>14 dic 2014, 22:32</span></div>Posto l'altra soluzione perchè ne vale veramente la pena per la bellezza e la quantità minima di calcoli :D  :D  :D <br>
+Il punto fondamentale è quello di notare che visto che le coordinate del centro di massa sono <span class="tex">\(x=\frac{l}{2}cos a\)</span> e <span class="tex">\(y=\frac{l}{2} sen a\)</span>, il centro di massa si muove su una circonferenza centrata nel vertice di raggio <span class="tex">\(l/2\)</span>. Allora <span class="tex">\(a\)</span> è anche l'angolo formato dalla retta che congiunge lo spigolo con il centro di massa e il pavimento.<br>
+La conservazione dell'energia si scrive<br>
+<span class="tex">\(3\frac{g}{l}(1-sen a)=a'^2\)</span><br>
+e indicando con <span class="tex">\(v\)</span> la velocità del centro di massa, visto che questo si muove sulla circonferenza si ha <span class="tex">\(v=\frac{l}{2} a'\)</span> che messo nella conservazione dell'energia ed esplicitando rispetto alla velocità porta a:<br>
+<span class="tex">\(v=\sqrt{3/4 gl(1-sen a)}\)</span><br>
+e considerando che la velocità e perpendicolare alla congiungente vertice-centro di massa:<br>
+<span class="tex">\(v_x=vsen a\)</span>.<br>
+Ora, visto che l'unica forza orizzontale è quella esercitata dalla parete, quando questa si azzera ( condizione per la quale si perde il contatto con la parete ) si azzera anche la derivata della velocità orizzontale rispetto al tempo, e visto che <span class="tex">\(\frac{dv_x}{dt}=\frac{dv_x}{da} a'\)</span> e visto che sappiamo che quando si perde il contatto la sbarra è ancora in rotazione ( cioè <span class="tex">\(a'\)</span> non è nullo ), allora la condizione è <span class="tex">\(\frac{dv_x}{da}=0\)</span>.<br>
+Azzerando quindi la derivata si ottiene <span class="tex">\(sen a=2/3\)</span> cioè <span class="tex">\(v_x=\frac{\sqrt{gl}}{3}\)</span></article>
+<article class="post" id="p19942"><div class="who"><b>Simone256</b><span>15 dic 2014, 19:43</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>
+<span class="tex">\(3\frac{g}{l}(1-sen a)=a'^2\)</span>
+</div></blockquote>
+Come si giunge subito a questo? Si potrebbe fare <span class="tex">\(K_{rotazionale}+K_{traslazionale}=-\Delta U\)</span>. Poi come detto si ricavano le due <span class="tex">\(K\)</span> in funzione solo di <span class="tex">\(v\)</span> e quindi di <span class="tex">\(v_{orizzontale}\)</span>. Cioè il risultato è uguale ma non capisco come si possa saltare subito alla formula che lega il quadrato della velocità angolare con quel termine proporzionale a <span class="tex">\(gl\)</span>.</article>
+<article class="post" id="p19946"><div class="who"><b>andrea96</b><span>15 dic 2014, 20:40</span></div>No ma si fa come hai detto tu :lol:  :lol:  :lol: <br>
+Ho omesso i passaggi scusate  :cry: <br>
+Li metto ora: Quando l'angolo è <span class="tex">\(a\)</span> la sbarretta ha perso energia potenziale rispetto alla posizione iniziale<br>
+<span class="tex">\(\Delta U=mgl/2 (1-sena)\)</span> che è stata trasformata in cinetica scomponibile in energia del centro di massa che muovendosi su una circonferenza è <span class="tex">\(K_c=1/2 m \frac{l^2}{4} a'^2\)</span> e energia rotazionale rispetto al centro di massa che è <span class="tex">\(K_{rot}=1/24 ml^2 a'^2\)</span>. Mettendo insieme i pezzi viene <span class="tex">\(3\frac{g}{l} ( 1-sena)=a'^2\)</span></article>
+<article class="post" id="p19952"><div class="who"><b>Simone256</b><span>15 dic 2014, 23:06</span></div>Oooook sisi solo pensavo ci fosse sotto un qualcos'altro di figo per arrivare subito alla soluzione  :lol: <br>
+Figo comunque sto problema!! Da un fan delle sbarrette come me spero ne pubblicherai presto un'altro simile  :P</article>
+<article class="post" id="p19954"><div class="who"><b>andrea96</b><span>15 dic 2014, 23:10</span></div><blockquote><div><cite>Simone256 ha scritto:</cite> Da un fan delle sbarrette come me spero ne pubblicherai presto un'altro simile  :P</div></blockquote>
+Sulle sbarrette ora non me ne vengono in mente :x però se vuoi ne ho in mente un altro ( su un parallelepipedo ) molto più atroce di questo  :D</article>
+<article class="post" id="p19955"><div class="who"><b>Simone256</b><span>15 dic 2014, 23:19</span></div>Hahaha basta che l'analisi per risolverlo non sia così atroce sennò son tagliato fuori  :cry:</article>
+<nav class="pager"><a class="prev" href="olifis-6008.html"><small>← precedente</small>28: Meccanica fotoelettrica</a><a class="next" href="olifis-6014.html"><small>successivo →</small>30: conduttori NON all&#x27;equilibrio</a></nav>
+</main></body></html>

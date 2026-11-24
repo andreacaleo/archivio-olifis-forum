@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>56: specchio relativistico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 56</a></span></nav>
+<h1>56: specchio relativistico</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6167">forum Olifis</a></p>
+<article class="post first" id="p21306"><div class="who"><b>andrea96</b><span>19 ago 2015, 9:53</span></div>Uno specchio è inclinato di un angolo <span class="tex">\(\phi\)</span> rispetto all'asse x e viene mantenuto in moto a velocità <span class="tex">\(v\)</span>  nella direzione positiva delle x. Un raggio di luce incide sullo specchio formando un angolo <span class="tex">\(\alpha\)</span> rispetto alla normale quindi riflesso ad un angolo <span class="tex">\(\beta\)</span> rispetto alla normale. Trovare <span class="tex">\(\beta\)</span>.</article>
+<article class="post" id="p21549"><div class="who"><b>phyknight</b><span>10 nov 2015, 23:21</span></div>So che c'è la soluzione <span class="tex">\(\varphi\)</span>ga di questo problema che usa solo leggi di conservazione...e proprio per questo non la scrivo, ma uso l'approccio che tutti (me compreso) odiano: i conti.<br>
+Probabilmente avrò sbagliato qualcosa...ma boh, tanto non scrivo la "soluzione", ma un modo per ricavarla facendo tanti tanti conti<br>
+Se per andrea va bene così sblocchiamo la staffetta che sembra morta e la consegniamo alle future generazioni (forse...)<br>
+<br>
+Chiamo S il sistema di riferimento del laboratorio, e S' quello solidale con lo specchio<br>
+Inoltre definisco <span class="tex">\(\theta\)</span> l'angolo tra l'asse negativo delle x e il fascio di luce incidente e <span class="tex">\(\theta_1\)</span> l'angolo tra asse negativo delle x e il fascio riflesso, questo nel sistema S.<br>
+In corrispondenza definisco <span class="tex">\(\theta'\)</span> e <span class="tex">\(\theta_1'\)</span> nel sistema S'.<br>
+Giocando un po' con gli angoli si trova che <br>
+1) <span class="tex">\(\theta=\alpha+\phi-\frac{\pi}{2}\)</span><br>
+2) <span class="tex">\(\beta=\pi-\phi-\theta_1\)</span><br>
+Usando le trasformazioni delle velocità, posizioni et simila, si scompone la velocità della luce usando <span class="tex">\(\sin\theta\)</span> e <span class="tex">\(\cos\theta\)</span> e ciclici, e si ottengono con (non molta) fatica le seguenti relazioni:<br>
+3) <span class="tex">\(\sin{\theta'}=\gamma\sin\theta\left(1+\dfrac{v}{c}\dfrac{\frac{v}{c}-\cos\theta}{\frac{v}{c}\cos\theta-1}\right)\)</span><br>
+4) <span class="tex">\(\sin\theta_1'=-\sin\theta'\cos(2\phi)+\cos\theta'\sin(2\phi)\)</span><br>
+5) <span class="tex">\(\sin\theta_1=\dfrac{1}{\gamma}\dfrac{\sin\theta_1'}{1+\frac{v}{c}\cos\theta_1'}\)</span><br>
+<br>
+La 1) mi da <span class="tex">\(\theta\)</span>, la 3) <span class="tex">\(\theta'\)</span>, la 4) <span class="tex">\(\theta_1'\)</span>, la 5) <span class="tex">\(\theta_1\)</span> e la 2) <span class="tex">\(\beta\)</span><br>
+<br>
+I conti non oso farli...<br>
+<br>
+tuttavia, grazie alle abilità contose di drago, volendo scrivere <span class="tex">\(\beta\)</span> in maniera un po' più esplicita, giocando con le matrici si è trovato che:(i <span class="tex">\(\beta\)</span> al RHS sono il rapporto tra le velocità, quello al LHS è l'angolo cercato)<br>
+<br>
+<span class="tex">\(\beta=\phi-\arcsin\left(\dfrac{\beta\gamma(1+\cos(2\phi))+\gamma(\beta^2+\cos(2\phi))\sin(\alpha+\phi)+\sin(2\phi)\cos(\alpha+\phi)}{\gamma(1+\beta^2\cos(2\phi))+\gamma(\beta^2+\cos(2\phi))\sin(\alpha+\phi)+\sin(2\phi)\cos(\alpha+\phi)}\right)\)</span></article>
+<article class="post" id="p21550"><div class="who"><b>andrea96</b><span>11 nov 2015, 10:26</span></div>Il quaderno dove feci questo problema credo sia ormai nel paradiso (o forse inferno) dei quaderni... tuttavia mi fido delle abilitá contose di drago quindi confermo :D</article>
+<article class="post" id="p21551"><div class="who"><b>nk1996</b><span>11 nov 2015, 10:30</span></div>#Salvatoresantosubito<br>
+Era ora di sbloccarla :D  :D</article>
+<article class="post" id="p21552"><div class="who"><b>andrea96</b><span>11 nov 2015, 11:43</span></div>Beh ma io avrei potuto decidere di non rispondere quindi secondo me anch io mi merito una santificazione :lol:</article>
+<article class="post" id="p21553"><div class="who"><b>nk1996</b><span>12 nov 2015, 10:27</span></div>No tu meriti le pene dell'inferno per aver pubblicato il problema più contoso di sempre</article>
+<article class="post" id="p21554"><div class="who"><b>andrea96</b><span>12 nov 2015, 12:00</span></div>Ma no siete voi normalisti che lo avete trasformato in un problema contoso :lol: <br>
+In realtá si fa quasi a mente :D</article>
+<nav class="pager"><a class="prev" href="olifis-6166.html"><small>← precedente</small>55: una palla che gira e cade</a><a class="next" href="olifis-6212.html"><small>successivo →</small>57: carrucola</a></nav>
+</main></body></html>

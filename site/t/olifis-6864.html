@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>188. Pallone sonda</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 188</a></span></nav>
+<h1>188. Pallone sonda</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6864">forum Olifis</a></p>
+<article class="post first" id="p25707"><div class="who"><b>Luca Milanese</b><span>6 mar 2020, 18:06</span></div>a) In un pallone sferico rigido di volume <span class="tex">\(V = 1,0 m^3\)</span> si raccolgono <span class="tex">\(150 g\)</span> di vapore (trattarlo come un gas perfetto di massa molare <span class="tex">\(M=18 g/mol\)</span>) alla temperatura di <span class="tex">\(20\)</span> gradi centigradi. Calcolare la pressione del vapore all’interno del pallone.<br>
+b) Supponendo che esso abbia massa <span class="tex">\(m_0=25 g\)</span> e che l’atmosfera abbia densità <span class="tex">\(\rho (z)=\rho_0 e^{-\frac{z}{z_0}}\)</span>, dove <span class="tex">\(z\)</span> è la quota in metri sul livello del mare e valgono <span class="tex">\(\rho_0=1,2 kg/m^3\)</span> e <span class="tex">\(z_0=10km\)</span>, trovare l’altezza alla quale il pallone si trova in equilibrio (cioè la quota alla quale esso può restare indefinitamente).<br>
+c) In realtà il pallone ha una certa energia cinetica e raggiunta la quota di equilibrio esso ha una velocità verso l’alto che gli impedisce di fermarsi. Considerando la velocità piccola (dell’ordine dei metri al secondo) dire qualitativamente perchè il moto è periodico e determinarne il periodo. Può essere utile sapere che <span class="tex">\(e^x \approx x+1\)</span> per <span class="tex">\(x&lt;&lt;1\)</span>.</article>
+<article class="post" id="p25708"><div class="who"><b>east_beast</b><span>6 mar 2020, 19:08</span></div>Provo prima i punti a e b<br>
+a) Detta <span class="tex">\(m_v\)</span> la massa di vapore contenuta nel pallone, trattandolo come un gas perfetto, possiamo scrivere l'equazione di stato <br>
+<span class="tex">\(
+pV = nRT_0  \)</span>  con <span class="tex">\(n = {\frac{m_v}{M}} \)</span>  quindi  <span class="tex">\(p = {\frac {m_vRT_0} {MV}   } = 2,03{\cdot}10^5Pa\)</span><br>
+<br>
+b) All'equilibrio, le forze agenti sulla sonda sono la spinta di Archimede e il peso della sonda+gas, quindi:<br>
+<br>
+<span class="tex">\(
+{\rho}(z)Vg = (m_0+m_v)g \newline
+{\rho}(z) = {\frac{m_0+m_v}{V}} \newline
+{\rho}_0{\exp}{\frac{-z}{z_0}} = (m_0+m_v)g \newline
+\)</span><br>
+<span class="tex">\( z=z_0ln({\frac{{\rho}_0V} {m_0+m_v }  })
+z {\approx} 19,25 km
+\)</span><br>
+<br>
+c) Qualitativamente, il moto è periodico perchè una volta superata l'altezza di equilibrio <span class="tex">\(z\)</span> la risultante delle forze punterà verso il basso, facendo scendere la sonda sotto <span class="tex">\(z\)</span>, finché non si fermerà ulteriormente iniziando ad accelerare verso l'alto, e così via</article>
+<article class="post" id="p25709"><div class="who"><b>Luca Milanese</b><span>6 mar 2020, 19:47</span></div>Tutto corretto :D .</article>
+<article class="post" id="p25710"><div class="who"><b>east_beast</b><span>6 mar 2020, 20:34</span></div>Azzardo (fin troppo) il terzo punto. <br>
+Come scritto nel punto b) la risultante delle forze (positiva verso l'alto) è <span class="tex">\(m{\ddot{z}} = {\rho}(z)gV - mg\)</span> , dove <span class="tex">\(m = m_0+m_v\)</span>.<br>
+Posso definire un potenziale per questa forza (essendo entrambi i termini conservativi), ossia <br>
+<span class="tex">\(U(z) = -mgz + {\int_{0}^{z} {\rho}(z)gV dz} = -mgz - {\alpha}e^{{\frac{-z}{z_0}}} + C\)</span> , con <span class="tex">\({\alpha} = {\rho}_0z_0gV\)</span><br>
+<br>
+Usando Taylor, espandendo ai primi tre termini, trovo che <span class="tex">\(U(z) = U(z_e) + U'(z_e)(z-z_e) + {\frac{1}{2}} U''(z_e)(z-z_e)^2  \)</span> <br>
+detto <span class="tex">\( z_e \)</span> un punto di equilibrio. <span class="tex">\(U(z_e) = 0\)</span> lo impongo (il potenziale è definito a meno di una costante additiva), <span class="tex">\(U'(z_e) = =0\)</span> essendo <span class="tex">\(z_e\)</span> un punto di equilibrio, quindi <span class="tex">\(U(z) {\approx} {\frac{1}{2}}U''(z_e)(z-z_e)^2 \)</span> , che assomiglia al potenziale di una molla, e difatti descrive il potenziale di un moto armonico. <br>
+Sapendo che  <span class="tex">\(F(z) = -{\nabla}U(z)\)</span> <br>
+<span class="tex">\(
+F(z) {\approx} -k(z-z_e) = -U''(z_e)(z-z_e)\)</span><br>
+Ricordando l'equazione del moto armonico, la frequenza di piccole oscillazioni è <span class="tex">\( {\omega} ={\sqrt{\frac{k}{m}}} \)</span> quindi<br>
+<span class="tex">\(
+{\omega} ={\sqrt{\frac{U''(z_e)}{m}}}\)</span>  ed il periodo è <span class="tex">\(t= 2{\pi} {\sqrt{\frac{m}{U''(z_e)}}}\)</span><br>
+<span class="tex">\(z_e = 19,25km  \)</span> dal punto b), mentre <span class="tex">\(U''(z_e) ={\frac{ -{\rho}_0gVe^{\frac{-z_e}{z_0}}}{z_0}}\)</span><br>
+quindi <span class="tex">\(t {\approx} 28,5s \)</span>. Mi rendo conto che non è molto accurato, ma non credo di saper fare meglio</article>
+<article class="post" id="p25712"><div class="who"><b>Luca Milanese</b><span>6 mar 2020, 21:36</span></div>Il ragionamento è corretto (fai attenzione ai segni quando scrivi i potenziali!), ma alla fine penso tu abbia fatto un errore di calcolo (dovrebbe venire <span class="tex">\(201 s\)</span>). Comunque, il testimone è tuo!.</article>
+<article class="post" id="p25713"><div class="who"><b>east_beast</b><span>6 mar 2020, 22:18</span></div>Sembra che io abbia invertito i segni :roll:  :(  Ho sempre dei dubbi in questi casi, potresti illuminarmi piu in generale?</article>
+<article class="post" id="p25714"><div class="who"><b>Luca Milanese</b><span>6 mar 2020, 22:58</span></div>Vediamo... come tu stesso hai scritto, per una forza conservativa e la relativa energia potenziale vale <span class="tex">\(\vec F=-\vec \nabla U\)</span>, che, nel nostro caso, poichè siamo in una sola dimensione, si riduce a <span class="tex">\(\vec F = -\frac{dU}{dz}\hat z\)</span>. Ora, poichè tu hai scritto:
+<blockquote><div><cite>east_beast ha scritto: <a href="olifis-6864.html#p25710" data-post-id="25710" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">6 mar 2020, 20:34</div></cite>
+la risultante delle forze (positiva verso l'alto) è <span class="tex">\(m{\ddot{z}} = {\rho}(z)gV - mg\)</span></div></blockquote>
+dovrebbe essere allora <span class="tex">\(F=\rho(z)gV-mg\)</span>, da cui <span class="tex">\(U=-\int (\rho_0 e^{-\frac{z}{z_0}} gV-mg)dz\)</span>, cioè quello che hai scritto tu dopo ma col segno invertito. È il motivo per cui alla fine <span class="tex">\(U''(z_e)\)</span> ti viene negativo (e immagino che nel calcolare il radicale tu abbia preso solo il modulo di <span class="tex">\(U'')\)</span>. Questo però, fortuitamente, non ha inficiato il resto del procedimento (che rimane corretto ed è anche un po' diverso da quello che avevo pensato), per cui ti chiedo di confermarmi che il tuo risultato numerico sia diverso da quello corretto solo per un errore di conto.</article>
+<article class="post" id="p25716"><div class="who"><b>east_beast</b><span>6 mar 2020, 23:11</span></div>Grazie per il chiarimento! Purtroppo sono abbastanza distratto a volte :roll:  Comunque sì avevo sbagliato a inserire i dati e mi veniva un tempo diverso. Per completezza, in cosa differiva la tua soluzione?</article>
+<article class="post" id="p25717"><div class="who"><b>Luca Milanese</b><span>6 mar 2020, 23:20</span></div>La mia soluzione, come quella ufficiale, invece di basarsi sui potenziali, usava l'espressione di <span class="tex">\(F(z)\)</span> ottenuta anche da te per impostare un'equazione differenziale fra <span class="tex">\(z\)</span> e <span class="tex">\(\frac{d^2 z}{dt^2}\)</span>, che si riduceva a quella del moto armonico semplice dopo aver impiegato l'approssimazione proposta. Da lì, si ricavava un'espressione di <span class="tex">\(t\)</span> identica alla tua :D .</article>
+<nav class="pager"><a class="prev" href="olifis-6863.html"><small>← precedente</small>187. Secchio rotante</a><a class="next" href="olifis-6865.html"><small>successivo →</small>189. Piano inclinato con molla e attrito</a></nav>
+</main></body></html>

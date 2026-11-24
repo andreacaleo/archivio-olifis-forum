@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>118. Mayday perdiamo energia!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 118</a></span></nav>
+<h1>118. Mayday perdiamo energia!</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6517">forum Olifis</a></p>
+<article class="post first" id="p23658"><div class="who"><b>FedeColo98</b><span>9 apr 2017, 19:57</span></div>In un miliardo di anni il giorno solare si allunga di un'ora circa. La causa essenziale di questo fenomeno sono le maree. Che frazione della sua energia perde la Terra in una rotazione?</article>
+<article class="post" id="p23659"><div class="who"><b>guido</b><span>10 apr 2017, 12:02</span></div>Scusa ma non sarebbe possibile avere qualche dato come il numero (2 mi risulta?) di maree al giorno, la loro ampiezza, la distanza centro-terra da centro luna-terra ecc. Siamo liceali e questo forum dovrebbe essere a questo livello sennò è come pretendere l'uso sapiente dei quadrivettori energia-impulso per il problema precedente sulla relatività :roll:  :roll: Se tu invece ritieni che uno se li debba procurare da solo, dillo pure. Grazie e scusa ancora :D .</article>
+<article class="post" id="p23660"><div class="who"><b>guido</b><span>10 apr 2017, 13:58</span></div>A meno che ripensandoci non basti calcolare il ritardo di un anno (un miliardesimo di 3600 secondi) diviso per il numero di rptazioni (365) che darebbe il ritardo in una rotazione (circa un centimilionesimo di secondo). Dividendo per le 24 ore non viene la frazione di energia che perde? :roll:  :roll:  :?:</article>
+<article class="post" id="p23661"><div class="who"><b>FedericoC.</b><span>10 apr 2017, 14:07</span></div>Magari sono io che ho frainteso o banalizzato, dati i dubbi di Guido  :roll: <br>
+Il periodo attuale di rotazione terrestre è di <span class="tex">\(T=24 h\)</span>, tra un miliardo di anni sarà <span class="tex">\(t=25 h\)</span>. A causa delle maree dunque la Terra perde energia cinetica rotazionale. <br>
+<br>
+Assimilando la Terra brutalmente a una sfera omogenea il suo momento d'inerzia vale: <span class="tex">\(I=\frac{2}{5}R_TM_T^2\)</span><br>
+<br>
+La variazione di energia in un miliardo di anni sarebbe quindi: <span class="tex">\(\Delta E=2\pi^2 I(\frac{1}{T^2}-\frac{1}{t^2})\)</span><br>
+<br>
+Dato che avviene una rotazione al giorno, la perdita di energia giornaliera vale: <span class="tex">\(\epsilon=\frac{\Delta E}{365,25 \cdot 10^9}\approx 5,50 \times 10^{16} \frac{J}{giorno}\)</span></article>
+<article class="post" id="p23662"><div class="who"><b>FedeColo98</b><span>10 apr 2017, 14:11</span></div>No guido non richiede dati o conoscenze strane :D  L'unica cosa che può fuorviare è il fatto delle maree (che non c'entra nulla voi calvoli della risoluzione del problema). Fai conto che questo è un vecchio sns (1978 credo ma devo controllare). Cose da sapere sono quanto dura un anno, quanto è vale un miliardo e l'energia rotazionale.  ;)</article>
+<article class="post" id="p23663"><div class="who"><b>guido</b><span>10 apr 2017, 14:37</span></div>Si scusa. Il mio conto sarebbe allora <span class="tex">\(\tau = 10^{-8}\)</span>sec il ritardo per una rotazione. Per cui se T=24h= 86400 s il periodo diventerebbe <span class="tex">\(T'= (86400+10^{-8})s\)</span>. Essendo l'energia <span class="tex">\(E=(1/2)I\omega^2=(1/2)I(4\pi^2/T^2)\)</span> ci sarebbe una frazione perduta pari a <span class="tex">\([(1/T^2)-1/(T'^2)]/(1/T^2)=1-(T/T')^2\)</span> dove <span class="tex">\(T'=T+\tau\)</span>. Con lo sviluppo fino al primo ordine cioè trascurando<span class="tex">\(\tau^2\)</span> e <span class="tex">\(2T\tau\)</span> rispetto a <span class="tex">\(T^2\)</span>mi verrebbe che la frazione perduta è <span class="tex">\(f= 2\tau/T=2,3.10^{-13}\)</span></article>
+<article class="post" id="p23664"><div class="who"><b>FedeColo98</b><span>11 apr 2017, 18:10</span></div>Perfetto guido, a te il testimone! ;) <br>
+Per Federico, mi sembra che il tuo ragionamento sia abbastanza corretto, ma alla fine dovresti dividere<span class="tex">\(\Delta E\)</span> per l'energia rotazionale della Terra "spesa" in un miliardo di anni (adesso purtroppo non ti posso confermare con i calcoli perché sono in gita).<br>
+La cosa carina di questo problema è che all'inizio ti spiazza dal momento che sembra chiederti cose assurde, ma alla fine si rivela piuttosto fattibile!</article>
+<nav class="pager"><a class="prev" href="olifis-6516.html"><small>← precedente</small>117. Aste?</a><a class="next" href="olifis-6518.html"><small>successivo →</small>119. Gioca a bocce</a></nav>
+</main></body></html>

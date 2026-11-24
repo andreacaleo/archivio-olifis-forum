@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>106. Sfera calda all&#x27;equilibrio</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 106</a></span></nav>
+<h1>106. Sfera calda all'equilibrio</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6435">forum Olifis</a></p>
+<article class="post first" id="p23170"><div class="who"><b>FedericoC.</b><span>6 nov 2016, 11:50</span></div>In una sfera di raggio <span class="tex">\(R\)</span> e conducibilità termica <span class="tex">\(\kappa\)</span> viene prodotto calore in modo isotropo. Il calore prodotto per unità di volume e di tempo è <span class="tex">\(Q\)</span>. La sfera è in uno spazio in cui c'è lo zero assoluto e irraggia come un corpo nero. Calcolare, in funzione della distanza radiale dal centro, la temperatura all'interno della sfera all'equilibrio.</article>
+<article class="post" id="p23171"><div class="who"><b>Flaffo</b><span>6 nov 2016, 17:16</span></div>La temperatura superficiale della stella è data eguagliando l'energia emessa  (data dalla relazione di Stefan-Boltzmann )  e l'energia prodotta al suo interno (per unità  di tempo):<br>
+<br>
+<span class="tex">\(\displaystyle 4 \pi R^2 \sigma T^4 = \frac {4}{3}\pi R^3 Q\)</span><br>
+<br>
+Da cui:<br>
+<br>
+<span class="tex">\(\displaystyle  T_s =  {\left (\frac {RQ}{3\sigma}\right) }^{1/4}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \frac {dE}{dt }=\frac {4}{3}\pi r^3 Q\)</span><br>
+<br>
+<span class="tex">\(\displaystyle   \frac {dE}{dt}= - \kappa 4 \pi r^2 \frac {dT}{dr}\)</span><br>
+<br>
+Dato che siamo in equilibrio, le due quantità sono uguali, altrimenti si avrebbe un accumulo o una scomparsa di calcore, che contradirrebbe l'ipotesi iniziale. Eguagliando, dopo un po di passaggi arriviamo a:<br>
+<br>
+<span class="tex">\(\displaystyle r dr = -\frac {3 \kappa }{Q} dT\)</span><br>
+<br>
+Integriamo, scegliendo opportunamente gli estremi:<br>
+<br>
+<span class="tex">\(\displaystyle  \int_{R}^{r} {r dr }=-\frac {3 \kappa }{Q}  \int_{T_s}^{T}{dT}\)</span><br>
+<br>
+Svolgendo e Isolando T:<br>
+<br>
+<span class="tex">\(\displaystyle T \left ( r \right) = \frac {Q}{6\kappa } \left ( R^2 - r^2 \right)  + { \left (\frac {RQ}{3\sigma } \right)}^{1/4}\)</span><br>
+<br>
+Dovrebbe aver senso se controlliamo i casi limiti e le proporzionalità ( Q, k..)</article>
+<article class="post" id="p23172"><div class="who"><b>FedericoC.</b><span>6 nov 2016, 17:30</span></div>Il risultato è sbagliato, anche perché sarebbe paradossale che la temperatura aumenti all'aumentare della distanza dal centro</article>
+<article class="post" id="p23173"><div class="who"><b>Flaffo</b><span>6 nov 2016, 20:42</span></div>Mi sono accorto di alcuni errori stupidi.. ho modificato l'ultimo post  :D</article>
+<article class="post" id="p23174"><div class="who"><b>FedericoC.</b><span>6 nov 2016, 20:54</span></div>Esattamente, a te il testimone  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6434.html"><small>← precedente</small>105. Palla su foglio di carta</a><a class="next" href="olifis-6436.html"><small>successivo →</small>107.  Atomi!</a></nav>
+</main></body></html>

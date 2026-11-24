@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>294 - Taglio della corda</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 294</a></span></nav>
+<h1>294 - Taglio della corda</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7143">forum Olifis</a></p>
+<article class="post first" id="p27410"><div class="who"><b>DeoGratias</b><span>16 mar 2022, 0:02</span></div>Tre particelle <span class="tex">\(A, B, C\)</span> di carica <span class="tex">\(q\)</span> e massa <span class="tex">\(m\)</span> sono collegate da delle corde inestensibili, isolanti e di massa trascurabile. Le lunghezze di queste sono tali che la configurazione di equilibrio è un triangolo isoscele con <span class="tex">\(\angle BAC=120^{\circ}\)</span> e <span class="tex">\(|BC| = L\)</span>. All'improvviso la corda <span class="tex">\(BC\)</span> viene tagliata. Trovare:<br>
+1) La velocità massima della particella <span class="tex">\(A\)</span> nel moto successivo<br>
+2) Le accelerazioni delle tre particelle al momento del taglio</article>
+<article class="post" id="p27412"><div class="who"><b>Luca Milanese</b><span>17 mar 2022, 22:32</span></div>1) Fisso un sistema di riferimento <span class="tex">\(Oxy\)</span> nel piano contenente le tre particelle, tale che il centro di massa del sistema si trovi nell'origine e che, inizialmente, valga <span class="tex">\(\overrightarrow{BC}=(L,0)\)</span>. Dopo il taglio della corda tra <span class="tex">\(B\)</span> e <span class="tex">\(C\)</span>, restano costanti le distanze <span class="tex">\(|AC|=|AB|=\frac{L}{\sqrt{3}}\)</span>, mentre l'angolo <span class="tex">\(\angle{BAC}\)</span> varia. Sia <span class="tex">\(2\theta(t)\)</span> il suo valore in funzione del tempo. Chiaramente, il moto di <span class="tex">\(B\)</span> e <span class="tex">\(C\)</span> è simmetrico rispetto all'asse delle <span class="tex">\(y\)</span>, e il moto di <span class="tex">\(A\)</span> si svolge su questa retta. Le posizioni delle tre particelle in funzione del tempo sono allora:<br>
+<span class="tex">\(\begin{cases}
+\displaystyle \vec A = \bigg (0, \frac{2L \cos \theta}{3 \sqrt{3}} \bigg ) \\
+\displaystyle \vec B = \bigg (-\frac{L \sin \theta}{\sqrt{3}}, -\frac{L \cos \theta}{3\sqrt{3}} \bigg) \\
+\displaystyle \vec C = \bigg (\frac{L \sin \theta}{\sqrt{3}}, -\frac{L \cos \theta}{3\sqrt{3}} \bigg) \\
+\end{cases}\)</span><br>
+Subito dopo <br>
+Derivando rispetto al tempo:<br>
+<span class="tex">\(\begin{cases}
+\displaystyle \vec v_A = \bigg (0, -\frac{2L \sin \theta \dot \theta}{3 \sqrt{3}} \bigg ) \Rightarrow v_A^2= \frac{4L^2 \cos^2 \theta \dot \theta^2}{27} \\
+\displaystyle \vec v_B = \bigg (-\frac{L \cos \theta \dot \theta}{\sqrt{3}}, \frac{L \sin \theta \dot \theta}{3\sqrt{3}} \bigg) \Rightarrow \frac{L^2 (1+8\cos^2 \theta) \dot \theta^2}{27} \\
+\displaystyle \vec v_C = \bigg (\frac{L \cos \theta \dot \theta}{\sqrt{3}}, \frac{L \sin \theta \dot \theta}{3\sqrt{3}} \bigg) \Rightarrow \frac{L^2 (1+8\cos^2 \theta) \dot \theta^2}{27} \\
+\end{cases}\)</span><br>
+Perciò l'energia cinetica del sistema è:<br>
+<span class="tex">\(K=\frac{m(v_A^2+v_B^2+v_C^2)}{2}=\frac{mL^2 \dot \theta^2 (4-3 \sin^2 \theta)}{9}\)</span><br>
+L'unica energia potenziale a variare nel tempo è quella dovuta all'interazione tra <span class="tex">\(B\)</span> e <span class="tex">\(C\)</span>. La distanza tra le due cariche vale <span class="tex">\(|BC|=\frac{2L \sin \theta}{\sqrt{3}}\)</span>, perciò l'energia potenziale elettrica vale:<br>
+<span class="tex">\(U=\frac{q^2}{4\pi \varepsilon_0 |BC|}=\frac{q^2 \sqrt{3}}{8\pi \varepsilon_0 L \sin \theta}\)</span><br>
+Per conservazione dell'energia si ha allora:<br>
+<span class="tex">\(\frac{q^2}{4\pi \varepsilon_0 L}=\frac{q^2 \sqrt{3}}{8\pi \varepsilon_0 L \sin \theta}+ \frac{mL^2 \dot \theta^2 (4-3 \sin^2 \theta)}{9} \Rightarrow \dot \theta^2 = \frac{9q^2 (1-\frac{\sqrt{3}}{2\sin \theta})}{4\pi \varepsilon_0 m L^3 (4-3 \sin^2 \theta)}\)</span><br>
+<span class="tex">\(\Rightarrow v_A^2=\frac{q^2 \sin^2 \theta (1-\frac{\sqrt{3}}{2\sin \theta})}{3\pi \varepsilon_0 mL (4-3\sin^2 \theta)}\)</span><br>
+Si vede facilmente che la funzione qui sopra è massima per <span class="tex">\(\theta=\frac{\pi}{2}\)</span>, perciò il massimo valore di <span class="tex">\(v_A\)</span> è:<br>
+<span class="tex">\(v_A=\sqrt{\frac{q^2 (1-\frac{\sqrt{3}}{2})}{3\pi \varepsilon_0 m L}}\)</span><br>
+<br>
+2) Subito dopo il taglio, sia <span class="tex">\(T\)</span> la tensione nelle due corde rimanenti, identica per simmetria. Per conservazione della q.d.m., inoltre, le accelerazioni hanno la forma:<br>
+<span class="tex">\(\begin{cases}
+\vec a_A=(0, 2a_1) \\
+\vec a_B=(-a_2, -a_1) \\
+\vec a_C= (a_2, -a_1) \\
+\end{cases}\)</span><br>
+Dalla Seconda Legge di Newton, si ha allora:<br>
+<span class="tex">\(\begin{cases}
+2ma_1=-T+\frac{3q^2}{4\pi \varepsilon_0 L^2} \\
+ma_2=-\frac{\sqrt{3} T}{2} + \frac{q^2}{4\pi \varepsilon_0} \big ( 1 + \frac{3 \sqrt{3}}{2}\big ) \\
+\end{cases}\)</span><br>
+Infine, data l'inestensibilità delle corde restanti, e poiché tutte le cariche sono inizialmente ferme, si ha:<br>
+<span class="tex">\((\vec A - \vec B) \cdot (\vec a_A - \vec a_B)=0 \Rightarrow a_2+\sqrt{3} a_1=0\)</span><br>
+Risolvendo, si trova:<br>
+<span class="tex">\( \begin{cases}
+\vec a_A= \bigg (0, -\frac{q^2}{4\pi \varepsilon_0 m \sqrt{3} L^2} \bigg) \\
+\vec a_B= \bigg (- \frac{q^2}{8\pi \varepsilon_0 m L^2}, \frac{q^2}{8\pi \varepsilon_0 m \sqrt{3} L^2} \bigg) \\
+\vec a_C= \bigg ( \frac{q^2}{8\pi \varepsilon_0 m L^2}, \frac{q^2}{8\pi \varepsilon_0 m \sqrt{3} L^2} \bigg) \\
+\end{cases}  \)</span></article>
+<article class="post" id="p27413"><div class="who"><b>DeoGratias</b><span>18 mar 2022, 17:31</span></div>Perfetto, vai pure col prossimo! :D</article>
+<nav class="pager"><a class="prev" href="olifis-7141.html"><small>← precedente</small>293. Oscillazioni nel cubo</a><a class="next" href="olifis-7144.html"><small>successivo →</small>295. Campo magnetico non uniforme.</a></nav>
+</main></body></html>

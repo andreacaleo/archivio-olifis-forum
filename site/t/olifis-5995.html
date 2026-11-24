@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>23:bobine concentriche</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 23</a></span></nav>
+<h1>23:bobine concentriche</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5995">forum Olifis</a></p>
+<article class="post first" id="p19689"><div class="who"><b>andrea96</b><span>14 nov 2014, 20:13</span></div>due bobine concentriche di raggi <span class="tex">\(r_1\)</span> e <span class="tex">\(r_2\)</span> (<span class="tex">\(r_1&lt;r_2\)</span>) hanno stessa lunghezza (molto maggiore dei raggi ) e stessa induttanza di valore <span class="tex">\(L\)</span>; hanno inoltre stessa resistenza <span class="tex">\(R\)</span> ( una bobina con resistenza si può schematizzare con i due elementi messi in serie ). Ciascuna bobina va immaginata come un circuito chiuso, cioè la sua estremità in alto è collegata a quella in basso con un filo privo di resistenza in modo che possa scorrere corrente, ma ogni bobina è un circuito a sè, cioè le due bobine non sono in alcun modo collegate da conduttori. All'istante <span class="tex">\(t=0\)</span> viene inserita nella bobina interna (<span class="tex">\(1\)</span>) un generatore di forza elettromotrice costante <span class="tex">\(\epsilon\)</span>.<br>
+1) trovare la massima intensità di corrente nella bobina esterna (2) e il valore "di regime" di tale corrente.<br>
+2)nel caso <span class="tex">\(r_2=2r_1\)</span> confrontare l'andamento temporale <span class="tex">\(i_1(t)\)</span> della corrente nella bobina interna con l'andamento <span class="tex">\(i'_1(t)\)</span> della corrente nella stessa bobina nel caso in cui viene completamente eliminato il circuito della bobina esterna. Il confronto va fatto da un punto di vista qualitativo e se si riesce da un punto di vista quantitativo ma solo approssimato ( cioè con l'analisi numerica ).</article>
+<article class="post" id="p19691"><div class="who"><b>phyknight</b><span>15 nov 2014, 19:33</span></div>un problema con conti enormi...<br>
+se non ho sbagliato nulla la massima intensità dovrebbe essere <span class="tex">\(\dfrac{\varepsilon}{2R}\left(\left(\dfrac{L+M}{L-M}\right)^{-\frac{L+M}{2M}}-\left(\dfrac{L+M}{L-M}\right)^{-\frac{L-M}{2M}}\right)\)</span> con <span class="tex">\(M=\mu_0\dfrac{N_1N_2}{l}\pi r_1^2=\dfrac{r_1}{r_2}L\)</span><br>
+Se è giusta domani scrivo il procedimento (i conti sono indecenti)<br>
+<br>
+edit: volendo l'intensità si può scrivere in un modo più bello, ma ho usato M per far capire un po' come ci sono arrivato</article>
+<article class="post" id="p19692"><div class="who"><b>andrea96</b><span>15 nov 2014, 19:37</span></div>bravo è giusto! :D 
+<blockquote><div><cite>phyknight ha scritto:</cite>
+(i conti sono indecenti)</div></blockquote>
+mah... non so come l'hai fatto perchè io usando qualche "trucchetto" ho fatto poco più di una pagina...<br>
+Ti assicuro che venivano MOLTIIIII più conti nel problema prima di questo</article>
+<article class="post" id="p19693"><div class="who"><b>phyknight</b><span>15 nov 2014, 19:45</span></div>ho risolto il sistema di due equazioni differenziali che veniva per le due bobine(i due circuiti), solo che l'ho risolto in <span class="tex">\(i_1+i_2\)</span> (altrimenti non lo sapevo risolvere  :D ), ho trovato <span class="tex">\(i_1+i_2\)</span> e ho riutilizzato un'equazione del sistema per trovare <span class="tex">\(i_2\)</span>, poi derivata per il massimo e fine<br>
+Tu come lo hai fatto?<br>
+Che intendi per confrontare le due correnti al punto 2?</article>
+<article class="post" id="p19694"><div class="who"><b>phyknight</b><span>15 nov 2014, 19:49</span></div><blockquote class="uncited"><div>Ti assicuro che venivano MOLTIIIII più conti nel problema prima di questo</div></blockquote>
+si, effettivamente anche a me sono venuti più conti per quel problema, solo che qui ho risolto due equazioni differenziali in cui ho perso più volte qualche termine in giro :lol:  :lol: e le ho dovute risolvere di nuovo</article>
+<article class="post" id="p19695"><div class="who"><b>andrea96</b><span>15 nov 2014, 20:05</span></div><blockquote><div><cite>phyknight ha scritto:</cite><blockquote class="uncited"><div>Ti assicuro che venivano MOLTIIIII più conti nel problema prima di questo</div></blockquote>
+si, effettivamente anche a me sono venuti più conti per quel problema, solo che qui ho risolto due equazioni differenziali in cui ho perso più volte qualche termine in giro :lol:  :lol: e le ho dovute risolvere di nuovo</div></blockquote>
+Ah ma forse io ho fatto meno conti perchè conoscevo gia la forma della soluzione delle equazioni che vengono  :D <br>
+Poi penso che anche tu per risolvere il sistema abbia usato somma e differenza delle due equazioni giusto?</article>
+<article class="post" id="p19696"><div class="who"><b>phyknight</b><span>15 nov 2014, 20:55</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Poi penso che anche tu per risolvere il sistema abbia usato somma e differenza delle due equazioni giusto?</div></blockquote>
+si
+<blockquote><div><cite>andrea96 ha scritto:</cite>conoscevo gia la forma della soluzione </div></blockquote>
+già, mi sa che è meglio che le impari bene anche io definitivamente :)</article>
+<article class="post" id="p19697"><div class="who"><b>phyknight</b><span>16 nov 2014, 17:22</span></div>ecco la soluzione completa<br>
+Poiché le induttanze sono uguali, usando la formula dell'induttanza per un solenoide <span class="tex">\(L=\dfrac{\mu_0N^2r^2\pi}{l}\)</span> trovo che <span class="tex">\(N_1r_1=N_2r_2\)</span> con <span class="tex">\(N\)</span> numero di avvolgimenti<br>
+Chiamo <span class="tex">\(M\)</span> il coefficiente di mutua induzione<br>
+<span class="tex">\(M=\dfrac{\Phi_{1,2}}{i_1}=\dfrac{\mu_0N_1N_2\pi r_1^2i_1}{i_1}=\mu_0N_1N_2\pi r_1^2=\dfrac{r_1}{r_2}L\)</span> che è minore di <span class="tex">\(L\)</span>  (questo serve varie volte per la positività un po' ovunque di <span class="tex">\(L-M\)</span>)<br>
+scrivo le equazioni dei due circuiti (che in fondo sono la conservazione dell'energia)<br>
+<span class="tex">\(\begin{cases}  \varepsilon-L\dfrac{di_1}{dt}-M\dfrac{di_2}{dt}-Ri_1=0\\ -L\dfrac{di_2}{dt}-M\dfrac{di_1}{dt}-Ri_2=0  \end{cases}\Rightarrow \begin{cases}\varepsilon-L\dfrac{d(i_1+i_2)}{dt}-M\dfrac{d(i_1+i_2)}{dt}-R(i_1+i_2)=0\\ \varepsilon-L\dfrac{d(i_1-i_2)}{dt}+M\dfrac{d(i_1-i_2)}{dt}-R(i_1-i_2)=0 \end{cases}\)</span><br>
+queste due in <span class="tex">\(i_1+i_2\)</span> e <span class="tex">\(i_1-i_2\)</span> sono a coefficienti costanti e quindi sono le più facili da risolvere<br>
+<span class="tex">\(\begin{cases} i_1+i_2=\dfrac{\varepsilon}{R}\left(1-e^{-\frac{Rt}{L+M}}\right)\\ i_1-i_2=\dfrac{\varepsilon}{R}\left(1-e^{-\frac{Rt}{L-M}}\right) \end{cases}\Rightarrow \begin{cases}i_1=\dfrac{\varepsilon}{2R}\left(2-e^{-\frac{Rt}{L+M}}-e^{-\frac{Rt}{L-M}}\right)\\ i_2=\dfrac{\varepsilon}{2R}\left(e^{-\frac{Rt}{L+M}}-e^{-\frac{Rt}{L-M}}\right)\end{cases}\)</span><br>
+<span class="tex">\(i_2\)</span> assume valore <span class="tex">\(0\)</span> sia per <span class="tex">\(t=0\)</span> sia in condizione di regime, quindi per trovare il massimo faccio la derivata (in realtà quello che trovo è un minimo se ho fatto bene la disequazione, ma non importa perché a me interessa il modulo dell'intensità), la pongo uguale a <span class="tex">\(0\)</span> e trovo <span class="tex">\(t=\dfrac{(L+M)(L-M)}{2RM}ln\dfrac{L+M}{L-M}\)</span> che sostituito in <span class="tex">\(i_2\)</span> mi da quello che ho scritto nel messaggio sopra, che, scritto da soluzione, dovrebbe essere<br>
+<span class="tex">\(i_{2,max}=\dfrac{\varepsilon}{2R}\left(\left(\dfrac{r_2+r_1}{r_2-r_1}\right)^{-\frac{r_2+r_1}{2r_1}}-\left(\dfrac{r_2+r_1}{r_2-r_1}\right)^{-\frac{r_2-r_1}{2r_1}}\right)\)</span><br>
+<br>
+Posto <span class="tex">\(r_2=2r_1\)</span> trovo che <span class="tex">\(M=\frac{L}{2}\)</span> e quindi <span class="tex">\(i_1=\dfrac{\varepsilon}{2R}\left(2-e^{-\frac{2Rt}{3L}}-e^{-\frac{2Rt}{L}}\right)\)</span><br>
+Se invece si elimina il circuito 2 allora la corrente in 1 è semplicemente <span class="tex">\(i_1'=\dfrac{\varepsilon}{R}\left(1-e^{-\frac{Rt}{L}}\right)\)</span><br>
+Riscrivo la <span class="tex">\(i_1\)</span> come <span class="tex">\(i_1=\dfrac{\varepsilon}{R}\left(1-e^{-\frac{Rt}{L}}\left(\dfrac{e^{\frac{Rt}{3L}}+e^{-\frac{Rt}{L}}}{2}\right)\right)\)</span><br>
+Quando <span class="tex">\(\left(\dfrac{e^{\frac{Rt}{3L}}+e^{-\frac{Rt}{L}}}{2}\right)&gt;1\)</span> allora <span class="tex">\(i_1&lt;i_1'\)</span> e questo avviene per (questo l'ho fatto con wolfram, ma avendo tanto tempo si poteva fare in qualche modo anche a mano)<br>
+ <span class="tex">\(t&gt;\dfrac{3L}{R}ln\left(\dfrac{1}{3}\left(1+\sqrt[3]{19-3\sqrt{33}}+\sqrt[3]{19+3\sqrt{33}}\right)\right)\)</span></article>
+<article class="post" id="p19698"><div class="who"><b>andrea96</b><span>16 nov 2014, 18:09</span></div>perfetto bravo! :D vai col prossimo!<br>
+giusto due note:
+<blockquote><div><cite>phyknight ha scritto:</cite>
+<span class="tex">\(M=\dfrac{\Phi_{1,2}}{i_1}=\dfrac{\mu_0N_1N_2\pi r_1^2i_1}{i_1}=\mu_0N_1N_2\pi r_1^2=\dfrac{r_1}{r_2}L\)</span> che è minore di <span class="tex">\(L\)</span>  (questo serve varie volte per la positività un po' ovunque di <span class="tex">\(L-M\)</span>)[/tex]</div></blockquote>
+in generale è possibile dimostrare che per una qualsiasi coppia di circuiti di induttanze <span class="tex">\(L_1\)</span> e <span class="tex">\(L_2\)</span> valgono le relazioni <span class="tex">\(M_{1,2}=M_{2,1}\)</span>(che hai implicitamente utilizzato nel problema) e <span class="tex">\(M&lt;\sqrt{L_1 L_2}\)</span> anche questa molto importante!
+<blockquote><div><cite>phyknight ha scritto:</cite>(in realtà quello che trovo è un minimo se ho fatto bene la disequazione, ma non importa perché a me interessa il modulo dell'intensità)</div></blockquote> certo che è un minimo! la corrente nella bobina esterna deve necessariamente essere sempre in verso opposto a quelle nella corrente interna! infatti l'unica forza elettromotrice nella bobina esterna è quella indotta, che per "rallentare gli effetti" nella bobina interna deve essere opposta alla corrente nella medesima bobina e quindi si avranno nelle due bobine correnti opposte!<br>
+nell'analisi numerica sei stato anche troppo preciso  :lol:  :lol:  :lol:</article>
+<article class="post" id="p19699"><div class="who"><b>Pigkappa</b><span>16 nov 2014, 19:01</span></div>Perbacco, la staffetta sta andando avanti sul serio! Bravi!</article>
+<article class="post" id="p19700"><div class="who"><b>phyknight</b><span>16 nov 2014, 20:27</span></div><blockquote><div><cite>andrea96 ha scritto:</cite> in generale è possibile dimostrare che per una qualsiasi coppia di circuiti di induttanze <span class="tex">\(L_1\)</span> e <span class="tex">\(L_2\)</span> valgono le relazioni <span class="tex">\(M_{1,2}=M_{2,1}\)</span> </div></blockquote>
+si, non l'ho dimostrato perché l'ho considerato come "fatto noto", ma in effetti la dimostrazione si fa in un attimo
+<blockquote><div><cite>andrea96 ha scritto:</cite>certo che è un minimo! la corrente nella bobina esterna deve necessariamente essere sempre in verso opposto a quelle nella corrente interna! </div></blockquote>
+giusto  :lol:  quando l'ho risolto ho perso il contatto con il problema e non ho pensato più cosa stavo effettivamente calcolando<br>
+grazie per avermelo fatto notare  :D</article>
+<nav class="pager"><a class="prev" href="olifis-5994.html"><small>← precedente</small>22. Rendimento &quot;perfetto&quot;</a><a class="next" href="olifis-5998.html"><small>successivo →</small>24. potenziale e orbita circolare</a></nav>
+</main></body></html>

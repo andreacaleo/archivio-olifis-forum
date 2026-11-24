@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>135: Triangolo carico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 135</a></span></nav>
+<h1>135: Triangolo carico</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6644">forum Olifis</a></p>
+<article class="post first" id="p24414"><div class="who"><b>Gamow00</b><span>31 gen 2018, 22:33</span></div>Un triangolo è costituito da tre sottili bacchette isolanti (di diversa lunghezza). Sulle bacchette è presente una densità di carica lineare uniforme <span class="tex">\(\sigma\)</span>. Trova il punto del piano (se esiste  ;)) in cui l'intensità del campo elettrico è uguale a 0.  8-)  8-)</article>
+<article class="post" id="p24415"><div class="who"><b>lance00</b><span>2 feb 2018, 16:15</span></div>Ho pensato all'incentro dato che c'è un fatto noto sul campo prodotto da un filo finito che riguarda le bisettrici (che poi non serviva a niente alla fine :lol: ) Comunque, disegnamo la circonferenza inscritta nel nostro triangolo. Si ha <span class="tex">\(dE = \frac{k\sigma dx}{d^2} \)</span> dove dE è il campo dovuto a un pezzettino di asta di lunghezza <span class="tex">\(dx\)</span> che si trova a una distanza <span class="tex">\(d\)</span> dal centro della circonferenza inscritta. Definendo un opportuno angolo <span class="tex">\(\theta\)</span><br>
+ (l'angolo che il segmento pezzettino asta-centro forma con uno dei raggi tangenti ai lati) si ha <span class="tex">\(x = r tg \theta =&gt; dx = \frac{rd \theta}{cos^2 \theta}\)</span> e <span class="tex">\(d = \frac{r}{cos\theta}\)</span> da cui <span class="tex">\(dE = k\sigma d\theta\)</span>(indipendente dalla distanza dall'incentro!). Ora, per ogni pezzettino di asta <span class="tex">\(dx\)</span> che produce un campo <span class="tex">\(d\vec{E}\)</span> nell'incentro ce n'è un altro (il simmetrico rispetto all'incentro) che produce un campo <span class="tex">\(-d\vec{E}\)</span> quindi <span class="tex">\(E_{tot} = 0\)</span>  :D</article>
+<article class="post" id="p24416"><div class="who"><b>carol</b><span>2 feb 2018, 18:14</span></div>Probabilmente dipende da me che non capisco ma <span class="tex">\(\theta \)</span> non è simmetrico dalle due parti del raggio e poi le direzioni dei campi prodotti non sono le stesse trattandosi di vettori diretti come d che è diverso da una parte e da un'altra  :?:  :?:  :?: Io avevo pensato al circocentro!!! ma senza risultato... :roll:  :roll:</article>
+<article class="post" id="p24417"><div class="who"><b>lance00</b><span>2 feb 2018, 19:21</span></div>mi sono espresso male io... il punto <span class="tex">\(P'\)</span> che produce un campo opposto non è il simmetrico di <span class="tex">\(P\)</span> rispetto all'incentro <span class="tex">\(I\)</span>ma il punto di intersezione tra il prolungamento della linea <span class="tex">\(PI\)</span> e il lato opposto  :)<br>
+comunque non penso sia il circocentro (considera per esempio un triangolo rettangolo isoscele)</article>
+<article class="post" id="p24418"><div class="who"><b>Gamow00</b><span>2 feb 2018, 21:30</span></div>Bravo lance!<br>
+Soluzione e dimostrazione corretta. La staffetta è tua 8-)</article>
+<nav class="pager"><a class="prev" href="olifis-6642.html"><small>← precedente</small>134  Reticolo infinito</a><a class="next" href="olifis-6645.html"><small>successivo →</small>136. Catena in un tubo</a></nav>
+</main></body></html>

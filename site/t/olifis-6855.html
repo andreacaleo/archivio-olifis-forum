@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>182. il tubo pieghevole</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 182</a></span></nav>
+<h1>182. il tubo pieghevole</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6855">forum Olifis</a></p>
+<article class="post first" id="p25639"><div class="who"><b>bosone</b><span>22 gen 2020, 17:05</span></div>In un tubo orizzontale scorre acqua (da considerare liquido perfetto) con velocità <span class="tex">\(v_0= 8m/s\)</span>. Mediante una fune il tubo viene curvato di un angolo <span class="tex">\(\theta= \pi/2\)</span>; se la portata di volume del condotto è Q= 5 l/s e la sezione S è costante, qual è la forza <span class="tex">\(\vec F\)</span> necessaria per tenere incurvato il condotto e qual è la tensione T della fune?</article>
+<article class="post" id="p25640"><div class="who"><b>Luca Milanese</b><span>24 gen 2020, 8:22</span></div>Mi esce che <span class="tex">\(T\)</span> ed <span class="tex">\(F\)</span> hanno lo stesso modulo e sono perpendicolari fra loro... se me lo confermi, posto il procedimento.</article>
+<article class="post" id="p25641"><div class="who"><b>bosone</b><span>24 gen 2020, 18:13</span></div>Non hanno lo stesso modulo pur essendo fra loro perpendicolari come avrai sicuramente intuito anche senza fare conti.</article>
+<article class="post" id="p25642"><div class="who"><b>Luca Milanese</b><span>25 gen 2020, 16:24</span></div>Chiedo un chiarimento perchè penso di aver misinterpretato... la corda è tesa fra le due parti del tubo tra loro inclinate?</article>
+<article class="post" id="p25643"><div class="who"><b>bosone</b><span>26 gen 2020, 11:34</span></div>Si è proprio così la corda è orizzontale e le due direzioni del tubo formano un angolo retto, ovviamente l'angolo reale del tubo è "stondato" non è un vertice appuntito come quello formato dalle due tangenti al tubo nelle due direzioni (come se il tubo fosse di plastica per intenderci).</article>
+<article class="post" id="p25644"><div class="who"><b>Luca Milanese</b><span>26 gen 2020, 14:17</span></div>Allora, per quanto riguarda <span class="tex">\(\vec F\)</span>, mi viene che spinge il tubo nel punto in cui è incurvato, dall'esterno verso l'interno, e che ha modulo <span class="tex">\(56,6 N\)</span>. Consideriamo una quantità <span class="tex">\(\Delta m\)</span> di acqua che passa attraverso il piegamento. Tanto all'inizio, quanto alla fine, il modulo della sua quantità di moto è <span class="tex">\(\Delta mv_0\)</span>, ma le due direzioni sono perpendicolari, quindi ha in realtà subito una variazione di quantità di moto pari a <span class="tex">\(\Delta mv_0 \sqrt{2}\)</span>. Per il teorema dell'impulso, questa variazione è fornita da <span class="tex">\(F \Delta t\)</span>, essendo <span class="tex">\(\Delta t\)</span> il tempo che impiega questa quantità d'acqua a passare per il piegamento. Abbiamo dunque <span class="tex">\(\Delta mv_0 \sqrt{2}=F \Delta t\)</span>, da cui <span class="tex">\(F=v_0 \frac{\Delta m}{\Delta t}\sqrt{2}=v_0 \rho Q\sqrt{2}=56,6 N\)</span>.<br>
+La tensione, di conseguenza, mi verrebbe nulla, ma mi sembra strano come risultato... dove sbaglio?</article>
+<article class="post" id="p25645"><div class="who"><b>bosone</b><span>27 gen 2020, 18:16</span></div>Sbagli nel "di conseguenza". Rifletti sul significato del risultato che hai trovato che numericamente è corretto come il procedimento. Dopo di che è indiscutibile che la corda deve essere tesa e che quindi la tensione non può essere nulla.</article>
+<article class="post" id="p25646"><div class="who"><b>Luca Milanese</b><span>2 feb 2020, 18:01</span></div>Non mi viene in mente nessuna idea... si può avere un hint?</article>
+<article class="post" id="p25647"><div class="who"><b>bosone</b><span>3 feb 2020, 18:51</span></div>Certamente! Lo hint più significativo è la constatazione che la differenza fra due vettori uguali equivale in tutto e per tutto alla somma dell'uno con l'opposto dell'altro <span class="tex">\(\vec F - \vec F = \vec F +(-\vec F) = \vec 0\)</span>. Osservando la seconda si vede che i due componenti sono come ci si immagina e come deve essere cioè uno diretto verso un estremo della fune e uno diretto verso l'altro e quindi....</article>
+<article class="post" id="p25648"><div class="who"><b>bosone</b><span>9 feb 2020, 11:42</span></div>Ritengo inutile a questo punto tenere bloccata la staffetta. Dopo tutto hai svolto il problema con un procedimento corretto e quindi meritatamente il testimone della staffetta è tuo. Facendo riferimento al post precedente il componente della forza orizzontale è nullo come risultante di due forze opposte ciascuna diretta verso un estremo della fune e ciascuna uguale alla  tensione equilibrante l'altra. Il valore del modulo di questa tensione, metà del modulo del componente verticale, risulta allora T= 28,3 N.</article>
+<nav class="pager"><a class="prev" href="olifis-6851.html"><small>← precedente</small>181. Automobile in corsa.</a><a class="next" href="olifis-6856.html"><small>successivo →</small>183. SNS 1991-1992</a></nav>
+</main></body></html>

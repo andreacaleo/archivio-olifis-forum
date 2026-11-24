@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>129. Goccia d&#x27;acqua</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 129</a></span></nav>
+<h1>129. Goccia d'acqua</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6616">forum Olifis</a></p>
+<article class="post first" id="p24296"><div class="who"><b>lance00</b><span>9 gen 2018, 19:43</span></div>Assumere che una nuvola consista di piccole goccioline d'acqua in sospensione (ferme e distribuite uniformemente) e si consideri una goccia d'acqua che precipita attraverso la nuvola. Qual è l'accelerazione della goccia? (Assumere che la goccia resti sempre sferica e che quando la goccia urta una gocciolina la massa della gocciolina venga aggiunta a quella della goccia)</article>
+<article class="post" id="p24297"><div class="who"><b>Gamow00</b><span>10 gen 2018, 12:40</span></div><span class="tex">\({g / 7}\)</span>? :?:  :?: <br>
+Mi sembra strano come risultato però per ora mi viene così</article>
+<article class="post" id="p24298"><div class="who"><b>lance00</b><span>10 gen 2018, 14:53</span></div>Invece è giusto  :)</article>
+<article class="post" id="p24299"><div class="who"><b>Gamow00</b><span>10 gen 2018, 22:04</span></div>8-)  non l'avrei mai detto  8-) <br>
+<br>
+Se la goccia ha raggio <span class="tex">\(r\)</span> e volume <span class="tex">\(V=\frac{4}{3}\pi r^3\)</span>, durante un tempo <span class="tex">\(dt\)</span> "spazza" un volume <span class="tex">\(dV_{sp}=\pi r^2v dt\)</span> , dove <span class="tex">\(v\)</span> è la velocità della goccia. <span class="tex">\(dV\)</span>(variazione di volume della goccia) non sarà uguale a <span class="tex">\(dV_{sp}\)</span> (perchè lo spazio in cui si muove la goccia non è 100% acqua) ma certamente è proporzionale quindi posso scrivere: <br>
+<span class="tex">\(dV=dV_{sp} \times cost=\pi r^2v dt\times cost= \pi \Big({\sqrt[3]{\frac{3}{4}\pi V}}\Big)^2v dt\times cost=
+ V^{2/3}vdt\times cost=V^{2/3}\frac{ds}{dt}dt\times cost=V^{2/3}ds\times cost\)</span>. <br>
+<br>
+"<span class="tex">\(cost\)</span>" è una certa costante a cui continuo ad "aggiornare" il valore per semplicità di scrittura.<br>
+<br>
+Quindi <span class="tex">\(dV=V^{2/3}ds\times cost\)</span><br>
+<br>
+<span class="tex">\(\frac{dV}{V^{2/3}}=ds \times cost\)</span><br>
+<br>
+<span class="tex">\(\int \frac{dV}{V^{2/3}}=\int ds \times cost\)</span><br>
+<br>
+<span class="tex">\(\frac{1}{3}V^{1/3}=s\times cost+C\)</span><br>
+<br>
+<span class="tex">\(V^{1/3}=s\times cost+C\)</span><br>
+<br>
+La costante additiva <span class="tex">\(C\)</span> vale <span class="tex">\(0\)</span> perchè il volume della goccia è nullo (o quasi 8-) ) nell'istante iniziale.<br>
+<br>
+<span class="tex">\(V=s^3 \times cost\)</span><br>
+<br>
+Essendo la massa della goccia proporzionale al volume: <span class="tex">\(m=s^3 \times cost\)</span><br>
+<br>
+Ora: la legge della dinamica <span class="tex">\(F=ma\)</span> non posso usarla perchè la massa è variabile, quindi devo usare <span class="tex">\(F=\frac {dp}{dt}\)</span><br>
+<span class="tex">\(F=\frac {dm \times v +mdv}{dt}\)</span><br>
+<span class="tex">\(mg=\frac {dm \times v }{dt}+ma\)</span><br>
+Per i risultati precedenti: <span class="tex">\(m=s^3 \times cost\)</span> quindi <span class="tex">\(dm=3s^2 ds\times cost\)</span><br>
+<span class="tex">\(mg=3s^2{ds \over dt}v\times cost+s^3a\times cost\)</span><br>
+<span class="tex">\(s^3g\times cost=3s^2v^2\times cost+s^3a\times cost\)</span><br>
+<br>
+<span class="tex">\(sg=3v^2+sa\)</span><br>
+<br>
+Ora suppongo che <span class="tex">\(a\)</span>(accelerazione) sia costante. Allora <span class="tex">\(v=at\)</span> e <span class="tex">\(s=1/2at^2\)</span>.Sostituisco:<br>
+<span class="tex">\(1/2at^2g=3a^2t^2+1/2a^2t^2\)</span><br>
+<span class="tex">\(1/2g=3a+1/2a\)</span><br>
+La nostra supposizione iniziale (<span class="tex">\(a=cost\)</span>) si è rivelata corretta perchè la nostra equazione è valida per ogni <span class="tex">\(t\)</span>.<br>
+<span class="tex">\(g=6a+a\)</span><br>
+<br>
+<span class="tex">\(a={g \over 7}\)</span><br>
+<br>
+:D  :D  stranissimo come risultato :D</article>
+<article class="post" id="p24300"><div class="who"><b>carol</b><span>11 gen 2018, 12:43</span></div>@ Gamow <br>
+Mi sembra un procedimento molto ingegnoso (e corretto dice la soluzione ufficiale): però meraviglia te stesso e quindi sarai d'accordo sui dubbi che possono venire agli altri e che è bene esplicitare per imparare :roll:  :!:  :!: <br>
+Io ne avrei tre intanto. 1) Non capisco perchè mg è uguale alle forze del secondo membro che giustamente contempla la massa variabile. Se ciò accade non è che siamo all'equilibrio? :?:  :?:  2) Poni 0 la cost sul presupposto che la goccia si formi attraversando; ma il testo mi pare dica un'altra cosa e cioè che attraversando incrementi volume e massa. 3) Tu supponi in conclusione un dato decisivo per la soluzione e cioè "a costante" ma dall'uguaglianza che usi mi sembra arbitrario perchè non lo sono nè s nè v che vi compaiono e quindi più che una supposizioe mi sembra un'imposizione! :?:  :?:</article>
+<article class="post" id="p24301"><div class="who"><b>lance00</b><span>11 gen 2018, 15:07</span></div>Buona Gamow00! a te il testimone   8-)</article>
+<article class="post" id="p24302"><div class="who"><b>Gamow00</b><span>11 gen 2018, 16:24</span></div>@lance00<br>
+Domani ci penso  :D <br>
+<br>
+@carol<br>
+1) <span class="tex">\(mg \)</span> non eguglia tutte le forze .Semplicemente <span class="tex">\(mg\)</span> è uguale alla sommatoria di tutte le forze esterne dato che non ci sono altre forze oltre alla gravità. Di conseguenza ho <span class="tex">\(F=mg\)</span>; se la massa fosse costante: <span class="tex">\(mg=ma\)</span> quindi <span class="tex">\(a=g\)</span>. In questo caso: <span class="tex">\(mg={dp \over dt}\)</span>.<br>
+<br>
+2) Certo, massa e volume aumentano man mano. Ma sarai d'accordo che ci deve essere stato un momento in cui <span class="tex">\(V=V_0 \approx 0\)</span>. Secondo le nostre approssimazioni infatti, non agiscono forze "strane" ( attrazioni molecolari) tra le goccie, quindi una goccia inizia a cadere quando il suo volume è appena sopra 0.<br>
+Potrebbe sembrare un risultato forzato ma è il meglio che si può ottenere con queste approssimazioni.<br>
+<br>
+3) Pensa a come viene risolto il 50% delle equazioni differenziali. Si sostituisce <span class="tex">\(e^{\lambda t}\)</span> alla variabile dipendente e si spera venga qualcosa con un senso. Se si trovano delle assurdità bisogna tornare indietro e provare un'altra sostituzione, oppure usare metodi più diretti.<br>
+In questo caso ho provato <span class="tex">\(a=cost\)</span> e ho avuto fortuna.<br>
+Puoi contestare il metodo,certamente, ma non il risultato. Prova a sostituire <span class="tex">\(a=c\)</span>, <span class="tex">\(v=ct\)</span> e <span class="tex">\(s={1 \over 2}at^2\)</span> e vedrai che la soluzione è corretta.</article>
+<nav class="pager"><a class="prev" href="olifis-6614.html"><small>← precedente</small>128: Compassi come lampadari</a><a class="next" href="olifis-6624.html"><small>successivo →</small>130:  Cariche in libertà</a></nav>
+</main></body></html>

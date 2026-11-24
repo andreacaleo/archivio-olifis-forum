@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>117. Aste?</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 117</a></span></nav>
+<h1>117. Aste?</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6516">forum Olifis</a></p>
+<article class="post first" id="p23647"><div class="who"><b>Flaffo</b><span>7 apr 2017, 18:58</span></div>Sì ancora aste. <br>
+Una sbarra omogenea di massa <span class="tex">\(m\)</span> e lunghezza <span class="tex">\(l\)</span> è incernierata all'estremo ad un manicotto di massa trascurabile che può scorrere senza attrito su un filo orizzontale. Inizialmente la sbarra è ferma ed è posizionata in posizione orizzontale per poi essere rilasciata. Determinare la velocità del centro di massa quando la sbarra forma un angolo <span class="tex">\(\theta\)</span> con la verticale. <br>
+<br>
+Avevo risolto per la prima volta questo problema l'anno scorso e ci impiegai  più mezz'ora (non ricordo con quale metodo astruso) mentre l'ho riscoperto pochi giorni fa e l'ho fatto in 5 minuti.  :lol:</article>
+<article class="post" id="p23648"><div class="who"><b>lance00</b><span>7 apr 2017, 20:18</span></div>v = 1/2 * sqrt (3gLcosθ) ?<br>
+mi sembra troppo semplice  :?</article>
+<article class="post" id="p23650"><div class="who"><b>Flaffo</b><span>7 apr 2017, 23:21</span></div>Da risultato mi sembra che hai interpretato male il testo.  Hai assunto che l'estremo dell'asta fosse vincolato, e che quindi l'asta ruoti intorno a tale estremo. <br>
+Però  l'estremo del'asta è attaccata ad un manicotto che è libero di scorrere sul piano orizzontale. L'asta ruota attorno al centro di massa che contemporaneamente sta cadendo.  Quindi quando fai la conservazione dell'energia devi tener conto che non vale  <span class="tex">\(\omega = 4 v^2 /l^2\)</span><br>
+<br>
+Il punto chiave consiste nell'esprimere correttamente  proprio <span class="tex">\(\omega\)</span> In funzione della velocità del centro di massa.</article>
+<article class="post" id="p23651"><div class="who"><b>FedeColo98</b><span>8 apr 2017, 10:06</span></div>Allora io do la mia idea (mi fermo poco prima della fine perché vengono dei calcoli stranissimi e quindi credo di aver scelto la strada sbagliata :roll: )<br>
+Le forze che agiscono sono solamente verticali (peso sbarra e reazione vincolare del manicotto) quindi tutte le variazioni di moto orizzontali posso non considerarle.<br>
+Usando la conservazione dell'energia si ha che <span class="tex">\(U_i +K_i =U_f +K_f\)</span> dove pongo <span class="tex">\(U_i =0 , K_i=0\)</span>. U_f sarà dato da <span class="tex">\(U_f =-mgh=-mg \frac{l}{2} sin \theta\)</span> e per il teorema di Koening <span class="tex">\(K_f= \frac{1}{2} mv^2 + \frac{1}{2} I \omega ^2\)</span>. Ottengo così la relazione <span class="tex">\(-U_f =K_f\)</span>, cioè <span class="tex">\(mg \frac{l}{2} sin \theta= \frac{1}{2}mv^2 + \frac{1}{2} \frac{ml^2}{12} \omega ^2\)</span>, inoltre <span class="tex">\(\omega ^2= \dot \theta ^2\)</span> e <span class="tex">\(v= \dot h= \frac{l}{2} cos \theta \cdot \dot \theta\)</span>. Ora ho due incognite (<span class="tex">\(\dot \theta, v\)</span>) e due equazioni, solo che vengono calcoli stranissimi!</article>
+<article class="post" id="p23652"><div class="who"><b>Flaffo</b><span>8 apr 2017, 10:18</span></div>Calcoli stranissimi?  :lol: <br>
+<br>
+Hai praticamente risolto il problema!<br>
+<br>
+Ti sei ricavato:<br>
+<br>
+<span class="tex">\(v= \frac {l}{2} \omega cos \theta\)</span><br>
+<br>
+Ora basta che esprimi <span class="tex">\(\omega\)</span> In funzione di <span class="tex">\(v\)</span> (inverti semplicemente), metti l'espressione di <span class="tex">\(\omega\)</span> dentro la conservazione dell'enrgia e l'unica variabile che ti rimane è <span class="tex">\(v\)</span>. Risolvi per <span class="tex">\(v\)</span> e ti do la steffetta ;)</article>
+<article class="post" id="p23653"><div class="who"><b>lance00</b><span>8 apr 2017, 12:18</span></div>pardon, avevo capito che inizialmente l'asta fosse perpendicolare al filo (sebbene anche orizzontale)  :oops: <br>
+Comunque, noto che la qdm si conserva lungo x e che quindi v(cdm) non è (L/2)ω ma (L/2)ωcosθ. <br>
+inoltre il moto dell'asta è di rotazione intorno al cdm<br>
+applicando la conservazione dell'energia ottengo mg(L/2)cosθ = 1/2 mv^2+1/24 m(Lω)^2  <br>
+adesso ho due equazioni in due incognite per cui posso ricavare v = sqrt [(3gL(cosθ)^3)/(3(cosθ)^2+1)]</article>
+<article class="post" id="p23654"><div class="who"><b>FedeColo98</b><span>8 apr 2017, 14:12</span></div>Credo che lance abbia scambiato un seno con un coseno perché a me viene <span class="tex">\(v= \sqrt \frac{3gl sin \theta cos^2 \theta}{3cos^2 \theta +1}\)</span> (grazie all'hint di Flaffo per la mia scarsa avvedutezza :D )</article>
+<article class="post" id="p23655"><div class="who"><b>lance00</b><span>8 apr 2017, 15:09</span></div>ma se θ è l'angolo con la verticale la potenziale non dovrebbe essere mg(L/2)cosθ ?</article>
+<article class="post" id="p23656"><div class="who"><b>Flaffo</b><span>8 apr 2017, 15:25</span></div>Ok, la soluzione di fedecolo è  giusta, a te la staffetta  :D.<br>
+<br>
+Per lance00 che chiedeva dell'angolo, fedecolo ha preso <span class="tex">\(\theta\)</span> rispetto all'orizzontale, anziché rispetto alla verticale. Mi sembra che tu abbia preso <span class="tex">\(\theta\)</span> rispetto alla verticale per calcolare <span class="tex">\(\Delta h\)</span> nella conservazione dell'energia, ma poi quando ti sei calcolato <span class="tex">\(v ( \omega)\)</span> hai preso <span class="tex">\(\theta\)</span> rispetto all'orizzontale  ( <span class="tex">\(v= l/2 \omega sin \theta\)</span> è quella giusta nel tuo caso).</article>
+<article class="post" id="p23657"><div class="who"><b>lance00</b><span>8 apr 2017, 15:34</span></div>hai ragione, ho fatto un pasticcio con gli angoli complementari  :lol:  comunque bel problema!</article>
+<nav class="pager"><a class="prev" href="olifis-6512.html"><small>← precedente</small>116. Fotoni ed elettroni</a><a class="next" href="olifis-6517.html"><small>successivo →</small>118. Mayday perdiamo energia!</a></nav>
+</main></body></html>

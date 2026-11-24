@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equilibrio termico di particelle a due stati</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Equilibrio termico di particelle a due stati</h1>
+<p class="meta">30 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=525">forum Olifis</a></p>
+<article class="post first" id="p4752"><div class="who"><b>Ippo</b><span>3 ago 2010, 15:07</span></div>Abbiamo un gas di <span class="tex">\(n\)</span> particelle che possono stare in due livelli energetici distinti, di energia rispettivamente <span class="tex">\(E_1\)</span> ed <span class="tex">\(E_2\)</span> (potrebbero essere ad esempio atomi in stati eccitati o cose del genere: non ci interessa il dettaglio), confinato in un certo volume e in contatto termico con un serbatoio a temperatura <span class="tex">\(T\)</span> fissata.<br>
+Ci chiediamo quale sia, una volta raggiunto l'equilibrio termico, il rapporto tra il numero di particelle nei due stati: <span class="tex">\(\dfrac{n_1}{n_2}\)</span> dove <span class="tex">\(n_i\)</span> (i=1,2) rappresenta il numero di particelle nello stato di energia <span class="tex">\(E_i\)</span> (si ha quindi <span class="tex">\(n_1+n_2=n\)</span>).<br>
+Si ricorda la definizione statistica dell'entropia: <span class="tex">\(S=k \log W\)</span> dove k è la costante di Boltzmann e <span class="tex">\(W\)</span> rappresenta la "molteplicità" dello stato del sistema, cioè il numero di modi in cui può essere realizzato microscopicamente quel dato stato macroscopico.</article>
+<article class="post" id="p4753"><div class="who"><b>Mirko93</b><span>3 ago 2010, 17:56</span></div>Probabilmente sto sbagliando da qualche parte, visto che l'entropia non non l'ho proprio usata, però non capisco dove:<br>
+<br>
+Il gas all'equilibrio termodinamico sta ad una temperatura <span class="tex">\(T\)</span>. L'energia media degli atomi è quindi <span class="tex">\(U=\frac{3}{2} k T\)</span>.<br>
+Questa energia media dovrebbe proprio essere data dalla media pesata dei due diversi livelli energetici. Ossia:<br>
+ <span class="tex">\(\displaystyle \frac{3}{2} k T = {n_1 E_1 + n_2 E_2 \over n_1 + n_2}\)</span><br>
+Percui<br>
+<span class="tex">\(\displaystyle {n_1 \over n_2}= {E_2 - \frac{3}{2} k T \over \frac{3}{2} k T - E_1}\)</span></article>
+<article class="post" id="p4754"><div class="who"><b>Ippo</b><span>4 ago 2010, 0:51</span></div>sì probabilmente l'espressione "gas" è un po' fuorviante, ti fa venire in mente particelle che hanno energia <span class="tex">\({m \over 2}v^2\)</span>. I nostri oggetti invece hanno energie discrete: <span class="tex">\(E_1\)</span> oppure <span class="tex">\(E_2\)</span>. Il teorema che ti dà quella stima sull'energia media (teorema di equipartizione) in questo caso non vale. Mi scuso per l'ambiguità (in meccanica statistica comunque è frequente chiamare "gas" più o meno qualsiasi cosa  :mrgreen: )<br>
+Il problema si può ammazzare coi metodi della meccanica statistica oppure (ed è la ragione per cui l'ho postato qui) svolgere ragionando un po' e usando solo mezzi elementari, tra cui la definizione di entropia che ho scritto.<br>
+(l'approccio statistico all'entropia tra l'altro è nel sillabo delle IPhO; che io sappia non è mai uscito nulla sull'argomento, ma insomma, aver visto qualcosa su questo una volta nella vita non farà male  ;) )</article>
+<article class="post" id="p4764"><div class="who"><b>Loren Kocillari89</b><span>5 ago 2010, 19:35</span></div>Beh il metodo "ufficiale" e immediato per risolvere (in pratica basta solo enunciare :D ) si trova scritto qui: <a href="http://www.unisi.it/fisica/dip/dida/ftaingfmod/FisMod11.pdf" class="ext" class="postlink">http://www.unisi.it/fisica/dip/dida/fta ... sMod11.pdf</a><br>
+<br>
+Resta kmq curioso trovare il metodo da manuale per risolvere il problema... :roll:</article>
+<article class="post" id="p4765"><div class="who"><b>Ippo</b><span>5 ago 2010, 19:48</span></div>Esatto è quello che intendevo (in questo caso non consideriamo "degenerazioni" cioè stati multipli; mettiamo tutte le g uguali a 1).<br>
+(e c'è anche il discorso sull'equipartizione che vale solo per sistemi classici).<br>
+Ad ogni modo: cosa significa "equilibrio" in relazione alla funzione entropia?..  :roll:</article>
+<article class="post" id="p4768"><div class="who"><b>Loren Kocillari89</b><span>5 ago 2010, 20:51</span></div>Ti riferisci al testo <a href="http://www.unisi.it/fisica/dip/dida/fta" class="ext" class="postlink">http://www.unisi.it/fisica/dip/dida/fta</a> ... sMod11.pdf? Secondo me tale affermazione significa che siamo in un caso in cui il sistema "nella sua globalità" è in equilibrio termico, il che significa che mediamente i due tipi di particelle con energia <span class="tex">\(E_1\)</span> ed <span class="tex">\(E_2\)</span> oscillano tra le due energie, tuttavia il loro numero<span class="tex">\(n_i\)</span> medio rimane spesso quello, alla data temperatura <span class="tex">\(T\)</span>...spesso e non sempre perchè stiamo parlando di stato e quello dell'equilibrio è il micro(o macro?) stato più probabile...<br>
+<br>
+Non è che potresti dare qualche hint per la soluzione?? :mrgreen:  Ci ho provato con un procedimento ma non riesco a trovare il rapporto voluto con tutti quei fattoriali che mi ritrovo...</article>
+<article class="post" id="p4769"><div class="who"><b>Gauss91</b><span>5 ago 2010, 21:00</span></div>Nella mia suprema ignoranza, secondo me l'equilibrio si ha quando l'entropia assume il massimo valore possibile. Per il secondo principio della termodinamica... Poi magari sto blaterando pinzillacchere. :lol:</article>
+<article class="post" id="p4770"><div class="who"><b>Ippo</b><span>5 ago 2010, 21:20</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>Nella mia suprema ignoranza, secondo me l'equilibrio si ha quando l'entropia assume il massimo valore possibile. Per il secondo principio della termodinamica...</div></blockquote>
+Ok. E quindi: quando una particella salta da uno stato all'altro, che cosa ci aspettiamo che faccia l'entropia globale?</article>
+<article class="post" id="p4771"><div class="who"><b>Loren Kocillari89</b><span>5 ago 2010, 22:00</span></div>Posto il mio procedimento...<br>
+Analisi teorica: Questo è un caso che si può paragonare al tipico esempio che si fa per calcolare la probabilità dell'entropia, cioè quello di una scatola divisa in due parti uguali. Come una particella dentro la scatola può andare a destra o a sinistra, allo stesso modo in questo problema una particella può avere due diversi tipi di energia..Ora ci chiediamo, quale è la probabilità di trovare la particella in una delle due energie?? Che equivale a, quante particelle troveremmo mediamente ad un livello di energia e quante nell'altro se avessimo a disposizione tantissime particelle ed esse raggiungessero l'equilibrio??<br>
+Nel tipico esempio della scatola la risposta sarebbe, metà del tutto da una parte e metà dall'altra! Questo è lo stato più probabile che di conseguenza secondo la <span class="tex">\(\S=k lnW\)</span>, porta all'entropia maggiore. Il problema che ci si pone qui invece è più arduo, perchè le energie non sono "equispaziate" come nella scatola, cioè potrebbe essere che invece di 1/2 e 1/2 potremmo trovare 1/3 e 2/3 ecc.. e tutto dipende dalla temperatura in questione. Faccio un esempio. Se la temperatura di equilibrio fosse associata all energia <span class="tex">\(E_1\)</span> allora vi sarebbe equilibrio e quindi l'entropia sarebbe massima solo nel caso in cui tutte le particelle andassero a quella temperatura e quindi a quella energia.<br>
+<br>
+Procedimento:<br>
+Allora all'inizio <span class="tex">\(n_1\)</span>particelle avranno un'energia pari a <span class="tex">\(E_1 e n_2\)</span> particelle avranno un'energia pari a <span class="tex">\(E_2\)</span>, quindi l'energia totale dell'universo sarà <span class="tex">\(n_1E_1+n_2E_2=E_T.\)</span><br>
+Quando però colleghiamo all'universo un serbatoio di energia, che considereremo come ambiente, tra le particelle e il serbatoio si susseguono scambi di energia fino a quando il sistema delle n particelle non avrà raggiunto l'equilibrio termico. L'energia del sistema quindi non si conserva bensì varia..aumentando o diminuendo. Tutto dipende dalla temperatura <span class="tex">\(T\)</span> di equilibrio. Kmq quello che interessa per la soluzione del problema è sapere che l'energia varia di <span class="tex">\(\Delta E\)</span> che in questo caso è sempre di <span class="tex">\(\pm (E_1-E_2)\)</span>. Quindi in totale ci saranno <span class="tex">\(x\)</span> variazioni positivi(assorbimento) o <span class="tex">\(x\)</span> variazioni negativi(cessioni) di energia dal sistema all'ambiente.<br>
+<br>
+Ora sfruttando la definizione statistica di entropia avremo che:<br>
+<span class="tex">\(\frac {\Delta E}{T}=kln\Delta W=\Delta S=S_2-S_1\)</span><br>
+dove <span class="tex">\(S_1\)</span> lo possiamo prendere anche considerando un caso estremo in cui tutte le particelle "stanno da una parte" cioè hanno la stessa energia ad esempio <span class="tex">\(E_1\)</span>.. quindi<br>
+<span class="tex">\(S_1=kln \frac {n!}{n!0!}\)</span><br>
+Allora i conti si semplificano ed <span class="tex">\(S_1=0\)</span><br>
+<br>
+Non resta che calcolare <span class="tex">\(S_2\)</span><br>
+<br>
+<span class="tex">\({(E_1-E_2)n_2 \over T}=kln \frac {n!}{n_1!n_2!}\)</span><br>
+<br>
+e da qui iniziano una marea di calcoli da cui per ora non riesco a venirne fuori.... :roll:  :roll:<br>
+
+<blockquote><div><cite>Ippo ha scritto:</cite><blockquote><div><cite>Gauss91 ha scritto:</cite>Nella mia suprema ignoranza, secondo me l'equilibrio si ha quando l'entropia assume il massimo valore possibile. Per il secondo principio della termodinamica...</div></blockquote>
+Ok. E quindi: quando una particella salta da uno stato all'altro, che cosa ci aspettiamo che faccia l'entropia globale?</div></blockquote>
+
+Se ne deduce che aumenta.</article>
+<article class="post" id="p4772"><div class="who"><b>Gauss91</b><span>5 ago 2010, 22:21</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Non resta che calcolare <span class="tex">\(S_2\)</span></div></blockquote>
+
+Il problema è che la tua espressione per S_2 ha sempre e comunque un massimo per n_1 = n_2 = n/2... cosa che lascia molto perplessi. Significherebbe infatti che il rapporto cercato vale 1 in ogni caso. Ma ciò penso proprio che sia falso.</article>
+<article class="post" id="p4773"><div class="who"><b>Loren Kocillari89</b><span>5 ago 2010, 22:29</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Non resta che calcolare <span class="tex">\(S_2\)</span></div></blockquote>
+
+Il problema è che la tua espressione per S_2 ha sempre e comunque un massimo per n_1 = n_2 = n/2... cosa che lascia molto perplessi. Significherebbe infatti che il rapporto cercato vale 1 in ogni caso. Ma ciò penso proprio che sia falso.</div></blockquote>
+
+Ah mannaggia! mi ero detto di correggere la formula eppure mi sono dimenticato di farloXD :evil:  in realtà quella x è <span class="tex">\(n_2\)</span>. adesso lo sostituisco.. Per maggiore comprensione puoi ricavare quella formula dal fatto che da <span class="tex">\(0!\)</span> <span class="tex">\(n_2\)</span> va all'equilibrio con <span class="tex">\(x=n_2\)</span> mentre <span class="tex">\(n_1=n-x\)</span><br>
+Grazie;)</article>
+<article class="post" id="p4774"><div class="who"><b>Gauss91</b><span>5 ago 2010, 22:42</span></div>No scusa mi sono espresso male: la formula <span class="tex">\(S_2 = k\log\dfrac{n!}{n_1 ! n_2 !}\)</span>, che è la formula dell'entropia di un sistema in uno stato di equilibrio (la formula <span class="tex">\(\Delta S = \dfrac{\Delta E}{T}\)</span> ti dà invece la VARIAZIONE dell'entropia), assume comunque un massimo per n_1 = n_2 = n/2. Non cambia se sostituisci quella x con n_2...</article>
+<article class="post" id="p4775"><div class="who"><b>Loren Kocillari89</b><span>5 ago 2010, 23:41</span></div>Perdonami se ho capito male, ma tu stai intendendo che la probabilità che la particella abbia un'energia <span class="tex">\(E_1\)</span> e un'energia <span class="tex">\(E_2\)</span>sia la medesima non è vero? Se è così allora secondo me non va bene perchè la probabilità che finisca da una parte o dall altra non è la stessa. Infatti cosa accadrebbe all'equilibrio se avessimo una scatola divisa in due parti in cui una sia il doppio dell'altra?? Di certo la massima entropia non sarà con 1/2 e 1/2. Stessa funzione ha anche la temperatura ambiente in questo caso. <br>
+Cioè se noi ponessimo <span class="tex">\(n_1=n_2=1/2\)</span> allora ciò verificherebbe solo un minuscolo caso sperimentale in cui abbiamo un particolare valore della temperatura T e 2 particolari valori<span class="tex">\(E_1\)</span>ed <span class="tex">\(E_2\)</span>. Quindi data l'entropia, dobbiamo calcolarci gli <span class="tex">\(n_i\)</span> e non viceversa, per cui quel'equazione rappresenta già la massima entropia ora si deve trovare il rapporto...</article>
+<article class="post" id="p4776"><div class="who"><b>Gauss91</b><span>5 ago 2010, 23:45</span></div>E' proprio per quello che hai detto tu adesso, che l'espressione dell'entropia che hai dato prima non funziona. L'entropia deve avere un massimo al punto d'equilibrio, e se l'entropia è davvero quella che hai scritto tu, il massimo ce l'ha con n_1 = n_2 = n/2. Indi per cui... l'espressione che hai usato è sbagliata. Invece sono pienamente d'accordo con il tuo modo di ragionare su questo problema... avevo provato anche io, ma con scarsi risultati. In ogni caso, se si riesce a trovare la variazione di entropia nei due stati, il gioco è fatto.</article>
+<article class="post" id="p4777"><div class="who"><b>Ippo</b><span>6 ago 2010, 1:21</span></div>Allora, facciamo il punto: come dice LorenKocillari l'unico tipo di processo che avviene è il "salto" di una particella dallo stato 1 allo stato 2, o viceversa; questo processo assorbe dell'energia dal serbatoio, o gliela cede, a seconda. In ogni caso per ogni singolo processo c'è del calore che fluisce, quindi una variazione di entropia del serbatoio pari a <span class="tex">\(\pm \Delta E/T\)</span>. C'è poi la variazione di entropia "statistica" delle particelle (che va calcolata tra il macrostato di partenza e quello di arrivo: quali sono?).<br>
+<span style="font-size: 50%; line-height: normal">Hint: Se la variazione netta di entropia dell'universo fosse non nulla avremmo una direzione verso cui il processo avviene spontaneamente; all'equilibrio questo non succede. E qui vi ho praticamente risolto il problema  :mrgreen:</span></article>
+<article class="post" id="p4778"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2010, 2:07</span></div>:D  Fin qui credo che c'eravamo arrivati in qualche modo. E' da questo punto in poi che non ci smuoviamo più! :(  Ok, se il macrostato iniziale stà tutto da una parte e l'entropia iniziale è 0, il macrostato finale sarà: <span class="tex">\({(E_1-E_2)t \over T}=k \ln W\)</span>, dove t è il numero di "pacchetti d'energia" scambiati. Il problema è: cosa sostituire a k e a W? :mrgreen:</article>
+<article class="post" id="p4780"><div class="who"><b>Gauss91</b><span>6 ago 2010, 10:23</span></div>Io avevo ragionato così ieri, ma ho scartato in partenza questo ragionamento come fallace.<br>
+Se alla temperatura T è associata, diciamo, un'energia E, allora sarà<br>
+<span class="tex">\(n_1 E_1 + n_2 E_2 = E\)</span>, in più sarà <span class="tex">\(n_1 + n_2 = n\)</span>. Ma in questo modo n_1 e n_2 sono UNIVOCAMENTE determinati dal valore di E, che presumo dipenda solo dalla temperatura, per esempio <span class="tex">\(E = f(T)\)</span>. Ciò significa che i microstati possibili sono solo 1. C'è un solo microstato per il valore finale.<br>
+Siccome anche all'inizio ci sarà un'energia iniziale <span class="tex">\(E_i\)</span>, ci sarà anche lì un solo microstato possibile. In sostanza, l'entropia di ogni stato è 0 la variazione è nulla e il rapporto n_1 / n_2 vale<br>
+<span class="tex">\(\dfrac{n_1}{n_2} = \dfrac{f(T) - E_2 n }{E_1 n - f(T)}\)</span>.<br>
+Certo, una volta determinata f(T), questo risultato potrebbe anche starci... L'ho scartato perché con l'entropia c'entra solo marginalmente e soprattutto perché la formula che hai scritto tu (Ippo) non viene usata neanche di striscio :? .</article>
+<article class="post" id="p4781"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2010, 11:01</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>...Se alla temperatura T è associata, diciamo, un'energia E, allora sarà<br>
+<span class="tex">\(n_1 E_1 + n_2 E_2 = E...\)</span></div></blockquote>
+Attenzione xkè in questo caso se tu dai alla E un valore che dipende solo dal valore della temperatura allora rischi di farti venire valori di <span class="tex">\(n_i\)</span> frazionari il che non avrebbe senso.. Infatti se ad esempio sapessi a priori il valore della <span class="tex">\(E=3,24\)</span> e hai che puoi mandare i tuoi atomi ad un livello <span class="tex">\(E_1=1\)</span> ed <span class="tex">\(E_2=2\)</span>...<br>
+L'unica cosa che puoi fare è immaginare che <span class="tex">\(n_1 E_1 + n_2 E_2\)</span> si avvicinerà come "intero" il più vicino possibile al valore della <span class="tex">\(E=f(T)\)</span>, xkè solo così l'energia comporta il massimo dell'entropia</article>
+<article class="post" id="p4782"><div class="who"><b>Gauss91</b><span>6 ago 2010, 11:04</span></div>Non ha senso perché sei comunque SICURO che E è una combinazione lineare di E_1 ed E_2. Non si può dare il caso che E assuma un valore diverso (è chiaro che f(T) non è una funzione continua).<br>
+PS: buon compleanno! :)</article>
+<article class="post" id="p4783"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2010, 11:30</span></div>Allora non mi è chiaro la tua distinzione.. :D  cioè se tu alla fine avrai una temperatura T di equilibrio (non quella del serbatoio!) che te ne importa?xd quello che è interessante è che la differenza T del serbatoio e la T delle tue particelle sia il più vicino possibile e quindi l'energia finale deve essere in funzione di quello a cui tendiamo cioè della T del serbatoio e non delle particelle...Qua mi sembra che T del serbatoio non la consideri, xkè consideri un'altra T ovvero quella intera delle particelle...kmq se seguiamo il punto da dove ha interrotto Ippo potremo arrivare alla soluzione...il ragionamento fisico è corretto ora basta tradurre il tutto in linguaggio matematico.."basta"XD...<br>
+<br>
+p.s. Grazie mille! xkè questo coso pubblica anche l'età?? non vale!! :mrgreen:</article>
+<article class="post" id="p4784"><div class="who"><b>Ippo</b><span>6 ago 2010, 12:06</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite> Ok, se il macrostato iniziale stà tutto da una parte e l'entropia iniziale è 0, il macrostato finale sarà: <span class="tex">\({(E_1-E_2)t \over T}=k \ln W\)</span>, dove t è il numero di "pacchetti d'energia" scambiati.:</div></blockquote>
+ma provate ad analizzare un processo singolo!!  :? <br>
+<span class="tex">\((n_1,n_2) \rightarrow (n_1+1,n_2-1)\)</span> ad esempio. In altri termini applicate quella formula ad una sola transizione:<br>
+<span class="tex">\(\Delta S=0 \Rightarrow \Delta E/T=k \Delta (\ln W)\)</span></article>
+<article class="post" id="p4785"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2010, 16:49</span></div>partendo dalla scritta di sopra si avrà:<br>
+<span class="tex">\((E_1-E_2)/T=k ( \ln P_1- \ln P_2)\)</span>, con <span class="tex">\(P_1\)</span> e <span class="tex">\(P_2\)</span> rispettivamente le probabilità di avere n_1 particelle all'energia E_1 ed n_2 all'energia E_2.<br>
+ora sfrutto la cosiddetta densità di probabilità e ho: <span class="tex">\(n_i=G(i)P_i\)</span><br>
+sostituendo tutto si ha:<span class="tex">\((n_i/G(i))=e^{(E_i/ Tk)}\)</span><br>
+infine<br>
+<span class="tex">\(n_2/n_1=G_2/G_1*e^{-(E_1-E_2)/kT}\)</span><br>
+<br>
+Dimmi che non era questa la soluzione... :o</article>
+<article class="post" id="p4786"><div class="who"><b>Mirko93</b><span>6 ago 2010, 17:10</span></div>Hem ok, dopo l'incomprensione iniziale, ho fatto un ragionamento simile a quello che (mi sembra di aver capito) avete fatto anche voi. Anche se il problema è praticamente finito, e visto che con le pagine precedenti si rischia di confondersi le idee, lo scrivo, in modo da fare una sorta di riassunto.<br>
+<br>
+Quando il sistema è all'equilibrio, ogni trasformazione non deve portare ad una variazione di entropia nel sistema, visto che all'equilibrio non ci sono scambi netti di calore. Per un singolo salto energetico da <span class="tex">\(E_1\)</span> a <span class="tex">\(E_2\)</span> si ha che la variazione di entropia statica delle particelle è <span class="tex">\(\displaystyle \Delta S_p = k\left( \ln W_f - \ln W_i \right)= k \ln \left( {W_f \over W_i}\right)\)</span>. L'energia fornita dalla sorgente è <span class="tex">\(\Delta E_s = -(E_2 - E_1)\)</span>, percui la variazione di entropia nella sorgente è <span class="tex">\(\displaystyle \Delta S_s = {\Delta E_s \over T}= - {(E_2 - E_1) \over T}\)</span>. Come si è detto prima si deve avere <span class="tex">\(\Delta S_p + \Delta S_s = 0\)</span>, perciò <span class="tex">\(\displaystyle k \ln\left( {W_f \over W_i}\right)= {(E_2 - E_1) \over T} \rightarrow {W_f \over W_i}= e^{{(E_2 - E_1) \over k T}}\)</span>.<br>
+<span class="tex">\(W_f\)</span> e <span class="tex">\(W_i\)</span> rappresentano tutti i possibili modi di poter prendere rispettivamente <span class="tex">\((n_{1}-1)\)</span> e <span class="tex">\(n_1\)</span>  particelle sulle <span class="tex">\(n\)</span> totali. Perciò<br>
+ <span class="tex">\(\displaystyle W_f = \binom {n}{n_1 - 1}={n! \over (n_1 -1)!(n_2 + 1)!}={n! \over n_1! n_2!}{n_1 \over (n_2 +1)} \approx {n! \over n_1! n_2!}{n_1 \over n_2 }\)</span> <br>
+<span class="tex">\(\displaystyle W_i=\binom {n}{n_1}={n! \over n_1! n_2!}\)</span><br>
+<br>
+Infine si ha quindi <span class="tex">\(\displaystyle {W_f \over W_i}={n_1 \over n_2}\)</span> percui <span class="tex">\(\displaystyle {n_1 \over n_2}=e^{{(E_2 - E_1) \over k T}}\)</span></article>
+<article class="post" id="p4788"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2010, 17:45</span></div>unico appunto. non penso sia lecito approssimare <span class="tex">\(n_2+1 a n_2\)</span>..non sai a priori quanto vale n_2 allo stato di equilibrio. Kmq mi sembra che ormai il problema è risolto.;)</article>
+<article class="post" id="p4789"><div class="who"><b>Ippo</b><span>6 ago 2010, 18:22</span></div>l'approssimazione è lecita  perché stiamo sempre parlando di un "gas" (tante particelle), ma anche se non lo fosse non cambierebbe molto; ci interessava più che altro il tipo di dipendenza dalla temperatura e dalla differenza di energia.<br>
+Il risultato che abbiamo ottenuto in questo modo è molto generale. Capita spesso ad esempio in chimica di incontrare formule del tipo <span class="tex">\(e^{-\Delta E \over RT}\)</span> con <span class="tex">\(\Delta E\)</span> un qualche salto energetico tra due stati o due fasi o altro; la ragione è collegata a questo tipo di fenomeni (chiaramente per approfondire la cosa serve la meccanica statistica, ma nel frattempo abbiamo ottenuto un bel risultato "a mano").<br>
+Note sul risultato: diciamo che sia <span class="tex">\(E_2 &gt; E_1\)</span>; allora per <span class="tex">\(T \rightarrow 0\)</span> tutte le particelle stanno nello stato 1, quello meno energetico. Questo è ragionevole. Invece per <span class="tex">\(T \rightarrow \infty\)</span> l'esponente va a 0 e l'esponenziale quindi a 1; abbiamo al limite <span class="tex">\(n_1=n_2\)</span>. Anche questo è ragionevole perché per alte T la differenza tra i due livelli diventa trascurabile e ci ritroviamo banalmente con la "scatola divisa a metà" a cui qualcuno ha accennato all'inizio: è equiprobabile stare di qua o di là. NON accade invece MAI, nemmeno per alte T, che tutte le particelle tendano a stare nel livello più energetico, come uno potrebbe pensare ingenuamente "per simmetria" rispetto al limite di T piccole.</article>
+<article class="post" id="p4790"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2010, 19:52</span></div><blockquote><div><cite>Ippo ha scritto:</cite> NON accade invece MAI, nemmeno per alte T, che tutte le particelle tendano a stare nel livello più energetico, come uno potrebbe pensare ingenuamente "per simmetria" rispetto al limite di T piccole.</div></blockquote>
+
+Provate ad immaginare cosa accadrebbe se si venisse a scoprire che in una regione dell'universo le particelle tendono a stare nella loro massima energia... :mrgreen: Il che rivoluzionerebbe e non poco il nostro modo di pensare  :twisted:</article>
+<article class="post" id="p4791"><div class="who"><b>Pigkappa</b><span>6 ago 2010, 19:54</span></div>Nota: avevo provato a quotare il messaggio di Loren sopra ma ho fatto confusione con le opzioni di moderazione e purtroppo l'ho modificato per sbaglio. Ho provato a rimetterlo a posto ma non sono riuscito a fare meglio di così.<br>
+<br>
+<br>
+Comunque, volevo quotarlo per chiedere:<br>
+<br>
+
+<blockquote><div><cite>loren ha scritto:</cite>ora sfrutto la cosiddetta densità di probabilità e ho: <span class="tex">\(n_i=G(i)P_i\)</span></div></blockquote>
+
+Cosa sono i G(i)?</article>
+<article class="post" id="p4792"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2010, 20:31</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Nota: avevo provato a quotare il messaggio di Loren sopra ma ho fatto confusione con le opzioni di moderazione e purtroppo l'ho modificato per sbaglio. Ho provato a rimetterlo a posto ma non sono riuscito a fare meglio di così.</div></blockquote>
+Tranquillo ho rimesso come era prima  :D<br>
+<br>
+kmq quella G(i) proviene da questo qui: <a href="http://www.unisi.it/fisica/dip/dida/ftaingfmod/FisMod11.pdf" class="ext" class="postlink">http://www.unisi.it/fisica/dip/dida/fta ... sMod11.pdf</a><br>
+<br>
+Sinceramente non ho una teoria sotto per poter dire che funziona come deve, ma se il testo lo ha posto e non mi era sembrato un paraddosso allora l'ho messo...XD</article>
+<article class="post" id="p4793"><div class="who"><b>Pigkappa</b><span>6 ago 2010, 21:16</span></div>L'ho chiesto perchè ho già trovato quelle <span class="tex">\(G\)</span> da qualche parte ma non ho mai scoperto cosa fossero. A quanto pare leggendo in quelle dispense si tratta di un coefficiente numerico che si spiega con la fisica quantistica (ergo è lecito che io non lo sappia ancora) e che non è certamente nel programma olimpico (nè ci va vicino).</article>
+<article class="post" id="p4794"><div class="who"><b>Ippo</b><span>6 ago 2010, 23:09</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>L'ho chiesto perchè ho già trovato quelle <span class="tex">\(G\)</span> da qualche parte ma non ho mai scoperto cosa fossero. A quanto pare leggendo in quelle dispense si tratta di un coefficiente numerico che si spiega con la fisica quantistica (ergo è lecito che io non lo sappia ancora) e che non è certamente nel programma olimpico (nè ci va vicino).</div></blockquote>
+sì sì dovrebbe essere la "degenerazione" di uno stato, cioè la sua molteplicità quantistica (quante particelle possono coesistere simultaneamente nello stato - almeno finché consideriamo stati discreti, poi non lo so, si generalizzerà come una funzione di E in qualche modo). Tutto questo non c'entra niente col problema ovviamente.</article>
+<nav class="pager"><a class="prev" href="olifis-111.html"><small>← precedente</small>Gas e strato di materiale in un pistone</a><a class="next" href="olifis-122.html"><small>successivo →</small>PreIPhO 2009-Problema 1</a></nav>
+</main></body></html>

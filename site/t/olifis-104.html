@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Urto contro uno scalino</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Urto contro uno scalino</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=104">forum Olifis</a></p>
+<article class="post first" id="p955"><div class="who"><b>CoNVeRGe.</b><span>11 mag 2009, 16:43</span></div>Una sfera omogenea di massa <span class="tex">\(\displaystyle M\)</span> e raggio <span class="tex">\(\displaystyle R\)</span> viene abbandonata nel punto <span class="tex">\(\displaystyle A\)</span> di uno scivolo, come nella figura qui sotto, e inizia a rotolare. Nel moto il suo centro <span class="tex">\(\displaystyle C\)</span> si abbassa di un tratto <span class="tex">\(\displaystyle  d\)</span>. Dopo essere arrivata sul piano orizzontale urta, perpendicolarmente, uno scalino di altezza <span class="tex">\(\displaystyle h\)</span>.<br>
+<br>
+<strong class="text-strong">1.</strong> Determinare l'energia cinetica, la velocità angolare e quella del centro di massa, della sfera, subito prima dell'urto con lo scalino.<br>
+<br>
+Supponiamo che, nell'urto, la sfera assuma un moto di puro rotolamento attorno allo spigolo. Determinare:<br>
+<strong class="text-strong">2.</strong> Il minimo valore di <span class="tex">\(\displaystyle d\)</span> per il quale la sfera riesce a superare lo scalino.<br>
+<strong class="text-strong">3.</strong> La frazione di energia perduta nell'urto.<br>
+<strong class="text-strong">4.</strong> Il massimo valore di <span class="tex">\(\displaystyle d\)</span> per il quale una sfera potrà superare lo scalino senza staccarsene, e la condizione che deve valere per il rapporto <span class="tex">\(\displaystyle h/R\)</span> per cui ciò può accadere.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=12" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>bo.JPG (8.01 KiB) Visto 11123 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p957"><div class="who"><b>Alex90</b><span>11 mag 2009, 19:05</span></div>Nel passaggio della sfera dalla posizione sopraelevata a quella al livello dello scalino si ha:<br>
+<br>
+<span class="tex">\(Mgd=\frac{1}{2}Mv^2+\frac{1}{2}I\omega^2\)</span><br>
+<span class="tex">\(2gd=v^2+\frac{2}{5}v^2 \Rightarrow v=\sqrt{\frac{10}{7}gd}\)</span><br>
+<br>
+e quindi<br>
+<br>
+<span class="tex">\(\omega=\sqrt{\frac{10}{7}\frac{gd}{R^2}}\)</span><br>
+<br>
+L'energia cinetica prima dell'urto è l'energia potenziale gravitazionale che viene convertita durante il tratto in discesa ovvero <span class="tex">\(Mgd\)</span></article>
+<article class="post" id="p958"><div class="who"><b>Solimano</b><span>11 mag 2009, 20:44</span></div>Provo a rispondere al secondo punto (spero di non fare brutte figure  :lol: )<br>
+Quando la sfera urta lo scalino si conserva il momento angolare rispetto al vertice alto dello scalino.<br>
+Quindi si ha:<br>
+<br>
+<span class="tex">\(\frac{7}{5}mrv=v_0{(m(r-h)+ \frac{2}{5}mr)}\)</span><br>
+<br>
+da cui la velocità con la quale la sfera arriva sopra il gradino:<br>
+<br>
+<span class="tex">\(v=v_0{(\frac{5}{7}-\frac{5h}{7r}+\frac{2}{5})}=v_0(1-\frac{5h}{7r})\)</span><br>
+<br>
+Pertanto l'energia cinetica sopra lo scalino è:<br>
+<br>
+<span class="tex">\(K=K_0(1-\frac{5h}{7r})^2\)</span>.<br>
+<br>
+Poiché <span class="tex">\(K_0=mgd\)</span> ho <span class="tex">\(K=mgd(1-\frac{5h}{7r})^2\)</span>.<br>
+Affinché la sfera salga, l'energia cinetica sopra lo scalino deve essere maggiore o uguale alla differenza di energia potenziale, da cui il valore minimo di d che permette il consumo completo di K una volta scavalcato il gradino:<br>
+<br>
+<span class="tex">\(K=mgh\)</span> quindi <span class="tex">\(mgd(1-\frac{5h}{7r})^2=mgh\)</span> da cui<br>
+<span class="tex">\(d_{min}=\frac{h}{(1-\frac{5h}{7r})^2}\)</span><br>
+<br>
+Per la frazione di energia ho<br>
+<span class="tex">\(f=\frac{K}{K_0}=(1-\frac{5h}{7r})^2\)</span><br>
+<br>
+OH, ditemi se ho scritto qualche boiata!!!!!!!!!!!! :lol:  ;)</article>
+<article class="post" id="p959"><div class="who"><b>CoNVeRGe.</b><span>11 mag 2009, 21:18</span></div><blockquote><div><cite>Solimano ha scritto:</cite>
+Quando la sfera urta lo scalino si conserva il momento angolare rispetto al vertice alto dello scalino.
+</div></blockquote>
+Uhm, sapresti spiegarmi perchè la forza di gravità permetterebbe la conservazione del momento angolare rispetto a questo punto?</article>
+<article class="post" id="p960"><div class="who"><b>Alex90</b><span>11 mag 2009, 21:19</span></div>Direi che è giusto  ;)</article>
+<article class="post" id="p961"><div class="who"><b>Pigkappa</b><span>11 mag 2009, 21:23</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Solimano ha scritto:</cite>
+Quando la sfera urta lo scalino si conserva il momento angolare rispetto al vertice alto dello scalino.
+</div></blockquote>
+Uhm, sapresti spiegarmi perchè la forza di gravità permetterebbe la conservazione del momento angolare rispetto a questo punto?</div></blockquote>
+
+Non stanno dicendo che si conserva nel moto di rotolamento intorno a quel punto. Stanno dicendo che il momento angolare rispetto a quel punto subito prima dell'urto e subito dopo l'urto è lo stesso, perchè l'unica forza che fa momento rispetto al bordo dello scalino è la forza di gravità, che non è impulsiva.</article>
+<article class="post" id="p963"><div class="who"><b>CoNVeRGe.</b><span>12 mag 2009, 14:53</span></div><blockquote><div><cite>Solimano ha scritto:</cite>
+<span class="tex">\(v=v_0{(\frac{5}{7}-\frac{5h}{7r}+\frac{2}{5})}=v_0(1-\frac{5h}{7r})\)</span>
+</div></blockquote>
+
+<span class="tex">\(2/5 + 5/7 = 1\)</span>  :!:  :?:<br>
+<br>
+EDIT: Ah ok, volevi scrivere <span class="tex">\(2/7\)</span>.<br>
+Comunque ancora non capisco perchè la velocità che ha appena dopo l'urto rimane la stessa. Qualcuno mi spieghi come vanno le cose sennò continuo a domandare rigirando sulla stessa cosa.  :)</article>
+<article class="post" id="p964"><div class="who"><b>Solimano</b><span>12 mag 2009, 15:47</span></div>Scusa hai ragione, è <br>
+<span class="tex">\(\frac{5}{7}-\frac{5h}{7r} +\frac{2}{7}\)</span> :oops:  :D</article>
+<article class="post" id="p965"><div class="who"><b>Alex90</b><span>12 mag 2009, 15:50</span></div>Credo cha abbia sbagliato a scrivere i passaggi intermedi...se riprendi dal momento prima hai<br>
+<br>
+<span class="tex">\(\frac{7}{5}mrv=v_0{\left (m(r-h)+ \frac{2}{5}mr \right )}\)</span><br>
+<br>
+<br>
+<span class="tex">\(\frac{7}{5}mrv=v_0{\left (mr-mh+ \frac{2}{5}mr \right )}\)</span><br>
+<br>
+<span class="tex">\(\frac{7}{5}mrv=v_0{\left (\frac{7}{5}mr - mh \right )}\)</span><br>
+<br>
+<span class="tex">\(v=v_0 \left ( 1 - \frac{5}{7}\frac{h}{r} \right )\)</span></article>
+<article class="post" id="p966"><div class="who"><b>CoNVeRGe.</b><span>12 mag 2009, 15:51</span></div>Sisi, l'ho notato appena prima che Solimano correggesse.  ;)  Sopra ho editato il messaggio, chiedo una spiegazione..</article>
+<article class="post" id="p968"><div class="who"><b>Rigel</b><span>12 mag 2009, 21:18</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Comunque ancora non capisco perchè la velocità che ha appena dopo l'urto rimane la stessa. Qualcuno mi spieghi come vanno le cose sennò continuo a domandare rigirando sulla stessa cosa.  :)</div></blockquote>
+Infatti non rimane la stessa. l`urto dura un tempo molto piccolo (questo e il motivo per cui puoi trascurare il momento della forza peso, essendo trascurabile in confronto alle forze impulsive) e dopo la sfera assume un moto di puro rotolamento attorno allo spigolo</article>
+<article class="post" id="p969"><div class="who"><b>Pairo</b><span>12 mag 2009, 21:40</span></div>Il momento angolare si conserva perché si tratta di un urto elastico. La forza di gravità non influisce nel momento dell'urto perché l'istante è infinitesimale. Come caso analogo puoi pensare ad una pallina lanciata su un piano inclinato verso l'alto che alla fine urta contro una parete. La quantità di moto subito prima dell'urto è uguale a quella subito dopo, anche se è chiaro che già dall'istante successivo la quantità di moto cambia per effetto della forza di gravità. Secondo me questa è la spiegazione, che però ha bisogno di ammettere l'istante d'urto infinitesimale.<br>
+Invece non mi convince il fatto che si sia supposta la velocità del centro di massa costante durante tutta la rotazione. Dopo l'urto la forza di gravità dovrebbe influire perciò la frazione dell'energia cinetica dovrebbe tener conto anche della differenza di energia potenziale dovuta al gradino..</article>
+<article class="post" id="p970"><div class="who"><b>CoNVeRGe.</b><span>12 mag 2009, 21:40</span></div>Il momento angolare della sfera rispetto allo spigolo un momento prima dell'urto è:<br>
+<br>
+<span class="tex">\(\displaystyle L_1 = MRv_0 \frac{R-h}{R} + I_c \omega = Mv_0 (R-h) + I_c \frac{v_0}{ R}\)</span><br>
+<br>
+con <span class="tex">\(\displaystyle I_c\)</span> il momento d'inerzia rispetto ad un asse passante per il centro e <span class="tex">\(\displaystyle \omega\)</span> la velocità angolare di rotazione, pari a <span class="tex">\(\displaystyle v_0 R\)</span> per la condizione di non scivolamento.<br>
+<br>
+Il momento angolare della sfera rispetto allo spigolo un momento dopo l'urto è:<br>
+<br>
+<span class="tex">\(\displaystyle L_2 = I_B \Omega\)</span><br>
+<br>
+con <span class="tex">\(\displaystyle I_B = I_c + MR^2\)</span> il momento d'inerzia rispetto a un asse passante per quel punto B a contatto con lo spigolo e orientata perpendicolarmente all'impatto, e <span class="tex">\(\displaystyle \Omega\)</span> è la velocità angolare di rotazione appena dopo l'urto attorno a quest'asse.<br>
+<br>
+La sfera appena dopo l'urto ha una velocità <span class="tex">\(\displaystyle v = \Omega R\)</span> con direzione perpendicolare al segmento che congiunge il punto B con il centro.<br>
+Questa è la velocità che ha calcolato Solimano. Non capisco perchè questa è uguale una volta superato lo scalino, quando un po' di energia è andata 'persa' in potenziale gravitazionale. <br>
+ :?</article>
+<article class="post" id="p971"><div class="who"><b>Pairo</b><span>12 mag 2009, 21:49</span></div>Infatti non è uguale; adesso ho capito, penso si sia sbagliato lui a scrivere quello che intendeva; quella è la velocità subito dopo l'urto. Tant'è che  appena dopo ha scritto che quella velocità dev'essere tale da permettere la conversione di energia potenziale in energia cinetica, trovando così d.<br>
+Riassumendo, subito dopo l'urto, la sfera, supponendo infinitesimale l'istante dell'urto, conserva il momento angolare rispetto al punto; varierà quindi anche la sua energia cinetica, diminuendo. Tale energia, che è quella rimasta dopo l'urto, dev'essere tale da permettere alla sfera di "saltare" il gradino, compensando la variazione di energia potenziale.</article>
+<article class="post" id="p972"><div class="who"><b>Pairo</b><span>12 mag 2009, 21:57</span></div>Per quanto riguarda il rapporto h/R, h dev'essere al massimo uguale ad 1. In caso contrario la sfera toccherà la parete e non lo spigolo, e quindi rimbalzerà indietro.</article>
+<article class="post" id="p973"><div class="who"><b>CoNVeRGe.</b><span>12 mag 2009, 22:08</span></div>Ah ok, ora ho capito. Era quel "sopra lo scalino" da intendere come "appena dopo l'urto" che contribuiva a non rendermi chiaro il procedimento.<br>
+Tra l'altro Solimano ha commesso un piccolo errore nel calcolo della frazione di energia persa. Questa è il rapporto tra il decremento e il valore iniziale, e non tra l'energia dopo e quella prima.<br>
+<br>
+Ringrazio chi ha contributo a togliermi i dubbi  :) <br>
+<br>
+Rimane ora da risolvere l'ultimo quesito, il numero <strong class="text-strong"> 4 </strong>.<br>
+Da un veloce sguardo alla soluzione posso dire che non basta quanto detto da Pairo, ci sono diverse cose da fare. Domani provo anch'io a farlo.</article>
+<article class="post" id="p975"><div class="who"><b>Pairo</b><span>12 mag 2009, 23:31</span></div>Ok, allora domani se riesco ci provo anch'io. Posso chiederti dove hai trovato il problema?<br>
+Ovviamente ti chiederò la soluzione poi =) (P.S. Tu da dove vieni? perché sicuramente ci siamo incontrati a Senigallia, ma non riesco a collegare il nick name con la persona, anche se non necessariamente là ci siamo presentati. Io comunque sono uno dei due ragazzi di Parma che c'erano =)..)</article>
+<article class="post" id="p976"><div class="who"><b>CoNVeRGe.</b><span>12 mag 2009, 23:42</span></div>E' il problema 3 per la selezione della squadra IPhO italiana del 2001. I testi e le relative soluzioni si trovano su questo sito.<br>
+Il link diretto è questo:<br>
+<a href="http://forum.olifis.it/olifis/sel01.zip" class="ext" class="postlink">olifis/sel01.zip</a><br>
+<br>
+(Il problema l'ho trovato su segnalazione di Pigkappa <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=3&amp;t=13" class="ext" class="postlink">qui</a>)</article>
+<nav class="pager"><a class="prev" href="olifis-69.html"><small>← precedente</small>Biliardo a dischi</a><a class="next" href="olifis-53.html"><small>successivo →</small>Liquido in un cilindro che ruota.</a></nav>
+</main></body></html>

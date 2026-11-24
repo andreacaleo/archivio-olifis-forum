@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>230. Due urti</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 230</a></span></nav>
+<h1>230. Due urti</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6956">forum Olifis</a></p>
+<article class="post first" id="p26321"><div class="who"><b>east_beast</b><span>17 ago 2020, 23:41</span></div>Ci sono tre palle da biliardo identiche di massa <span class="tex">\(m\)</span> che chiamo 1, 2, 3.<br>
+2 e 3 sono a contatto, 1 si muove con velocità <span class="tex">\(v\)</span> verso il punto di contatto di 2 e 3, perpendicolarmente alla retta che unisce i centri di 2 e 3.<br>
+Quale sarà la velocità di 1 dopo l'urto, se:<br>
+A) 1 urta simultaneamente 2 e 3<br>
+B) 1 non è perfettamente "in traiettoria" e urta prima 2 e poi immediatamente 3<br>
+<br>
+Ignorare attriti e gravità, considerare gli urti perfettamente elastici.<br>
+Chiedetemi pure se vi servono chiarimenti, il problema l'ho tradotto</article>
+<article class="post" id="p26326"><div class="who"><b>Phyyse</b><span>19 ago 2020, 13:49</span></div>Provo a dare una soluzione, anche se non mi convince molto.<br>
+Per la parte A, dato che le palle 2 e 3 vengono colpite contemporaneamente assumo che abbiano la stessa velocità in seguito all'urto per ragioni di simmetria. Combinando la conservazione della quantità di moto e dell'energia (dato che l'urto è elastico) dal problema posso ricavare due informazioni: <span class="tex">\( \begin{cases} v=v_1 +2v_2 \\ v+v_1=v_2 \end{cases} \)</span><br>
+Risolvendo il sistema ottengo che <span class="tex">\( v_1 = -v/3 \)</span>. <br>
+<br>
+Per la parte B, ho ipotizzato che la palla 3 non risenta nesun effetto dal primo urto, perché altrimenti la situazione sarebbe analoga alla parte A, e dato che la palla 1 torna indietro non potrebbe mai colpire la 3 immediatamente dopo. Quindi ho pensato di analzzare separatamente i due urti: il problema è che dato che le palle 1 e 2 hanno la stessa massa, in seguito al primo urto la palla 1 dovrebbe fermarsi, quindi la mia risposta sarebbe <span class="tex">\( v_1=0 \)</span>. Non mi convince perché nemmeno in questo modo la palla 1 riesce ad urtare la 3, e non riesco a capire come possa farlo. Intanto ci ho voluto provare.</article>
+<article class="post" id="p26327"><div class="who"><b>east_beast</b><span>19 ago 2020, 20:34</span></div>Hai fatto bene a provare, d'altronde il forum serve per imparare no? :D 
+<blockquote><div><cite>Phyyse ha scritto: <a href="olifis-6956.html#p26326" data-post-id="26326" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">19 ago 2020, 13:49</div></cite>
+Per la parte A, dato che le palle 2 e 3 vengono colpite contemporaneamente assumo che abbiano la stessa velocità in seguito all'urto per ragioni di simmetria. </div></blockquote>
+Se ti riferisci al modulo della velocità, si, avranno lo stesso modulo. Tuttavia <span class="tex">\(\vec{v_2} \neq \vec{v_3}\)</span>
+<blockquote class="uncited"><div>Combinando la conservazione della quantità di moto e dell'energia (dato che l'urto è elastico) dal problema posso ricavare due informazioni: <span class="tex">\( \begin{cases} v=v_1 +2v_2 \\ v+v_1=v_2 \end{cases} \)</span><br>
+Risolvendo il sistema ottengo che <span class="tex">\( v_1 = -v/3 \)</span>. 
+</div></blockquote>
+Credo che tu abbia fatto un po' di confusione. Infatti la conservazione della quantità di moto, che è una quantità vettoriale, si scrive come <span class="tex">\(m\vec{v} = m(\vec {v_1} +\vec {v_2}+\vec {v_3})\)</span><br>
+Per quanto riguarda l'energia, la conservazione si può scrivere come <span class="tex">\((m/2)v^2 = (m/2)(v_1^2 +v_2^2+v_3^2)\)</span><br>
+Ora cerca, attraverso la simmetria tra 2 e 3 e grazie ad un'altra idea, di risolvere questo sistema, e troverai il punto A :D</article>
+<article class="post" id="p26333"><div class="who"><b>bosone</b><span>20 ago 2020, 11:14</span></div>Sono impegnato con la maledetta matematica ma ti voglio sottoporre un'idea sulla conservazione dell'energia del sistema. Siccome dopo l'urto<span class="tex">\(v_2=v_3\)</span> la conservazione dell'energia cinetica porterebbe a <span class="tex">\(v^2= v_1^2+2.v_2^2\)</span>. Questo vorrebbe dire che <span class="tex">\(\vec v_1\)</span> è ortogonale a<span class="tex">\(\vec{\sqrt{2} v_2}\)</span>, diagonale del quadtrato di lato <span class="tex">\(v_2\)</span>. Ciò vuol dire che quest'ultimo è diretto lungo l'asse x perchè <span class="tex">\(\vec v_1\)</span> di sicuro è diretto come y. Quindi il vettore <span class="tex">\(v_2\)</span>e il vettore<span class="tex">\(v_3  \)</span>sono a 45°rispetto all'asse y, da parti opposte. Siccome il loro risultante deve essere v ciò vorrebbe dire che <span class="tex">\(v_1=0\)</span>. Ho dubbi sul <span class="tex">\(\vec{\sqrt{2}v_2}\)</span>. Che ne pensi perchè l'osservazione sulla energia cinetica forse serve anche per la seconda parte. Due palle che si urtano obliquamente devono proseguire in direzioni ortogonali secondo me. :?:  :?:</article>
+<article class="post" id="p26335"><div class="who"><b>east_beast</b><span>20 ago 2020, 12:17</span></div>Purtroppo è errato, prova a pensare alla direzione dell'impulso durante l'urto :D<br>
+Questa è l'idea che manca</article>
+<article class="post" id="p26336"><div class="who"><b>bosone</b><span>20 ago 2020, 17:15</span></div>Non so se intendi che al momento dell'urto i tre CM formano un triangolo equilatero di lato 2R e che le direzioni di <span class="tex">\(\vec v_2\)</span> e <span class="tex">\(\vec v_3\)</span>formerebbero un angolo di 30° con la verticale. Avevo già provato a fare i conti e mi veniva <span class="tex">\(v_1= -v/5\)</span>ma non mi convinceva e avevo preferito l'altra strada..Pazienza se è sbagliata anche questa! :roll:</article>
+<article class="post" id="p26337"><div class="who"><b>east_beast</b><span>20 ago 2020, 17:24</span></div>l'angolo di 30° gradi si forma con l'orizzontale, non con la verticale. Prova a rivedere i conti :)</article>
+<article class="post" id="p26340"><div class="who"><b>bosone</b><span>21 ago 2020, 11:16</span></div>Ma io avevo messo la velocità in verticale e la retta contenente 2 e 3 in orizzontale...Dovrebbe esser lo stesso ma proverò come dici tu..</article>
+<article class="post" id="p26360"><div class="who"><b>east_beast</b><span>21 ago 2020, 22:42</span></div>Perdonami, avevo invertito i segni ma il risultato è corretto, sia in modulo che in segno. Procedi pure col punto b, se hai idee</article>
+<article class="post" id="p26406"><div class="who"><b>Luca Milanese</b><span>25 ago 2020, 16:23</span></div>Faccio il punto b)<br>
+Chiamo <span class="tex">\(\vec v_0\)</span> la velocità iniziale della palla <span class="tex">\(1\)</span>, <span class="tex">\(\vec v_1\)</span> la sua velocità dopo l'urto con <span class="tex">\(2\)</span>, <span class="tex">\(\vec v_1'\)</span> la sua velocità dopo l'urto con <span class="tex">\(3\)</span>, <span class="tex">\(\vec v_2\)</span> la velocità finale di <span class="tex">\(2\)</span> e <span class="tex">\(\vec v_3\)</span> la velocità finale di <span class="tex">\(3\)</span>. Sistemo gli assi cartesiani in modo che <span class="tex">\(\vec v_0 = (v, 0)\)</span> e che il centro di <span class="tex">\(2\)</span> si trovi a un'ordinata maggiore di quella del centro di <span class="tex">\(3\)</span>. Quando due palle si scontrano, l'impulso si trasmette lungo la congiungente i loro centri. Pertanto, l'impulso trasmesso dalla <span class="tex">\(1\)</span> alla <span class="tex">\(2\)</span> vale <span class="tex">\(\vec J = J (\cos 30^\circ, \sin 30^\circ)\)</span>. La <span class="tex">\(2\)</span> è inizialmente ferma, perciò <span class="tex">\(\vec J\)</span> è la sua qdm finale, e dunque <span class="tex">\(\displaystyle \vec v_2 = v_2 \bigg(\frac{\sqrt{3}}{2}, \frac{1}{2} \bigg)\)</span>. Similmente, la qdm di <span class="tex">\(1\)</span> dopo l'urto varrà <span class="tex">\(m \vec v_1 = m \vec v_0 - \vec J \Rightarrow \vec v_1 = \vec v_0 - \vec v_2 = \bigg (v - v_2 \frac{\sqrt{3}}{2}, -v_2 \frac{1}{2} \bigg)\)</span> poiché le masse di tutte le palle sono uguali. La conservazione dell'energia si scrive allora come:<br>
+<span class="tex">\(v^2=v_2^2+v^2+v_2^2-\sqrt{3}v_2v \Rightarrow v_2 = v \frac{\sqrt{3}}{2}\)</span><br>
+Da qui trovo <span class="tex">\(\vec v_1=\frac{v}{4}(1, -\sqrt{3})\)</span><br>
+Con gli stessi ragionamenti ottengo <span class="tex">\(\vec v_3 = v_3 \bigg (\frac{\sqrt{3}}{2}, -\frac{1}{2} \bigg)\)</span>, <span class="tex">\(\vec v_1'= \bigg ( \frac{v}{4} - \frac{v_3 \sqrt{3}}{2}, \frac{v_3}{2} - \frac{v \sqrt{3}}{4} \bigg)\)</span>, <span class="tex">\(v_3 = \frac{\sqrt{3} v}{4}\)</span> e quindi, in conclusione:<br>
+<span class="tex">\(\vec v_1'=-\frac{v}{4} \bigg (\frac{1}{2}, \frac{\sqrt{3}}{2} \bigg)\)</span></article>
+<article class="post" id="p26414"><div class="who"><b>east_beast</b><span>25 ago 2020, 20:09</span></div>Corretto! Dato che i ragazzi di quinta saranno occupati con il test, vai tu con la staffetta! :)</article>
+<nav class="pager"><a class="prev" href="olifis-6955.html"><small>← precedente</small>229. Sfera radiante</a><a class="next" href="olifis-6967.html"><small>successivo →</small>231. Velocità delle stelle.</a></nav>
+</main></body></html>

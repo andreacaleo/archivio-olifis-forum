@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>249. Una cimice sopra il mappamondo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 249</a></span></nav>
+<h1>249. Una cimice sopra il mappamondo</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7048">forum Olifis</a></p>
+<article class="post first" id="p26762"><div class="who"><b>Leo</b><span>29 gen 2021, 12:47</span></div>Un mappamondo,  costituito da una sfera di raggio <span class="tex">\(R\)</span> e massa <span class="tex">\(M\)</span>, ruota liberamente senza attrito attorno al suo asse <span class="tex">\(NS\)</span> con velocità angolare iniziale <span class="tex">\(\omega_0\)</span> avendo rispetto all'asse un momento di inerzia <span class="tex">\(I= (2/5)MR^2\)</span>. Una cimice di massa <span class="tex">\(m\)</span> partendo dal polo <span class="tex">\(N\)</span> viaggia verso il polo <span class="tex">\(S\)</span> lungo un meridiano con velocità costante <span class="tex">\(v\)</span> per un tempo <span class="tex">\(T\)</span>.<br>
+Mostrare che, durante il tempo <span class="tex">\(T\)</span>,  il mappamondo ruota di un angolo <span class="tex">\(\Delta \theta = \frac{\pi \omega_0 R}{v}.\sqrt{\frac{2M}{2M+5m}}\)</span><br>
+Hint: un integrale utile è <span class="tex">\(\int_0 ^{2 \pi}{\frac{dx}{a+b  cosx}} ={ \frac{2 \pi}{\sqrt{ a^2 - b^2}\)</span> con <span class="tex">\(a^2&gt;b^2\)</span></article>
+<article class="post" id="p26763"><div class="who"><b>Luca Milanese</b><span>29 gen 2021, 22:03</span></div>Non sono sicuro di una cosa: <span class="tex">\(v\)</span> è il modulo della velocità della cimice rispetto alla sfera o ho capito male?<br>
+Dopodichè, il valore dell'integrale mi sembra sbagliato: per <span class="tex">\(b=0\)</span> dà <span class="tex">\(\frac{2\pi}{a^2}\)</span>, mentre il risultato dovrebbe essere <span class="tex">\(\int_{0}^{2\pi} \frac{\text{d} x}{a}=\frac{2\pi}{a}\)</span></article>
+<article class="post" id="p26764"><div class="who"><b>Leo</b><span>30 gen 2021, 12:02</span></div>Grazie Luca. Mi scuso con tutti per la mia imperizia latex. Ho effettuato la correzione/modifica nel testo</article>
+<article class="post" id="p26766"><div class="who"><b>DeoGratias</b><span>30 gen 2021, 13:06</span></div>Avrei risolto il problema, ma è la prima volta che ci provo e non ho la minima idea di come si usi Latex... posso caricare la soluzione lo stesso, magari scrivendola a mano su un foglio o sul pc?</article>
+<article class="post" id="p26768"><div class="who"><b>Pigkappa</b><span>30 gen 2021, 15:56</span></div>Certo<br>
+<br>
+Comunque il latex non e' difficile, se provi impari veloce :)<br>
+
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>[tex]a+b = c[/tex]</code></pre></div>
+<span class="tex">\(a+b = c\)</span><br>
+
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>[tex]\frac{a}{b}[/tex]</code></pre></div>
+<span class="tex">\(\frac{a}{b}\)</span><br>
+
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>[tex]\int[/tex]</code></pre></div>
+<span class="tex">\(\int\)</span><br>
+
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>[tex]\int{ \frac{1}{x} dx } = \ln{x} + \text{constant}[/tex]</code></pre></div>
+<span class="tex">\(\int{ \frac{1}{x} dx } = \ln{x} + \text{constant}\)</span></article>
+<article class="post" id="p26770"><div class="who"><b>DeoGratias</b><span>30 gen 2021, 16:31</span></div>Grazie mille! Se riesco stasera provo a caricare i calcoli in latex, altrimenti se proprio vedo che è un'impresa.impossibile scrivo tutto a mano in bella e lo mando :D</article>
+<article class="post" id="p26772"><div class="who"><b>DeoGratias</b><span>31 gen 2021, 0:25</span></div>Allora, vediamo se riesco a combinare qualcosa:<br>
+Innanzitutto, il momento torcente delle forze esterne è nullo, quindi <span class="tex">\(\tau =0\Rightarrow \frac{\mathrm{d} L}{\mathrm{d} t} =0\Rightarrow L=cost.\)</span>, ovvero il momento angolare si conserva.<br>
+All'istante t=0, il momento d'inerzia è dato da <span class="tex">\(I_{0}=\frac{2}{5}MR^{2}\)</span>, quindi il momento angolare rispetto all'asse di rotazione della sfera è <span class="tex">\(L=\frac{2}{5}MR^{2}\omega _{0}\)</span><br>
+La cimice si muove con una velocità angolare costante <span class="tex">\(\omega_{c}=\frac{v}{R}\)</span> dal polo nord al polo sud della sfera, perciò lo spostamento angolare dal polo nord sulla superficie della sfera è dato da <span class="tex">\(\varphi =\omega _{c}t\)</span>, e la sua distanza dall'asse verticale di rotazione della sfera è <span class="tex">\(r=Rsin(\varphi )=Rsin(\omega _{c}t)\)</span>. <br>
+Di conseguenza, il momento d'inerzia totale all'istante <span class="tex">\(t\)</span> è dato da <span class="tex">\(I_{(t)}=I_{sfera}+I_{cimice}=\frac{2}{5}MR^{2}+mR^{2}sin^{2}(\frac{v}{R}t)\)</span><br>
+Per la conservazione del momento angolare, detta <span class="tex">\(\omega_{(t)}\)</span> la velocità angolare della sfera all'istante <span class="tex">\(t\)</span>, si ha che<br>
+<span class="tex">\(\frac{2}{5}MR^{2}\omega _{0}=\omega _{(t)}(\frac{2}{5}MR^{2}+mR^{2}sin^{2}(\frac{v}{R}t))\)</span>, e quindi <br>
+<span class="tex">\(\omega _{(t)}=\frac{\frac{2}{5}M\omega _{0}}{(\frac{2}{5}M+msin^{2}(\frac{v}{R}t))}\)</span><br>
+Lo spostamento angolare incognito è dato da <span class="tex">\(\Delta \theta =\int d\theta =\int_{0}^{T}\frac{\frac{2}{5}M\omega _{0}}{(\frac{2}{5}M+msin^{2}(\frac{v}{R}t))}dt\)</span><br>
+Ricordandoci dell'hint e del fatto che <span class="tex">\(sin^{2}\alpha =\frac{1-cos(2\alpha )}{2}\)</span>, imponendo la sostituzione <span class="tex">\(k=\frac{2v}{R}t\rightarrow dt=\frac{R}{2v}dk\)</span>, si ottiene che <span class="tex">\(\Delta\theta =\frac{2}{5}MT\omega _{0}\frac{1}{\sqrt{\frac{4}{25}M^{2}+\frac{2}{5}Mm}}\)</span><br>
+da cui, ricordando che la cimice si muove con velocità costante rispetto alla sfera, che lo spostamento è di 180 gradi e quindi <span class="tex">\(T=\frac{\pi R}{v}\)</span>, inserendo questo nella formula precedente e sistemando un po' di roba si ottiene, se per miracolo ho azzeccato tutti i conti, <span class="tex">\(\Delta \theta = \frac{R\pi \omega_{0}}{v}\sqrt{\frac{2M}{2M+5m}}\)</span>, cioè la tesi, QED</article>
+<article class="post" id="p26773"><div class="who"><b>Leo</b><span>31 gen 2021, 12:47</span></div>Osservo che quello che appare è giusto ma, soprattutto il passaggio dall'integrale fra 0 e T all'integrale fra 0 e <span class="tex">\(2\pi\)</span> per poter utilizzare l'Hint,  non è sufficientemente giustificato: dovresti essere più didascalico in questa parte decisiva come lo eri stato nella parte precedente sennò la soluzione corretta pare giustapposta. (vista anche la tua improvvisa e ottima padronanza del latex, come ti invidio...) :D</article>
+<article class="post" id="p26774"><div class="who"><b>DeoGratias</b><span>31 gen 2021, 15:48</span></div>Sì hai ragione, avevo supposto (sbagliando) che l'hint valesse per qualsiasi valore, non solo per 2pi :roll: . Comunque, l'integrale in questione, dopo aver applicato la formula di bisezione del seno, diventa <span class="tex">\(\int_{0}^{T}\frac{\frac{2}{5}M\omega _{0}}{\frac{2}{5}M+\frac{1}{2}m-\frac{mcos(\frac{2v}{R}t)}{2}}dt\)</span><br>
+Facendo la sostituzione che ho scritto prima, si ottiene <span class="tex">\(\int_{0}^{\frac{2vT}{R}}\frac{\frac{1}{5}M\omega _{0}\frac{R}{v}}{\frac{2}{5}M+\frac{1}{2}m-\frac{mcos(k)}{2}}dk\)</span><br>
+Ma <span class="tex">\(\frac{2vT}{R}=2\omega _{c}T\)</span> , e poiché <span class="tex">\(T=\frac{\pi }{\omega _{c}}\)</span> perché è il tempo che ci mette la cimice a muoversi dal polo nord al sud della sfera, percorrendo quindi una semicirconferenza, si ha che <span class="tex">\(\frac{2vT}{R}=2\pi \)</span> , quindi penso che si possa usare l'hint ottenendo che <span class="tex">\(\Delta \theta =\frac{1}{5}M\omega _{0}\frac{R}{v}*\frac{2\pi }{\sqrt{\frac{4}{25}M^{2}+\frac{2}{5}Mm}}\)</span>, e risistemando un po' si dovrebbe ottenere la tesi<br>
+Scusate per la poca chiarezza e per gli errori, è la prima volta che provo a risolvere un problema così e a scrivere per bene una soluzione :D <br>
+P.s. il latex non è merito mio, ma di <a href="https://www.codecogs.com/latex/eqneditor.php" class="ext" class="postlink">https://www.codecogs.com/latex/eqneditor.php</a><br>
+P.p.s. posso chiederti da dove hai preso il problema? Sono curioso :mrgreen:</article>
+<article class="post" id="p26775"><div class="who"><b>Leo</b><span>1 feb 2021, 11:15</span></div><blockquote><div><cite>DeoGratias ha scritto: <a href="olifis-7048.html#p26774" data-post-id="26774" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">31 gen 2021, 15:48</div></cite>
+<span class="tex">\(\Delta \theta =\frac{1}{5}M\omega _{0}\frac{R}{v}*\frac{2\pi }{\sqrt{\frac{4}{25}M^{2}+\frac{2}{5}Mm}}\)</span>, e risistemando un po' si dovrebbe ottenere la tesi</div></blockquote>
+Ma "risistemando un pò" è proprio quello che dovresti fare tu: è come la dimostrazione di un teorema questo problema preso da Cahn "A Guide to Physics Problems, Part 1". Sarebbe come se sul più bello chi lo dimostra dicesse "e poi si dovrebbe ottenere la tesi". Devi convenire che saresti anche tu insoddisfatto...D'altra parte non c'è da preoccuparsi siamo qui per imparare anche il rigore: la mia esperienza personale è breve eppure già molte volte credevo di essere stato esauriente e invece mi hanno bacchettato.. :D</article>
+<article class="post" id="p26776"><div class="who"><b>DeoGratias</b><span>1 feb 2021, 20:23</span></div>Hai ragione, allora vediamo se riesco a finirlo una volta per tutte  :D <br>
+Dall'espressione precedente, portando <span class="tex">\(\frac{2}{5}M\)</span> sotto radice, si ottiene <span class="tex">\(\frac{\pi R\omega _{0}}{v}\sqrt{\frac{\frac{4}{25}M^{2}}{\frac{4}{25}M^{2}+\frac{10}{25}mM}}\)</span>, e raccogliendo <span class="tex">\(\frac{2}{25}M\)</span> al numeratore e denominatore e semplificandoli, si ottiene <span class="tex">\(\frac{\pi R\omega _{0}}{v}\sqrt{\frac{2M}{2M+5m}}\)</span>, che dovrebbe essere la tesi.<br>
+Inoltre, va detto che sono autorizzato ad usare l'hint anche perché <span class="tex">\(M\)</span> ed <span class="tex">\(m\)</span>, in quanto masse, sono sempre maggiori di zero e quindi <span class="tex">\((\frac{2}{5}M+\frac{1}{2}m)^{2}&gt; (-\frac{1}{2}m)^{2}\)</span></article>
+<article class="post" id="p26777"><div class="who"><b>Leo</b><span>2 feb 2021, 11:12</span></div>ok, ora può andare e ti passo il testimone per il 250 :D  :D . Comunque non era più in discussione l'uso dell'Hint ma lo sviluppo che giusto hai effettuato. :D</article>
+<article class="post" id="p26780"><div class="who"><b>DeoGratias</b><span>4 feb 2021, 0:10</span></div>Ho provato a cercare qualche problema dai miei libri, ma penso che siano tutti troppo facili per questo forum :mrgreen: ... quindi lascio volentieri il testimone a qualcuno più esperto di me, l'aver risolto il problema è stato comunque una grande soddisfazione :D</article>
+<article class="post" id="p26781"><div class="who"><b>drago</b><span>4 feb 2021, 0:42</span></div>Tutti le prime volte hanno postato problemi facili, o che ritengono tali, dopotutto in tutto bisogna imparare e buttarsi; magari quello che tu ritieni facile non lo è per qualcun altro o può essere che percorrano una soluzione differente da quella che hai fatto tu portandoti a vedere il problema sotto un ottica diversa; in definitiva ti direi di buttarti e non avere paura.</article>
+<article class="post" id="p26788"><div class="who"><b>Luca Milanese</b><span>9 feb 2021, 14:52</span></div>@DeoGratias scusa l'impazienza, ma possiamo sapere se hai deciso o no di postare il prossimo problema?</article>
+<article class="post" id="p26789"><div class="who"><b>DeoGratias</b><span>9 feb 2021, 19:50</span></div>Scusatemi, non avevo visto il messaggio di Drago e credevo che avrebbe postato qualcun altro... <br>
+Mi scuso ancora per avervi fatto aspettare, non era mia intenzione, ma anche adesso non saprei cosa postare, quindi lascio volentieri il testimone a chiunque voglia e se ne intenda più di me :D<br>
+Chiedo ancora scusa per l'inconveniente</article>
+<nav class="pager"><a class="prev" href="olifis-7043.html"><small>← precedente</small>248. Ellissi</a><a class="next" href="olifis-7054.html"><small>successivo →</small>250. Cariche, sbarretta e campo magnetico.</a></nav>
+</main></body></html>

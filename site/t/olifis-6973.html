@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>233. Legge di Murphy.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 233</a></span></nav>
+<h1>233. Legge di Murphy.</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6973">forum Olifis</a></p>
+<article class="post first" id="p26448"><div class="who"><b>Luca Milanese</b><span>3 set 2020, 15:33</span></div>Abbiamo un toast di massa <span class="tex">\(m\)</span> schematizzabile come un quadrato di lato <span class="tex">\(l\)</span> uniformemente denso e di spessore trascurabile. Il toast è imburrato solo su una faccia, che è inizialmente tenuta rivolta verso l'alto. Improvvisamente, il toast scivola di mano alla persona che lo stava tenendo e, cadendo, un suo lato urta elasticamente il bordo di un tavolo di altezza <span class="tex">\(h\)</span>. Quale deve essere la distanza iniziale (verticale) fra toast e tavolo affinché il toast tocchi terra con la faccia imburrata? Si trascuri l'effetto della presenza del burro sulla massa totale del toast.</article>
+<article class="post" id="p26456"><div class="who"><b>east_beast</b><span>8 set 2020, 21:33</span></div>Il toast impatta il tavolo a velocità <span class="tex">\(v_0 = \sqrt{2gd}\)</span> per la conservazione dell'energia<br>
+<br>
+Durante l'urto si conserva l'energia meccanica<br>
+<span class="tex">\((m/2) v_0^2 = (I/2) \omega^2 + (m/2)v^2\)</span><br>
+<br>
+ mentre per il teorema dell'impulso angolare <br>
+<span class="tex">\(I\omega =m(l/2)(v-v_0)\)</span><br>
+<br>
+Combinando le due, sapendo che <span class="tex">\(I = ml^2/12\)</span> lungo l'asse di rotazione ed escludendo dalla quadratica la soluzione <span class="tex">\(v=v_0\)</span> che implicherebbe <span class="tex">\(\omega=0\)</span>, arrivo a <span class="tex">\(v=v_0/2=\sqrt{gd/2}\)</span> ed <span class="tex">\(\omega = 3v_0/l\)</span>.<br>
+<br>
+Affinché all'urto col terreno la faccia a sbattere sul terreno sia quella imburrata devo imporre che <span class="tex">\(\Delta \theta =\omega t =(2k+1)\pi\)</span> con k intero. <br>
+<span class="tex">\(t\)</span> lo ricavo sapendo che in quel tempo il centro di massa del toast è in caduta libera da un'altezza h, con velocità iniziale <span class="tex">\(v_0/2\)</span> verso il basso. <br>
+<span class="tex">\(gt^2/2 + tv_0/2 - h = 0\)</span>.<br>
+Risolvendo per t, sostituendo <span class="tex">\(v_0 = \sqrt{2gd}\)</span> e ancora risolvendo per d arrivo a <br>
+<span class="tex">\(d =\frac{ [\pi (2k+1)l]^2}{6[6h-\pi(2k+1)l]   }\)</span></article>
+<article class="post" id="p26457"><div class="who"><b>Luca Milanese</b><span>8 set 2020, 21:49</span></div>Tutto perfetto. Avanti con la staffetta! :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6971.html"><small>← precedente</small>232. Fluido incomprimibile in un tubo</a><a class="next" href="olifis-6980.html"><small>successivo →</small>234. Carica immagine</a></nav>
+</main></body></html>

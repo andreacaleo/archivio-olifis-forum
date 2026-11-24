@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8: Cavità sferica in una sfera carica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 8</a></span></nav>
+<h1>8: Cavità sferica in una sfera carica</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4778">forum Olifis</a></p>
+<article class="post first" id="p15687"><div class="who"><b>Simone256</b><span>3 ott 2013, 21:52</span></div>Forse questo è noto ma l'ho trovato abbastanza carino (più il fatto che la soluzione...)<br>
+In una regione sferica di raggio <span class="tex">\(R\)</span> è presente una densità volumica di carica uniforme <span class="tex">\(\rho\)</span>. All'interno di tale sfera generiamo una cavità anch'essa di forma sferica di raggio <span class="tex">\(r\)</span> tale che il suo centro sia ad una distanza <span class="tex">\(d\)</span> dal centro della regione sferica carica. Si dimostri che il campo elettrico <span class="tex">\(E\)</span> in questa cavità è uniforme e abbiamo che:<br>
+<span class="tex">\(\displaystyle E=\frac{\rho d}{3\varepsilon_0}\)</span></article>
+<article class="post" id="p15688"><div class="who"><b>gilgamesh</b><span>3 ott 2013, 22:45</span></div>Trascuro per ora la cavità e calcolo il valore del campo all'interno della sfera in un punto a distanza <span class="tex">\(\vec{x}\)</span> dal centro.<br>
+Per il teorema di Gauss:<br>
+<span class="tex">\(\Phi(\vec{E}) = \frac{q_{int}} {\varepsilon_0}\)</span><br>
+<br>
+<span class="tex">\(4 \pi x^2 E= \frac{4 \rho \pi x^3} {3 \varepsilon_0}\)</span><br>
+<br>
+Ripristinando la notazione vettoriale:<br>
+<span class="tex">\(\vec{E} = \frac{\rho \vec{x}} {3 \varepsilon_0}\)</span><br>
+<br>
+Inserisco successivamente la cavità avente densità <span class="tex">\(-\rho\)</span> ed applico la sovrapposizione degli effetti chiamando <span class="tex">\(\vec{y}\)</span> la distanza tra il centro della cavità e il punto individuato dal vettore <span class="tex">\(\vec{x}\)</span>.<br>
+<br>
+<span class="tex">\(\vec{E_1}=\frac{\rho \vec{x}} {3 \varepsilon_0}-\frac{\rho \vec{y}} {3 \varepsilon_0}=\frac{\rho (\vec{x}-\vec{y})} {3 \varepsilon_0} = \frac{\rho \vec{d}} {3 \varepsilon_0}\)</span><br>
+<br>
+La bellezza della formula è che il risultato è indipendente dai valori di R ed r che sono dunque superflui ai fini della risoluzione del problema.</article>
+<article class="post" id="p15689"><div class="who"><b>Simone256</b><span>4 ott 2013, 14:53</span></div>Ottimo!  :) <br>
+Problema bruciato in meno di un'ora  :lol: <br>
+Se permetti la domanda... Sei un pisano nativo o naturalizzato?  :P</article>
+<article class="post" id="p15691"><div class="who"><b>gilgamesh</b><span>4 ott 2013, 19:55</span></div>Sono un pisano molto "naturalizzato", essendo lontano 900km da casa  :)</article>
+<article class="post" id="p15694"><div class="who"><b>Simone256</b><span>5 ott 2013, 15:10</span></div>Toglimi la curiosità se non ti scoccia... Sei un neo normalista?  :?:</article>
+<article class="post" id="p15695"><div class="who"><b>gilgamesh</b><span>5 ott 2013, 15:24</span></div>Figurati, anche se non è la sezione più adatta ! No,non sono una matricola della Scuola Normale. Non ho superato il test di ammissione ed attualmente studio fisica  :)</article>
+<article class="post" id="p15696"><div class="who"><b>Simone256</b><span>5 ott 2013, 18:23</span></div>Si in effetti sono andato un po' fuori argomento! Grazie per la risposta e scusa per la Gaffe  :roll:</article>
+<article class="post" id="p15697"><div class="who"><b>gilgamesh</b><span>5 ott 2013, 19:15</span></div>Macchè, figurati  :)</article>
+<nav class="pager"><a class="prev" href="olifis-4777.html"><small>← precedente</small>7: Anello in salita</a><a class="next" href="olifis-4780.html"><small>successivo →</small>9: Due sfere sovrapposte</a></nav>
+</main></body></html>

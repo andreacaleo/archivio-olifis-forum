@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>31: perdita di sabbia</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 31</a></span></nav>
+<h1>31: perdita di sabbia</h1>
+<p class="meta">17 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6015">forum Olifis</a></p>
+<article class="post first" id="p19970"><div class="who"><b>andrea96</b><span>16 dic 2014, 22:55</span></div>Un contenitore privo di massa è libero di muoversi su un piano orizzontale privo di attrito e contiene all'istante <span class="tex">\(t=0\)</span> una massa <span class="tex">\(M\)</span> di sabbia ed è attaccato a un muro con una corda infilata in un buco del muro in modo che la distanza tra contenitore e muro possa variare e chiamiamo <span class="tex">\(x\)</span> questa distanza; la corda esercita sul contenitore una tensione costante <span class="tex">\(T\)</span> indipendente da <span class="tex">\(x\)</span>. Chiamiamo <span class="tex">\(m(t)\)</span> la massa della sabbia nel contenitore al tempo <span class="tex">\(t\)</span>; la sabbia viene persa con rapidità proporzionale all'accelerazione del contenitore: <span class="tex">\(\frac{dm}{dt}=bx''(t)\)</span> ( notare che la massa diminuisce quando il contenitore accelera verso il muro, poichè in quel caso <span class="tex">\(x''(t)&lt;0\)</span> ). Considerando che il contenitore parte da fermo e inizialmente la corda è lunga <span class="tex">\(L\)</span><br>
+<br>
+a) trovare <span class="tex">\(m(t)\)</span>, <span class="tex">\(v(t)\)</span> e <span class="tex">\(x(t)\)</span><br>
+b) determinare il massimo valore dell'energia cinetica<br>
+c) determinare b nel caso in cui il contenitore diventa vuoto nell'istante in cui tocca il muro</article>
+<article class="post" id="p19973"><div class="who"><b>bogcal11</b><span>17 dic 2014, 10:19</span></div>Può essere <span class="tex">\(v=\sqrt{\frac{2*T*t}{3b}}\)</span>?</article>
+<article class="post" id="p19974"><div class="who"><b>andrea96</b><span>17 dic 2014, 11:05</span></div>Non mi torna! Poi fai attenzione: il coso si muove verso il muro quindi la velocita deve essere sempre negativa</article>
+<article class="post" id="p19978"><div class="who"><b>Lasker</b><span>17 dic 2014, 15:45</span></div>Questo mi è piaciuto molto (sperando di non aver commesso troppi errori  :roll: )!<br>
+<br>
+La prima equazione è ovviamente quella che mi dai tu, ovvero<br>
+<span class="tex">\(\frac{dm(t)}{dt}=bx''(t)=b\frac{dV(t)}{dt}\ \Rightarrow\ \ \frac{dm(t)}{dt}-b\frac{dV(t)}{dt}=0\)</span><br>
+Visto che la derivata è un operatore lineare, posso riscrivere l'ultima equazione come<br>
+<span class="tex">\(\frac{d(m(t)-bV(t))}{dt}=0\ \ \Rightarrow \ m(t)-bV(t)=\textrm{costante}\)</span><br>
+Visto che all'inizio il corpo è fermo (spero), valutando in <span class="tex">\(t=0\)</span> trovo che la costante è <span class="tex">\(m_0\)</span>, ovvero la massa di sabbia iniziale.<br>
+<br>
+Consideriamo ora il secondo principio della dinamica nella forma per sistemi a massa variabile:<br>
+<span class="tex">\(F=\frac{dp(t)}{dt}\ \ \Rightarrow\ \ T=\frac{d(m(t)\cdot V(t))}{dt}=\frac{dm(t)}{dt}\cdot V(t)+m(t)\cdot \frac{dV(t)}{dt}\)</span><br>
+Dove nell'ultimo passaggio ho usato la regola di Leibnitz.<br>
+Visto che abbiamo trovato prima che <span class="tex">\(m(t)=m_0+b\cdot V(t)\)</span>, sostituiamo:<br>
+<span class="tex">\(T=b\cdot \frac{dV(t)}{dt}\cdot V(t)+(m_0+bV(t))\frac{dV(t)}{dt}\)</span><br>
+<span class="tex">\(T=(m_0+2bV(t))\frac{dV(t)}{dt}\)</span><br>
+Ma questa è un'equazione differenziale a variabile separabile<br>
+<span class="tex">\(T\cdot dt=(m_0+2bV(t))dV(t)\)</span><br>
+<span class="tex">\(\displaystyle\int_{0}^t T\cdot dt=\int_{0}^{V(t)}(m_0+2bV(t))dV(t)\)</span><br>
+Da cui<br>
+<span class="tex">\(T\cdot t=m_0V(t)+bV^2(t)\)</span><br>
+Risolvendo la quadratica in <span class="tex">\(V(t)\)</span> si trova dunque<br>
+<span class="tex">\(\displaystyle V(t)=\frac{-m_0\pm\sqrt{m_0^2+4Tb\cdot t}}{2b}\)</span><br>
+E prendiamo la soluzione negativa perché lo hai ricordato anche prima <br>
+<span class="tex">\(V(t)=\frac{-m_0-\sqrt{m_0^2+4Tb\cdot t}}{2b}\)</span><br>
+E quindi, ricordando l'equazione che lega massa e velocità ricavata in precedenza<br>
+<span class="tex">\(m(t)=m_0-\frac{m_0+\sqrt{m_0^2+4Tb\cdot t}}{2}\)</span><br>
+Finora è giusta (tendo a fare MOLTI errori, sia concettuali che di conti, quindi aspetto la smentita prima di proseguire  :lol: )?<br>
+<br>
+Edit: e infatti <span class="tex">\(m(0)\)</span> dalla formula viene <span class="tex">\(0\ne m_0\)</span>...</article>
+<article class="post" id="p19980"><div class="who"><b>andrea96</b><span>17 dic 2014, 18:20</span></div>Ho messo questo problema apposta perchè sapevo che tutti avrebbero fatto lo stesso errore... e in effetti non mi sbagliavo: siamo già a due :D  :D  :D la cosa è comunque abbastanza difficile da vedere subito ( a anche da capire ) se non uno non ha fatto moltissimi problemi sui sistemi a massa variabile...<br>
+L'errore è quello di applicare "alla cieca" <span class="tex">\(F=\frac{dp}{dt}\)</span> ai sistemi di massa variabile. In realtà quest'equazione è sempre vera se si è in grado ( per quello che dice il problema stesso ) di prendere in considerazione TUTTO il sistema. La questione è molto importante e non banale, anzi direi difficile... serve molta pratica per capire bene che equazione bisogna usare.<br>
+Visto che non voglio dire troppo, prova a ragionarci e a capire meglio la questione ( che ti ripeto non è per niente semplice )... :D</article>
+<article class="post" id="p19981"><div class="who"><b>Simone256</b><span>17 dic 2014, 18:42</span></div>Ma la sabbia quando lascia il cammion lo lascia con velocitá relativa nulla giusto?</article>
+<article class="post" id="p19982"><div class="who"><b>Lasker</b><span>17 dic 2014, 18:58</span></div>Wow, la parte di cui mi fidavo di più non va bene... mi sa che un po' di studio è d'obbligo  :oops:</article>
+<article class="post" id="p19984"><div class="who"><b>andrea96</b><span>17 dic 2014, 19:14</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Ma la sabbia quando lascia il cammion lo lascia con velocitá relativa nulla giusto?</div></blockquote>
+il punto fondamentale del problema è proprio non definire cosa fa la sabbia quando lascia il carretto :D  :D  :D</article>
+<article class="post" id="p19986"><div class="who"><b>andrea96</b><span>17 dic 2014, 19:16</span></div><blockquote><div><cite>Lasker ha scritto:</cite>Wow, la parte di cui mi fidavo di più non va bene... mi sa che un po' di studio è d'obbligo  :oops:</div></blockquote>
+ :D  :D  :D se ti interessa sull'argomento c'è un appendice alla fine del morin ma non pensare di comprendere tutto con quella! io ho scoperto la questione una decina di giorni fa e mi sono reso conto che l'unico modo per capirla bene è vedere molti casi :D</article>
+<article class="post" id="p19987"><div class="who"><b>Simone256</b><span>17 dic 2014, 19:28</span></div>Per il primissimo punto:<br>
+<br>
+<span class="tex">\(\frac{dm}{dt}=-b\frac{T}{m(t)}\)</span><br>
+<span class="tex">\(m(t)dm=-bTdt\)</span><br>
+<br>
+Integrando:<br>
+<span class="tex">\(m(t)^2-M^2=-2bTt\)</span><br>
+<span class="tex">\(m(t)=\sqrt{M^2-2bTt}\)</span><br>
+<br>
+Ora devo scappare, il resto a dopo! :)</article>
+<article class="post" id="p19989"><div class="who"><b>andrea96</b><span>17 dic 2014, 23:57</span></div>ho aggiunto le condizioni iniziali nel testo, mi ero dimenticato di metterle scusatemi  :D</article>
+<article class="post" id="p19990"><div class="who"><b>Simone256</b><span>18 dic 2014, 0:10</span></div>Semplicemente con un meccanico lavoro di integrazione si arriva a definire tutto ciò che ci interessa (partendo dalla soluzione di m(t)):<br>
+<br>
+<span class="tex">\(\displaystyle m(t)=\sqrt{M^2-2bTt}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle a(t)=-\frac{T}{\sqrt{M^2-2bTt}}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle v(t)=\frac{\sqrt{M^2-2bTt}-M}{b}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle x(t)=\frac{M^3-(M^2-2bTt)^{\frac{3}{2}}}{3b^2T}-\frac{M}{b}t+L\)</span><br>
+<br>
+Spero di non aver fatto errori  :roll:</article>
+<article class="post" id="p19996"><div class="who"><b>Simone256</b><span>19 dic 2014, 0:45</span></div>Sotto richiesta di andrea ( :mrgreen: ), motivo la mia scelta di aver definito <span class="tex">\(T=m(t)\frac{dv(t)}{dt}\)</span> e non <span class="tex">\(T=\frac{dp(t)}{dt}\)</span>:<br>
+Ok, <span class="tex">\(T=\frac{dp(t)}{dt}\)</span>... Ma cosa intendiamo con <span class="tex">\(p\)</span>? <span class="tex">\(p\)</span> è in questo caso la quantità di moto del sistema carretto+sabbia_totale, che è anche il sistema che subisce la forza esterna generata dalla tensione! Nel problema <span class="tex">\(p\)</span> può essere confuso con il sistema carretto+sabbia_dentro_di_lui; voglio far notare che la sabbia cadendo non fa forze sul carretto, quindi nel scivolare via ad un tempo <span class="tex">\(t\)</span> essa avrà velocità <span class="tex">\(v(t)\)</span>. Questa sabbia possiede una quantità di moto generata dalla tensione precedentemente, quindi se vogliamo considerare la quantità di moto dobbiamo considerarla dell'intero sistema! Più formalmente indicando con <span class="tex">\(\rho\)</span> la quantità di moto della sabbia fuori dal carretto, con <span class="tex">\(p\)</span> la quantità di moto del carretto con la sua sabbia ancora dentro e con <span class="tex">\(P\)</span> la quantità di moto totale del sistema si ha:<br>
+<span class="tex">\(T=\frac{dP(t)}{dt}=\frac{dp(t)}{dt}+\frac{d\rho(t)}{dt}=(m(t)\frac{dv(t)}{dt}+v(t)\frac{dm(t)}{dt})+(-v(t)\frac{dm(t)}{dt})=m(t)\frac{dv(t)}{dt}\)</span>.<br>
+Più intuitivamente semplicemente si pensa alle forze che agiscono in un istante sul sistema carretto+sabbia_dentro_di_lui, l'equazione corretta è quella sopra perchè considerare il termine <span class="tex">\(v(t)\frac{dm(t)}{dt}\)</span>significa cambiare al variare di <span class="tex">\(t\)</span> il sistema di riferimento :)<br>
+<br>
+Spero di non aver detto castrate  :roll:</article>
+<article class="post" id="p19997"><div class="who"><b>andrea96</b><span>19 dic 2014, 1:06</span></div>Ottimo :D  :D  :D il resto del problema è semplice (direi banale) e non dovrebbe creare difficoltà quindi puoi procedere con la staffetta. L'avevo messo proprio per affrontare la questione ed ero sicurissimo che avrebbe creato delle difficoltà la questione della scelta della forma del secondo principio ( non è per niente scontata! :D ) chiunque abbia ancora dei dubbi sul fatto che in questo caso va utilizzata <span class="tex">\(F=m(t)\frac {dv}{dt}\)</span> e non <span class="tex">\(F=\frac{dp}{dt}\)</span> può chiedere chiarimenti ( anche in generale sull'argomento della scelta in altri sistemi a massa variabile )</article>
+<article class="post" id="p19998"><div class="who"><b>Simone256</b><span>19 dic 2014, 1:38</span></div>Entro oggi spero di pubblicare la parte finale della soluzione e un nuovo problema ;)</article>
+<article class="post" id="p20007"><div class="who"><b>Simone256</b><span>20 dic 2014, 19:56</span></div>Concedimi di non calcolarmi il massimo per l'energia cinetica  :oops: <br>
+Comunque si ricava il tempo per cui <span class="tex">\(m=0\)</span> e si pone nella formula della posizione,  se non ho sbagliato dovrebbe uscire:<br>
+<br>
+<span class="tex">\(\displaystyle b=\sqrt{\frac{M^3}{6LT}}\)</span></article>
+<article class="post" id="p20008"><div class="who"><b>andrea96</b><span>20 dic 2014, 19:58</span></div>sisi va bene procedi :D</article>
+<nav class="pager"><a class="prev" href="olifis-6014.html"><small>← precedente</small>30: conduttori NON all&#x27;equilibrio</a><a class="next" href="olifis-6018.html"><small>successivo →</small>32: Quantitá di Moto 2.0 [SNS 2008 n.5]</a></nav>
+</main></body></html>

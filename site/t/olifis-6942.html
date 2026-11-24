@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>224. Campo magnetico da un filo piegato</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 224</a></span></nav>
+<h1>224. Campo magnetico da un filo piegato</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6942">forum Olifis</a></p>
+<article class="post first" id="p26232"><div class="who"><b>Luca Milanese</b><span>25 lug 2020, 17:07</span></div>Un filo infinito viene piegato a forma di V in modo che l'angolo al vertice sia <span class="tex">\(2 \alpha\)</span>. Lungo l'asse di questa V, a distanza <span class="tex">\(d\)</span> dal suo vertice, nella parte di piano non racchiusa dal filo, viene posto un piccolo ago magnetico di momento di inerzia <span class="tex">\(I\)</span> rispetto al centro di massa e momento di dipolo magnetico <span class="tex">\(\mu\)</span>. L'ago è libero di ruotare attorno a un asse passante per il suo centro di massa, parallelo al piano contenente il filo e perpendicolare all'asse della V. Una corrente stazionaria <span class="tex">\(i\)</span> viene fatta passare nel filo. Si determini il periodo delle piccole oscillazioni dell'ago.</article>
+<article class="post" id="p26236"><div class="who"><b>bosone</b><span>29 lug 2020, 17:44</span></div>Quando sono tornato mi era venuta l'idea di risolverlo in un certo modo. Ho sperato che qualcuno intervenisse ma in questa fase pre-test ho bisogno di sapere se sbaglio. Nella zona dell'ago secondo me tutto va come se ci fossero due fili percorsi da i costituenti due semirette da 0 a infinito: per fissare le idee nel braccio di sinistra della V, i  va da infinito a 0 e nell'altro di destra va da 0 a infinito. In ciascuno l'integrale di Biot-Savart che fornisce B vale metà di quello rettilineo indefinito. I due campi hanno lo stesso senso per cui il campo risultante sull'ago è diretto verso il piano e varrebbe <span class="tex">\(B =\frac{\mu_0.i}{2\pi d sen\alpha}\)</span> introducendo la permeabilità magnetica. Come se fosse un unico filo rettilineo indefinito. Il momento meccanico agente sull'ago <span class="tex">\(\vec m=\vec \mu x \vec B\)</span> si annulla quando i due vettori sono sovrapposti: se sono concordi l'energia<span class="tex">\(-\mu.B\)</span> è minima l'equilibrio è stabile e ci sono le piccole oscillazioni, se sono discordi l'equilibrio è instabile. <span class="tex">\(\omega^2= \mu B/I\)</span> e <span class="tex">\(T=2\pi\sqrt{\frac{2\pi dsen\alpha.I}{\mu \mu_0.i}}\)</span>. Se per avventura fosse giusto o emendabile ti chiedo di postare tu il 225. Se è sbagliato il problema non si pone... :roll:</article>
+<article class="post" id="p26237"><div class="who"><b>Luca Milanese</b><span>29 lug 2020, 17:54</span></div>Le idee ci sono, ma sbagli quando dici che il contributo dei due rami della V è uguale a quello di un filo infinito (che dalla tua formula di <span class="tex">\(B\)</span> suppongo tu abbia immaginato a distanza <span class="tex">\(d \sin \alpha\)</span> dall'ago, come sono in effetti le rette che contengono i rami di V). Infatti, benché i contributi dei due rami siano uguali, la loro somma non dà il tuo <span class="tex">\(B\)</span>.</article>
+<article class="post" id="p26238"><div class="who"><b>Leonhard Euler</b><span>29 lug 2020, 21:29</span></div>L'idea è la seguente: ricavare il campo magnetico di uno dei due fili visti come semirette sfruttando la legge di Laplace per il campo magnetico.<br>
+Dato un tratto infinitesimale <span class="tex">\( \vec dl\)</span> in cui scorre una corrente <span class="tex">\(i\)</span>, esso genera a distanza <span class="tex">\(\vec r\)</span> un campo magnetico <span class="tex">\(\vec dB \)</span> dato da:<br>
+<span class="tex">\({\displaystyle \operatorname {d} \!\mathbf {B} ={\frac {\mu _{0}}{4\pi }}{\frac {I\,\operatorname {d} \!\mathbf {l} '\times \left(\mathbf {r}  \right)}{\left|\mathbf {r}  \right|^{3}}}}\)</span><br>
+Sia <span class="tex">\(X\)</span> la posizione dell'ago nello spazio, <span class="tex">\(P\)</span> il piede di <span class="tex">\(X\)</span> su uno dei due fili, con <span class="tex">\(PX=d \sin \alpha\)</span>. Sia <span class="tex">\(L\)</span> un punto sul filo e si definiscano i vettori <span class="tex">\(\vec l =\vec {PL}\)</span> e <span class="tex">\(\vec r(L)=\vec {PX} \)</span>. Allora il triangolo <span class="tex">\(LXP\)</span> è rettangolo al variare di <span class="tex">\(L\)</span> ed ha un cateto fisso. Definito <span class="tex">\(\theta=\angle PXL\)</span> si hanno:<br>
+<span class="tex">\(l=d \sin \alpha \tan \theta\)</span><br>
+<span class="tex">\(r \cos \theta=d \sin \alpha\)</span><br>
+Il contributo al campo magnetico in funzione dell'angolo <span class="tex">\(\theta\)</span> dato da:<br>
+<span class="tex">\(\vec dB=i{\frac {\mu _{0}}{4\pi d \sin \alpha}} \cos \theta d\theta\)</span><br>
+Integrando tra quegli angoli per cui il filo è davvero presente nel piano, cioè <span class="tex">\(\frac {\pi}{2}- \alpha\)</span> e <span class="tex">\(\frac {\pi}{2}\)</span>, si ricava il vettore campo magnetico in corrispondenza dell'ago, il quale andrà raddoppiato per la simmetria del problema attorno all'asse perpendicolare al piano dei due fili passante per l'ago:<br>
+<span class="tex">\(B=i\frac {\mu _{0}}{2\pi d \sin \alpha}(1-\cos \alpha)\)</span><br>
+A questo punto:<br>
+<span class="tex">\(\tau=\mu B \sin \phi\)</span><br>
+<span class="tex">\(\tau=I \alpha\)</span><br>
+Attorno alla posizione di equilibrio il momento torcente risultante può essere espresso in funzione di un angolo piccolo da far valere l'approssimazione <span class="tex">\(\sin \phi = \phi\)</span>, giungendo alla classica forma del moto armonico:<br>
+<span class="tex">\(\alpha (\phi)= -\mu B \phi / I\)</span><br>
+A questo punto <span class="tex">\(\omega= \sqrt {\mu B/I}\)</span></article>
+<article class="post" id="p26239"><div class="who"><b>Luca Milanese</b><span>29 lug 2020, 21:36</span></div>Soluzione corretta. Vai con il 225!</article>
+<nav class="pager"><a class="prev" href="olifis-6940.html"><small>← precedente</small>223. Insetto su un&#x27;asta</a><a class="next" href="olifis-6945.html"><small>successivo →</small>225. Sistema di cariche che esplode</a></nav>
+</main></body></html>

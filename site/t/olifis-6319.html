@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>71. Achille e la Tartaruga</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 71</a></span></nav>
+<h1>71. Achille e la Tartaruga</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6319">forum Olifis</a></p>
+<article class="post first" id="p22254"><div class="who"><b>CaptainJohnCabot</b><span>30 mag 2016, 21:06</span></div>La staffetta ritorna con un classico...<br>
+<br>
+<span style="text-decoration:underline"><strong class="text-strong">Breve introduzione:</strong></span><br>
+Il celeberrimo paradosso di Zenone ha causato svariate turbe mentali a molteplici tipi di studiosi prima di essere demolito dagli integrali di Leibniz. Ecco l'esposizione del paradosso da parte di Borges:<br>
+<br>
+<em class="text-italics"> «Achille, simbolo di rapidità, deve raggiungere la tartaruga, simbolo di lentezza. Achille corre dieci volte più svelto della tartaruga e le concede dieci metri di vantaggio. Achille corre quei dieci metri e la tartaruga percorre un metro; Achille percorre quel metro, la tartaruga percorre un decimetro; Achille percorre quel decimetro, la tartaruga percorre un centimetro; Achille percorre quel centimetro, la tartaruga percorre un millimetro; Achille percorre quel millimetro, la tartaruga percorre un decimo di millimetro, e così via all'infinito; di modo che Achille può correre per sempre senza raggiungerla».</em><br>
+<br>
+Il seguente problema è una sorta di dimostrazione alternativa a quella classica di Leibniz, che non solo elimina la semplificazione del moto rettilineo, ma permette di trovare anche delle condizioni sul tempo finito in cui Achille raggiunge la tartaruga. Ecco a voi il problema e buon lavoro. <br>
+<br>
+<span style="text-decoration:underline"><strong class="text-strong">Il problema:</strong></span><br>
+La famigerata Tartaruga si muove arbitrariamente nel piano mantenendo il modulo della sua velocità <span class="tex">\(v_T\)</span> costante. Achille la insegue muovendosi anche esso con velocità costante in modulo <span class="tex">\(v_A\)</span>, dirigendosi istante per istante nella direzione della Tartaruga. Dimostrare che indipendentemente dalla traiettoria scelta dalla Tartaruga essa verrà raggiunta in un tempo ﬁnito <span class="tex">\(t\)</span> se <span class="tex">\(v_A &gt; v_T\)</span>. Cosa si può dire del valore del tempo?</article>
+<article class="post" id="p22255"><div class="who"><b>Flaffo</b><span>30 mag 2016, 21:14</span></div>Questo problema mi ricorda le farfalle kamikaze :lol:  :lol:</article>
+<article class="post" id="p22256"><div class="who"><b>CaptainJohnCabot</b><span>30 mag 2016, 21:15</span></div>Non viene affatto dallo stesso testo  8-)  :lol:  :roll:</article>
+<article class="post" id="p22258"><div class="who"><b>rocco</b><span>31 mag 2016, 11:25</span></div>Scrivo da scuola e non posso essere molto preciso. Del tempo come grandezza fisica si può dire quello che si dice di tutte le grandezze misurabili cioè riducibili a numeri: non è detto che la somma di infiniti termini infinitesimi diverga a infinito, come erroneamente voleva far credere Zenone che per es. non conosceva le serie geometriche. La somma dei tempi di percorrenza, sempre più piccoli, è finita. Se si tracciano i grafici degli spazi percorsi in funzione del tempo con <span class="tex">\(v_a&gt;v_T\)</span> si vede come la somma degli infiniti tempi di percorrenza degli infiniti distacchi sempre più piccoli (a partire dal distacco iniziale <span class="tex">\(s_0\)</span>)sia FINITA e pari al tempo impiegato da Achille a raggiungere la Tartaruga.</article>
+<article class="post" id="p22259"><div class="who"><b>CaptainJohnCabot</b><span>31 mag 2016, 14:31</span></div>Il ragionamento di rocco è corretto. Tuttavia per continuare la staffetta bisogna svolgere una dimostrazione matematica rigorosa, con formule ecc... Alla fine della dimostrazione bisogna trovare che il tempo è minore di un certo valore. La seconda domanda consiste nell'esprimere questo valore.<br>
+<br>
+<em class="text-italics">Per rocco</em><br>
+Prova a mettere in formule il ragionamento che hai espresso e vedi cosa viene  :D</article>
+<article class="post" id="p22260"><div class="who"><b>rocco</b><span>31 mag 2016, 18:06</span></div>Non so disegnare e provo a spiegarmi retoricamente. Suppongo che all'istante t=0 la tartaruga sia avanti di un tratto <span class="tex">\(s_0\)</span> rispetto ad Achille che inizia ad inseguirla a velocità <span class="tex">\(v_A&gt;v_T\)</span>della tartaruga. Si disponga un sistema di coordinate (t,s) dove rappresentare le equazioni orarie. L'equazione oraria di Achille sarà <span class="tex">\(s_A= v_A.t\)</span> e quella della tartaruga <span class="tex">\(s_T= s_0 + v_T.t\)</span>. Esse saranno rappresentate da rette, spiccate rispettivamente dall'origine e da <span class="tex">\((0,s_0)\)</span>, la prima con coefficiente angolare <span class="tex">\(v_A\)</span> maggiore di quello <span class="tex">\(v_T\)</span> della seconda e quindi formante un angolo maggiore con l'asse t. E' banale osservare che la prima retta deve allora incontrare la seconda all'istante <br>
+<span class="tex">\(t_R= \frac{s_0}{v_A-v_T}\)</span> quando Achille raggiunge la tartaruga (tempo che sicuramente esiste ed è positivo). Ma la cosa importante da osservare è che esso risulta la somma di infiniti contributi infinitesimi così identificati: il primo addendo diciamo <span class="tex">\(t_0\)</span> è quello in cui Achille ha percorso lo spazio <span class="tex">\(s_0\)</span>mentre l'ordinata di <span class="tex">\(s_T\)</span>è maggiore, il secondo è (<span class="tex">\(t_1-t_0\)</span>)dove <span class="tex">\(t_1\)</span> è l'istante in cui Achille raggiunge questa ordinata e <span class="tex">\(s_T\)</span>ha un'ordinata ancora maggiore che Achille raggiunge all'istante <span class="tex">\(t_2\)</span>e così via. E' palese che <span class="tex">\(t_0+(t_1-t_0)+(t_2-t_1)+....=t*\)</span> che risulta proprio come somma di infiniti contributi infinitesimi costruiti con il sistema descritto ed è FINITO contrariamente a come concluse Zenone.</article>
+<article class="post" id="p22261"><div class="who"><b>FedericoC.</b><span>31 mag 2016, 18:13</span></div>Io ho posto un sistema di riferimento in cui all'istante iniziale sia Achille che la tartaruga si trovano sull'asse x, in particolare ho posto Achille nell'origine e la tartaruga nel punto <span class="tex">\((r;0)\)</span>.<br>
+<br>
+Ho scomposto le velocità in componenti scalari come:<br>
+<br>
+<span class="tex">\(v_{AX}=v_A cos\theta\)</span><br>
+<span class="tex">\(v_{AY}=v_A sen\theta\)</span><br>
+<br>
+<span class="tex">\(v_{TX}=v_T cos\sigma\)</span><br>
+<span class="tex">\(v_{TY}=v_T sen\sigma\)</span><br>
+<br>
+Dove <span class="tex">\(\theta\)</span> indica la posizione angolare della tartaruga in un istante e quindi la direzione della velocità di Achille, mentre <span class="tex">\(\sigma\)</span> indica la direzione istantanea della velocità della tartaruga.<br>
+<br>
+Considerando il moto sull'asse x posso scrivere:<br>
+<br>
+<span class="tex">\(r+\sum{v_T cos\sigma_i t_i}=\sum{v_A cos\theta_i t_i}\)</span> dove <span class="tex">\(t_i\)</span> rappresentano intervalli infinitesimi di tempo in cui la direzione della tartaruga è costante<br>
+<br>
+La posso riscrivere come: <span class="tex">\(r+v_T T\sum {cos\sigma_i}=v_AT \sum{cos\theta_i}\)</span> da cui:<br>
+<br>
+<span class="tex">\(T=\frac{r}{v_A\sum{cos\theta_i}-v_T \sum{cos \sigma_i}}\)</span><br>
+<br>
+Si nota dunque che il tempo è sempre finito in particolare è minimo quando i due "si vengono in contro" cioè se la tartaruga non cambia mai direzione ma va semplicemente nel verso negativo dell'asse delle x, mentre è massimo quando la tartaruga non cambia mai direzione e procede nel verso positivo dell'asse delle ascisse.<br>
+Tutti i tempi saranno dunque minori di:<br>
+<br>
+<span class="tex">\(T=\frac{r}{v_A-v_B}\)</span> che è come detto quello massimo<br>
+<br>
+Spero abbia senso  :lol:</article>
+<article class="post" id="p22262"><div class="who"><b>arna1998</b><span>31 mag 2016, 18:31</span></div><blockquote><div><cite>FedericoC. ha scritto:</cite>
+<br>
+<span class="tex">\(T=\frac{r}{v_A\sum{cos\theta_i}-v_T \sum{cos \sigma_i}}\)</span><br>
+<br>
+Si nota dunque che il tempo è sempre finito </div></blockquote>
+
+Secondo me a questo punto dovresti dimostrare che <br>
+<span class="tex">\(v_A\sum{cos\theta_i}&gt;v_T \sum{cos \sigma_i}\)</span> <br>
+Perché così come è scritto il tempo potrebbe essere negativo, che significa che non si Achille non raggiunge mai la tartaruga.</article>
+<article class="post" id="p22263"><div class="who"><b>CaptainJohnCabot</b><span>31 mag 2016, 19:22</span></div><em class="text-italics">Per rocco</em><br>
+Ora la dimostrazione va bene ma non è ancora perfetta; non è detto infatti che <span class="tex">\(t=s_0/(v_A-v_T)\)</span><br>
+<br>
+<em class="text-italics">Per Federico</em><br>
+Se dimostri quello che ha detto arna dovrebbe venir fuori una dimostrazione rigorosa.<br>
+<br>
+Il primo di voi due che corregge si aggiudica la staffetta  ;) <br>
+Poi prima di passare al prossimo problema vi posto la soluzione che riporta la fonte  :lol:</article>
+<article class="post" id="p22264"><div class="who"><b>FedericoC.</b><span>31 mag 2016, 19:26</span></div>Per ovviare a questo, cosa che come giustamente come ha detto Arna andava esplicitata, avevo considerato il moto lungo l'asse y dove si ha:<br>
+<br>
+<span class="tex">\(v_T\sum{sen\sigma_i}=v_A \sum{sen\theta_i}\)</span> dove dato che <span class="tex">\(v_T&lt;v_A\)</span> abbiamo che <span class="tex">\(\sum{sen\sigma_i}&gt;\sum{sen\theta_i}\)</span><br>
+<br>
+Da ciò possiamo dire che <span class="tex">\(\sum{cos\theta_i}&gt;\sum{cos\sigma_i}\)</span><br>
+<br>
+Ditemi pure se ho sbagliato qualcosa  :D</article>
+<article class="post" id="p22265"><div class="who"><b>CaptainJohnCabot</b><span>31 mag 2016, 21:01</span></div><em class="text-italics">Per Federico</em><br>
+A me sembra tutto corretto Federico, direi che puoi postare il problema <strong class="text-strong">72</strong>. <br>
+Questo problema invece è un adattamento di 'preda e predatore' dal libro 'Un problema al giorno' del professor Cella, come aveva intuito Flaffo  :lol: (anche le farfalle kamikaze vengono da lì). Se non conosci il testo lo trovi su un vecchio post del forum, contiene moltissimi problemi interessanti  :D  (anche se con moltissimi integrali  :lol: ).<br>
+<br>
+Riporto ora la soluzione che è suggerita dal libro, premettendo che io ho seguito un procedimento molto simile a quello di Federico e che non mi sarebbe mai venuto in mente di fare nulla di tutto ciò  :lol:<br>
+<br>
+Siano <span class="tex">\(R_A\)</span> e <span class="tex">\(R_T\)</span> le posizioni di Achille e della tartaruga su un piano. Si considera ora la distanza fra i due protagonisti del problema, detta <span class="tex">\(l\)</span>, e la si eleva al quadrato, in tal modo si eliminano anche le complicazioni del modulo:<br>
+<br>
+<span class="tex">\(\displaystyle l^2=|\vec{R_T}-\vec{R_A}|^2\)</span><br>
+<br>
+La sua derivata rispetto al tempo è allora:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{dl^2}{dt}=2\bigg(\vec{R_T}-\vec{R_A}\bigg)\bigg(\dfrac{\vec{R_T}}{dt}-\dfrac{\vec{R_A}}{dt}\bigg)\)</span><br>
+<br>
+Ma sappiamo che la velocità di Achille 'punta' verso la tartaruga, da cui:<br>
+<br>
+<span class="tex">\(\displaystyle \vec{v_A}=\dfrac{d\vec{R_A}}{dt}=v_A\bigg(\dfrac{\vec{R_T}-\vec{R_A}}{\vec{R_T}-\vec{R_A}}\bigg)\)</span><br>
+<br>
+Sostituendo:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{dl^2}{dt}=2\bigg(\vec{R_T}-\vec{R_A}\bigg)\dfrac{d\vec{R_T}}{dt}-2v_A\bigg(\vec{R_T}-\vec{R_A}\bigg)\)</span><br>
+<br>
+Detto <span class="tex">\(\alpha\)</span> l'angolo tra <span class="tex">\(\vec{v_T}\)</span> e <span class="tex">\((\vec{R_T}-\vec{R_A})\)</span> si ha inoltre:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{dl^2}{dt}=2v_T|\vec{R_T}-\vec{R_A}|cos(\alpha)-2v_A\bigg(\vec{R_T}-\vec{R_A}\bigg)\)</span><br>
+<br>
+Che può essere scritto nella forma:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{dl}{dt} \leq v_T-v_A\)</span><br>
+<br>
+Da cui, detta <span class="tex">\(l_0\)</span> la distanza iniziale:<br>
+<br>
+<span class="tex">\(\displaystyle l \leq l_0+(v_T-v_A)\)</span><br>
+<br>
+Quindi la tartaruga sarà raggiunta in un tempo (finito):<br>
+<br>
+<span class="tex">\(\displaystyle t \leq \dfrac{l_0}{v_A-v_T}\)</span></article>
+<article class="post" id="p22266"><div class="who"><b>FedericoC.</b><span>31 mag 2016, 21:05</span></div>Sicuramente soluzione più elegante della mia, anche se molto meno intuitiva, almeno per me  :lol: <br>
+Appena riesco metto il 72!</article>
+<nav class="pager"><a class="prev" href="olifis-6318.html"><small>← precedente</small>70: PROIETTILE ALL&#x27;ANTIPODE</a><a class="next" href="olifis-6320.html"><small>successivo →</small>72. Serbatoio di idrogeno</a></nav>
+</main></body></html>

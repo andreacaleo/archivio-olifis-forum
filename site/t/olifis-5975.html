@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13: Problemi Attraenti</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 13</a></span></nav>
+<h1>13: Problemi Attraenti</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5975">forum Olifis</a></p>
+<article class="post first" id="p19482"><div class="who"><b>phyknight</b><span>22 set 2014, 14:26</span></div>Faccio una cosa strana...metto due problemi, ma basta risolverne uno per andare avanti nella staffetta.<br>
+Perché faccio questo? perché mi è stato detto di mettere un problema difficile...ma forse quello che ho scelto è davvero troppo...per questo ne metto un altro più facile ma comunque molto bello.<br>
+<br>
+1)Una particella che ha massa <span class="tex">\(m\)</span> si muove su una traiettoria circolare (con velocità non relativistica) intorno all'origine, grazie ad una forza attrattiva <span class="tex">\(f(r)=-kr\)</span> con <span class="tex">\(k\)</span> una costante positiva.<br>
+Assumendo che il momento angolare della particella sia quantizzato:<br>
+a) trovare l'energia totale (cinetica + potenziale) della particella, ponendo l'energia potenziale all'origine <span class="tex">\(U(0)=0\)</span><br>
+b) determinare la lunghezza d'onda del fotone che porta alla transizione tra due livelli energetici consecutivi<br>
+<br>
+<br>
+2)Abbiamo un certo volume <span class="tex">\(V\)</span> di un materiale di densità <span class="tex">\(\rho\)</span>.<br>
+Preso un punto materiale P di massa <span class="tex">\(m\)</span>, modelliamo il nostro volume di roba in modo tale da rendere massima l'attrazione gravitazionale su P. <br>
+Quanto vale il rapporto tra questa forza e la forza che si avrebbe se il nostro materiale avesse forma sferica (e fosse posto ovviamente alla stessa distanza da P)?</article>
+<article class="post" id="p19483"><div class="who"><b>andrea96</b><span>22 set 2014, 16:05</span></div>1)<br>
+Allora chiaramente a ogni orbita è associata un energia, ma per la quantizzazione del momento angolare non tutte le orbite sono possibili. Tuttavia questo fatto non influisce affatto nel punto a) nel quale ci interessa solo sapere quanta energia è associata a un orbita di raggio <span class="tex">\(r\)</span> ( chiaramente nell'ipotesi che a essere quantizzato è il momento angolare e non la forza, ma questa non mi sembra essere un ipotesi ne del problema della della meccanica quantistica in generale... ). Per il punto a) non teniamo quindi minimamente in considerazione la quantizzazione. L'energia potenziale si calcola o integrando <span class="tex">\(f(r)=-kr\)</span> tra <span class="tex">\(0\)</span> e <span class="tex">\(r\)</span> e cambiandogli il segno, o dicendo banalmente che è equivalente all'energia potenziale di una molla. Comunque la si voglia vedere si ha <span class="tex">\(U(r)=\frac{1}{2}kr^2\)</span>. <br>
+Ora visto che le orbite sono circolari <span class="tex">\(f(r)\)</span> è una forza centripeta e quindi <span class="tex">\(m\frac{v(r)^
+2}{r}=|f(r)|=kr\)</span>, cioè <span class="tex">\(v(r)=r\sqrt{\frac{k}{m}}\)</span><br>
+Allora:<br>
+<span class="tex">\(K=\frac{1}{2}mv^2=\frac{1}{2}kr^2=U(r)\)</span> e <span class="tex">\(E(r)=U(r)+K(r)=2U(r)=kr^2\)</span><br>
+Ora per il punto b) assumiamo che <span class="tex">\(mvr=nL_0\)</span> dove <span class="tex">\(L_0\)</span> è il momento angolare dell'orbita più piccola e potrebbe essere preso uguale a <span class="tex">\(\frac{h}{2\pi}\)</span> ma ai fini del problema non è importante quindi lasciamo <span class="tex">\(L_0\)</span>.<br>
+Possiamo mettere insieme la quantizzazione del momento angolare e la relazione tra raggio e velocità per ottenere una quantizzazione del raggio <span class="tex">\(r_n=\sqrt{\frac{nL_0}{\sqrt{km}}}\)</span><br>
+e una quantizzazione dell'energia <span class="tex">\(E_n=nL_0\sqrt{\frac{k}{m}}\)</span><br>
+Ora se la particella passa dal livello <span class="tex">\(n\)</span> al livello <span class="tex">\(n-1\)</span> perde la quantità di energia <span class="tex">\(E_n-E_{n-1}=nL_0\sqrt{\frac{k}{m}}-(n-1)L_0\sqrt{\frac{k}{m}}=L_0\sqrt{\frac{k}{m}}\)</span><br>
+verrà quindi emesso un fotone con quell'energia, e utilizzando la relazione di Plank <span class="tex">\(L_0\sqrt{\frac{k}{m}}=h\frac{c}{\lambda}\)</span><br>
+e se reinseriamo l'ipotesi <span class="tex">\(L_0=\frac{h}{2\pi}\)</span> per abbellire la forma:<br>
+<span class="tex">\(\lambda=2\pi c\sqrt{\frac{m}{k}}\)</span></article>
+<article class="post" id="p19484"><div class="who"><b>andrea96</b><span>22 set 2014, 16:12</span></div>attendo phyknight per sapere se ho sbagliato qualcosa e vorrei anche sapere nel secondo problema se quando modelliamo il volume il centro di massa deve rimanere nello stesso punto...grazie 8-)</article>
+<article class="post" id="p19485"><div class="who"><b>phyknight</b><span>22 set 2014, 19:15</span></div>Forse il primo problema era troppo facile...neanche 2 ore... :( <br>
+<br>
+1) moralmente il risultato mi torna, solo che avrei preferito la risposta a) non in funzione di <span class="tex">\(r\)</span>, ricavando <span class="tex">\(r\)</span> dalla quantizzazione del momento angolare.<br>
+In questo modo viene <span class="tex">\(E=n\hbar\sqrt{\dfrac{k}{m}}\)</span> e vedi subito che tra due livelli energetici consecutivi <span class="tex">\(\Delta E=\hbar\sqrt{\dfrac{k}{m}}\)</span>, però va benissimo così, ecco, l'unica differenza è che con l'energia scritta in funzione di <span class="tex">\(n\)</span> vedi subito come "salta", perché, come hai giustamente scritto tu, non tutti i valori di <span class="tex">\(r\)</span> sono possibili (solo quelli del tipo <span class="tex">\(r=\sqrt[4]{\dfrac{n^2\hbar^2}{km}}\)</span>)<br>
+Comunque ok, la staffetta è nelle tue mani <br>
+<br>
+2)mi sembra di no, e mi hai fatto capire che per come ho scritto l'ultima parte del problema non si capisce quello che si deve capire (colpa mia): per distanza intendo la "minima distanza", cioè la distanza tra P e il punto più vicino a P della massa "di roba a densità costante" (o della sfera)</article>
+<article class="post" id="p19486"><div class="who"><b>andrea96</b><span>22 set 2014, 19:29</span></div><blockquote><div><cite>phyknight ha scritto:</cite>Forse il primo problema era troppo facile...neanche 2 ore... :( 
+</div></blockquote>
+direi di si  :lol: il secondo però mi sembra parecchio interessante ed ora ci sbatto un po la testa ;) <br>
+per la staffetta sono un po in difficoltà sul problema da postare ma appena ce l'ho lo metto.<br>
+Puoi darmi solo un indizio? per il problema 2 devo partire in modo bruto impostando le condizioni e risolvendolo con matematica avanzata o ( come credo ) devo cercare un metodo intelligente che mi salva dal risolvere complicatissime equazioni?</article>
+<article class="post" id="p19487"><div class="who"><b>phyknight</b><span>22 set 2014, 19:35</span></div>per il secondo il mio consiglio è cercare prima di capire come si deve modellare l'oggetto per avere il massimo (con considerazioni furbe) e poi alla fine lo confronti con la sfera sempre usando una considerazione furba per semplificare le equazioni (e qui vengono degli integrali un po' brutti...ma non impossibili)</article>
+<article class="post" id="p19489"><div class="who"><b>OrsoBruno96</b><span>22 set 2014, 21:55</span></div>Alla faccia del problema difficile, ho visto più integrali qui che nel resto della mia vita LOL<br>
+<br>
+Ho avuto seri casini con gli integrali tripli, mi sono anche fatto aiutare da wikipedia, ma spero di non scrivere troppe baggianate<br>
+<br>
+partiamo con le cose semplici: scegliamo un riferimento comodo<br>
+<br>
+Ci mettiamo con r = 0 nel punto in cui si trova m<br>
+<br>
+ora, il campo gravitazionale è un vettore, il che complica un po' le cose, perchè quando devo fare la somma devo fare una somma vettoriale, che è piuttosto fastidiosa<br>
+<br>
+assumo come ipotesi (perchè non ho voglia di cercare una spiegazione sensata e perchè altrimenti sarebbe troppo complicato ;) ) che la massa da modellare venga fatta a simmetria cilindrica<br>
+<br>
+mettiamoci quindi in un riferimento con l'asse di simmetria del coso che passa per l'origine del riferimento stesso<br>
+<br>
+pubblico anche una immagine molto scrausa fatta con paint tanto per capire come mi sono posizionato<br>
+<br>
+ora, prendiamo una piccola massa dm<br>
+<br>
+<span class="tex">\(dg = \dfrac{G dm cos \theta}{r^2}\)</span><br>
+<br>
+adesso cerchiamo di capire come posizionare la massa in modo da ottimizzare il tutto<br>
+dunque, se io mi muovo lungo una superficie con <span class="tex">\(\dfrac{cos\theta}{r^2} = a = costante\)</span>, il contributo di ogni dm è lo stesso. quindi, devo cercare di mettere la massa in modo che a sia più grande possibile<br>
+<br>
+abbiamo tuttavia la limitazione del volume: sappiamo che <span class="tex">\(\int \rho dV = M\)</span><br>
+<br>
+ma <span class="tex">\(dV = r^2 sin\theta  dr d\theta d\phi\)</span><br>
+<br>
+quindi <span class="tex">\(M = \rho \int _{0} ^{2\pi}\int _{0} ^{\pi /2} \int _0 ^r r^2 sin\theta  dr d\theta d\phi\)</span><br>
+<br>
+ma <span class="tex">\(r = \sqrt{\dfrac{cos\theta}{a}}\)</span><br>
+<br>
+quindi <span class="tex">\(M = 2 \pi \rho \int _0 ^{\pi /2} 1/3 (\dfrac{cos \theta}{a})^{3/2} d(cos\theta)\)</span> dove ho integrato in r in modo definito sostituendolo con a e dove ho sostituito sin x dx con d(cosx) perchè poi integro con meno fatica<br>
+<br>
+conti.... <span class="tex">\(M = \dfrac{4 \pi}{15} \rho a^{-3/2}\)</span> quindi <span class="tex">\(a=(\dfrac{15V}{4\pi})^{-2/3}\)</span> che è il valore che devo sostituire per ottenere il raggio giusto quando integro dopo per ottenere g<br>
+<br>
+<br>
+ora, visto che gli integrali non ci sono bastati, integriamo ancora<br>
+<br>
+<span class="tex">\(g = G\rho \int \dfrac{cos\theta}{r^2} dV\)</span> che sostituendo dV come sopra diventa<br>
+<span class="tex">\(g= 2\pi G \rho \int _0 ^{\pi /2} \int _0 ^{\sqrt{\dfrac{cos\theta}{a}}} cos\theta dr d(cos\theta)\)</span><br>
+<br>
+sono stufo di copiare integrali quindi scrivo il risultato ;) <span class="tex">\(g= \dfrac{4\pi}{5} G \rho a^{-1/2} = \dfrac{4\pi}{5} G \rho (\dfrac{15V}{4\pi})^{1/3}\)</span><br>
+<br>
+domani mi interrogano su hegel quindi lascio perdere il confronto con la massa sferica che sicuramente non è il grosso del problema. attendo risposta su quello che ho scritto. :)
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/60d2faad44721d54.jpg" class="postimage" alt="Problema.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>Problema.jpg (18.81 KiB) Visto 8627 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p19490"><div class="who"><b>Simone256</b><span>22 set 2014, 22:14</span></div><blockquote><div><cite>OrsoBruno96 ha scritto:</cite>domani mi interrogano su hegel</div></blockquote>
+Piango per te</article>
+<article class="post" id="p19491"><div class="who"><b>andrea96</b><span>22 set 2014, 22:17</span></div>ma che roba è mai questa!!!!  :lol:  :lol:  :lol:  :lol:  :lol: <br>
+non ho mai visto una cosa del genere  :o <br>
+meno male che orsobruno ha pubblicato la soluzione prima che provassi per lo meno a farlo ( ma non ci sarei mai riuscito  :lol: ), penso che sarei impazzito senò! chi ce l'ha la forza di fare tutti quegli integrali!<blockquote class="uncited"><div> (e qui vengono degli integrali un po' brutti...ma non impossibili)</div></blockquote> le ultime parole famose</article>
+<article class="post" id="p19492"><div class="who"><b>phyknight</b><span>22 set 2014, 22:58</span></div><blockquote class="uncited"><div>Alla faccia del problema difficile</div></blockquote>
+l'ho messo per te  :lol:  ...e lo hai risolto in davvero poco tempo...forse ho sbagliato a mettere anche l'altro, è che temevo che avrei bloccato la staffetta  :cry: <br>
+Le idee che hai usato sono giuste e furbissime...e soprattutto portano alla soluzione giusta<br>
+non controllo i conti perché anche io nel farlo <blockquote class="uncited"><div>Ho avuto seri casini con gli integrali tripli</div></blockquote> e perché il risultato coincide con il mio  :D <br>
+Ora resta solo l'ultima parte di confrontare i campi ma è banale...e se non sbaglio viene tipo 1.03 (ma potrei ricordare male)<br>
+<br>
+Comunque manca la dimostrazione che il coso ha simmetria cilindrica, che è secondo me una delle parti più belle del problema :D (e forse è più in stile olimpiadi di matematica che fisica...però potrebbero anche esistere dimostrazioni diverse da quella che ho trovato)</article>
+<article class="post" id="p19501"><div class="who"><b>desga</b><span>24 set 2014, 11:00</span></div>Scusate, c'è qualcosa che non mi torna con gli integrali.<br>
+In questo passaggio,<blockquote><div><cite>OrsoBruno96 ha scritto:</cite>dove ho integrato in r in modo definito sostituendolo con a </div></blockquote> tratti a come costante all'interno dell'integrale, ma a me sembra che a sia costante solo sulla superficie esterna, e non su tutto il volume. Sulla superficie esterna dovrebbe essere costante perchè, se per assurdo ci fossero due punti R e Q con a(R) &lt; a(Q), potresti prendere la massettina contenuta in una regione attorno a R in cui a&lt; (a(Q)+a(R))/2 <br>
+(esiste per continuità di <span class="tex">\(\dfrac{cos \theta}{r^2}\)</span> ) e trasferirla in una regione di Q in cui a &gt; (a(Q)+a(R))/2 , ottenendo un incremento del campo totale.Tuttavia mi sembra che a possa variare all'interno: infatti se ti avvicini al punto P "da dentro" in maniera appropriata, ad esempio lungo delle rette, a diventa grande a piacimento.Mi sbaglio io?</article>
+<article class="post" id="p19502"><div class="who"><b>OrsoBruno96</b><span>24 set 2014, 14:17</span></div>forse ho saltato troppi passaggi<br>
+<br>
+quello che ho fatto è integrare così:<br>
+<br>
+<span class="tex">\(\int _0 ^{\sqrt {\dfrac{cos \theta}{a}}} r^2 dr\)</span><br>
+<br>
+non <span class="tex">\(\int _0 ^{\sqrt {\dfrac{cos \theta}{a}}} (\sqrt {\dfrac{cos \theta}{a}})^2 dr\)</span> così, che è diverso e sbagliato. se avessi voluto integrare in questo modo, avrei dovuto scrivere dr = f(da) e integrare in da, ma mi complicavo la vita inutilmente<br>
+<br>
+ho capito quello che mi stavi contestando oppure mi stavi dicendo che non sei d'accordo su altro?<br>
+<br>
+comunque sono d'accordo che a non è costante sul dominio di integrazione</article>
+<article class="post" id="p19519"><div class="who"><b>Simone256</b><span>26 set 2014, 23:45</span></div><blockquote><div><cite>phyknight ha scritto:</cite>Comunque manca la dimostrazione che il coso ha simmetria cilindrica, che è secondo me una delle parti più belle del problema :D (e forse è più in stile olimpiadi di matematica che fisica...però potrebbero anche esistere dimostrazioni diverse da quella che ho trovato)</div></blockquote>
+Per quanto possa avere senso una soluzione scritta da cellulare dal letto con la luce spenta...<br>
+Secondo te funziona sta cosa?<br>
+<br>
+Ipotizziamo che il massimo si abbia per un corpo non a simmetria cilindrica, prendiamo la retta r passante per P avente la stessa direzione del campo gravitazionale generato in tale punto. Se ad una distanza d dal punto P su r la sezione (mediante un piano perpendicolare a r) non è circolare esisterá una dm con distanza maggiore da r. Quindi prendiamola e spalmiamola sul perimetro. Così la componente lungo r aumenta perchè si è diminuita la distanza complessiva della massa da P e si è diminuito l'angolo del campo generato da ogni parte di dm su P.<br>
+Quindi si fa così su tutte le sezioni e spero abbia senso!<br>
+<br>
+Ho scritto molto male e potevo esporlo in maniera moooolto più chiara! :(<br>
+Ma è davvero tardi scusa  :mrgreen:</article>
+<article class="post" id="p19524"><div class="who"><b>phyknight</b><span>27 set 2014, 18:16</span></div>ok, è giusta  :D <br>
+solo che non so se uno che non ha mai visto una dimostrazione del genere capisce subito quello che hai scritto, quindi lascio solo qualche commento per i posteri:<br>
+perché simone ha preso la retta r per P? Perché è quella su cui il campo è massimo, per come è definito P<br>
+Cosa significa poi "spalmare sul perimetro"? Significa che prendo una sezione del mio oggetto perpendicolare a r. Se per assurdo la sezione non è un cerchio, allora considero l'area <span class="tex">\(S\)</span> di questa superficie, e faccio il confronto tra il campo in P che mi da la superficie non circolare, e il campo che mi darebbe se la superficie fosse un cerchio di area <span class="tex">\(S\)</span> con centro sulla retta r. In questo modo, come ha detto simone, si possono spostare i <span class="tex">\(dm\)</span> fuori dal cerchio di area <span class="tex">\(S\)</span> all'interno di questo cerchio. Così diminuiscono angolo e distanza, e quindi il campo (proporzionale all'inverso di <span class="tex">\(r^2\)</span> e a <span class="tex">\(cos(angolo)\)</span>) aumenta, il che è in contraddizione con l'assunzione di campo massimo in P.<br>
+Spero si sia capito qualcosa in più...(non credo)</article>
+<article class="post" id="p19526"><div class="who"><b>Simone256</b><span>27 set 2014, 19:03</span></div><blockquote><div><cite>phyknight ha scritto:</cite>ok, è giusta  :D <br>
+solo che non so se uno che non ha mai visto una dimostrazione del genere capisce subito quello che hai scritto, quindi lascio solo qualche commento per i posteri:<br>
+perché simone ha preso la retta r per P? Perché è quella su cui il campo è massimo, per come è definito P<br>
+Cosa significa poi "spalmare sul perimetro"? Significa che prendo una sezione del mio oggetto perpendicolare a r. Se per assurdo la sezione non è un cerchio, allora considero l'area <span class="tex">\(S\)</span> di questa superficie, e faccio il confronto tra il campo in P che mi da la superficie non circolare, e il campo che mi darebbe se la superficie fosse un cerchio di area <span class="tex">\(S\)</span> con centro sulla retta r. In questo modo, come ha detto simone, si possono spostare i <span class="tex">\(dm\)</span> fuori dal cerchio di area <span class="tex">\(S\)</span> all'interno di questo cerchio. Così diminuiscono angolo e distanza, e quindi il campo (proporzionale all'inverso di <span class="tex">\(r^2\)</span> e a <span class="tex">\(cos(angolo)\)</span>) aumenta, il che è in contraddizione con l'assunzione di campo massimo in P.<br>
+Spero si sia capito qualcosa in più...(non credo)</div></blockquote>
+Di sicuro così è spiegata molto meglio grazie ;)</article>
+<nav class="pager"><a class="prev" href="olifis-5973.html"><small>← precedente</small>12: la staffetta continua!</a><a class="next" href="olifis-5976.html"><small>successivo →</small>14:ormai la staffetta è partita!</a></nav>
+</main></body></html>

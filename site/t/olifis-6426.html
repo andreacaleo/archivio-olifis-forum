@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~~~~~~~~~ 99~~~~~~~~~</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 99</a></span></nav>
+<h1>~~~~~~~~~ 99~~~~~~~~~</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6426">forum Olifis</a></p>
+<article class="post first" id="p23079"><div class="who"><b>Flaffo</b><span>18 ott 2016, 20:41</span></div>Siamo finalmente giunti al numero 99 della nostra staffetta! Un evento molto importante!<br>
+Come ben sapete, il numero 99 risulta protagonista  in molte situazioni. Tanto per cominciare è palindromo, è la somma dei cubi di tre numeri consecutivi <span class="tex">\(2^3 + 3^3 +4^3\)</span> ; è un numero di Ulam ma è anche un numero kaprekar cioè uno dei numeri interi positivi il cui quadrato può essere diviso in due parti, tali che sommate fra loro danno come risultato ancora il numero iniziale: <span class="tex">\(99^2=9801\rightarrow 98 +01=99\)</span>. Ma, per renderci conto della sua vera importanza,  scomponiamolo. <span class="tex">\(99= 33 \cdot 3\)</span>: I due fattori sono uno, 33, gli anni di Cristo quando morì sulla croce e 3 che è il numero della Divinità e della Sacra Trinità. È lasciata al lettore la conclusione, triviale,  della potenza infinitamente più infinita del numero 99 rispetto al numero 100.<br>
+<br>
+E ora il momento che tutti stavate aspettando da 98 staffette;il problema della 99- esima staffetta!<br>
+<br>
+Due corpi sferici, masse <span class="tex">\(m\)</span> e <span class="tex">\(M\)</span>, sono uniti da una corda che passa sopra a una carrucola, di massa trascurabile,  montata su un tavolo. Inizialmente la massa <span class="tex">\(m\)</span>  è appoggiata sul tavolo, con la corda che forma  un angolo di <span class="tex">\(45\)</span> con il piano del tavolo, e la massa <span class="tex">\(M\)</span> ,sospesa in verticale, è tenuta ferma. Assumendo <span class="tex">\(M&gt;&gt;m\)</span> e attrito trascurabile; il corpo <span class="tex">\(m\)</span> sarà sollevato immediatamente dopo il rilascio del corpo <span class="tex">\(M\)</span>?
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><img src="../img/10cc9e974365bf18.gif" alt="" /> <a class="postlink" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=440" class="ext">Fisica F B.pdf</a></dt>
+						<dd>(12.81 KiB) Scaricato 350 volte</dd>
+		</dl>
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p23080"><div class="who"><b>pietro31700</b><span>19 ott 2016, 7:55</span></div>Nonostante mi sembri troppo facile per essere vero, pubblico la mia soluzione. <br>
+Quando il sistema viene rilasciato, la tensione della fune tende a sollevare a 45* il corpo, quando ciò avviene la componente orizzontale del peso di m (se si prende come sistema di riferimento la corda e la normale alla corda) tende a riportare sul tavolo m (infatti non ci sono altre forze che agiscono sullo stesso asse). Quindi la risposta a cui avevo inizialmente pensato era No, il corpo slitta sul tavolo prima di alzarsi. Poi però ho pensato che M&gt;&gt;m perciò la forza che tende a sollevare il corpo a 45* è <span class="tex">\(g(M+m sin(45))\)</span> che è pressapoco uguale a <span class="tex">\(Mg\)</span>, la componente invece 'orizzontale' del peso ha modulo <span class="tex">\(mg cos(45)\)</span> la somma di queste due forze è perciò diretto praticamente verso la corda, quindi il corpo si solleva immediatamente.  :?:  :D</article>
+<article class="post" id="p23081"><div class="who"><b>guido</b><span>19 ott 2016, 17:23</span></div>Ci vuole molto coraggio a rispondere ai problemini di Flaffo perchè la probabilità di fallire è altissima. Ma noi siamo fissati per cui rischiamo volentieri...<br>
+Al momento del rilascio M assume l'acc. g che trasmette immediatamente alla corda e a m. Ha la componente lungo il piano senza attrito di (g.cos 45); quella verticale è uguale ma ad essa  deve sommarsi ( -g) di m: in conclusione la componente verticale dell'acc. è negativa. Per cui io penso che non dovrebbe sollevarsi immediatamente. :?:</article>
+<article class="post" id="p23082"><div class="who"><b>Flaffo</b><span>20 ott 2016, 10:11</span></div><strong class="text-strong">Per Pietro</strong>: la componente che tende a sollevare il corpo a <span class="tex">\(45\)</span> non può valere <span class="tex">\(Mg\)</span>. Per <span class="tex">\(M&gt;&gt;m\)</span> avremo<span class="tex">\(a_m = \frac{Mg}{m}\)</span>. Cioè assumerebbe un valore arbitrariamente grande in questa direzione. E comunque se la forza applicata a <span class="tex">\(m\)</span> valesse realmente <span class="tex">\(Mg\)</span>, la tensione nella corda sarebbe anche <span class="tex">\(Mg\)</span> e quindi <span class="tex">\(M\)</span> resterebbe fermo. Prova a rifare i conti o a utilizzare un altro approccio.<br>
+<br>
+<strong class="text-strong">Per Guido</strong>: apprezzo il tuo coraggio :lol: <br>
+Comunque l'accelerazione iniziale su x ( e quindi su y) non è <span class="tex">\(g cos 45\)</span>. A volte può essere difficile visualizzare l'accelerazione in un certo istante perché non ci sono distanze coinvolte. Però prova a pensare di quanto si accorcia la corda in ogni istante e da lì (imponendo certe condizioni) ti ricavi l'accelerazione su x. È utile fare un ragionamento per assurdo.</article>
+<article class="post" id="p23083"><div class="who"><b>CaptainJohnCabot</b><span>20 ott 2016, 11:22</span></div>Io avevo appunto lavorato con la lunghezza della corda. Se riesco a formalizzare il ragionamento provo a postarlo. <br>
+<br>
+Cuori coraggiosi che conoscono la semplice verità che il problema 100 è più prestigioso del 99, nonostante gli strani argomenti trinitari di Flavio  :lol:</article>
+<article class="post" id="p23084"><div class="who"><b>Flaffo</b><span>20 ott 2016, 11:33</span></div>Questo è ciò che crede la gente comune :lol: <br>
+Altrimenti, perché mai avrei scelto di risolvere il 98 per avere il 99? :D  :lol:</article>
+<article class="post" id="p23085"><div class="who"><b>CaptainJohnCabot</b><span>20 ott 2016, 14:30</span></div>Secondo me ti sei distratto  :lol: <br>
+<br>
+Provo a scrivere uno dei procedimenti che ho tentato (ovvero l'unico portato più o meno a termine  :lol: ) <br>
+<br>
+Sia <span class="tex">\(\sqrt2  l\)</span> la distanza tra il centro della puleggia e la massa m, assunta puntiforme. <br>
+Si supponga che nel tempo <span class="tex">\(\delta t\)</span> la massa M scenda di H. Allora H sarà anche la variazione della lunghezza del filo oltre la puleggia. <br>
+Si suppone per assurdo che la massa m si muova solo orizzontalmente di una distanza x, si pone allora <span class="tex">\(l\geq x\)</span> e <span class="tex">\(H \leq \sqrt2 l\)</span>. <br>
+Si ha:<br>
+<span class="tex">\(\displaystyle \sqrt2 - H=\sqrt(l^2+(l-x)^2)\implies H(H-2\sqrt2 l) =x(x-2l)\)</span><br>
+Inserendo le disuguaglianze iniziali e considerando i valori minimi si ottiene:<br>
+<span class="tex">\(H \leq (\sqrt2 - 1)x \implies H &lt; x\)</span><br>
+Da sopra si ha:<br>
+<span class="tex">\(H(H-2\sqrt2 l) =x(x-2l)\)</span><br>
+Sostituendo H con il suo valore massimo si ottiene che il LHS è maggiore del RHS, quindi si avrà sempre:<br>
+<span class="tex">\(H(H-2\sqrt2 l) &gt; x(x-2l)\)</span><br>
+Il che è un assurdo rispetto all'ipotesi assunta ad inizio problema, ovvero che m si muova solo orizzontalmente. <br>
+Si conclude quindi che da subito m deve muoversi anche in verticale.<br>
+<br>
+Spero di non aver fatto errori di distrazione, in caso chiedo venia in anticipo, dato che scrivo da telefono  :cry:  :? <br>
+<br>
+Per il resto c'è da dire che questo approccio è proprio malato, la cosa più semplice è proprio vedere che <span class="tex">\(a_y\)</span> è non nulla  :|</article>
+<article class="post" id="p23086"><div class="who"><b>CaptainJohnCabot</b><span>21 ott 2016, 16:52</span></div>Volendo è possibile anche ragionare con le accelerazioni. Assumendo la notazione di sopra:<br>
+<span class="tex">\(\displaystyle x=\frac{1} 2 a_x\delta t^2 \implies a_x=2x/\delta t^2\)</span><br>
+Con <span class="tex">\(\displaystyle H=\frac{1} 2 g\delta t^2 \implies \delta t^2=2H/g\)</span><br>
+Si ottiene allora <span class="tex">\(\displaystyle a_x=xg/H\)</span>. Tuttavia dato che la forza agente su m è <span class="tex">\(Mg\)</span> si ha anche:<br>
+<span class="tex">\(\displaystyle a_x=Mg \sqrt2/2m \implies x=MH\sqrt2/2m\)</span><br>
+Si ricorda che <span class="tex">\(\sqrt2 l \geq H\)</span> e <span class="tex">\(x \leq l\)</span> allora:<br>
+<span class="tex">\(\displaystyle MH\sqrt2 /2m \leq l \implies \sqrt2 l\geq MH/m\)</span><br>
+Sostituendo all'interno di tale espressione il massimo valore di H si mantiene la disuguaglianza e si ottiene:<br>
+<span class="tex">\(1 \geq M/m \implies m \geq M\)</span><br>
+Che in effetti è la condizione affinché m non venga sollevata nel suo moto orizzontale. Tuttavia, questo è un assurdo rispetto all'ipotesi che <span class="tex">\(M\gg m\)</span>, quindi m inizia da subito il moto verticale.</article>
+<article class="post" id="p23087"><div class="who"><b>guido</b><span>21 ott 2016, 17:59</span></div>Solo oggi riesco a trovare il tempo con imbarazzante ritardo. Seguendo il tuo suggerimento e supponendo per assurdo che lo spostamento sia solo orizzontale mi viene che questo spostamento infinitesimo dx&gt;dl ovvero dell'accorciamento della corda l di qua dalla carrucola. dl è anche lo spostamento verticale di M. Quindi anche l'acc. di m lungo l'asse x sarebbe maggiore di quella di M in discesa. Ho applicato le equazioni del moto considerando che m è trascinata sull'asse x dalla tensione T della corda per il seno dellangolo <span class="tex">\(\alpha\)</span> formato da l con la verticale ed ottengo la relazione assurda<br>
+(T/m)sen<span class="tex">\(\alpha\)</span>&lt;(T-Mg)/M palesemente negativo perchè il peso di M è sicuramente maggiore della T. Quindi la conclusione è che si deve anche sollevare :roll: <br>
+In un primo tempo avevo pensato che data la differenza di massa, all'atto del rilascio praticamente la tensione era trascurabile e M si sarebbe mosso con acc. g......  :?</article>
+<article class="post" id="p23088"><div class="who"><b>Flaffo</b><span>21 ott 2016, 21:25</span></div><strong class="text-strong">Per Guido</strong>: è ovvio, data la relazione <span class="tex">\(M&gt;&gt;m\)</span> che <span class="tex">\(M\)</span> è praticamente in caduta libera con accelerazione <span class="tex">\(g\)</span>. Allora, anche <span class="tex">\(m\)</span> deve avere accelerazione <span class="tex">\(g\)</span> per la conservazione della corda. La tensione nella corda <span class="tex">\(mg\)</span> è trascurabile per <span class="tex">\(M\)</span> ma per la massa <span class="tex">\(m\)</span> produce, come detto prima, accelerazione <span class="tex">\(g\)</span>.<br>
+ <br>
+Direi che la staffetta può andare a Captainjohncabot, che nonostante si sia complicato la vita nel risolvere il problema in quel modo, la sua soluzione è pur sempre giusta.<br>
+<br>
+Vi invito a continuare la discussione per cercare una soluzione un po' più elegante-breve al problema.</article>
+<article class="post" id="p23089"><div class="who"><b>guido</b><span>22 ott 2016, 10:48</span></div>Ti ringrazio del riconoscimento.  :) Infatti avevo ulteriormente riflettuto. E' incontestabile, come riconosci, che praticamente la tensione è nulla all'atto del rilascio e che m acquista l'acc. g in direzione della corda con componenti uguali verticale e piana e quindi si solleva immediatamente. Questa è secondo me la soluzione più semplice, incontestabile e brillante.<br>
+Dov'è stato il mio errore nella primissima formulazione di questo approccio per il resto tutto giusto? Che ho attribuito scioccamente un'accelerazione -g diretta verso il basso a m mentre, all'atto del rilascio, sta POGGIATA sul tavolo, quindi soggetta a forze opposte, peso e reazione del tavolo, e a nessuna accelerazione. Questo mi ha portato a dire che l'acce. totale verticale era diretta addirittura verso il basso e che non si sollevava immediatamente! Senza questo errore decisivo avrei dato la risposta corretta di primo acchito ma con i se e con i ma....:roll:</article>
+<nav class="pager"><a class="prev" href="olifis-6425.html"><small>← precedente</small>98. Cilindro nel cilindro</a><a class="next" href="olifis-6427.html"><small>successivo →</small>100. Aurora Boreale</a></nav>
+</main></body></html>

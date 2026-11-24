@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>124. Pila di mattoni</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 124</a></span></nav>
+<h1>124. Pila di mattoni</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6551">forum Olifis</a></p>
+<article class="post first" id="p23882"><div class="who"><b>lance00</b><span>7 ott 2017, 20:16</span></div>a) Si sovrappongono N mattoni di lunghezza l= 20 cm. Di quanto può sporgere al massimo la pila?<br>
+b) Stimare quanti mattoni sono necessari per far sporgere la pila di 1 km.</article>
+<article class="post" id="p23884"><div class="who"><b>carol</b><span>9 ott 2017, 7:05</span></div>Il CM degli N-! mattoni sopra il primo deve essere al massimo a 10 cm dal CM del primo messo a 0. Come CM abbiamo (N/2)x che dovrebbe essere moltiplicato e diviso per (N-1)=10 e x distanza fra i CM consecutivi. Da cui x=20/N come distanza fra CM di un mattone e del successivo. La sporgenza è l'ascissa dell'N-1mo CM cioè <br>
+A) (N-1)(20/N)<br>
+B) (N-1)(20/N)= 100000 è impossibile perchè al crescere di N (basta provare) la sporgenza tende a 20 ovvero non può superare secondo me la lunghezza del mattone. :?:  :?:  :?:</article>
+<article class="post" id="p23885"><div class="who"><b>lance00</b><span>9 ott 2017, 7:22</span></div>Se hai abbastanza mattoni puoi far sporgere la pila di quanto vuoi  :)</article>
+<article class="post" id="p23886"><div class="who"><b>.Ruben.</b><span>9 ott 2017, 19:22</span></div>Secondo me le strade possibili sono due:<br>
+- porre una distanza diversa tra ciascun mattone (se ci sono molti mattoni a sinistra e pochi, via via, a destra, è possibile far sporgere la fila anche si molto rispetto alla base senza far arrivare il baricentro oltre la superficie di appoggio)<br>
+<br>
+-forzare il significato della parola sovrapporre e disporre i mattoni come un triangolo di tartaglia al contrario (così facendo però sono necessari davvero molti mattoni)<br>
+<br>
+Ci penserò su, voi cosa ne pensate?</article>
+<article class="post" id="p23887"><div class="who"><b>carol</b><span>10 ott 2017, 10:14</span></div>Allora non ho capito il testo perchè il CM degli N-1 deve cadere entro il perimetro di appoggio come la torre di Pisa. La sporgenza dovrebbe essere data dall'ascissa del mattone più sporgente e se è 1 km il CM degli N-1 deve cadere al di là del perimetro d'appoggio ovvero deve essere maggiore di 10. Se il testo dice altro allora... :roll:  :roll:</article>
+<article class="post" id="p23888"><div class="who"><b>lance00</b><span>10 ott 2017, 17:34</span></div>@carol: al posto di impilarli partendo dal basso, prova a partire dall'alto (prima posizioni un mattone, poi quello sotto e così via)  :) <br>
+@ruben: la prima strada è giusta  :D</article>
+<article class="post" id="p23893"><div class="who"><b>.Ruben.</b><span>11 ott 2017, 19:08</span></div>Per caso con 20 mattoni l'estremitá destra della pila di mattoni sporge rispetto all'estremitá destra del mattone più in basso di circa 35.4 cm?</article>
+<article class="post" id="p23894"><div class="who"><b>lance00</b><span>11 ott 2017, 19:47</span></div>si  :D</article>
+<article class="post" id="p23895"><div class="who"><b>carol</b><span>12 ott 2017, 11:00</span></div>Provo come dici ma non riesco a trovare una formula ricorsiva. Sono arrivato a 10 mattoni in funzione dell'ascissa del primo ma non trovo la formula ricorsiva che poi darebbe l'Nmo mattone. Continuerò... :cry:  :cry:</article>
+<article class="post" id="p23896"><div class="who"><b>.Ruben.</b><span>12 ott 2017, 18:13</span></div>Rispondo ora al primo quesito.<br>
+<br>
+Numero i mattoni a partire da 1 dal basso verso l'alto.<br>
+Sia ora <span class="tex">\(d_n\)</span> la distanza tra l'estremo sinistro del mattone n-esimo e l'estremo sinistro del mattone (n+1)-esimo.<br>
+Avendo 20 mattoni, il mio n andrà da 1 a 19. Sia L la lunghezza di un mattone.<br>
+<br>
+Noto subito (facendo un elementare disegno della situazione), che per calcolare la sporgenza massima del mattone più a destra rispetto a quello più in basso devo massimizzare la somma delle distanze <span class="tex">\(d_n\)</span>, che equivale alla sporgenza richiesta.<br>
+Ricordo ora la seguente "legge" fisica: quando impilo dei mattoni, la proiezione verticale del baricentro di tutto il sistema eccetto il mattone più in basso deve giacere all'interno o sul bordo del mattone più in basso. Per convincersene basta analizzare il sistema dato da due mattoni impilati: la distanza d in questo caso potrà essere pari al massimo a L/2.<br>
+Matematicamente questo si traduce nel seguente enunciato: quando analizzo i mattoni dal 20-esimo all'n-esimo, la media delle coordinate orizzontali dei centri di questi mattoni deve essere minore o uguale alla coordinata orizzontale dell'estremo destro del mattone (n-1)-esimo.<br>
+Noto subito (facendo un elementare disegno della situazione), che nel sistema di riferimento centrato sull'estremo sinistro del mattone (n-1)-esimo, tale condizione si esprime come <span class="tex">\((d_{n-1}+\frac{L}{2})+(d_{n-1}+d_n + \frac{L}{2}) + (d_{n-1}+d_n + d_{n+1} + \frac{L}{2}) + ... + (d_{n-1}+d_n + d_{n+1} + ... + d_{19} + \frac{L}{2}) = (20-n+1)L\)</span>, dove l'uguaglianza è data dalla necessità di massimizzare la somma di tutte le distanze, come richiesto dalla traccia.<br>
+Scrivendo tale condizione per il mattoni 20-esimo e per i mattoni dal 20-esimo al 19-esimo, dal 20-esimo al 18-esimo, e così via, arrivo al sistema lineare: <br>
+<span class="tex">\(d_{19 } + \frac{L}{2} = L\)</span><br>
+<span class="tex">\(d_{19 } + \frac{L}{2} + d_{18} + d_{19 } + \frac{L}{2}= 2L\)</span><br>
+<span class="tex">\(d_{19 } + \frac{L}{2} + d_{18} + d_{19 } + \frac{L}{2} + d_{17} +d_{18} + d_{19 } + \frac{L}{2} = 3L\)</span><br>
+e così via...<br>
+<br>
+Risolvendo il sistema partendo dall'equazione più in alto e andando man mano scendendo (per sostituzione) si trova:<br>
+<span class="tex">\(d_{19}=\frac{1}{2} L\)</span>, <span class="tex">\(d_{18}=\frac{1}{4} L\)</span>, <span class="tex">\(d_{17}=\frac{1}{6}L\)</span>, e così via...<br>
+Allora <span class="tex">\(d_n = \frac{1}{2(20-n)}L\)</span>, da cui <span class="tex">\(d_1 = \frac{1}{38}L\)</span>.<br>
+la sporgenza massima è allora <span class="tex">\(\frac{1}{2} (1 + \frac{1}{2} + \frac{1}{3} + ... \frac{1}{19}) L = 35.4 cm \)</span></article>
+<article class="post" id="p23897"><div class="who"><b>.Ruben.</b><span>12 ott 2017, 18:41</span></div>Rispondo ora al secondo quesito.<br>
+Come visto prima, dati N mattoni, la sporgenza massima è: <span class="tex">\(\frac{1}{2} \sum_{k=1}^{N-1} \frac{1}{k} L\)</span><br>
+Riesumo la disuguaglianza tra somma e integrale (verificata solo quando f è monotòna decrescente): <span class="tex">\(\sum_{k=1}^M f(k) \leq \int_{1}^{M} f(x-1) dx \)</span><br>
+In questo caso essa si applica come <span class="tex">\(\sum_{k=2}^{N-1} \frac{1}{k} \leq \int_{2}^{N-1} \frac{1}{x-1} dx\)</span>, ossia:<br>
+<span class="tex">\(\sum_{k=1}^{N-1} \frac{1}{k} \leq 1 + \int_{2}^{N-1} \frac{1}{x-1} dx \)</span><br>
+Si deve avere allora <span class="tex">\(1 + \int_{2}^{N-1} \frac{1}{x-1} dx \geq 1 km\)</span> (ovviamente l'approssimazione sarà per eccesso).<br>
+Quindi <span class="tex">\((1 + ln(N-2) - ln(2) ) L \geq 1 km\)</span>, da cui <span class="tex">\((1 + ln(N-2) - ln(2) ) (20 cm) \geq 1 km\)</span>, ossia <span class="tex">\((1 + ln(N-2) - ln(2) ) \geq 5000\)</span>.<br>
+Dunque (risolvendo la disequazione) <span class="tex">\(N &gt; 2(e^{4999} -1} \)</span></article>
+<article class="post" id="p23898"><div class="who"><b>lance00</b><span>12 ott 2017, 19:13</span></div>Mi sembra torni tutto   :)</article>
+<article class="post" id="p23901"><div class="who"><b>.Ruben.</b><span>12 ott 2017, 20:14</span></div>Posso postare il prossimo della staffetta?<br>
+È la prima volta che vinco :D</article>
+<article class="post" id="p23902"><div class="who"><b>lance00</b><span>12 ott 2017, 20:32</span></div>Certo!  ;)</article>
+<article class="post" id="p23908"><div class="who"><b>carol</b><span>14 ott 2017, 23:24</span></div>Voglio postare anche la mia soluzione perchè ritengo importante avere più soluzioni di un problema e perchè secondo me Ruben ha fatto un piccolo errore. Inoltre mi pare che la mia soluzione sia molto più semplice e meno calcolosa.<br>
+Seguendo Lance impilo i mattoni da destra con il criterio, che massimizza la sporgenza, di mettere il centro<span class="tex">\(x_i\)</span> dell'iesimo mattone a l/2=10 cm dal CM dei precedenti i-1 mattoni cioà <span class="tex">\(xCM_{i-1}\)</span>. E' evidente che la sporgenza sarà data o dalla somma delle differenze delle ascisse di due centri di mattoni consecutivi oppure delle differenze delle ascisse di due CM consecutivi. <span class="tex">\(\sum(xCM_i - xCM_{i-1})=\sum[\frac{x_i+(i-1)xCM_{i-1}}{i}-xCM_{i-1}]=  10 cm.\sum\frac{1}{i}\)</span>dove la somma va da 2 a N-1 per cui <br>
+A) la sporgenza risulta <span class="tex">\(10 cm.\sum\frac{1}{i}\)</span><br>
+B) Si tratta della somma parziale N-ma(visti i numeri che saranno in gioco) della serie armonica. E' noto che questa somma è ben approssimata, per N grande, da logN ( ho letto che la differenza fra i due valori tende a diventare 0,5, cost di Eulero-Mascheroni, al crescere di N : è largamente trascurabile quindi). Per cui <br>
+<span class="tex">\(10 cm.logN=100000 cm\)</span>. Pertanto il numero N dei mattoni si aggira su <span class="tex">\(e^{10000}\)</span> :?:  :?: <br>
+<br>
+P.S. Secondo me Ruben ha compiuto un piccolo errore perchè, contraddicendo la sua stessa formula in cui il coefficiente della somma era l/2=10 cm, ha messo l=20 cm.</article>
+<article class="post" id="p23911"><div class="who"><b>lance00</b><span>16 ott 2017, 18:04</span></div>in effetti il numero di mattoni dovrebbe venire <span class="tex">\( N= {e}^{\frac{2s}{l}}\)</span> quindi e^10000   ... pardon :oops:</article>
+<nav class="pager"><a class="prev" href="olifis-6547.html"><small>← precedente</small>123. Corda attorno a un palo</a><a class="next" href="olifis-6555.html"><small>successivo →</small>125. I limiti della fisica classica</a></nav>
+</main></body></html>

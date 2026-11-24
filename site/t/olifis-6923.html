@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>220. Oscillazioni in orbita.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 220</a></span></nav>
+<h1>220. Oscillazioni in orbita.</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6923">forum Olifis</a></p>
+<article class="post first" id="p26175"><div class="who"><b>Luca Milanese</b><span>30 giu 2020, 14:14</span></div>Un corpo di massa <span class="tex">\(m\)</span> si muove in un potenziale della forma <span class="tex">\(V(r)=\alpha r^k\)</span> in orbita circolare. Calcolare il rapporto tra il periodo di oscillazione in senso radiale, attorno alla distanza di equilibrio, e il periodo di rivoluzione.</article>
+<article class="post" id="p26176"><div class="who"><b>bosone</b><span>3 lug 2020, 10:53</span></div>Non lo volevo postare ma nessuno si è fatto vivo..Allora V(r)= <span class="tex">\(\alpha.r^k\)</span>  ,  <span class="tex">\(U(r)=mV (r), F(r)=- m\alpha.k.r^{k-1}\)</span>. Per trovare <span class="tex">\(T_{riv}\)</span>ho considerato la forza centripeta<span class="tex">\(m\omega^2 R= F(R)\)</span> dove R è il raggio dell'orbita circolare. Avrei ottenuto <span class="tex">\(T_{riv}=2\pi\frac{1}{\sqrt{\alpha.k.R^{k-2}}}\)</span>. Per trovare il periodo dell'oscillazione<span class="tex">\(T_r\)</span> avrei considerato una piccola fluttuazione x&lt;&lt;R nella direzione di r attorno ad R. Avrei pensato di porre con un piccolo sviluppo arrestato al primo termine <span class="tex">\(F(R+x)=F(R)+(d[F(r)]/dr)_{r=R}).x\)</span> per cui l'equazione del moto sarebbe quella di un moto armonico con un termine costante F(R) e <span class="tex">\(\omega^2=\alpha.k.(k-1)R^{k-2}\)</span>. A parte i miei frequenti errori di calcolo otterrei<br>
+<span class="tex">\(\frac{T_r}{T_{riv}}= \frac{1}{\sqrt{k-1}}\)</span>.<br>
+Nel caso che fosse sbagliato resta così. Nel caso fosse giusto ti prego di continuare tu la staffetta. Vado al mare ma farò gli esercizi di autovalutazione! :D</article>
+<article class="post" id="p26177"><div class="who"><b>Luca Milanese</b><span>3 lug 2020, 11:43</span></div>L'espressione trovata per <span class="tex">\(T_{riv}\)</span> è ovviamente corretta, però il risultato finale non mi torna. L'idea di approssimare con Taylor al primo ordine va benissimo, probabilmente hai sbagliato qualcosa nel fare i conti. Per chi volesse ancora provarci, consiglio di fare le approssimazioni dopo aver scritto <span class="tex">\(F=ma\)</span> in direzione radiale e aver eliminato la velocità angolare introducendo il momento angolare <span class="tex">\(L\)</span> (che alla fine si semplificherà). Per il momento non posto il 221.</article>
+<article class="post" id="p26181"><div class="who"><b>Luca Milanese</b><span>6 lug 2020, 11:21</span></div>Dal momento che nessun altro si è fatto avanti, posto la soluzione del problema.<br>
+La seconda legge di Newton in direzione radiale è:<br>
+<span class="tex">\(m(\ddot r -\dot \theta^2 r)=F=-m\alpha k r^{k-1} \Rightarrow \ddot r=\dot \theta^2 r -\alpha k r^{k-1}\)</span><br>
+Il momento angolare del corpo rispetto all'origine vale <span class="tex">\(L=mr^2 \dot \theta\)</span> ed è costante nel tempo. Sostituendo nell'equazione precedente si ottiene:<br>
+<span class="tex">\(\ddot r=\frac{L^2}{m^2 r^3}-\alpha k r^{k-1}\)</span>.<br>
+Ora scriviamo, come faceva bosone, <span class="tex">\(r=R+x \Rightarrow \ddot r =\ddot x\)</span> e sostituiamo:<br>
+<span class="tex">\(\ddot x=\frac{L^2}{m^2}(R+x)^{-3}-\alpha k (R+x)^{k-1}\)</span><br>
+Approssimando con Taylor al prim'ordine in <span class="tex">\(\frac{x}{R}\)</span>:<br>
+<span class="tex">\(\ddot x=\frac{L^2}{m^2 R^3}\bigg(1-3\frac{x}{R}\bigg)-\alpha kR^{k-1} \bigg[1+(k-1)\frac{x}{R}\bigg]\)</span>.<br>
+Imponendo che <span class="tex">\(R\)</span> sia un punto di equilibrio si ottiene <span class="tex">\(\frac{L^2}{m^2 R^3}=\alpha k R^{k-1}\)</span>, perció l'equazione precedente si semplifica in:<br>
+<span class="tex">\(\ddot x =-\frac{3L^2 x}{m^2 R^4}-\alpha k (k-1)R^{k-2}x\)</span>.<br>
+A questo punto risostituiamo <span class="tex">\(L=mR^2\omega_{Riv}\)</span>, dove <span class="tex">\(\omega_{Riv}\)</span> è la velocità angolare orbitale del corpo e vale <span class="tex">\(\sqrt{\alpha k R^{k-2}}\)</span>:<br>
+<span class="tex">\(\ddot x=-3\alpha k R^{k-2} x -\alpha k (k-1) R^{k-2} x=-\alpha k(k+2) R^{k-2} x\)</span><br>
+Quindi la pulsazione delle piccole oscillazioni radiali vale <span class="tex">\(\omega=\sqrt{\alpha k (k+2) R^{k-2}}\)</span>, il periodo di oscillazione vale <span class="tex">\(\frac{2\pi}{\sqrt{\alpha k (k+2) R^{k-2}}}\)</span> e il rapporto richiesto è <span class="tex">\(\frac{1}{\sqrt{k+2}}\)</span>.</article>
+<nav class="pager"><a class="prev" href="olifis-6919.html"><small>← precedente</small>219. La ciminiera si spezza</a><a class="next" href="olifis-6927.html"><small>successivo →</small>221. Cilindro e oggetto.</a></nav>
+</main></body></html>

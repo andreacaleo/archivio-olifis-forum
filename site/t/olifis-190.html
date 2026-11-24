@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ipho 2009 Problema 1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Ipho 2009 Problema 1</h1>
+<p class="meta">17 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=190">forum Olifis</a></p>
+<article class="post first" id="p1703"><div class="who"><b>Alex90</b><span>24 lug 2009, 17:47</span></div>1.	Conservazione del momento angolare.<br>
+<br>
+Sia <span class="tex">\(L_1\)</span> il momento angolare del sistema Terra-Luna adesso, cioè in questo momento di tempo. Si facciano, ora, le seguenti assunzioni: <br>
+i) <span class="tex">\(L_1\)</span> si ottiene dalla somma del momento angolare del moto rotatorio della terra su se stessa e quello del moto rotatorio della Luna attorno alla Terra; <br>
+ii) l’orbita della Luna è circolare e la Luna stessa può essere considerata puntiforme; <br>
+iii) l’asse di rotazione della Terra e quello di rivoluzione della Luna attorno alla Terra sono paralleli e perpendicolari al piano dell’orbita lunare; <br>
+iv) per semplificare i calcoli, il moto circolare della Luna avviene attorno al centro della Terra e non attorno al centro di massa. In tutto il problema, tutti i momenti d’inerzia, i momenti delle forze e i momenti angolari sono definiti rispetto all’asse della Terra; <br>
+v) l’influenza del sole viene trascurata. <br>
+<br>
+1a Ricava la formula che esprime adesso, cioè in questo momento di tempo, il momento angolare totale del sistema Terra-Luna. Esprimi il risultato in funzione: a) del momento d’inerzia, <span class="tex">\(I_E\)</span>, della Terra; b) della velocità angolare, <span class="tex">\(\omega_{E1}\)</span>, della Terra in questo momento di tempo; c) il momento d’inerzia della Luna, <span class="tex">\(I_{M1}\)</span>, in questo momento di tempo, rispetto <br>
+all’asse di rotazione terrestre; d) la velocità angolare della Luna, <span class="tex">\(\omega_{M1}\)</span>, in questo momento di tempo.	<br>
+<br>
+Il processo di trasferimento di momento angolare terminerà quando il periodo di rotazione della Terra e il periodo di rivoluzione della Luna attorno alla Terra saranno uguali. In quel momento i due massimi di marea saranno allineati con i centri della Terra e della Luna e il momento delle forze sarà nullo. <br>
+<br>
+1b Ricava la formula che esprime il momento angolare totale finale del sistema Terra-Luna, <span class="tex">\(L_2\)</span>, quando viene a cessare, cioè, il traferimento del momento angolare. Le assunzioni da fare per sviluppare il calcolo sono le stesse indicate prima della domanda 1a. Esprimi il risultato in funzione: a) del momento d’inerzia della Terra, <span class="tex">\(I_E\)</span>; b) della velocità angolare, <span class="tex">\(\omega_2\)</span> , della Terra nella rotazione su se stessa e della Luna nella rotazione attorno alla Terra; c) il momento d’inerzia finale della Luna, <span class="tex">\(I_{M2}\)</span>.<br>
+<br>
+1c Trascurando il contributo della rotazione della Terra al momento angolare finale totale, ricava la formula che esprime, in questa situazione, la conservazione del momento angolare.<br>
+<br>
+Un pezzo per volta lo posto che un po' ci vuole...</article>
+<article class="post" id="p1706"><div class="who"><b>MrTeo</b><span>24 lug 2009, 23:03</span></div>Ecco un coraggioso che si immola per il bene del forum, grazie mille innanzitutto per la pazienza e la buona volontà di postare  :mrgreen:  A quanto pare alle Ipho quest'anno hanno scelto la via dello sfiancamento dei concorrenti...<br>
+<br>
+Non so se ci siano già le soluzioni online... ma provo il primo punto, tanto per rompere il ghiaccio, anche se non capisco se dobbiamo utilizzare successivamente le quantità richieste per indicare <span class="tex">\(L_1\)</span> o vanno prese tutte insieme, nel secondo caso credo si possa scrivere:<br>
+<br>
+<span class="tex">\(L_1  = I_E \omega _{E1}  + I_{M1} \omega _{M1}\)</span><br>
+<br>
+L'espressione è certo giusta, anche se mi pare sia un po' una banalità, ma magari come già detto serve solo a scaldare i muscoli  ;) <br>
+Passando alla conservazione del momento angolare (pur non sembrandomi molto chiaro cosa vogliono avere nel punto 1c) direi:<br>
+<br>
+<span class="tex">\(L_2  = \left( {I_E  + I_{M2} } \right)\omega _2\)</span><br>
+<br>
+<span class="tex">\(\frac{{\Delta \overrightarrow L }}{{\Delta t}} = \overrightarrow M _{ext}\)</span><br>
+<span class="tex">\(\frac{{I_{M2} \omega _2  - \left( {I_E \omega _{E1}  + I_{M1} \omega _{M1} } \right)}}{{\Delta t}} = 0\)</span><br>
+<br>
+Questo è quanto, sento su di me l'ombra angosciante di qualche sciocchezza che temo di aver scritto... fate voi  :D</article>
+<article class="post" id="p1713"><div class="who"><b>Alex90</b><span>25 lug 2009, 18:43</span></div>Il momento di inerzia della Luna è quello che dici tu nel qual caso ruotasse attorno al proprio asse...cosa non vera in questo caso  ;)</article>
+<article class="post" id="p1715"><div class="who"><b>MrTeo</b><span>25 lug 2009, 19:01</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>In tutto il problema, tutti i momenti d’inerzia, i momenti delle forze e i momenti angolari sono definiti rispetto all’asse della Terra.</div></blockquote>
+
+Hmm... forse mi sono fidato troppo di questa postilla...<br>
+Oppure persevero nell'errore, ti prego di illuminarmi, notoriamente quelli che sbagliano sono refrattari ad accorgersi di ciò che fanno  :D</article>
+<article class="post" id="p1716"><div class="who"><b>spn</b><span>25 lug 2009, 19:04</span></div>in effetti il problema dice: <blockquote><div><cite>Alex90 ha scritto:</cite> c) il momento d’inerzia della Luna, <span class="tex">\(I_{M1}\)</span>, in questo momento di tempo, rispetto all’asse di rotazione terrestre;</div></blockquote> Percui mi sembra sensato quello che ha scritto MrTeo.</article>
+<article class="post" id="p1717"><div class="who"><b>Rigel</b><span>25 lug 2009, 19:08</span></div>Quello che ha detto MrTeo è sensato e corretto. Comunque non scandalizzatevi per la banalità delle domande: questa sezione valeva 0,7 punti</article>
+<article class="post" id="p1721"><div class="who"><b>Pigkappa</b><span>25 lug 2009, 19:54</span></div>Ok, ma le parti dopo non erano significativamente più difficili...</article>
+<article class="post" id="p1722"><div class="who"><b>Alex90</b><span>25 lug 2009, 19:59</span></div><blockquote><div><cite>spn ha scritto:</cite>in effetti il problema dice: <blockquote><div><cite>Alex90 ha scritto:</cite> c) il momento d’inerzia della Luna, <span class="tex">\(I_{M1}\)</span>, in questo momento di tempo, rispetto all’asse di rotazione terrestre;</div></blockquote> Percui mi sembra sensato quello che ha scritto MrTeo.</div></blockquote>
+
+Ops...non avevo notato questo dettaglio  :D</article>
+<article class="post" id="p1727"><div class="who"><b>Ippo</b><span>26 lug 2009, 13:10</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Ok, ma le parti dopo non erano significativamente più difficili...</div></blockquote>
+No, ma erano significativamente più contose.</article>
+<article class="post" id="p1822"><div class="who"><b>Alex90</b><span>1 ago 2009, 14:03</span></div>2.	Distanza finale e velocità angolare finale del sistema Terra-Luna.<br>
+<br>
+Si assuma che valgano sempre le equazioni della gravitazione universale e della meccanica newtoniana per un’orbita circolare, in particolare per l’orbita della Luna attorno alla Terra. Si trascuri il contributo della rotazione della Terra al momento angolare finale totale.<br>
+<br>
+2a Ricava, nello stato finale, la formula del moto circolare della Luna attorno alla Terra dovuto alla forza di gravità. Esprimi il risultato in funzione di <span class="tex">\(M_E\)</span>, <span class="tex">\(\omega_2\)</span>, <span class="tex">\(G\)</span> e della distanza finale Terra-Luna <span class="tex">\(D_2\)</span>. <span class="tex">\(M_E\)</span> è la massa della Terra e <span class="tex">\(G\)</span> la costante gravitazionale.<br>
+<br>
+2b Ricava l’espressione della distanza, <span class="tex">\(D_2\)</span>, tra la Terra e la Luna alla fine del processo. Esprimi il risultato in funzione dei <br>
+parametri noti <span class="tex">\(L_1\)</span> (momento angolare totale), <span class="tex">\(M_E\)</span> e <span class="tex">\(M_M\)</span> (rispettivamente le masse della Terra e della Luna) e della costante di gravitazione <span class="tex">\(G\)</span>.<br>
+<br>
+2c Ricava l’espressione della velocità angolare finale, <span class="tex">\(\omega_2\)</span>, della Terra e della Luna al termine del processo. Esprimi il risultato in funzione dei parametri noti <span class="tex">\(L_1\)</span>, <span class="tex">\(M_E\)</span>, <span class="tex">\(M_M\)</span> e <span class="tex">\(G\)</span>.<br>
+<br>
+Di seguito si domanda di calcolare i valori numerici di <span class="tex">\(D_2\)</span> e <span class="tex">\(\omega_2\)</span>. Per fare ciò serve calcolare il momento d’inerzia della Terra.<br>
+<br>
+2d Ricava la formula del momento d’inerzia, <span class="tex">\(I_E\)</span>, della Terra, supponendo che sia una sfera avente densità omogenea <span class="tex">\(\rho_i\)</span> nei punti che vanno dalla distanza 0 fino ad una distanza <span class="tex">\(r_i\)</span> dal centro e avente la densità omogenea <span class="tex">\(\rho_o\)</span> per i punti con distanza dal centro compresa fra <span class="tex">\(r_i\)</span> e <span class="tex">\(r_o\)</span>, il raggio della superficie terrestre.</article>
+<article class="post" id="p1825"><div class="who"><b>spn</b><span>1 ago 2009, 15:37</span></div>Vai col secondo<br>
+<br>
+2a) <br>
+    Per l'orbita circolare la forza centrifuga è uguale a quella gravitazionale.<br>
+<br>
+<span class="tex">\({W_2}^2 D_2 M_M= G\frac{M_M M_E}{{D_2}^2}\)</span><br>
+<br>
+<span class="tex">\({W_2}^2= G\frac{M_E}{{D_2}^3}\Rightarrow W_2 = \sqrt{G\frac{M_E}{{D_2}^3}}\)</span><br>
+<br>
+2b)  <br>
+     Si ha:<br>
+<br>
+<span class="tex">\(W_2 = \frac{L_2}{I_{M_{2}}}\)</span><br>
+<br>
+Però:<br>
+<br>
+<span class="tex">\(I_{M_{2}}=M_M {D_2}^2\)</span><br>
+<br>
+<br>
+<span class="tex">\(L_2= L_1\)</span><br>
+<br>
+Mettendo a sistema con la prima eq. <br>
+<br>
+<span class="tex">\(W_2 = \frac{L_1}{M_M {D_2}^2}\)</span><br>
+<br>
+Sostituendo questa all'eq. del punto 2a si ha:<br>
+<br>
+<span class="tex">\(\frac{{L_1}^2}{{M_M}^2 {D_2}^4}= G\frac{M_E}{{D_2}^3} \Rightarrow D_2= \frac{{L_1}^2}{{M_M}^2 M_E G}\)</span><br>
+<br>
+2c) <br>
+     mettendo sempre a sistema l'eq. finali dei punti 2b e 2a si ha:<br>
+<br>
+<span class="tex">\(W_2 = \sqrt{\frac{G^4{M_E}^4{M_M}^6}{{L_1}^6}} = \frac{G^2{M_E}^2{M_M}^3}{{L_1}^3}\)</span><br>
+<br>
+2d) <br>
+   Il momento d'inerzia finale sarà<br>
+<br>
+<span class="tex">\(I_E=I_o + I_i\)</span><br>
+<br>
+Dove <span class="tex">\(I_o\)</span> è il momento d'inerzia di una sfera di raggio <span class="tex">\(r_o\)</span> con all'interno una cavità sferica di raggio <span class="tex">\(r_i\)</span> e densità <span class="tex">\(\rho_o\)</span>,  mentre <span class="tex">\(I_i\)</span> è il momento d'inerzia di una sfera di raggio <span class="tex">\(r_i\)</span> e densità <span class="tex">\(\rho_i\)</span>.<br>
+<br>
+Ora, <span class="tex">\(I_o\)</span> può essere a sua volta scritto come<br>
+<br>
+<span class="tex">\(I_o=I_P -I_V\)</span><br>
+<br>
+Dove <span class="tex">\(I_P\)</span> è il momento d'inerzia di una svera di raggio <span class="tex">\(r_o\)</span> e <span class="tex">\(I_V\)</span> il momento d'ineriza di una sfera di raggio <span class="tex">\(r_i\)</span>, entrambe con densità <span class="tex">\(\rho_o\)</span>. Percui:<br>
+<br>
+<span class="tex">\(I_P = \frac{8}{15} \pi \rho_o {r_o}^5\)</span><br>
+<span class="tex">\(I_V = \frac{8}{15} \pi \rho_o {r_i}^5\)</span><br>
+<br>
+Da cui:<br>
+<br>
+<span class="tex">\(I_o = \frac{8}{15} \pi \rho_o ({r_o}^5 - {r_i}^5)\)</span><br>
+<br>
+Per <span class="tex">\(I_i\)</span>si ha invece:<br>
+<br>
+<span class="tex">\(I_i = \frac{8}{15} \pi \rho_i {r_i}^5\)</span><br>
+<br>
+Ed infine:<br>
+<br>
+<span class="tex">\(I_E = \frac{8}{15} \pi [{r_i}^5(\rho_i - \rho_o) + \rho_o {r_o}^5]\)</span><br>
+<br>
+Vi pare giusto?</article>
+<article class="post" id="p1826"><div class="who"><b>MrTeo</b><span>1 ago 2009, 15:40</span></div>Partiamo dal fondo (ossia dalle cose più semplici)  :mrgreen: <br>
+2d: calcolo il momento d'inerzia con il classico principio di sovrapposizione (come mi pare era anche già stato suggerito...)<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ M_{sfera}  = \rho _i \frac{4}{3}\pi r_i ^3  \\ 
+ I_{sfera}  = \frac{2}{5}M_i r_i ^2  \\ 
+ I_{sfera}  = \frac{8}{{15}}\rho _i \pi r_i ^5  \\ 
+ I_{guscio}  = \frac{8}{{15}}\rho _0 \pi r_0 ^5  - \frac{8}{{15}}\rho _0 \pi r_i ^5  \\ 
+ I_{guscio}  = \frac{8}{{15}}\rho _0 \pi \left( {r_0 ^5  - r_i ^5 } \right) \\ 
+  \\ 
+ I_{Terra}  = \frac{8}{{15}}\rho _i \pi r_i ^5  + \frac{8}{{15}}\rho _0 \pi \left( {r_0 ^5  - r_i ^5 } \right) \\ 
+ \end{array}\)</span><br>
+<br>
+2b,2c: io risolvo entrambi mettendo a sistema la condizione di equilibrio con la conservazione del momento angolare<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ \left\{ \begin{array}{l}
+ G\frac{{M_E M_M }}{{D_2 ^2 }} = M_M \omega _2 ^2 D_2  \\ 
+ L_1  = M_M D^2 _2 \omega _2  \\ 
+ \end{array} \right. \\ 
+ \left\{ \begin{array}{l}
+ D_2  = \sqrt[3]{{\frac{{GM_E }}{{\omega _2 ^2 }}}} \\ 
+ L_1  = M_M \sqrt[3]{{\frac{{G^2 M_E^2 }}{{\omega _2 ^4 }}}}\omega _2  \\ 
+ \end{array} \right. \\ 
+ L_1  = \sqrt[3]{{M_M^3 \omega _2 ^3 \frac{{G^2 M_E^2 }}{{\omega _2 ^4 }}}} \\ 
+ L_1 ^3  = M_M^3 \frac{{G^2 M_E^2 }}{{\omega _2 }} \\ 
+ \end{array}\)</span><br>
+<br>
+<span class="tex">\(\omega _2  = \frac{{G^2 M_M^3 M_E^2 }}{{L_1 ^3 }}\)</span><br>
+<span class="tex">\(D_2  = \sqrt[3]{{\frac{{GM_E }}{{\left( {\frac{{G^2 M_M^3 M_E^2 }}{{L_1 ^3 }}} \right)^2 }}}} = \sqrt[3]{{\frac{{GM_E }}{{\frac{{G^4 M_M^6 M_E^4 }}{{L_1 ^6 }}}}}} = \sqrt[3]{{\frac{{L_1 ^6 }}{{G^3 M_M^6 M_E^3 }}}} = \frac{{L_1 ^2 }}{{GM_M^2 M_E }}\)</span><br>
+<br>
+Infine per il 2a basta riproporre la condizione di equilibrio già scritta per il sistema con cui ho risolto (o almeno credo di aver risolto...  :D ) 2b e 2c e trovare <span class="tex">\(\omega_2\)</span>:<br>
+<br>
+<span class="tex">\(\omega _2  = \sqrt {G\frac{{M_E }}{{D_2 ^3 }}}\)</span><br>
+<br>
+Il moto ovviamente è circolare uniforme... ora largo ai commenti<br>
+<br>
+Edit: battuto sul tempo  :mrgreen: devo dire però che la sintonia dei risultati fa ben sperare riguardo alle risoluzioni...</article>
+<article class="post" id="p1832"><div class="who"><b>Rigel</b><span>2 ago 2009, 10:21</span></div>Mi fa piacere vedere che Alex90 è tornato da Udine a Perugia per l'ora di pranzo e così fresco da fare subito l'amanuense  :lol:  Io sono tornato a Lecce a mezzanotte, alla faccia della velocità degli aerei  :x <br>
+Tornando in tema, da quel che mi ricordo della mia soluzione (poco, cioè) i risultati di spn e MrTeo sono giusti, ma io vi consiglio di calcolare il momento d'inerzia della sfera (anche se lo sapete) con un super integrale, di sbagliare i calcoli e di usare il risultato sbagliato, in pieno vittorio-style  :lol:</article>
+<article class="post" id="p1835"><div class="who"><b>Alex90</b><span>2 ago 2009, 11:22</span></div>Si sono arrivato alle 1, però mi sono anche dovuto svegliare alle 4 e mezzo dopo ben 1 ora di sonno per prendere il treno la mattina  :D <br>
+<br>
+Ma continuiamo pure a fare gli amanuensi del 2009 (w il copia&amp;incolla)<br>
+<br>
+<strong class="text-strong">2e</strong> Calcola il momento d’inerzia della terra, <span class="tex">\(I_E\)</span>, usando <span class="tex">\(\rho_i=1,3 \cdot 10^4 kg \cdot m^{-3}\)</span>, <span class="tex">\(r_i=3,5 \cdot 10^6 m\)</span>, <span class="tex">\(\rho_o=4,0 \cdot 10^3 kg \cdot m^{-3}\)</span> e <span class="tex">\(r_o=6,4 \cdot 10^6 m\)</span>. <br>
+<br>
+Le masse della Terra e della Luna sono, rispettivamente, <span class="tex">\(M_E=6,0 \cdot 10^{24} kg\)</span> ed <span class="tex">\(M_E=7,3 \cdot 10^{22} kg\)</span>. La distanza Terra-Luna in questo momento di tempo è <span class="tex">\(D_1=3,8 \cdot 10^8 m\)</span>. La velocità di rotazione della Terra è, in questo momento, <span class="tex">\(\omega_{E1}=7,3 \cdot 10^{-5} s^{-1}\)</span>. La velocità con cui la Luna ruota attualmente attorno alla Terra è <span class="tex">\(\omega_{M1}=2,7 \cdot 10^{-6} s^{-1}\)</span>, la costante di gravitazione universale è <span class="tex">\(G=6,7 \cdot 10^{-11} m^3 \cdot kg^{-1} \cdot s^{-2}\)</span>.<br>
+<br>
+<strong class="text-strong">2f</strong> Calcola il valore numerico del momento angolare totale, <span class="tex">\(L_1\)</span>, del sistema.<br>
+<br>
+<strong class="text-strong">2g</strong> Calcola il valore numerico della distanza finale, <span class="tex">\(D_2\)</span>, che separa Terra e Luna esprimendo il risultato sia in metri che in unità pari alla distanza attuale <span class="tex">\(D_1\)</span>.<br>
+<br>
+<strong class="text-strong">2h</strong> Calcola il valore numerico della velocità angolare finale, <span class="tex">\(\omega_2\)</span>, esprimendo il risultato in <span class="tex">\(s^{-1}\)</span> e calcola la durata del giorno usando la durata del giorno attuale come unità di misura.<br>
+<br>
+A questo punto si chiede di verificare che l’approssimazione fatta di trascurare la rotazione terrestre nel calcolo del momento angolare totale finale è accettabile. Per farlo si calcola il rapporto tra il momento angolare della Terra e quello della luna: dovrebbe risultarne una quantità piccola. <br>
+<br>
+<strong class="text-strong">2i</strong> Calcola il valore numerico del rapporto tra i momenti angolari finali della Terra e della Luna.</article>
+<article class="post" id="p1843"><div class="who"><b>MrTeo</b><span>2 ago 2009, 18:30</span></div>Tze... una valanga di conti...<br>
+Inserisco solo i risultati numerici (tra l'altro mi sembrano una cosa incredibilmente irritante da chiedere in questa quantità, anche perché spesso in sede di gara si sbagliano per distrazione o velocità... si vede non avevano altre idee  :D )<br>
+<br>
+2e,f,g,h:<br>
+<span class="tex">\(\begin{array}{l}
+ I_E  = 8,0 \cdot 10^{37} \;kg \cdot m^2  \\ 
+ L_1  = I_E \omega _{E1}  + I_M \omega _{M1}  = 3,4 \cdot 10^{34} \;N \cdot m \\ 
+ D_2  = 5,5 \cdot 10^8 \;m = 1,5D_1  \\ 
+ \omega _2  = 1,5 \cdot 10^{ - 6} \;s^{ - 1}  \\ 
+ \end{array}\)</span><br>
+<br>
+Inoltre secondo i miei calcoli il giorno è diventato 48,5 volte quello odierno...<br>
+<br>
+2i:<br>
+Per quanto riguarda questo punto, considerato che la velocità angolare è uguale per i due corpi quello che ci interessa è in realtà il rapporto tra i momenti d'inerzia che è:<br>
+<br>
+<span class="tex">\(\frac{{I_E }}{{I_M }} = 3,6 \cdot 10^{ - 3}\)</span><br>
+<br>
+Che mi pare sufficientemente piccina come quantità...<br>
+<br>
+Largo ad altri masochisti che vogliono gettarsi in questo lavoro sporco di cifre... molto probabilmente mi sono jellato da solo parlando di errori di conto quindi prevedo di averne fatto qualcuno, ricchi premi e cotillon a chi ne troverà  :mrgreen:</article>
+<article class="post" id="p1849"><div class="who"><b>Ippo</b><span>3 ago 2009, 12:08</span></div>da quello che mi ricordo i risultati sono abbastanza corretti (mi pare che il giorno venisse 46 giorni attuali, ma siamo lì)
+<blockquote><div><cite>MrTeo ha scritto:</cite>Tze... una valanga di conti...<br>
+Inserisco solo i risultati numerici (tra l'altro mi sembrano una cosa incredibilmente irritante da chiedere in questa quantità, anche perché spesso in sede di gara si sbagliano per distrazione o velocità... si vede non avevano altre idee  :D )</div></blockquote>
+e non hai messo in conto LA CALCULADORA CIENTIFICA  :?</article>
+<article class="post" id="p1853"><div class="who"><b>Rigel</b><span>3 ago 2009, 15:21</span></div><blockquote><div><cite>Ippo ha scritto:</cite>e non hai messo in conto LA CALCULADORA CIENTIFICA  :?</div></blockquote>
+Per rendere più realistica la risoluzione si dovrebbero fare i calcoli con la calcolatrice di Windows (in modalità standard, ovviamente  :x ). fate un pò voi com'era traumatico fare i calcoli in gara</article>
+<nav class="pager"><a class="prev" href="olifis-580.html"><small>← precedente</small>SGSS 2010 - orbita di un pianeta</a><a class="next" href="olifis-356.html"><small>successivo →</small>Griglia di resistenze</a></nav>
+</main></body></html>

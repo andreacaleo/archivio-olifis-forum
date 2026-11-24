@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>122. La staffetta resuscita!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 122</a></span></nav>
+<h1>122. La staffetta resuscita!</h1>
+<p class="meta">21 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6540">forum Olifis</a></p>
+<article class="post first" id="p23790"><div class="who"><b>FedericoC.</b><span>19 set 2017, 20:35</span></div>Mi approprio indebitamente del testimone della staffetta per una buona causa!  :lol: <br>
+La staffetta è una tradizione che sarebbe meglio non perdere nelle future generazioni di olimpionici, quindi è bene tenerla viva. Dato che l'ultimo problema risale ormai all'aprile di quest'anno, a causa anche del lungo periodo di inattività forzata, mi arrogo il diritto di pubblicarne un altro. <br>
+<br>
+<br>
+Si consideri una disco di raggio <span class="tex">\(R\)</span> su un piano orizzontale contenente una cavità cilindrica passante per il suo centro e lunga <span class="tex">\(2R\)</span>. La velocità angolare <span class="tex">\(\omega\)</span> del disco è mantenuta costante da un motore. Viene posta una pallina sferica di massa <span class="tex">\(m\)</span>, con raggio coincidente a quello della cavità, a distanza <span class="tex">\(R_0\)</span> dal centro del disco. La pallina è lasciata libera di scorrere nella cavità. Trovare:<br>
+<br>
+1. il tempo che impiega la pallina a raggiungere il foro d'uscita;<br>
+<br>
+2. il lavoro totale fatto dal motore per mantenere la velocità angolare costante.</article>
+<article class="post" id="p23795"><div class="who"><b>carol</b><span>21 set 2017, 17:32</span></div>Che vuol dire staffetta? <br>
+Secondo me  il testo non è chiaro e se uno non capisce il testo come fa a provare? Il disco è orizzontale o verticale? La cavità passa per il centro ma ha asse coincidente con quello del disco o con un diametro? Non conta sapere quanto è lunga la cavità o è lunga R? :?:  :?:  :?:  :?:</article>
+<article class="post" id="p23796"><div class="who"><b>FedericoC.</b><span>21 set 2017, 17:59</span></div>La staffetta è un metodo presente da anni sul forum atto a tenerlo vivo, oltre che utile per imparare tutti insieme. Tutti i problemi contraddistinti da un numero sono i problemi della staffetta, questo è il centoventiduesimo. Chi per primo risolve correttamente il problema postato è chiamato a proporne un altro il prima possibile.  :) <br>
+<br>
+Per il testo edito per chiarire meglio.</article>
+<article class="post" id="p23797"><div class="who"><b>carol</b><span>22 set 2017, 17:05</span></div>Grazie per i chiarimenti sulla staffetta e sul testo.<br>
+Provo a impostare una soluzione se riesco a spiegarmi. Se pensi che potrebbe andare impiegherò qualche ora per vedere se riesco con Latex.<br>
+La pallina è soggetta alla forza centrifuga (ci sarebbe anche la forza di Coriolis che ho fatto a Geografia per i venti N-S ma è diretta contro la cavità che reagisce e non ha effetto). E' F= m.omega al quadrato.r dove r è la distanza dal centro. L'accelerazione è allora (omega al quadrato.r) ed è anche la der. seconda di r rispetto al tempo. E' allora come l'eq. del moto armonico ma la costante è positiva. Il prof ci disse che se è negativa (moto armonico) la soluzione è sinusoide se è positiva è esponenziale. Per cui dovrebbe essere<br>
+r= Rzero[exp(omega.t)] e per t=0 r=Rzero e la velocità sua derivata per t=0 è omega Rzero. La derivata seconda verrebbe (omega al quadrato. Rzero).[exp(omega.t)] cioè proprio (omega al quadrato.r) e quindi mi sembra la soluzione giusta.<br>
+1. Allora R=Rzero.[exp(omega.T)]dove T è il tempo di percorrenza, da questa dividendo per Rzero e prendendo il log ad ambo i memri per eliminare exp mi risulterebbe T= (1fratto omega). log(R fratto Rzero) :?:  :?: <br>
+2. Penso ma non sono sicuro che il lavoro fatto dalla forza centrifuga sia uguale all'aumento di energia cinetica della pallina nel passaggio da Rzero a R e che si scarichi sul motore che deve mantenere omega costante perchè la pallina aumentando la distanza a parità di omega possa aumentare la velocità :?:  :?:</article>
+<article class="post" id="p23798"><div class="who"><b>FedericoC.</b><span>22 set 2017, 17:22</span></div>Il ragionamento mi torna, il tempo di uscita però non è quello che dici. Se riesci prova a postare le formule, so che all'inizio scrivere in Latex sembra scomodo, ma con poca pratica diventi un razzo  ;)</article>
+<article class="post" id="p23802"><div class="who"><b>carol</b><span>23 set 2017, 12:11</span></div>Se dici che il ragionamento ti torna ti torna anche la soluzione di <span class="tex">\(r''(t)=\omega^2.r \)</span>ovvero <span class="tex">\(r=R_0.e^{\omega.t}\)</span>? Ti prego di dirmi dove sbaglio perchè come si sa si impara dagli errori. Infatti se la soluzione è giusta risulta <span class="tex">\(R=R_0.e^{\omega.T}\)</span>con T tempo di uscita. Prendendo il log verrebbe allora <span class="tex">\(T=\frac{1}{\omega}log\frac{R}{R_0}\)</span>. Verrebbe così anche integrando <span class="tex">\(r'(t)=\omega.r\)</span>. :?:  :?: <br>
+Per quanto riguarda la variazione di energia cinetica uguale al lavoro che deve fare il motore per mantenere omega costante ci sono due energie cinetiche uguali derivanti dalla velocità di trascinamento e da quella relativa lungo r. A me questo lavoro verrebbe allora <span class="tex">\(L=m\omega^2(R^2-R_0^2)\)</span> :?:  :?: Ti prego ancora di dirmi gli errori :!:  :!:</article>
+<article class="post" id="p23803"><div class="who"><b>FedeColo98</b><span>23 set 2017, 13:01</span></div>carol ti rispondo solamente alla prima parte: l'unica cosa che sbagli è la risoluzione della equazione differenziale di secondo ordine. Se riesci a risolverla in maniera giusta ti si aggiusta tutta la prima parte ;)</article>
+<article class="post" id="p23804"><div class="who"><b>FedericoC.</b><span>23 set 2017, 14:11</span></div>Confermo quanto ha detto Fedecolo98, la soluzione dell'equazione differenziale di questo tipo è: <span class="tex">\(x=c_1e^{\omega t}+c_2e^{-\omega t}\)</span> dove <span class="tex">\(c_1 \)</span> e <span class="tex">\(c_2\)</span> sono costanti opportune. Con questo chiarimento dovresti concludere facilmente.  ;)<br>
+<br>
+Per quanto riguarda il lavoro mi torna tutto.  :D</article>
+<article class="post" id="p23805"><div class="who"><b>lance00</b><span>24 set 2017, 11:06</span></div><span class="tex">\(t = \frac{1}{w} arcosh(\frac{R}{R0})\)</span>  ?  :D</article>
+<article class="post" id="p23806"><div class="who"><b>carol</b><span>24 set 2017, 11:10</span></div>Scusate ma avevo già provato codesta soluzione ma a me tornava come quella di prima. Infatti<br>
+<span class="tex">\(r=c_1 e^{\omega.t}+c_2 e^{-\omega.t} \)</span>        r(0)=<span class="tex">\(R_0\)</span>={c_1+c_2}<br>
+<span class="tex">\(r'(t)= c_1.\omega.e^{\omega.t}- c_2\omega e^{-\omega.t}\)</span>      <span class="tex">\(r'(0)={\omega.R_0}\)</span>=<span class="tex">\(\omega(c_1-c_2)\)</span><br>
+A me tornerebbe che le due condizioni sono compatibili solo se <span class="tex">\(c_2=0\)</span> e <span class="tex">\(c_1=R_0\)</span> o prendo un clamoroso abbaglio??? Sbaglio la derivata oppure sbaglio la velocità iniziale??? D'altra parte mi tornava che l'esponenziale negativo decrescente non avesse effetto vista l'acc. sempre crescente con r :?:  :?:  :?:<br>
+Magari ditemi ancora l'errore e non il risultato, grazie :oops:</article>
+<article class="post" id="p23807"><div class="who"><b>lance00</b><span>24 set 2017, 11:29</span></div>c1 = c2 = R0/2  :)</article>
+<article class="post" id="p23808"><div class="who"><b>FedericoC.</b><span>24 set 2017, 12:10</span></div>Il risultato proposto da Lance è corretto ed è esprimibile anche come: <span class="tex">\(t=\frac{1}{\omega}ln(\frac{R}{R_0}+\sqrt{(\frac{R}{R_0})^2-1})\)</span>. <br>
+<br>
+Il tuo errore Carol è considerare <span class="tex">\(r'(t)\)</span> come la velocità tangenziale, mentre in realtà è la velocità radiale. Ti dovrebbero risultare le due equazioni: <span class="tex">\(c_1+c_2=R_0   \)</span>  e  <span class="tex">\(c_1-c_2 =0\)</span>. Da queste vengono i valori numerici dati da Lance nel post sopra.<br>
+<br>
+Darei il testimone comunque a Carol che ha risolto bene il secondo punto e ha impostato il primo, se vi va postate un procedimento riassuntivo in modo tale che la risoluzione sia chiara per futuri lettori  :D</article>
+<article class="post" id="p23810"><div class="who"><b>carol</b><span>24 set 2017, 14:58</span></div>Per quello che vale dico invece che intendevo proprio la velocità radiale perchè ho ragionato così: viene posta la pallina quando c'è già <span class="tex">\(\omega\)</span> e dunque se ci sono <span class="tex">\(\omega e R_0 \)</span> c'è  in <span class="tex">\(R_0 \)</span> anche  <span class="tex">\(\omega.R_0\)</span>oltre a quella tangenziale :roll:  :roll: Pazienza.... :cry:  :cry:</article>
+<article class="post" id="p23811"><div class="who"><b>FedericoC.</b><span>24 set 2017, 15:13</span></div>Il problema è che con <span class="tex">\(\omega\)</span> si indica la velocità angolare, non tangenziale che invece è proprio in modulo <span class="tex">\(\omega R\)</span>. La velocità tangenziale esprime il fatto che la massa si muova istantaneamente su una circonferenza di raggio <span class="tex">\(R\)</span> il cui vettore <span class="tex">\(\vec{v_t}\)</span> è sempre perpendicolare al vettore posizione <span class="tex">\(\vec{r}\)</span> congiungente il centro del disco e la massa. La velocità radiale <span class="tex">\(r'(t)=v_r\)</span> invece ci dice se la massa si stia allontanando o meno dal centro del disco cosa che per <span class="tex">\(t=0\)</span> non avviene, quindi <span class="tex">\(v_r(0)=0\)</span>.<br>
+Spero di avere chiarito  :)</article>
+<article class="post" id="p23814"><div class="who"><b>carol</b><span>25 set 2017, 17:33</span></div>Ti ringrazio ho capito l'errore. D'altra parte ho anche capito perchè ho sbagliato. E' colpa...del mio prof che ci disse dell'esponenziale. Voi parlate di equazioni differenziali. Io non le conosco e la soluzione che davo mi pareva giusta perchè soddisfa l'equazione ma con altre (ho letto) "condizioni al contorno" fra cui quella sbagliata sulla v. iniziale che deve essere nulla.  :cry:  :cry: Questa è la realtà...  non per dare sempre la colpa a qualche altro!!!. :D</article>
+<article class="post" id="p23821"><div class="who"><b>carol</b><span>27 set 2017, 11:18</span></div>Tanto per esercitarmi sul Latex risponderei alla domanda 2.<br>
+Allora abbiamo che il tempo di arrivo ad R della pallina è <span class="tex">\(T=\frac{1}{\omega}.ln{[\frac{R}{R_0}+\sqrt{(\frac{R}{R_0})^2 -1}]}\)</span>=<span class="tex">\(\frac{1}{\omega}ln{\rho}\)</span> avendo indicato con <span class="tex">\(\rho\)</span> l'ingombrante argomento del ln. Il lavoro L che viene scaricato sul motore è dovuto alla variazione di energia cinetica rotazionale di trascinamento più la variazione di energia cinetica della pallina relativa al disco lungo r essendo il quadrato della velocità di arrivo ad R <span class="tex">\(v_R^2=\frac{\omega^2.R_0^2}{4}(\frac{\rho^2-1}{\rho})^2\)</span> mentre a <span class="tex">\(R_0\)</span> essa è nulla. A me risulterebbe in definiva <br>
+<span class="tex">\(L=(1/2)m\omega^2(R^2-R_0^2)+(1/8)m\omega^2.R_0^2.(\frac{\rho^2-1}{\rho})^2\)</span> :?:  :?:</article>
+<article class="post" id="p23822"><div class="who"><b>FedericoC.</b><span>27 set 2017, 11:59</span></div>In realtà il lavoro lo avevi già trovato correttamente, come ti avevo detto con la relazione <span class="tex">\(L=m\omega^2(R^2-R_0^2)\)</span>. Il ragionamento è corretto, il lavoro è completamente trasformato nell'energia cinetica della particella, svolgendo si torna infatti a quella relazione.  :)</article>
+<article class="post" id="p23828"><div class="who"><b>carol</b><span>30 set 2017, 10:58</span></div>Mi scuso tantissimo con tutti ma stamani in un'ora buca mi sono accorto che nella mail del 24 Federico (che ringrazio) mi aveva dato il testimone. Dove trovo un problema al vostro livello? Sull'Halliday? Per non perdere altro tempo chiedo se è possibile per questa volta che il testimone lo tenga Federico o lo prenda Lance00 o non so. Può esistere una cosa così?? :?:  :?:</article>
+<article class="post" id="p23831"><div class="who"><b>lance00</b><span>30 set 2017, 12:12</span></div>io un bel problema ce l'avrei ...  :)</article>
+<article class="post" id="p23832"><div class="who"><b>FedericoC.</b><span>30 set 2017, 12:45</span></div>Si tranquillo ci si può gestire come vuole, direi di dare il testimone a Lance.  ;) <br>
+Per quanto riguarda l'Halliday va benissimo per la teoria, però per quanto riguarda i problemi non è il top secondo me. Ti consiglio di guardare il primo link della sezione Olimpiadi di Fisica dove vengono citati tutti i testi più utili per la preparazione olimpica.</article>
+<article class="post" id="p23837"><div class="who"><b>carol</b><span>30 set 2017, 16:51</span></div>Grazie di tutto.</article>
+<nav class="pager"><a class="prev" href="olifis-6522.html"><small>← precedente</small>121. Due cilindri</a><a class="next" href="olifis-6547.html"><small>successivo →</small>123. Corda attorno a un palo</a></nav>
+</main></body></html>

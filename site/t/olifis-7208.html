@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>314. La mosca malefica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 314</a></span></nav>
+<h1>314. La mosca malefica</h1>
+<p class="meta">24 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7208">forum Olifis</a></p>
+<article class="post first" id="p27916"><div class="who"><b>Pigkappa</b><span>25 ago 2023, 14:49</span></div>Una mosca malefica viene attirata dalla luce di una lampadina da giardino. La mosca si muove sempre su un piano parallelo al terreno, e invece di dirigersi verso la lampadina facendo il percorso piu' breve, mantiene un angolo <span class="tex">\(\displaystyle \alpha\)</span> costante rispetto alla congiungente al centro. Fa quindi una specie di spirale. La distanza iniziale tra mosca e centro della lampadina e' <span class="tex">\(\displaystyle D\)</span> e il raggio della lampadina <span class="tex">\(\displaystyle R\)</span>.<br>
+<br>
+<strong class="text-strong">1)</strong> Quanto vale <span class="tex">\(\displaystyle \alpha\)</span> se la mosca fa esattamente un giro attorno alla lampadina prima di toccarla, come in figura?<br>
+<strong class="text-strong">2)</strong> Quanto vale la lunghezza del percorso fatto, ovvero il perimetro della spirale?<br>
+<br>
+<a class="lost" href="https://i.imgur.com/kNz6aP5.png" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p27917"><div class="who"><b>Tarapìa Tapioco</b><span>25 ago 2023, 15:09</span></div>Una mera curiosità: hai inventato tu questo problema?</article>
+<article class="post" id="p27918"><div class="who"><b>Pigkappa</b><span>25 ago 2023, 15:19</span></div>Sì, più o meno. È una cosa famosa, niente di veramente nuovo.</article>
+<article class="post" id="p27919"><div class="who"><b>Tarapìa Tapioco</b><span>25 ago 2023, 16:40</span></div>Ho provato ad abbozzare il problema, tuttavia mi chiedo - dal momento che non compare nel testo, ma è raffigurata nell'immagine - se <span class="tex">\(v\)</span> costituisca - o meno - uno dei dati noti in funzione dei quali debbano essere scritte le soluzioni.</article>
+<article class="post" id="p27920"><div class="who"><b>Pigkappa</b><span>25 ago 2023, 16:52</span></div>Allora aggiungiamo il punto<br>
+<strong class="text-strong">0)</strong> Determinare se il modulo <span class="tex">\(v\)</span> della velocità deve essere noto per rispondere ai punti successivi.<br>
+<br>
+E il punto<br>
+<strong class="text-strong">3)</strong> Determinare come le risposte precedenti cambiano se <span class="tex">\(v\)</span> non è costante nel tempo, per ogni funzione positiva del tempo <span class="tex">\(v(t)\)</span>. Ho scritto positiva per evitare il caso in cui la mosca comincia a fare avanti e indietro.</article>
+<article class="post" id="p27921"><div class="who"><b>Torros</b><span>25 ago 2023, 17:15</span></div>Considero la situazione in due istanti separati da un piccolo intervallo temporale <span class="tex">\(dt\)</span>. Chiamo il modulo del primo raggio vettore, che congiunge il centro della lampadina con la posizione iniziale della mosca <span class="tex">\(r+dr\)</span> mentre il modulo del raggio vettore dopo l'istante <span class="tex">\(dt\)</span> lo chiamo <span class="tex">\(r\)</span>. Chiamo l'angolo formato dai due raggi vettori <span class="tex">\(d\theta\)</span> e <span class="tex">\(dS\)</span> la lunghezza dello spostamento effettuato dalla mosca nell'intervallo temporale <span class="tex">\(dt\)</span>. Valgono dunque le relazioni:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(sin(\alpha)dS=sin(d\theta)r\)</span><br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(cos(\alpha)dS= r+dr-cos(d\theta)r\)</span><br>
+<br>
+Dividendo membro a membro ottengo:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\((r+dr-rcos(d\theta))tg(\alpha)=sin(d\theta)r\)</span><br>
+<span class="tex">\(\\\)</span><br>
+E sfruttando l'approssimazione per angoli piccoli:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(tg(\alpha)dr=rd\theta\)</span><br>
+<span class="tex">\(\\\)</span><br>
+e risolvendo l'equazione:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(tg(\alpha)\int_{D}^{R}\frac{dr}{r}=\int_{2\pi}^{0}d\theta\)</span><br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(tg(\alpha)ln(\frac{R}{D})=-2\pi\)</span><br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(\alpha=\arctan(\frac{-2\pi}{ln(\frac{R}{D})})\)</span><br>
+Se il primo punto è ok procedo con la trascrizione del secondo.</article>
+<article class="post" id="p27922"><div class="who"><b>Torros</b><span>25 ago 2023, 17:18</span></div>Scusate, non avevo visto l'aggiornamento dei punti del problema</article>
+<article class="post" id="p27923"><div class="who"><b>Pigkappa</b><span>25 ago 2023, 18:45</span></div><blockquote><div><cite>Torros ha scritto: <a href="olifis-7208.html#p27921" data-post-id="27921" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 ago 2023, 17:15</div></cite>
+Se il primo punto è ok procedo con la trascrizione del secondo.
+</div></blockquote>
+
+Non proprio... Alla fine ti viene un risultato maggiore di <span class="tex">\(\pi\)</span><br>
+<br>
+Ti stai rendendo la vita difficile esprimendo le cose in termini di <span class="tex">\(\displaystyle \tan(\pi - \alpha)\)</span> e poi usando la funzione <span class="tex">\(\arctan\)</span>, che non e' semplicemente l'inverso della funzione <span class="tex">\(\tan\)</span> (non lo puo' essere perche' questa non e' iniettiva), ma da' sempre un risultato compreso tra <span class="tex">\(\pm \pi/2\)</span>.<br>
+<br>
+Si capisce dalla figura che <span class="tex">\(0 &lt; \alpha &lt; \pi/2\)</span> per cui <span class="tex">\(\pi - \alpha\)</span> non e' compreso tra <span class="tex">\(\pm \pi/2\)</span> per cui usare l'arcotangente mi pare pericoloso.</article>
+<article class="post" id="p27924"><div class="who"><b>Torros</b><span>25 ago 2023, 21:06</span></div>Ho provato a modificare il messaggio sostituendo <span class="tex">\(tg(\alpha)\)</span> e sistemando qualche errore.</article>
+<article class="post" id="p27925"><div class="who"><b>Pigkappa</b><span>25 ago 2023, 23:43</span></div>Si' e' giusto. Ribaltando i segni, <span class="tex">\(\displaystyle \alpha = \arctan{\frac{2 \pi}{\ln{(D/R)}}}\)</span></article>
+<article class="post" id="p27926"><div class="who"><b>Tarapìa Tapioco</b><span>26 ago 2023, 4:26</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7208.html#p27916" data-post-id="27916" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 ago 2023, 14:49</div></cite>
+Una mosca malefica viene attirata dalla luce di una lampadina da giardino. La mosca si muove sempre su un piano parallelo al terreno, e invece di dirigersi verso la lampadina facendo il percorso piu' breve, mantiene un angolo <span class="tex">\(\displaystyle \alpha\)</span> costante rispetto alla congiungente al centro. Fa quindi una specie di spirale. La distanza iniziale tra mosca e centro della lampadina e' <span class="tex">\(\displaystyle D\)</span> e il raggio della lampadina <span class="tex">\(\displaystyle R\)</span>.<br>
+<br>
+<strong class="text-strong">1)</strong> Quanto vale <span class="tex">\(\displaystyle \alpha\)</span> se la mosca fa esattamente un giro attorno alla lampadina prima di toccarla, come in figura?<br>
+<strong class="text-strong">2)</strong> Quanto vale la lunghezza del percorso fatto, ovvero il perimetro della spirale?<br>
+<br>
+<a class="lost" href="https://i.imgur.com/kNz6aP5.png" class="ext">[immagine non più disponibile]</a>
+</div></blockquote>
+
+Si indichi con <span class="tex">\(\alpha\)</span> l'angolo compreso tra la tangente alla traiettoria spiroidale compiuta dalla mosca e la direzione radiale verso al sorgente luminosa da cui è attirato l'insetto: ovviamente, vale <span class="tex">\(\displaystyle 0 \le \alpha \le \pi\)</span>. Se la mosca mantiene un angolo <span class="tex">\(\alpha\)</span> costante rispetto alla congiungente al centro costituita dai raggi luminosi, allora compie un moto in linea retta solo quando <span class="tex">\(\alpha = 0\)</span>, avvicinandosi alla luce, o <span class="tex">\(\alpha = \pi\)</span>, allontanandosi dalla stessa; compiendo una spirale, si avvicinerà alla luce quando <span class="tex">\(0\)</span> <span class="tex">\(\le\)</span> <span class="tex">\(\alpha\)</span> <span class="tex">\(\le\)</span> <span class="tex">\(\frac{\pi}{2}\)</span> e se ne allontanerà per <span class="tex">\(\displaystyle \frac{\pi}{2} \le \alpha \le \pi\)</span>, mentre nel caso particolare <span class="tex">\(\alpha = \frac{\pi}{2}\)</span> essa compirà una traiettoria circolare attorno alla sorgente. Nel peculiare caso in esame, la mosca è diretta verso la luce seguendo una spirale equiangolare sul piano (cioè, in 2D), dunque dovrà valere <span class="tex">\(\displaystyle 0 \le \alpha \le \frac{\pi}{2}\)</span>. <br>
+<br>
+<span class="tex">\(0)\)</span> L’angolo e la lunghezza del percorso della mosca non dipendono dalla velocità <span class="tex">\(v\)</span> perché sono determinati solo dalla forma della spirale logaritmica, che è una funzione di <span class="tex">\(\theta\)</span>. La velocità influisce solo sul tempo che la mosca impiega a percorrere la spirale, ma non sulla sua geometria. Si può immaginare che se la mosca andasse più veloce o più lenta, la spirale si allargherebbe o si restringerebbe proporzionalmente, ma l’angolo <span class="tex">\(\alpha\)</span> e la lunghezza <span class="tex">\(L\)</span> rimarrebbero gli stessi. <br>
+<br>
+<span class="tex">\(1)\)</span> Assumendo che la luce sia centrata nell'origine e che il vettore posizione dell'insetto sia <span class="tex">\(\overrightarrow{x}(t) = &lt; x(t), y(t) &gt;\)</span>, le coordinate polari parametriche sono:<br>
+<br>
+<span class="tex">\(\displaystyle x(t) = r(t) \cos(\theta(t))\)</span> e <span class="tex">\(y(t) = r(t) \sin(\theta(t))\)</span>,   <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span> <span class="tex">\((1)\)</span><br>
+<br>
+in cui <span class="tex">\(x(t)\)</span> è la componente orizzontale di <span class="tex">\(\displaystyle \overrightarrow{x}(t) = &lt; x(t), y(t) &gt;\)</span> e <span class="tex">\(y(t)\)</span> è la componente verticale al tempo <span class="tex">\(t\)</span>. In particolare, si è imposto che il raggio vettore <span class="tex">\(r\)</span> della curva sia una funzione continua e monotona di un angolo <span class="tex">\(\theta\)</span>, e ci si è serviti a tal fine di un sistema <span class="tex">\(Oxy\)</span> di coordinate polari tali che <span class="tex">\(\displaystyle x = r \cos \theta\)</span> e <span class="tex">\(\displaystyle y = r \sin \theta\)</span>, dove <span class="tex">\(r\)</span> è la distanza di un punto generico <span class="tex">\(P\)</span> dall’origine degli assi (considerato come polo della spirale), e l’angolo <span class="tex">\(\theta\)</span> indica l’inclinazione di <span class="tex">\(OP\)</span> rispetto all’asse polare (il semiasse positivo delle ascisse). <br>
+<br>
+Derivando le precedenti equazioni, si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle x' (t) = r' \cos(\theta) - r \sin(\theta)\theta'\)</span> e  <span class="tex">\(\displaystyle y'(t) = r' \sin(\theta) + r \cos(\theta)\theta'\)</span>.  <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span> <span class="tex">\((2)\)</span><br>
+<br>
+Particolare interesse riveste il vettore tangente in ogni punto. Per trovare il vettore tangente, che rappresenta la direzione di volo della mosca, si deve ricavare il vettore parametrico <span class="tex">\(\displaystyle \overrightarrow{x} = &lt; x, y &gt;\)</span>. Utilizzando le equazioni precedenti, si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle \overrightarrow{x'} = \frac{d}{dt} &lt; r(t) \cos((\theta(t)), r(t) \sin(\theta(t)) &gt;\)</span> <span class="tex">\(=\)</span> <span class="tex">\(&lt; r' \cos(\theta) - r \sin(\theta)\theta', r' \sin(\theta) + r \cos(\theta)\theta' &gt;\)</span><br>
+<br>
+Adesso, sia il raggio vettore unitario di luce indicato con <span class="tex">\(\displaystyle \overrightarrow{L}\)</span> e sia <span class="tex">\(\displaystyle \overrightarrow{T}\)</span> il vettore unitario tangente. In particolare si ha,<br>
+<br>
+<span class="tex">\(\displaystyle \overrightarrow{T}(t) = \frac{\overrightarrow{x'}}{||\overrightarrow{x}'||} = \frac{&lt; x', y'&gt;} {\sqrt{(x')^2 + (y')^2}}\)</span>  <span class="tex">\(\space\)</span>  <span class="tex">\(\space\)</span> <span class="tex">\((3)\)</span><br>
+<span class="tex">\(\displaystyle \overrightarrow{L}(t)\)</span> <span class="tex">\(= \frac{- &lt; x, y &gt;}{||- &lt; x, y &gt; ||}\)</span>  <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span>  <span class="tex">\((4)\)</span><br>
+<br>
+Questi vettori hanno un'importante relazione con i vettori discussi in precedenza, <span class="tex">\(\displaystyle \overrightarrow{x}\)</span> e <span class="tex">\(\displaystyle \overrightarrow{x'}\)</span>. Il vettore <span class="tex">\(\displaystyle \overrightarrow{T}\)</span> è solo il versore del vettore tangente a <span class="tex">\(\displaystyle \overrightarrow{x'}\)</span> e il vettore <span class="tex">\(\displaystyle \overrightarrow{L}\)</span> è semplicemente il vettore in direzione opposta a <span class="tex">\(\displaystyle\overrightarrow{x}\)</span>.<br>
+<br>
+Affinché il modello a spirale descriva il volo della mosca, l'angolo tra tali vettori non deve cambiare. Nel calcolo vettoriale l'angolo tra due vettori può essere dato dal prodotto scalare dei vettori. Pertanto, si consideri il seguente prodotto:<br>
+<br>
+<span class="tex">\(\displaystyle \overrightarrow{T}(t) \cdot \overrightarrow{L}(t) = ||\overrightarrow{T}(t)|| \cdot ||\overrightarrow{L}(t)|| \cos(\alpha) \Rightarrow \cos(\alpha) = \frac{\overrightarrow{T}(t) \cdot \overrightarrow{L}(t)}{||\overrightarrow{T}(t)|| \cdot ||\overrightarrow{L}(t)||}\)</span><br>
+<br>
+Poiché si tratta di due vettori unitari (di norma 1), si ha:<br>
+<span class="tex">\(\displaystyle ||\overrightarrow{T}(t)|| \cdot ||\overrightarrow{L}(t)|| = 1\)</span> , dunque la precedente equazione sarà:<br>
+<br>
+<span class="tex">\(\displaystyle \cos(\alpha) = \overrightarrow{T}(t) \cdot \overrightarrow{L}(t)\)</span>.<br>
+<br>
+Sostituendo <span class="tex">\((3)\)</span> e <span class="tex">\((4)\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \cos(\alpha) = \frac{\overrightarrow{x'}(t)}{||\overrightarrow{x'}(t)||} \cdot \frac{- &lt; x(t), y(t) &gt;}{|| &lt; x(t), y(t) &gt; ||}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle - cos(\alpha) = \frac{(x'(t)x(t) + y'(t)y(t))}{\sqrt{(x'(t))^2 + (y'(t))^2} \cdot \sqrt{(x(t))^2 + (y(t))^2}}\)</span> <br>
+<br>
+In coordinate polari, l'equazione diventa:<br>
+<br>
+<span class="tex">\(\displaystyle - \cos(\alpha) = \frac{r \cos(\theta ')(r' \cos(\theta) - r \sin(\theta)\theta') + r \sin(\theta)(r' \sin(\theta) + r \cos(\theta)\theta')}{\sqrt{(r')^2 + (\theta')^2 r^2}}\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \frac{r' \cos^2(\theta) - r \cos(\theta) \sin(\theta)\theta'+ r' \sin^2(\theta) + r \sin(\theta) \cos(\theta)\theta'}{\sqrt{(r')^2 + (\theta')^2 r^2}}\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \frac{r'(\cos^2(\theta) + \sin^2(\theta))}{\sqrt{(r')^2 + (\theta')^2 r^2}}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle - \cos(\alpha ) = \frac{r'}{\sqrt{(r')^2 + (\theta')^2 r^2}}\)</span><br>
+<br>
+Unendo le due equazioni di <span class="tex">\(\displaystyle - \cos (\alpha)\)</span>, si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle - \cos(\alpha) = \frac{(x'(t)x(t) + y'(t)y(t))}{\sqrt{(x'(t))^2 + (y'(t))^2} \cdot \sqrt{(x(t))^2 + (y(t))^2}} = \frac{r'(t)}{\sqrt{(r')^2 + (\theta')^2 r^2}}\)</span> <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span>  <span class="tex">\((5)\)</span><br>
+<br>
+<br>
+Si avanzi l'ipotesi che l'insetto mantenga, nel corso della traiettoria, una velocità <span class="tex">\(v\)</span> costante. Dunque:<br>
+<br>
+<span class="tex">\(\displaystyle ||\overrightarrow{x'}||^2 = (x'(t))^2 + (y'(t))^2 = (r'(t))^2 + (\theta'(t))^2 (r(t))^2 = v^2 = cost\)</span>   <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span> <span class="tex">\((6)\)</span><br>
+<br>
+Si faccia riferimento alla generica equazione differenziale per il moto spiralico equiangolare in <span class="tex">\((5)\)</span>, cioè: <br>
+<br>
+<span class="tex">\(\displaystyle - \cos(\alpha ) = \frac{r' (t)}{\sqrt{(r')^2 + (\theta')^2 r^2}}\)</span>. Sostituendovi <span class="tex">\(\displaystyle (r'(t))^2 + (\theta'(t))^2 (r(t))^2 = v^2\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle - \cos(\alpha ) = \frac{r'(t)}{\sqrt{v^2}} \Rightarrow - \cos(\alpha )\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \frac{r'(t)}{v} \Rightarrow r'(t) = -v \cdot \cos(\alpha)\)</span><br>
+<br>
+Per trovare <span class="tex">\(r(t)\)</span>, cioè la distanza dall'origine rispetto al tempo, si può integrare ponendo la costante di integrazione <span class="tex">\(c\)</span> pari alla posizione iniziale <span class="tex">\(\displaystyle r(0) = D\)</span>, ovvero <span class="tex">\(\displaystyle c = r(0) = D\)</span>:<br>
+<br>
+<span class="tex">\(\displaystyle r(t) = \int_{}^{} - v \cdot \cos(\alpha) dt\)</span> <span class="tex">\(= \displaystyle - v \cdot \cos(\alpha)\int_{}^{}dt \)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle - v \cdot \cos(\alpha)\cdot t + D\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle r(t) = D - v \cdot \cos(\alpha)\cdot t\)</span> <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span> <span class="tex">\((7)\)</span><br>
+<br>
+Sostituendo <span class="tex">\(\displaystyle r'(t) = - v \cdot \cos(\alpha)\)</span> in <span class="tex">\((6)\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle (r'(t))^2 + (\theta'(t))^2 (r(t))^2\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle v^2\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle v^2 = (- v \cos(\alpha))^2 + \theta'(t)^2 r(t)^2\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle v^2 \cos^2(\alpha) + (\theta'(t))^2(r(t))^2\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle v^2 - v^2 \cos^2(\alpha) = (\theta'(t))^2(r(t))^2\)</span>.<br>
+<br>
+Risolvendo per <span class="tex">\(\displaystyle \theta' (t)\)</span>, grazie ad una serie di fattorizzazioni, identità trigonometriche, radici quadrate e divisioni, si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle v^2 - v^2 \cos^2(\alpha) = (\theta'(t))^2(r(t))^2\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle v^2 (1 - \cos^2(\alpha)) = (\theta'(t))^2(r(t))^2\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle v^2 \sin^2(\alpha) = (\theta'(t))^2(r(t))^2\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle v \cdot \sin(\alpha) = (\theta'(t))(r(t))\)</span>.  Sostituendo <span class="tex">\(\displaystyle r(t) = D - v \cdot \cos(\alpha)\cdot t\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle v \cdot \sin(\alpha) = (\theta'(t))(D - v \cdot \cos(\alpha)\cdot t)\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle (\theta'(t)) = \frac{v \cdot \sin(\alpha)}{(D - v \cdot \cos(\alpha)\cdot t)}\)</span>.<br>
+<br>
+Integrando, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \theta(t) = \int_{}^{}\theta'(t)dt\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \int_{}^{}\frac{v \cdot \sin(\alpha)}{D - (v \cdot \cos(\alpha))t}dt\)</span><br>
+<br>
+Attraverso l'impiego della posizione <span class="tex">\(\displaystyle u = D - (v \cdot \cos(\alpha))t\)</span>, e dunque di <span class="tex">\(\displaystyle \frac{du}{dt} = -v \cdot \cos(\alpha)\)</span>, si ha: <span class="tex">\(\displaystyle vdt = -\frac{1}{\cos(\alpha)}du\)</span>. Sostituendo nell'integrale:<br>
+<br>
+<span class="tex">\(\displaystyle \theta(t) = \int_{}^{} -\frac{1}{u}\frac{\sin(\alpha)}{\cos(\alpha)}du\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle - \tan(\alpha)\int_{}^{}\frac{1}{u}du\)</span>.  Infine, si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle \theta(t) = - \tan(\alpha) - \ln(D - v \cdot \cos(\alpha)\cdot t) + c\)</span>, dove <span class="tex">\(c\)</span> è una costante d'integrazione. Si noti che l'argomento del logaritmo dev'essere strettamente maggiore di <span class="tex">\(0\)</span>, per cui:<br>
+<br>
+<span class="tex">\(\displaystyle D - v \cdot \cos(\alpha) \cdot t &gt; 0\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle D &gt; v \cdot \cos(\alpha) \cdot t\)</span>, cioè <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle 0 \le t &lt; \frac{D}{v \cdot \cos(\alpha)}\)</span>, intervallo di tempo del volo della mosca.<br>
+<br>
+Ponendo <span class="tex">\(\displaystyle c = \theta (0) = \theta_0\)</span>, posizione iniziale di partenza dell'insetto, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \theta(t) = \theta_0 - \tan(\alpha) \cdot \ln(D - v \cdot \cos(\alpha) \cdot t)\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \theta(t) = \theta_0 - \ln\bigg(1 -\frac{vt}{D} \cos(\alpha)\bigg)\tan(\alpha)\)</span>.  <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span>  <span class="tex">\((8)\)</span><br>
+<br>
+Ricavando <span class="tex">\(t\)</span> dalla <span class="tex">\((7)\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle r(t) = D - v \cdot \cos(\alpha)\cdot t\)</span> <span class="tex">\(\Rightarrow\)</span>  <span class="tex">\(\displaystyle t = \frac{D - r(t)}{v \cdot \cos(\alpha)}\)</span>.<br>
+<br>
+Inserendo tale tempo <span class="tex">\(t\)</span> nella <span class="tex">\((8)\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \theta(t) = \theta_0 - \ln\bigg[1 - \frac{v \cdot (D - r)}{D \cdot v \cdot \cos (\alpha)} \cos(\alpha)\bigg] \tan(\alpha)\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \theta_0 - \ln \bigg[1 - \frac{(D - r)}{D}\bigg] \tan(\alpha)\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \theta(t) = \theta_0 -\ln \bigg(\frac{r}{D}\bigg) \tan(\alpha)\)</span>, da cui:<br>
+<br>
+<span class="tex">\(\displaystyle \theta(t) = \theta_0 - \ln \left(\displaystyle \frac {r}{D} \right) \tan(\alpha)\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \tan(\alpha) = \displaystyle \frac{\theta_0 - \theta(t)}{\ln \left(\displaystyle \frac{r}{D}\right)}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \alpha = \arctan \left[\displaystyle \frac{\theta_0 - \theta(t)}{\ln\left(\displaystyle \frac{r}{D}\right)} \right]\)</span><br>
+<br>
+Come visibile dal grafico, la mosca parte dalla posizione iniziale <span class="tex">\(D\)</span> con un angolo <span class="tex">\(\displaystyle \theta_0\)</span> rispetto all'orizzontale pari a <span class="tex">\(\displaystyle \theta_0 = - \frac{\pi}{2}\)</span>, e compiendo esattamente un giro attorno alla lampadina, transita alla posizione <span class="tex">\(r = R\)</span>ad un angolo <span class="tex">\(\displaystyle \theta (t)\)</span> rispetto alle <span class="tex">\(x\)</span> pari a <span class="tex">\(\displaystyle \theta(t) = \frac{3}{2}\pi\)</span>. Infatti: <span class="tex">\(\displaystyle \theta_0 - \theta(t) = - \frac{\pi}{2} - \frac{3}{2}\pi = - 2 \pi\)</span>, negativo perché la mosca compie un giro in senso orario. Sostituendo i valori <span class="tex">\(\displaystyle \theta_0 - \theta(t) = - 2 \pi\)</span> e <span class="tex">\(r = R\)</span> nell'espressione di <span class="tex">\(\alpha\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \alpha = \arctan \left[\frac{\theta_0 - \theta(t)}{\ln\left(\frac{r}{D}\right)} \right]\)</span> <span class="tex">\(\Rightarrow\)</span>  <span class="tex">\(\displaystyle \alpha = \arctan \left[\frac{- 2 \pi}{\ln \left(\frac{R}{D}\right)} \right]\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \color{Red} \boxed{\color{Black}\alpha = \arctan \left[\frac{2 \pi}{\ln\left(\frac{D}{R}\right)} \right]}\)</span><br>
+<br>
+<br>
+La funzione <span class="tex">\(\displaystyle \alpha = \arctan (x)\)</span> segue un particolare andamento per il quale:<br>
+<br>
+<a class="lost" href="https://i.imgur.com/tmOjSfX.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+<span class="tex">\(\displaystyle -\frac{\pi}{2} \le \arctan(x) \le 0\)</span> se <span class="tex">\(\displaystyle x \le 0\)</span><br>
+<span class="tex">\(\displaystyle 0 \le \arctan (x) \le \frac{\pi}{2}\)</span> se <span class="tex">\(\displaystyle x \ge 0\)</span><br>
+<br>
+L'argomento di <span class="tex">\(\displaystyle \alpha = \arctan (x)\)</span>, ossia <span class="tex">\(\displaystyle \left[\frac{2 \pi}{\ln\left(\frac{D}{R}\right)}\right]\)</span>, è una quantità sempre positiva in quanto rapporto di valori mai negativi, infatti <br>
+<span class="tex">\(\displaystyle \left[\frac{2 \pi}{\ln\left(\frac{D}{R}\right)} \right] \ge 0\)</span> perché <span class="tex">\(2 \pi &gt; 0\)</span> e <span class="tex">\(\displaystyle \ln\left(\frac{D}{R}\right) &gt; 0\)</span> dal momento che <span class="tex">\(\frac{D}{R} &gt; 1\)</span>. Quindi, come da assunzione iniziale, <span class="tex">\(0 \le \alpha \le \frac{\pi}{2}\)</span>.<br>
+<br>
+<br>
+<br>
+<span class="tex">\(2)\)</span> Per calcolare la lunghezza del percorso compiuto, bisogna fare riferimento alla formula (che qui non si intende dimostrare) per la lunghezza delle curve regolari espresse in forma polare, cioè quelle funzioni presentantisi nella forma:<br>
+<br>
+<span class="tex">\(\displaystyle \rho = r(\theta (t))\)</span>, con <span class="tex">\(\displaystyle \theta \in [\theta_0, \theta(t)]\)</span>. Essa si calcola nel seguente modo:<br>
+<br>
+<span class="tex">\(\displaystyle L =\int_{\theta_0}^{\theta(t)}\sqrt{(r(\theta))^2+\left(\frac{dr}{d\theta}\right)^2}d\theta\)</span><br>
+<br>
+Dalla <span class="tex">\((8)\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \theta(t) = \theta_0 - \ln\left(\frac{r}{D}\right) \tan(\alpha)\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \ln\left(\frac{r}{D}\right) \tan(\alpha)\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \theta_0 - \theta(t)\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \ln \left(\frac{r}{D}\right)\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \frac{\theta_0 - \theta(t)}{\tan(\alpha)}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle r(\theta(t)) = D \cdot e^{\frac{\theta_0 - \theta(t)}{\tan(\alpha)}}\)</span>.<br>
+<br>
+Sostituendo i valori costanti <span class="tex">\(\displaystyle \theta_0 = - \frac{\pi}{2}\)</span> e <span class="tex">\(\displaystyle \tan (\alpha) = \left[\frac{2 \pi}{\ln\left(\frac{D}{R}\right)} \right]\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle r(\theta(t)) = D \cdot e^{\frac{-\frac{\pi}{2} - \theta(t)}{\left[\frac{2 \pi}{\ln\left(\frac{D}{R}\right)} \right]}} = D \cdot e^{\frac{-\ln \left(\frac{D}{R}\right)\left(\frac{\pi}{2} +\theta(t)\right)}{2 \pi}}\)</span><br>
+<span class="tex">\(\displaystyle \Rightarrow r(\theta(t)) = D \cdot e^{\frac{\ln \left(\frac{R}{D}\right)\left(\frac{\pi}{2} +\theta(t)\right)}{2 \pi}}\)</span><br>
+<br>
+La sua derivata è pari a:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{d r}{d \theta}= D \cdot e^{\frac{\ln \left(\frac{R}{D}\right)(\frac{\pi}{2} +\theta(t))}{2 \pi}} \cdot \frac{\ln(\frac{R}{D})}{2\pi}\)</span>.<br>
+<br>
+Sostituendo nell'integrale:<br>
+<br>
+<span class="tex">\(\displaystyle L = \int_{-\frac{\pi}{2}}^{\frac{3}{2}\pi}\sqrt{\left[D \cdot e^{\frac{\ln \left(\frac{R}{D}\right)\left(\frac{\pi}{2} +\theta(t)\right)}{2 \pi}}\right]^2+\left[D \cdot e^{\frac{\ln \left(\frac{R}{D}\right)\left(\frac{\pi}{2} +\theta(t)\right)}{2 \pi}} \cdot \frac{\ln(\frac{R}{D})}{2\pi}\right]^2} d\theta\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \int_{-\frac{\pi}{2}}^{\frac{3}{2}\pi}\sqrt{\left[D \cdot e^{\frac{\ln \left(\frac{R}{D}\right)\left(\frac{\pi}{2} +\theta(t)\right)}{2 \pi}}\right]^2 \cdot \left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]} d\theta\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle D\sqrt{\left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]} \int_{-\frac{\pi}{2}}^{\frac{3}{2}\pi} e^{\frac{\ln \left(\frac{R}{D}\right)\left(\frac{\pi}{2} +\theta(t)\right)}{2 \pi}}\)</span>.<br>
+<br>
+Dunque: <br>
+<br>
+<span class="tex">\(\displaystyle L = D\sqrt{\left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]} \cdot\frac{2\pi}{\ln (\frac{R}{D})}\left[e^{\frac{\ln\left(\frac{R}{D}\right)}{2\pi}(\frac{\pi}{2}+\theta)}\right]_{-\frac{\pi}{2}}^{\frac{3}{2}\pi}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle L = D\sqrt{\left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]} \cdot \frac{2\pi}{\ln (\frac{R}{D})}\left[e^{\frac{\ln\left(\frac{R}{D}\right)}{2\pi}\left(\frac{\pi}{2}+\frac{3\pi}{2}\right) - e^{\frac{\ln\left(\frac{R}{D}\right)}{2\pi}}\left(\frac{\pi}{2}-\frac{\pi}{2}\right)}\right]\)</span>  <span class="tex">\(\space\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle D\sqrt{\left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]} \cdot\frac{2\pi}{\ln \left(\frac{R}{D}\right)} \left(\frac{R}{D}-1\right)\)</span> <span class="tex">\(\space\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle D\sqrt{\left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]} \cdot\frac{2\pi}{\ln \left(\frac{D}{R}\right)} \left(1 - \frac{R}{D}\right)\)</span> <span class="tex">\(\space\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle D\sqrt{\left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]} \cdot\frac{2\pi}{\ln \left(\frac{D}{R}\right)} \left(\frac{D-R}{D}\right)\)</span>  <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle (D-R)\sqrt{\left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]} \cdot\frac{2\pi}{\ln \left(\frac{D}{R}\right)}\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle (D-R)\sqrt{\left[1 +\frac{\ln^2(\frac{R}{D})}{(2\pi)^2}\right]\cdot \frac{(2\pi)^2}{\ln^2 (\frac{D}{R})}}\)</span> <span class="tex">\(\Rightarrow \)</span> <br>
+<br>
+<span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \color{Red} \boxed{\color{Black} L = (D-R)\sqrt{\left[\frac{2\pi}{\ln(\frac{D}{R})}\right]^2 +1}}\)</span>.<br>
+<br>
+Evitando l'integrale di linea lungo la curva, è possibile calcolare il perimetro della spirale descritta dall'insetto in maniera molto più rapida. La lunghezza <span class="tex">\(L\)</span> del percorso tracciato dalla mosca è descritta dalla legge oraria del moto rettilineo uniforme <span class="tex">\(\displaystyle L = v \times t\)</span>, dunque da:<br>
+<br>
+<span class="tex">\(\displaystyle L = \int_{t_0}^{t}v(t)dt\)</span>.<br>
+<br>
+Al punto <span class="tex">\(1)\)</span>, si era pervenuti all'equazione <span class="tex">\((7)\)</span>, descrivente la legge oraria di <span class="tex">\(r(t)\)</span>: <span class="tex">\(\space\)</span> <span class="tex">\(\displaystyle r(t) = r_0 - v \cdot \cos \alpha \cdot t\)</span>.<br>
+Al tempo <span class="tex">\(t_0 = 0\)</span>, la mosca si trova alla posizione iniziale <span class="tex">\(\displaystyle r(t) = r(0) = r_0 = D\)</span>; al tempo <span class="tex">\(t = T\)</span>, la mosca giunge, dopo aver percorso un giro completo di angolo <span class="tex">\(-2\pi\)</span>, alla posizione finale <span class="tex">\(r(t) = r(T) = R\)</span>. L'equazione oraria di <span class="tex">\(r(t)\)</span> può dunque essere scritta come:<br>
+<br>
+<span class="tex">\(\displaystyle R = D - v \cdot \cos \alpha \cdot T\)</span>. <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span>  <span class="tex">\(\space\)</span>   Da tale equazione, è possibile ricavare la velocità <span class="tex">\(v\)</span>:<br>
+<br>
+<span class="tex">\(R = D - v \cdot \cos \alpha \cdot T\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(v \cdot \cos \alpha \cdot T = D -R\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(v = \frac{D-R}{T \cdot \cos \alpha}\)</span>.<br>
+<br>
+Si riscriva l'espressione di <span class="tex">\(L\)</span>, ponendo come estremi di integrazione <span class="tex">\(t_0 = 0\)</span> e <span class="tex">\(t = T\)</span><br>
+<br>
+<span class="tex">\(\displaystyle L = \int_{0}^{T}v(t)dt\)</span> <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span>  <span class="tex">\(\space\)</span>    Poiché la velocità <span class="tex">\(v(t) = v\)</span> è supposta costante nel tempo, allora può essere portata fuori dall'operatore integrale:<br>
+<br>
+<span class="tex">\(\displaystyle L = v \int_{0}^{T}dt\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle L = \frac{D-R}{T \cdot \cos \alpha} \int_{0}^{T}dt\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \frac{D-R}{T \cdot \cos \alpha} (T-0)\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle L = \frac{D-R}{\cos \alpha}\)</span><br>
+<br>
+Poiché, per il valore trovato in precedenza in <span class="tex">\(1)\)</span>, <span class="tex">\(\displaystyle \alpha = \arctan \left[\frac{2\pi}{\ln(\frac{D}{R})}\right]\)</span>, allora <span class="tex">\(\displaystyle \cos \alpha\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \cos \left[\arctan \left(\frac{2\pi}{\ln(\frac{D}{R})}\right)\right]\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\displaystyle \frac{1}{\sqrt{1+\left[\frac{2\pi}{\ln(\frac{D}{R})}\right]^2}}\)</span>. Dunque, sostituendo <span class="tex">\(\displaystyle \cos \alpha\)</span> in <span class="tex">\(L\)</span>:<br>
+<br>
+<span class="tex">\(\displaystyle L = \frac{D-R}{\cos \alpha}\)</span> <span class="tex">\(\Rightarrow\)</span>  <span class="tex">\(\displaystyle L = \frac{D-R}{\frac{1}{\sqrt{1+\left[\frac{2\pi}{\ln(\frac{D}{R})}\right]^2}}}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\displaystyle \color{Red} \boxed{\color{Black} L = (D-R)\sqrt{1+\left[\frac{2\pi}{\ln(\frac{D}{R})}\right]^2}}\)</span></article>
+<article class="post" id="p27929"><div class="who"><b>Pigkappa</b><span>26 ago 2023, 11:28</span></div>Giusto. Scrivendo in modo compatto:<br>
+<br>
+<span class="tex">\(\displaystyle L = (D-R) \times \sqrt{\big( \frac{2 \pi}{\ln{(D/R)}}\big)^2 + 1}\)</span><br>
+<br>
+Si puo' arrivare ai risultati in modo molto piu' rapido, in particolare evitando l'integrale di linea lungo la curva, e ne vale la pena, perche' la soluzione succinta permette di dimostrare piu' facilmente che qualsiasi funzione valida <span class="tex">\(\displaystyle v(t)\)</span> darebbe lo stesso risultato.<br>
+<br>
+E' una sottigliezza, ma non direi pero' che <em class="text-italics">qualsiasi</em> funzione positiva <span class="tex">\(\displaystyle v(t)\)</span> va bene; c'e' una condizione da rispettare.</article>
+<article class="post" id="p27930"><div class="who"><b>Tarapìa Tapioco</b><span>26 ago 2023, 11:59</span></div>Va bene, modifico il mio risultato di <span class="tex">\(L\)</span> scrivendolo in maniera più compatta. Non credo, tuttavia, di aver perfettamente compreso le tue asserzioni finali. Per il momento, posso postare i calcoli che ho eseguito per ottenere <span class="tex">\(\theta(t)\)</span> considerando una velocità variabile di equazione <span class="tex">\(||\overrightarrow{v}(t)|| = v + at\)</span>, con <span class="tex">\(v\)</span> e <span class="tex">\(a\)</span> costanti. Per <span class="tex">\(a\)</span> molto piccolo, ovvero <span class="tex">\(a\)</span> <span class="tex">\(\ll\)</span> <span class="tex">\(1\)</span>, si ottiene la medesima equazione ricavata al punto <span class="tex">\(1)\)</span> che ha condotto ai risultati di <span class="tex">\(\alpha\)</span> e <span class="tex">\(L\)</span>. Inoltre, ho immesso tale funzione in una calcolatrice grafica (inserendo, quanto più opportunamente possibile, valori di <span class="tex">\(a\)</span> molto piccoli) e, per lo stesso valore di <span class="tex">\(\alpha\)</span> calcolato in <span class="tex">\(1)\)</span>, il percorso seguito dalla mosca non cambia significativamente: si può dire, dunque, che i risultati finali siano praticamente collimanti con quelli precedentemente determinati.</article>
+<article class="post" id="p27931"><div class="who"><b>Pigkappa</b><span>26 ago 2023, 13:07</span></div>In realta' per molte possibili <span class="tex">\(\displaystyle v(t)\)</span>, compresa la tua in cui la velocita' cresce linearmente, dovresti trovare <em class="text-italics">esattamente</em> gli stessi risultati. Per una classe specifica di funzioni, pero', c'e' un problema. Ad esempio per <span class="tex">\(\displaystyle v(t) = v_0 \exp{(-\beta t^2)} \)</span> potrebbe sorgere il problema di cui parlo.<br>
+La calcolatrice grafica immagino usi un metodo numerico approssimato per simulare la traiettoria e quindi ottenga risultati quasi uguali, invece di esattamente uguali.</article>
+<article class="post" id="p27932"><div class="who"><b>Torros</b><span>26 ago 2023, 14:39</span></div><blockquote class="uncited"><div>Si puo' arrivare ai risultati in modo molto piu' rapido, in particolare evitando l'integrale di linea lungo la curva</div></blockquote> <br>
+Potresti dare un suggerimento per arrivare al suddetto metodo? grazie</article>
+<article class="post" id="p27934"><div class="who"><b>Pigkappa</b><span>26 ago 2023, 16:06</span></div><span class="tex">\(\displaystyle L = v \times t\)</span></article>
+<article class="post" id="p27943"><div class="who"><b>Higgs</b><span>27 ago 2023, 18:04</span></div>Vorrei anch'io dire la mia su questo abbastanza malefico problema. Le due domande originarie su <span class="tex">\(\alpha\)</span>ed L potevano secondo me liquidarsi in pochi passaggi. <br>
+1. Considerato il solito sistema con origine nel centro luminoso, siano r e <span class="tex">\(\theta\)</span> la distanza dal centro e l'angolo formato con l'asse x da un punto P sulla traiettoria della mosca. Sia inoltre <span class="tex">\(d\theta\)</span>l'angolo infinitesimo fra r+dr ed r. E' facile constatare che si può considerare il triangolo rettangolo infinitesimo con ipotenusa giacente su v, con un angolo acuto proprio uguale ad <span class="tex">\(\alpha\)</span>e cateti dr e <span class="tex">\(r d\theta\)</span>. E' palese che <span class="tex">\(tang \alpha = \frac {r d\theta}{dr}\)</span>Separando le variabili r e <span class="tex">\(\theta\)</span> ed integrando la prima fra R e D e la seconda fra 0 e <span class="tex">\(2\pi\)</span>si ottiene <span class="tex">\(\alpha = arcotg\frac{2\pi}{log(R/D)}\)</span> e quindi <span class="tex">\(tang\alpha =\frac{2\pi}{log(R/D)} \)</span><br>
+2.L'elemento infinitesimo dL, come ipotenusa del triangolo considerato, è <span class="tex">\(dL=\sqrt{(dr)^2 + (r d\theta)^2}\)</span>ovvero moltiplicando e dividendo per dr risulta <span class="tex">\(dL= \sqrt{1+tang^2\alpha} dr= \)</span>. Integrando r fra R e D e sostituendo a <span class="tex">\(tang^2\alpha \)</span> la sua espressione ricavata sopra abbiamo agevolmente<br>
+<span class="tex">\(L=(D-R)\times \sqrt{1+[\frac{2\pi}{log(R/D)}]^2} \)</span><br>
+3. Al fine di esaminare questa possibilità di mantenere o meno i risultati 1. e 2. dove la velocità v sembra non comparire, riprendiamo l'espressione <span class="tex">\(dL= \sqrt{1+tang^2\alpha}dr\)</span> ma invece di integrare dividiamo per dt ambo i membri ottenendo la velocità radiale <span class="tex">\(\frac{dr}{dt}=\frac{v}{\sqrt{1+tang^2\alpha}}\)</span>in funzione di v ed <span class="tex">\(\alpha\)</span> . In effetti se v è costante o linearmente crescente la velocità radiale non dovrebbe perturbare la traiettoria ma se v è un esponenziale del tipo citato esso perturberebbe la spirale logaritmica in particolare l'angolo <span class="tex">\(\alpha\)</span> e la lunghezza L. Pertanto sarei indotto a pensare che i risultati 1. e 2. in generale varierebbero. :roll:  :?:  :?:</article>
+<article class="post" id="p27945"><div class="who"><b>Pigkappa</b><span>27 ago 2023, 23:41</span></div>Giusto il primo punto.<br>
+<br>
+La mia soluzione e' molto simile... Per la componente radiale, <span class="tex">\(\displaystyle \frac{dr}{dt} = - v_r = -v \cos \alpha\)</span>. Per quella tangenziale, <span class="tex">\(\displaystyle r \frac{d\theta}{dt} = v_\theta = v \sin \alpha\)</span>. Eliminando <span class="tex">\(\displaystyle dt\)</span> da queste due, <span class="tex">\(\displaystyle d \theta = - \tan \alpha \frac{dr}{r}\)</span>. Integrando a sinistra tra 0 e <span class="tex">\(\displaystyle 2\pi\)</span> ed a destra tra <span class="tex">\(\displaystyle D\)</span> ed <span class="tex">\(\displaystyle R\)</span> si trova il risultato.<br>
+<br>
+Giusto il secondo punto.<br>
+<br>
+La mia soluzione e' cosi'. Il tempo <span class="tex">\(\displaystyle T\)</span> di arrivo e' definito risolvendo la equazione radiale sopra, e si trovera' che <span class="tex">\(\displaystyle D-R = \int_0^T{v(t) \cos{(\alpha)} dt}\)</span>. La lunghezza percorsa e' <span class="tex">\(\displaystyle L = \int_0^T{v(t) dt} = \frac{1}{\cos \alpha} \times \int_0^T{v(t) \cos{(\alpha)} dt} = \frac{D-R}{\cos \alpha}\)</span>. Abbiamo ricavato <span class="tex">\(\displaystyle \tan \alpha\)</span> nel punto sopra, da quella si puo' ricavare <span class="tex">\(\displaystyle \cos \alpha\)</span> e si trova il risultato.<br>
+<br>
+Per il terzo punto, non mi sembra che ancora ci siamo. Ora che ho scritto la mia soluzione qua sopra per il secondo punto per una velocita' <span class="tex">\(\displaystyle v(t)\)</span> generica, dovrebbe essere chiaro cosa ho in mente...</article>
+<article class="post" id="p27949"><div class="who"><b>Higgs</b><span>29 ago 2023, 11:45</span></div>La cosa che mi viene da sottolineare è di carattere più matematico che fisico. Infatti il tuo integrale<span class="tex">\(D-R= \int_0^T{v(t) cos\alpha dt}\)</span> ed il successivo che fornisce L  prevedono l'esistenza di una primitiva di v(t) da valutare in 0 e T. Se questa primitiva non esiste in termini di funzioni elementari non è possibile valutare D-R ed L. Mi sembra che ciò accada proprio nell'esempio che hai fatto con <span class="tex">\(v(t)=v_0 \times e^{(-\beta t^2)} \)</span> in cui non esiste una primitiva elementarmente espressa pur avendo Gauss valutato il famoso integrale su tutto l'asse reale... :roll:  :?:  :?: <br>
+P.S. Non so se le mie attuali informazioni raccolte su internet siano corrette...fra l'altro ho letto che la primitiva si potrebbe approssimare con l'erfunction ma non ho trovato nulla per cui con l'approssimazione i valori si modificherebbero coerentemente...</article>
+<article class="post" id="p27950"><div class="who"><b>Pigkappa</b><span>29 ago 2023, 18:02</span></div>Non importa davvero se la funzione e' integrabile analiticamente oppure no, e come dici tu l'integrale di quella funzione, a meno di una costante, e' l'erf function:<br>
+<br>
+<a href="https://en.wikipedia.org/wiki/Error_function" class="ext" class="postlink">https://en.wikipedia.org/wiki/Error_function</a><br>
+<br>
+Capisco il richiedere che <span class="tex">\(\displaystyle v(t)\)</span> sia integrabile dal punto di vista matematico, ma questo non e' davvero qualcosa di cui preoccuparsi in fisica. Assumendo che la mosca non possa darsi accelerazione infinita, la funzione <span class="tex">\(\displaystyle v(t)\)</span> sara' continua, e derivabile, e con derivata limitata da un massimo ed un minimo, e se non sbaglio questo implica che e' integrabile.<br>
+<br>
+Quel che intendevo pero' e' che la mosca <em class="text-italics">deve completare la sua traiettoria in tempo finito</em>. Se non arriva mai in fondo, il problema non ha particolarmente senso. La condizione sara' che <span class="tex">\(\displaystyle \int_0^\infty{v(t)dt} &gt; L\)</span> ovvero:<br>
+<br>
+<span class="tex">\(\displaystyle \int_0^\infty{v(t)dt} &gt; (D-R) \times \sqrt{\big( \frac{2 \pi}{\ln{(D/R)}}\big)^2 + 1}\)</span><br>
+<br>
+Ad esempio, la funzione <span class="tex">\(\displaystyle v_0 \exp{(-t^2/\tau^2)}\)</span> credo abbia integrale <span class="tex">\(\displaystyle \int_0^\infty{v(t)dt} = \frac{\sqrt{\pi}}{2} v_0 \tau\)</span> quindi soddisfa il requisito solo se la velocita' iniziale e' abbastanza grande o il tempo di decadimento abbastanza lungo, in modo tale che <span class="tex">\(\displaystyle \tau v_0 &gt; \frac{2}{\sqrt{\pi}} L\)</span></article>
+<article class="post" id="p27951"><div class="who"><b>Pigkappa</b><span>29 ago 2023, 18:03</span></div>Valutando un po' chi ha risolto piu' parti del problema, darei la staffetta a Tarapia Tapioco, sperando in un problema meno mortale della matita che cade ;)</article>
+<article class="post" id="p27952"><div class="who"><b>Tarapìa Tapioco</b><span>29 ago 2023, 20:03</span></div>Ti ringrazio, pubblicherò un problema molto più facile e accessibile del precedente (di cui sto facendo, peraltro, molta fatica a scrivere la soluzione qui sul Forum, data la lunghezza dello svolgimento). Mentre pubblico il testo, però, vorrei chiariti alcuni dubbi. Avevo già steso una parziale proposta di risoluzione (parecchio lacunosa e tutt'altro che completa) al punto <span class="tex">\(3)\)</span>, ma non l'ho pubblicata in quanto speravo che i tuoi suggerimenti andassero incontro alle mie idee (così non è stato).<br>
+<br>
+Continuazione alternativa del punto <span class="tex">\(2)\)</span>. Evitando l'integrale di linea lungo la curva, è possibile calcolare il perimetro della spirale descritta dall'insetto in maniera molto più rapida. La lunghezza <span class="tex">\(L\)</span> del percorso tracciato dalla mosca è descritta dalla legge oraria del moto rettilineo uniforme <span class="tex">\(L = v \times t\)</span>, dunque da:<br>
+<br>
+<span class="tex">\(L = \int_{t_0}^{t}v(t)dt\)</span>.<br>
+<br>
+Al punto <span class="tex">\(1)\)</span>, si era pervenuti all'equazione <span class="tex">\((7)\)</span>, descrivente la legge oraria di <span class="tex">\(r(t)\)</span>: <span class="tex">\(\space\)</span> <span class="tex">\(r(t) = r_0 - v \cdot \cos \alpha \cdot t\)</span>.<br>
+Al tempo <span class="tex">\(t_0 = 0\)</span>, la mosca si trova alla posizione iniziale <span class="tex">\(r(t) = r(0) = r_0 = D\)</span>; al tempo <span class="tex">\(t = T\)</span>, la mosca giunge, dopo aver percorso un giro completo di angolo <span class="tex">\(-2\pi\)</span>, alla posizione finale <span class="tex">\(r(t) = r(T) = R\)</span>. L'equazione oraria di <span class="tex">\(r(t)\)</span> può dunque essere scritta come:<br>
+<br>
+<span class="tex">\(R = D - v \cdot \cos \alpha \cdot T\)</span>. <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span>  <span class="tex">\(\space\)</span>   Da tale equazione, è possibile ricavare la velocità <span class="tex">\(v\)</span>:<br>
+<br>
+<span class="tex">\(R = D - v \cdot \cos \alpha \cdot T\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(v \cdot \cos \alpha \cdot T = D -R\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(v = \frac{D-R}{T \cdot \cos \alpha}\)</span>.<br>
+<br>
+Si riscriva l'espressione di <span class="tex">\(L\)</span>, ponendo come estremi di integrazione <span class="tex">\(t_0 = 0\)</span> e <span class="tex">\(t = T\)</span>:<br>
+<br>
+<span class="tex">\(L = \int_{0}^{T}v(t)dt\)</span> <span class="tex">\(\space\)</span>   <span class="tex">\(\space\)</span>  <span class="tex">\(\space\)</span>    Poiché la velocità <span class="tex">\(v(t) = v\)</span> è supposta costante nel tempo, allora può essere portata fuori dall'operatore integrale:<br>
+<br>
+<span class="tex">\(L = v \int_{0}^{T}dt\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(L = \frac{D-R}{T \cdot \cos \space\alpha} \int_{0}^{T}dt\)</span> <span class="tex">\(= \frac{D-R}{T \cdot \cos \alpha} (T-0)\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(L = \frac{D-R}{\cos \alpha}\)</span><br>
+<br>
+Poiché, per il valore trovato in precedenza in <span class="tex">\(1)\)</span>, <span class="tex">\(\alpha = \arctan \bigg[\frac{2\pi}{\ln(\frac{D}{R})}\bigg]\)</span>, allora <span class="tex">\(\cos \alpha =\)</span> <span class="tex">\(\cos \bigg[\arctan \bigg(\frac{2\pi}{\ln(\frac{D}{R})}\bigg)\bigg] =\)</span> <span class="tex">\(\frac{1}{\sqrt{1+\bigg[\frac{2\pi}{\ln(\frac{D}{R})}\bigg]^2}}\)</span>. Dunque, sostituendo <span class="tex">\(\cos \alpha\)</span> in <span class="tex">\(L\)</span>:<br>
+<br>
+<span class="tex">\(L = \frac{D-R}{\cos \space\alpha}\)</span> <span class="tex">\(\Rightarrow\)</span>  <span class="tex">\(L = \frac{D-R}{\frac{1}{\sqrt{1+\bigg[\frac{2\pi}{\ln(\frac{D}{R})}\bigg]^2}}}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\color{Red} \boxed{\color{Black} L = (D-R)\sqrt{1+\bigg[\frac{2\pi}{\ln(\frac{D}{R})}\bigg]^2}}\)</span><br>
+<br>
+Per il punto <span class="tex">\(3)\)</span>, si potrebbe verificare che si ottengano esattamente i medesimi risultati di <span class="tex">\(\alpha\)</span> e <span class="tex">\(L\)</span> per ogni <span class="tex">\(v(t) \)</span> positiva e non costante nel tempo se si dimostra che, per qualsiasi <span class="tex">\(v(t)\)</span>, una rivoluzione del raggio vettore di <span class="tex">\(2\pi\)</span>, considerando <span class="tex">\(\alpha = \arctan \bigg[\frac{2\pi}{\ln(\frac{D}{R})}\bigg] = cost\)</span>, corrisponde anche alla fine del moto dell'insetto verso la sorgente luminosa, ovvero che:<br>
+<br>
+<span class="tex">\(L = \int_{0}^{T}v(t)dt\)</span> <span class="tex">\(\Rightarrow\)</span>  <span class="tex">\(L \times \cos \alpha = \cos \alpha \int_{0}^{T}v(t)dt\)</span>. Poiché <span class="tex">\(L = \frac{D-R}{\cos \alpha}\)</span>, allora <span class="tex">\(\frac{D-R}{\cos \alpha} \cos \alpha = \cos \alpha \int_{0}^{T}v(t)dt\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(D-R = \cos \alpha \int_{0}^{T}v(t)dt\)</span>.<br>
+<br>
+Non sono ancora riuscito a trovare una via risolutiva soddisfacente.<br>
+<br>
+Per quanto riguarda la specifica classe di funzioni per la quale potrebbe sorgere un determinato problema, avevo pensato ad un procedimento (molto raffazzonato, ma non totalmente privo di fondamento) che riporto qui sotto.<br>
+<br>
+Si assuma che le coordinate polari <span class="tex">\(r(t)\)</span> e <span class="tex">\(\theta(t)\)</span> della mosca siano funzioni del tempo, unite dalla relazione data dall'equazione della spirale logaritmica, che dalla <span class="tex">\((8)\)</span> del punto <span class="tex">\(1)\)</span> risulta essere:<br>
+<br>
+<span class="tex">\(\theta_0 - \theta(t) = \ln\bigg(\frac{r(t)}{k}\bigg)\cdot b\)</span>, con <span class="tex">\(k = D\)</span> e <span class="tex">\(b = \tan \alpha = \frac{2\pi}{\ln(\frac{D}{R})}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(r(t) = k \cdot e^{\frac{1}{b} (\theta_0 - \theta(t))}\)</span>, con <span class="tex">\(k = D\)</span> e <span class="tex">\(b = \tan \alpha = \frac{2\pi}{\ln(\frac{D}{R})}\)</span>. Poiché <span class="tex">\(\theta_0 = -\frac{\pi}{2}\)</span>, allora <span class="tex">\(\frac{1}{\tan \alpha} \bigg(-\frac{\pi}{2} - \theta(t) \bigg) = \tan \alpha \cdot (\theta(t))\)</span>. Quindi, l'equazione della spirale logaritmica sarà:<br>
+<br>
+<span class="tex">\(r(t) = k \cdot e^{b (\theta(t))}\)</span>, con <span class="tex">\(k = D\)</span> e <span class="tex">\(b = \tan \alpha = \frac{2\pi}{\ln(\frac{D}{R})}\)</span>.<br>
+<br>
+La velocità tangenziale della mosca è legata a quella radiale da:<br>
+<br>
+<span class="tex">\(v_t = r\dot{\theta} = r\bigg(\frac{1}{b}\frac{\dot{r}}{r}\bigg) = \frac{\dot{r}}{b}\)</span>, con <span class="tex">\(b = \tan \alpha = \frac{2\pi}{\ln(\frac{D}{R})}\)</span>.<br>
+<br>
+Ponendo <span class="tex">\(v_t = f(r)\)</span>, si giunge alla seguente equazione differenziale:<br>
+<br>
+<span class="tex">\(f(r) = \frac{1}{b}\dot{r} = \frac{1}{b}\frac{dr}{dt}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(bt = \int_{r_0}^{r}\frac{dr'}{f(r')}\)</span>.<br>
+<br>
+Per <span class="tex">\(v_t = f(r) \propto e^{-\beta r}r^{\alpha-1}\)</span>, ossia per la PDF (funzione di densità di probabilità) per una distribuzione gamma, l'integrale sarà espresso in termini di una funzione gamma incompleta: insomma, non sembra probabile che esista una funzione inversa definita, ad eccezione di specifici valori dei parametri PDF. <br>
+<br>
+Questo svolgimento potrebbe essere (anche se, mi rendo conto, molto forzatamente) ricondotto alla tua soluzione (cioè, quella originale)? Cosa può essere salvato - e cosa non va bene - in ciò che è scritto sopra?</article>
+<article class="post" id="p27956"><div class="who"><b>Pigkappa</b><span>30 ago 2023, 0:38</span></div>Hai visto i miei messaggi a pagina 2, il terzultimo e l'ultimo di quella pagina? Lì ho scritto una soluzione che penso sia corretta per v(t) generica, e una condizione che v(t) deve soddisfare perché il moto sia completo.<br>
+<br>
+Non mi sono posto particolarmente la domanda di cosa succede se v dipende esplicitamente da r, v(r), invece di v(t)?</article>
+<article class="post" id="p27957"><div class="who"><b>Tarapìa Tapioco</b><span>30 ago 2023, 1:07</span></div>Sì, avevo visto quei messaggi, ma pensavo che mancasse ancora qualcosa. Presentando le tue risposte come soluzione ufficiale dei punti di questo problema da te inventato, ritengo chiusa la discussione. Si potrebbe analizzare il caso tridimensionale, ma per evitare il rischio di appesantire la questione direi di lasciar perdere. Cosa ne dici?</article>
+<nav class="pager"><a class="prev" href="olifis-7204.html"><small>← precedente</small>313. Matita su un tavolo</a><a class="next" href="olifis-7212.html"><small>successivo →</small>315. Una cavalletta pigra</a></nav>
+</main></body></html>

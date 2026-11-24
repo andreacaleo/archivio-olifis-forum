@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biliardo a dischi</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Altri problemi teorici</a></span></nav>
+<h1>Biliardo a dischi</h1>
+<p class="meta">21 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=69">forum Olifis</a></p>
+<article class="post first" id="p602"><div class="who"><b>Falco5x</b><span>25 mar 2009, 19:17</span></div>Mi sono inventato questo problema, che a prima vista pare facile e invece mi ha riservato insospettate difficoltà.<br>
+Il procedimento che ho trovato per risolverlo mi lascia alquanto perplesso, per cui gradirei sentire il parere di altri solutori.<br>
+Il problema è il seguente.<br>
+<a class="lost" href="http://img12.imageshack.us/img12/338/discobiliardo.jpg" class="ext">[immagine non più disponibile]</a><br>
+In un biliardo a dischi (costituiti da cilindri di materiale omogeneo) questi possono scivolare senza attrito sul piano del biliardo e rimbalzare contro le sponde. Tra dischi e sponde sussiste un attrito radente di coefficiente  μ (statico = dinamico).<br>
+Un disco viene lanciato contro la sponda con una inclinazione <span class="tex">\(\frac{\pi }{3}\)</span> (vedi figura), impattando nel punto P. Sia <span class="tex">\({v_0}\)</span>  la velocità del disco (nota) e <span class="tex">\({\omega _0}\)</span> la sua velocità angolare di valore qualsiasi, purchè <span class="tex">\({\omega _0} &gt; \frac{{{v_0}}}{r}\)</span> e di verso orario.<br>
+Si osserva che il rimbalzo avviene in direzione ortogonale alla sponda.<br>
+Determinare il valore del coefficiente d’attrito <span class="tex">\(\mu\)</span>.<br>
+<br>
+Nota: si assuma l’attrito radente tra disco e sponda come unica causa di non conservatività per l’energia cinetica durante gli urti.<br>
+<br>
+Uno degli elementi che mi soprendono e che quindi mi fanno dubitare della soluzione trovata è la invarianza del risultato rispetto alla velocità angolare del disco (purché superiore a un certo minimo).<br>
+Confido in volonterosi con i quali poterne discutere.</article>
+<article class="post" id="p607"><div class="who"><b>pascal</b><span>26 mar 2009, 10:37</span></div>Nell’urto l’attrito potrebbe essere statico o dinamico; con l’attrito statico l’energia si conserva, ma potremmo ricavare una disuguaglianza per <span class="tex">\(\mu\)</span>, a meno che non venga esplicitata nella traccia qualche condizione limite. In regime di attrito dinamico, invece, è possibile ricavare  <span class="tex">\(\mu\)</span>. Penso che la condizione <span class="tex">\(\omega_0 &gt; v_0 / R\)</span>  debba servire per dimostrare che si perde energia nell’urto, allo scopo di considerare il rotolamento con strisciamento del disco. Da un calcolo preliminare emerge che dovremmo situarci in questo ambito.</article>
+<article class="post" id="p610"><div class="who"><b>Falco5x</b><span>26 mar 2009, 17:17</span></div><blockquote><div><cite>pascal ha scritto:</cite>Nell’urto l’attrito potrebbe essere statico o dinamico; con l’attrito statico l’energia si conserva, ma potremmo ricavare una disuguaglianza per <span class="tex">\(\mu\)</span>, a meno che non venga esplicitata nella traccia qualche condizione limite. In regime di attrito dinamico, invece, è possibile ricavare  <span class="tex">\(\mu\)</span>. Penso che la condizione <span class="tex">\(\omega_0 &gt; v_0 / R\)</span>  debba servire per dimostrare che si perde energia nell’urto, allo scopo di considerare il rotolamento con strisciamento del disco. Da un calcolo preliminare emerge che dovremmo situarci in questo ambito.</div></blockquote>
+Esatto, la condizione serve ad assicurare che il disco striscia contro la sponda per tutto il tempo (infinitesimo) che rimane in contatto col punto P. Infatti appena giunge sul punto P la velocità secondo x della periferia del disco è diversa da zero e precisamente <span class="tex">\(v_x=\frac{v_0}{2}+\omega_0r}\)</span>; e anche quando il disco rimbalza e si allontana da P si può calcolare che con la condizione data la sua velocità periferica è maggiore di zero e diretta nel medesimo verso della precedente. Se non avessi posto questa condizione le cose sarebbero state leggermente più complicate da immaginare (ma neanche tanto). Ho solo voluto inserire un elemento di relativa semplificazione.</article>
+<article class="post" id="p611"><div class="who"><b>pascal</b><span>26 mar 2009, 17:24</span></div>Un’equazione utile deriva dalla conservazione del momento angolare rispetto al punto P. <br>
+Infatti la forza d’attrito e la reazione normale della sponda generano nell’urto un momento <br>
+delle forze nullo rispetto a P.</article>
+<article class="post" id="p612"><div class="who"><b>pascal</b><span>26 mar 2009, 17:36</span></div>Con l'applicazione del suddetto principio trovo <span class="tex">\(\omega = \omega_0 - v_0/R.\)</span></article>
+<article class="post" id="p617"><div class="who"><b>Falco5x</b><span>26 mar 2009, 22:56</span></div><blockquote><div><cite>pascal ha scritto:</cite>Con l'applicazione del suddetto principio trovo <span class="tex">\(\omega = \omega_0 - v_0/R.\)</span></div></blockquote>
+Certamente. Da cui si riscontra il fatto che se <span class="tex">\(\omega_0 &gt; v_0/R\)</span>, la <span class="tex">\(\omega\)</span> finale è maggiore di zero, condizione che garantisce la continuità dello strisciamento sul punto P.<br>
+Assodata quindi la ragionevolezza della condizione imposta, per giungere a determionare <span class="tex">\(\mu\)</span> occorre adesso procedere a considerazioni di tipo energetico, cosa che ho fatto anche se con un procedimento che non so quanto sia ortodosso e che vorrei poter discutere nel prosieguo.<br>
+A meno che non esista qualche altra via che non ho visto.</article>
+<article class="post" id="p623"><div class="who"><b>pascal</b><span>27 mar 2009, 0:09</span></div>Forse il calcolo degli impulsi nelle direzioni x e y,<br>
+utilizzando l'elasticità nella direzione y, può essere<br>
+percorribile!</article>
+<article class="post" id="p629"><div class="who"><b>bacco</b><span>27 mar 2009, 2:46</span></div>Il bowling vi accompagnerà sempre!!!  :D</article>
+<article class="post" id="p631"><div class="who"><b>Falco5x</b><span>27 mar 2009, 9:25</span></div><blockquote><div><cite>pascal ha scritto:</cite>Forse il calcolo degli impulsi nelle direzioni x e y,<br>
+utilizzando l'elasticità nella direzione y, può essere<br>
+percorribile!</div></blockquote>
+Ci ho provato ma era come il cane che si morde la coda, trovavo sempre due equazioni linearmente dipendenti tra loro e quindi avevo sempre un'incognita di troppo :evil: <br>
+<br>
+
+<blockquote><div><cite>bacco ha scritto:</cite>Il bowling vi accompagnerà sempre!!!</div></blockquote>
+Grazie Maestro Yoda; che le palle siano sempre con te! :D</article>
+<article class="post" id="p632"><div class="who"><b>MicroM</b><span>27 mar 2009, 10:00</span></div>Più che biliardo o di bowling io parlerei di <strong class="text-strong">curling</strong></article>
+<article class="post" id="p633"><div class="who"><b>CoNVeRGe.</b><span>27 mar 2009, 14:36</span></div>Assumendo uno strisciamento sulla sponda nel punto P per tutto il tempo infinitesimo dovrebbe bastare risolvere il sistema:<br>
+<span class="tex">\(\displaystyle N \cdot d t = \Delta p_y = 2 \frac{\sqrt{3}}{2} p = \sqrt{3} mv_0\)</span><br>
+<span class="tex">\(\displaystyle N \mu \cdot d t = \Delta p_x = \frac{p}{2} = mv_0/2\)</span><br>
+da cui:<br>
+<span class="tex">\(\displaystyle \mu = \frac{\Delta p_x}{\Delta p_y} = \frac{1}{2 \sqrt{3}}\)</span></article>
+<article class="post" id="p634"><div class="who"><b>pascal</b><span>27 mar 2009, 14:58</span></div>D'accordo.</article>
+<article class="post" id="p635"><div class="who"><b>Falco5x</b><span>27 mar 2009, 17:10</span></div>Bene, mi pare un buon ragionamento.<br>
+Però adesso mi spiegate perché la <span class="tex">\(p_{y1}\)</span> dopo l'urto deve essere uguale (in valore) e contraria (in verso) alla <span class="tex">\(p_{y0}\)</span> prima dell'urto, ovvero<br>
+<span class="tex">\(p_{y1}=\frac{\sqrt{3}}{2}mv_0\)</span>.<br>
+Concordo che pare verosimile, ma vorrei una dimostrazione se possibile dettagliata. Non lo dico per pignoleria, ma solo perché io ci sono arrivato con considerazioni energetiche che non so se siano corrette.</article>
+<article class="post" id="p637"><div class="who"><b>pascal</b><span>27 mar 2009, 19:58</span></div>Direi che la forza d’attrito produce una variazione della velocità angolare e l’annullamento della <span class="tex">\(v_x\)</span>, ma non influenza la <span class="tex">\(v_y\)</span>. Quindi la dissipazione di energia dell’attrito non viene operata nei confronti di <span class="tex">\(v_y\)</span>. La reazione ortogonale della sponda non inficia la velocità angolare né quella orizzontale, ma agisce soltanto su <span class="tex">\(v_y\)</span>. Poiché la parete manifesta un urto perfettamente elastico nella direzione y, la <span class="tex">\(v_y\)</span> si ribalta. Applicherei la conservazione alla quota dell’energia cinetica <span class="tex">\(m v_y^2/2\)</span> e alla quantità di moto lungo y. Dalla teoria dell’urto elastico tra il cilindro ed una parete di massa molto grande discende la riflessione della <span class="tex">\(v_y\)</span>.</article>
+<article class="post" id="p639"><div class="who"><b>CoNVeRGe.</b><span>27 mar 2009, 20:12</span></div>Adesso però mi sorge il dubbio: la forza d'attrito compie lavoro?</article>
+<article class="post" id="p640"><div class="who"><b>pascal</b><span>27 mar 2009, 20:17</span></div>Si, perchè l'attrito è dinamico.</article>
+<article class="post" id="p641"><div class="who"><b>String</b><span>27 mar 2009, 20:20</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>Uno degli elementi che mi soprendono e che quindi mi fanno dubitare della soluzione trovata è la invarianza del risultato rispetto alla velocità angolare del disco (purché superiore a un certo minimo).</div></blockquote>
+Ma il rimbalzo nella sola direzione ortogonale alla sponda avviene solo nel caso in cui la velocità angolare del disco abbia un valore particolare, e non vale quindi per ogni valore di <span class="tex">\(\omega_0 &gt;v_0r\)</span>,no?</article>
+<article class="post" id="p643"><div class="who"><b>pascal</b><span>27 mar 2009, 20:30</span></div>Se è soddisfatta la condizione sulla velocità angolare, sul coefficiente<br>
+di attrito e sull'elasticità della sponda, il rimbalzo avviene alla stessa<br>
+maniera. Conta lo scivolamento e non la particolare velocità angolare.</article>
+<article class="post" id="p644"><div class="who"><b>CoNVeRGe.</b><span>27 mar 2009, 20:32</span></div><blockquote><div><cite>pascal ha scritto:</cite>Si, perchè l'attrito è dinamico.</div></blockquote>
+Però non vi è spostamento, a spostarsi è solo il punto di applicazione sul disco...</article>
+<article class="post" id="p645"><div class="who"><b>pascal</b><span>27 mar 2009, 20:44</span></div>Ciò è vero per l'attrito statico. Qui sono impulsivi la reazione<br>
+normale e l'attrito <span class="tex">\(F_d=\mu\, Fn\)</span>. Le forze sono<br>
+grandi e gli spostamenti piccoli.</article>
+<article class="post" id="p646"><div class="who"><b>Falco5x</b><span>27 mar 2009, 20:56</span></div>Allora vi dico come la vedo io, che poi somiglia molto a quanto detto da pascal.<br>
+Comincio dall'ultima osservazione di Converge.<br>
+La forza di attrito ha un punto di applicazione immobile perché è operata dalla sponda e agisce sul punto P. La superficie strisciante è invece quella del disco che ha così velocità periferica decrescente nel tempo dt, dunque lo spostamento è quello della superficie del disco.<br>
+Riguardo alla conservazione dell'energia "secondo y", che è il tema che più mi ha dato da pensare, io l'avrei risolta così.<br>
+Partendo dall'espressione generale <span class="tex">\({\bf{F}} = m{\bf{a}}\)</span>, posso senz'altro limitarmi a conisiderare una delle componenti, e in particolare la componente y: <span class="tex">\({F_y} = m{a_y}\)</span>.<br>
+Eseguo quindi alcune operazioni di sostituzione di variabile, sempre considerando la sola direzione y:<br>
+<span class="tex">\({F_y}dy = m{a_y}dy = m\frac{{d{v_y}}}{{dt}}dy = m\frac{{dy}}{{dt}}d{v_y} = m{v_y}d{v_y}\)</span><br>
+Integrando ottengo un'espressione dell'energia cinetica secondo y che eguaglia il lavoro compiuto dalle forze esterne e dallo spostamento sempre secondo y:<br>
+<span class="tex">\(\Delta {W_y} = \frac{1}{2}m\left( {{v_y}^2 - {v_{y0}}^2} \right)\)</span><br>
+A questo punto considero che la forza esterna secondo y è solo una forza elastica, soggetta quindi a un potenziale elastico conservativo, che per tutto il tempo dt del rimbalzo compie dunque lavoro netto nullo. Da cui:<br>
+<span class="tex">\(\frac{1}{2}m\left( {{v_y}^2 - {v_{y0}}^2} \right)=0\)</span><br>
+ovvero <span class="tex">\(v_y = v_{y0}\)</span><br>
+<br>
+Vi sembra convincente? in fondo tutto ciò mi sembra molto simile a quanto detto da pascal.</article>
+<nav class="pager"><a class="prev" href="olifis-16.html"><small>← precedente</small>Un blocco su un piano inclinato.</a><a class="next" href="olifis-104.html"><small>successivo →</small>Urto contro uno scalino</a></nav>
+</main></body></html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>315. Una cavalletta pigra</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 315</a></span></nav>
+<h1>315. Una cavalletta pigra</h1>
+<p class="meta">31 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7212">forum Olifis</a></p>
+<article class="post first" id="p27953"><div class="who"><b>Tarapìa Tapioco</b><span>29 ago 2023, 20:30</span></div>Un tronco d'albero di diametro <span class="tex">\(2R\)</span> giace su un campo orizzontale. Una cavalletta pigra vuole saltare oltre il tronco. <br>
+<strong class="text-strong">1)</strong> Trovare la velocità minima <span class="tex">\(v_{min}\)</span> di decollo sufficiente alla cavalletta per compiere il salto. Si trascuri la resistenza dell'aria.<br>
+<br>
+Domande facoltative:<br>
+<strong class="text-strong">2)</strong> Detto <span class="tex">\(P\)</span> uno dei punti di intersezione della traiettoria seguita dalla cavalletta con il tronco, dimostrare che la porzione di curva - descritta da tale traiettoria - sopra <span class="tex">\(P\)</span> <em class="text-italics">non</em> interseca quest'ultimo.<br>
+<strong class="text-strong">3)</strong> Determinare l'angolo di inclinazione iniziale e la distanza di decollo.<br>
+<br>
+<em class="text-italics">Hint</em>: È assolutamente <em class="text-italics">falso</em> assumere che la traiettoria della cavalletta (con la minima velocità di decollo) raggiunga il tronco toccandolo nel suo punto più alto. (Il suggerimento è in linea con la richiesta alla seconda domanda).</article>
+<article class="post" id="p27954"><div class="who"><b>Torros</b><span>29 ago 2023, 22:00</span></div>Non credo di aver compreso la richiesta del secondo punto, potresti riformulare? Ti ringrazio</article>
+<article class="post" id="p27955"><div class="who"><b>Tarapìa Tapioco</b><span>29 ago 2023, 22:15</span></div>Certamente. Modifico il testo cercando di riformulare la seconda richiesta in maniera più chiara.</article>
+<article class="post" id="p27958"><div class="who"><b>Physicsguy51</b><span>30 ago 2023, 5:04</span></div><blockquote><div><cite>Tarapìa Tapioco ha scritto: <a href="olifis-7212.html#p27953" data-post-id="27953" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">29 ago 2023, 20:30</div></cite>
+Un tronco d'albero di diametro <span class="tex">\(2R\)</span> si trova su un campo orizzontale. Una cavalletta pigra vuole saltare sopra il tronco. <br>
+<strong class="text-strong">1)</strong> Trovare la velocità minima <span class="tex">\(v_{min}\)</span> di decollo sufficiente alla cavalletta per compiere il salto. Si trascuri la resistenza dell'aria.<br>
+<br>
+Domande facoltative:<br>
+<strong class="text-strong">2)</strong> Detto <span class="tex">\(P\)</span> uno dei punti di intersezione della traiettoria seguita dalla cavalletta con il tronco, dimostrare che la porzione di curva - descritta da tale traiettoria - sopra <span class="tex">\(P\)</span> <em class="text-italics">non</em> interseca quest'ultimo.<br>
+<strong class="text-strong">3)</strong> Determinare l'angolo di inclinazione iniziale e la distanza di decollo.<br>
+<br>
+<em class="text-italics">Hint</em>: È assolutamente <em class="text-italics">falso</em> assumere che la traiettoria della cavalletta (con la minima velocità di decollo) raggiunga il tronco toccandolo nel suo punto più alto. (Il suggerimento è in linea con la richiesta alla seconda domanda).
+</div></blockquote>
+IPhO 2012, Jaan Kalda and Russian Olympiads have asked this before, If I am not mistaken. <br>
+[link removed by Pigkappa... Bisogna risolverlo non trovare la soluzione!]</article>
+<article class="post" id="p27961"><div class="who"><b>Pigkappa</b><span>30 ago 2023, 10:12</span></div>"Saltare sopra" al tronco vuol dire saltare in modo da atterrare sulla metà superiore del tronco, ovvero con l'altezza del punto di contatto maggiore o uguale all'altezza del centro del tronco? <br>
+<br>
+Se bastasse intersecare il tronco, nella parte inferiore, e poi camminarci attorno, il problema sarebbe triviale e v=0...</article>
+<article class="post" id="p27962"><div class="who"><b>Tarapìa Tapioco</b><span>30 ago 2023, 10:32</span></div>I tuoi dubbi sono legittimi e sensati, infatti si tratta di un mio errore. Avendo scritto frettolosamente il testo, non ho pensato all'espressione che si attagli maggiormente alla situazione fisica da valutare; non rileggendolo, poi, ho contribuito a dare adito a travisamenti di ogni sorta. Per "saltare sopra" il tronco intendo non "saltare su", bensì "saltare oltre". Procedo immantinente alla modifica del contenuto del testo e chiedo sinceramente scusa.</article>
+<article class="post" id="p27963"><div class="who"><b>Torros</b><span>30 ago 2023, 10:44</span></div>Ma per conoscere la velocità che permette all'insetto di saltare oltre un tronco posto in orizzontale, non è necessario conoscere anche la lunghezza del tronco oltre al suo diametro?</article>
+<article class="post" id="p27964"><div class="who"><b>Tarapìa Tapioco</b><span>30 ago 2023, 11:06</span></div>No, non è necessario. Ovviamente, non devi considerare il tronco posto in orizzontale; modifico ancora una volta il testo, sostituendo "si trova" con "giace", per renderlo definitivamente chiaro e comprensibile.</article>
+<article class="post" id="p27966"><div class="who"><b>Higgs</b><span>30 ago 2023, 17:45</span></div>Abbi pazienza ma ho visto il problema solo questo pomeriggio. Sempre su 2): ...descritta da tale traiettoria "sopra P" vuol dire "dopo P"? E ancora ..."non interseca quest'ultimo" vuol dire che non interseca il tronco? Come se urtasse il tronco in P e poi proseguisse con una traiettoria diversa che scavalca il tronco? Grazie</article>
+<article class="post" id="p27967"><div class="who"><b>Tarapìa Tapioco</b><span>30 ago 2023, 17:47</span></div>@Higgs Esattamente, hai centrato il punto.</article>
+<article class="post" id="p27968"><div class="who"><b>Pigkappa</b><span>30 ago 2023, 19:45</span></div>Ma se la traiettoria della cavalletta interseca il tronco in qualsiasi punto, la cavalletta si schianta, e non riesce a "Saltare oltre"... Mi sa che non ho capito...</article>
+<article class="post" id="p27969"><div class="who"><b>Tarapìa Tapioco</b><span>30 ago 2023, 20:10</span></div>No, la cavalletta non si schianta contro il tronco. La cavalletta segue una particolare traiettoria che tocca appena, impercettibilmente (senza la necessità che l'insetto vi si spiaccichi), il tronco in due punti simmetrici <span class="tex">\(P\)</span> e <span class="tex">\(P'\)</span> ai suoi due lati: nel testo, avevo scritto "detto <span class="tex">\(P\)</span> uno dei punti di intersezione della traiettoria [...] con il tronco" valutando ovvia l'assunzione, parimenti, di un punto di intersezione <span class="tex">\(P'\)</span> ad esso simmetrico. Al momento, non si conosce nulla riguardo tali punti, che potrebbero coincidere o meno al punto di sommità del tronco: il fatto che la cavalletta superi il tronco senza intersecarlo nel suo punto massimo deve, per l'appunto, essere dimostrato al punto <span class="tex">\(2)\)</span>. Un disegno ben eseguito aiuta a fugare ogni dubbio.</article>
+<article class="post" id="p27975"><div class="who"><b>Pigkappa</b><span>31 ago 2023, 1:51</span></div>L'angolo viene 67.5 gradi?</article>
+<article class="post" id="p27976"><div class="who"><b>Tarapìa Tapioco</b><span>31 ago 2023, 6:10</span></div>Sì, è giusto. Sei liberissimo di lasciare un po' più di tempo anche agli altri o postare il tuo procedimento, che mi pare di capire sia corretto (non avevo grossi dubbi...).</article>
+<article class="post" id="p27977"><div class="who"><b>Pigkappa</b><span>31 ago 2023, 14:09</span></div>Lascio tempo agli altri :)</article>
+<article class="post" id="p27978"><div class="who"><b>Torros</b><span>31 ago 2023, 14:18</span></div><blockquote><div><cite>Tarapìa Tapioco ha scritto: <a href="olifis-7212.html#p27964" data-post-id="27964" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 ago 2023, 11:06</div></cite>
+Ovviamente, non devi considerare il tronco posto in orizzontale: modifico ancora una volta il testo, sostituendo "si trova" con "giace", per renderlo definitivamente chiaro e comprensibile.
+</div></blockquote>
+Io continuo a non capire come sia posto il tronco. :lol: <br>
+"Giace" non vuol dire che è posto in orizzontale?</article>
+<article class="post" id="p27979"><div class="who"><b>Tarapìa Tapioco</b><span>31 ago 2023, 15:21</span></div>Ho deciso di modificare il testo sostituendo "si trova" con "giace" per evitare ogni tipo di interpretazione (evidentemente sbagliata) che potesse far presupporre il tronco posto in verticale, perpendicolarmente al terreno, non per escludere definitivamente la possibilità di un posizionamento del tronco in orizzontale. La mia affermazione "...non devi considerare il tronco posto in orizzontale" era da intendersi in senso puramente relativo, non assoluto: è possibile considerare il tronco orizzontalmente, parallelamente alla direzione del pavimento e complanarmente a quest'ultimo, ma è assolutamente sbagliato considerare, come distanza orizzontale che la cavalletta deve percorrere per poter saltare oltre il tronco, la lunghezza del tronco stesso (che, non figurando tra i dati noti, non è necessario conoscere). Il punto cruciale è, dunque, un altro: non come sia posizionato il tronco rispetto ad un osservatore esterno, bensì cosa il testo intenda per "tronco" per un osservatore ad esso solidale, cioè - in altri termini - nell'analisi del moto della cavalletta. Tieni ben presente che la cavalletta è "pigra": come puoi ben immaginare, pertanto, l'insetto non salta il tronco nella sua lunghezza per poi atterrare nuovamente al suolo, ma percorre una traiettoria tangente nei punti <span class="tex">\(P\)</span> e <span class="tex">\(P'\)</span> ad una parte del tronco. Perciò, dato un sistema di riferimento <span class="tex">\(Oxyz\)</span>, con <span class="tex">\(x\)</span> asse orizzontale e <span class="tex">\(z\)</span> asse verticale, ti consiglio, unicamente al fine di facilitare la raffigurazione (il disegno è importante per lo svolgimento di questo problema), di considerare il tronco - nella sua lunghezza, ovviamente - giacente nel piano <span class="tex">\(xy\)</span> ortogonalmente all'asse orizzontale. Non riesco ad essere più chiaro di così. Purtroppo il testo (che, nemmeno a dirlo, non ho inventato io), effettivamente oscuro e poco chiaro, è quello pubblicato ad inizio discussione. Spero di aver risolto ogni dubbio, se permangono perplessità non esitare a chiedere tranquillamente.</article>
+<article class="post" id="p27980"><div class="who"><b>Torros</b><span>31 ago 2023, 19:29</span></div>Ti ringrazio, ora mi è chiara l'impostazione</article>
+<article class="post" id="p27981"><div class="who"><b>Tarapìa Tapioco</b><span>31 ago 2023, 19:37</span></div>Di nulla, figurati.</article>
+<article class="post" id="p27982"><div class="who"><b>Torros</b><span>1 set 2023, 11:51</span></div>Credo di aver trovato un metodo risolutivo semplice, che però mi sembra molto calcoloso. Prima di procedere ad ammazzarmi con dei buoni e sani calcoli, potresti confermarmi che anche la tua soluzione è lunga?</article>
+<article class="post" id="p27983"><div class="who"><b>Tarapìa Tapioco</b><span>1 set 2023, 12:28</span></div>Il metodo risolutivo che conduce al calcolo della velocità <span class="tex">\(v_{min}\)</span> al punto <span class="tex">\(1)\)</span> è abbastanza (anche se non eccessivamente) lungo, sicuramente il più calcoloso tra tutti e tre gli svolgimenti che occorrono per soddisfare le tre richieste. Giunti ad un certo punto dei calcoli, si profilano due differenti strade che portano al risultato finale (cioè, quello espresso in funzione dei dati forniti dal testo): uno più immediato concettualmente, ma leggermente più contoso; l'altro più rapido dal punto di vista delle operazioni, ma lievemente più difficile da trovare. Se riesci, presenta entrambe le vie risolutive; in caso contrario, dopo l'assegnazione della staffetta, scriverò io uno dei due metodi qualora nessuno fosse riuscito a trovarlo. <br>
+I punti <span class="tex">\(2)\)</span> e <span class="tex">\(3)\)</span>, anche se facoltativi, prevedono metodi risolutivi e calcoli molto meno lunghi di quelli della domanda <span class="tex">\(1)\)</span> e non richiedono eccessivo spreco di tempo ed energie.<br>
+<br>
+Secondo me, puoi procedere a svolgere i calcoli.</article>
+<article class="post" id="p27984"><div class="who"><b>Torros</b><span>1 set 2023, 15:48</span></div>Ho fatto i calcoli e mi viene lo stesso angolo di Pigkappa e distanza <span class="tex">\(d=\frac{(2+\sqrt{2})}{2}R\)</span>. Non mi è ancora, tuttavia, chiaro cosa si intenda per la dimostrazione del secondo punto. Ci rifletto un po'.</article>
+<article class="post" id="p27985"><div class="who"><b>Tarapìa Tapioco</b><span>1 set 2023, 16:10</span></div>Credo tu possa già inviare il punto <span class="tex">\(1)\)</span> e il punto <span class="tex">\(3)\)</span> (angolo e distanza sono giusti). Il punto <span class="tex">\(2)\)</span> è la parte meno difficile del problema: un semplice esercizio di geometria analitica (nulla di più) per dimostrare il quale è tuttavia opportuno descrivere - più o meno dettagliatamente - il tipo di traiettoria descritta dalla cavalletta e, in generale, l'intera raffigurazione.</article>
+<article class="post" id="p27986"><div class="who"><b>Torros</b><span>1 set 2023, 17:11</span></div><strong class="text-strong">Punto terzo</strong><br>
+Affinché la cavalletta superi il tronco di diametro <span class="tex">\(2R\)</span> (considerando la lunghezza del tronco stesso molto maggiore rispetto al diametro) con la minor  velocità iniziale è necessario che essa lo cerchi di superare muovendosi in direzione perpendicolare all'asse di rotazione del tronco. E' anche abbastanza evidente che la traiettoria dell'insetto debba essere tangente alla superficie del tronco, sempre per minimizzare la velocità inziale. Imposto dunque il sistema:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(
+\begin{cases}
+  y= -\frac{H}{d^2}x^2+H \\
+\\
+       y^2+x^2-2Ry= 0
+ 
+\end{cases}
+\)</span><br>
+Dove <span class="tex">\(H\)</span> rappresenta l'altezza massima raggiunta dalla traiettoria (la quale è descritta dalla prima equazione), <span class="tex">\(d\)</span> rappresenta la distanza dal centro del tronco dalla quale parte la traiettoria dell'insetto. La seconda equazione è l'equazione di una circonferenza di raggio <span class="tex">\(R\)</span> e centro in <span class="tex">\((0,R)\)</span>.<br>
+Sostituendo la prima equazione nella seconda otteniamo:<br>
+<br>
+<span class="tex">\(-\frac{H^2}{d^4}x^4+\frac{2RH-2H^2+d^2}{d^2}x^2+H^2-2RH=0\)</span><br>
+<br>
+Ponendo il delta di tale equazione uguale a zero (affinché la parabola e la circonferenza siano tangenti), si ottiene:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(4(R^2-d^2)H^2+(4Rd^2)H+d^4= 0\)</span><br>
+<span class="tex">\(\\\)</span><br>
+Risolvendo rispetto ad H si trova:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(H(d)= \frac{-d^2}{2(R-d)}\)</span><br>
+<span class="tex">\(\\\)</span><br>
+Ottenendo <span class="tex">\(H\)</span> in funzione di <span class="tex">\(d\)</span>. Ovviamente si è presa una sola soluzione, in quanto è facile verificare che la seconda è negativa (ricordando che R&lt;d).<br>
+L'altezza massima può essere descritta attraverso l'equazione del moto:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(H= \sqrt{2gH}t-\frac{gt^2}{2}\)</span><br>
+<span class="tex">\(\\\)</span><br>
+Dove abbiamo sostituito la velocità inziale rispetto all'asse delle y con <span class="tex">\(\sqrt{2gH}\)</span> sfruttando il principio di conservazione dell'energia e il fatto che la velocità rispetto all'asse delle x rimane costante per via della conservazione della quantità di moto. Risolviamo l'equazione precedente rispetto a <span class="tex">\(t\)</span> ed otteniamo:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(t= \sqrt{\frac{2H}{g}\)</span><br>
+<span class="tex">\(\\\)</span><br>
+Da qui è possibile sostituire l'espressione di <span class="tex">\(H\)</span> in funzione di <span class="tex">\(d\)</span> nell'ultima equazione ed ottenere il tempo che la cavalletta impiega per arrivare a metà della sua traiettoria in funzione di <span class="tex">\(d\)</span><br>
+Sfruttando ancora il fatto che la velocità lungo x rimane costante:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(v_x=d t\)</span><br>
+<span class="tex">\(\\\)</span><br>
+e sostituendo <span class="tex">\(t\)</span>, si ottengono le espressioni della velocità iniziale lungo l'asse delle x e delle y, che sintetizzo in questo sistema esprimendole al quadrato.<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(\begin{cases}
+  v_x^2= -g(R-d) \\
+\\
+  v_y^2=-g\frac{d^2}{R-d}
+ 
+\end{cases}\)</span><br>
+<span class="tex">\(\\\)</span><br>
+La somma delle due velcità al quadrato fornisce la velocità totale iniziale al quadrato, espressa in funzione della sola distanza.<br>
+<span class="tex">\(\\\)</span><br>
+<br>
+Derivando il quadrato della velocità totale rispetto alla distanza si ottiene:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(D(v)=1-\frac{2Rd-d^2}{(R-d)^2}\)</span><br>
+<span class="tex">\(\\\)</span><br>
+Ponendo tale derivata maggiore di zero, si scopre che <span class="tex">\(v\)</span> decresce per <span class="tex">\(d&lt; \frac{(2+\sqrt{2}R}{2}\)</span> e cresce per <span class="tex">\(d&gt; \frac{(2+\sqrt{2})R}{2}\)</span>. Il minimo di <span class="tex">\(v\)</span> si ha dunque per:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(d=\frac{(2+\sqrt{2})R}{2}\)</span><br>
+<span class="tex">\(\\\)</span><br>
+Sostituendo il valore trovato di <span class="tex">\(d\)</span> in <span class="tex">\(v_x^2\)</span> e <span class="tex">\(v_y^2\)</span>, dividendo il secondo per il primo e facendo la radice quadrata si ottiene il valore della tangente dell'angolo iniziale <span class="tex">\(\theta\)</span>:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(tg(\theta)=\frac{(2+\sqrt2)^2}{2}\)</span><br>
+<span class="tex">\(\\\)</span><br>
+che fornisce il valore di <span class="tex">\(\theta= 67.5\)</span>°<br>
+<span class="tex">\(\\\)</span><br>
+<strong class="text-strong">Punto primo</strong><br>
+Sostituendo il valore di <span class="tex">\(d\)</span> nell'ultimo sistema scritto, sommando i quadrati di <span class="tex">\(v_x\)</span> e <span class="tex">\(v_y\)</span> e mettendo tutto sotto radice otteniamo il valore minimo che la velocità iniziale può assumere per permettere alla cavalletta di superare il tronco:<br>
+<span class="tex">\(\\\)</span><br>
+<span class="tex">\(v=\sqrt{2(\sqrt2 +1)gR}\)</span></article>
+<article class="post" id="p27987"><div class="who"><b>Torros</b><span>1 set 2023, 17:12</span></div>Più tardi modifico il messaggio inserendo il punto primo (che consiste ora in una semplice sostituzione)</article>
+<article class="post" id="p27988"><div class="who"><b>Tarapìa Tapioco</b><span>1 set 2023, 18:01</span></div>I calcoli e i risultati sono tutti giusti. Nonostante il tuo procedimento sia differente dal mio (nettamente meno lungo, e non implicante la determinazione di angolo <span class="tex">\(\theta\)</span> e distanza <span class="tex">\(d\)</span> al punto <span class="tex">\(3)\)</span> per calcolare la velocità <span class="tex">\(v_{min}\)</span>), sei pervenuto ai medesimi risultati con un metodo parimenti corretto e originale. Dopo aver inserito il punto <span class="tex">\(1)\)</span>, e dopo aver verificato che la sostituzione restituisca effettivamente il valore di <span class="tex">\(v_{min}\)</span> rispondente a quello ufficiale, direi che tu possa prenderti la staffetta già da subito (le domande <span class="tex">\(2)\)</span> e <span class="tex">\(3)\)</span> sono solo facoltative) oppure risolvere e pubblicare anche la richiesta alla domanda <span class="tex">\(2)\)</span>. Come suggerimento per quest'ultimo punto, consiglio di riconoscere, in prima istanza, il tipo di traiettoria seguita dalla cavalletta e la curva rappresentata dal tronco (in verità, già lo hai fatto); e, successivamente, di scegliere un opportuno e conveniente riferimento. Le idee e i successivi calcoli verranno da sé.<br>
+<br>
+Inoltre, dal momento che i due svolgimenti sono differenti, non v'è alcun bisogno di riportare le "due differenti strade che portano al risultato finale" di cui avevo parlato nel messaggio precedente: se può interessare, potrei pubblicare il mio procedimento, presentando questi due differenti metodi, anche per un riscontro di diversi punti di vista che convengono allo stesso risultato.</article>
+<article class="post" id="p27989"><div class="who"><b>Torros</b><span>1 set 2023, 18:40</span></div>Facciamo così, visto che ho poche idee sul secondo posta tu la soluzione quando puoi, almeno la cogliamo come "scusa" per postare anche le tue soluzioni. Se non hai voglia di farle per filo e per segno magari dai anche solo la strada per risolvere e lasciare i calcoli, andrebbe benissimo credo.</article>
+<article class="post" id="p27990"><div class="who"><b>Tarapìa Tapioco</b><span>1 set 2023, 19:09</span></div>Giusto anche il punto <span class="tex">\(1)\)</span>. Per quanto riguarda il punto <span class="tex">\(2)\)</span>, la soluzione è veramente davanti ai tuoi occhi: è sufficiente considerare le equazioni della parabola descritta dalla cavalletta e del cerchio rappresentato dal tronco sostituendovi i valori di <span class="tex">\(v_{min}\)</span>, <span class="tex">\(\theta\)</span> e <span class="tex">\(d\)</span> precedentemente calcolati, metterle a sistema e trovarne e valutarne i punti di intersezione. Scelto un opportuno riferimento, un altro metodo consiste nel determinare le coordinate del punto di massimo della traiettoria parabolica e vedere se esse coincidano con quelle del punto di sommità della guida circolare. Comunque, che tu scelga di risolvere o meno la seconda domanda, posterò a prescindere la mia soluzione.</article>
+<article class="post" id="p27991"><div class="who"><b>Torros</b><span>1 set 2023, 19:43</span></div>Ti solleciterei ad inserire nella tua soluzione anche il punto due, perché, più che altro, fatica a capire il testo e non vorrei appesantire ulteriormente la discussione con un mio tentativo di risoluzione. Intanto mi prendo la staffetta, ringraziandoti.</article>
+<article class="post" id="p28086"><div class="who"><b>Pigkappa</b><span>7 set 2023, 10:12</span></div>Io l'ho fatto come Torros e vorrei vedere la soluzione rapida  ;)</article>
+<article class="post" id="p28088"><div class="who"><b>Tarapìa Tapioco</b><span>7 set 2023, 12:30</span></div>Certamente, la caricherò appena posso.</article>
+<nav class="pager"><a class="prev" href="olifis-7208.html"><small>← precedente</small>314. La mosca malefica</a><a class="next" href="olifis-7214.html"><small>successivo →</small>316. Un insetto sferico</a></nav>
+</main></body></html>

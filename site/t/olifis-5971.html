@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11: La staffetta continua??</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 11</a></span></nav>
+<h1>11: La staffetta continua??</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5971">forum Olifis</a></p>
+<article class="post first" id="p19453"><div class="who"><b>Simone256</b><span>16 set 2014, 19:48</span></div>Visto che non demordo e la Fisica fa bene alla salute (sul serio?) mi impossesso del testimone e ridò vita alla staffetta che ormai da secoli si era impantanata!  :P <br>
+Il problema è molto semplice ma anche molto carino:<br>
+<br>
+Si ha un tavolo lungo un metro e da un'estremità si mette in moto un corpo in modo che cade dall'altro lato del tavolo dopo due secondi. L'oggetto ha le ruote?</article>
+<article class="post" id="p19462"><div class="who"><b>OrsoBruno96</b><span>19 set 2014, 17:18</span></div>Dunque, se il corpo ha le ruote e parte rotolando senza strisciare, non vedo particolari problemi dinamici<br>
+<br>
+Se il corpo invece non ha le ruote, suppongo che fra corpo e tavolo ci sia attrito dinamico di coefficiente incognito <span class="tex">\(\mu\)</span><br>
+<br>
+In questo caso, ci possono essere due problemi: il primo è che il corpo non arrivi in fondo al tavolo perchè l'attrito lo ferma prima del bordo, del secondo discuto dopo<br>
+<br>
+Risolvere il primo problema è semplice, basta imprimere una velocità iniziale sufficiente.<br>
+<br>
+Capiamo dunque che la velocità ha un limite inferiore, ma non ci interessa più di tanto perchè ho già trovato una contraddizione sufficiente nel secondo caso ;) : domandiamoci ora se ne ha uno superiore<br>
+<br>
+Se io lancio il corpo troppo forte, c'è il rischio che l'attrito non sia sufficiente e che il corpo voli giù dal tavolo prima dei due secondi<br>
+<br>
+il grafico velocità-tempo è una retta con derivata negativa e l'area sottesa da questo grafico è lo spazio percorso. Ora, la velocità nell'intervallo 0-2 s è sempre &gt;0 perciò la minima area sottesa è <span class="tex">\(\dfrac{1}{2}v_0 t\)</span> che DEVE essere minore di <span class="tex">\(\Delta x\)</span><br>
+<br>
+Dunque <span class="tex">\(v_0 &lt; 1,0 m/s\)</span><br>
+<br>
+ora, abbiamo un moto uniformemente accelerato con <span class="tex">\(a = \mu g\)</span><br>
+<br>
+<span class="tex">\(\Delta x = v_0 t - \dfrac{1}{2}\mu g t^2\)</span><br>
+<br>
+quindi <span class="tex">\(\mu = \dfrac {2}{gt^2} (v_0t-\Delta x)\)</span><br>
+<br>
+il valore massimo di <span class="tex">\(\mu\)</span> è 0,05 , che mi sembra adatto a pattini contro ghiaccio più che ad un tavolo contro un qualsiasi altro oggetto. Per questo affermo che il coso ha le ruote ;)<br>
+<br>
+Attendo conferma della correttezza della soluzione e in caso pubblico il prossimo problema</article>
+<article class="post" id="p19463"><div class="who"><b>Pigkappa</b><span>19 set 2014, 17:23</span></div>Per curiosita', avevi gia' visto questo problema? Perche' a me sembra impensabile arrivare a una soluzione del genere  :?</article>
+<article class="post" id="p19464"><div class="who"><b>OrsoBruno96</b><span>19 set 2014, 17:37</span></div>no, ho scritto a Simone e mi ha detto dove guardare per trovare la soluzione. ;)<br>
+io ero convinto che con un <span class="tex">\(\mu\)</span> adeguato, fosse possibile una velocità iniziale qualsiasi. lui mi ha detto che non era vero e mi sono accorto che in effetti c'era questo problema<br>
+comunque si, è abbastanza impensabile</article>
+<article class="post" id="p19465"><div class="who"><b>Simone256</b><span>19 set 2014, 17:40</span></div>Ottimo! Orso vai con il prossimo problema!!  :P</article>
+<nav class="pager"><a class="prev" href="olifis-4791.html"><small>← precedente</small>10: Icosaedro di resistenze</a><a class="next" href="olifis-5973.html"><small>successivo →</small>12: la staffetta continua!</a></nav>
+</main></body></html>

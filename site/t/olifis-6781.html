@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>167-1 dimensione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 167</a></span></nav>
+<h1>167-1 dimensione</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6781">forum Olifis</a></p>
+<article class="post first" id="p25260"><div class="who"><b>Dudin</b><span>22 nov 2018, 23:08</span></div>N palle sono costrette a muoversi in uno spazio 1 dimensionale.<br>
+Quanti urti tra di esse possono  esserci al massimo? (considerate gli urti elastici)</article>
+<article class="post" id="p25261"><div class="who"><b>lance00</b><span>24 nov 2018, 12:08</span></div>le palle hanno tutte la stessa massa?</article>
+<article class="post" id="p25262"><div class="who"><b>lance00</b><span>24 nov 2018, 12:23</span></div>se così fosse potremmo dare a tutte la stessa velocità ma direzioni diverse... se gli urti sono elastici è come se ogni palla dopo l'urto proseguisse nella stessa direzione e con la stessa velocità che aveva prima... dimmi se potrebbe avere senso</article>
+<article class="post" id="p25263"><div class="who"><b>Dudin</b><span>25 nov 2018, 9:12</span></div>Si hanno la stessa massa</article>
+<article class="post" id="p25267"><div class="who"><b>lance00</b><span>25 nov 2018, 22:02</span></div>Allora, dimostrerò che il numero di urti massimo è <span class="tex">\(n(n-1)/2\)</span>. Partiamo da un'osservazione: quando una pallina P1 con velocità v1 si scontra contro una pallina P2 con velocità v2 è come se la pallina P1 diventasse la pallina P2 e continuasse indisturbata per la sua traiettoria (questo perchè gli urti sono elastici e le palline hanno massa uguale quindi durante un urto le velocità si scambiano). Ora, se ho <span class="tex">\(n\)</span> palline numerate da <span class="tex">\(1\)</span> a <span class="tex">\(n\)</span> da sinistra a destra e tali che <span class="tex">\(v1 &gt; v2 &gt; ... &gt; v_n\)</span>, la prima si scontra con <span class="tex">\(n-1\)</span> palline, la seconda con <span class="tex">\(n-2\)</span>, etc...In totale abbiamo <span class="tex">\(1+2+...+(n-1) = n(n-1)/2\)</span> urti. Dimostriamo che tale numero è l'upper bound (per induzione):<br>
+- PASSO BASE: per <span class="tex">\(n = 2\)</span> abbiamo 1 urto --&gt; ok<br>
+- PASSO INDUTTIVO: se aggiungo una pallina posso aggiungere al massimo n urti (facendola scontrare con tutte le altre) e siccome <span class="tex">\(n(n-1)/2 + n = (n+1)n/2\)</span> la tesi è dimostrata  :mrgreen:</article>
+<article class="post" id="p25268"><div class="who"><b>Dudin</b><span>26 nov 2018, 15:39</span></div>Ok bene puoi mettere il prossimo</article>
+<nav class="pager"><a class="prev" href="olifis-6777.html"><small>← precedente</small>166. Sale o scende?</a><a class="next" href="olifis-6783.html"><small>successivo →</small>168- Specchio relativistico</a></nav>
+</main></body></html>

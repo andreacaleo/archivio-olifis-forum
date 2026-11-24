@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>158. Velocità di fuga</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 158</a></span></nav>
+<h1>158. Velocità di fuga</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6735">forum Olifis</a></p>
+<article class="post first" id="p24976"><div class="who"><b>lance00</b><span>19 lug 2018, 13:07</span></div>Qual è la minima velocità iniziale <span class="tex">\(v\)</span> (rispetto alla Terra) che deve avere un oggetto per potersi allontanare indefinitamente dal campo gravitazionale del Sole?</article>
+<article class="post" id="p24979"><div class="who"><b>Aleksej99</b><span>20 lug 2018, 9:23</span></div>Viene circa <span class="tex">\(16,4 \ km/s \)</span>?</article>
+<article class="post" id="p24980"><div class="who"><b>Vinci</b><span>20 lug 2018, 10:10</span></div>Io mi trovo circa <span class="tex">\(13,3 km/s\)</span></article>
+<article class="post" id="p24981"><div class="who"><b>lance00</b><span>20 lug 2018, 11:09</span></div>@Aleksej99: yes  :D <br>
+@Vinci: non hai considerato una cosa mi sa</article>
+<article class="post" id="p24982"><div class="who"><b>Aleksej99</b><span>20 lug 2018, 20:41</span></div>Siano <span class="tex">\(v,v_e,v_s,v_o\)</span> la velocità da trovare, la velocità di fuga dalla terra, quella dal sole dall'orbita terrestre e la velocità orbitale della Terra...<br>
+Dividiamo il processo in due fasi, prima la sonda fugge dalla Terra poi dal Sole... <br>
+Nel sdr della Terra dopo la prima fase la sonda avrà velocità <span class="tex">\(v' = \sqrt{v^2 - v_e ^2} \)</span> e dunque nel sdr del Sole (scegliendo in modo furbo la direzione di lancio) <span class="tex">\(v'+v_o = v_s\)</span> <br>
+Svolgendo diligentemente i conti si ottiene il mio risultato...<br>
+Credo l'errore di Vinci sia nel non aver considerato i due sdr come diversi e aver semplicemente sommato le energie che servono a fuggire dalla terra e dal sole, nel sdr del sole la Terra ruba un po' di momento mentre la sonda accelera ...</article>
+<article class="post" id="p24983"><div class="who"><b>Vinci</b><span>21 lug 2018, 10:59</span></div>Si, ho fatto come hai detto tu, mi sono messo direttamente ne sdr del sole. Potresti spiegarmi meglio questa parte e qual è stato il mio errore?<br>
+
+<blockquote><div><cite>Aleksej99 ha scritto: <a href="olifis-6735.html#p24982" data-post-id="24982" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">20 lug 2018, 20:41</div></cite>
+<br>
+Nel sdr della Terra dopo la prima fase la sonda avrà velocità <span class="tex">\(v' = \sqrt{v^2 - v_e ^2} \)</span><br>
+
+</div></blockquote></article>
+<article class="post" id="p24984"><div class="who"><b>lance00</b><span>21 lug 2018, 11:33</span></div>@Aleksej posta i conti  :lol:  saranno max due righe dai</article>
+<article class="post" id="p25002"><div class="who"><b>Pigkappa</b><span>2 ago 2018, 1:45</span></div>Staffetta bloccata da 10 giorni =&gt; chiunque vuole proporre un problema può aprirlo come 159 :) (lo so che in parte si deve al fatto che alcuni di voi sono alle IPhO o di ritorno dalle IPhO)</article>
+<article class="post" id="p25005"><div class="who"><b>nicarepo</b><span>2 ago 2018, 18:59</span></div>Se volete ne propongo uno io, ma vorrei capire come si risolve questo esercizio. <br>
+<br>
+Ho pensato questo: dato che la velocità di fuga è la velocità iniziale che serve per portare un corpo a distanza infinita dal pianeta, una volta vinta l'attrazione gravitazionale della Terra si dovrebbe avere velocità nulla e distanza (sia dal Sole che dalla Terra) infinita, giusto?<br>
+<br>
+Da quello che ha scritto Alexej, ho capito che parte della velocità iniziale viene usata, una volta "fuggiti" dalla Terra, per fuggire anche dal Sole e questo mi sembra strano. <br>
+<br>
+Perché non va bene sommare le energie gravitazionali e trovare <span class="tex">\(v\)</span> in funzione della somma delle due?</article>
+<article class="post" id="p25007"><div class="who"><b>lance00</b><span>2 ago 2018, 21:17</span></div>Allora:  per sfuggire al campo gravitazionale del Sole serve una velocità di fuga <span class="tex">\(V = \sqrt{\frac{2GM_{S}}{d}}\)</span> dove d è la distanza Terra-sole. Ma la terra orbita attorno al sole con velocità <span class="tex">\(v = \sqrt{\frac{GM_{S}}{d}}\)</span>. Quindi l'oggetto deve fuggire dal campo gravitazionale terrestre avendo ancora una velocità pari a <span class="tex">\(V-v\)</span>. Dunque <span class="tex">\(\frac{mv'^2}{2}-\frac{GmM}{R} = \frac{m(V-v)^2}{2}\)</span> con <span class="tex">\(v'\)</span> = velocità di fuga dal sistema solare rispetto alla Terra. Facendo i conti si ottiene <span class="tex">\(v' = \sqrt{\frac{2GM_{T}}{R}+(3-2\sqrt{2})\frac{GM_{S}}{d}}\)</span> che fa all'incirca 16 km/s<br>
+dimmi se qualcosa non ti è chiaro ma dovresti capire facilmente perchè non si può fare  la somma delle energie potenziali  :)</article>
+<nav class="pager"><a class="prev" href="olifis-6733.html"><small>← precedente</small>157. Similitudini in meccanica</a><a class="next" href="olifis-6738.html"><small>successivo →</small>159. Bolle di sapone</a></nav>
+</main></body></html>

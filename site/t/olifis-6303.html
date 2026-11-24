@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>64: Oscillazioni in un gas</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 64</a></span></nav>
+<h1>64: Oscillazioni in un gas</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6303">forum Olifis</a></p>
+<article class="post first" id="p22132"><div class="who"><b>ruben96</b><span>26 apr 2016, 20:29</span></div>Un cilindro chiuso è diviso in due parti uguali di volume <span class="tex">\(V\)</span> da un pistone di raggio <span class="tex">\(r\)</span> e massa <span class="tex">\(m\)</span>, scorrevole senza attrito. Le due metà sono riempite con un gas ideale a pressione <span class="tex">\(p\)</span>. Trascurando qualsiasi dispersione di calore  tra pistone e pareti, determinare il periodo delle piccole oscillazioni del pistone quando esso viene spostato leggermente dalla posizione di equilibrio.</article>
+<article class="post" id="p22133"><div class="who"><b>nace26</b><span>26 apr 2016, 21:50</span></div>Provo!<br>
+<br>
+Siccome il gas non scambia calore, considero la temperatura costante.<br>
+<br>
+Chiamo <span class="tex">\(S=\pi r^2\)</span> la superficie della sezione del cilindro, <span class="tex">\(\vec{x}\)</span> lo spostamento dalla posizione di equilibrio del pistone.<br>
+<br>
+Dall'equazione dei gas, ho <span class="tex">\(pV=p_AV_A=p_BV_B\)</span> ove <span class="tex">\(V_A=V-Sx\)</span> e <span class="tex">\(V_B=V+Sx\)</span>. Ricavo <span class="tex">\(p_A=\frac{pV}{V-Sx}\)</span> e <span class="tex">\(p_B=\frac{pV}{V+Sx}\)</span>.<br>
+<br>
+La forza netta agente sul pistone sarà in modulo <span class="tex">\(F=S(p_A-p_B)=pVS(\frac{1}{V-Sx} - \frac{1}{V+Sx})\)</span> e si opporrà allo spostamento.<br>
+<br>
+Posso approssimare <span class="tex">\(F=\frac{2pS^2}{V}x\)</span>, quindi vettorialmente <span class="tex">\(\vec{F} = -\frac{2pS^2}{V} \vec{x}\)</span>, che dà un moto armonico di pulsazione <span class="tex">\(\omega = S \sqrt{\frac{2p}{mV}}\)</span> e periodo <span class="tex">\(T = \frac{1}{r^2} \sqrt{\frac{2mV}{p}}\)</span>.</article>
+<article class="post" id="p22134"><div class="who"><b>FedericoC.</b><span>27 apr 2016, 12:01</span></div>Ma la trasformazione che avviene é adiabatica, non isoterma, la temperatura quindi non rimane costante o sbaglio?</article>
+<article class="post" id="p22135"><div class="who"><b>ruben96</b><span>27 apr 2016, 16:23</span></div>Esatto, per il fatto che il pistone si muove, viene compiuto lavoro, quindi la temperatura, anche se di poco, cambia. Quindi,anziché usare <span class="tex">\(pV=cost\)</span>, è meglio usare la relativa formula per le adiabatiche, <span class="tex">\(pV^\lambda = cost\)</span>, dove <span class="tex">\(\lambda= \frac{c_p}{c_v}\)</span>.</article>
+<article class="post" id="p22138"><div class="who"><b>nace26</b><span>27 apr 2016, 23:04</span></div>Avete ragione, sono stato un po' frettoloso :oops: <br>
+<br>
+Usando <span class="tex">\(pV^{\gamma}=costante\)</span> il procedimento è praticamente lo stesso solo che ora compare ovviamente l'indice adiabatico <span class="tex">\(\gamma\)</span>. <br>
+<br>
+La forza per piccoli spostamenti può essere approssimata come <span class="tex">\(\displaystyle \vec{F} = - \frac{2 \gamma p S^2}{V} \vec{x}\)</span>, la pulsazione viene <span class="tex">\(\displaystyle \omega = S \sqrt{\frac{2 \gamma p}{mV}}\)</span> ed il periodo <span class="tex">\(\displaystyle T = \frac{1}{r^2} \sqrt{\frac{2mV}{\gamma p}}\)</span>.<br>
+<br>
+Spero che questa volta sia giusto :D</article>
+<article class="post" id="p22139"><div class="who"><b>ruben96</b><span>28 apr 2016, 13:36</span></div>Si, è corretto. La staffetta è tua  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6301.html"><small>← precedente</small>63: Scivolando e rotolando</a><a class="next" href="olifis-6306.html"><small>successivo →</small>65: produzione di idrogeno</a></nav>
+</main></body></html>

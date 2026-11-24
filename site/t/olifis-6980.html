@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>234. Carica immagine</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 234</a></span></nav>
+<h1>234. Carica immagine</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6980">forum Olifis</a></p>
+<article class="post first" id="p26461"><div class="who"><b>east_beast</b><span>12 set 2020, 18:53</span></div>Un conduttore ha la forma di un piano infinito in cui un disco di raggio <span class="tex">\(a\)</span> è sostituito dalla superficie della semisfera di uguale raggio.  <br>
+La superficie del conduttore è collegata a terra e una carica puntiforme <span class="tex">\(q &lt;0 \)</span> è posta ad una distanza <span class="tex">\(d\)</span> sopra il centro della semisfera, con <span class="tex">\(d &gt; a\)</span>.<br>
+Determinare in quali punti della superficie del conduttore la densità superficiale di carica indotta è massima e calcolare il valore del massimo.</article>
+<article class="post" id="p26468"><div class="who"><b>Luca Milanese</b><span>15 set 2020, 12:11</span></div>Come suggerisce il titolo, il modo migliore per affrontare questo problema è il metodo delle cariche immagine.<br>
+Fisso un sistema di assi cartesiani <span class="tex">\(Oxyz\)</span> tale che il piano conduttore abbia equazione <span class="tex">\(z=0\)</span> e che la carica <span class="tex">\(q\)</span> si trovi in <span class="tex">\((0, 0, d)\)</span>. Grazie ai teoremi di unicità dell'elettrostatica, se riesco a trovare una distribuzione di cariche (fittizie) tale che il potenziale <span class="tex">\(V(x,y,z)\)</span> dovuto a esse e alla carica <span class="tex">\(q\)</span> soddisfi la condizione <span class="tex">\(V=0\)</span> sull'intera superficie del conduttore (in quanto è collegato a terra), allora il potenziale elettrico nella parte di spazio vuota sarà proprio <span class="tex">\(V(x,y,z)\)</span>.<br>
+Introduco pertanto tre cariche immagine: <span class="tex">\(q_1=-q\)</span> in <span class="tex">\((0,0,-d)\)</span>, <span class="tex">\(q_2=\frac{a}{d}q\)</span> in <span class="tex">\(\bigg(0,0,-\frac{a^2}{d}\bigg)\)</span> e <span class="tex">\(q_3=-\frac{a}{d}q\)</span> in <span class="tex">\(\bigg(0,0,\frac{a^2}{d}\bigg)\)</span>. Scrivo l'espressione del potenziale:<br>
+<span class="tex">\(\displaystyle V(x,y,z)=\frac{1}{4 \pi \epsilon_0}\bigg[\frac{q}{\sqrt{x^2+y^2+(z-d)^2}}-\frac{q}{\sqrt{x^2+y^2+(z+d)^2}}+\frac{qa/d}{\sqrt{x^2+y^2+(z+a^2/d)^2}}-\frac{qa/d}{\sqrt{x^2+y^2+(z-a^2/d)^2}}\bigg]\)</span><br>
+Per <span class="tex">\(x^2+y^2 \leq a^2\)</span>, la superfice del conduttore è descritta da <span class="tex">\(x^2+y^2+z^2=a^2\)</span>, <span class="tex">\(z \geq 0\)</span>, mentre per <span class="tex">\(x^2+y^2 \geq a^2\)</span> l'equazione della superficie è <span class="tex">\(z=0\)</span>. Inserendo la prima condizione in <span class="tex">\(V(x,y,z)\)</span>, il primo termine si cancella con il quarto e il secondo col terzo, inserendo la seconda invece il primo termine si elide col secondo e il terzo col quarto, dunque <span class="tex">\(q_1\)</span>, <span class="tex">\(q_2\)</span> e <span class="tex">\(q_3\)</span> costituiscono la distribuzione cercata.<br>
+L'espressione <span class="tex">\(V(x,y,z)\)</span> ovviamente vale solo per il potenziale elettrico sulla superficie del conduttore e nello spazio ad esso esterno, in quanto all'interno è noto che <span class="tex">\(V=0\)</span>.<br>
+La densità di carica indotta avrà modulo massimo nel punto del conduttore più vicino a <span class="tex">\(q\)</span>, cioè <span class="tex">\(A=(0,0,a)\)</span>. Per trovarla, ricorro al Teorema di Coulomb: <br>
+<span class="tex">\(\frac{\sigma}{\epsilon_0}=\Delta \vec E \cdot \hat n\)</span><br>
+Dove <span class="tex">\(\sigma\)</span> è la densità superficiale di carica, <span class="tex">\(\Delta \vec E\)</span> è la differenza fra il campo elettrico appena fuori e appena dentro il conduttore, e <span class="tex">\(\hat n\)</span> è il versore normale alla superficie e uscente.<br>
+In <span class="tex">\(A\)</span> è <span class="tex">\(\hat n=\hat z\)</span>. Il campo elettrico appena dentro il conduttore è identicamente nullo, mentre quello appena fuori si trova facilmente conoscendo la posizione delle quattro cariche oppure applicando l'operatore gradiente a <span class="tex">\(V(x,y,z)\)</span>:<br>
+<span class="tex">\(\vec E_{esterno}(A)=-\frac{q(3d^2+a^2) \hat z}{2\pi \epsilon_0 (d^2-a^2)^2}\)</span><br>
+Quindi:<br>
+<span class="tex">\(\sigma_{max}=\epsilon_0 \vec E_{esterno}(A) \cdot \hat z =-\frac{q(3d^2+a^2)}{2 \pi (d^2-a^2)^2}\)</span><br>
+Riporto anche, per chi fosse interessato, il mio risultato per <span class="tex">\(\sigma\)</span> su tutta la superficie del conduttore:<br>
+<span class="tex">\(\displaystyle 
+\sigma(x,y,z) =
+\Bigg \{
+\begin{array}{rl}
+-\frac{q(d^2-a^2)}{4 \pi a} \big[(a^2+d^2-2dz)^{-3/2}-(a^2+d^2+2dz)^{-3/2}\big] &amp; (x^2+y^2 \leq a^2) \\
+-\frac{qd}{2 \pi} \big [(x^2+y^2+d^2)^{-3/2}-a^3 (d^2x^2 +d^2 y^2 +a^4)^{-3/2} \big] &amp; (x^2+y^2 \geq a^2) \\
+\end{array}\)</span></article>
+<article class="post" id="p26470"><div class="who"><b>east_beast</b><span>15 set 2020, 19:45</span></div>Perfetto!  :D <br>
+Tua la staffetta!</article>
+<nav class="pager"><a class="prev" href="olifis-6973.html"><small>← precedente</small>233. Legge di Murphy.</a><a class="next" href="olifis-6983.html"><small>successivo →</small>235. Neutralità della materia.</a></nav>
+</main></body></html>

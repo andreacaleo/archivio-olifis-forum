@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>260. Compressione di un gas.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 260</a></span></nav>
+<h1>260. Compressione di un gas.</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7082">forum Olifis</a></p>
+<article class="post first" id="p26998"><div class="who"><b>Luca Milanese</b><span>27 mag 2021, 20:16</span></div>Abbiamo un cilindro isolato termicamente, tenuto in verticale, nel quale può scorrere senza attrito un pistone di massa e capacità termica trascurabili. Inizialmente il pistone si trova a metà altezza del cilindro e ciascuna delle due metà contiene <span class="tex">\(n\)</span> moli di un gas perfetto biatomico a temperatura <span class="tex">\(T_0\)</span> e pressione <span class="tex">\(p_0\)</span>. Viene quindi appeso al pistone un peso <span class="tex">\(W\)</span> "molto grande" (cosa significhi nel nostro caso sta a voi capirlo) che tende a far scendere il pistone. Dopo un tempo abbastanza lungo, le oscillazioni del pistone si sono smorzate e il peso è in equilibrio. Qual è adesso il volume della metà inferiore del cilindro?</article>
+<article class="post" id="p26999"><div class="who"><b>matteofisica</b><span>28 mag 2021, 17:18</span></div>Provo a risolverlo! <br>
+<br>
+Per come la vedo io, "molto grande" significa "avente la stessa area del pistone". <br>
+Trattandosi di una trasformazione adiabatica, si può scrivere l'equazione: <br>
+<br>
+<span class="tex">\(p_0V_0^\gamma =p_fV_f^\gamma \)</span><br>
+<br>
+Il volume iniziale si può esprimere in funzione delle altre variabili di stato e dunque si ottiene, al primo membro, <br>
+<br>
+<span class="tex">\(p_0^{1-\gamma }(nRT_0)^\gamma \)</span><br>
+<br>
+L'equilibrio comporta che la pressione finale del gas eguaglia quella del pistone con il pesetto (ecco da dove arriva l'intuizione del significato di "molto grande"). Infatti: <br>
+<br>
+<span class="tex">\(p_f=\frac{W}{A}=\frac{W}{\frac{2V_0}{h}}=\frac{Wh}{2V_0}\)</span><br>
+<br>
+E dunque il volume finale sarà: <br>
+<br>
+<span class="tex">\(V_f=\left ( \frac{p_0^{1-\gamma }(nRT_0)^\gamma }{p_f} \right )^{\frac{1}{\gamma }}=nRT_0\left ( \frac{p_0^{1-\gamma }}{\frac{Wh}{2V_0}} \right )^{\frac{1}{\gamma }}\)</span><br>
+<br>
+Spero di non aver scritto castronerie!</article>
+<article class="post" id="p27000"><div class="who"><b>Luca Milanese</b><span>28 mag 2021, 17:27</span></div>I risultati sono sbagliati, forse devo specificare alcune cose:<br>
+1) le due parti in cui il pistone divide il cilindro sono a tenuta stagna: non si scambiano particelle di gas.<br>
+2) non sono le dimensioni del peso a essere molto grandi, bensi l'intensità <span class="tex">\(W\)</span> del peso (che quindi sarà molto maggiore di qualcosa che ha le dimensioni di una forza)<br>
+Chiedo scusa se non sono stato chiaro sin da subito.</article>
+<article class="post" id="p27001"><div class="who"><b>Leo</b><span>1 giu 2021, 10:58</span></div>Scusa ma solo oggi posso cominciare a pensare al tuo solito "problemino". Io penso che l'isolamento termico dall'esterno valga per tutto il gas ma non per i due comparti. Allora incontro una contraddizione: da una parte mi viene che la variazione di energia interna sia opposta nei due comparti in modo che non vari per il sistema: il peso cade comprime e riscalda una parte, dilata e raffredda nella stessa misura l'altra. Ma se la capacità del setto interposto è trascurabile non è che passa calore da un comparto all'altro in modo che all'equilibrio finale la temperatura dei due comparti è la stessa e non possa essere diversa? Come al solito è decisiva la corretta comprensione del testo... :roll:  :roll:</article>
+<article class="post" id="p27002"><div class="who"><b>Luca Milanese</b><span>1 giu 2021, 11:13</span></div>Sei sicuro che l'energia del sistema sia solo quella associata al gas?</article>
+<article class="post" id="p27003"><div class="who"><b>Leo</b><span>1 giu 2021, 17:20</span></div>Ci dovrebbe essere anche quella del peso che si porta in una posizione pià bassa e quindi perde energia potenziale. Ma il pistone di capacità termica trascurabile non dovrebbe essere un isolante termico ma dovrebbe essere "trasparente" al passaggio di calore fra le due metà :?:  :?: Grazie non ti chiederò più nulla...</article>
+<article class="post" id="p27004"><div class="who"><b>DeoGratias</b><span>1 giu 2021, 17:40</span></div>Non penso di essere arrivato ad alcun risultato concreto, comunque provo a postare quello che ho provato.<br>
+Visto che il cilindro è isolato, l'energia totale del sistema (gas + potenziale grav.) si conserva.<br>
+Scegliamo un sistema di riferimento con x = 0 a metà del cilindro, e verso positivo diretto verso il basso.<br>
+L'energia interna dei due gas è <span class="tex">\(E_{gas(0)} = 2*\frac{5}{2}nRT_{0}=5nRT{_{0}}\)</span> (visto che si hanno 2 volumi di gas, uno sopra e uno sotto).<br>
+La variazione di energia potenziale gravitazionale è <span class="tex">\(\Delta U=-Wx_{f}\)</span>, dove <span class="tex">\(x_{f}\)</span> è la posizione finale del pistone nel nostro sistema di riferimento (visto che il verso è positivo verso il basso, <span class="tex">\(x_{f}\)</span> sarà positivo).<br>
+Visto che il pistone è a tenuta stagna e il sistema è termicamente isolato, i gas compiono trasformazioni adiabatiche, quindi (il pedice 1 indica il gas nella metà di sotto, il 2 quello di sopra) <span class="tex">\(T_{1f}=T_{0}(\frac{V_{0}}{V_{1f}})^{\gamma -1}\)</span> e <span class="tex">\(T_{2f}=T_{0}(\frac{V_{0}}{V_{2f}})^{\gamma -1}\)</span>, dove <span class="tex">\(V_{1f}=V_{0}-Ax_{f}=A(h_{0}-x_{f})\)</span> e <span class="tex">\(V_{2f}=V_{0}+Ax_{f}=A(h_{0}+x_{f})\)</span>, con <span class="tex">\(A\)</span> area del cilindro e <span class="tex">\(V_{0}=Ah_{0}\)</span>. L'energia finale dei due gas è data quindi da <span class="tex">\(E_{gas(f)}=\frac{5}{2}nRT_{0}h_{0}^{\gamma -1}(\frac{1}{(h_{0}-x_{f})^{\gamma -1}}+\frac{1}{(h_{0}+x_{f})^{\gamma -1}})\)</span>. <br>
+Visto che l'energia totale si conserva, <span class="tex">\(E_{gas(0)}=E_{gas(f)}+\Delta U\)</span><br>
+Scrivendo <span class="tex">\(h_{0}^{\gamma -1}\frac{1}{(h_{0}-x_{f})^{\gamma -1}}\)</span> come <span class="tex">\((1+(-\frac{x_{f}}{h_{0}}))^{1-\gamma }\)</span>, espandendo al secondo ordine con Taylor si ottiene <span class="tex">\(1-(1-\gamma )\frac{x_{f}}{h_{0}}+\frac{\gamma (\gamma -1)}{2}\frac{x_{f}^{2}}{h_{0}^2}\)</span>, facendo la stessa cosa per <span class="tex">\(h_{0}^{\gamma -1}\frac{1}{(h_{0}+x_{f})^{\gamma -1}}\)</span> diventa <span class="tex">\(1+(1-\gamma )\frac{x_{f}}{h_{0}}+\frac{\gamma (\gamma -1)}{2}\frac{x_{f}^{2}}{h_{0}^2}\)</span>. <br>
+Quindi, dalla conservazione dell'energia si ottiene, semplificando, che <span class="tex">\(\frac{5}{2}nRT_{0}\gamma (\gamma -1)\frac{{x_{f}^2}}{h_{0}^2}-Wx_{f}=0\)</span>, quindi <span class="tex">\(x=\frac{2Wh_{0}^2}{5nRT_{0}\gamma (\gamma -1)}\)</span>.<br>
+Quello che mi fa pensare di aver sbagliato qualcosa è che <br>
+1) non ho mai avuto modo di usare l'assunzione che <span class="tex">\(W\)</span> sia molto grande<br>
+2) speravo che alla fine, semplificando, sarei riuscito a ottenere <span class="tex">\(x\)</span> in funzione di <span class="tex">\(h_{0}\)</span>, mentre invece mi torna in funzione di <span class="tex">\(h_{0}^2\)</span>, quindi non posso ottenere il volume finale... dove sto sbagliando??? :cry:  :?:</article>
+<article class="post" id="p27005"><div class="who"><b>Luca Milanese</b><span>1 giu 2021, 18:16</span></div>Sbagli quando dici che i due gas compiono trasformazioni adiabatiche. Dicendo che il pistone è a tenuta stagna intendevo che i due compartimenti, come ho scritto, non si scambiano particelle, non che non si scambino calore. Dopodiché è vero, in ogni caso, che c'è una variabile di troppo, e a ciò servirà l'assunzione su <span class="tex">\(W\)</span>.</article>
+<article class="post" id="p27006"><div class="who"><b>Leo</b><span>3 giu 2021, 11:06</span></div>Provo a scrivere qualcosa anch'io. Indico con i suffissi 1 e 2 le variabili riguardanti la metà superiore e quella inferiore nello stato di equilibrio raggiunto dal pistone dopo le sue oscillazioni. Se S è la sezione orizzontale del cilindro, questo stato dovrebbe essere rappresentato dall'uguaglianza<span class="tex">\(p_2.S - p_1.S=W\)</span> ovvero dato che <span class="tex">\(W&gt;&gt;p_0.S\)</span> e quindi a maggior ragione <span class="tex">\(W&gt;&gt; p_1.S\)</span>si può ritenere che <span class="tex">\( W\sim p_2.S\)</span>. Indicando con <span class="tex">\(h_i\)</span>le altezze dei volumi, questi saranno<span class="tex">\(V_i=S.h_i\)</span>e il lavoro compiuto dal peso in caduta dalla prima alla seconda posizione di equilibrio sarà <span class="tex">\(L=W.(h_2 - h_0)&lt;0\)</span>oppure <span class="tex">\(L=W.(h_1-h_0)&gt;0\)</span>. Ora il punto delicato. Io pensavo che l'equivalente calore prodotto in 2 si trasferisse attraverso il pistone ad 1 in modo che al nuovo equilibrio la temperatura rimanesse <span class="tex">\(T_0\)</span> e l'energia interna del sistema gas <span class="tex">\(2nc_vT_0\)</span>rimanesse invariata per cui <span class="tex">\(p_1V_1=p_2V_2=p_0V_0=nRT_0\)</span>: ma così emerge una contraddizione clamorosa. Essendo per l'approssimazione fatta <span class="tex">\(V_2= (p_0V_0)/(W/S), V_1= (p_0V_0)/p_1, V_2 +V_1=2V_0\)</span> esplicitando l'ultima uguaglianza e ponendo ancora <span class="tex">\(W+p_1.S\sim W\)</span> ricaverei<span class="tex">\(p_1=p_0/2\)</span> e dunque <span class="tex">\(V_1=2V_0, V_2=0!!!!!\)</span>. Evidentemente al secondo equilibrio la prima e la seconda metà devono essere isoterme ma non a <span class="tex">\(T_0\)</span>!! Ho provato anche questa strada ma non riesco algebricamente a determinare <span class="tex">\(V_2\)</span>  D'altra parte non riuscirei a giustificare che tornasse indietro perchè se ha una fluttuazione verso l'alto <span class="tex">\(p_2\)</span> diminuisce e W rimane per cui dovrebbe tendere ancora verso la posizione di equilibrio (stabile) :roll:  :roll:  :roll:</article>
+<article class="post" id="p27007"><div class="who"><b>Pigkappa</b><span>16 giu 2021, 13:39</span></div>La staffetta e' ferma da un po', credo in attesa di Luca che deve dire se la passa a DeoGratias / Leo. Chiunque vuole se la puo' prendere :)</article>
+<article class="post" id="p27008"><div class="who"><b>Luca Milanese</b><span>16 giu 2021, 14:13</span></div>Ero in attesa di altri tentativi di soluzione. Il problema resta irrisolto (Leo si è praticamente risposto da solo nell'ultimo messaggio), per cui se qualcuno vuole postare il 261 ben venga, magari tra qualche giorno pubblicherò la soluzione a questo problema (a meno che non venga risolto nel frattempo).</article>
+<article class="post" id="p27009"><div class="who"><b>Pigkappa</b><span>16 giu 2021, 17:45</span></div>Comunque non mi pare giusto dare indicazioni come "molto grande", "abbastanza lungo", e chiedere al lettore di immaginarsi cosa vogliono dire. Ci devi dire tu qual e' il problema...<br>
+<br>
+Il pistone lascia passare calore? Velocemente? Indovinerei di si' (Equivalentemente - conduttanza termica trascurabile)<br>
+Il peso <span class="tex">\(W\)</span> e' molto maggiore della pressione iniziale del gas moltiplicata per la superficie del pistone?<br>
+La dimensione fisica del peso e' trascurabile rispetto all'altezza del cilindro?<br>
+La lunghezza della corda che lo appende al pistone e' trascurabile rispetto all'altezza del cilindro?<br>
+Se <span class="tex">\(P_0, P_1, P_2, P_3\)</span> sono rispettivamente la potenza che la gravita' trasmette al pistone, la potenza che scorre tra le due parti del cilindro, la potenza dissipata tramite attrito tra pistone e pareti, e la potenza trasmessa all'esterno tramite le pareti del cilindro, vale <span class="tex">\(P_0 \gg P_1 \gg P_2 \gg P_3\)</span> ? E tu vuoi sapere il volume della parte di cilindro sotto il pistone quando <span class="tex">\(P_2\)</span> e' diventata quasi 0, ma <span class="tex">\(P_3\)</span> ancora no?</article>
+<article class="post" id="p27010"><div class="who"><b>Luca Milanese</b><span>16 giu 2021, 18:51</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7082.html#p27009" data-post-id="27009" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 giu 2021, 17:45</div></cite>
+Comunque non mi pare giusto dare indicazioni come "molto grande", "abbastanza lungo", e chiedere al lettore di immaginarsi cosa vogliono dire. Ci devi dire tu qual e' il problema...
+</div></blockquote>
+Il testo originale del problema, tratto dai Puzzling, recita "<span class="tex">\(W\)</span> is very large". Mi sono limitato a tradurlo e a postarlo.
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7082.html#p27009" data-post-id="27009" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 giu 2021, 17:45</div></cite>
+Il pistone lascia passare calore? Velocemente? Indovinerei di si' (Equivalentemente - conduttanza termica trascurabile)
+</div></blockquote>
+Sì, il pistone lascia passare calore, come ho già precisato in una delle risposte precedenti. Non è importante quanto velocemente lo faccia, dato che si chiede la situazione "dopo un tempo abbastanza lungo".
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7082.html#p27009" data-post-id="27009" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 giu 2021, 17:45</div></cite>
+Il peso <span class="tex">\(W\)</span> e' molto maggiore della pressione iniziale del gas moltiplicata per la superficie del pistone?
+</div></blockquote>
+Sì, e lo si capisce risolvendo il problema.
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7082.html#p27009" data-post-id="27009" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 giu 2021, 17:45</div></cite>
+La dimensione fisica del peso e' trascurabile rispetto all'altezza del cilindro?<br>
+La lunghezza della corda che lo appende al pistone e' trascurabile rispetto all'altezza del cilindro?
+</div></blockquote>
+1) Sì.<br>
+2) Sì. Equivalentemente si può immaginare che sul fondo della metà inferiore del cilindro sia presente un piccolo foro (che non lascia passare il gas) attraverso il quale la corda, abbastanza lunga, passa ed è attaccata al peso.
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7082.html#p27009" data-post-id="27009" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 giu 2021, 17:45</div></cite>
+Se <span class="tex">\(P_0, P_1, P_2, P_3\)</span> sono rispettivamente la potenza che la gravita' trasmette al pistone, la potenza che scorre tra le due parti del cilindro, la potenza dissipata tramite attrito tra pistone e pareti, e la potenza trasmessa all'esterno tramite le pareti del cilindro, vale <span class="tex">\(P_0 \gg P_1 \gg P_2 \gg P_3\)</span> ? E tu vuoi sapere il volume della parte di cilindro sotto il pistone quando <span class="tex">\(P_2\)</span> e' diventata quasi 0, ma <span class="tex">\(P_3\)</span> ancora no?
+</div></blockquote> Ho scritto che il pistone scorre senza attrito e che il cilindro è termicamente isolato, perciò <span class="tex">\(P_2\)</span> e <span class="tex">\(P_3\)</span> sono entrambe nulle. Lo smorzamento delle oscillazioni è dovuto alla differenza di pressione fra le due parti del cilindro. La disuguaglianza fra <span class="tex">\(P_0\)</span> e <span class="tex">\(P_1\)</span> penso possa essere anche meno forte, ma in ogni caso questo non c'interessa in quanto il testo chiede il volume della metà sotto al pistone una volta raggiunto l'equilibrio (termico e dinamico), quando <span class="tex">\(P_0=P_1=0\)</span>.</article>
+<article class="post" id="p27011"><div class="who"><b>Pigkappa</b><span>16 giu 2021, 22:47</span></div>Ho imbrogliato usando Mathematica ma posto lo stesso...<br>
+Si conserva l'energia: l'energia potenziale del gas iniziale e gravitazionale del masso, sommate, si conservano.<br>
+Si applica l'equazione dei gas perfetti sia alle due parti del gas all'inizio (che sono uguali quindi ci da' una sola equazione), che per entrambe le parti alla fine.<br>
+La somma delle forze sul pistone alla fine si conserva.<br>
+Non ci sono ovvie equazioni stile adiabatiche. Ce ne potrebbero essere di non ovvie se facessimo ipotesi sui tempi scala, ma Luca ha insistito che non servono.<br>
+<br>
+Per l'energia potenziale uso il fatto che <span class="tex">\(C_V = \frac{5}{2}R\)</span>. Chiamo <span class="tex">\(H\)</span> l'altezza iniziale del pistone (quindi il cilindro e' alto 2H), <span class="tex">\(S\)</span> la superficie del pistone, <span class="tex">\(T0, p0, n\)</span> la temperatura, pressione, moli di gas all'inizio nelle due parti, <span class="tex">\(y_1\)</span> l'altezza del pistone alla fine, <span class="tex">\(T1\)</span> la temperatura alla fine (uguale sopra e sotto), <span class="tex">\(p_A, p_B\)</span> le pressioni.<br>
+<br>
+Scrivendo quindi 4 equazioni nelle 4 incognite <span class="tex">\(y_1, T_1, p_A, p_B\)</span>:<br>
+<span class="tex">\(5 n R T_0 + W H = 5 n R T_1 + W y_1 \)</span><br>
+<span class="tex">\( p_A S = W + p_B S \)</span><br>
+<span class="tex">\( p_A y_1 S = n R T_1 \)</span><br>
+<span class="tex">\( p_B (H - y_1) S = n R T_1\)</span><br>
+Da cui si ricava facilmente ( :lol:  :lol:  :lol: ho imbrogliato senza pudore):<br>
+<span class="tex">\(y_1 = \frac{5 n R T_0 +4HW -\sqrt{25n^2R^2T_0^2 + 5 H n R T0 W + 9 W^2 H^2}}{7 W}\)</span><br>
+(C'e' un'altra soluzione che pero' corrisponde a <span class="tex">\(y_1 &gt; H\)</span>, che mi sembra poco fisica perche' e' strano che il peso si sposti verso l'alto, e per certi valori di <span class="tex">\(W\)</span> da' risultati insensati... Pero' avere un motivo piu' formale per escluderla per ogni valore di <span class="tex">\(H\)</span> mi piacerebbe di piu'; direi che e' equilibrio instabile perche' non c'e' modo che la forza sul pistone sia nulla se siamo piu' in alto che H...).<br>
+Prendendo il limite <span class="tex">\(W \gg n R T_0 / H = p_0 S\)</span> viene <span class="tex">\(y_1 \approx H / 7\)</span>.<br>
+<br>
+E' interessante che un peso infinito non possa comprimere il gas quanto si vuole... Cercavo una spiegazione intuitiva ma non ho niente di troppo soddisfacente. Si raggiunge pressione infinita non puntando ad un rapporto di volumi infinito, ma tenendo il rapporto di volumi (quasi) fisso e aumentando la temperatura all'infinito. Provando con valori diversi di calore specifico non trovo comunque un risultato qualitativamente diverso (a meno di valori senza senso, minori di 1).</article>
+<article class="post" id="p27012"><div class="who"><b>Luca Milanese</b><span>16 giu 2021, 23:13</span></div>Attento... la tua quarta equazione dovrebbe essere <span class="tex">\(p_B (2H-y_1)S=nRT_1\)</span>. In ogni caso ti do la staffetta, la fisica del problema è stata detta. Se ti va, rifai i conti e posta il risultato corretto, altrimenti lo posterò io.</article>
+<article class="post" id="p27013"><div class="who"><b>Pigkappa</b><span>17 giu 2021, 13:13</span></div>Hai ragione, cambiando le equazioni in quel modo:<br>
+<span class="tex">\(5 n R T_0 + W H = 5 n R T_1 + W y_1 \)</span><br>
+<span class="tex">\( p_A S = W + p_B S \)</span><br>
+<span class="tex">\( p_A y_1 S = n R T_1 \)</span><br>
+<span class="tex">\( p_B (2H - y_1) S = n R T_1\)</span><br>
+Mi viene, chiamando <span class="tex">\(q = n R T_0 / W\)</span><br>
+<span class="tex">\(y_1 =  H + \frac{5}{7} q - \frac{1}{7} \sqrt{25q^2 + 35H^2}\)</span><br>
+Che per <span class="tex">\(W &gt;&gt; q\)</span> da' <span class="tex">\(y_1 = H(1 - \sqrt{5/7}) \approx 0.15 H\)</span><br>
+<br>
+Appena posso posto il prossimo :)</article>
+<nav class="pager"><a class="prev" href="olifis-7081.html"><small>← precedente</small>259 Liquido in rotazione</a><a class="next" href="olifis-7083.html"><small>successivo →</small>261. Semicilindro su un piano</a></nav>
+</main></body></html>

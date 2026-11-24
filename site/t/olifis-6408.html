@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>90. Oscillazioni</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 90</a></span></nav>
+<h1>90. Oscillazioni</h1>
+<p class="meta">28 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6408">forum Olifis</a></p>
+<article class="post first" id="p22907"><div class="who"><b>FedericoC.</b><span>10 set 2016, 11:39</span></div>Si riparte con la staffetta, ecco a voi il problema <strong class="text-strong">90</strong>!  :D <br>
+<br>
+Dato un triangolo isoscele costruito con un filo metallico, di base <span class="tex">\(L=42 cm\)</span> e altezza rispetto ad essa <span class="tex">\(h=10 cm\)</span>, sapendo che il periodo di oscillazione per angoli piccoli di tale triangolo rispetto (1) al vertice sopra la base, (2) al punto medio della base e (3) a uno dei due vertici adiacenti alla base è lo stesso ed è uguale a <span class="tex">\(T\)</span>, trovare <span class="tex">\(T\)</span>.</article>
+<article class="post" id="p22908"><div class="who"><b>AleDonda</b><span>10 set 2016, 12:39</span></div>Faccio un primo tentativo...  <span class="tex">\(T=2 \pi\sqrt{{3L^2+20h^2 \over 8gh}}\)</span>. Se non è quella giusta(sicuramente :lol: ) provo con un altro procedimento che ho scartato perchè pareva troppo calcoloso.</article>
+<article class="post" id="p22909"><div class="who"><b>FedericoC.</b><span>10 set 2016, 12:51</span></div>No non torna, ci sono diversi metodi uno è assai calcoloso  :)</article>
+<article class="post" id="p22915"><div class="who"><b>Tatakai</b><span>10 set 2016, 17:45</span></div>Tentativo: il centro di massa risulta, secondo i miei calcoli, a circa 7,37cm sotto il vertice in alto (7,372377..). Dunque guardo un pendolo di quella lunghezza e ottengo con la solita formula <em class="text-italics">0,545s</em>. Non ho guardato se viene uguale negli altri punti, ma in ogni caso dovrebbe essere irrilevante visto che, date le misure del triangolo, si sa già tutto sul come si comporterà. Riflessioni?</article>
+<article class="post" id="p22921"><div class="who"><b>FedericoC.</b><span>10 set 2016, 19:28</span></div>Non è corretto, né la posizione del centro di massa né il periodo. Il ragionamento di utilizzare la formula solita del pendolo è sbagliata, ti consiglio di provare a trovare il periodo di piccole oscillazioni di un disco fissato in un punto a distanza <span class="tex">\(d\)</span> dal suo centro per convincertene ;)</article>
+<article class="post" id="p22922"><div class="who"><b>AleDonda</b><span>10 set 2016, 19:37</span></div>Secondo me è troppo semplicistico. Ricordati che stiamo considerando un corpo rigido, sicuramente devi lavorare sui momenti. Infatti la mia soluzione(ahimè errata) si basa su considerazioni sui momenti delle forze e di inerzia  che mi hanno portato a scrivere <span class="tex">\(T=2 \pi \sqrt{{I \over mgd}}\)</span>. Tuttavia non capisco ancora il mio errore... Sicuramente sostituendo I opportunamente (riferito ai tre centri di rotazione del testo) ottieni un sistema di tre equazioni in m,d ed I ma è una soluzione troppo laboriosa...</article>
+<article class="post" id="p22923"><div class="who"><b>guido</b><span>10 set 2016, 20:05</span></div>Il mio risultato sarebbe T=2pi.radice di h/g poichè la lunghezza ridotta del pendolo composto è la somma delle distanze dal cdm dei due assi nei casi 1) e 2) cioè h/3 e 2h/3</article>
+<article class="post" id="p22924"><div class="who"><b>FedericoC.</b><span>11 set 2016, 0:35</span></div>Per Ale: l'impostazione è giusta, prova a scrivere il sistema<br>
+<br>
+Per Guido: lo scrivo per essere sicuro di non aver frainteso, il risultato seguente non è corretto <span class="tex">\(T=2\pi\sqrt{\frac{h}{g}}=0,634 s\)</span></article>
+<article class="post" id="p22925"><div class="who"><b>AleDonda</b><span>11 set 2016, 0:42</span></div>Posso chiederti se il procedimento da me scritto nell'ultimo messaggio è corretto?</article>
+<article class="post" id="p22926"><div class="who"><b>AleDonda</b><span>11 set 2016, 0:59</span></div>Scusa tanto,non avevo letto il messaggio  :lol:  Proprio perché  è tardi scriverò il sistema domani appena potrò  :D</article>
+<article class="post" id="p22927"><div class="who"><b>guido</b><span>11 set 2016, 9:24</span></div>Mentre concordo che la quota del baricentro è diversa il risultato però dovrebbe venire perchè imponendo l'uguaglianza dei due periodi nei casi1) e 2) con la formula di AleDonda risulta<br>
+<span class="tex">\(I_C=Md'.d\)</span> come momento di inerzia rispetto al cdm e <span class="tex">\(T=2\pi.\sqrt \frac{d+d'}{g}\)</span> dove ovviamente d+d'=h. A meno che la formula di AleOnda che anche io ho usato sia inadeguata.</article>
+<article class="post" id="p22928"><div class="who"><b>FedericoC.</b><span>11 set 2016, 9:36</span></div>La formula detta da Ale, cioè <span class="tex">\(T=2\pi\sqrt{\frac{I}{mgd}}\)</span>, è aduguata. Il problema è che non bastano due delle tre posizioni date per trovare univocamente la soluzione, sono necessarie tutte e tre. In particolare poi il CDM non è detto che sia il baricentro del triangolo, come invece credo tu abbia posto. Dimmi pure se ho inteso male il tuo procedimento  ;)</article>
+<article class="post" id="p22929"><div class="who"><b>guido</b><span>11 set 2016, 9:49</span></div>1) Mi dispiace ma allora il testo è espresso male. Dice che SI SA che i tre periodi sono uguali. Quindi basta imporre l'uguaglianza di due di essi. Se non è così ma come dici tu il testo doveva chiedere di dimostrare l'uguaglianza dei 3...Comunque così è un altro problema che si può fare ovviamente con più calcoli.<br>
+2) Il baricentro non è quello del triangolo come ti dicevo nel post. Mi risulta alla quota <span class="tex">\(2m_2/(2m_2+m_1)\)</span> essendo <span class="tex">\(m_2 , m_1\)</span> la massa del lato e della base.</article>
+<article class="post" id="p22930"><div class="who"><b>FedericoC.</b><span>11 set 2016, 9:58</span></div>Non penso sia espresso male, ma in caso posso aggiungere qualcosa che voi riteniate opportuno per chiarirlo. Se si sa che i tre periodi sono uguali alla fine il risultato che si ottiene per periodo e CDM deve essere effettivamente corretto per tutti e tre i casi altrimenti si è sbagliato qualcosa.<br>
+Comunque scusami, ma non avevo capito dal post precedente perché hai scritto che la quota del baricentro era differente quindi pensavo ti riferissi a quello, non al  CDM.</article>
+<article class="post" id="p22931"><div class="who"><b>AleDonda</b><span>11 set 2016, 11:33</span></div>Allora, i periodi per i tre punti di oscillazione sono <br>
+<span class="tex">\(T=2\pi \sqrt{{I_c+md^2 \over mgd}}\)</span> , <span class="tex">\(T=2\pi \sqrt{{I_c+m(h-d)^2 \over mg(h-d)}}\)</span><br>
+e <span class="tex">\(T=2\pi \sqrt{{I_c+m[(h-d)^2+0.25L^2] \over mg \sqrt{(h-d)^2+0.25L^2}}}\)</span>. Poniamo a due a due uguali queste equazioni(quadrando per eliminare la radice) e otteniamo un sistema di tre equazioni in I m e d. Dopodiché basterà porre i valori trovati in una delle tre relazioni di T.</article>
+<article class="post" id="p22932"><div class="who"><b>FedericoC.</b><span>11 set 2016, 12:55</span></div>L'impostazione è corretta, serve solo una piccola accortezza poiché in questo modo hai tre equazioni e quattro incongnite: <span class="tex">\(T, I_c, m, d\)</span></article>
+<article class="post" id="p22933"><div class="who"><b>AleDonda</b><span>11 set 2016, 13:02</span></div>Basta porre uguali i periodi a due a due dato che il testo dice che sono uguali per i tre punti di oscillazione . Una volta risolto il sistema a tre variabili puoi sostituire i valori nella prima relazione(che è la più semplice) e ricavare T.</article>
+<article class="post" id="p22934"><div class="who"><b>FedericoC.</b><span>11 set 2016, 13:10</span></div>Facendo in questo modo la terza equazione equivale alle prime due e quindi uscirebbe un'identità bisogna osservare che <span class="tex">\(I_c\propto m\)</span> e quindi <span class="tex">\(I_c=mK\)</span> con <span class="tex">\(K\)</span> un'opportuna costante, ad ogni modo va bene ti passo il testimone dato che risolvere il sistema non è poi così importante ;) <br>
+Per i risultati dovrebbe venire <span class="tex">\(d=5cm e T=1,03s\)</span>. La parte interessante secondo me, oltre al fatto della proporzionalità, è che affinché i periodi siano uguali la massa sui lati non può essere uniformemente distribuita e quindi il CDM non corrisponde al baricentro del triangolo.</article>
+<article class="post" id="p22935"><div class="who"><b>AleDonda</b><span>11 set 2016, 13:27</span></div><span class="tex">\(\left \{
+\begin{array}{l}
+{I_c+md^2 \over mgd}={I_c+m(h-d)^2 \over mg(h-d)}\\
+{I_c+md^2 \over mgd}={I_c+m[(h-d)^2+0.25L^2] \over mg \sqrt{(h-d)^2+0.25L^2}}\\
+{I_c+m[(h-d)^2+0.25L^2] \over mg \sqrt{(h-d)^2+0.25L^2}}={I_c+m(h-d)^2 \over mg(h-d)}\\
+\end{array}
+\right.\)</span> <br>
+Per essere precisi :D Onorato! Si è vero la parte "delicata" era proprio quella relativa alla distanza del CdM  che non coincide con il centro di oscillazione. Effettivamente utilizzando<span class="tex">\(I_c=Km\)</span> eliminiamo l'equazione "ridondante" ottenendo inoltre una leggera semplificazione nei calcoli ;)</article>
+<article class="post" id="p22938"><div class="who"><b>guido</b><span>12 set 2016, 7:23</span></div>per Federico : sarebbe possibile avere la formula di T in funzione dei parametri del testo?<br>
+Perchè comparirebbe come incognita d, cioè la distanza dal cdm. Domanda: i punti di oscillazione sono individuati ma, dati il lato e la base, anche il cdm lo è. Non può il cdm essere "adattato" in modo da rendere uguali i tre periodi ma è vero il contrario. Mi pare che il cdm debba essere determinato perchè, data la figura, esso dovrebbe essere UNIVOCAMENTE posizionato indipendentemente dal periodo di oscillazione. :?:</article>
+<article class="post" id="p22939"><div class="who"><b>FedericoC.</b><span>12 set 2016, 13:06</span></div>Purtroppo in non l'ho calcolato in funzione dei parametri del problema perché calcolandolo numericamente si semplificano considerevolmente i calcoli e nemmeno nella soluzione ufficiale è dato.<br>
+Comunque il periodo è dato da, <span class="tex">\(T=2\pi \sqrt{\frac{I}{mgd}}\)</span>, dalle prime due equazioni del sistema pubblicato da Ale sostituendo come avevo scritto nel post precedente <span class="tex">\(I_c=Km\)</span>, si ottiene un sistema di due equazioni in due incognite, cioè <span class="tex">\(d\)</span> e <span class="tex">\(K\)</span>. Ora si hanno dunque tutti i dati per calcolare il periodo, dato che la massa si semplifica.<br>
+<br>
+Dato il il triangolo se la massa del triangolo fosse uniformemente distribuita (e solo in questo caso), il CDM coinciderebbe col baricentro del triangolo, tuttavia niente nel testo garantisce che questa condizione sia soddisfatta, anzi è interessante che affinché i tre periodi siano uguali, come è detto nel testo, la massa non lo sia. Proprio per questo non si può affermare che il CDM di ogni lato sia nel suo punto medio. Si può quindi dire che si deve cercare il CDM "fatto su misura" in modo tale che i tre periodi siano effettivamente uguali.<br>
+<br>
+Spero di essere stato chiaro  :D</article>
+<article class="post" id="p22941"><div class="who"><b>guido</b><span>12 set 2016, 16:05</span></div>Mi dispiace ma d non è incognita. Infatti il cdm si trova sull'altezza e fin qui siamo tutti d'accordo. I cdm dei lati e della base sono nel loro punto medio.  La quota dei cdm dei lati è palesemente di 5 cm, quella della base è 0. Pertanto il cdm del triangolo, applicando la definizione e facendo un conto banale, è a quota 3,36 cm sull'altezza. Allora le distanze di cui Ale parlava nei primi due casi sono 3,36 cm o 6,64 cm che mi sembrano diversi dal tuo. Farò i conti, quando ho tempo, e darò la mia opinione definitiva sulla soluzione da te proposta.  :oops:</article>
+<article class="post" id="p22942"><div class="who"><b>FedericoC.</b><span>12 set 2016, 16:35</span></div>Non ho capito bene cosa ancora non ti torni, però ho fatto i calcoli e il risultato in funzione dei dati del problema è:<br>
+<br>
+<span class="tex">\(\displaystyle T=2\pi \sqrt{\frac{\sqrt{\frac{h^2}{4}+\frac{L^2}{4} }+\frac{h}{2}}{g}}\)</span><br>
+
+<blockquote class="uncited"><div> I cdm dei lati e della base sono nel loro punto medio. </div></blockquote>
+
+Questo punto comunque è sbagliato per il motivo che ti ho detto sopra, non hai nessuno strumento per dirlo per quanto riguarda i lati.</article>
+<article class="post" id="p22943"><div class="who"><b>guido</b><span>12 set 2016, 18:00</span></div>Il cdm di un filo rettilineo di lunghezza L data è nel suo PUNTO MEDIO. Infatti, considerato un elemento di lunghezza dl e massa <span class="tex">\(dm=\lambda.dl\)</span>, dove <span class="tex">\(\lambda\)</span>è la densità lineare, situato all'ascissa l, si trova che l'ascissa <span class="tex">\(l_{cdm}\)</span>del cdm è <strong class="text-strong">per definizione</strong> <span class="tex">\(\frac{\int_0^L{l.dm}}{\int_0^L{dm}}\)</span>. Sostituendo dm e notando che <span class="tex">\(\lambda.L=m\)</span>è facilissimo trovare che <span class="tex">\(l_{cdm}=L/2\)</span>. Come fai a dire che non ho elementi quando applico la definizione? Tuttavia io non voglio fare polemica. Pensa pure come vuoi ma credo che tu sia d'accordo che siamo nel forum per imparare e confrontarci da amici in buona fede :!:</article>
+<article class="post" id="p22945"><div class="who"><b>FedericoC.</b><span>12 set 2016, 18:06</span></div>Certo ci mancherebbe, hai pienamente ragione sul fatto che il forum sia utile proprio per confrontarsi, proprio per questo mi piacerebbe chiarire.<br>
+La tua dimostrazione è giusta, ma il testo del problema non ti dice che <span class="tex">\(\lambda\)</span>, la densità lineare, è uniforme, cosa che hai assunto. Secondo me è proprio questo il punto bello del problema, <span class="tex">\(\lambda\)</span> NON può essere uniforme se i tre periodi sono uguali :)</article>
+<article class="post" id="p22953"><div class="who"><b>guido</b><span>13 set 2016, 7:36</span></div>Sinceramente penso che ti arrampichi sugli specchi e che ti sbagli sul testo. Perchè allora la domanda del testo sarebbe stata di determinare il cdm in modo che i 3 periodi fossero uguali. Il cdm non è un optional se il testo parla di lati di filo metallico ! Vuol dire che il filo è lo stesso per i lati e per la base. Perchè poi ti posso rovesciare la frittata e ti chiedo: su quali elementi puoi affermare il contrario? Per far coincidere i periodi? Ma questo il testo non lo dice, appunto. Comunque ti ripeto che puoi pensarla come vuoi. Si impara molto quando le nostre conclusioni sono messe in discussione, non si impara nulla se non lo sono. Però credo anche che ci sia un limite alle obiezioni che uno può ragionevolmente fare. :roll:</article>
+<article class="post" id="p22957"><div class="who"><b>FedericoC.</b><span>13 set 2016, 12:38</span></div>Ti rispondo solo perché mi dici che mi sto arrampicando sugli specchi, cosa assolutamente non vera.<br>
+Nel testo c'era anche la richiesta di dove dovesse essere il CDM, l'ho omessa semplicemente perché è un passo obbligato per trovare il periodo.<br>
+Nel testo non è detto che il filo ha densità uniforme, cosa che se il filo non è ideale e quindi privo di massa e inestensibile solitamente non è sottintesa, ma specificata.<br>
+Infine se come dici tu "si ribalta la frittata", posso affermare il contrario perché se il CDM non fosse lì e usassimo per esempio il punto da te detto e facessimo i calcoli per TUTTI e tre i periodi e non solo per due, i periodi non sarebbero uguali cosa che nel testo è specificata.<br>
+Ad ogni modo, come hai detto anche tu, ognuno può pensarla come vuole.</article>
+<article class="post" id="p22959"><div class="who"><b>guido</b><span>13 set 2016, 17:00</span></div>Pensa a quante volte ti ho detto che d non era incognita.. oppure che il testo lo doveva dire..e tu mi vieni a confessare oggi che il testo chiedeva dove dovesse essere il cdm con ciò implicando che d fosse davvero incognita! Se tu modifichi i testi nei punti nevralgici (perchè tu non li ritieni tali) allora credo che tu sia d'accordo che è meglio non avere fra noi più discussioni sui problemi.</article>
+<nav class="pager"><a class="prev" href="olifis-6381.html"><small>← precedente</small>89. Carica immagine</a><a class="next" href="olifis-6410.html"><small>successivo →</small>91. Fluido e piano inclinato</a></nav>
+</main></body></html>

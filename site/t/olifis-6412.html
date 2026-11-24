@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>92. Anello carico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 92</a></span></nav>
+<h1>92. Anello carico</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6412">forum Olifis</a></p>
+<article class="post first" id="p22958"><div class="who"><b>FedericoC.</b><span>13 set 2016, 16:38</span></div>Una piccola sfera carica di massa <span class="tex">\(m\)</span> e carica <span class="tex">\(q\)</span> è appesa nel punto più alto di un anello di raggio <span class="tex">\(R\)</span> con una corda ideale di massa trascurabile. L'anello è da considerarsi rigido e sottile, quindi con sezione trascurabile, giacente in un piano verticale. Sull'anello è uniformemente distribuita una carica <span class="tex">\(Q\)</span> con lo stesso segno di <span class="tex">\(q\)</span>. Determinare la lunghezza <span class="tex">\(l\)</span> della corda, affinché la posizione di equilibrio della sfera sia sull'asse di simmetria dell'anello, perpendicolare al piano in cui esso giace.</article>
+<article class="post" id="p22962"><div class="who"><b>AleDonda</b><span>13 set 2016, 17:30</span></div>Provo la soluzione (temo gli errori di calcolo però  :lol: )<br>
+<br>
+<span class="tex">\(l= \sqrt{{(qQ)^2 \over (4 \pi \epsilon_0 Rm g)^2}+R^2}\)</span><br>
+<br>
+<br>
+Ps scusami per l'edit :D</article>
+<article class="post" id="p22964"><div class="who"><b>FedericoC.</b><span>13 set 2016, 19:57</span></div>No non torna</article>
+<article class="post" id="p22965"><div class="who"><b>AleDonda</b><span>13 set 2016, 20:12</span></div>Scusa avevo fato un errore per il calcolo di <span class="tex">\(\vec E\)</span>. Cambio con <span class="tex">\(l={qQ \over 4 \pi \epsilon_0 mgR }\)</span><br>
+Non sono ancora sicuro comunque :?:</article>
+<article class="post" id="p22966"><div class="who"><b>FedericoC.</b><span>13 set 2016, 20:26</span></div>Non va ancora bene</article>
+<article class="post" id="p22967"><div class="who"><b>AleDonda</b><span>13 set 2016, 20:45</span></div>Riprovo per un ultima volta(per ora :lol: ).Stavolta mi esce qualcosa di strano... <span class="tex">\(l=\sqrt[3]{{ qQR\over 4 \pi \epsilon_0 mg }}\)</span>. Se è errata anche questa, non capisco dove sbaglio :roll:</article>
+<article class="post" id="p22968"><div class="who"><b>FedericoC.</b><span>13 set 2016, 20:47</span></div>Ci sei, vai col procedimento  :D</article>
+<article class="post" id="p22969"><div class="who"><b>AleDonda</b><span>13 set 2016, 21:01</span></div>Iniziavo a preoccuparmi! :lol: Ho bruciato due soluzioni per errori stupidi...<br>
+<br>
+Il campo dell'anello carico vale <span class="tex">\(E= {Qz \over 4 \pi \epsilon_0 l^3 }\)</span>,applico il teorema di Euclide fra i triangoli rettangoli della componenti della tensione del filo(<span class="tex">\(T_y=mg\)</span>, <span class="tex">\(T_x={qQz \over 4 \pi \epsilon_0 l^3 }\)</span> in cui <span class="tex">\(T_x\)</span> è data dalla condizione di equilibrio in x) e il triangolo  di cateti <span class="tex">\(R\)</span> e <span class="tex">\(z\)</span>.Otteniamo <span class="tex">\({mg 4 \pi \epsilon_0 l^3  \over qQz }= {R \over z}\)</span>, da cui segue la soluzione.</article>
+<article class="post" id="p22970"><div class="who"><b>FedericoC.</b><span>13 set 2016, 21:05</span></div>A te il testimone!  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6410.html"><small>← precedente</small>91. Fluido e piano inclinato</a><a class="next" href="olifis-6417.html"><small>successivo →</small>93. La staffetta deve continuare!</a></nav>
+</main></body></html>

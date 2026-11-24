@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>201. Ruote e gocce d&#x27;acqua</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 201</a></span></nav>
+<h1>201. Ruote e gocce d'acqua</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6885">forum Olifis</a></p>
+<article class="post first" id="p25904"><div class="who"><b>east_beast</b><span>22 apr 2020, 16:55</span></div>Una ruota di raggio <span class="tex">\(R\)</span> ruota con velocità angolare <span class="tex">\({\Omega}\)</span>. Ad un certo istante da un punto A una goccia d'acqua si stacca dalla ruota<br>
+e raggiunge il punto B, che è il punto di contatto della ruota con il terreno. Trova il punto di caduta della goccia e la posizione del punto A (ad esempio in coordinate polari, con polo il centro della ruota)<br>
+<br>
+edit:  trova il TEMPO di caduta, non punto di caduta, maledetto me...</article>
+<article class="post" id="p25907"><div class="who"><b>bosone</b><span>24 apr 2020, 12:44</span></div>Istituendo il sistema polare con origine nel centro C della ruota e un sistema di assi cartesiane con origine nell'iniziale punto O di contatto della ruota con il terreno e asse x parallelo all'asse polare, dopo calcoli algebrici terribili che potrei aver sbagliato (!), mi verrebbero <span class="tex">\(A(R, arcsen\frac{g}{g+2R\Omega^2})\)</span> e la x nel punto B di contatto nel momento in cui ci cade la goccia <span class="tex">\(x_B = \frac{2\Omega R\sqrt{R^2.\Omega^2+Rg}}{g}\)</span> :roll:  :?:</article>
+<article class="post" id="p25908"><div class="who"><b>east_beast</b><span>24 apr 2020, 14:08</span></div>Mmh ho tradotto il testo paro paro ma forse non sono stato chiarissimo. Il punto B è il punto di contatto della ruota col terreno, quindi è sempre sotto al centro della sfera.<br>
+Mi spiace per averti fatto dannare con le funzioni trigonometriche :D  :D <br>
+C'è una soluzione elegantissima che permette di trovare il tempo senza usare seni o coseni, do un piccolo Hint, senza il quale nemmeno io avrei saputo trovare questo metodo.<br>
+Fai finta che in un istante da ogni punto della ruota parta una goccia, se ti metti nel sistema non inerziale in caduta libera (con accelerazione <span class="tex">\({\vec{g}}\)</span> ) Che figura formano le gocce in ogni istante in questo sistema di riferimento? <br>
+<br>
+Altro mini hint piccolissimo in azzurro: <span style="color:#BFFFFF"> <span style="font-size: 80%; line-height: normal"> Prendi una goccia qualsiasi, come è la sua velocità in funzione del tempo in questo Sistema di riferimento? E com'è la velocità di tutte le gocce?</span> </span><br>
+Provaci, se non ti viene in mente nulla poi scrivo un Hint più pesante</article>
+<article class="post" id="p25909"><div class="who"><b>bosone</b><span>24 apr 2020, 17:30</span></div>Mah, ripenserò a quello che dici. B, dici, è sotto il centro della sfera (lapsus per ruota?). Ma nella mia soluzione B è giusto sull'asse x fisso inerziale coincidente con il terreno e parallelo all'asse polare da te suggerito nel testo. Davo quindi nella mia soluzione solo l'ascissa avendo B ordinata nulla e quindi sotto il centro della ruota che nel sistema fisso ha sempre ordinata R. Quindi non capisco questa osservazione iniziale che alluderebbe al fatto che non ho proprio capito nulla del testo?  La soluzione che do è nel secondo quadrante, poi ce ne sarebbe una banale con il seno uguale a -1 la goccia che cade giusto dal punto di contatto con il terreno ... è giusta o sbagliata? Confesso di essere confuso dalla tua risposta,, forse perchè non ci ho proprio capito nulla nel testo..:roll:  :roll:</article>
+<article class="post" id="p25910"><div class="who"><b>east_beast</b><span>24 apr 2020, 17:58</span></div>Oddio chiedo infinitamente scusa a tutti!  :shock:  :shock:  :shock:  Ho clamorosamente scritto "punto di caduta" al posto di "tempo di caduta", anche perche il punto di caduta è B ed è dato. Chiedo ancora scusa. <br>
+Anche se l'angolo  <span class="tex">\(\alpha\)</span> tra la verticale e il raggio vettore CA ti viene sbagliato anyway Bosone.<br>
+<br>
+edito il testo originale, l'hint è riferito al tempo chiaramente, trovato quello dovresti trovare facilmente <span class="tex">\(\alpha\)</span></article>
+<article class="post" id="p25911"><div class="who"><b>bosone</b><span>25 apr 2020, 11:38</span></div>Vediamo di fare un pò di ordine sulla mia soluzione poi ripenserò al tuo hint. Anzitutto il mio <span class="tex">\(\alpha\)</span> è quello suggerito da te nella prima stesura del testo con il sistema polare cioè quello formato da CA con l'orizzontale asse polare e non con la verticale che ora tiri fuori! Chiamiamolo da ora <span class="tex">\(\alpha_p\)</span>ed è chiaramente allora <span class="tex">\(\alpha=\alpha_p-\pi/2\)</span>. Quindi, dato che ora si chiede il tempo, con il da te sconsigliato metodo della caduta parabolica, io ottenevo, tenendo conto che <span class="tex">\(\alpha_p\)</span> è nel secondo quadrante e dunque che il suo coseno è negativo <span class="tex">\(t= -\frac{cotg\alpha_p}{\Omega}= 2\sqrt{\frac{R}{g}+ \frac{R^2\Omega^2}{g^2}}\)</span> mentre per quanto riguarda <span class="tex">\(\alpha\)</span> abbiamo per la loro relazione che la mia <span class="tex">\(cotg\alpha_p = -tang\alpha\)</span>  e dunque si ottiene <span class="tex">\(\alpha= arctg2\Omega\sqrt{\frac{R}{g}+\frac{R^2\Omega^2}{g^2}}\)</span>.<br>
+Mentre io penso all'hint ti prego di controllare questi miei risultati in termini del nuovo <span class="tex">\(\alpha\)</span> :roll:  :?:</article>
+<article class="post" id="p25912"><div class="who"><b>east_beast</b><span>25 apr 2020, 12:41</span></div>Dovrebbe essere corretto, anche se penso tu ti sia dimenticato un <span class="tex">\(R\)</span> da qualche parte, infatti viene <span class="tex">\(R^2{\Omega}^2/g^2\)</span> il secondo addendo. Vai col prossimo se vuoi, mentre pensi alla soluzione meno contosa.</article>
+<article class="post" id="p25913"><div class="who"><b>bosone</b><span>25 apr 2020, 15:58</span></div>Si hai ragione sennò non torna neppure dimensionalmente vedo di correggere</article>
+<article class="post" id="p25914"><div class="who"><b>bosone</b><span>27 apr 2020, 10:29</span></div>Si è un metodo ingegnoso quello dell'osservazione da un sistema in caduta libera dove le gocce emesse sono viste in una circonferenza determinata dal fatto che partono lungo la tangente percorrendo lo spazio <span class="tex">\(\Omega Rt\)</span> senza risentire degli effetti gravitazionali perchè il riferimento cade insieme a loro. Ho trovato il raggio della circonferenza con Pitagora come <span class="tex">\(R(t)= \sqrt{(\Omega Rt)^2+R^2}\)</span>. Essa cade nel sistema fisso con accelerazione g e tocca il terreno dopo aver percorso di moto uniformemente accelerato il tratto R(t)+R. E' facile allora determinare il tempo impiegato. Dalla figura si vede poi che un altro modo di vedere il tempo è attraverso la relazione fra cateti ovvero<span class="tex">\(R tang\alpha=\Omega R t\)</span> da cui <span class="tex">\(\alpha = arctang(\Omega.t) \)</span> :D</article>
+<article class="post" id="p25915"><div class="who"><b>east_beast</b><span>27 apr 2020, 11:04</span></div>Ottimo!! Molto più bello così :D</article>
+<nav class="pager"><a class="prev" href="olifis-6883.html"><small>← precedente</small>200. Viva la staffetta!</a><a class="next" href="olifis-6886.html"><small>successivo →</small>202. Corsa sul ghiaccio</a></nav>
+</main></body></html>

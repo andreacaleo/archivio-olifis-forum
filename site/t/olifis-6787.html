@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>172. Il fischio del treno</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 172</a></span></nav>
+<h1>172. Il fischio del treno</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6787">forum Olifis</a></p>
+<article class="post first" id="p25292"><div class="who"><b>Spätzle</b><span>9 dic 2018, 12:33</span></div>Un trenino percorre una traiettoria circolare di raggio <span class="tex">\(r\)</span> e centrata nel punto <span class="tex">\((d; 0)\)</span>, dove <span class="tex">\(d &gt; r\)</span>.<br>
+Il trenino emette inoltre un fischio con frequenza <span class="tex">\(f\)</span>.<br>
+Sapendo che procede con velocità angolare costante <span class="tex">\(\omega\)</span> in senso antiorario, qual è la frequenza percepita in ogni istante <span class="tex">\(f_p(t)\)</span> dall'osservatore posto in <span class="tex">\(O = (0; 0)\)</span>?</article>
+<article class="post" id="p25293"><div class="who"><b>lance00</b><span>9 dic 2018, 16:43</span></div>avrò sicuramente sbagliato i conti ma tipo <span class="tex">\(f' = \frac{f v_s}{v_{s}-\frac{\omega r d \sin(\omega t)}{\sqrt{r^2+d^2-2rd\cos(\omega t)}}}\)</span> ?</article>
+<article class="post" id="p25294"><div class="who"><b>sg_gamma</b><span>9 dic 2018, 17:38</span></div>Io ho trovato un risultato identico, solo con il segno positivo.</article>
+<article class="post" id="p25306"><div class="who"><b>Spätzle</b><span>12 dic 2018, 19:15</span></div>Uno di voi due può postare il procedimento?</article>
+<article class="post" id="p25320"><div class="who"><b>lance00</b><span>13 dic 2018, 20:17</span></div>L'idea chiave è che bisogna considerare solo la componente della velocità parallela alla linea che congiunge sorgente e osservatore. Detto <span class="tex">\(\theta = \omega t\)</span> l'angolo che il raggio vettore forma rispetto all'asse x e <span class="tex">\(\phi\)</span> l'angolo che la linea congiungente sorgente e osservatore forma con l'asse x, si ha che la velocità forma un angolo <span class="tex">\(\alpha = \pi/2-\theta-\phi\)</span> rispetto alla congiungente. Per il teorema dei seni <span class="tex">\(\frac{r}{sen \phi} = \frac{d}{cos \alpha}\)</span> da cui <span class="tex">\(cos \alpha = \frac{d}{r} sin \phi\)</span>. vale <span class="tex">\(sin \phi = \frac{R sin \theta}{\sqrt{d^2+r^2-2rd cos\theta}}\)</span> quindi <span class="tex">\(cos \alpha = \frac{d sin \theta}{\sqrt{d^2+r^2-2rd cos\theta}}\)</span> e usando la formula dell'effetto doppler <span class="tex">\(f' = \frac{f v_s}{v_s - v cos\alpha}\)</span> si giunge alla formula che ho postato</article>
+<article class="post" id="p25322"><div class="who"><b>Spätzle</b><span>14 dic 2018, 19:54</span></div>A me torna.<br>
+@sg_gamma: perché ti viene un segno diverso? Con l'effetto Doppler la frequenza è <span class="tex">\(f' = f \frac{v_{suono}}{v_{suono} - v_{sorgente}}\)</span> con <span class="tex">\(v_{sorgente}\)</span> positiva se "punta" verso l'osservatore.</article>
+<article class="post" id="p25323"><div class="who"><b>lance00</b><span>14 dic 2018, 20:49</span></div>ma alla fine dipende da dove parte il treno (se il seno è sfasato di 180 viene + al posto del -). Inoltre il fatto che si muova in senso antiorario mi sembra irrilevante... ma forse ho capito male io  :?</article>
+<article class="post" id="p25325"><div class="who"><b>sg_gamma</b><span>15 dic 2018, 17:12</span></div><blockquote><div><cite>Spätzle ha scritto: <a href="olifis-6787.html#p25322" data-post-id="25322" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">14 dic 2018, 19:54</div></cite>
+A me torna.<br>
+@sg_gamma: perché ti viene un segno diverso? Con l'effetto Doppler la frequenza è <span class="tex">\(f' = f \frac{v_{suono}}{v_{suono} - v_{sorgente}}\)</span> con <span class="tex">\(v_{sorgente}\)</span> positiva se "punta" verso l'osservatore.
+</div></blockquote>
+
+Io ho preso come riferimento il treno che parte alla sinistra del centro della traiettoria, per cui all'inizio il treno si allontana dall'osservatore (dunque la frequenza percepita è minore).<br>
+EDIT: Potrebbe essere interessante per qualcuno, io l'ho risolto mediante il prodotto scalare.</article>
+<article class="post" id="p25326"><div class="who"><b>Gamow00</b><span>15 dic 2018, 17:53</span></div>Per quanto riguarda la questione del segno, siccome la funzione trovata è periodica il segno non fa altro che traslarla nel tempo senza altre variazioni.<br>
+<br>
+Scrivo invcece per dare una soluzione leggermente più semplice di quella già proposta. Piuttosto che considerare la componente parallela alla congiungente e farmi fregare dai calcoli, scrivo semplicemente <span class="tex">\(l\)</span> (distanza del treno dall'osservatore) usando il teorema del coseno:<br>
+<span class="tex">\(l=\sqrt{d^2+r^2-2rd\cos{\theta}}\)</span><br>
+La derivata di questa distanza mi dice quanto il treno si sta allontanando dall'osservatore, che è proprio la velocità da inserire nell'effetto Doppler.<br>
+<span class="tex">\(v={rd\omega \sin{\omega t}  \over \sqrt{d^2+r^2-2rd\cos{\omega t}}}\)</span></article>
+<article class="post" id="p25328"><div class="who"><b>Spätzle</b><span>16 dic 2018, 9:45</span></div>Secondo me (ma è solo la mia opinione), la soluzione più "elegante" è quella di Gamow00, perciò passo a lui il testimone.</article>
+<article class="post" id="p25330"><div class="who"><b>Gamow00</b><span>16 dic 2018, 15:02</span></div>Grazie Spatzle ma penso che il testimone se lo meriti Lance poiché ha risposto prima e la sua soluzione è corretta.<br>
+La mia era solo una considerazione per chi volesse vedere un modo migliore per risolvere il problema, non volevo assolutamente sostituirmi alle soluzioni già date.</article>
+<nav class="pager"><a class="prev" href="olifis-6786.html"><small>← precedente</small>171. Ruotando in una ruota</a><a class="next" href="olifis-6792.html"><small>successivo →</small>Scivolando su un piano</a></nav>
+</main></body></html>

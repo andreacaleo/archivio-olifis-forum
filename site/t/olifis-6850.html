@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>180. Giocatore di bocce</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 180</a></span></nav>
+<h1>180. Giocatore di bocce</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6850">forum Olifis</a></p>
+<article class="post first" id="p25622"><div class="who"><b>bosone</b><span>11 gen 2020, 18:33</span></div>Un giocatore di bocce lancia una boccia di raggio R= 6 cm e massa m radente al terreno con velocità del centro di massa <span class="tex">\(v_0= 5 m/s\)</span>, imprimendole una rotazione in senso contrario a quello di avanzamento pari a <span class="tex">\(\omega_0= 1 rad/s\)</span>. La boccia scivola e rotola sul terreno. Calcolare<br>
+a) dopo quanto tempo <span class="tex">\(t_0\)</span> cessa lo scivolamento se il coefficiente di attrito del terreno è <span class="tex">\(\mu_0= 0,8\)</span><br>
+b) con quale velocità del centro di massa <span class="tex">\(v_c\)</span>  procede la boccia cessato lo scivolamento<br>
+c) <strong class="text-strong">BONUS </strong>Se <span class="tex">\(v_0= 50 cm/s\)</span> quale deve essere <span class="tex">\(\omega_0\)</span>perchè la boccia si arresti dopo lo scivolamento</article>
+<article class="post" id="p25623"><div class="who"><b>Luca Milanese</b><span>13 gen 2020, 16:09</span></div>a) e b) Sulla boccia è esercitata una forza normale di modulo <span class="tex">\(mg\)</span>, quindi l'attrito è <span class="tex">\(mg\mu_0\)</span>. Abbiamo allora che <span class="tex">\(\sum F_x=-mg\mu_0\)</span>, da cui <span class="tex">\(v_c(t)=v_0-g\mu_0t\)</span> finchè siamo in regime di scivolamento. Contemporaneamente, l'attrito esercita un momento torcente <span class="tex">\(mg\mu_0R\)</span>, perciò, ricordando che il momento d'inerzia di una sfera piena è <span class="tex">\(2mR^2/5\)</span>, vale <span class="tex">\(\alpha=\frac{5g\mu_0}{2R}\)</span>, da cui <span class="tex">\(\omega(t)=-\omega_0+\frac{5g\mu_0}{2R}t\)</span>. Il rotolamento puro si ottiene quando <span class="tex">\(v_c=\omega R\)</span>, dunque scriviamo <span class="tex">\(v_0-g\mu_0t_0=-\omega_0 R + 5g\mu_0 t_0/2\)</span>, da cui <span class="tex">\(v_0+\omega_0 R=7g\mu_0t_0/2\)</span> e <span class="tex">\(t_0=2\frac{v_0+ \omega_0 R}{7g\mu_0}=0,18 s\)</span>. Quindi <span class="tex">\(v_c=\frac{5v_0-2\omega_0 R}{7}=3,6 m/s\)</span>.<br>
+c) La boccia si arresta quando la velocità <span class="tex">\(v_c\)</span> e <span class="tex">\(\omega\)</span> sono nulle. Ricorrendo alle precedenti equazioni, <span class="tex">\(v_c=v_0-g\mu_0t=0 \Rightarrow t=\frac{v_0}{g\mu_0} \Rightarrow \omega=-\omega_0+\frac{5v_0}{2R}=0 \Rightarrow \omega_0=\frac{5v_0}{2R}=20,8 rad/s\)</span>.</article>
+<article class="post" id="p25624"><div class="who"><b>bosone</b><span>14 gen 2020, 18:15</span></div>Mi sono reso conto per caso dopo averlo proposto che questo problema era comparso nel forum alcuni anni or sono. Ma tu sei al di sopra di ogni sospetto. Soluzione perfetta, la staffetta è tua :D  :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6849.html"><small>← precedente</small>179. Attrito atipico</a><a class="next" href="olifis-6851.html"><small>successivo →</small>181. Automobile in corsa.</a></nav>
+</main></body></html>

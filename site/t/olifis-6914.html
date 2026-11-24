@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>216- Svolgere e riavvolgere</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 216</a></span></nav>
+<h1>216- Svolgere e riavvolgere</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6914">forum Olifis</a></p>
+<article class="post first" id="p26136"><div class="who"><b>bosone</b><span>14 giu 2020, 11:22</span></div>Un cilindro con asse verticale di raggio r e altezza piccola è fissato su un piano perfettamente liscio. Un filo inestensibile di massa trascurabile è fissato con un estremo ad un punto della sua superficie laterale, avvolto esattamente k volte al cilindro e con l'estremo libero connesso ad un blocco poggiato sul piano liscio (fare la figura in cui si visualizza la situazione dall'alto). Al blocco viene impressa una velocità v diretta verso l'esterno come il raggio vettore <span class="tex">\(\vec r\)</span>. Si chiede il tempo totale che il blocco impiega a svolgere e riavvolgere completamente il filo al cilindro.<br>
+(Si consiglia di indicare con l la lunghezza corrente del filo svolto, con <span class="tex">\(\omega\)</span>  la velocità angolare con cui si svolge la parte avvolta e di esprimere <span class="tex">\(\omega\)</span> in funzione di l)</article>
+<article class="post" id="p26138"><div class="who"><b>Luca Milanese</b><span>14 giu 2020, 12:16</span></div>La parte di filo svolta inizialmente ha lunghezza nulla?</article>
+<article class="post" id="p26139"><div class="who"><b>bosone</b><span>15 giu 2020, 10:21</span></div>Certamente! :D</article>
+<article class="post" id="p26140"><div class="who"><b>Luca Milanese</b><span>15 giu 2020, 11:23</span></div>Scelgo un sistema di cordinate polari con l'origine nel centro del cilindro e l'angolo <span class="tex">\(\theta\)</span> crescente nel verso in cui si muove il blocco. La posizione <span class="tex">\(\vec P\)</span> del blocco, mentre il filo si sta svolgendo, vale allora:<br>
+<span class="tex">\(\vec P=r \hat r -l \hat \theta\)</span><br>
+dove con <span class="tex">\(l\)</span> indico la lunghezza della parte di filo svolta come suggerito. Vale inoltre:<br>
+<span class="tex">\(l=\theta r\)</span>, da cui <span class="tex">\(\dot l=\dot \theta r\)</span> e <span class="tex">\(\dot \theta=\frac{\dot l}{r}\)</span><br>
+Derivando <span class="tex">\(\vec P\)</span> per ricavare la velocità ottengo:<br>
+<span class="tex">\(\vec v=r\dot \theta \hat \theta -\dot l \hat \theta +l \dot \theta \hat r=l\dot \theta \hat r\)</span>.<br>
+Poichè la forza netta agente sul blocco è data dalla tensione del filo, che ha direzione perpendicolare alla velocità (<span class="tex">\(\vec T=T\hat \theta\)</span>), il modulo della velocità si conserva:<br>
+<span class="tex">\(l\dot \theta = cost = v\)</span>.<br>
+Sostituendo l'espressione della velocità angolare precedentemente trovata:<br>
+<span class="tex">\(l\frac{\dot l}{r}=v \Rightarrow ldl=rvdt\)</span><br>
+Integrando fra <span class="tex">\(0\)</span> ed <span class="tex">\(L=2\pi k r\)</span> (lunghezza totale del filo) si ricava il tempo di srotolamento:<br>
+<span class="tex">\(\frac{L^2}{2}=rvt_1 \Rightarrow t_1=\frac{2 \pi^2 k^2 r}{v}\)</span><br>
+A questo punto il blocco descrive una semicirconferenza di raggio <span class="tex">\(L\)</span> e centrata nel punto in cui il filo è fissato al cilindro, in un tempo <span class="tex">\(t_2=\frac{\pi L}{v}=\frac{2\pi^2 k r}{v}\)</span><br>
+Infine il filo si riarrotola attorno al cilindro: la situazione è simmetrica a quella della fase di srotolamento.<br>
+<span class="tex">\(L=l+\theta r \Rightarrow \dot l =-\dot \theta r\)</span><br>
+<span class="tex">\(\vec P=r\hat r+l\hat \theta \Rightarrow \vec v=-l\dot \theta \hat r \Rightarrow v=l\dot \theta =-\frac{l \dot l}{r} \Rightarrow -ldl=rvdt\)</span><br>
+<span class="tex">\(\Rightarrow \int_{L}^{0}-ldl=rvt_3 \Rightarrow \frac{L^2}{2}=rvt_3 \Rightarrow t_3=\frac{2 \pi^2 k^2 r}{v}\)</span><br>
+Quindi <span class="tex">\(t=t_1+t_2+t_3=\frac{2 \pi^2 kr (2k+1)}{v}\)</span></article>
+<article class="post" id="p26143"><div class="who"><b>bosone</b><span>15 giu 2020, 17:43</span></div>Sei stato perfetto e, secondo me, molto veloce. Perchè il tuo procedimento è complesso e calcoloso come quello del promotore del testo. Io avevo trovato una soluzione più semplice osservando che<span class="tex">\(l.dl/dt=(1/2)d(l^2)/dt=vr/2\)</span>è costante. Siccome v=ds/dt integrando si trova che lo spazio percorso dal blocco è proporzionale al quadrato della lunghezza svolta da cui è banale trovare il tempo di avvolgimento/svolgimento cui va aggiunta la semicirconferenza. Vai vai vai con il 217! :D  :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6913.html"><small>← precedente</small>215. Gas dentro ad un cilindro in rotazione</a><a class="next" href="olifis-6916.html"><small>successivo →</small>217. Sfera su giradischi.</a></nav>
+</main></body></html>

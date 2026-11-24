@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>263. Polvere nello spazio</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 263</a></span></nav>
+<h1>263. Polvere nello spazio</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7086">forum Olifis</a></p>
+<article class="post first" id="p27048"><div class="who"><b>matteofisica</b><span>1 lug 2021, 9:44</span></div>Le particelle di polvere cariche dello spazio interstellare, ognuna con un elettrone in eccesso e tutte della stessa massa, formano una nuvola stabile, sferica e uniforme. Si determini la massa di ogni particella. (Halliday, Fisica 2)</article>
+<article class="post" id="p27049"><div class="who"><b>Leo</b><span>2 lug 2021, 11:40</span></div>Ho pensato di considerare una sfera di raggio r con una particella di massa m e di carica e sulla sua superficie. E' soggetta a due forze opposte, quella gravitazionale attrattiva verso il centro e quella elettrostatica repulsiva verso l'esterno. Per la stabilità della nuvola si devono equilibrare. E' noto che la forza gravitazionale è dovuta solo alle masse interne alla sfera come se fossero concentrate nel centro. Per il teorema di Gauss il flusso del campo elettrico attraverso la superficie sferica è uguale alla carica totale racchiusa divisa per <span class="tex">\(\epsilon_0\)</span>. La densità di carica nel volume della sfera è uguale alla densità di massa perchè ad ogni m corrisponde una e. Si elidono alla fine sia r che la densità. Però se questo ragionamento fosse corretto mi viene m= 21 kg che mi pare verosimile e inverosimile. Ho controllato più volte i conti :roll:  :?:  :?:</article>
+<article class="post" id="p27050"><div class="who"><b>matteofisica</b><span>2 lug 2021, 16:27</span></div>21 kg per una nube di polvere cosmica non mi sembra così esagerato (se è questo che intendi), d'altronde lassù ce n'è un bel po' di spazio!  :lol: <br>
+Purtroppo non ho il risultato numerico perché il problema sull'Halliday è di numero pari, però il ragionamento mi sembra corretto. <br>
+Se qualcun altro ha uno svolgimento diverso, è ben accetto, altrimenti direi che puoi andare con il 264! :D</article>
+<article class="post" id="p27051"><div class="who"><b>Luca Milanese</b><span>2 lug 2021, 17:26</span></div>Con (mi pare) lo stesso procedimento di Leo ottengo un risultato numerico abbastanza differente:<br>
+<span class="tex">\(n(r)=\)</span> numero di particelle contenute entro un raggio <span class="tex">\(r\)</span>;<br>
+<span class="tex">\(\vec F_{elettrica}=\frac{e^2 n(r)}{4\pi \epsilon_0 r^2}\hat r \)</span><br>
+<span class="tex">\(\vec F_{gravitazionale}=-\frac{G n(r) m^2}{r^2}\hat r\)</span><br>
+<span class="tex">\(\vec F_{tot}= \vec 0 \Rightarrow m=\frac{e}{\sqrt{4\pi \epsilon_0 G}} \approx 1,86 \cdot 10^{-9} \text{kg}\)</span><br>
+Questo valore mi sembra inoltre ben più sensato dell'altro proposto, in quanto riferito a una singola particella (come richiesto dal testo del problema) e non all'intera nube.</article>
+<article class="post" id="p27052"><div class="who"><b>Leo</b><span>2 lug 2021, 17:46</span></div>Anche il mio risultato è riferito ad un'unica particella! Comunque Luca io sto partendo per una vacanza dopo l'esame per un luogo praticamente senza internet. Quindi non potrei far fronte al testimone. Non so se sia possibile stabilire il risultato giusto sembrandomi corretto anche il tuo procedimento. Propongo a Matteo di far proseguire Luca con il 264. :D  :D</article>
+<article class="post" id="p27053"><div class="who"><b>matteofisica</b><span>2 lug 2021, 18:18</span></div>Anche io ho ottenuto lo stesso risultato di Luca: pensavo che quello di Leo si riferisse a tutta la nube!  :D  Vai Luca con il 264! :)</article>
+<article class="post" id="p27054"><div class="who"><b>matteofisica</b><span>2 lug 2021, 18:21</span></div>Piccola domanda che mi è venuta in mente: se ogni particella pesa 1.86e-9 kg e l'intera nube 21 kg, quando è grande?</article>
+<article class="post" id="p27055"><div class="who"><b>Luca Milanese</b><span>2 lug 2021, 18:29</span></div>Non penso che le dimensioni della nube siano determinabili: quanto scritto più sopra vale per qualunque <span class="tex">\(n(r)\)</span>, perciò le particelle potrebbero essere molto sparse o molto concentrate (ovviamente senza andare nel troppo piccolo, che porterebbe a effetti quantistici).</article>
+<article class="post" id="p27056"><div class="who"><b>matteofisica</b><span>2 lug 2021, 18:31</span></div>Molto bene! Proprio quello che pensavo!</article>
+<nav class="pager"><a class="prev" href="olifis-7085.html"><small>← precedente</small>262 - Marte e satelliti</a><a class="next" href="olifis-7087.html"><small>successivo →</small>264. Onda d&#x27;urto</a></nav>
+</main></body></html>

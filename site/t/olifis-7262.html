@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>324. Scintilla fulminante</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 324</a></span></nav>
+<h1>324. Scintilla fulminante</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7262">forum Olifis</a></p>
+<article class="post first" id="p28541"><div class="who"><b>Pigkappa</b><span>1 ago 2024, 23:47</span></div>Un uomo adulto struscia il suo corpo con vigore su un tappeto di nylon, e acquisisce così un potenziale elettrico di circa 2 kV. <br>
+<br>
+Avvicina poi la mano ad un frigorifero con superficie esterna metallica, facendo partire una scintilla che lo scarica. <br>
+<br>
+Quanto vale approssimativamente l’energia trasferita con questa scintilla?</article>
+<article class="post" id="p28543"><div class="who"><b>Higgs</b><span>4 ago 2024, 11:34</span></div>Io sapevo che i corpi che si elettrizzano per strofinio debbono essere entrambi isolanti ma il corpo umano non lo è ??</article>
+<article class="post" id="p28544"><div class="who"><b>Pigkappa</b><span>4 ago 2024, 18:44</span></div>Il corpo umano è un po' una via di mezzo tra isolante e conduttore. L'importante è non scaricarsi a terra prima di toccare il frigorifero. Se si indossano scarpe di gomma, ad esempio, si è ben isolati.</article>
+<article class="post" id="p28545"><div class="who"><b>Higgs</b><span>6 ago 2024, 18:10</span></div>Non so se riuscirò a spiegare questo ragionamento. Io suppongo infatti che la carica assunta per strofinio possa essere Q, coerente con la capacità elettrostatica della persona che dipende da caratteristiche geometriche (potrebbe essere valutata schematizzando la persona con un conduttore cilindrico. La persona ha poi vari raggi di curvatura di sfere immaginabili  sulla sua superficie. Per esempio la curvatura di un dito della mano è un migliaio di volte minore di quella di una spalla o della schiena. Allora il campo generato  in prossimità del dito è un migliaio di volte quello della spalla o della schiena. Se si tratta di una densità di carica negativa fornita dal nylon, saranno vigorosamente attratti gli ioni positivi dell'aria circostante mentre quelli negativi affluiranno copiosamente sul vicino frigorifero neutralizzando le cariche positive indotte. Quelle negative del frigo sono state infatti scaricate a terra (cui deve per norma essere collegato) che rappresenta la parte lontana del conduttore terra-frigo. In conclusione con la scintilla la carica negativa Q passa dalla persona al frigo. Ora direi che passa dall'energia Q.2kV J a 0 dato il potenziale nullo del frigo collegato a terra. Pertanto se Q è la carica della persona strofinata nel tappeto, l'energia della scintilla sarebbe proprio Q.2kV J  ?<br>
+Più quantitativamente pensavo che la curvatura nel dito della mano è circa mille volte quella media della persona. Quindi la densità e il campo E sulla mano sono <span class="tex">\(E=\sigma/\epsilon_0 V/m\)</span>circa 1000 volte quelli medi. Se dQ è la carica su cui agisce questo campo nel " canale" mano-frigo supposto di 1 m il lavoro dL effettuato dal campo è <span class="tex">\(dL=1.(\sigma/\epsilon_0).dQ J\)</span> <br>
+Pertanto il lavoro totale sulla scintilla, che poi costituisce l'energia della scintilla, è fatto a spese della perdita di energia della carica Q quando passa dalla persona al frigo cioè Q.2kV. J        :roll:  :?:</article>
+<article class="post" id="p28546"><div class="who"><b>Pigkappa</b><span>7 ago 2024, 13:16</span></div>Le cose che scrivi sono giuste ma devi stimare <span class="tex">\(Q\)</span>. La risposta deve essere numerica e le sue dimensioni sono quelle dell'energia.<br>
+<br>
+Non mi preoccuperei troppo della forma del corpo umano. Se dovessi stimare il raggio di curvatura del polpastrello di un dito, comunque, direi tra 0.5 cm e 1 cm. Quello del corpo umano ridotto ad una sfera lo stimerei tra 30 cm e 50 cm. Quel rapporto tra i raggi di curvatura che tu hai stimato in 1000 lo stimerei quindi compreso tra 30 e 100.</article>
+<article class="post" id="p28547"><div class="who"><b>Higgs</b><span>7 ago 2024, 17:16</span></div>Scusa non capisco sennò non posso andare avanti. Intendo la tua affermazione correttamente: le dimensioni di Q sono quelle dell'energia? Ma Q è una carica e si misura in Coulomb. Il campo per la carica è una forza e si misura in N, la forza per lo spostamento è un lavoro e si misura in J. Sennò non avresti scritto che le cose che dico sono giuste... <br>
+Oppure parli della risposta finale che è energia e si misura in J? Proverò questa strada intanto....<br>
+Non preoccupandomi della forma consideriamo l'uomo simulato da una sfera di raggio r= 50 cm. Il potenziale nel centro della sfera è allora 2kV e la capacità elettrostatica della sfera conduttrice è notoriamente <span class="tex">\(C= 4\pi \epsilon_0 r= 5,5 10^{-11 }F\)</span>. Dunque considerato il suo potenziale V=2kV risulterebbe <span class="tex">\(Q\simeq 10^{ -7} C \)</span>. Se è giusto il mio ragionamento sulla caduta di energia , l'energia connessa alla scintilla sarebbe<span class="tex">\( E\simeq 2.10^{-5 } J\)</span>. Mi aspettavo un risultato maggiore....</article>
+<article class="post" id="p28548"><div class="who"><b>Pigkappa</b><span>7 ago 2024, 19:15</span></div>Mi riferivo al risultato finale.<br>
+<br>
+Il ragionamento è corretto ma la approssimazione di sfera conduttrice vuota (o comunque perfettamente conduttrice) è migliorabile. Siamo pieni di tessuto organico e sangue, non sfere metalliche. Come si può tenerne conto?</article>
+<article class="post" id="p28549"><div class="who"><b>Higgs</b><span>8 ago 2024, 11:45</span></div>Il primo tentativo che farei per tenerne conto, mantenendo l'approssimazione sferica, sarebbe l'introduzione della costante dielettrica relativa. Tenuto conto che quella dell'acqua è vicina a 100 e che sangue e materiali organici l'hanno anche maggiore, si potrebbe pensare di maggiorare <span class="tex">\(\epsilon_0\)</span>di qualche centinaio di volte e dunque di portare la capacità del la persona a <span class="tex">\(C=4\pi\epsilon_0\epsilon_r .r F \simeq 2,7.10^{-8 }F\)</span>. Risulterebbe ora <span class="tex">\(Q=C V= \simeq 5,4 .10^{-7 }C\)</span> . In definitiva l'energia della scintilla sarebbe <span class="tex">\(E\simeq10^{-1 } J\)</span> che mi sembrerebbe molto più ragionevole...</article>
+<article class="post" id="p28550"><div class="who"><b>Pigkappa</b><span>8 ago 2024, 13:22</span></div>Ok direi che il problema è risolto, a te la staffetta. <br>
+<br>
+Per quanto riguarda i numeri usati, il corpo umano è al 70% acqua quindi sarebbe stato ragionevole usare la costante dielettrica dell'acqua.<br>
+<br>
+L'acqua è famosa per polarizzarsi molto; pochi materiali hanno costante dielettrica maggiore. La costante dielettrica dei tessuti umani è quindi un po' più piccola dell'acqua, ma dello stesso ordine di grandezza.<br>
+<br>
+Il fatto interessante a cui volevo arrivare è che l'energia totale trasferita è piccola. Piccola nel senso che non basta a riscaldare, e quindi danneggiare, i tessuti umani.<br>
+<br>
+Se invece di scaricarsi una singola volta da un potenziale di 2 kV ci si connette a un oggetto esterno mantenuto a 2 kV, si fanno danni enormi e probabilmente si muore rapidamente! Bastano pochi istanti perché la potenza dissipata V^2/R sia sufficiente a danneggiare i tessuti.</article>
+<nav class="pager"><a class="prev" href="olifis-7260.html"><small>← precedente</small>323.    Serie infinita con generatori e resistenze interne</a><a class="next" href="olifis-7263.html"><small>successivo →</small>325 . Asta scivola nel circolo</a></nav>
+</main></body></html>

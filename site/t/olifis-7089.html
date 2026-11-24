@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>266-la goccia si stacca dalla ruota</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 266</a></span></nav>
+<h1>266-la goccia si stacca dalla ruota</h1>
+<p class="meta">17 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7089">forum Olifis</a></p>
+<article class="post first" id="p27089"><div class="who"><b>Leo</b><span>1 ago 2021, 11:35</span></div>Una ruota di raggio R si muove di puro rotolamento su un terreno bagnato a velocità angolare <span class="tex">\(\Omega\)</span>. Ad un certo momento da un punto A, individuato dall'angolo <span class="tex">\(\alpha\)</span> che il raggio congiungente A con il centro forma con la verticale, si stacca una goccia d'acqua che cade dopo un certo tempo t esattamente nel punto di contatto che in quell'istante ha la ruota con il terreno.<br>
+Determinare:     1) il tempo t        2) il valore di <span class="tex">\(\alpha\)</span>in funzione di t</article>
+<article class="post" id="p27090"><div class="who"><b>matteofisica</b><span>1 ago 2021, 17:32</span></div>Intanto provo a scrivere qualche idea. <br>
+<br>
+La velocità tangenziale del punto A quando la goccia si stacca è <span class="tex">\(v=\Omega R\)</span>. Da quel momento in poi, la goccia procede di moto parabolico avente equazioni: <br>
+<br>
+<span class="tex">\(\left\{\begin{matrix}
+x=v_xt\\ 
+y=h-v_yt-\frac{1}{2}gt^2
+
+\end{matrix}\right.\)</span><br>
+<br>
+Detto alpha l'angolo che A forma con la verticale, <span class="tex">\(v_x=\Omega Rcos\alpha \)</span>, <span class="tex">\(v_y=\Omega Rsin\alpha \)</span>, e <span class="tex">\(h=R(1+cos\alpha )\)</span>. <br>
+<br>
+Da qui si dovrebbe ricavare t ponendo y=0, ma non so come usare il fatto che la goccia cada esattamente nel punto di contatto ruota-strada.  :roll:<br>
+Forse dovrei invece trovare un'espressione per t dalla prima equazione del sistema? :?:</article>
+<article class="post" id="p27092"><div class="who"><b>Leo</b><span>2 ago 2021, 17:39</span></div>Quello che hai scritto potrebbe andare. Puoi trovare t ma non in funzione di alfa....</article>
+<article class="post" id="p27093"><div class="who"><b>matteofisica</b><span>2 ago 2021, 18:20</span></div>Dunque, possiamo immaginare che, prima del distacco, la goccia si trovasse in cima alla ruota. Se così non è, possiamo comunque traslare verticalmente lo zero dell'energia potenziale di Fp in modo da far quadrare i conti. <br>
+Dato che sulla goccia agiscono solo forze conservative, abbiamo che <span class="tex">\(gR(1-cos\alpha )=\frac{1}{2}v^2\)</span>. <br>
+Da qui, sapendo che <span class="tex">\(v=\Omega R\)</span> e ricavando alpha, si ottiene <span class="tex">\(\alpha =cos^{-1}\left ( 1-\frac{\Omega ^2R}{2g} \right )\)</span>. <br>
+E da qui sarei in grado di ricavare t senza aver bisogno di <span class="tex">\(\alpha \)</span> come ho scritto nel post precedente. <br>
+E' corretto? :?:</article>
+<article class="post" id="p27094"><div class="who"><b>Leo</b><span>3 ago 2021, 10:59</span></div>Sinceramente non posso sapere se è corretto. Per cui se come dici saresti in grado di...finisci il procedimento e trova il risultato! :D</article>
+<article class="post" id="p27095"><div class="who"><b>matteofisica</b><span>3 ago 2021, 14:59</span></div>Allora vediamo di concludere: <br>
+la distanza orizzontale percorsa dalla goccia nel tempo t è <span class="tex">\(x=v_xt=\Omega Rcos\alpha t\)</span>. Affinché sia soddisfatta la condizione che la goccia cada nel punto di appoggio della ruota, la distanza percorsa dalla ruota nello stesso tempo t deve essere <span class="tex">\(x+Rsin\alpha =v_ct\)</span>. <br>
+Dunque, sostituendo e ricordando la condizione di rotolamento puro, si ottiene l'equazione<br>
+<span class="tex">\(\Omega cos\alpha t+sin\alpha =\Omega t\)</span><br>
+che dà come risultato <span class="tex">\(t=\frac{sin\alpha }{\Omega (1-cos\alpha )}\)</span>. <br>
+Dato che, come scritto nel post precedente, <span class="tex">\(cos\alpha =1-\frac{\Omega ^2R}{2g}\)</span>, si ottiene un'espressione per t indipendente dall'angolo alpha: <br>
+<span class="tex">\(t=\frac{\sqrt{1-\left ( 1-\frac{\Omega ^2R}{2g} \right )^2}}{\frac{\Omega ^3R}{2g}}\)</span>, dove nell'ultimo passaggio ho usato l'identità fondamentale <span class="tex">\(sin^2\alpha +cos^2\alpha =1\)</span>. <br>
+<br>
+Se il procedimento è giusto e il risultato è corretto posso passare al secondo punto.</article>
+<article class="post" id="p27096"><div class="who"><b>Leo</b><span>4 ago 2021, 11:35</span></div>Il risultato non è corretto così come l'espressione di <span class="tex">\(cos\alpha\)</span> che per certi valori dei parametri potrebbe non essere in valore assoluto minore di 1. Almeno a me risulta infatti incomprensibile questa applicazione della conservazione dell'energia da cui discende il coseno: sembra che l'energia cinetica della goccia uguagli l'energia potenziale. Perchè?<br>
+Se vuoi un consiglio sii preciso nel sistema di riferimento cui intendi riferirti. Puoi porre l'origine nello stesso punto A e gli assi uno da sinistra a destra (orizzontale) e uno verso l'alto (verticale). Descrivi il moto della goccia-proiettile come sicuramente sai. Deve passare per il punto di contatto ruota-terreno che, rispetto al riferimento, ha coordinate precise. Puoi determinare <span class="tex">\(cos\alpha  \)</span>, <span class="tex">\(sen\alpha\)</span> e t.  Un metodo più brillante è quello di porsi in un sistema di riferimento in caduta libera con la goccia in cui essa viaggia con la sua velocità uniforme e il terreno si alza verso la goccia con accelerazione g... Si ottiene lo stesso valore di t e di <span class="tex">\(\alpha\)</span> :D</article>
+<article class="post" id="p27097"><div class="who"><b>matteofisica</b><span>4 ago 2021, 15:52</span></div>Allora, pongo l'origine del sistema di riferimento in A come suggerito; l'asse x lo metto nel verso sx--&gt;dx, l'asse y dall'alto verso il basso, in modo da togliere un po' di segni meno. Le equazioni del moto parabolico diventano: <br>
+<br>
+<span class="tex">\(\left\{\begin{matrix}
+x=\Omega Rcos\alpha  t\\
+y=\Omega Rsin\alpha t+\frac{1}{2}gt^2 
+\end{matrix}\right.\)</span><br>
+<br>
+Il punto di contatto ha coordinate <span class="tex">\((x_c,y_c)=(-Rsin\alpha ,R(1+cos\alpha ))\)</span>. <br>
+Ma adesso mi sorge un dubbio: l'ascissa del punto di contatto non dovrebbe variare nel tempo e corrispondere a quella del centro della ruota, che si muove di moto rettilineo uniforme? Altrimenti come fa la goccia a passare per il punto di contatto muovendosi in avanti lungo l'asse x?<br>
+Le coordinate al tempo t non dovrebbero essere <span class="tex">\((x_c,y_c)=(-Rsin\alpha +\Omega Rt,R(1+cos\alpha ))\)</span>  :?:<br>
+<br>
+Scusami per le domande, ma non mi sento fortissimo in dinamica rotazionale e mi sto impegnando molto per migliorare! :D</article>
+<article class="post" id="p27098"><div class="who"><b>Leo</b><span>5 ago 2021, 17:26</span></div>Prima di tutto l'ascissa del punto di contatto mi sembra positiva <span class="tex">\(x_c=R sen\alpha\)</span>. Poi si ricava il tempo del contatto e.......dovresti trovare tutto. Forse ti dico troppo... :?:</article>
+<article class="post" id="p27099"><div class="who"><b>matteofisica</b><span>5 ago 2021, 19:18</span></div>Adesso ho capito! Io avevo considerato (sbagliando) che il punto A si trovasse a destra rispetto al centro della ruota e quindi al punto di contatto, mentre esso è a sinistra! Sarei dovuto arrivarci prima...<br>
+Comunque sia, riscrivo ancora una volta le formule del moto parabolico e le coordinate del punto di contatto, che, per la condizione di puro rotolamento, è fermo. Il sistema di riferimento è in posizione standard (verso dx e verso l'alto)<br>
+<span class="tex">\(\left\{\begin{matrix}
+x=\Omega Rcos\alpha t\\ 
+y=\Omega Rsin\alpha t-\frac{1}{2}gt^2\\
+x_c=Rsin\alpha \\ 
+y_c=-R(1+cos\alpha )
+\end{matrix}\right.\)</span><br>
+<br>
+Combinando la prima e la terza trovo che <span class="tex">\(tan\alpha = \Omega t \)</span>.<br>
+<br>
+Ora, conoscendo le identità <span class="tex">\(cos\alpha=\frac{1}{\sqrt{1+tan^2\alpha }} \)</span> e <span class="tex">\(sin\alpha=\frac{tan\alpha}{\sqrt{1+tan^2\alpha }}\)</span>, combinando la seconda e la quarta equazione e operando le sostituzioni <span class="tex">\(\left\{\begin{matrix}
+tan\alpha =\Omega t\\ 
+t^2=x
+\end{matrix}\right.\)</span>, si arriva ad una equazione di secondo grado in x che ha come unica soluzione accettabile <span class="tex">\(x=\frac{4gR+4\Omega^2R^2}{g^2}\)</span> (l'altra è x=0). Da qui, ricordando che <span class="tex">\(t=\sqrt{x}\)</span>, si giunge alla soluzione: <span class="tex">\(t=\frac{2}{g}\sqrt{R(g+\Omega^2R)}\)</span>.</article>
+<article class="post" id="p27100"><div class="who"><b>Leo</b><span>6 ago 2021, 10:56</span></div>Questo risultato è corretto  :D . Tuttavia la tua "scoperta" non è tale. E' possibile che la soluzione dipenda dalla parte in cui si prende la goccia? Sicuramente no, rifletti su <span class="tex">\(\alpha\)</span> che devi trovare anche formalmente come secondo punto in funzione di t che ora possiedi. E' un angolo formato con la verticale e allora... :?:  :?:</article>
+<article class="post" id="p27101"><div class="who"><b>matteofisica</b><span>6 ago 2021, 16:04</span></div>Intanto risolvo il secondo punto: dalla relazione <span class="tex">\(tan\alpha=\Omega t\)</span>, sostituendo l'espressione di t trovata nel post precedente, si ottiene <span class="tex">\(\alpha=tan^{-1}\left ( \frac{2\Omega}{g}\sqrt{R(g+\Omega^2R)} \right )\)</span>. <br>
+<br>
+Per quanto riguarda il mio errore concettuale: per giustificare il fatto che il risultato sia indipendente da dove si prende <span class="tex">\(\alpha \)</span>, si può guardare alle relazioni coseno-tangente e seno-tangente scritte prima: se <span class="tex">\(\alpha \)</span> si trova dalla parte opposta, il coseno e conseguentemente la tangente cambiano di segno. In questo modo si ottiene la stessa equazione per t e, dunque, lo stesso risultato.</article>
+<article class="post" id="p27102"><div class="who"><b>matteofisica</b><span>6 ago 2021, 16:24</span></div>Mi correggo: basta guardare alla circonferenza goniometrica per comprendere i segni giusti e poi SOSTITUIRE nelle relazioni a cui mi riferisco. Il caldo fa brutti scherzi! :D</article>
+<article class="post" id="p27103"><div class="who"><b>Leo</b><span>7 ago 2021, 11:15</span></div>Bene vai con il 267! :D e se mi permetti è istruttivo trovare gli stessi risultati mettendosi in un sistema di riferimento in caduta libera insieme alla goccia. :D</article>
+<article class="post" id="p27104"><div class="who"><b>matteofisica</b><span>7 ago 2021, 12:07</span></div>Perfetto! Allora appena ho tempo provo a risolverlo nell'altro sistema di riferimento e domani posto il 267! :D <br>
+<br>
+P.S. Posso chiederti da dove è tratto questo problema?</article>
+<article class="post" id="p27105"><div class="who"><b>Leo</b><span>8 ago 2021, 11:13</span></div>Da Jaan Kalda Problems on kinematics</article>
+<article class="post" id="p27108"><div class="who"><b>matteofisica</b><span>9 ago 2021, 12:14</span></div>Grazie! :D</article>
+<nav class="pager"><a class="prev" href="olifis-7088.html"><small>← precedente</small>265 - Asta che scivola</a><a class="next" href="olifis-7090.html"><small>successivo →</small>267. Infinitupolo</a></nav>
+</main></body></html>

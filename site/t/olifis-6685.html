@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>148. Tempi di collisione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 148</a></span></nav>
+<h1>148. Tempi di collisione</h1>
+<p class="meta">26 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6685">forum Olifis</a></p>
+<article class="post first" id="p24726"><div class="who"><b>lance00</b><span>17 apr 2018, 18:57</span></div>i) Quanto tempo ci mettono due particelle di massa <span class="tex">\(m\)</span> poste a una distanza <span class="tex">\(d\)</span> a collidere?<br>
+ii) Quanto tempo ci mettono due particelle di carica <span class="tex">\(q\)</span> e <span class="tex">\(-q\)</span> e massa <span class="tex">\(M\)</span> poste a una distanza <span class="tex">\(d\)</span> a collidere?<br>
+iii) Trovare <span class="tex">\(M(m,q)\)</span> tale che i due tempi siano uguali</article>
+<article class="post" id="p24727"><div class="who"><b>Aleksej99</b><span>17 apr 2018, 22:44</span></div><span class="tex">\(T=\pi \sqrt{\frac{d^3}{Gm}}\)</span><br>
+<span class="tex">\(T=\pi \sqrt{\frac{d^3}{kq}}\)</span><br>
+<span class="tex">\(kq=Gm\)</span></article>
+<article class="post" id="p24728"><div class="who"><b>lance00</b><span>18 apr 2018, 7:26</span></div>Scusate, mi sono dimenticato di dire che le particelle del punto 2 hanno massa <span class="tex">\(M\)</span>  :oops:  appena posso correggo il testo</article>
+<article class="post" id="p24729"><div class="who"><b>Buraka</b><span>19 apr 2018, 21:17</span></div>Cosa significa il punto 3? Non l'ho compreso  :?:</article>
+<article class="post" id="p24730"><div class="who"><b>.Ruben.</b><span>19 apr 2018, 22:59</span></div>Aleksej, controlla le dimensioni del secondo; a me non sembrano tornare</article>
+<article class="post" id="p24731"><div class="who"><b>lance00</b><span>20 apr 2018, 7:28</span></div>@Ruben: è anche colpa mia che mi ero scordato di dare la massa delle particelle  :lol: <br>
+@aleksej99: il punto 1 è quasi giusto, il punto 2, come ha detto Ruben, non torna dimensionalmente</article>
+<article class="post" id="p24736"><div class="who"><b>lance00</b><span>26 apr 2018, 20:15</span></div>Nessuno?  :(<br>
+ comunque Buraka devi trovare M in funzione di m e q</article>
+<article class="post" id="p24737"><div class="who"><b>Dudin</b><span>27 apr 2018, 13:42</span></div>Io ci ho provato ma esce un'equazione differenziale difficilissima  :?  :?</article>
+<article class="post" id="p24738"><div class="who"><b>lance00</b><span>27 apr 2018, 16:33</span></div>prova a postarla   :)</article>
+<article class="post" id="p24740"><div class="who"><b>Gamow00</b><span>27 apr 2018, 16:44</span></div>Il primo mi viene:<br>
+<span class="tex">\(t=\pi \sqrt{{d^3 \over 8mG}}\)</span><br>
+<br>
+Il secondo:<br>
+<br>
+<span class="tex">\(t=\pi \sqrt{{Md^3 \over 8kq^2}}\)</span></article>
+<article class="post" id="p24741"><div class="who"><b>lance00</b><span>27 apr 2018, 17:25</span></div>quasi giusto (dovrebbe esserci un 16 al denominatore)</article>
+<article class="post" id="p24742"><div class="who"><b>.Ruben.</b><span>27 apr 2018, 19:36</span></div>Ma nel secondo caso non si attrarrebbero sia per gravitá che per via della forza di coulomb?</article>
+<article class="post" id="p24743"><div class="who"><b>lance00</b><span>27 apr 2018, 19:44</span></div>Si</article>
+<article class="post" id="p24744"><div class="who"><b>lance00</b><span>27 apr 2018, 19:45</span></div>Hai ragione Ruben, il punto b di Gamow non torna</article>
+<article class="post" id="p24745"><div class="who"><b>.Ruben.</b><span>27 apr 2018, 20:07</span></div>Ci sono due particelle di massa <span class="tex">\(\mu\)</span>che si attraggono con una forza pari a <span class="tex">\(F=\alpha \mu \frac{1}{r^2}\)</span>, dove r è la reciproca distanza e <span class="tex">\(\alpha\)</span> è un'opportuna costante che dipende dal tipo di forza.<br>
+Mi pongo nel frame unidimensionale centrato nel c.m. del sistema delle due particelle. All'istante iniziale la loro distanza è d (una è in <span class="tex">\(d/2\)</span> ed una in <span class="tex">\(-d/2\)</span>) e la loro velocità è 0 m/s.<br>
+L'energia potenziale di F, integrando, vale <span class="tex">\(U= - \alpha \mu \frac{1}{r}\)</span>.<br>
+Dunque nell'istante iniziale l'energia totale vale <span class="tex">\(E=   - \alpha \mu \frac{1}{d}\)</span>; scrivendo l'equazione di conservazione dell'energia per un qualsiasi istante si ha: <span class="tex">\(2 ( \frac{1}{2} \mu (\frac{dx}{dt})^2) - \alpha \mu \frac{1}{2x} = - \alpha \mu \frac{1}{d}\)</span>, (1)<br>
+dove x(t) è la posizione di una delle due particelle al tempo t. Esse si incontrano ovviamente quando x=0.<br>
+Maneggiando la (1) si ha: <span class="tex">\(\frac{dx}{dt}= - \sqrt{\alpha} \sqrt{ \frac{1}{2x} - \frac{1}{d} } \)</span>, da cui: <span class="tex">\(dt = - \frac{1}{\sqrt{\alpha} } \frac{1}{\sqrt{\frac{1}{2x} - \frac{1}{d} }}\)</span>. Integrando sul tempo da 0 a T e su x da d/2 a 0 si ottiene: <span class="tex">\(T = \frac{1}{\sqrt{\alpha}} \frac{\pi}{4} d^{3/2}\)</span>.<br>
+Nel primo caso <span class="tex">\(F = \frac{G m^2}{r^2} \Rightarrow \alpha_1 = Gm \Rightarrow T_1 = \frac{1}{\sqrt{Gm}} \frac{\pi}{4} d^{3/2}\)</span>.<br>
+Nel secondo caso <span class="tex">\(F = \frac{G M^2}{r^2} + \frac{k q^2}{r^2} \Rightarrow \alpha_2 = \frac{kq^2}{M} + GM \Rightarrow T_2 = \frac{1}{\sqrt{\frac{kq^2}{M} + GM } } \frac{\pi}{4} d^{3/2}\)</span></article>
+<article class="post" id="p24746"><div class="who"><b>lance00</b><span>27 apr 2018, 20:23</span></div>Buona! In alternativa si poteva risolvere direttamente l'equazione del moto <span class="tex">\(\mu \ddot{r} = \frac{\alpha}{r^2}\)</span> dove <span class="tex">\(\mu\)</span> è la massa ridotta (alla fine non è tanto diverso da quello che hai fatto tu) oppure fare delle considerazioni e applicare la terza legge di Keplero <br>
+comunque tutti snobbano il punto 3...  :lol:</article>
+<article class="post" id="p24747"><div class="who"><b>.Ruben.</b><span>28 apr 2018, 8:22</span></div><span class="tex">\(T_2=T_1\)</span> da cui (applicando le formule già trovate) <span class="tex">\(\frac{k q^2}{m} + GM = Gm\)</span>, ossia: <span class="tex">\(GM^2 - GmM + kq^2=0\)</span> che ha soluzioni:<br>
+<span class="tex">\(M(m, q) = \frac{GM \pm \sqrt{G^2 m^2 - 4kGq^2 }}{2G}\)</span>.</article>
+<article class="post" id="p24748"><div class="who"><b>.Ruben.</b><span>28 apr 2018, 8:22</span></div><span class="tex">\(T_2=T_1\)</span> da cui (applicando le formule già trovate) <span class="tex">\(\frac{k q^2}{M} + GM = Gm\)</span>, ossia: <span class="tex">\(GM^2 - GmM + kq^2=0\)</span> che ha soluzioni:<br>
+<span class="tex">\(M(m, q) = \frac{GM \pm \sqrt{G^2 m^2 - 4kGq^2 }}{2G}\)</span>.</article>
+<article class="post" id="p24749"><div class="who"><b>lance00</b><span>28 apr 2018, 9:08</span></div>a parte un piccolo typo va bene! A te il testimone  8-)</article>
+<article class="post" id="p24750"><div class="who"><b>Gamow00</b><span>28 apr 2018, 9:56</span></div><blockquote><div><cite>.Ruben. ha scritto: <a href="olifis-6685.html#p24745" data-post-id="24745" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">27 apr 2018, 20:07</div></cite>
+...  da cui: <span class="tex">\(dt = \frac{1}{\sqrt{\alpha} } \frac{1}{\sqrt{\frac{1}{2x} - \frac{1}{d} }}\)</span>. Integrando sul tempo da 0 a T e su x da d/2 a 0 si ottiene: <span class="tex">\(T = \frac{1}{\sqrt{\alpha}} \frac{\pi}{4} d^{3/2}\)</span>
+</div></blockquote>
+
+Come hai svolto questo integrale?</article>
+<article class="post" id="p24751"><div class="who"><b>.Ruben.</b><span>28 apr 2018, 19:43</span></div>Devo calcolare l'integrale: <span class="tex">\( \sqrt{\alpha} T = - \int_{d/2}^{0} \frac{1}{\sqrt{ \frac{1}{2x} - \frac{1}{d} }} dx\)</span>.<br>
+Sostituisco <span class="tex">\(y = \sqrt{\frac{1}{2x} - \frac{1}{d}}\)</span> e ottengo: <span class="tex">\( \sqrt{\alpha} T = \int_{0}^{+\infty} \frac{1}{(y^2 + \frac{1}{d})^2} dy\)</span>.<br>
+Sostituisco ancora <span class="tex">\(tan(\theta) = \sqrt{d} y\)</span> e ottengo: <span class="tex">\( \sqrt{\alpha} T= d^{3/2} \int_{0}^{\pi/2} cos^2(\theta) d\theta\)</span>.<br>
+Per valutare quest'ultimo integrale, ricordo che (com'è notissimo in fisica): <span class="tex">\(\frac{1}{2\pi} \int_{0}^{2\pi} cos^2(\beta) d\beta = \frac{1}{2}\)</span>, ossia (per le varie simmetrie della funzione coseno quadro): <span class="tex">\(\frac{1}{2\pi} 4 \int_{0}^{\pi/2} cos^2(\beta) d\beta = \frac{1}{2}\)</span>, che implica:<br>
+<span class="tex">\( \sqrt{\alpha} T=d^{3/2} \frac{\pi}{4}\)</span></article>
+<article class="post" id="p24872"><div class="who"><b>sg_gamma</b><span>28 giu 2018, 12:42</span></div><blockquote><div><cite>lance00 ha scritto: <a href="olifis-6685.html#p24746" data-post-id="24746" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">27 apr 2018, 20:23</div></cite>
+Buona! In alternativa si poteva risolvere direttamente l'equazione del moto <span class="tex">\(\mu \ddot{r} = \frac{\alpha}{r^2}\)</span> dove <span class="tex">\(\mu\)</span> è la massa ridotta (alla fine non è tanto diverso da quello che hai fatto tu) oppure fare delle considerazioni e applicare la terza legge di Keplero <br>
+comunque tutti snobbano il punto 3...  :lol:
+</div></blockquote>
+
+Riesumo il topic per chiedere: c'era per caso un modo di risolvere quell'equazione differenziale diverso da quello di .Ruben.? Dopo averla provata a risolvere direttamente senza successo ho chiesto a Internet, ma nemmeno Wolfram Alpha è stato capace di darmi una risposta. Per la legge di Keplero, poi, dimmi se si doveva usare in questo modo.<br>
+In pratica considero il moto unidimensionale di una particella rispetto all'altra come un ellisse degenere del quale voglio trovare il "semiasse maggiore": in un primo tempo si ha già infatti <span class="tex">\(T=\sqrt\frac{4\pi^2a^3}{Gm}\)</span>. Nel sistema di riferimento di una delle due particelle, l'altra percorre una distanza <span class="tex">\(d\)</span> per completare l'orbita che ci interessa, per cui il semiasse maggiore viene in questo caso percorso 4 volte e corrisponde a <span class="tex">\(a=\frac{d}{4}\)</span> che, sostituito, restituisce <span class="tex">\(T=\sqrt\frac{\pi^2d^3}{16Gm}\)</span>.</article>
+<article class="post" id="p24873"><div class="who"><b>lance00</b><span>28 giu 2018, 13:01</span></div>Forse sono io che ho capito male ma la formula del periodo che usi vale solo per masse &lt;&lt; della massa intorno a cui ruotano ... comunque puoi trovare entrambi i procedimenti (keplero, risoluzione eq differenziale) sulle mitiche dispense di Zoratti (pag 459)  :mrgreen:  :mrgreen:</article>
+<article class="post" id="p24874"><div class="who"><b>sg_gamma</b><span>28 giu 2018, 13:34</span></div>A quanto pare in effetti è così (<a href="https://physics.stackexchange.com/questions/356706/third-kepler-law-and-mass-dependance" class="ext" class="postlink">https://physics.stackexchange.com/quest ... dependance</a>), per cui prendendo in considerazione questa versione della legge un ragionamento di quel tipo dovrebbe avere come esito finale non <span class="tex">\(2^6\)</span> (da cui <span class="tex">\(a=\frac{d}{4}\)</span>), ma <span class="tex">\(2^5\)</span> (da cui <span class="tex">\(a=\frac{d}{2^\frac{5}{3}}\)</span>).</article>
+<article class="post" id="p24875"><div class="who"><b>lance00</b><span>28 giu 2018, 13:35</span></div>ma a non vale d/2 ?</article>
+<article class="post" id="p24876"><div class="who"><b>sg_gamma</b><span>28 giu 2018, 13:53</span></div>Controllate le soluzioni: l'idea che avevo proposto è fondamentalmente quella, ma servono appunto questi aggiustamenti:<br>
+1. Quello che si ha nella collisione è solo metà del periodo;<br>
+2. La legge di Keplero generale prevede non una singola massa, ma la somma delle 2;<br>
+3. <span class="tex">\(r_{max}=d; r_{min}=0; a=\frac{d}{2}\)</span> di conseguenza<br>
+In effetti sì, hai ragione; ma nel mio primo approccio, usando una singola massa e non due non riuscivo a capire come mai al denominatore dovesse esserci 16 e ho presupposto che dall'inizio all'urto fosse l'intero periodo e che di conseguenza <span class="tex">\(a=\frac{d}{4}\)</span> :? .</article>
+<nav class="pager"><a class="prev" href="olifis-6684.html"><small>← precedente</small>147: Palline!</a><a class="next" href="olifis-6689.html"><small>successivo →</small>149. Apparente paradosso</a></nav>
+</main></body></html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>141. Levitazione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 141</a></span></nav>
+<h1>141. Levitazione</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6658">forum Olifis</a></p>
+<article class="post first" id="p24553"><div class="who"><b>lance00</b><span>1 mar 2018, 18:02</span></div>Una semisfera trasparente di vetro di raggio <span class="tex">\(R\)</span> e massa <span class="tex">\(m\)</span>, avente indice di rifrazione <span class="tex">\(n\)</span>, si trova in un mezzo con indice di rifrazione uguale a 1. Un fascio laser monocromatico incide nel centro della parte piatta della semisfera. L'accelerazione di gravità <span class="tex">\(g\)</span> è diretta verso il basso. Il raggio <span class="tex">\(\delta\)</span> del fascio è molto minore di <span class="tex">\(R\)</span>. La semisfera non assorbe la luce ed è rivestita di un materiale che rende trascurabile la riflessione. Trovare la potenza <span class="tex">\(P\)</span> del laser necessaria per bilanciare il peso della semisfera.</article>
+<article class="post" id="p24555"><div class="who"><b>Ciccio98</b><span>1 mar 2018, 19:46</span></div>Se la soluzione è giusta invio il procedimento
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/6ad26a71c2878b57.png" class="postimage" alt="SOLUZIONE LEVITAZIONE.png" onclick="viewableArea(this);" /></dt>
+						<dd>SOLUZIONE LEVITAZIONE.png (945 Byte) Visto 7510 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p24556"><div class="who"><b>lance00</b><span>1 mar 2018, 20:44</span></div>no non torna...  però l' <span class="tex">\((n-1)^2\)</span> al denominatore è giusto  :)</article>
+<article class="post" id="p24562"><div class="who"><b>Gamow00</b><span>3 mar 2018, 18:47</span></div>A me viene così:<br>
+<span class="tex">\(P={4cmgR^2 \over \delta^2(n-1)^2}\)</span></article>
+<article class="post" id="p24563"><div class="who"><b>lance00</b><span>3 mar 2018, 19:29</span></div>Buona! posta pure il procedimento  :D</article>
+<article class="post" id="p24564"><div class="who"><b>Gamow00</b><span>4 mar 2018, 13:56</span></div>Consideriamo un raggio di luce a distanza <span class="tex">\(x\)</span> (<span class="tex">\(x \leq \delta\)</span> ovviamente) dall'asse della semisfera. Il raggio forma con la normale alla superficie un angolo <span class="tex">\(\alpha =
+\delta / R  \ll 1\)</span>. Per la legge di Snell l'angolo <span class="tex">\(\beta\)</span> che forma il raggio rifratto con la normale alla superficie rispetta la formula: <span class="tex">\(n\sin{\alpha}=\sin{\beta}\)</span>. Per lo sviluppo in serie di Taylor (@Buraka visto che servono?):<br>
+ <span class="tex">\(n\alpha \approx \beta\)</span><br>
+Di conseguenza l'angolo <span class="tex">\(\gamma\)</span> di cui viene deviato l'angolo rispetto alla sua direzione di propagazione originaria è <span class="tex">\(\beta - \alpha= (n-1) \alpha\)</span>.<br>
+Considero adesso una corona circolare di raggio <span class="tex">\(x\)</span> e spessore <span class="tex">\(dx\)</span>;  la quantità di moto portata dai raggi di luce in questa sezione sarà: <br>
+<span class="tex">\(dP={P_{TOT} \over A_{TOT}}dA=P_{TOT}{2\pi x dx \over \pi \delta^2}=P_{TOT}{2 R^2 \alpha d\alpha \over \delta^2}\)</span>.<br>
+La variazione della quantità di moto verticale dei raggi in questa sezione è <br>
+<span class="tex">\(d \Delta P=dP(1- \cos{\gamma})= dP(1- \cos{(n-1) \alpha}) \approx dP (n-1)^2{\alpha^2 \over 2 }\)</span><br>
+<span class="tex">\(d \Delta P= P_{TOT}{2 \alpha d\alpha}(n-1)^2{ R^2 \alpha^2 \over 2 \delta^2}= P_{TOT}(n-1)^2{R^2 \alpha^3 d\alpha \over \delta^2} \)</span>. <br>
+<br>
+Integrando da <span class="tex">\(0\)</span> a <span class="tex">\(\delta / R\)</span>:<br>
+<span class="tex">\(\Delta P_{TOT}= P_{TOT}(n-1)^2{R^2 \over \delta^2}{\delta^4 \over 4R^4}=  P_{TOT}(n-1)^2{\delta^2 \over 4R^2}\)</span><br>
+<br>
+Per la seconda legge della dinamica: <span class="tex">\({d\Delta P_{TOT} \over dt}=mg\)</span>.<br>
+<span class="tex">\({{dP_{TOT} \over dt}(n-1)^2{\delta^2 \over 4R^2} =mg\)</span><br>
+Essendo un fascio di luce vale la relazione <span class="tex">\(E_{TOT}=P_{TOT}c\)</span> <br>
+<span class="tex">\({{dE_{TOT} \over dt}(n-1)^2{\delta^2 \over 4R^2} =mgc\)</span><br>
+(D'ora in poi con <span class="tex">\(P\)</span> si indica la potenza)<br>
+<span class="tex">\(P(n-1)^2{\delta^2 \over 4R^2} =mgc\)</span><br>
+<br>
+<span class="tex">\(P ={4cmgR^2 \over \delta^2(n-1)^2}\)</span></article>
+<article class="post" id="p24565"><div class="who"><b>lance00</b><span>4 mar 2018, 14:10</span></div>vai col prossimoo  8-)  8-)</article>
+<article class="post" id="p24566"><div class="who"><b>Aleksej99</b><span>4 mar 2018, 19:43</span></div>@gamow00 : potresti spiegare meglio il calcolo della differenza di quantità di moto verticale? Perché a me verrebbe <span class="tex">\(p_i-p_r = \frac{h} {\lambda} cos ( \alpha) - \frac{n h} { \lambda} cos ( n \alpha)  \)</span> per singolo fotone ovviamente</article>
+<article class="post" id="p24567"><div class="who"><b>Gamow00</b><span>4 mar 2018, 21:58</span></div>@Aleksej99: all'inizio la quantità di moto è semplicemente <span class="tex">\(p_{i}={h \over \lambda}\)</span>. I fotoni infatti viaggiano lungo la direzione verticale, quindi la loro quantità di moto è tutta verticale.<br>
+Ora calcoliamo l'angolo di deflessione rispetto alla direzione iniziale .Il raggio incidente forma un angolo <span class="tex">\(\alpha\)</span> con la normale alla superficie della sfera, mentre quello rifratto un angolo <span class="tex">\(n\alpha \)</span> ( ho usato l'approssimazione <span class="tex">\(\sin{n \alpha}= n \alpha\)</span>). <br>
+L'angolo di deflessione rispetto alla direzione è la differenza tra questi due angoli (fai la figura per vederlo) quindi è <span class="tex">\((n-1) \alpha\)</span>. La quantita di moto finale verticale sarà <span class="tex">\(p_{r}=p_{i} \cos{(n-1) \alpha}\)</span>. <br>
+La variazione è <span class="tex">\(\Delta p= p_{i}-p_{f}=p_{i}[1- \cos{(n-1) \alpha}]\)</span>. Ricordando che <span class="tex">\(\alpha \ll 1\)</span>, <span class="tex">\(\cos{(n-1)\alpha } \approx  1-{(n-1)^2 \alpha^2 \over 2}\)</span> per l'espansione in serie di Taylor del coseno.<br>
+Segue:  <span class="tex">\(\Delta p= p_{i}-p_{f}=p_{i}(1- \cos{(n-1) \alpha}=p_{i}\Big[ 1- 1+{(n-1)^2 \alpha^2 \over 2}}}\Big] =p_{i}{(n-1)^2 \alpha^2 \over 2}}=p_{i}{(n-1)^2 \alpha^2 \over 2}}\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-6657.html"><small>← precedente</small>140: Gli inglesi che cambiano il giorno</a><a class="next" href="olifis-6659.html"><small>successivo →</small>142: Menisco in un acquario</a></nav>
+</main></body></html>

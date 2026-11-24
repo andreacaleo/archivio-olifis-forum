@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>151. Circuito di semicirconferenze</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 151</a></span></nav>
+<h1>151. Circuito di semicirconferenze</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6709">forum Olifis</a></p>
+<article class="post first" id="p24826"><div class="who"><b>Pigkappa</b><span>12 giu 2018, 20:47</span></div>Questo e' un problema che, in vari formati, ho proposto per Trieste negli ultimi anni. Non e' mai stato scelto per cui lo uso qua. Provo a postarlo prima come domanda unica, se i progressi sono troppo lenti poi posto la versione suddivisa in step intermedi. <br>
+<br>
+La figura rappresenta un circuito in cui due punti A e B sono connessi tramite una serie di cavi. I cavi formano una griglia infinita di semicirconferenze. La distanza tra due punti contigui sulla retta in cui giacciono A e B e' sempre <span class="tex">\(L = 1\)</span> m. A e B non sono direttamente collegati se non tramite le semicirconferenze. Tutti i cavi sono fatti di rame, che ha resistivita' <span class="tex">\(\rho = 1.68 \times 10^{-8}\)</span> ohm m, e hanno sezione <span class="tex">\(S = 0.1\)</span> <span class="tex">\(\text{cm}^2\)</span>.<br>
+<br>
+Calcola la resistenza equivalente tra A e B. Puoi usare metodi numerici invece che fornire una risposta analitica, ma solo metodi che potresti applicare durante una prova delle Olifis con una calcolatrice scientifica.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/56dbda5c6945b513.png" class="postimage" alt="grid.png" onclick="viewableArea(this);" /></dt>
+						<dd>grid.png (27.81 KiB) Visto 9358 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p24833"><div class="who"><b>Flaffo</b><span>16 giu 2018, 0:12</span></div>Per ora penso di aver trovato (con la calcolatrice, tanto Wolfram si fermava troppo presto) il risultato numerico:<br>
+<br>
+<span class="tex">\(R=( 0.004932 \pm 0.000002) \Omega\)</span><br>
+<br>
+Ho dovuto tirar fuori il cinese nell'armadio per fare i conti, nel caso la colpa è sua.</article>
+<article class="post" id="p24834"><div class="who"><b>Pigkappa</b><span>16 giu 2018, 9:15</span></div>A me viene un risultato un po' diverso, di circa il 20%... Puoi postare il procedimento?</article>
+<article class="post" id="p24835"><div class="who"><b>Flaffo</b><span>16 giu 2018, 10:28</span></div>Penso che le nostre soluzioni differiscano per un motivo di fondo, più che per la risoluzione della ricorsione. Il risultato che avevo messo ieri era per un circuito di 20 semicerchi, ora l'ho fatto su Wofram con 46 semicerchi e il risultato è contenuto comunque nell'incertezza: <br>
+<br>
+<span class="tex">\(R= 0.00493185 \Omega\)</span><br>
+<br>
+Non è così veloce fare il calcolo, dato che da solamente i primi 9 valori della ricorsione e per ottenere gli altri devo continuamente spostare lo zero; altrimenti avrei provato anche con 1000. <br>
+<br>
+Ecco il mio procedimento.<br>
+<br>
+Il valore della resistenza da 1m è:<br>
+<br>
+<span class="tex">\(r= \frac{\rho L}{S} = 0.00168 \Omega \)</span><br>
+<br>
+Quella dei semicerchi, in funzione di n, ponendo n=1 per il primo è:<br>
+<br>
+<span class="tex">\(  R_n = \frac{\pi \rho L}{2S} (n+1) = 0.002639 (n+1) \)</span><br>
+<br>
+Immaginiamo ora di avere un circuito con <span class="tex">\(N\)</span> semicerchi, faremo poi tendere (quando mai) <span class="tex">\(N\)</span> a infinito.<br>
+Sia <span class="tex">\(A(i)\)</span> la resistenza equivalente dei primi <span class="tex">\(i\)</span> moduli (un semicherchio e un segmento), a partire dall'alto con<br>
+<br>
+<span class="tex">\(A(1)= r + R_N\)</span><br>
+<br>
+Il nostro obiettivo sarà quindi trovare <span class="tex">\(A(N)\)</span>, che è la resistenza equivalence dell'intero circuito. Purtroppo Wolfram non ci da la formula per un N generico, quindi dovremo scegliere noi fin dall'inizio che numero prendere. <br>
+<br>
+Per quanto detto prima, la ricorsione sarà allora:<br>
+<br>
+<span class="tex">\(  A(i+1) = r+ \frac{1}{\frac{2}{R_1 (N+2-i)} + \frac{1}{A(i)}} \)</span><br>
+<br>
+Con <br>
+<br>
+<br>
+<span class="tex">\(A(1)= r + R_N= r+ \frac{\pi \rho L}{2S} (n+1) \)</span>.<br>
+<br>
+Scrivendo tutto con i valori numerici:<br>
+<br>
+<br>
+<span class="tex">\(  A(i+1) =0.00168+  \frac{1}{\frac{1}{0.002639(N+2-i)} + \frac{1}{A(i)}} \)</span><br>
+<br>
+Con<br>
+<br>
+<span class="tex">\(A(1)= 0.00168 + 0.002639 (N+1)  \)</span>.</article>
+<article class="post" id="p24837"><div class="who"><b>Pigkappa</b><span>16 giu 2018, 11:53</span></div>In un certo senso tu stai andando dall'esterno verso l'interno, mentre io sono andato dall'interno verso l'esterno. Se trovo il tempo in questi giorni cerco di capire quale approccio e' giusto. Intanto allego la mia soluzione in PDF. Nella soluzione ho usato una formula approssimata per la resistenza di tutte le circonferenze dopo la decima, ma ho provato in Mathematica ad andare oltre e il risultato mi veniva uguale.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><img src="../img/10cc9e974365bf18.gif" alt="" /> <a class="postlink" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=492" class="ext">Semicirconferenze e resistenza.pdf</a></dt>
+						<dd>(143.72 KiB) Scaricato 443 volte</dd>
+		</dl>
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p24838"><div class="who"><b>Pigkappa</b><span>17 giu 2018, 13:00</span></div>Ho rifatto i conti e sono giusti sia nel mio caso che nel tuo, per cui non e' un errore di conto. Non sono sicuro dove sia la magagna ma penso che il mio risultato sia giusto perche' coincide con quello che trovo facendo il conto con le correnti. Prova a pensare anche tu se c'e' qualcosa che non torna nel tuo metodo...<br>
+<br>
+Consideriamo una griglia finita come in figura. Poniamo <span class="tex">\(R = \rho L / S = 1\)</span> per semplificare la notazione. Immaginiamo di aver messo una ddp tra A e B pari a 1 V. Chiamiamo le correnti sul lato superiore <span class="tex">\(c_1, ... c_{n-1}\)</span> e quelle sugli altri lati <span class="tex">\(i_2, ... i_n\)</span>. Chiamiamo <span class="tex">\(\alpha = \pi /2\)</span>. Le equazioni del circuito sono:<br>
+<span class="tex">\(c_k = c_{k+1} + i_{k+1}\)</span> per <span class="tex">\(1 \le k \le n-2\)</span><br>
+<span class="tex">\(c_k + i_{k+1} \times (k+1) \times \alpha = i_k \times k \times \alpha\)</span> per <span class="tex">\(2 \le k \le n-1\)</span><br>
+<span class="tex">\(c_1 + i_2 \times 2 \times \alpha = 1\)</span><br>
+<span class="tex">\(c_{n-1} = i_n\)</span><br>
+Questo e' un piacevole sistema lineare di 2n-2 equazioni e 2n-2 incognite. Sospetto ci siano modi di semplificarlo ma Mathematica lo puo' risolvere anche cosi'. La resistenza equivalente sara' <span class="tex">\(1 / c_1\)</span> e per grandi valori di <span class="tex">\(n\)</span> mi viene di nuovo uguale a <span class="tex">\(\bar R = 2.52 R = 0.0042 \Omega\)</span>. Anche se la mia sintassi e' terribile, allego il notebook di Mathematica che ho usato per fare il conto, purtroppo come PDF perche' il forum non mi fa allegare il .nb.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><img src="../img/10cc9e974365bf18.gif" alt="" /> <a class="postlink" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=495" class="ext">grid_solution_3.pdf</a></dt>
+						<dd>(61.02 KiB) Scaricato 398 volte</dd>
+		</dl>
+		
+		
+			</dd>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/2f3aa9070a149960.png" class="postimage" alt="grid_straight_currents.png" onclick="viewableArea(this);" /></dt>
+						<dd>grid_straight_currents.png (11.69 KiB) Visto 9207 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p24840"><div class="who"><b>drago</b><span>17 giu 2018, 22:36</span></div>Io ho provato a impostare i conti in c++ con la procedura di flaffo e confermo il risultato di Pigkappa, il risultato di flaffo si recupera se si interrompe l'iterazione un passo prima del dovuto ( mi sono accorto dell'errore perchè rivedendo il programma lo ho fatto anche io)<br>
+<br>
+Per comnpletezza riporto un paio di considerazioni;<br>
+c'è un teorema che afferma che data una rete di resistenze qualunque, aumentarne una resistenza qualunque aumenta sempre la resistenza equivalente della rete, diminuirne una diminuisce la la reistenza equivalente (non è facilissimo dimostrarlo ma è fattibile); questo teorema si può usare non solo per stimare la resistenza equivalente ma anche per dare un errore sul risultato.<br>
+<br>
+dopo 50 iterazioni ho ricavato il seguente risultato <span class="tex">\(4.2294976 \; 10^{-3} \; \Omega \leq R_{eq} \leq 4.2294978 \; 10^{-3} \; \Omega \)</span></article>
+<article class="post" id="p24842"><div class="who"><b>Pigkappa</b><span>17 giu 2018, 23:42</span></div>Grazie drago :) Hai un link al teorema?<br>
+<br>
+Se Flaffo riesce a riconciliarsi con il risultato o gli va bene fidarsi sono felice di passargli la staffetta, cosi' la staffetta continua, e magari possiamo farla tornare su problemi un po' piu' umani.<br>
+<br>
+Sarei comunque curioso di trovare un risultato per la resistenza equivalente che si scriva come serie infinita o integrale piuttosto che richiedere una ricorsione, per cui provate a trovarla se ne avete voglia. Il mio supervisor di dottorato un paio di anni fa mi ha detto che secondo lui era "straightforward" farlo a partire dalle equazioni del circuito, ma io non ci sono riuscito.</article>
+<article class="post" id="p24843"><div class="who"><b>Flaffo</b><span>17 giu 2018, 23:45</span></div>Confermo, l'errore che avevo fatto è stato scrivere <span class="tex">\( N+2-i  \)</span> al posto di <span class="tex">\(N+1-i  \)</span> . Ciò mi spostava la sequenza indietro di uno, quindi stavo calcolando effettivamente <span class="tex">\(A(N-1)\)</span></article>
+<article class="post" id="p24845"><div class="who"><b>Flaffo</b><span>17 giu 2018, 23:55</span></div>Il teorema a cui fa riferimento Drago dovrebbe essere contenuto nelle dispense di elettromagnetismo di Kalda.<br>
+<a href="https://www.google.it/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.ioc.ee/~kalda/ipho/e-circuits.pdf&amp;ved=2ahUKEwiBnbTL19vbAhXLQBQKHWXHA3kQFjACegQIARAB&amp;usg=AOvVaw1JZcyE8w4_0G9bfUCwOnPl" class="ext" class="postlink">https://www.google.it/url?sa=t&amp;source=w ... fUCwOnPl  </a></article>
+<article class="post" id="p24846"><div class="who"><b>drago</b><span>18 giu 2018, 10:45</span></div>si, sulle dispense di Kalda c'è questo teorema ma non lo dimostra;<br>
+<br>
+per la frazione continua effettivamente dalle equazioni del circuito si riesce a ricavarne una:<br>
+chiamo <span class="tex">\(R_n\)</span> la resistenza equivalente senza i primi <span class="tex">\(n\)</span> blocchi quindi <br>
+<span class="tex">\(\frac{R_n}{r} = 1+\frac{1}{\frac{1}{(n+2)\alpha}+\frac{1}{\frac{R_{n+1}}{r}}} = 1+\frac{(n+2)\alpha}{1+\frac{(n+2)\alpha}{\frac{R_{n+1}}{r}}}\)</span><br>
+iterativamente<br>
+<span class="tex">\(\frac{R_0}{r} = 1+\frac{2\alpha}{1+\frac{2\alpha}{1+\frac{3\alpha}{1+\frac{3\alpha}{...}}}} \)</span><br>
+che è effettivamente la frazione continua che stavamo cercando</article>
+<article class="post" id="p25001"><div class="who"><b>Pigkappa</b><span>30 lug 2018, 21:42</span></div>Fun fact scoperto somministrando questo problema a dei matematici: per <span class="tex">\(\alpha = 1\)</span> quella frazione (modulo semplici operazioni) e' un numero noto, <a href="https://en.wikipedia.org/wiki/Gompertz_constant" class="ext" class="postlink">la costante di Eulero-Gompertz</a>.</article>
+<nav class="pager"><a class="prev" href="olifis-6705.html"><small>← precedente</small>150. Play tetherball</a><a class="next" href="olifis-6713.html"><small>successivo →</small>152. Tick tack</a></nav>
+</main></body></html>

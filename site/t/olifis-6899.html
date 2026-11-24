@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>208. L&#x27;Anello e le Perline</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 208</a></span></nav>
+<h1>208. L'Anello e le Perline</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6899">forum Olifis</a></p>
+<article class="post first" id="p26013"><div class="who"><b>Phyyse</b><span>27 mag 2020, 2:07</span></div>Due perline, entrambe di massa <em class="text-italics">m</em>, sono libere di scivolare su un anello rigido circolare posizionato verticalmente, la cui massa è <span class="tex">\( m_a \)</span>.<br>
+Le perline sono infilate nell'anello, in modo tale che non possono cadere. Vengono rilasciate nello stesso momento dalla cima dell'anello con una velocità iniziale trascurabile, e scivolano fino in fondo in direzioni opposte. Per tutto il tempo l'anello resta in posizione verticale. Qual è il valore massimo del rapporto <span class="tex">\( \frac{m}{m_a} \)</span> tale che l'anello resti sempre attaccato al terreno? Si trascuri ogni tipo di attrito.<br>
+<br>
+Buon lavoro, e buon divertimento a tutti.</article>
+<article class="post" id="p26014"><div class="who"><b>Luca Milanese</b><span>27 mag 2020, 9:36</span></div>Chiamo <span class="tex">\(N\)</span> la reazione normale fra perlina e anello, e <span class="tex">\(T\)</span> la reazione nornale fra anello e terreno. Per motivi di simmetria, le due perline, cadendo, si troveranno entrambe sempre alla stessa altezza e formeranno sempre lo stesso angolo rispetto alla loro posizione iniziale, che chiamo <span class="tex">\(\theta\)</span>. Dal momento che non ci sono attriti, vale la conservazione dell'energia per ciascuna delle due palline:<br>
+<span class="tex">\(2mgR=mgR(1+\cos\theta)+\frac{mR^2\omega^2}{2} \Rightarrow 2mgR(1-\cos\theta)=mR^2\omega^2\)</span><br>
+<span class="tex">\(\Rightarrow 2g(1-\cos\theta)=R\omega^2\)</span><br>
+Dove <span class="tex">\(R\)</span> è il raggio dell'anello e <span class="tex">\(\omega\)</span> è la velocità angolare di una perlina.<br>
+Eguagliando la risultante delle forze agenti radialmente su una perlina alla forza centripeta si ottiene:<br>
+<span class="tex">\(mg\cos\theta-N=mR\omega^2\)</span>. Ricavando <span class="tex">\(\omega^2\)</span> da questa equazione e inserendo nella precedente ottengo <span class="tex">\(N\)</span>:<br>
+<span class="tex">\(N=mg(3\cos\theta-2)\)</span>.<br>
+Ora considero le forze agenti sull'anello. Se esso non si solleva da terra, la loro risultante è nulla:<br>
+<span class="tex">\(T-m_ag-2N\cos\theta=0 \Rightarrow T=m_ag+2N\cos\theta\)</span>. Sostituendo il valore di <span class="tex">\(N\)</span> ricavato prima:<br>
+<span class="tex">\(T=m_ag+6mg\cos^2\theta-4mg\cos\theta\)</span>.<br>
+La reazione normale <span class="tex">\(T\)</span> è sempre non negativa, quindi la condizione cercata si ottiene imponendo che la disequazione <span class="tex">\(T \geq 0\)</span> sia valida per ogni angolo <span class="tex">\(\theta\)</span>:<br>
+<span class="tex">\(6m\cos^2\theta-4m\cos\theta+m_a \geq 0\)</span>.<br>
+Questa è una disequazione di secondo grado in <span class="tex">\(\cos\theta\)</span>, sempre soddisfatta se <span class="tex">\(\Delta \leq 0\)</span>:<br>
+<span class="tex">\(16m^2-24mm_a \leq 0 \Rightarrow 2m \leq 3m_a \Rightarrow \frac{m}{m_a} \leq \frac{3}{2}\)</span>.<br>
+Quindi il valore massimo cercato è <span class="tex">\(\frac{3}{2}\)</span>.</article>
+<article class="post" id="p26015"><div class="who"><b>Phyyse</b><span>27 mag 2020, 14:37</span></div>Perfetto. Puoi procedere col prossimo problema.</article>
+<nav class="pager"><a class="prev" href="olifis-6895.html"><small>← precedente</small>207. La palla rimbalza su due piani</a><a class="next" href="olifis-6901.html"><small>successivo →</small>209. Razzo relativistico.</a></nav>
+</main></body></html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>219. La ciminiera si spezza</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 219</a></span></nav>
+<h1>219. La ciminiera si spezza</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6919">forum Olifis</a></p>
+<article class="post first" id="p26163"><div class="who"><b>bosone</b><span>23 giu 2020, 18:07</span></div>Un'alta e affusolata ciminiera di mattoni di lunghezza L e massa m viene allontanata dalla sua posizione di equilibrio verticale da una scossa tellurica e ruota di un angolo<span class="tex">\(\theta(t)\)</span> rispetto alla verticale, avendo un momento di inerzia <span class="tex">\(I=(1/3)mL^2\)</span>rispetto alla base B, finchè si spezza in un punto P distante x dalla base B. Si determini x assumendo che la parte (L-x) della ciminiera sopra P sia soggetta ad un momento generato dal suo centro di massa più forte rispetto a quello generato dalla parte x sotto P che tende invece a farla ruotare all'accelerazione angolare prevista dall'equazione del moto. <br>
+<br>
+Hint. Dove è massima la differenza fra questi momenti (punto P) la ciminiera si spezza</article>
+<article class="post" id="p26167"><div class="who"><b>Luca Milanese</b><span>26 giu 2020, 23:23</span></div><span class="tex">\(x=\frac{2L}{3}\)</span>? Se è corretto posto il procedimento.</article>
+<article class="post" id="p26168"><div class="who"><b>bosone</b><span>27 giu 2020, 10:59</span></div>Il tuo x attualmente non è corretto. Magari riguarda i conti mi sembra che sei sulla giusta via.  Se ci pensi è improbabile che si spezzi solo l'utimo terzo :?:</article>
+<article class="post" id="p26169"><div class="who"><b>Pigkappa</b><span>28 giu 2020, 17:40</span></div><blockquote><div><cite>Luca Milanese ha scritto: <a href="olifis-6919.html#p26167" data-post-id="26167" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">26 giu 2020, 23:23</div></cite>
+<span class="tex">\(x=\frac{2L}{3}\)</span>? Se è corretto posto il procedimento.
+</div></blockquote>
+
+Da quel che ricordo quel risultato non e' corretto ma assomiglia a quello giusto. Se posti direttamente il procedimento invece di fare il giochino "dimmi se questo e' giusto e poi posto" possiamo risparmiare un paio di giorni di interazioni a vuoto :P</article>
+<article class="post" id="p26170"><div class="who"><b>Luca Milanese</b><span>28 giu 2020, 18:15</span></div>Ok allora io ho ragionato così:<br>
+Per prima cosa ricavo l'accelerazione angolare della ciminiera in funzione di <span class="tex">\(\theta\)</span>, e trovo, essendo <span class="tex">\(\tau=\frac{mgL\sin\theta}{2}\)</span> e <span class="tex">\(\tau=I\alpha\)</span>:<br>
+<span class="tex">\(\alpha=\frac{3g\sin\theta}{2L}\)</span>.<br>
+Ora guardo alla prima metà della ciminiera (quella di lunghezza <span class="tex">\(x\)</span>). Il suo momento d'inerzia rispetto alla base vale <span class="tex">\(I_1=\frac{mx^3}{3L}\)</span>, pertanto su di esso deve agire un momento torcente totale pari a <span class="tex">\(\tau_1=I_1\alpha=\frac{mg\sin\theta x^3}{2L^2}\)</span>. Il momento agente su questa parte di ciminiera dovuto alla gravità vale <span class="tex">\(\tau_g=\frac{mgx^2\sin\theta}{2L}\)</span>, quindi agisce anche un momento addizionale di modulo <span class="tex">\(\tau_g-\tau_1=\frac{mg\sin\theta x^2(L-x)}{2L^2}\)</span>, che si oppone al moto. Lo stesso momento torcente agisce, in senso contrario, sulla seconda parte di ciminiera: ho fatto i conti con la parte lunga <span class="tex">\(x\)</span> per semplicità. A questo punto ho ritenuto che il punto di rottura più probabile fosse quello in cui il momento torcente addizionale è massimo, cioè in <span class="tex">\(x=\frac{2L}{3}\)</span>. Però anche a me sembra strano che la ciminiera si rompa così in alto, e in effetti bosone ha detto che il risultato è sbagliato. Non riesco a capire se ho fatto qualche errore nel procedimento o se devo tentare un approccio del tutto diverso...</article>
+<article class="post" id="p26171"><div class="who"><b>Pigkappa</b><span>29 giu 2020, 1:05</span></div>Lascio controllare a bosone :P</article>
+<article class="post" id="p26172"><div class="who"><b>bosone</b><span>29 giu 2020, 11:23</span></div>Intanto credo che ci sia una differenza con la soluzione nell'acc. angolare. Dovrebbe esserci un coseno se indichiamo con <span class="tex">\(\theta\)</span> l'angolo formato dalla ciminiera con l'orizzontale ( ma penso che tu abbia indicato il suo complementare). Questo comunque è poco rilevante. Poi analizza (L-x), non x. Calcola due momenti di (L-x): 1) rispetto alla base per quanto riguarda il suo peso (che puoi esprimere poi per mezzo dell'acc.angolare) 2) con la formula del moto mutatis mutandis cioè riferendoci a (L-x) (e non ad L) ancora per mezzo dell'acc. angolare. Trova il max (vedi hint nel testo) della differenza dei loro moduli e il gioco dovrebbe essere fatto. Il risultato è molto simile al tuo ma.... :?:</article>
+<article class="post" id="p26173"><div class="who"><b>Luca Milanese</b><span>29 giu 2020, 12:38</span></div>Per quanto riguarda l'angolo, io leggo nel testo del problema che <span class="tex">\(\theta\)</span> viene misurato rispetto alla verticale, e per questo ho usato <span class="tex">\(\sin\theta\)</span>. Comunque, penso di aver capito dove sbagliavo. Prendendo come polo dei momenti il punto <span class="tex">\(P\)</span> e non la base <span class="tex">\(B\)</span> della ciminiera, allora il momento di inerzia della parte <span class="tex">\((L-x)\)</span> vale <span class="tex">\(I=\frac{m(L-x)^3}{3L}\)</span>, quindi il momento torcente totale è <span class="tex">\(\frac{m\alpha (L-x)^3}{3L}\)</span>. Il momento torcente dovuto alla gravità risulta <span class="tex">\(\frac{mg\sin\theta (L-x)^2}{2L}=\frac{m\alpha(L-x)^2}{3}\)</span>, quindi la differenza vale <span class="tex">\(\frac{m\alpha x(L-x)^2}{3L}\)</span>, che è massimo in <span class="tex">\(x=\frac{L}{3}\)</span>, un valore di <span class="tex">\(x\)</span> che mi sembra molto più plausibile. In effetti non aveva molto senso considerare i momenti rispetto a <span class="tex">\(B\)</span>, dato che la rottura avviene in <span class="tex">\(P\)</span>. Chiedo conferma del risultato.</article>
+<article class="post" id="p26174"><div class="who"><b>bosone</b><span>30 giu 2020, 11:09</span></div>Si, ci siamo :D  :D Vai con il 220!</article>
+<nav class="pager"><a class="prev" href="olifis-6917.html"><small>← precedente</small>218. Potenziale quadratico</a><a class="next" href="olifis-6923.html"><small>successivo →</small>220. Oscillazioni in orbita.</a></nav>
+</main></body></html>

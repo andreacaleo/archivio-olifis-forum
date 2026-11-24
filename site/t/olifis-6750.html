@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>164. Decagono</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 164</a></span></nav>
+<h1>164. Decagono</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6750">forum Olifis</a></p>
+<article class="post first" id="p25110"><div class="who"><b>nicarepo</b><span>13 ago 2018, 13:41</span></div>Sia dato un decagono in cui le diagonali (non i lati) sono formate da resistori di resistenza <span class="tex">\(R\)</span>. Tra i dieci vertici si scelgano tre punti contigui e uno a caso non vicino ai primi tre (quindi in uno dei 5 posti rimanenti). Calcolare la resistenza equivalente tra il punto scelto a caso e uno dei due vertici esterni dei tre scelti in precedenza.</article>
+<article class="post" id="p25230"><div class="who"><b>Dudin</b><span>19 set 2018, 7:59</span></div>Dato che il problema é irrisolto puoi inviare degli hint/soluzione?</article>
+<article class="post" id="p25233"><div class="who"><b>drago</b><span>10 ott 2018, 11:04</span></div>dato che il problema mi sembra irrisolto da troppo tempo propongo una soluzione usa un cannone ma mi sembra il modo più svelto di risolverlo.<br>
+<br>
+Premetto che userò la trasformata di Fourier finita che si riassume nelle seguenti formule: date <span class="tex">\(N\)</span> tensioni <span class="tex">\(V_{n=0} \dots V_{n=N-1}\)</span> allora si possono riscrivere in una nuova ennupla di tensioni <span class="tex">\(V_{k=0} \dots V_{k=N-1}\)</span> attraverso le seguenti formule<br>
+<br>
+<span class="tex">\(V_n = \sum_{k=0}^{k=N-1} V_k e^{i\frac{2\pi}{N}n k} \qquad V_k = \sum_{n=0}^{n=N-1} V_n e^{-i\frac{2\pi}{N}k n}\)</span><br>
+<br>
+dove <span class="tex">\(i\)</span> è l'unità immaginaria e la prima equazione trasforma le <span class="tex">\(V_k\)</span> nelle <span class="tex">\(V_n\)</span> e la seconda è la trasformazione inversa; <span style="text-decoration:underline">con queste trasformazioni  data un ennupla <span class="tex">\(V_n\)</span> le corrispondenti <span class="tex">\(V_k\)</span> sono uniche e viceversa</span> (attenzione le <span class="tex">\(V_k\)</span> non hanno nessun significato fisico sono solo un modo per fare meglio i conti).<br>
+<br>
+Veniamo al problema, prendo un n-agono regolare dove le diagonali sono composte da resistenze tutte uguali e pari a <span class="tex">\(R\)</span> e volgiamo trovare la resistenza equivalente <span class="tex">\(R_m\)</span> cioè quella tra il nodo <span class="tex">\(0\)</span> e il nodo <span class="tex">\(m\)</span> ;<br>
+per calcolarla attacchiamo un generatore di corrente costante tra i nodi <span class="tex">\(0\)</span> ed <span class="tex">\(m\)</span> di intensità <span class="tex">\(I\)</span> e  andiamo a calcolarci la differenza di potenziale <span class="tex">\(V_{0m}\)</span> tra i due nodi, così <span class="tex">\(R_m = \frac{V_{0m}}{I}\)</span>.<br>
+<br>
+chiamo <span class="tex">\(V_n\)</span> il potenziale sull'ennesimo nodo e impongo che <br>
+<span class="tex">\(\boxed{\sum_n V_n = 0}\)</span><br>
+(posso farlo perché devo specificare lo <span class="tex">\(0\)</span> rispetto cui riferisco i vari potenziali); <br>
+<br>
+scrivo la prima legge di kirchhoff per l'ennesimo nodo<br>
+<span class="tex">\(\sum_{l=0}^{N-1} (V_n-V_l)\sigma_{nl} = I_n\)</span><br>
+dove <span class="tex">\(\sigma_{nl}\)</span> è pari a <span class="tex">\(R^{-1}\)</span> se i nodi <span class="tex">\(n\)</span> ed <span class="tex">\(l\)</span> sono collegati da una resistenza, altrimenti è nulla,  <span class="tex">\(I_m\)</span> è la corrente esterna che impone il generatore di corrente quindi <span class="tex">\(I_0 = I \quad I_m = -I \)</span> ed è nulla altrimenti.<br>
+<br>
+<span class="tex">\(\sum_{l=0}^{N-1} (V_n-V_l)\sigma_{nl} = \sum_{l=0}^{N-1} V_n \sigma_{nl} - \sum_{l=0}^{N-1} V_l \sigma_{nl} = \frac{N-3}{R} V_n + \frac{1}{R}(V_{n+1}+V_{n-1}+V_n)\)</span><br>
+<br>
+quindi bisogna risolvere il sistema di <span class="tex">\(N\)</span> equazioni (dove si è assunto <span class="tex">\(V_N = V_0\)</span>)<br>
+<span class="tex">\(\frac{N-2}{R} V_n + \frac{1}{R}(V_{n+1}+V_{n-1}) = I_n\)</span><br>
+<br>
+usando la trasformata di Fourier si può scrivere<br>
+<span class="tex">\(\frac{N-2}{R}  \sum_{k=0}^{k=N-1} V_k e^{i\frac{2\pi}{N}n k}  + \frac{1}{R}\sum_{k=0}^{k=N-1} V_k e^{i\frac{2\pi}{N}n k} (e^{i\frac{2\pi}{N}k}+e^{-i\frac{2\pi}{N}k}) = \sum_{k=0}^{k=N-1} I_k e^{i\frac{2\pi}{N}n k}\)</span><br>
+<span class="tex">\(I_k = I(1-e^{-i\frac{2\pi}{N}m k})\)</span><br>
+<br>
+e per unicità (l'equazione vale per ogni <span class="tex">\(n\)</span>) posso prendere l'uguaglianza componente per componente<br>
+<span class="tex">\(\frac{N-2}{R} V_k + \frac{1}{R}V_k (e^{i\frac{2\pi}{N}k}+e^{-i\frac{2\pi}{N}k}) = I_k \)</span><br>
+<br>
+quindi<br>
+<span class="tex">\(V_k = RI\frac{1-e^{-i\frac{2\pi}{N}m k}}{N-2 + (e^{i\frac{2\pi}{N}k}+e^{-i\frac{2\pi}{N}k})}\)</span><br>
+<br>
+antitrasformando<br>
+<span class="tex">\(V_0-V_m = RI\sum_{k=0}^{k=N-1} \frac{(1-e^{-i\frac{2\pi}{N}m k})(1-e^{i\frac{2\pi}{N}m k})}{N-2 + (e^{i\frac{2\pi}{N}k}+e^{-i\frac{2\pi}{N}k})}\)</span><br>
+<br>
+con qualche conto e usando l'identità <span class="tex">\(2cos(\theta) = e^{i\theta}+e^{-i\theta}\)</span> si ricava<br>
+<span class="tex">\(\boxed{R_m = R \sum_{k=0}^{k=N-1} \frac{1-\cos(\frac{2\pi}{N}mk)}{\frac{N-2}{2} + \cos(\frac{2\pi}{N}k)}}\)</span><br>
+<br>
+in particolare per il nostro problema <span class="tex">\(N = 10\)</span><br>
+<span class="tex">\(\frac{R_0}{R} = 0\)</span><br>
+<br>
+<span class="tex">\(\frac{R_1}{R}= \frac{6818}{2343} \approx 2.910\)</span><br>
+<br>
+<span class="tex">\(\frac{R_2}{R}= \frac{1984}{781} \approx 2.540\)</span><br>
+<br>
+<span class="tex">\(\frac{R_3}{R} = \frac{6062}{2343} \approx 2.587\)</span><br>
+<br>
+<span class="tex">\(\frac{R_4}{R} = \frac{2016}{781} \approx 2.581\)</span><br>
+<br>
+<span class="tex">\(\frac{R_5}{R} = \frac{550}{213} \approx 2.582\)</span><br>
+<br>
+<span class="tex">\(\frac{R_6}{R} = \frac{2016}{781} \approx 2.581\)</span><br>
+<br>
+<span class="tex">\(\frac{R_7}{R} = \frac{6062}{2343} \approx 2.587\)</span><br>
+<br>
+<span class="tex">\(\frac{R_8}{R}= \frac{1984}{781} \approx 2.540\)</span><br>
+<br>
+<span class="tex">\(\frac{R_9}{R}= \frac{6818}{2343} \approx 2.910\)</span><br>
+<br>
+spero di essere stato chiaro nei passaggi.</article>
+<article class="post" id="p25234"><div class="who"><b>Pigkappa</b><span>11 ott 2018, 17:22</span></div>La frequentazione del forum è crollata a precipizio dopo le ammissioni in SNS, come succede sempre... Non so se nicarepo legge ancora, direi che drago tu posta pure il prossimo problema per la staffetta e speriamo che sia così bello da ripopolare il forum :)</article>
+<article class="post" id="p25235"><div class="who"><b>nicarepo</b><span>11 ott 2018, 22:11</span></div>Nonostante non riesca a capire la soluzione (non ho proprio le basi matematiche), il risultato è giustissimo. Mi dispiace aver bloccato la staffetta, ma la soluzione a cui avevo pensato era decisamente più semplice. Il punto è che era approssimata con un errore relativo del 10%, quindi ero indeciso se fosse corretta o meno (la soluzione precisa si poteva trovare con i simulatori). Poi c'è stato l'esame della Normale ed è iniziata l'università, quindi ho rimandato... Ringrazio Drago per essersi interessato, immagino sia una soluzione estremamente elegante, e mi scuso per l'inconveniente. Ad ogni buon conto colgo l'occasione per chiedere se è corretto frequentare il forum da universitario, essendo pensato per i liceali che approcciano le Olimpiadi. In caso di risposta affermativa, sarò ben lieto di continuare a partecipare ed essere attivo sul forum  :D (magari evitando di postare problemi di questo tipo)</article>
+<article class="post" id="p25236"><div class="who"><b>Pigkappa</b><span>12 ott 2018, 0:43</span></div>Sei il benvenuto, il forum è aperto a tutti, cerchiamo solo di tenere il livello umano così da non scoraggiare studenti del liceo. Ma un problema o soluzione avanzato ogni tanto va bene. La soluzione di drago in particolare è ottima perché il cannone che usa non è così astruso e perché i conti non sono molto difficili. Questo metodo potrebbe essere utile nell'arsenale di un ragazzo che va alle IPhO. <br>
+<br>
+Cosa non capisci della soluzione di drago? A me non sarebbe mai venuta in mente ma leggendola mi sembra chiara (e di esperienza con trasformate di Fourier ne ho pochissima).</article>
+<nav class="pager"><a class="prev" href="olifis-6749.html"><small>← precedente</small>163. Corsa per biologi</a><a class="next" href="olifis-6776.html"><small>successivo →</small>165: Moto circolare tenuto da un filo</a></nav>
+</main></body></html>

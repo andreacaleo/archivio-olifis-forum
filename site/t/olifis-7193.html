@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>306. Catena che cade</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 306</a></span></nav>
+<h1>306. Catena che cade</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7193">forum Olifis</a></p>
+<article class="post first" id="p27791"><div class="who"><b>Giulio</b><span>27 giu 2023, 14:35</span></div>Una catena metallica, inestensibile ma flessibile, di lunghezza <span class="tex">\(L\)</span> e massa <span class="tex">\(M\)</span> pende verticalmente dal soffitto, con l'estremità inferiore che sfiora il piatto di una bilancia-dinamometro. Improvvisamente, la catena viene sganciata dal soffitto e comincia a cadere verticalmente, posandosi gradualmente sulla bilancia. <br>
+1) Detta <span class="tex">\(y\)</span> la quota della sommità della catena, determinare in funzione di <span class="tex">\(y\)</span>, <span class="tex">\(L\)</span> e <span class="tex">\(M\)</span> il modulo della forza <span class="tex">\(\mathbf{F}\)</span> che la bilancia esercita sulla catena.<br>
+2) Sapendo che, nell'istante immediatamente precedente a quando l'ultimo anello della catena tocca la bilancia (ovvero quando <span class="tex">\(y\)</span> è quasi 0), la bilancia mostra sul suo schermo una massa di <span class="tex">\(\textup{1.8 kg}\)</span>, determinare la massa reale <span class="tex">\(M\)</span> della catena.</article>
+<article class="post" id="p27793"><div class="who"><b>Francesco Leccese</b><span>29 giu 2023, 23:44</span></div>Non è<br>
+F = (L-y)Mg/L<br>
+? Mi scuso per non aver utilizzato La Tex, sono da mobile.<br>
+Mi sembra troppo semplice. Ci sono da considerare la differenza di quantità di moto tra un anello e l'altro?</article>
+<article class="post" id="p27794"><div class="who"><b>Giulio</b><span>30 giu 2023, 0:50</span></div>No, non è quella la risposta. Sì, bisogna considerare che il secondo principio della dinamica non può essere usato direttamente come <span class="tex">\(\mathbf{F}=m\mathbf{a}\)</span>, dato che la massa accelerata in ogni istante è meno che nell'istante prima. Come si fa quindi?</article>
+<article class="post" id="p27795"><div class="who"><b>Higgs</b><span>30 giu 2023, 11:34</span></div>Io avevo pensato alla legge di Newton per sistemi a massa variabile<span class="tex">\(F=d(mv)/dt= (dm/dt).v+ mg\)</span> dato che v=gt per cui (dv/dt)=g. Secondo la mia concezione abbiamo  una parte fissa corrispondente al peso della catena e una parte che varia con la massa corrispondente all'impulso costituito dal trasferimento della quantità di moto dalla catena al dinamometro. Facendo i conti mi verrebbe una perdita di massa in caduta proporzionale al tempo. Può essere una strada?</article>
+<article class="post" id="p27798"><div class="who"><b>Giulio</b><span>30 giu 2023, 14:36</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7193.html#p27795" data-post-id="27795" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 giu 2023, 11:34</div></cite>
+<span class="tex">\(F=d(mv)/dt= (dm/dt).v+ mg\)</span>
+</div></blockquote>
+Questa è la strada, ma attenzione a due cose: 1) quante forze agiscono sulla catena? <span class="tex">\(\mathbf{F}\)</span> ovviamente non è l'unica. 2) Attenzione alle diverse masse. La <span class="tex">\(m\)</span> che compare nella formula che hai scritto ovviamente non è <span class="tex">\(M\)</span>, ma la massa <span class="tex">\(M-m\)</span> non sparisce, ma rimane sulla bilancia.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7193.html#p27795" data-post-id="27795" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 giu 2023, 11:34</div></cite>
+Secondo la mia concezione abbiamo una parte fissa corrispondente al peso della catena e una parte che varia con la massa corrispondente all'impulso costituito dal trasferimento della quantità di moto dalla catena al dinamometro.
+</div></blockquote>
+Esatto, questa è un'altra strada valida.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7193.html#p27795" data-post-id="27795" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 giu 2023, 11:34</div></cite>
+Facendo i conti mi verrebbe una perdita di massa in caduta proporzionale al tempo.
+</div></blockquote>
+Corretto.</article>
+<article class="post" id="p27799"><div class="who"><b>Francesco Leccese</b><span>30 giu 2023, 15:37</span></div>Espongo il mio procedimento per il primo punto.<br>
+Sia <span class="tex">\(m\)</span> la massa in aria. Allora <span class="tex">\(M-m\)</span> è la massa sulla bilancia.<br>
+A questa è dovuta una parte della forza totale:<br>
+<span class="tex">\(F_g = (M-m)g\)</span><br>
+<span class="tex">\(m\)</span> vale:<br>
+<span class="tex">\(m = \frac ML y\)</span><br>
+Quindi:<br>
+<span class="tex">\(F_g = (M-\frac ML y)g = \frac{Mg}L (L-y)\)</span><br>
+A questa va aggiunta la componente dovuta all'impulso:<br>
+<span class="tex">\(F_i = \frac {dm}{dt}v\)</span><br>
+con<br>
+<span class="tex">\(v(y) = \sqrt{2g(L-y)\)</span><br>
+Poiché<br>
+<span class="tex">\(y(t) = L-\frac {gt^2}2\)</span><br>
+si può scrivere<br>
+<span class="tex">\(m(t) = \frac ML (L-\frac{gt^2}2)\)</span><br>
+Da cui la sua derivata temporale:<br>
+<span class="tex">\(\frac {dm}{dt} = \frac ML \frac d{dt}(L-\frac{gt^2}2) = -\frac ML gt = -\frac ML v\)</span><br>
+Tuttavia, poiché la velocità è diretta verso il basso, nel nostro sistema di riferimento essa è negativa. Quindi:<br>
+<span class="tex">\(\frac{dm}{dt} = +\frac ML v\)</span><br>
+Quindi:<br>
+<span class="tex">\(F_i = \frac ML v^2 = \frac ML 2g(L-y) = \frac{2Mg}L (L-y)\)</span><br>
+Infine, per la forza totale:<br>
+<span class="tex">\(F_{tot} = F_g + F_i = \frac {Mg}L ( L-y) + \frac {2Mg}L (L-y) = 3\frac{Mg}L(L-y)\)</span></article>
+<article class="post" id="p27800"><div class="who"><b>Giulio</b><span>30 giu 2023, 16:37</span></div>È tutto giusto, tranne il segno di <span class="tex">\(F_i\)</span>. Infatti quella forza è verso l'alto, e quindi è positiva: dato che gli oggetti stanno cadendo hanno quantità di moto negativa, quindi occorre una forza positiva per frenarli.<br>
+In particolare quando scrivi
+<blockquote><div><cite>Francesco Leccese ha scritto: <a href="olifis-7193.html#p27799" data-post-id="27799" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 giu 2023, 15:37</div></cite>
+<span class="tex">\(\frac {dm}{dt} = \frac ML \frac d{dt}(L-\frac{gt^2}2) = -\frac ML gt = -\frac ML v\)</span>
+</div></blockquote>
+non stai considerando, nell'ultimo passaggio, che il segno di <span class="tex">\(v\)</span> è negativo (<span class="tex">\(v=-gt\)</span>).<br>
+Il segno di <span class="tex">\(F_g\)</span> invece è corretto: per equilibrare il peso degli anelli sulla catena che si trovano già sulla bilancia, ovviamente quella forza dev'essere rivolta verso l'alto.<br>
+Correggendo quel segno otterrai la risposta del punto 1).</article>
+<article class="post" id="p27801"><div class="who"><b>Francesco Leccese</b><span>30 giu 2023, 18:25</span></div>Grazie.<br>
+Quando torno a casa modifico quel messaggio e inizio a pensare al punto 2.<br>
+Però ho un dubbio: il risultato al punto 1, così, è<br>
+<span class="tex">\(F = 3\frac{Mg}L (L-y)\)</span><br>
+Il che dà, per <span class="tex">\(y=0\)</span>, <span class="tex">\(F=3Mg\)</span>, che è il triplo di quanto mi aspetto. Perché?</article>
+<article class="post" id="p27802"><div class="who"><b>Giulio</b><span>30 giu 2023, 20:31</span></div>E invece quella è la risposta giusta! È molto interessante quel fattore 3...</article>
+<article class="post" id="p27803"><div class="who"><b>Francesco Leccese</b><span>30 giu 2023, 20:34</span></div>Immaginavo fosse la peculiarità del problema.<br>
+Interessante!<br>
+Ora sono a casa e posso studiare il secondo punto</article>
+<article class="post" id="p27804"><div class="who"><b>Francesco Leccese</b><span>30 giu 2023, 20:43</span></div>Punto 2<br>
+Un attimo prima dell'impatto dell'ultimo anello <span class="tex">\(y=dy\)</span>, quindi la forza totale è:<br>
+<span class="tex">\(F_{tot} = 3\frac{Mg}L(L-dy) = 3Mg(1-\frac{dy}L)\)</span><br>
+Il termine <span class="tex">\(\frac{dy}L\)</span> si può eliminare, in quanto infinitamente piccolo.<br>
+Rimane<br>
+<span class="tex">\(F_{tot} \simeq 3Mg\)</span><br>
+<br>
+Credo che la bilancia calcoli la massa dividendo il "peso" (la forza a cui è sottoposta, <span class="tex">\(F\)</span>) per <span class="tex">\(g\)</span>.<br>
+Quindi:<br>
+<span class="tex">\(1.8 kg = \frac{3Mg}{g} = 3M\)</span><br>
+Infine<br>
+<span class="tex">\(M = \frac{1.8kg}3 = 0.60 kg\)</span></article>
+<article class="post" id="p27805"><div class="who"><b>Giulio</b><span>30 giu 2023, 20:51</span></div>Tutto giusto. A te la staffetta.<br>
+<br>
+Fonte del problema: liberamente adattato da <a href="https://www.physics.harvard.edu/files/prob73.pdf" class="ext" class="postlink">https://www.physics.harvard.edu/files/prob73.pdf</a><br>
+Soluzione ufficiale: <a href="https://www.physics.harvard.edu/files/sol73.pdf" class="ext" class="postlink">https://www.physics.harvard.edu/files/sol73.pdf</a><br>
+<span style="font-size: 75%; line-height: normal">Si noti che nella soluzione ufficiale hanno commesso lo stesso errore di segno sulla velocità, ma è risultato innocuo in quanto hanno sempre sostituito il suo quadrato.</span><br>
+<br>
+A latere: sarei veramente interessato a verificare sperimentalmente la relazione trovata. Il modellino funziona ed è chiaro che la massa rilevata in caduta sarà maggiore della massa reale, ma vorrei vedere quanto con un apparato sperimentale modesto ci si riesca ad avvicinare a 3...</article>
+<article class="post" id="p27806"><div class="who"><b>Francesco Leccese</b><span>30 giu 2023, 20:57</span></div>La mia prima staffetta!<br>
+Comunque, credo che mostrerebbe una forza 3 volte superiore al peso solo subito dopo la fine della caduta, dopo di ché si stabilizzerebbe sul valore Mg.<br>
+Un po' come se cadesse su una molla, che all'inizio si contrae oltre il punto di equilibrio, per ritornarci, oscillando, e stabilizzarcisi.</article>
+<article class="post" id="p27807"><div class="who"><b>Giulio</b><span>30 giu 2023, 21:17</span></div>Possibile. Una bilancia-dinamometro d'altronde funziona proprio con una molla al suo interno... La costante elastica delle molle da bilancia penso sia abbastanza grande da mascherare l'oscillazione (moto <em class="text-italics">overdamped</em>, come si dice in italiano?).</article>
+<nav class="pager"><a class="prev" href="olifis-7192.html"><small>← precedente</small>305. Rombi stiracchiati</a><a class="next" href="olifis-7194.html"><small>successivo →</small>307. L&#x27;eclisse delle due lune</a></nav>
+</main></body></html>

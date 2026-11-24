@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>168- Specchio relativistico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 168</a></span></nav>
+<h1>168- Specchio relativistico</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6783">forum Olifis</a></p>
+<article class="post first" id="p25269"><div class="who"><b>lance00</b><span>26 nov 2018, 18:19</span></div>Uno specchio di massa <span class="tex">\(M\)</span> si muove con velocità <span class="tex">\(v\)</span> molto grande nel verso positivo dell'asse <span class="tex">\(x\)</span>. Su di esso incide un fascio di luce (proveniente da sinistra) che forma un angolo <span class="tex">\(\theta\)</span> rispetto alla verticale dello specchio. Calcolare l'angolo di riflessione <span class="tex">\(\phi\)</span> nell'ipotesi di urti elastici. <br>
+Per chi non se lo ricordasse: quantità di moto del fotone = <span class="tex">\(\frac{hf}{c}\)</span>; energia del fotone = <span class="tex">\(hf\)</span><br>
+<br>
+BONUS: se la frequenza iniziale è <span class="tex">\(f\)</span> quanto vale la frequenza del raggio riflesso?</article>
+<article class="post" id="p25270"><div class="who"><b>sg_gamma</b><span>27 nov 2018, 12:12</span></div>Il sistema da risolvere per il problema è per caso questo? Sono rispettivamente: la conservazione della quantità di moto lungo x, quella lungo y, la conservazione dell'energia. Da questo sistema dovrebbe potersi anche ricavare <span class="tex">\(\nu\)</span> in funzione di <span class="tex">\(\nu_0\)</span> e quindi risolvere il bonus...è davvero necessario risolvere il sistema, qualora corretto, o posso darlo in pasto ai calcolatori?<br>
+
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/de75488a8dac2a82.png" class="postimage" alt="Cattura.PNG" onclick="viewableArea(this);" /></dt>
+						<dd>Cattura.PNG (6.27 KiB) Visto 4896 volte</dd>
+		</dl>
+		
+		
+		
+			</div></article>
+<article class="post" id="p25271"><div class="who"><b>lance00</b><span>27 nov 2018, 16:15</span></div>Il sistema è giusto e si, puoi risolverlo col computer (magari facendo qualche approssimazione). Mi rendo conto però che così non è molto istruttivo (errore mio) quindi se per te va bene cambierei il problema in “specchio non relativistico“ ossia: V è abbastanza grande per avere un effetto apprezzabile ma abbastanza piccola per usare ancora energia e quantità di moto classici. Adesso il sistema dovrebbe essere risolvibile a mano. Se posti la soluzione in questo caso particolare ti do il testimone (adesso sono solo conti)  ;)</article>
+<article class="post" id="p25272"><div class="who"><b>sg_gamma</b><span>28 nov 2018, 19:33</span></div>Spero che i conti non siano andati a farsi benedire e chiedo perdono per il mio eretico uso di Word.<br>
+
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/99e60a3813c7fd5b.jpg" class="postimage" alt="Cattur23a.JPG" onclick="viewableArea(this);" /></dt>
+						<dd>Cattur23a.JPG (80.47 KiB) Visto 4848 volte</dd>
+		</dl>
+		
+		
+		
+			</div></article>
+<article class="post" id="p25273"><div class="who"><b>lance00</b><span>29 nov 2018, 19:14</span></div>Benone! Vedo che hai seguito il consiglio che ti ho dato in privato... come vedi oltre a impostare il sistemone iniziale e a calcolarti cose brutte (tipo il differenziale di <span class="tex">\(\gamma\)</span>) il resto sono solo calcoli. In ogni caso, complimenti perchè i conti erano davvero molto brutti ... e mi pare sia tutto perfetto. Quindi puoi postare il 169  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6781.html"><small>← precedente</small>167-1 dimensione</a><a class="next" href="olifis-6784.html"><small>successivo →</small>169. Gas ignoto</a></nav>
+</main></body></html>

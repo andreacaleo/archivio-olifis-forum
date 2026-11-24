@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>140: Gli inglesi che cambiano il giorno</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 140</a></span></nav>
+<h1>140: Gli inglesi che cambiano il giorno</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6657">forum Olifis</a></p>
+<article class="post first" id="p24545"><div class="who"><b>Aleksej99</b><span>28 feb 2018, 19:44</span></div>Se le leggi fossero cambiate in modo che in Gran Bretagna il traffico viaggi sul lato destro della strada (invece che sul sinistro), cosa succederebbe alla durata del giorno?</article>
+<article class="post" id="p24547"><div class="who"><b>lance00</b><span>28 feb 2018, 20:16</span></div>Consideriamo una strada orizzontale che si trova a una latitudine generica <span class="tex">\(\phi\)</span>, divisa in due corsie. Chiamiamo 1 quella più vicina al polo Nord e 2 quella più vicina all'equatore. Quando una macchina va in una certa direzione esercita una forza di attrito nella direzione opposta, per il terzo principio della dinamica. Quindi quando gli inglesi guidano normalmente esercitano un momento <span class="tex">\(M_1\)</span> sulla corsia 1 che fa muovere la terra in senso orario e un momento <span class="tex">\(M_2\)</span> sulla corsia 2 che la fa muovere in senso antiorario, con <span class="tex">\(M_1&lt; M_2\)</span> in quanto la corsia 2 è più distante dall'asse di rotazione. Dunque l'effetto complessivo è di produrre un momento che fa ruotare la terra nel verso di rotazione. Se cambiassero le leggi produrrebbero invece un momento totale che si oppone alla rotazione della Terra, quindi la durata del giorno aumenterebbe  :?:</article>
+<article class="post" id="p24548"><div class="who"><b>Aleksej99</b><span>28 feb 2018, 20:19</span></div>Esattamente, problema carino a mio avviso... Si poteva anche risolvere considerando la conservazione del momento angolare...</article>
+<article class="post" id="p24549"><div class="who"><b>lance00</b><span>28 feb 2018, 20:50</span></div>Molto carino  :D Posso postare il 141?</article>
+<article class="post" id="p24550"><div class="who"><b>Aleksej99</b><span>28 feb 2018, 21:15</span></div>Fai pure</article>
+<nav class="pager"><a class="prev" href="olifis-6651.html"><small>← precedente</small>139: Catena (rotante) in caduta libera</a><a class="next" href="olifis-6658.html"><small>successivo →</small>141. Levitazione</a></nav>
+</main></body></html>

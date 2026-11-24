@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>67. Spaghettificazione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 67</a></span></nav>
+<h1>67. Spaghettificazione</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6313">forum Olifis</a></p>
+<article class="post first" id="p22191"><div class="who"><b>CaptainJohnCabot</b><span>22 mag 2016, 22:53</span></div><em class="text-italics">Il noto fenomeno ipotetico della 'spaghettificazione' consiste nella deformazione di un oggetto in orbita attorno ad un buco nero per differenza di attrazione gravitazionale sulle sue parti.<br>
+</em><br>
+Sia <span class="tex">\(R\)</span> il raggio di Schwarzschild del buco nero e <span class="tex">\(r\)</span> la distanza orbitale dell'oggetto.<br>
+ Si considerano due parti dell'oggetto di masse <span class="tex">\(m_1\)</span> e <span class="tex">\(m_2\)</span>, tali che <span class="tex">\(m_1\)</span> orbita di una distanza <span class="tex">\(d_1\)</span> più all'interno del centro di massa dell'oggetto e <span class="tex">\(m_2\)</span> ad una distanza <span class="tex">\(d_2\)</span> più all'esterno.<br>
+<br>
+<strong class="text-strong">1.</strong> Trovare una formula per la 'tensione' fra le due parti dell'oggetto quando <span class="tex">\(m_1=m_2=m\)</span> e <span class="tex">\(d_1=d_2=d\)</span>.<br>
+<br>
+<strong class="text-strong">2.</strong> Sia l'oggetto un astronauta in una navicella, siano <span class="tex">\(m_1=m_2\)</span> le sue orecchie. Con <span class="tex">\(d=6,0 \hspace{1mm} cm\)</span>, <span class="tex">\(R=15,0 \hspace{1mm} km\)</span>, <span class="tex">\(m_1=m_2=m=0,030 \hspace{1mm}  kg\)</span> e <span class="tex">\(r=120 \hspace{1mm} km\)</span>, calcolare la tensione fra le due orecchie. Cosa succede allo sfortunato astronauta?<br>
+<br>
+<strong class="text-strong">3. (Bonus)</strong> Trovare una formula per la 'tensione' fra le due parti dell'oggetto quando <span class="tex">\(m_2\neq m_1\)</span> e <span class="tex">\(d_1\neq d_2\)</span></article>
+<article class="post" id="p22192"><div class="who"><b>Flaffo</b><span>23 mag 2016, 7:38</span></div>Ho paura per ciò che succederà all'astronauta.. :lol:  :lol: <br>
+In ogni caso, la distanza orbitale <span class="tex">\(D\)</span> si prende rispetto al raggio di Schwarzschild o rispetto al centro del buco nero? <br>
+Poi, abbiamo un dato di troppo tra <span class="tex">\(R\)</span> e <span class="tex">\(M\)</span> ..</article>
+<article class="post" id="p22193"><div class="who"><b>CaptainJohnCabot</b><span>23 mag 2016, 18:07</span></div>Ho modificato il problema, semplificando leggermente la prima parte e cambiando un po' la notazione. Scusatemi ma non riesco ancora bene a tarare le difficoltà dei problemi delle staffette :roll: <br>
+<br>
+Non so bene quale sia la difficoltà del punto <strong class="text-strong">3</strong>, non serve quindi risolverlo per continuare la staffetta. Se però qualcuno dovesse trovare delle soluzioni sarei curioso di vederle per provare a compararle con la mia bozza  :ugeek: <br>
+<br>
+<em class="text-italics"><span style="text-decoration:underline">Per Flaffo:</span></em><br>
+La distanza orbitale, ora r, è presa dal centro del buco nero. E si, c'era anche un dato in più  ;).  Normalmente questo può accadere nei problemi però dato che ti dava fastidio l'ho tolto, così ora ti tocca fare un passaggio in più   :twisted:  :lol:</article>
+<article class="post" id="p22195"><div class="who"><b>Flaffo</b><span>23 mag 2016, 19:49</span></div><strong class="text-strong">Primo punto </strong><br>
+Consideriamo un corpo di lunghezza <span class="tex">\(2d\)</span> che stia cadendo verso un buco nero di raggio <span class="tex">\(R\)</span> di massa <span class="tex">\(M\)</span>:<br>
+<span class="tex">\(M=\frac {c^2 R}{2G}\)</span>.<br>
+ Quando si trova a distanza<span class="tex">\(r\)</span> da centro del buco nero,  è sottoposto ad una forza gravitazionale <br>
+<span class="tex">\(F_b=G\frac {2mM}{r^2}\)</span> da cui <span class="tex">\(a_b=\frac{GM}{r^2}\)</span> Che agisce sul centro di massa B.<br>
+I due estremi sono sottoposti ad accelerazioni:<br>
+<br>
+  <span class="tex">\(\displaystyle a_a=\frac{GM}{\left (r-d\right)^2}\)</span><br>
+<br>
+ <span class="tex">\(\displaystyle a_c=\frac{GM}{\left (r+d\right)^2}\)</span><br>
+<br>
+Mentre nel baricentro B vi è una corrispondenza tra la forza applicata e accelerazione generata, questo non accade negli altri punti. Qui, infatti, l'accelerazione tende a rimanere la stessa che si ha nel baricentro ( il corpo è rigido e tutti i suoi punti si muovono in maniera solidale), mentre la forza risulta diversa. So determinano pertanto delle tensioni interne che tendono a spaghettificare :lol:  :lol: il corpo. Calcoliamo l'accelerazione differenziale (e quindi anche la corrispondente forza mareale) a cui è sottoposto il punto A.<br>
+<span class="tex">\(\displaystyle a_M=a_A-a_b=\frac{GM}{\left (r-d\right)^2}-2\frac{GM}{r^2}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle a_M=\frac {r^2-\left (d^2+r^2-2dr\right)}{r^2\left (r-d\right)^2}GM\)</span><br>
+<br>
+Nell'ipotesi che le dimesioni del corpo siano trascurabili rispetto alla distanza che lo separa dal centro di attrazione:<br>
+<br>
+<span class="tex">\(\displaystyle a_M=2GM\frac {d}{r^3}\)</span> <span class="tex">\(\rightarrow\)</span> <span class="tex">\(T=2GmM\frac {d}{r^3}\)</span><br>
+<br>
+In conclusione, sostituendo per M:<br>
+<span class="tex">\(\displaystyle T=mc^2 R \frac {d}{r^3}\)</span><br>
+<br>
+<strong class="text-strong">Punto 2</strong><br>
+Sostituendo:<br>
+T=1406</article>
+<article class="post" id="p22196"><div class="who"><b>1998marcom</b><span>23 mag 2016, 20:50</span></div>Salve ragazzi, velocissimo dubbio, ma il corpo non era in orbita? Intendo, forza centrifuga? A me viene diverso se la considero.   ;)<br>
+(poi magari ho solo sbagliato i conti  :lol: )</article>
+<article class="post" id="p22197"><div class="who"><b>Flaffo</b><span>23 mag 2016, 21:04</span></div>Già, e come al solito non leggo mai attentamente :lol: <br>
+in questo caso, però, le tensioni ai due estremi sarebbero diverse, o no?</article>
+<article class="post" id="p22198"><div class="who"><b>1998marcom</b><span>23 mag 2016, 21:31</span></div>Non credo, se la "corda" è di massa trascurabile. Dopotutto, terzo principio dinamica abbastanza easy e si dimostra. Piuttosto a conti fatti a me viene una tensione pari alla metà della tua, a causa della forza centrifuga.</article>
+<article class="post" id="p22199"><div class="who"><b>CaptainJohnCabot</b><span>23 mag 2016, 21:39</span></div>Allora, il procedimento riportato da Flaffo è diverso da quello che ho seguito io, e quindi presumibilmente sbagliato  :?: ; chissà forse è più probabile che abbia sbagliato io e che il libro da cui ho preso spunto per l'esercizio sia fatto male, dato che Flaffo è sempre impeccabile  :oops:  :lol: <br>
+<br>
+Comunque ora modifico il testo per specificare che l'oggetto è in orbita.<br>
+<br>
+<span style="text-decoration:underline"><em class="text-italics">Per marcom:</em></span><br>
+Il procedimento che ho seguito io (dovrebbe portare a quella che sperabilmente è la soluzione corretta  :lol: ) partiva proprio come quello che hai esposto. Tuttavia il risultato riportato nella soluzione ufficiale è maggiore di quello di Flaffo, quindi se a te viene metà dovresti aver sbagliato qualcosa. Se ti va prova a ricontrollare i calcoli e a postare il procedimento così ne possiamo discutere.</article>
+<article class="post" id="p22200"><div class="who"><b>1998marcom</b><span>23 mag 2016, 21:54</span></div>Io ho ragionato così: le forze in gioco sono due e sono complessivamente in equilibrio: <span class="tex">\(F_g\)</span> e <span class="tex">\(F_{c}\)</span> (gravità e centrifuga)<br>
+Siano 1 e 2 le componenti del corpo, ovvero le due masse. Quindi:<br>
+<span class="tex">\(F_g = F_1 + F_2\)</span><br>
+<span class="tex">\(F_{c} = F_{c1} + F_{c2}\)</span><br>
+<br>
+Imponiamo allora che:<br>
+<span class="tex">\(F_g = F_c\)</span><br>
+<br>
+dove<br>
+<span class="tex">\(F_{c1} = \omega ^2 m(r-d)\)</span><br>
+<span class="tex">\(F_{c2} = \omega ^2 m(r+d)\)</span><br>
+<br>
+mentre <span class="tex">\(F_g\)</span> la troviamo con la legge di gravitazione univerale per ciascuna massa. Approssimando per <span class="tex">\(d &lt;&lt; r\)</span> viene fuori una roba del tipo:<br>
+<br>
+<span class="tex">\(T = c^2mR \frac{d}{2r^3}\)</span><br>
+<br>
+Dopo modifico e faccio i passaggi intermedi appena ho tempo :roll:</article>
+<article class="post" id="p22201"><div class="who"><b>CaptainJohnCabot</b><span>23 mag 2016, 22:12</span></div><span style="text-decoration:underline"><em class="text-italics">Per marcom</em></span><br>
+Temo che sia sbagliato anche il tuo risultato, anche se il procedimento è giusto nella parte iniziale. <br>
+In caso se nessuno posta altre soluzioni entro qualche giorno inizio a dare qualche hint, a meno che non vogliate demolirlo da soli  :lol:  :twisted:<br>
+ A me era servito un aiutino  :roll:</article>
+<article class="post" id="p22207"><div class="who"><b>Flaffo</b><span>24 mag 2016, 16:47</span></div>Consideriamo il corpo che <strong class="text-strong">orbita</strong><br>
+Prendiamo come sistema di riferimento, ovviamente non inerziale, il centro di massa dell'oggetto. Questo si trova ad una distanza <span class="tex">\(r\)</span> dal centro del buco nero. Poiché il corpo si trova in orbita circolare:<br>
+<br>
+<span class="tex">\(\displaystyle \frac {2mGM}{r^2}=2m\omega ^2 r\)</span> <span class="tex">\(\rightarrow\)</span> <span class="tex">\(\omega^2 =\frac{GM}{r^3}\)</span><br>
+<br>
+Nel sistema di riferimento del centro di massa, la forza apparente esercitata sulla massa più interna sarà:<br>
+<br>
+<span class="tex">\(\displaystyle T=\left(F_{g}-F _{gCM}\right)-\left(F_c -F _{cCM}\right)\)</span> <br>
+<br>
+dove g indica gravitazionale e c centrifuga.<br>
+Sostituendo abbiamo:<br>
+<br>
+<span class="tex">\(\displaystyle T= mGM \left(\frac {1}{\left(r-d\right)^2}-\frac {2}{r^2}\right)-m\omega ^2\left(\left(r-d\right)-2r\right)\)</span><br>
+Sostituendo per <span class="tex">\(\omega ^2\)</span>, e per <span class="tex">\(M\)</span>, e tendendo presente che <span class="tex">\(d &lt;&lt;r\)</span> troviamo:<br>
+<br>
+<span class="tex">\(\displaystyle T=mc^2 R \frac {3d}{2r^3}\)</span><br>
+<br>
+Sostituendo troviamo <br>
+<span class="tex">\(T=2106 N\)</span></article>
+<article class="post" id="p22208"><div class="who"><b>CaptainJohnCabot</b><span>24 mag 2016, 17:11</span></div>Mi sembrava strano che un problema di questo genere potesse resistere per così tanto tempo al potere di Flaffo  :lol: <br>
+<br>
+Ovviamente è giusto ora, la staffetta è tua Flaffo. Se ti va però prova comunque a fare il punto <strong class="text-strong">3</strong>, mi piacerebbe vedere la tua soluzione  :mrgreen:</article>
+<article class="post" id="p22209"><div class="who"><b>Flaffo</b><span>24 mag 2016, 17:50</span></div>Va bene  :D</article>
+<article class="post" id="p22214"><div class="who"><b>Flaffo</b><span>25 mag 2016, 19:12</span></div>Provo a fare il bonus  ;) <br>
+Chiamiamo <span class="tex">\(r\)</span> la distanza del centro di massa del corpo dal centro del buco nero. Il corpo è lungo <span class="tex">\(2d\)</span> e alle sue estremità si trovano due masse <span class="tex">\(m_1\)</span> e <span class="tex">\(m_2\)</span>. Calcoliamo la distanza delle due masse dal centro di massa. Abbiamo:<br>
+<br>
+<span class="tex">\(\displaystyle d_1=\frac {2m_2}{m_1 +m_2}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle d_2= \frac {2m_1}{m_1+m_2}\)</span><br>
+<br>
+Come prima, ponendo il sistema di riferimento nel centro di massa, abbiamo che l'accelerazione di 1 (più interno) è l'accelerazione di 2 (più esterno) sono date da:<br>
+<br>
+<span class="tex">\(a_1=\left (a_{g1}-a_{gCM}\right)-\left (a_{c1}-a_{cCM}\right)\)</span><br>
+<br>
+<span class="tex">\(a_2=\left (a_{g2}-a_{gCM}\right)-\left (a_{c2}-a_{cCM}\right)\)</span><br>
+<br>
+Dove g indica accelerazione gravitazionale e c centrifuga.<br>
+<br>
+Ricavando l'accelerazione per entrambi i corpi, troviamo la tensione ai due estremi moltiplicando poi per le rispettive masse. Svolgendo i calcoli otteniamo:<br>
+<br>
+<span class="tex">\(\displaystyle T_1=T_2=3\frac {m_1 m_2}{m_1+m_2}c^2 R \frac {d}{r^3}\)</span><br>
+<br>
+Per <span class="tex">\(m_1=m_2\)</span> otteniamo la formula trovata precedentemente:<br>
+<br>
+<span class="tex">\(\displaystyle T_1=T_2=\frac {3}{2}mc^2 R \frac {d}{r^3}\)</span><br>
+<br>
+Stavo anche pensando che il corpo potesse ruotare attorno al centro di massa nel caso di un piccolo spostamento (e in tal caso si dovrebbe aggiungere un' addizionale forza centrifuga) ma l'equilibrio sembra stabile; anche perché, indipendentemente dalla rotazione del corpo, la posizione del centro di massa rimarrebbe inalterata e non si avrebbe una diminuzione di energia potenziale. <br>
+<br>
+A te viene lo stesso risultato? C'è qualcosa in più che si deve prendere in considerazione?</article>
+<article class="post" id="p22216"><div class="who"><b>CaptainJohnCabot</b><span>25 mag 2016, 19:27</span></div>Io l'avevo fatto senza le approssimazioni, utilizzandole, cosa effettivamente è molto conveniente, mi viene il tuo stesso risultato.<br>
+Direi che prendere in considerazione un' altra rotazione per l'equilibrio instabile è eccessivo e non necessario ai fini del problema, dato che si chiede solamente la tensione senza riferimenti all'equilibrio. Infatti credo che si è presa la situazione solamente in un istante perchè poi l'oggetto si spaghettifica ed è quindi difficile da trattare. Inoltre introdurre la rotazione aggiuntiva sarebbe anche molto arduo e contoso credo  :lol: <br>
+Bene hai risolto anche il punto <strong class="text-strong">3</strong>, direi che ora puoi proprio farci divertire col problema <strong class="text-strong">68</strong> :D</article>
+<nav class="pager"><a class="prev" href="olifis-6308.html"><small>← precedente</small>66:Un colpo di cannone</a><a class="next" href="olifis-6316.html"><small>successivo →</small>68: Sistema meccanico</a></nav>
+</main></body></html>

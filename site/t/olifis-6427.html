@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>100. Aurora Boreale</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 100</a></span></nav>
+<h1>100. Aurora Boreale</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6427">forum Olifis</a></p>
+<article class="post first" id="p23090"><div class="who"><b>CaptainJohnCabot</b><span>22 ott 2016, 23:13</span></div><span style="font-size: 200%; line-height: normal"><span style="color:#4040BF">100</span></span><br>
+<br>
+L’aurora boreale è un fenomeno ottico dell'atmosfera terrestre, caratterizzato principalmente da bande luminose di un'ampia gamma di forme e colori rapidamente mutevoli nel tempo e nello spazio, tipicamente di colore rosso-verde-azzurro, detti archi aurorali.<br>
+<br>
+Il fenomeno è causato dall'interazione di particelle cariche (protoni ed elettroni) di origine solare (vento solare) con la ionosfera terrestre (atmosfera tra i 100 – 500 km): tali particelle eccitano gli atomi dell'atmosfera (soprattutto ossigeno) che diseccitandosi in seguito emettono luce di varie lunghezze d'onda. A causa della geometria del campo magnetico terrestre, le aurore sono visibili in due ristrette fasce attorno ai poli magnetici della Terra, dette ovali aurorali.<br>
+<br>
+<a class="lost" href="http://data.whicdn.com/images/135235077/original.jpg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Schematizziamo l'ossigeno come formato da 2 stati di eccitazione, il superiore di energia 4.17 eV e tempo di vita 0.8 s, quello inferiore di energia 1.96 eV e tempo di vita 110 s (il valore 0 eV di riferimento dell'energia è preso per il "ground state"). Un fotone viene emesso quando, dopo essere stato eccitato, l'ossigeno ritorna ad uno stato di eccitazione inferiore o al "ground state". <br>
+Aurore splendide e variabili in colore come quella in figura sono dovute al fatto che i fotoni emessi non hanno la stessa lunghezza d'onda. <br>
+<br>
+(<em class="text-italics">Nota:</em> Per semplicità si assuma che la temperatura sia indipendente dall'altezza e che l'aria sia un gas perfetto).<br>
+<br>
+<strong class="text-strong">Trova di che colore è l'aurora boreale a <span class="tex">\(H_1=160\)</span> km e <span class="tex">\(H_2=220\)</span> km.</strong><br>
+<br>
+<em class="text-italics">Hint</em>: la relazione tra la frequenza <span class="tex">\(f\)</span> delle collisioni fra molecole e la densità atmosferica è <span class="tex">\(f=f_0\rho/\rho_0\)</span> dove <span class="tex">\(f_0\)</span> e <span class="tex">\(\rho_0\)</span> sono rispettivamente la frequenza di collisione (<span class="tex">\(\approx 10^9 /s\)</span>) e la densità al livello del mare.</article>
+<article class="post" id="p23091"><div class="who"><b>CaptainJohnCabot</b><span>22 ott 2016, 23:31</span></div>Congratulazioni a tutti per il 100-esimo problema della staffetta, possa continuare per almeno altri 100 problemi  :D  :D  :D <br>
+<br>
+Per me è stato un onore avere l'occasione di postarlo, dato il valore simbolico del numero, superiore al 99, al contrario di come pensa Flaffo  :lol: <br>
+<br>
+Per l'occasione sono voluto ricorrere ad una fonte non molto usata per la simpatica difficoltà dei problemi, anche questo in origine prendeva in esame problemi sulla natura del vento solare, la magnetizzazione con integrali tripli e tutte le altre informazioni considerate note nel passaggio iniziale pesantemente copiato da Wikipedia.<br>
+<br>
+Mi sono voluto concentrare sulla parte più carina e meno contosa del problema (rischiando forse di averla resa un po' troppo facile  ;) ), quindi alla fine tra adattamento e traduzione ci saranno svariate inesattezze ed errori che correggerò appena li avrò individuati (anzi vi sembra di averne trovato uno non esitate a chiedere conferma), editando molte volte il post. Mi scuso in anticipo  :roll:  :( <br>
+<br>
+Per il resto buon lavoro e auguri alla staffetta!  :mrgreen:</article>
+<article class="post" id="p23092"><div class="who"><b>FedericoC.</b><span>23 ott 2016, 15:00</span></div>Provo a proporre il mio ragionamento  :) <br>
+<br>
+Abbiamo che <span class="tex">\(f\propto \rho\)</span>, dove <span class="tex">\(\rho\)</span> è la molarità cioè il numero di moli per unità di volume. Considerando l'aria come gas perfetto deve essere <span class="tex">\(P\propto \rho\)</span>, da cui <span class="tex">\(P\propto f\)</span>.<br>
+<br>
+La pressione decresce con l'altezza in modo esponenziale, quindi lo fa anche la frequenza di collisioni. Ovviamente più una molecola di ossigeno collide con le particelle cariche del vento solare, tanto più si eccita. Dato che l'energia degli stati di eccitazione è quantizzata le molecole possono emettere solo due tipi di fotoni con lunghezze d'onda rispettivamente: <span class="tex">\(\lambda_1 =\frac{hc}{E_2-E_1}\)</span> e <span class="tex">\(\lambda_2=\frac{hc}{E_1}\)</span>. La prima si ha quando dallo stato di eccitazione superiore passa all'intermedio, la seconda quando dall'intermedio passa al ground state.<br>
+Per il ragionamento fatto prima le molecole più eccitate saranno ad altezze inferiori, viceversa quelle meno eccitate saranno ad altezze maggiori.<br>
+<br>
+Per i valori numerici <span class="tex">\(\lambda_1\approx 561nm\)</span> e <span class="tex">\(\lambda_2\approx 633nm\)</span>, quindi ad altezza <span class="tex">\(H_1=160km\)</span> la luce sarà tra il verde e il giallo, mentre a <span class="tex">\(H_2=220km\)</span> la luce sarà tra il rosso e l'arancione.<br>
+<br>
+Spero abbia senso o che almeno le idee siano giuste  :D</article>
+<article class="post" id="p23093"><div class="who"><b>CaptainJohnCabot</b><span>23 ott 2016, 15:51</span></div><blockquote><div><cite>FedericoC. ha scritto:</cite>
+Per il ragionamento fatto prima le molecole più eccitate saranno ad altezze inferiori, viceversa quelle meno eccitate saranno ad altezze maggiori.
+</div></blockquote>
+Non è mica detto  ;) <br>
+<br>
+Quello che hai scritto sopra è giusto ma qui manca una parte del ragionamento.</article>
+<article class="post" id="p23094"><div class="who"><b>Flaffo</b><span>24 ott 2016, 10:54</span></div>Sia <span class="tex">\(E_1\)</span> l'energia nel primo strato di eccitazione  e <span class="tex">\(E_2\)</span> nel secondo. Ogni volta che avviene una collisione tra due molecole di ossigeno, diciamo che la nostra molecola perde tutta la sua energia cinetica, (trasfelendola alla seconda) e 'ruba' l'energia necessaria per tornare in movimento dall'energia di uno strato di eccitazione.  L'energia cinetica (translazionale) è:<br>
+<br>
+<span class="tex">\(K= \frac {3}{2} k_b T = 6,07 \cdot 10^{-21}J\)</span><br>
+<br>
+Mentre abbiamo che:<br>
+<br>
+<span class="tex">\(E_1 = 3,14 \cdot 10^{-19}J\)</span><br>
+<br>
+<span class="tex">\(E_2 =6,68 \cdot  10^{-19}J\)</span><br>
+<br>
+La pressione, e quindi anche la densità, varia con l'altezza in base alla legge:<br>
+<br>
+<span class="tex">\(\displaystyle P=P_0 e^{-\frac {Mg}{RT} y}\)</span><br>
+<br>
+La frequenza delle collisioni tra molecole ad una quota y è data da:<br>
+<br>
+<span class="tex">\(\displaystyle f= f_0  e^{-\frac {Mg}{RT} y}\)</span><br>
+<br>
+All'altezza <span class="tex">\(H_1 = 160 km\)</span> e <span class="tex">\(H_2 = 220 km\)</span> vale rispettivamente:<br>
+<br>
+<span class="tex">\(f_1 = 7,82\)</span><br>
+<br>
+<span class="tex">\(f_2 = 7,13 \cdot  10^{-3}\)</span><br>
+<br>
+Notiamo che alla quota <span class="tex">\(H_1\)</span> sono solo possibili passaggi da 2 in 0 o da 2 in 1 (0,1,2 sono il livello base e i primi due di eccitazione). Il passaggio 1 in 0 (durata <span class="tex">\(t_1 =110 s\)</span>) non è possibile in quanto non è verificata la disuguaglianza:<br>
+<br>
+<span class="tex">\(\frac {E_1}{K} &gt; f_1 t_1\)</span><br>
+<br>
+Invece ad <span class="tex">\(H_2\)</span> sono possibili tutti i passaggi.<br>
+<br>
+Calcoliamo le lunhezza d'onda relative ai vari passaggi:<br>
+<br>
+<span class="tex">\(\lambda _{2-0}= \frac {c h}{E_2}=  297 nm\)</span> <br>
+<br>
+<span class="tex">\(\lambda _{2-1}= \frac {c h}{E_2 - E_1}=  561 nm\)</span><br>
+<br>
+<span class="tex">\(\lambda _{1-0}= \frac {c h}{E_1}=  633 nm\)</span><br>
+<br>
+Il primo è UV, il secondo verde e il terzo rosso.<br>
+<br>
+In conclusione, ad <span class="tex">\(H_1\)</span> vediamo verde mentre ad <span class="tex">\(H_2\)</span> sia verde che rosso.</article>
+<article class="post" id="p23095"><div class="who"><b>CaptainJohnCabot</b><span>24 ott 2016, 11:21</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>
+Il passaggio 1 in 0 (durata <span class="tex">\(t_1 =110 s\)</span>) non è possibile in quanto non è verificata la disuguaglianza:<br>
+<br>
+<span class="tex">\(\frac {E_1}{K} &gt; f_1 t_1\)</span>
+</div></blockquote>
+
+Giusto  :D <br>
+<br>
+Era questo il passaggio che mancava sopra. <br>
+<br>
+Puoi ancora aggiungere un'osservazione per quanto riguarda <span class="tex">\(H_2\)</span> però  ;)</article>
+<article class="post" id="p23096"><div class="who"><b>Flaffo</b><span>24 ott 2016, 18:00</span></div>Su <span class="tex">\(H_2\)</span> posso aggiungere che il numero di fotoni che passano da 1 in 0 è maggiore del numero che passa da 2 in 0 o 2 in 1. Perciò su <span class="tex">\(H_2\)</span> sarà prevalente il rosso.   <br>
+<br>
+Inoltre mi sono calcolato o più che altro 'stimato' la frequenza delle collisioni delle molecole di aria al livello del mare.  Mi sono ottenuto la formula:<br>
+<br>
+<span class="tex">\(f_0 = P_0 N_a \pi r^2 \sqrt {\frac{3}{M R T_0}}\)</span><br>
+<br>
+Dove <span class="tex">\(N_a\)</span> è la costante di Avogadro, <span class="tex">\(r\)</span> è il raggio dell'atomo (io ho usato quello di Van der Waals), M è la massa molare.</article>
+<article class="post" id="p23097"><div class="who"><b>FedericoC.</b><span>24 ott 2016, 18:07</span></div>Purtroppo io non ho avuto più tempo di pensarci  :? <br>
+Ad ogni modo è davvero molto carino, si può sapere la fonte?</article>
+<article class="post" id="p23098"><div class="who"><b>Flaffo</b><span>24 ott 2016, 18:18</span></div>Azzarderei a dire che è di una APhO, anche se non so di quale anno. Invece, ho trovato la mia soluzione un po' azzardata.. Non sono sicuro rispetti pienamente la meccanica quantistica. Però forse ci può stare come approssimazione.</article>
+<article class="post" id="p23099"><div class="who"><b>CaptainJohnCabot</b><span>24 ott 2016, 18:31</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Su <span class="tex">\(H_2\)</span> posso aggiungere che il numero di fotoni che passano da 1 in 0 è maggiore del numero che passa da 2 in 0 o 2 in 1. Perciò su <span class="tex">\(H_2\)</span> sarà prevalente il rosso.   
+</div></blockquote>
+Giusto  :D <br>
+<br>
+Passo quindi la staffetta a Flaffo, che si inizi l'undicesima decade di problemi!  :mrgreen:  :lol: <br>
+<br>
+<br>
+P.S. : La fonte è effettivamente una APhO, quella del 2015. Il problema originale era la domanda 2, potete andare a darle un'occhiata se avete voglia di approfondire. Praticamente questo adattamento è costituito dalle parti f e g, o almeno così mi sembra (forse e ed f) mentre il resto l'ho voluto togliere perché troppo difficile o poco pertinente al tema delle aurore. Se avete voglia di approfondire la trattazione del vento solare e del campo magnetico terrestre invece anche gli altri quesiti risulterebbero molto istruttivi.</article>
+<article class="post" id="p23100"><div class="who"><b>FedericoC.</b><span>24 ott 2016, 18:35</span></div>Grazie a entrambi per la risposta, andrò a vederlo perché mi sembra interessante  :D</article>
+<article class="post" id="p23101"><div class="who"><b>Sorre</b><span>25 ott 2016, 15:09</span></div><span style="color:#4000FF">Flaffo sei un grande , io non ci sarei mai arrivato</span></article>
+<article class="post" id="p23102"><div class="who"><b>Flaffo</b><span>25 ott 2016, 16:42</span></div>:lol:  :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6426.html"><small>← precedente</small>~~~~~~~~~ 99~~~~~~~~~</a><a class="next" href="olifis-6428.html"><small>successivo →</small>101. Continuo del 100...</a></nav>
+</main></body></html>

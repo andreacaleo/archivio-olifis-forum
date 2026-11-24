@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>330 - Forza su una faccia di un cubo carico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 330</a></span></nav>
+<h1>330 - Forza su una faccia di un cubo carico</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7298">forum Olifis</a></p>
+<article class="post first" id="p28760"><div class="who"><b>Mangogiallo26</b><span>9 lug 2025, 12:02</span></div>Un cubo è costituito da 6 facce quadrate di lato <span class="tex">\(l\)</span>,  isolanti e ciascuna carica uniformemente con carica <span class="tex">\(Q\)</span>. Quali sono il modulo e la direzione della forza che agisce su una delle facce?<br>
+<br>
+Mi scuso se probabilmente sto infrangendo le regole della staffetta non avendo risolto interamente il problema precedente, ma vista la poca attività del forum volevo provare a proporre questo problema. Il numero è il 330 perché ho interpretato il problema “tiri al bersaglio” come il 329.</article>
+<article class="post" id="p28762"><div class="who"><b>Higgs</b><span>10 lug 2025, 17:16</span></div>Voglio provare questa ipotesi, come sempre faccio impulsivamente. Il cubo può essere visto come tre condensatori. Consideratone uno costituito da due facce opposte le linee di forza del campo prodotto sono perpendicolari alle due facce ma "scivolano" sopra le altre 4 senza avere alcun effetto sulle cariche da esse possedute. L'unico effetto lo hanno sulle cariche della faccia opposta. Con Gauss il campo prodotto da una faccia esiste solo dentro il condensatore ed è diretto contro la faccia opposta che viene respinta con la forza <span class="tex">\(Q^2/(\epsilon l^2)\)</span></article>
+<article class="post" id="p28763"><div class="who"><b>Mangogiallo26</b><span>10 lug 2025, 21:29</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7298.html#p28762" data-post-id="28762" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">10 lug 2025, 17:16</div></cite>
+Consideratone uno costituito da due facce opposte le linee di forza del campo prodotto sono perpendicolari alle due facce ma "scivolano" sopra le altre 4 senza avere alcun effetto sulle cariche da esse possedute.
+</div></blockquote>
+
+In questo passaggio stai però assumendo che i condensatori siano ideali,  anche se la distanza tra le piastre è pari al lato di esse, quindi sicuramente non molto minore. Inoltre non mi è molto chiaro il discorso che le due facce non hanno effetto sulle cariche delle altre 4 facce, anche se le linee di forza sono parallele muovono le cariche fino a un equilibrio. Comunque c’è un altro ragionamento che porta alla soluzione, anche se magari prima di dare hint aspetto qualche altra risposta.</article>
+<article class="post" id="p28772"><div class="who"><b>Fibdg</b><span>22 lug 2025, 22:26</span></div>Io direi che presa una delle facce la forza agente su di essa è uscente dal cubo, in direzione perpendicolare alla faccia stessa per la simmetria della configurazione. Sul modulo non saprei, ho provato a scrivere qualche integrale ma i conti si complicano in fretta. Ho pensato a Gauss ma non mi viene un modo intelligente per usarlo. Hint?</article>
+<article class="post" id="p28773"><div class="who"><b>Fibdg</b><span>3 ago 2025, 10:56</span></div>Pensandoci meglio faccio un tentativo:<br>
+Consideriamo una superficie cubica che contiene il nostro cubo, il flusso del campo elettrico attraverso essa sarà <span class="tex">\(\Phi_{tot} = \frac{6Q}{\epsilon_0}\)</span> per il Teorema di Gauss. Per simmetria il flusso attraverso una delle sei facce è <span class="tex">\(\Phi = \frac{1}{6} \Phi_{tot}\)</span>. Vale anche per definizione di flusso la seguente: <span class="tex">\(\Phi = \int_S \vec{E}\cdot\vec{dS}= \int_S E_S \cdot dS \)</span> dove E_S è la componente del campo elettrico perpendicolare alla faccia considerata. Proseguendo <span class="tex">\(\Phi = \int_S E_S \cdot dQ \cdot \frac{dS}{dQ} = \int_S E_S \cdot dQ  \cdot\frac{l^2}{Q} = \frac{l^2}{Q} \int dF_S \)</span>, dove si è usato il fatto che le facce sono cariche uniformemente e quindi <span class="tex">\(dS/dQ = l^2/Q \)</span>.  Si noti che per la simmetria della configurazione la forza complessiva agente su una faccia è perpendicolare alla faccia stessa quindi la forza incognita è <span class="tex">\(\vec{F} = \vec{u}\int dF_S \)</span> con <span class="tex">\(\vec{u}\)</span> versore normale e uscente rispetto alla faccia. Mettendo tutto insieme:<br>
+<span class="tex">\(\vec{F} = \vec{u}\int dF_S = \vec{u} \cdot \frac{Q}{l^2} \cdot \Phi = \frac{Q^2}{\epsilon_0 l^2}\vec{u}\)</span>.</article>
+<article class="post" id="p28774"><div class="who"><b>Higgs</b><span>4 ago 2025, 10:56</span></div>Non mi riesce di vedere differenze con la soluzione che ho proposto il 10/07 u.s.</article>
+<article class="post" id="p28777"><div class="who"><b>Fibdg</b><span>8 ago 2025, 20:30</span></div>È vero, ho notato solo ora. Se il risultato è corretto per me puoi pure considerare questo problema risolto e andare avanti con la staffetta, l’unica cosa che non mi è chiara è come fa la forza a essere la stessa nel caso di un cubo e nel caso del condensatore che citavi? I due lati adiacenti danno un contributo alla forza totale agente su un certo lato, escludendo le componenti parallele al lato considerato.</article>
+<article class="post" id="p28778"><div class="who"><b>Higgs</b><span>9 ago 2025, 10:54</span></div>Mah ritengo che prima si deve esprimere Mangogiallo26.</article>
+<nav class="pager"><a class="prev" href="olifis-7290.html"><small>← precedente</small>SNS n. 6,  2024/1</a></nav>
+</main></body></html>

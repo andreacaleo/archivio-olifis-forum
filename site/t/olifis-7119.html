@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>283 - Einstein batte Newton 2 a 1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 283</a></span></nav>
+<h1>283 - Einstein batte Newton 2 a 1</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7119">forum Olifis</a></p>
+<article class="post first" id="p27244"><div class="who"><b>DeoGratias</b><span>16 dic 2021, 22:25</span></div>La teoria della Relatività Generale è stata a lungo osteggiata e non creduta. Alcuni fenomeni potevano essere trattati con il solo uso della gravità di Newton, unita alla relatività speciale, e si pensava che la relatività generale fosse un mero esercizio di stile matematico. Ad esempio, la deflessione di un raggio di luce a causa della presenza di una stella può essere calcolata in entrambi i modi, ottenendo però risultati discordanti. <br>
+<br>
+1) Un fotone si muove verso un corpo di massa <span class="tex">\(M\)</span>; calcolare l'angolo di deflessione dovuto a un potenziale newtoniano in funzione di <span class="tex">\(M\)</span> e <span class="tex">\(r_0\)</span>, la distanza minima tra fotone e stella.<br>
+<br>
+Il potenziale "classico" che deriva dalle equazioni di Einstein per una massa puntiforme nel campo di una massa <span class="tex">\(M \gg m\)</span> è <span class="tex">\(U(r)=-\frac{GMm}{r}\left ( 1+\frac{L^2}{c^2m^2r^2} \right )\)</span>, dove <span class="tex">\(L\)</span> è il momento angolare.<br>
+<br>
+2) Calcolare l'angolo di deflessione dovuto a questo potenziale: cosa ha di particolare rispetto al caso precedente?</article>
+<article class="post" id="p27246"><div class="who"><b>Luca Milanese</b><span>18 dic 2021, 18:51</span></div>Sbaglio o l'espressione dentro parentesi non torna dimensionalmente?</article>
+<article class="post" id="p27247"><div class="who"><b>DeoGratias</b><span>18 dic 2021, 19:23</span></div><blockquote><div><cite>Luca Milanese ha scritto: <a href="olifis-7119.html#p27246" data-post-id="27246" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">18 dic 2021, 18:51</div></cite>
+Sbaglio o l'espressione dentro parentesi non torna dimensionalmente?
+</div></blockquote>
+Sì hai ragione, doveva essere <span class="tex">\(c^2\)</span> invece che <span class="tex">\(M^2\)</span>  :oops:  Grazie per la segnalazione</article>
+<article class="post" id="p27248"><div class="who"><b>Luca Milanese</b><span>19 dic 2021, 10:10</span></div>Tratterò il fotone classicamente come una particella puntiforme di massa <span class="tex">\(m\)</span>. Suppongo inoltre <span class="tex">\(c^2 \gg \frac{GM}{r_0}\)</span>, cosicché la deviazione subita dal fotone a causa della gravità è molto piccola e può essere calcolata sovrapponendo l'effetto della forza gravitazionale a una traiettoria rettilinea del fotone, la cui distanza minima da <span class="tex">\(M\)</span> è <span class="tex">\(r_0\)</span>. Questa approssimazione, benché non necessaria nel primo punto (poiché è nota l'espressione della traiettoria di una particella in un potenziale newtoniano), diventa molto utile nel secondo, a causa della forma del potenziale, e dà comunque lo stesso risultato al primo ordine in <span class="tex">\(\frac{GM}{c^2 r_0}\)</span>.<br>
+1) Sia <span class="tex">\(O\)</span> la posizione di <span class="tex">\(M\)</span>, <span class="tex">\(P\)</span> la posizione del fotone e <span class="tex">\(Q\)</span> il punto della sua traiettoria rettilinea a distanza <span class="tex">\(r_0\)</span> da <span class="tex">\(O\)</span>. Quando l'angolo <span class="tex">\(\angle POQ\)</span> vale <span class="tex">\(\theta\)</span>, la distanza <span class="tex">\(OP\)</span> vale <span class="tex">\(\frac{r_0}{\cos \theta}\)</span>, perciò la forza subita dal fotone ha modulo <span class="tex">\(\frac{GMm \cos^2 \theta}{r_0^2}\)</span>, e la sua componente perpendicolare alla traiettoria è <span class="tex">\(\frac{GMm \cos^3 \theta}{r_0^2}\)</span>. A questa forza corrrisponde un'accelerazione trasversale <span class="tex">\(a=\frac{GM \cos^3 \theta}{r_0^2}\)</span>. Inoltre, la velocità del fotone lungo la retta può essere considerata costante e uguale a <span class="tex">\(c\)</span>, perciò si ha:<br>
+<span class="tex">\(c=\frac{\text{d} \overline{QP}}{\text{d}t}=\frac{\text{d} (r_0 \tan \theta)}{\text{d}t}=\frac{r_0 \dot \theta}{\cos^2 \theta}\)</span><br>
+Da cui:<br>
+<span class="tex">\( \frac{GM \cos^3 \theta}{r_0^2}  =\frac{\text{d}v_{tras}}{\text{d}t}=\frac{\text{d}v_{tras}}{\text{d}\theta}\frac{\text{d}\theta}{\text{d}t}=  \frac{\text{d}v_{tras}}{\text{d}\theta} \frac{c \cos^2 \theta}{r_0} \Rightarrow  \frac{\text{d}v_{tras}}{\text{d}\theta}=\frac{GM\cos \theta}{c r_0}  \)</span><br>
+A questo punto, integrando in <span class="tex">\(\theta\)</span> da <span class="tex">\(-\frac{\pi}{2}\)</span> a <span class="tex">\(+\frac{\pi}{2}\)</span>, si ottiene <span class="tex">\(\Delta v_{tras}=\frac{2GM}{cr_0}\)</span>, e l'angolo di deflessione può essere stimato come <span class="tex">\(\phi = \frac{\Delta v_{tras}}{c}=\frac{2GM}{r_0 c^2}\)</span>, che è molto minore di uno, consistentemente con l'assunzione fatta.<br>
+2) Procedendo come sopra, devo sommare alla deviazione già calcolata quella dovuta al termine aggiuntivo nel potenziale, ovvero, essendo <span class="tex">\(L=mr_0c\)</span> il momento angolare del fotone rispetto a <span class="tex">\(O\)</span>:<br>
+<span class="tex">\(\Delta U = -\frac{GMm}{r} \frac{m^2 r_0^2 c^2}{c^2 m^2 r^2}=-\frac{GMmr_0^2}{r^3}\)</span><br>
+L'accelerazione trasversale corrispondente è data da:<br>
+<span class="tex">\(\Delta a_{tras}=\frac{\cos \theta}{m} \frac{\text{d} (\Delta U)}{\text{d}r}=\frac{3GM\cos^5 \theta}{r_0^2}\)</span><br>
+Perciò:<br>
+<span class="tex">\(\Delta \phi = \frac{1}{c} \int_{-\frac{\pi}{2}}^{+\frac{\pi}{2}} \frac{3GM \cos^5 \theta}{r_0^2} \frac{r_0}{c \cos^2 \theta} \text{d} \theta=\frac{3GM}{r_0 c^2} \bigg [\sin \theta - \frac{\sin^3 \theta}{3}\bigg]_{-\frac{\pi}{2}}^{+\frac{\pi}{2}}=\frac{4GM}{r_0^2}\)</span><br>
+Cioè il doppio della previsione "classica". In questo caso l'angolo totale di deflessione risulta allora:<br>
+<span class="tex">\(\phi'=\phi+\Delta \phi =\frac{6GM}{r_0 c^2}\)</span></article>
+<article class="post" id="p27249"><div class="who"><b>DeoGratias</b><span>22 dic 2021, 18:55</span></div>Corretto :D <br>
+Aggiungerei che il punto 1 poteva essere svolto senza integrali (bisogna però ricordarsi una formula particolare). Inoltre, il punto 2 può essere risolto nello stesso modo che hai usato, ma approssimando la traiettoria a un'iperbole invece che a una retta (alla fine i risultati sono ovviamente gli stessi al prim'ordine). Se vuoi prova a fare questi piccoli aggiustamenti, altrimenti vai pure col 284!</article>
+<article class="post" id="p27250"><div class="who"><b>Luca Milanese</b><span>23 dic 2021, 14:12</span></div>1) In coordinate polari, è noto che la traiettoria di una massa puntiforme <span class="tex">\(m\)</span> in un potenziale <span class="tex">\(-\frac{GMm}{r}\)</span> è data da:<br>
+<span class="tex">\(r(\theta)=\frac{L^2}{m^2MG(1+\epsilon \cos \theta)}\)</span><br>
+Dove <span class="tex">\(\epsilon=\sqrt{1+\frac{2EL^2}{m^3 M^2 G^2}}\)</span>, <span class="tex">\(L\)</span> è il momento angolare ed <span class="tex">\(E\)</span> è l'energia dell'oggetto. Nel nostro caso, <span class="tex">\(L=mr_0 c\)</span> ed <span class="tex">\(E=\frac{mc^2}{2}\)</span> (trattando il fotone classicamente). L'angolo fra i due asintoti dell'iperbole è dato da <span class="tex">\(2\pi-2\theta_0\)</span>, essendo <span class="tex">\(\cos \theta_0 =-\frac{1}{\epsilon}\)</span>, perciò l'angolo di cui devia la traiettoria del fotone è:<br>
+<span class="tex">\(\phi=\pi-(2\pi-2\theta_0) \Rightarrow \theta_0=\frac{\phi+\pi}{2} \Rightarrow \sin \frac{\phi}{2} = -\cos \theta_0= \frac{1}{\sqrt{1+\big(\frac{c^2 r_0}{MG}\big )^2} \)</span><br>
+Per <span class="tex">\(c^2 \gg \frac{MG}{r_0}\)</span>, e corrispondentemente <span class="tex">\(\phi \ll 1\)</span>, si ha:<br>
+<span class="tex">\(\sin \frac{\phi}{2} \approx \frac{\phi}{2}\)</span><br>
+Inoltre:<br>
+<span class="tex">\(\frac{1}{\sqrt{1+\big(\frac{c^2 r_0}{MG}\big )^2}} \approx \frac{MG}{c^2 r_0}  \)</span><br>
+Da ciò si trova il risultato del messaggio precedente.<br>
+2) Come sopra, si ha <span class="tex">\(\Delta \phi \approx \frac{1}{c}\Delta v_{tras} = \frac{1}{c}\int_{-\theta_0}^{+\theta_0} \frac{\text{d}v_{tras}}{\text{d}t} \frac{1}{\dot \theta} \text{d}\theta=\frac{2}{c} \int_{0}^{\theta_0} \frac{3GM r_0^2 \cos \theta}{r^4} \frac{mr^2}{mr_0 c} \text{d}\theta \)</span><br>
+<span class="tex">\(=\frac{6GMr_0}{c^2}\int_{0}^{\theta_0} \cos \theta \frac{M^2 G^2 (1+\epsilon \cos \theta)^2}{r_0^4 c^4} \text{d}\theta \approx \frac{4GM}{c^2 r_0}\)</span><br>
+Dove nell'ultimo passaggio ho tenuto i termini di ordine minore in <span class="tex">\(\frac{MG}{c^2 r_0}\)</span>.</article>
+<article class="post" id="p27251"><div class="who"><b>DeoGratias</b><span>23 dic 2021, 16:17</span></div>Ora è perfetto, vai con la staffetta!</article>
+<nav class="pager"><a class="prev" href="olifis-7116.html"><small>← precedente</small>282. Quanta carica?</a><a class="next" href="olifis-7120.html"><small>successivo →</small>284. Tre masse</a></nav>
+</main></body></html>

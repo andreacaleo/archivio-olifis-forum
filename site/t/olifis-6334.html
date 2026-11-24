@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>77. Campo magnetico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 77</a></span></nav>
+<h1>77. Campo magnetico</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6334">forum Olifis</a></p>
+<article class="post first" id="p22394"><div class="who"><b>BeppeBogna</b><span>11 giu 2016, 17:30</span></div>Si considerino tanti anelli metallici sottili, ciasciuno di raggio <span class="tex">\(r\)</span> e resistenza <span class="tex">\(R\)</span>, fissati uniformemente intorno a un guscio cilindrico isolante di lunghezza molto maggiore del raggio degli anelli. Sia <span class="tex">\(n\)</span> il numero di anelli per unità di lunghezza del guscio. A un certo istante, il guscio viene messo in rotazione con accelerazione angolare <span class="tex">\(\alpha\)</span> costante. Trovare, in funzione dei dati e di eventuali costanti fisiche, il campo magnetico <span class="tex">\(B\)</span> al centro del guscio dopo un tempo sufficientemente lungo.</article>
+<article class="post" id="p22396"><div class="who"><b>rocco</b><span>12 giu 2016, 8:33</span></div>A me risulta <span class="tex">\(B= (\mu_0 2\pi n m r^2\alpha) / (e R)\)</span> Ampère/metro, con <span class="tex">\(m\)</span> massa dell'elettrone ed <span class="tex">\(e\)</span> carica dell'elettrone. Naturalmente posto il procedimento solo se il risultato è giusto.</article>
+<article class="post" id="p22397"><div class="who"><b>BeppeBogna</b><span>12 giu 2016, 9:23</span></div>Manca solo una costante e la staffetta è tua  :D</article>
+<article class="post" id="p22398"><div class="who"><b>rocco</b><span>12 giu 2016, 9:59</span></div>Si, la permeabilità.Scusa ma per il procedimento ed il nuovo chiedo di farlo domani perchè, come tanti, ho anche l'esame di stato da preparare ed è domenica...</article>
+<article class="post" id="p22399"><div class="who"><b>BeppeBogna</b><span>12 giu 2016, 10:24</span></div>Non c'è problema, sono nella stessa situazione!</article>
+<article class="post" id="p22401"><div class="who"><b>rocco</b><span>13 giu 2016, 16:34</span></div>Il vettore induzione magnetica <span class="tex">\(\vec B\)</span> avrà modulo <span class="tex">\(B=\mu_0.n.i = \mu_0.n.N.e.v.S = \mu_0 n.J.S\)</span> dove <span class="tex">\(\mu_0\)</span> è la permeabilità magnetica, <em class="text-italics">i </em>è l'intensità di corrente costituita dalla rotazione degli elettroni di conduzione dell'anello, <em class="text-italics">N</em> è il numero di elettroni di conduzione per unità di volume,<em class="text-italics"> e</em> la carica elementare di ciascuno , <em class="text-italics">S</em> la sezione dell'anello e <em class="text-italics">J</em> la densità di corrente. L'accelerazione subita da ciascun elettrone <span class="tex">\(a=\alpha.r\)</span> equivale alla presenza di un campo elettrico <span class="tex">\(E=(F/e)= (m\alpha r)/e\)</span> con <em class="text-italics">m</em> massa dell'elettrone mentre sappiamo che <span class="tex">\(J= E/\rho\)</span> dove <span class="tex">\(\rho= (R.S)/l= (R.S)/(2\pi r)\)</span> è la resistività del metallo-anello. Con la sostituzione di <em class="text-italics">E</em> e <span class="tex">\(\rho\)</span> nell'espressione di <em class="text-italics">J</em>e di <em class="text-italics">J </em>in quella di <em class="text-italics">B</em> si ottiene <br>
+<br>
+<span class="tex">\(B= (2\pi\mu_0.n.m.\alpha.r^2)/(e.R)\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-6333.html"><small>← precedente</small>76. Condensatore e molla</a><a class="next" href="olifis-6336.html"><small>successivo →</small>78. Cilindro sul piano inclinato</a></nav>
+</main></body></html>

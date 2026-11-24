@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>165: Moto circolare tenuto da un filo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 165</a></span></nav>
+<h1>165: Moto circolare tenuto da un filo</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6776">forum Olifis</a></p>
+<article class="post first" id="p25239"><div class="who"><b>drago</b><span>16 ott 2018, 12:31</span></div>Scusandomi per il ritardo, proseguo la staffetta.<br>
+<br>
+Una piccola pallina di massa <span class="tex">\(m\)</span> è attaccata ad un filo di lunghezza <span class="tex">\(l\)</span> e massa nulla,<br>
+l'estremità libera del filo viene mossa in modo che la pallina compia un moto circolare uniforme di raggio <span class="tex">\(R\)</span> e velocità <span class="tex">\(v\)</span> in un piano verticale (ovviamene c'è l'accelerazione di gravità <span class="tex">\(g\)</span>).<br>
+<br>
+Dare un espressione per la traiettoria dell'estremo libero del filo.</article>
+<article class="post" id="p25240"><div class="who"><b>lance00</b><span>16 ott 2018, 19:46</span></div>Allora: <span class="tex">\(m\)</span> si muove su una circonferenza di raggio <span class="tex">\(l\)</span> e centro <span class="tex">\(O\)</span>. Il raggio <span class="tex">\(Om\)</span> forma un angolo <span class="tex">\(\theta = \frac{vt}{l}\)</span> con l'asse x. Siccome la risultante della tensione del filo <span class="tex">\(T\)</span> e della forza peso <span class="tex">\(mg\)</span> deve giacere sul raggio <span class="tex">\(Om\)</span>, segue che il punto A dovrà trovarsi a un'opportuna distanza <span class="tex">\(r\)</span> dal centro della circonferenza per far sì che la componente tangenziale della tensione cancelli quella tangenziale della gravità. La tensione <span class="tex">\(T\)</span> forma un angolo <span class="tex">\(\phi(t)\)</span> col raggio <span class="tex">\(Om\)</span>. Si deve avere <span class="tex">\(T \sin\phi = mg\cos\theta\)</span> e <span class="tex">\(T\cos\phi = \frac{mv^2}{l}-mg\sin\theta\)</span> dunque <span class="tex">\(\phi = \arctan \frac{g\cos\theta}{\frac{v^2}{l}-g\sin\theta} \)</span>. Il triangolo <span class="tex">\(AOm\)</span> è isoscele quindi <span class="tex">\(r = l\sqrt{2-2\cos\phi}\)</span> per il teorema di Carnot. Inoltre <span class="tex">\(\angle AOm = \frac{\pi-\phi}{2}\)</span>. Quindi la posizione di A in cordinate polari è <span class="tex">\((l\sqrt{2-2\cos(\arctan \frac{g\cos \frac{vt}{l}}{\frac{v^2}{l}-g\sin \frac{vt}{l}})}, \frac{vt}{l} + \frac{\pi}{2}-\frac{\arctan \frac{g\cos\theta}{\frac{v^2}{l}-g\sin\theta}}{2})\)</span>  :D</article>
+<article class="post" id="p25241"><div class="who"><b>lance00</b><span>16 ott 2018, 21:36</span></div>ops, ho fatto i calcoli con <span class="tex">\(R = l\)</span>, domani correggo</article>
+<article class="post" id="p25242"><div class="who"><b>drago</b><span>17 ott 2018, 12:01</span></div>Penso che sia giusto, adesso non ho tempo di ricontrollare i conti;<br>
+però suggerisco di farlo in cartesiano, si capisce di più cosa succede</article>
+<article class="post" id="p25243"><div class="who"><b>lance00</b><span>17 ott 2018, 19:29</span></div>ok, quando ho tempo provo a farlo anche in cartesiane. :)  Comunque se per te va bene lascerei la soluzione in polari con R = l (non ho voglia di riscrivere tutto e alla fine non cambia molto, viene solo ancora più brutto). Per il testimone: posso postare un nuovo problema (supponendo che i conti siano corretti) o devo prima postare la soluzione senza polari?</article>
+<article class="post" id="p25244"><div class="who"><b>drago</b><span>19 ott 2018, 13:44</span></div>i conti mi sembrano corretti quindi ti passo il testimone; quando hai tempo metti anche la soluzione in cartesiane ti assicuro che esce un po più bella</article>
+<nav class="pager"><a class="prev" href="olifis-6750.html"><small>← precedente</small>164. Decagono</a><a class="next" href="olifis-6777.html"><small>successivo →</small>166. Sale o scende?</a></nav>
+</main></body></html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>320 - Sferetta che cade nel miele</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 320</a></span></nav>
+<h1>320 - Sferetta che cade nel miele</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7254">forum Olifis</a></p>
+<article class="post first" id="p28454"><div class="who"><b>degmantec</b><span>13 giu 2024, 23:05</span></div>Buonasera, sono nuovo nel forum delle olimpiadi e l'intenzione mia e di altri ragazzi era quella di riaprire la staffetta di fisica proseguendo con il problema 320, dato che dopo il problema 319 (Il pendolo di Foucault) sembra che la staffetta sia entrata in un periodo di inattività.  <br>
+<br>
+Pertanto, chiarito ciò, il problema con cui vorrei cominciare è il seguente. <br>
+<br>
+Una sferetta di volume V fatta di un certo materiale di densità ρ cade all'interno di un barattolo di miele (miele con una densità ρ<span style="font-size: 50%; line-height: normal">H</span>) contenente un certo volume V<span style="font-size: 50%; line-height: normal">H</span> di miele. Grazie alle forze di attrito viscoso, la sfera parte dalla superficie del miele e cade mantenendo una velocità sempre costante (non si consideri il momento dell'impatto con il fondo del barattolo) pari a v e diretta sempre verso il basso. Sotto queste ipotesi si determini in funzione dei dati forniti la quantità di moto complessiva DEL MIELE nel barattolo.</article>
+<article class="post" id="p28455"><div class="who"><b>Fibdg</b><span>15 giu 2024, 15:49</span></div>Non riesco a capire come esprimere la posizione del centro di massa del miele quando la sferetta è inserita... ho provato <span class="tex">\(m_{H} y_H= \rho_H V_H y_1+\rho_H V(h-y_0-vt-y_1)\)</span> , dove <span class="tex">\(y_1\)</span> è la posizione iniziale del centro di massa del miele, <span class="tex">\(y_0\)</span> è la posizione iniziale del centro di massa della sferetta e <span class="tex">\(h\)</span> è la profondità del barattolo, il tutto rispetto a un asse <span class="tex">\(y\)</span> con centro sulla superficie del barattolo e orientato verso il basso. L'idea è che una sferetta di miele di identico volume risalga dal fondo alla stessa velocità "spostando" il centro di massa del miele. Derivando rispetto a <span class="tex">\(t\)</span> ottengo che la quantità di moto del miele è <span class="tex">\(\rho_H V v\)</span>. Può avere senso?</article>
+<article class="post" id="p28456"><div class="who"><b>Higgs</b><span>16 giu 2024, 11:41</span></div>Io penso che il cdm complessivo del sistema miele+sfera debba rimanere fisso perché non c'è nessuna forza esterna verticale agente sul sistema: anche la forza di attrito viscoso è interna al sistema, miele e sfera se la scambiano in versi opposti, come mi pare la spinta di Archimede agente sulla sfera...Fa giustizia delle forze verticali la reazione verso l'alto del fondo del barattolo. Tuttavia è un fatto che, se scende verso il basso la sfera a velocità v, questo sarebbe un abbassamento del cdm complessivo. Ma bisogna osservare che la sfera che scende viene sostituta da un ugual volume di miele che sale verso l'alto e pareggia il conto complessivo in modo che il cdm complessivo non si sposti. Se l'idea è ritenuta corretta provo a quantificarla successivamente.</article>
+<article class="post" id="p28457"><div class="who"><b>Fibdg</b><span>16 giu 2024, 11:50</span></div><blockquote class="uncited"><div>bisogna osservare che la sfera che scende viene sostituta da un ugual volume di miele che sale verso l'alto e pareggia il conto complessivo in modo che il cdm complessivo non si sposti</div></blockquote> Secondo me è corretto, si troverebbe che la velocità <span class="tex">\(v'\)</span> con cui quel volume di miele risale è maggiore di <span class="tex">\(v\)</span> essendo <span class="tex">\(\rho_H&lt;\rho\)</span>, giusto?</article>
+<article class="post" id="p28458"><div class="who"><b>Higgs</b><span>17 giu 2024, 11:01</span></div>Spero che sia corretto. Ma l'uso del forum è che l'autore risponda agli interventi. E' appunto una discussione della quale poi l'autore trarrà le conclusioni.<br>
+Ma Degmantec non ha risposto...  :) Rispetto però alla tua intuizione credo che bisogna tener conto anche dei rispettivi volumi. Potrebbe compensare la minore densità con un maggior volume... se capisco quello che dici...</article>
+<article class="post" id="p28459"><div class="who"><b>Pigkappa</b><span>17 giu 2024, 21:53</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7254.html#p28456" data-post-id="28456" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 giu 2024, 11:41</div></cite>
+Io penso che il cdm complessivo del sistema miele+sfera debba rimanere fisso perché non c'è nessuna forza esterna verticale agente sul sistema: anche la forza di attrito viscoso è interna al sistema, miele e sfera se la scambiano in versi opposti, come mi pare la spinta di Archimede agente sulla sfera...Fa giustizia delle forze verticali la reazione verso l'alto del fondo del barattolo. Tuttavia è un fatto che, se scende verso il basso la sfera a velocità v, questo sarebbe un abbassamento del cdm complessivo. Ma bisogna osservare che la sfera che scende viene sostituta da un ugual volume di miele che sale verso l'alto e pareggia il conto complessivo in modo che il cdm complessivo non si sposti. Se l'idea è ritenuta corretta provo a quantificarla successivamente.
+</div></blockquote>
+
+Io direi che il cdm sta scendendo... <br>
+<br>
+Considera il caso semplice in cui la densità del miele è 0. Evidentemente il cdm del sistema coincide con la sferetta, e sta scendendo a velocità <span class="tex">\(v\)</span>. <br>
+<br>
+Le forze verticali esterne sono la gravità, che agisce su sferetta e miele, e la reazione vincolare del pavimento. Se si dice che si bilanciano esattamente, bisogna dimostrarlo.</article>
+<article class="post" id="p28460"><div class="who"><b>Higgs</b><span>18 giu 2024, 11:31</span></div>Si è interessante come speculazione il caso della densità 0 ma preferirei proporre il mio punto di vista sul caso reale riconoscendo l'esigenza della dimostrazione. Io ritenevo che le forze agenti sulla sferetta fossero il suo peso, la spinta di Archimede del miele e la forza di attrito viscoso(ovvero orientando verso l'alto l'asse y) <span class="tex">\(- \rho V g + \rho_M V g + F_a\)</span> dove la forza di attrito viscoso dovrebbe essere proporzionale a v. Siccome quest'ultima è costante dovrebbe essere <span class="tex">\(F_a = (\rho - \rho_M)Vg\)</span>. Come forze esterne agenti sul miele io vedrei questa forza di attrito diretta verso il basso esercitata dalla sferetta nonché il peso del miele che dovrebbe però essere equilibrato dalla reazione normale N del pavimento. <br>
+Inoltre per quanto riguarda il cdm del sistema mi pare che tu abbia ragione sostenendo che scende. Infatti mentre la sfera scende e come si diceva abbassa questo cdm, essa viene sostituita da un ugual volume di miele che però è meno denso della sfera e quindi l'incremento che provoca è inferiore al decremento prodotto dalla sfera. <br>
+Cosa sto sbagliando per poter continuare? Ha il miele una p verso l'alto pari a <span class="tex">\(\rho_M.V v\)</span>? :?:  :?:</article>
+<article class="post" id="p28461"><div class="who"><b>Fibdg</b><span>18 giu 2024, 14:22</span></div>Provo a dimostrare quello di cui si è discusso finora:<br>
+La sferetta si muove di moto rettilineo uniforme; inoltre il piano risponde a qualsiasi forza verticale verso il basso esercitata dal miele opponendovi una reazione <span class="tex">\(\vec N\)</span> di modulo e direzione uguali ma verso opposto. Per queste ragioni scriviamo:<br>
+<br>
+<span class="tex">\(\vec F_{p,S}+\vec F_{attrito, S}+\vec F_{Archimede, S}=0\)</span> e <br>
+<span class="tex">\(\vec N +\vec F_{p,H}+\vec F_{attrito, H}+\vec F_{Archimede, H} =0\)</span> <br>
+ove <span class="tex">\(\vec F_{attrito, S}=-\vec F_{attrito, H}\)</span> e <span class="tex">\(\vec F_{Archimede, S}=-\vec F_{Archimede, H}\)</span> per il terzo principio della dinamica.<br>
+<br>
+<br>
+Quindi <span class="tex">\(\vec F_{ext}=\vec N +\vec F_{p,H}+\vec F_{p,S}=-\vec F_{p,H}-\vec F_{attrito, H}-\vec F_{Archimede, H}+\vec F_{p,H}+\vec F_{p,S}= \vec F_{p,S}-\vec F_{attrito, H}-\vec F_{Archimede, H}=\vec F_{p,S}+\vec F_{attrito, S}+\vec F_{Archimede, S}=0\)</span><br>
+<br>
+Se su un sistema non agiscono forze esterne allora <span class="tex">\(\vec F_{ext}=m_{tot}\vec a_{CM}\)</span> diventa <span class="tex">\(\vec a_{CM} = 0\)</span> e quindi il centro di massa si muove di moto rettilineo uniforme. Quindi non è detto che sia fermo; anzi il suggerimento di Pigkappa fa capire che evidentemente il cdm scende (a velocità costante per quello che si è detto sopra). Da ciò la quantità di moto del sistema è costante nel tempo. Da qui si parte per ragionare su come si muova il miele, anche se come dicevo non riesco a immaginare che condizione imporre sul moto del centro di massa del miele per ricavarne la quantità di moto.</article>
+<article class="post" id="p28462"><div class="who"><b>Pigkappa</b><span>18 giu 2024, 23:38</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7254.html#p28460" data-post-id="28460" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">18 giu 2024, 11:31</div></cite>
+mentre la sfera scende [...] viene sostituita da un ugual volume di miele
+</div></blockquote>
+Questa è la condizione che permette di ricavare la quantità di moto del miele... La condizione è geometrica in questo caso, non fisica.</article>
+<article class="post" id="p28463"><div class="who"><b>Higgs</b><span>19 giu 2024, 11:26</span></div>Quella che io ho calcolato cioè <span class="tex">\(p= \rho_M V v\)</span> riguarda una sostituzione della sfera con il miele. Ma si domanda la quantità di moto COMPLESSIVA del miele cioè tutte la sostituzioni? ovvero <span class="tex">\(V_M/V\)</span> ? Però in questo caso la p complessiva mi verrebbe <span class="tex">\(\rho_M V_M v\)</span> che sarebbe quella di tutto il miele? Ma è possibile?</article>
+<article class="post" id="p28464"><div class="who"><b>Fibdg</b><span>19 giu 2024, 16:36</span></div><blockquote class="uncited"><div> <span class="tex">\(\rho_M V_M v\)</span> che sarebbe quella di tutto il miele? Ma è possibile?</div></blockquote> Io non penso, altrimenti complessivamente sarebbe come se tutto il miele si muovesse a velocità <span class="tex">\(v\)</span>, che non è vero perché solo una massa <span class="tex">\(\rho_M V\)</span> lo fa. Si può pensare così: la quantità di moto complessiva del miele è data dalla quantità di moto della "sferetta di miele" (<span class="tex">\(=\rho_M V v\)</span>) + la quantità di moto del resto del miele (<span class="tex">\(=0\)</span> perché non si muove il resto del miele). Quindi la quantità di moto del miele complessivamente è <span class="tex">\(\vec p_H=\rho_M V v\hat y\)</span>. Sommata alla quantità di moto della sferetta si ottiene <span class="tex">\(\vec p_{tot}=-vV(\rho-\rho_H)\hat y\)</span>, e quindi come previsto il centro di massa scende a velocità costante (come faceva notare Pigkappa se <span class="tex">\(\rho_H=0\)</span> la quantità di moto coincide proprio con quella della sola sferetta che scende). Può andare? Che ne pensate?</article>
+<article class="post" id="p28465"><div class="who"><b>Higgs</b><span>21 giu 2024, 10:31</span></div>Avendo concluso il mio post due giorni or sono con qualche punto interrogativo, vorrei conoscere la risposta da Pigkappa e/o degmantec</article>
+<article class="post" id="p28466"><div class="who"><b>Pigkappa</b><span>21 giu 2024, 18:24</span></div>Siano <span class="tex">\(\displaystyle y_1\)</span> e <span class="tex">\(\displaystyle y_2\)</span> le posizioni del centro della sfera rispettivamente al tempo <span class="tex">\(\displaystyle t_1\)</span> e <span class="tex">\(\displaystyle t_2\)</span>. Tra questi due tempi, una massa di miele <span class="tex">\(\displaystyle \delta m_\text{miele} = \rho_\text{miele} V_\text{sfera}\)</span> si sposta dall'occupare volume centrato attorno ad <span class="tex">\(\displaystyle y_2\)</span> a volume centrato attorno a <span class="tex">\(\displaystyle y_1\)</span>. Quindi il centro di massa si sposta di<br>
+<span class="tex">\(\displaystyle \Delta y_{\text{cmd,miele}} = \frac{\delta m_\text{miele} \times (y_1 - y_2)}{m_\text{tot,miele}}\)</span>.<br>
+Quindi la velocità del cdm del miele è:<br>
+<span class="tex">\(\displaystyle v_{\text{cmd,miele}} = \frac{\Delta y_{\text{cmd,miele}}}{t_2 - t_1} = \text{..conti..} =  - \frac{\delta m_\text{miele}}{m_\text{tot,miele}} \times v_\text{sfera}\)</span>.<br>
+La quantità di moto del miele è:<br>
+<span class="tex">\(\displaystyle p_{\text{miele}} = m_\text{tot,miele} \times v_{\text{cmd,miele}} = \text{..conti..} = -\rho_\text{miele} V_\text{sfera} v_\text{sfera}\)</span><br>
+Usando i simboli del testo viene <span class="tex">\(\displaystyle  p_{\text{miele}} = - \rho_\text{H} V v\)</span>.<br>
+<span class="tex">\(\displaystyle v\)</span> è verso il basso, quindi <span class="tex">\(\displaystyle p_{\text{miele}}\)</span> è verso l'alto.<br>
+<br>
+Come dice Fibdg, il centro di massa del sistema sfera+miele scende. Era scritto in modo un po' incerto, ma il suo primo post conteneva già la soluzione del problema, quindi direi che la staffetta a lui :)</article>
+<nav class="pager"><a class="prev" href="olifis-7221.html"><small>← precedente</small>319. Pendolo di Foucault</a><a class="next" href="olifis-7255.html"><small>successivo →</small>321. Torre infinita di cilindri</a></nav>
+</main></body></html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>110 - cilindro in rotazione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 110</a></span></nav>
+<h1>110 - cilindro in rotazione</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6462">forum Olifis</a></p>
+<article class="post first" id="p23377"><div class="who"><b>guido</b><span>23 dic 2016, 18:56</span></div>Un recipiente cilindrico di raggio <span class="tex">\(r\)</span>e altezza <span class="tex">\(l\)</span>è riempito di acqua fino ad una altezza <span class="tex">\(h&lt;l\)</span>. Viene posto in rotazione attorno al proprio asse verticale alla massima velocità di rotazione <span class="tex">\(\omega_0\)</span> senza che si abbia fuoriuscita di acqua dal cilindro. Considerato un riferimento con origine nel centro <span class="tex">\(O\)</span>della base di appoggio del cilindro <span class="tex">\(O(x,y,z)\)</span> con asse verticale <span class="tex">\(y\)</span>, determinare l'equazione della sezione verticale <span class="tex">\(x,y\)</span>della superficie libera dell'acqua in funzione della minima distanza <span class="tex">\(d\)</span>di questa superficie dalla base e calcolare il valore di <span class="tex">\(\omega_0\)</span> .<br>
+<br>
+Domanda bonus: determinare d in funzione di h ed l</article>
+<article class="post" id="p23378"><div class="who"><b>FedericoC.</b><span>23 dic 2016, 23:59</span></div>Considerando un'area infinitesima della superficie del fluido, dall'equilibrio delle forze o alternativamente tramite il teorema di Bernoulli:<br>
+<br>
+<span class="tex">\(PdA+\omega_0^2 x dx\rho dA=dA(P+dp)\)</span> <span class="tex">\(\longrightarrow\)</span> <span class="tex">\(dp=\rho \omega_0^2 x dx\)</span><br>
+<br>
+Dalla legge di Stevin: <span class="tex">\(dp=\rho gdy\)</span><br>
+<br>
+Sostituendo e integrando, con la costante pari a <span class="tex">\(d\)</span> mi risulta la parabola: <span class="tex">\(\displaystyle y=\frac{\omega_0^2}{2g}x^2+d\)</span><br>
+<br>
+Si ottiene dunque: <span class="tex">\(\displaystyle \omega_0=\sqrt{\frac{2g(y-d)}{x^2}}\)</span></article>
+<article class="post" id="p23379"><div class="who"><b>guido</b><span>24 dic 2016, 12:12</span></div>A parte il procedimento che dovresti chiarire meglio( dA non è perpendicolare a dx se capisco bene) per la prima risposta c'è da dire che tu risolvi un caso che non è quello del problema. Ti dice nulla che non usi né l né h né r? Poi la velocità angolare deve essere la max che non lo fa traboccare. Come fa a dipendere da x e y e non da l e r?</article>
+<article class="post" id="p23381"><div class="who"><b>Flaffo</b><span>24 dic 2016, 16:52</span></div>Partiamo dal fatto che la superficie dell'acqua deve essere equipotenziale, altrimetti non zarebbe in equilibrio . L'energia potenziale dovuta al cilindro che ruota può essere calcolata integrando la forza <span class="tex">\(F= m \omega ^2 x\)</span> per lo spostamento. Otteniamo allora, come ci si aspetterebbe in un sistema conservativo, che l'energia potenziale 'rotazionale' è l'opposto di quella cinetica (che conosciamo):<br>
+<br>
+<span class="tex">\(\displaystyle U_r (x)= -\frac {1}{2}m \omega ^2 x\)</span><br>
+<br>
+L'energia potenziale totale è la somma di quella rotazione e quella gravitazionale, e come abbiamo detto, deve essere una costante per la superficie dell'acqua.<br>
+<br>
+<span class="tex">\(\displaystyle U =  mg y  -\frac {1}{2}m \omega ^2 x =costante\)</span><br>
+<br>
+Prendiamo ora un cilindro sottile assiale a quello principale ed un altro cilindro lontano <span class="tex">\(dx\)</span> dal precedente. Scriviamo la legge conservativa notato che tuttavia <span class="tex">\(dm \sim 0\)</span> In quanto proporzionale  a <span class="tex">\(dy\)</span> e <span class="tex">\(dx\)</span>. Svolgendo I calcoli otteniamo:<br>
+<br>
+<span class="tex">\(\displaystyle g dy = \omega ^2 x dx\)</span><br>
+<br>
+E integrando otteniamo la funzione che descrive la superficie dell'acqua sul piano:<br>
+<br>
+<span class="tex">\(\displaystyle y (x) = \frac {\omega ^2}{2g} x^2 + C\)</span><br>
+<br>
+Calcoliamo la costante di integrazione eguagliando il volume della parabola di rotazione al volume originario dell'acqua, sperando di non aver versato fuori alcuna goccia  :lol: <br>
+<br>
+<span class="tex">\(\displaystyle V = 2 \pi \int_a^b {x f (x)}\)</span><br>
+<br>
+Integrando otteniamo:<br>
+<br>
+<span class="tex">\(\displaystyle V=2 \pi R^2 \left ( \frac {\omega ^2}{4g} R^2 + C \right)= \pi R^2 h\)</span><br>
+<br>
+Isolando C :<br>
+<br>
+<span class="tex">\(\displaystyle  C= \frac{h}{2} - \frac{\omega ^2}{4 g} R^2\)</span><br>
+<br>
+e sostituendo nell'equazione della parabola: <br>
+<br>
+<span class="tex">\(\displaystyle  y (x)= \frac {\omega ^2  }{2g} x^2 + \frac {h}{2}- \frac {\omega ^2}{4g} R^2\)</span><br>
+<br>
+Che è  ciò  che volevamo ottenere. <br>
+Per calcolare <span class="tex">\(\omega\)</span>, diciamo che <span class="tex">\(y (R)=l\)</span><br>
+Da cui otteniamo:<br>
+<br>
+<br>
+<span class="tex">\(\displaystyle \omega_0 = \frac {1}{R} \sqrt {2g \left ( 2l-  h\right) }\)</span><br>
+<br>
+Questo, tuttavia, vale solo per <span class="tex">\(C&gt;0\)</span>, cioè  per:<br>
+<br>
+<span class="tex">\(\displaystyle h&gt; \frac {\omega ^2}{2g} R^2\)</span><br>
+<br>
+Altrimenti penso non si formerebbe alcuna superficie 'studiabile'</article>
+<article class="post" id="p23382"><div class="who"><b>guido</b><span>24 dic 2016, 18:22</span></div>Per Flaffo: la tua impostazione è assolutamente corretta, sia nel richiedere la costanza dell'energia potenziale totale sia nell'imporre che il volume delimitato dal paraboloide sia quello iniziale<span class="tex">\(\pi.r^2.h\)</span> anche se tu ci metti un 2 :?: . Però poi, se non ho capito male, i risultati non tornano e non riesco a trovare perchè. Non mi torna come calcoli il volume determinato dal paraboloide con quell'integrale fra a e b  :?:  :?: Io farei il volume del cilindro di altezza l meno quello di rotazione generato dalla parabola fra d e l ricavando y in funz. di <span class="tex">\(x^2\)</span>. Infatti converrai che nell'eq. della parabola deve poi essere <span class="tex">\(y=d, x=0\)</span> che non mi pare discenda dalla tua. Inoltre in <span class="tex">\(\omega_0\)</span> mi risulterebbe un d al posto di h. Sono comunque convinto che riuscirai a emendare (se non ho capito male io quello che hai scritto) e quindi vi propongo anche la domanda bonus integrando il testo iniziale.</article>
+<article class="post" id="p23383"><div class="who"><b>Flaffo</b><span>24 dic 2016, 18:39</span></div>La costante <span class="tex">\(C\)</span> di integrazione sarebbe appunto <span class="tex">\(d\)</span>. Se infatti nella prima eq. Che ho scritto poni x=0, trovi <span class="tex">\(y=C\)</span>. Pensando che non sarebbe stato bello esprimere l'equazione della parabola in funzione di una <span class="tex">\(d\)</span> apparentemente scollegata dai dati, me la sono subito calcolata in funzione di <span class="tex">\(h\)</span> e <span class="tex">\(R\)</span> facendo già ciò che richiedi nel bonus. Nell'equazione finale ho quindi espresso l'equazione della parabola come:<br>
+<br>
+<span class="tex">\(\displaystyle  y (x)= \frac {\omega ^2  }{g} x^2 + h- \frac {\omega ^2}{2g} R^2\)</span><br>
+<br>
+Dove <span class="tex">\(C=d= h- \frac {\omega ^2}{2g} R^2\)</span><br>
+<br>
+E per <span class="tex">\(x=0\)</span> hai <span class="tex">\(y= h- \frac {\omega ^2}{2g} R^2=C=d\)</span><br>
+<br>
+Come ci si aspetterebbe. Where is the problem?</article>
+<article class="post" id="p23385"><div class="who"><b>FedericoC.</b><span>24 dic 2016, 19:42</span></div>Rispondo anche se Flaffo ha già postato la sua soluzione per capire dove ho sbagliato, dato che i due metodi sono completamente diversi.<br>
+Per quanto riguarda la prima parte probabilmente ho lasciato un po' (troppe) cose per scontato. Dopo aver considerato un area infinitesima sulla superficie, mi interessa l'equilibrio su una massa infinitesima di fluido <span class="tex">\(dm\)</span> che ho scritto direttamente <span class="tex">\(\rho dA dx\)</span>. Quel <span class="tex">\(dA\)</span> quindi è l'area verticale, parallela al piano <span class="tex">\(yz\)</span> che mi determina la massa differenziale, che è la stessa area efficace per la pressione a esercitare una forza radiale. <br>
+Dall'equilibrio, o come ho detto tramite il teorema di Bernoulli, mi risulta la parabola <span class="tex">\(y=\frac{\omega^2}{2g}x^2+d\)</span>.<br>
+Sopra ho messo <span class="tex">\(\omega_0\)</span> perchè mi ero perso per strada il fatto che questa fosse la velocità massima per non far traboccare l'acqua dal cilindro, per questo ho trovato <span class="tex">\(\omega\)</span> in quel modo. Basta sostituire nella formula il punto <span class="tex">\((r;l)\)</span> che indica il limite dopo il quale l'acqua fuoriesce. Si ottiene dunque: <span class="tex">\(\omega_0=\sqrt\frac{2g(l-d)}{r^2}\)</span>.</article>
+<article class="post" id="p23388"><div class="who"><b>guido</b><span>26 dic 2016, 18:37</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>La costante <span class="tex">\(C\)</span> di integrazione sarebbe appunto <span class="tex">\(d\)</span>. Se infatti nella prima eq. Che ho scritto poni x=0, trovi <span class="tex">\(y=C\)</span>. Pensando che non sarebbe stato bello esprimere l'equazione della parabola in funzione di una <span class="tex">\(d\)</span> apparentemente scollegata dai dati,[/tex]</div></blockquote>
+Scusa ma il testo chiedeva proprio di esprimere la parabola in funzione di d. Inoltre la tua parabola non è giusta perchè per x=r y=l e a te non mi sembra che risulti. Inoltre non vedo <span class="tex">\(\omega_0\)</span> nè hai risposto alla domanda bonus: questioni che si risolvono imponendo, come avevi impostato, l'uguaglianza dei volumi. Dov'è quest'uguaglianza? :?:  :?:  E allora: where is the answer? :?:</article>
+<article class="post" id="p23389"><div class="who"><b>guido</b><span>26 dic 2016, 18:42</span></div>Per Federico: Tu dai una soluzione geometrica e non fisica per cui in realtà non rispondi al problema. In poche parole scrivi l'equazione di una parabola che è individuata da 3 punti com'è ben noto e imponi quel valore di <span class="tex">\(\omega_0\)</span>. Ma <span class="tex">\(\omega_0\)</span>è determinato si dal fatto che per x=r deve essere y=l ma con quella certa quantità di liquido che a te sfugge completamente. Il volume delimitato dal paraboloide deve essere uguale a <span class="tex">\(\pi.r^2.h\)</span> e da ciò discendono sia la finale equazione della parabola sia il corretto valore di <span class="tex">\(\omega_0\)</span>. Poi è facile rispondere anche alla bonus.</article>
+<article class="post" id="p23390"><div class="who"><b>Flaffo</b><span>26 dic 2016, 21:08</span></div>Avevo già scritto l'equazione della parabola in funzione di <span class="tex">\(\omega\)</span> e <span class="tex">\(d\)</span> che, mi scuso, ho chiamato semplicemente <span class="tex">\(C\)</span><br>
+
+<blockquote class="uncited"><div>  Svolgendo I calcoli otteniamo:<br>
+<br>
+<span class="tex">\(\displaystyle g dy = 2 \omega ^2 x dx\)</span>  <br>
+<br>
+ E integrando otteniamo la funzione che descrive la superficie dell'acqua sul piano:<br>
+<br>
+<span class="tex">\(\displaystyle y (x) = \frac {\omega ^2}{g} x^2 + C\)</span> </div></blockquote>
+
+Ecco l'uguaglianza dei volumi, per calcolare <span class="tex">\(C=d\)</span><br>
+
+<blockquote class="uncited"><div>Calcoliamo la costante di integrazione eguagliando il volume della parabola di rotazione al volume originario dell'acqua, sperando di non aver versato fuori alcuna goccia  :lol: <br>
+<br>
+<span class="tex">\(\displaystyle V = 2 \pi \int_a^b {x f (x)}\)</span><br>
+<br>
+Integrando otteniamo:<br>
+<br>
+<span class="tex">\(\displaystyle V=2 \pi R^2 \left ( \frac {\omega ^2}{2g} R^2 + C \right)= 2\pi R^2 h\)</span><br>
+
+</div></blockquote>
+
+E <span class="tex">\(\omega_0\)</span><br>
+
+<blockquote class="uncited"><div>   Per calcolare <span class="tex">\(\omega\)</span>, diciamo che <span class="tex">\(y (R)=l\)</span><br>
+Da cui otteniamo:<br>
+<br>
+<br>
+<span class="tex">\(\displaystyle \omega_0 = \frac {1}{R} \sqrt {2g \left ( l-h \right) }\)</span>   </div></blockquote>
+
+<br>
+Forse la vuoi in funzione di <span class="tex">\(C=d\)</span>?<br>
+<br>
+Bho poi mi sembra che l'equazione abbia senso. Forse non ho capito la tua osservazione :?:</article>
+<article class="post" id="p23391"><div class="who"><b>guido</b><span>27 dic 2016, 11:57</span></div>Per Flaffo: dovendo essere il potenziale costante come riconosci anche tu sulla superficie libera <span class="tex">\(-mgy+m\omega^2(x^2+z^2)(1/2)=C\)</span> risulta per <span class="tex">\(z=0\)</span> e <span class="tex">\(x=0,y=d\)</span><br>
+<span class="tex">\(y=\frac{\omega^2.x^2}{2g}+d\)</span>: dunque quella che fornisci tu contiene un errore. Richiedendo poi che per <span class="tex">\(x=r, y=l\)</span> risulta <span class="tex">\(\omega_0= \sqrt{\frac{2g(l-d)}{r}}\)</span>: dunque quella che fornisci tu contiene ancora un errore.  Insomma l'equazione finale richiesta della parabola è <span class="tex">\(y=\frac{(l-d)x^2}{r^2}+d\)</span>. :!:  <br>
+A questo punto si impone l'uguaglianza dei volumi. Quella che fornisci tu secondo me non è corretta. Intanto il volume iniziale dell'acqua come già ti ho fatto notare è <span class="tex">\(\pi.r^2.h\)</span> e dunque c'è almeno un 2 di troppo. Poi usi una formula oscura fra a e b (ma cosa sono??). Ti avevo già suggerito come calcolare il volume del paraboloide. :?: <br>
+Allora ho deciso di lasciare discorsi del tipo "io avevo detto che..." "ma io avevo capito che..." che non portano a nulla. :roll:  :roll:  <br>
+<strong class="text-strong">Pertanto consegnerò il testimone della staffetta a chi risponderà per primo correttamente alla bonus cioè determinerà correttamente d in funzione dei dati certi l ed h</strong></article>
+<article class="post" id="p23392"><div class="who"><b>Flaffo</b><span>27 dic 2016, 13:56</span></div>Mi era sfuggito quel 2 nel volume :lol: <br>
+Ora dovrebbe essere giusto :?:</article>
+<article class="post" id="p23393"><div class="who"><b>guido</b><span>28 dic 2016, 11:50</span></div>No, purtroppo non ci siamo ancora: infatti se poni al posto del <strong class="text-strong">tuo</strong> C=d=<span class="tex">\(h-\frac{\omega^2.R^2}{2g}\)</span> che è la <strong class="text-strong">tua</strong> espressione di C o di d, ti viene semplicemente l'identità <span class="tex">\(\pi.R^2.h=\pi.R^2.h\)</span>  :roll:  :roll: . Il calcolo del corretto volume necessita per rispondere alla bonus e valutare d. Ti ho già consigliato tre volte come calcolare il volume: togliere a <span class="tex">\(\pi R^2.l\)</span>, volume di tutto il cilindro pieno, il volume generato dalla parabola in una rotazione (io l'ho fatto lo scorso anno in IV), che è in dy, sostituendo a<span class="tex">\(x^2\)</span>la sua espressione in funzione di y desunta dall'equazione della parabola. Non credo di poter essere più esplicito di così.... :!:  :!:</article>
+<article class="post" id="p23398"><div class="who"><b>CaptainJohnCabot</b><span>31 dic 2016, 14:34</span></div>Boh, a questo punto provo io...  :? <br>
+<br>
+La superficie del fluido è equipotenziale come abbiamo più volte appurato per cui:<br>
+<span class="tex">\(\displaystyle \delta mgy=\dfrac{1}{2}\delta m w^2x^2 \implies gy=\dfrac{1}{2}w^2x^2\)</span><br>
+Dove <span class="tex">\(\delta m\)</span> è la massa dell'elemento che si prende in considerazione. Si considera ora l'equazione in forma differenziale:<br>
+<br>
+<span class="tex">\(\displaystyle gdy=w^2xdx\)</span><br>
+<br>
+Integrando si ottiene:<br>
+<span class="tex">\(\displaystyle y=\dfrac{w_o^2 x^2}{2g}+C\)</span><br>
+Dove C è la costante di integrazione. Si conosce inoltre che <span class="tex">\(x=0 \implies y=d\)</span> e <span class="tex">\(x=r \implies y=l\)</span>. Sostituendo la prima condizione nell'equazione della parabola si ottiene che <span class="tex">\(C=d\)</span>, mentre dalla seconda:<br>
+<span class="tex">\(\displaystyle l=\dfrac{w_o^2 r^2}{2g}+d \implies w_0=\sqrt (\dfrac{2g(l-d)}{r^2})\)</span><br>
+E l'equazione della superficie parabolica del fluido può essere scritta come:<br>
+<span class="tex">\(\displaystyle y=\dfrac{(l-d)x^2}{r^2}+d\)</span><br>
+Dato che non c'è fuoriuscita d'acqua il volume del liquido si conserva. Il volume iniziale è <span class="tex">\(V_i=\pi r^2 h\)</span>, mentre quello finale è <span class="tex">\(V_f=\pi r^2 l-V_p\)</span> dove <span class="tex">\(V_p\)</span> è il volume del paraboloide delimitato inferiormente dalla superficie dell'acqua e superiormente dal cilindro. Tale volume risulta essere:<br>
+<span class="tex">\(\displaystyle V_p=2\pi \int_{0}^{r} y x dx=2\pi \int_{0}^{r}  (\dfrac{(l-d)x^2}{r^2}+d)x dx\)</span><br>
+<span class="tex">\(\displaystyle V_p=\dfrac{1}{2}\pi r^2 (l+d)\)</span><br>
+Quindi dalla conservazione dei volumi si ottiene:<br>
+<span class="tex">\(\displaystyle \pi r^2 l -\dfrac{1}{2}\pi r^2 (l+d)=\pi r^2 h\)</span><br>
+<span class="tex">\(\displaystyle l-d=2h \implies d=l-2h\)</span><br>
+<br>
+EDIT: tolti due errori di battitura nella prima e nella seconda espressione, spero non ce ne siano altri.</article>
+<article class="post" id="p23399"><div class="who"><b>Flaffo</b><span>1 gen 2017, 20:13</span></div>Ciò che cambia nel procedimento di Captain, che è quello che probabilmente Guido voleva, è che i dati sono messi in funzione di <span class="tex">\(\omega_0\)</span><br>
+<br>
+In ogni caso, questo problema era già stato postato sul forum da Pigkappa nel lontano 17 febbraio 2009. A quanto pare era uscito come quesito SNS. Non penso fosse stata proposta l'idea della superficie eq.<br>
+<br>
+Prima o poi arriverà il giorno in cui non avremo più problemi da postare :lol:</article>
+<article class="post" id="p23400"><div class="who"><b>CaptainJohnCabot</b><span>1 gen 2017, 22:40</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Ciò che cambia nel procedimento di Captain, che è quello che probabilmente Guido voleva, è che i dati sono messi in funzione di <span class="tex">\(\omega_0\)</span></div></blockquote>
+A mia difesa dico che quando ho postato il mio procedimento non avevo ancora letto attentamente le vostre soluzioni, quindi non mi ero reso conto che fossero praticamente uguali alla mia  :roll:  :oops: <br>
+<br>
+Allo stesso modo non mi ero accorto che in un suo messaggio guido aveva già mostrato la soluzione della prima parte del problema e dato molti suggerimenti per la seconda.<br>
+<br>
+Da una lettura più attenta però le soluzioni di Federico e Flaffo mi sembrano entrambe giuste anche perché sono anche pervenuti ai miei stessi risultati. Pertanto, qualora la mia soluzione fosse considerata corretta (come no  :?  :lol: ), mi sembrerebbe giusto cedere il testimone della staffetta a Flaffo, che sicuramente avrà pronto qualche bel problema.<br>
+
+<blockquote><div><cite>Flaffo ha scritto:</cite>
+In ogni caso, questo problema era già stato postato sul forum da Pigkappa nel lontano 17 febbraio 2009. A quanto pare era uscito come quesito SNS. Non penso fosse stata proposta l'idea della superficie eq.<br>
+<br>
+Prima o poi arriverà il giorno in cui non avremo più problemi da postare :lol:</div></blockquote>
+
+Pensa che io lo conoscevo perché è uscito quest'anno (boh forse lo scorso) come problema di ammissione alla galileiana. Almeno possiamo consolarci col pensiero che non siamo i soli a finire i problemi  :lol:</article>
+<article class="post" id="p23401"><div class="who"><b>guido</b><span>2 gen 2017, 10:50</span></div>Per Cap.John Cabot: è sbagliata l'ultima espressione di y. C'è un 2g di troppo al numeratore del primo termine dove manca invece <span class="tex">\(x^2\)</span> - non torna neppure dimensionalmente. Morale della favola, il tuo risultato della bonus non è giusto. Quello giusto è: <span class="tex">\(d=2h-l\)</span><br>
+Per quanto riguarda il testimone sono dell'idea di darlo a Flaffo soprattutto perchè fin dall'inizio ha impostato la risposta, come gli feci osservare, nella maniera più lucida e corretta. Però devo dire che non ho capito il suo atteggiamento svogliato successivo: si è rifiutato di calcolare esattamente il volume nonostante glielo avessi suggerito più volte e quindi di rispondere alla bonus, anche se sono sicuro che l'avrebbe saputo fare facilmente. Per cui dò il testimone a Flaffo che si è rifiutato di rispondere alla domanda che avevo posto come condizione per avere il testimone  :roll:  :roll: ahahah :)  :)  :)</article>
+<article class="post" id="p23402"><div class="who"><b>Flaffo</b><span>2 gen 2017, 12:38</span></div>Ahhahahaha se vuoi risposto il risultato, anche se lo hai già dato, prendendo <span class="tex">\(\omega_0\)</span> appena ho un po di tempo. Ho già in mente quello che tu definirai uno dei "problemini di Flaffo" ahahaha :lol:</article>
+<article class="post" id="p23403"><div class="who"><b>CaptainJohnCabot</b><span>2 gen 2017, 13:57</span></div><blockquote><div><cite>guido ha scritto:</cite>Per Cap.John Cabot: è sbagliata l'ultima espressione di y. C'è un 2g di troppo al numeratore del primo termine dove manca invece <span class="tex">\(x^2\)</span> - non torna neppure dimensionalmente</div></blockquote>
+Sinceramente riguardando la soluzione scritta non ho capito nemmeno io il perché di quella espressione di y. Credo sia dovuta ad un errore di copiatura da una pagina a l'altra, per cui invece di sostituire <span class="tex">\(w_0\)</span> in <span class="tex">\(w_0^2 x^2/2g\)</span> l'ho inspiegabilmente sostituito in <span class="tex">\(w_0^2\)</span>  :?  :roll: <br>
+<br>
+Correggo per completezza il mio precedente messaggio.</article>
+<nav class="pager"><a class="prev" href="olifis-6445.html"><small>← precedente</small>109. Satellite</a><a class="next" href="olifis-6465.html"><small>successivo →</small>111. Sale o non sale? Questo è il dilemma</a></nav>
+</main></body></html>

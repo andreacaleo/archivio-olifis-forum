@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>59: Acqua riscaldante</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 59</a></span></nav>
+<h1>59: Acqua riscaldante</h1>
+<p class="meta">21 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6279">forum Olifis</a></p>
+<article class="post first" id="p22007"><div class="who"><b>wotzu</b><span>14 mar 2016, 23:38</span></div>Rieccoci con la staffetta, questo è un problema che mi sono inventato, spero sia giusto ma questo si saprà solo dopo una vostra conferma.<br>
+Viene fatta passare dell'acqua a velocità <span class="tex">\(u=3,00m/s\)</span> attraverso una lastra di alluminio (di spessore <span class="tex">\(s=7mm)\)</span> e un termostato, l'acqua prima di entrare nell'intercapedine ha una temperatura <span class="tex">\(T_a=363K\)</span> e la lastra di alluminio una temperatura iniziale <span class="tex">\(T_0=220K\)</span>.<br>
+Supponiamo per semplicità che la potenza trasmessa dall'acqua alla lastra sia <span class="tex">\(P=wA\Delta T\)</span>,dove <span class="tex">\(w=3.22\cdot
+ 10^3 W/m^2K\)</span> è una costante e <span class="tex">\(A\)</span> è la superficie di contatto.<br>
+Il termostato ha la funzione di mantenere la temperatura dell'acqua al valore costante <span class="tex">\(T_a\)</span> nonostante essa ceda calore alla lastra.<br>
+Sapendo che l'acqua una volta superata l'intercapedine viene convogliata in un recipiente <span class="tex">\(C\)</span>,trovare la massima quantità d'acqua raccolta in <span class="tex">\(C\)</span>.<br>
+(tenere presente che la temperatura della lastra cresce in modo omogeneo e che <span class="tex">\(l&gt;&gt;b\)</span>)<br>
+le figure dovrebbero chiarirvi la situazione. (guardate prima l'ultima che è la più completa, le altre sono particolari:la prima è la lastra e il termostato visti in prospettiva la seconda è il continuo dell'ultima)<br>
+Ecco i dati: <span class="tex">\(b=0.1m,l=2m,d=5mm,c_L=900J/kg\cdot K,\lambda_L=23\cdot 10^{-6}k^{-1},   \rho_L=2700Kg/m^3\)</span><br>
+dove <span class="tex">\(\lambda_L=\)</span>coefficiente di dilatazioe lineare lastra di alluminio.(a destra la lastra è collegata a un muro quindi si espande verso sinistra)
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/f06c00250b7ef493.jpg" class="postimage" alt="20160314_143636.jpg" onclick="viewableArea(this);" /></dt>
+			<dd><em>l'immagine pesava troppo per essere caricata tutta insieme per cui ho dovuto spezzarla, questa è la lastra e il termostato visto in prospettiva</em></dd>			<dd>20160314_143636.jpg (176.62 KiB) Visto 9256 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/7ed862f14a5c20b4.jpg" class="postimage" alt="4567.jpg" onclick="viewableArea(this);" /></dt>
+			<dd><em>recipiente C alla fine della lastra</em></dd>			<dd>4567.jpg (215.86 KiB) Visto 9256 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/cf81dac0538f8810.jpg" class="postimage" alt="1234.jpg" onclick="viewableArea(this);" /></dt>
+			<dd><em>lastra e termostato visti frontalmente</em></dd>			<dd>1234.jpg (233.57 KiB) Visto 9256 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p22008"><div class="who"><b>arna1998</b><span>16 mar 2016, 0:16</span></div>Ti chiedo un paio di cose per essere sicuro di aver capito: l'acqua smette di fluire in C perché la lastra si é dilatata talmente tanto da aver chiuso la fessura <span class="tex">\(d\)</span>? In tal caso, la lastra è fissata in modo da potersi dilatare solo nello stesso verso in cui scorre l'acqua?</article>
+<article class="post" id="p22009"><div class="who"><b>wotzu</b><span>16 mar 2016, 16:41</span></div>esatto proprio così a sinistra è come se fosse fissata a un muro quindi si dilata verso destra e chiude la fessura a una certa temperatura</article>
+<article class="post" id="p22019"><div class="who"><b>FedericoC.</b><span>18 mar 2016, 11:04</span></div>Posto il procedimento  :D <br>
+<br>
+L'acqua smette di fluire quando la dilatazione termica orizzontale è uguale a <span class="tex">\(d\)</span>.<br>
+Posso scrivere allora:<br>
+<br>
+<span class="tex">\(\Delta {l}=l \lambda\Delta{T}=d\)</span> da cui isolo <span class="tex">\(\Delta{T}\)</span><br>
+<br>
+poi dato che <span class="tex">\(Q=cm\Delta{T}=P\Delta{t}\)</span> posso uguagliare da cui trovando <span class="tex">\(\Delta{t}\)</span> si ha:<br>
+<br>
+<span class="tex">\(\Delta{t}=\frac{cmd}{l\lambda P}\)</span><br>
+<br>
+dato che la portata si conserva posso anche scrivere che <span class="tex">\(Au=\frac{C}{\Delta{t}}\)</span> e trovando C si ha ponendo <span class="tex">\(m=sbl\rho\)</span> e sostituendo a <span class="tex">\(P\)</span> <span class="tex">\(wA\Delta{T_1}\)</span> dove<span class="tex">\(\Delta{T_1=T_a-T_0}\)</span>:<br>
+<br>
+<span class="tex">\(C=\frac{b^2ucs\rho d}{l\lambda w(T_a-T_0)}=0,12 m^3\)</span></article>
+<article class="post" id="p22020"><div class="who"><b>wotzu</b><span>18 mar 2016, 15:22</span></div>anche se non è detto che è sbagliato nonmi torna puoi mettere il procedimento?</article>
+<article class="post" id="p22021"><div class="who"><b>FedericoC.</b><span>18 mar 2016, 16:04</span></div>Scusami se non l'avevo postato, ma proprio mentre hai scritto ho modificato  :D</article>
+<article class="post" id="p22023"><div class="who"><b>wotzu</b><span>18 mar 2016, 16:14</span></div>Ok c'è un errore la potenza scambiata è in funzione di <span class="tex">\(\Delta T_1\)</span> ma questo varia, di conseguenza la temperatura della lastra non cresce linearmente nel tempo ma crescerà più veloce all'inizio e più lentamente verso la fine.<br>
+per fare un esempio se prendi un termostato a 50 gradi e ci metti sopra dell'acqua a 10 gradi l'acqua ci mette molto meno tempo a passare da 10 a 11 gradi che da 49 a 50 gradi poichè nel secondo caso il calore ceduto al termostato è proporzionale a <span class="tex">\(\Delta T_1=1^\circ\)</span></article>
+<article class="post" id="p22024"><div class="who"><b>FedericoC.</b><span>18 mar 2016, 16:22</span></div>Giusto, non ci avevo pensato  :( <br>
+Adesso rivedo il passaggio</article>
+<article class="post" id="p22025"><div class="who"><b>FedericoC.</b><span>18 mar 2016, 17:18</span></div>Premetto che non so sia giusto visto che non ho ancora studiato gli integrali, ne conosco solo il concetto.<br>
+È corretto per trovare la potenza integrare, in quanto conosco sia la temperatura iniziale sia quella finale dell'alluminio in <span class="tex">\(\Delta{T_1}\)</span> e poi sostituirla nella formula che ho ottenuto col procedimento sopra?</article>
+<article class="post" id="p22026"><div class="who"><b>gluonstrongforce</b><span>18 mar 2016, 17:37</span></div>Mi risulta  circa 226 litri</article>
+<article class="post" id="p22027"><div class="who"><b>wotzu</b><span>18 mar 2016, 20:39</span></div>gluon è giusto magari metti il procedimento,federicoC. probabilmente una volta visto il procedimento ti sarà più chiaro ma la soluzione in questi casi è sempre considerare un intervallo infinitesimo in modo che <span class="tex">\(\Delta T\)</span> possa essere considerato costante in tale intervallo e poi integragre. Comunque non perderci troppo tempo prima ti consiglio di studiare gli integrali soprattutto se vuoi iniziare a capire molte cose in fisica oltre a questo problema, senza quelli ti fermi a un certo livello</article>
+<article class="post" id="p22033"><div class="who"><b>Flaffo</b><span>19 mar 2016, 16:58</span></div>Ho provato a risolvere il problema, dimmi se è giusto :D
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><img src="../img/10cc9e974365bf18.gif" alt="" /> <a class="postlink" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=393" class="ext">Riscaldatore 3.pdf</a></dt>
+						<dd>(137.73 KiB) Scaricato 358 volte</dd>
+		</dl>
+		
+		
+			</dd>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><img src="../img/10cc9e974365bf18.gif" alt="" /> <a class="postlink" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=392" class="ext">Riscaldatore 2.pdf</a></dt>
+						<dd>(133.04 KiB) Scaricato 329 volte</dd>
+		</dl>
+		
+		
+			</dd>
+											<dd>
+			
+		
+		
+				<dl class="file">
+			<dt><img src="../img/10cc9e974365bf18.gif" alt="" /> <a class="postlink" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=391" class="ext">Riscaldatore 1.pdf</a></dt>
+						<dd>(178.76 KiB) Scaricato 333 volte</dd>
+		</dl>
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p22035"><div class="who"><b>wotzu</b><span>20 mar 2016, 1:07</span></div>si è giusto, cioè giusto è come l'ho fatto anch'io poi spero sia corretto il nostro risultato</article>
+<article class="post" id="p22036"><div class="who"><b>arna1998</b><span>20 mar 2016, 2:44</span></div>@Flaffo: probabilmente non ho capito io, perchè integri tra <span class="tex">\(T_a-T_i\)</span> e <span class="tex">\(T_a-T_f\)</span> e non tra <span class="tex">\(T_i\)</span> e <span class="tex">\(T_f\)</span>? Facendo il calcolo come dici tu dovrebbe uscire diverso da quello che hai scritto. Inoltre l'argomento del logaritmo che hai trovato è minore di 1, quindi il tempo dovrebbe negativo :? <br>
+<br>
+Anche a me esce lo stesso valore numeri, ma mi è venuta in mente questa cosa, che potrebbe influire sul risultato: riscaldandosi la lastra aumenta anche la sua superficie, quindi anche "l'area utile per trasferire calore". Secondo voi è un effetto trascurabile o bisogna tenerne conto?</article>
+<article class="post" id="p22037"><div class="who"><b>Flaffo</b><span>20 mar 2016, 13:56</span></div>Arna, hai ragione mi sono scordato un - che renderebbe, infatti, il tempo positivo. L'integrale dT/(Ta-T) si fa ponendo x=Ta-T; deriva Ta-T--&gt; -dT, deriva x--&gt;dx. Perciò dT=-dx (ecco dove mi sono scordato il meno   :cry: ). Facciamo, quindi l'integrale -dx/x tra xi e xf che è -ln (xf/xi) e, sostituendo x--&gt;                     -ln [(Ta-Tf)/(Ta-Ti)]. <br>
+Per quanto riguarda l'aumento di superficie della lastra, ho completamente ignorato questo aspetto  :lol: ; però, mi posso giustificare dicendo che Wotzu ha scritto l&gt;&gt;d: penso volesse proprio evitare le ulteriori complicazioni che avrebbe portato :lol:</article>
+<article class="post" id="p22049"><div class="who"><b>Flaffo</b><span>27 mar 2016, 0:59</span></div>Seguendo il suggerimento di Arna, ho provato a risolvere il problema considerando però l'area di contatto tra l'acqua e il metallo non più costante. Il volume di acqua raccolto mi viene ora V=225,45l ; con l'approssimazione era invece V=226,24l. La lastra si riscalda, infatti,  più velocemente di prima, quindi l'acqua accumulata è minore. Se qualcuno è interessato posso postare il procedimento. È davvero un bel problema  :D</article>
+<article class="post" id="p22054"><div class="who"><b>arna1998</b><span>28 mar 2016, 20:37</span></div>Se hai voglia metti il procedimento :D , ma soprattutto continua con la staffetta  :mrgreen: ( credo tocchi te, dato che se il primo ad aver messo il procedimento)</article>
+<article class="post" id="p22060"><div class="who"><b>Flaffo</b><span>29 mar 2016, 16:29</span></div>Ed ecco la soluzione :D <br>
+Come prima, l'acqua smette di fluire quando la lastra si espande di una lunghezza d. Ciò avviene quando la lastra ha una temperatura:<br>
+<span class="tex">\(T_f=\frac {d}{l\lambda_l}+T_i=328,7 K\)</span><br>
+Una infinitesima quantità di calore <span class="tex">\(dQ\)</span> causa un infinitesimo aumento di temperatura <span class="tex">\(dT\)</span> pari a :<br>
+<span class="tex">\(dQ=c_lmdT\)</span><br>
+Mentre:<br>
+<span class="tex">\(P=\omega A \Delta T\)</span> con <br>
+<span class="tex">\(A=lb=\left(l_i+l_i\lambda \Delta T \right)\left(b_i+b_i\lambda \Delta T\right)\approx A_i \left( 1+2\lambda\Delta T\right)\)</span> e <br>
+<span class="tex">\(\Delta T=T_a-T\)</span> dove T rappresenta la temperatura della lastra in un certo istante.<br>
+Possiamo quindi scrivere:<br>
+<span class="tex">\(\displaystyle \frac {dQ}{dt}=\omega A_i \left( 1+2\lambda\Delta T\right)\Delta T\)</span><br>
+Sostituendo <span class="tex">\(dQ\)</span>, ed essendo <span class="tex">\(m=A_i s \rho\)</span>:<br>
+<span class="tex">\(\displaystyle \frac {dT}{\left( 1+2\lambda\Delta T\right)\Delta T}= \frac{\omega}{c_l s \rho}dt\)</span><br>
+Integriamo:<br>
+<span class="tex">\(\displaystyle\int _{T_i}^{T_f}{\frac {dT}{\left( 1+2\lambda\Delta T\right)\Delta T}}=\int _{0}^{t_f}{ \frac{\omega}{c_l s \rho}dt}\)</span><br>
+Poniamo <span class="tex">\(z=\Delta T\)</span><br>
+<span class="tex">\(\frac {dz}{dT}=-1\Rightarrow dz=-dT\)</span><br>
+Perciò:<br>
+<span class="tex">\(\displaystyle\int _{T_i}^{T_f}{\frac {dT}{\left( 1+2\lambda\Delta T\right)\Delta T}}=-\int_ {z_i}^{z_f}{\frac {dz}{\left (1+2\lambda z\right)z}}\)</span><br>
+Che dopo molti passaggi ci da: <br>
+<span class="tex">\(\frac{\omega}{c_l s \rho}t_f=\displaystyle -ln{\left[\frac{z_f}{z_i}{\left(\frac{1+\lambda z_i}{1+\lambda z_f}\right)}^2\right]}\)</span><br>
+E sostituendo nuovamente per T:<br>
+<span class="tex">\(\frac{\omega}{c_l s \rho}t_f=\displaystyle - ln{\left[\frac{T_a-T_f}{T_a-T_i}{\left(\frac{1+\lambda\left(T_a-T_i\right)}{1+\lambda\left(T_a-T_f\right)}\right)}^2\right]}\)</span><br>
+Isolando il tempo:<br>
+<span class="tex">\(\displaystyle t_f= -\frac{c_l \rho_l s}{\omega}ln{\left[\frac{T_a-T_f}{T_a-T_i}{\left(\frac{1+\lambda\left(T_a-T_i\right)}{1+\lambda\left(T_a-T_f\right)}\right)}^2\right]}\)</span><br>
+La portata dell'acqua è costante ed è uguale a:<br>
+<span class="tex">\(q=v\cdot S\)</span> con <span class="tex">\(S=b^2\)</span><br>
+L'acqua accumulata è quindi:<br>
+<span class="tex">\(\Delta V_{acqua}=vb^2 t_f\)</span><br>
+In conclusione:<br>
+<span class="tex">\(\Delta V_{acqua}=\displaystyle-\frac{vb^2c_l \rho_l s}{\omega}ln{\left[\frac{T_a-T_f}{T_a-T_i}{\left(\frac{1+\lambda\left(T_a-T_i\right)}{1+\lambda\left(T_a-T_f\right)}\right)}^2\right]}\)</span><br>
+Da notare il risultato simile, eccetto il termine al quadrato, ottenuto con l'approssimazione dell'area:<br>
+<span class="tex">\(\Delta V_{acqua}=\displaystyle-\frac{vb^2c_l \rho_l s}{\omega}ln{\left[\frac{T_a-T_f}{T_a-T_i}\right]}\)</span> <br>
+Nel primo caso il volume dell'acqua accumulata risulta essere di 225,4l mentre nel secondo caso (approssimato) è 226,2l</article>
+<article class="post" id="p22061"><div class="who"><b>wotzu</b><span>29 mar 2016, 22:16</span></div>se devo essere sincero non l'avevo considerata la dilatazione della superficie di contatto quindi complimentoni per la voglia di approfondire la staffetta è tua flaffo.</article>
+<article class="post" id="p22062"><div class="who"><b>Flaffo</b><span>29 mar 2016, 22:50</span></div>Graziee :lol:  :lol: <br>
+Comunque avevo già  postato un problema (È se tutti corressimo all'equatore?). Se vuoi posso sempre inventarmene un altro ;)</article>
+<article class="post" id="p22067"><div class="who"><b>wotzu</b><span>30 mar 2016, 21:22</span></div>si scusa non l'avevo visto</article>
+<nav class="pager"><a class="prev" href="olifis-6271.html"><small>← precedente</small>58: connessione tridimensionale di resistori</a><a class="next" href="olifis-6283.html"><small>successivo →</small>60:E se tutti corressimo all&#x27;equatore?</a></nav>
+</main></body></html>

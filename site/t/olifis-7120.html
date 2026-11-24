@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>284. Tre masse</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 284</a></span></nav>
+<h1>284. Tre masse</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7120">forum Olifis</a></p>
+<article class="post first" id="p27252"><div class="who"><b>Luca Milanese</b><span>24 dic 2021, 13:03</span></div>È dato un sistema planare costituito da tre aste identiche di massa trascurabile e lunghezza <span class="tex">\(L\)</span>, che condividono uno stesso vertice. All'altro estremo di ciascuna asta è attaccata una massa puntiforme, che vale <span class="tex">\(m\)</span>, <span class="tex">\(2m\)</span> o <span class="tex">\(3m\)</span> in base all'asta. Il sistema è libero di traslare nel piano che lo contiene, e le aste sono libere di ruotare attorno al vertice comune. Inizialmente l'angolo tra ciascuna coppia di aste è uguale e vale <span class="tex">\(\frac{2\pi}{3}\)</span>. Improvvisamente, alla massa <span class="tex">\(3m\)</span> è impressa una velocità <span class="tex">\(v_0\)</span> perpendicolare alla sua asta. Si determinino le accelerazioni delle tre masse in quell'istante. La gravità è trascurabile.</article>
+<article class="post" id="p27255"><div class="who"><b>Pigkappa</b><span>26 dic 2021, 17:49</span></div>Non ho capito troppo bene, per accelerazione intendi la velocità delle altre due masse subito dopo questa spinta? Oppure intendi l'accelerazione che hanno subito dopo la spinta?<br>
+<br>
+L'accelerazione nell'istante della spinta sarà funzione di quanto dura la spinta (o infinita se la spinta dura un tempo infinitesimale).</article>
+<article class="post" id="p27256"><div class="who"><b>Luca Milanese</b><span>26 dic 2021, 18:01</span></div>Intendo l'accelerazione che hanno subito dopo la spinta, effettivamente mi sono spiegato male.</article>
+<article class="post" id="p27259"><div class="who"><b>Pigkappa</b><span>28 dic 2021, 19:43</span></div>Questo problema mi sta mettendo in difficolta'. Scrivo qua i miei ragionamenti. Chiamo <span class="tex">\(\displaystyle \vec P_1, \vec P_2, \vec P_3, \vec O\)</span> le posizioni delle particelle e del punto in cui si incontrano le aste. Ho ancora qualche dubbio ma mi sono abbastanza convinto che sia possibile impartire la velocita' <span class="tex">\(V_0\)</span> a P3 e non alterare affatto la velocita' delle altre due particelle.<br>
+<br>
+In coordinate:<br>
+<span class="tex">\(\displaystyle \vec O = (0,0,0)\)</span><br>
+<span class="tex">\(\displaystyle \vec P_1 = (\sqrt 3 / 2, 1 / 2, 0) L\)</span><br>
+<span class="tex">\(\displaystyle \vec P_2 = (- \sqrt{3} / 2, 1/2,0) L\)</span><br>
+<span class="tex">\(\displaystyle \vec P_3 = (0, -1,0) L \)</span><br>
+<br>
+Le velocita' dopo la spinta sono <span class="tex">\(\vec V_O = \vec V_1 = \vec V_2 = \vec 0\)</span> e <span class="tex">\(\vec V_3 = (V_0,0,0)\)</span><br>
+<br>
+Condizione 1: la distanza tra P1 e O rimane fissa: <br>
+<span class="tex">\((\vec P_1 - \vec O) \cdot (\vec P_1 - \vec O) = L^2 \)</span><br>
+Derivando<br>
+<span class="tex">\(2 (\vec V_1 - \vec V_O) \cdot (\vec P_1 - \vec O) = 0 \)</span><br>
+Derivando e usando <span class="tex">\(\vec O = \vec 0\)</span> e <span class="tex">\(\vec V_1 = \vec V_O = \vec 0\)</span>:<br>
+<span class="tex">\((\vec A_1 - \vec A_O) \cdot \vec P_1 = 0 \)</span><br>
+<br>
+Condizione 2: la distanza tra P2 e O rimane fissa; stesso ragionamento:<br>
+<span class="tex">\((\vec A_2 - \vec A_O) \cdot \vec P_2 = 0 \)</span><br>
+<br>
+Condizione 3: la distanza tra P3 e O rimane fissa; <br>
+<span class="tex">\((\vec P_3 - \vec O) \cdot (\vec P_3 - \vec O) = L^2 \)</span><br>
+Derivando<br>
+<span class="tex">\(2 (\vec V_3 - \vec V_O) \cdot (\vec P_3 - \vec O) = 0 \)</span><br>
+Derivando, e notando che stavolta <span class="tex">\(\vec V_3 \ne \vec 0\)</span>:<br>
+<span class="tex">\(\vec V_3^2 + (\vec A_3 - \vec A_O) \cdot \vec P_3 = 0 \)</span><br>
+<br>
+Condizione 4: la accelerazione del CDM e' zero:<br>
+<span class="tex">\(\vec A_1 + 2 \vec A_2 + 3 \vec A_3 = 0 \)</span><br>
+Queste sono due equazioni, una per componente<br>
+<br>
+Condizione 5: si conserva l'energia cinetica: <br>
+<span class="tex">\(2K/m = V_1^2 + 2V_2^2+3V_3^2\)</span><br>
+Derivando, e usando che <span class="tex">\(V_1 = V_2 = 0\)</span>:<br>
+<span class="tex">\(0 = \vec V_3 \cdot \vec A_3\)</span><br>
+<br>
+Condizione 6: si conserva il momento angolare rispetto a qualsiasi punto, ad esempio O:<br>
+<span class="tex">\(\vec L = m1 \vec P_1 \times \vec V_1 + m2 \vec P_2 \times \vec V_2 + m3 \vec P_3 \times \vec V_3\)</span><br>
+Derivando:<br>
+<span class="tex">\(\vec 0 = m1 \vec P_1 \times \vec A_1 + m2 \vec P_2 \times \vec A_2 + m3 \vec P_3 \times \vec A_3\)</span><br>
+Questa condizione da' una sola equazione utile lungo <span class="tex">\(\hat z\)</span>.<br>
+<br>
+Interpretando, la 1 e 2 impongono che le accelerazioni di P1 e P2 rispetto ad O sono ortogonali alle aste. La 3 impone la condizione equivalente tra P3 ed O, ma con un termine in piu' perche' P3 ha bisogno di una forza centripeta avendo velocita' non nulla. La 4 da' due equazioni sulla conservazione della QDM totale. La 5 impone la conservazione dell'energia e dimostra che inizialmente P3 ha solo accelerazione centripeta, non ne puo' avere una tangenziale. La 6 e' la conservazione del momento angolare.<br>
+<br>
+Una condizione ulteriore e' il fatto che la somma delle forze su O deve essere nulla, ma questa da' due equazioni uguali a quelle di conservazione della quantita' di moto.<br>
+<br>
+Quindi alla fine ho 8 incognite e 7 equazioni. Sono bloccato. E' possibile che mi sono scordato una condizione. Scrivo comunque qua sotto i miei tentativi strambi di risolvere il problema senza questa condizione.<br>
+<br>
+Consideriamo il problema piu' facile in cui <span class="tex">\(P_2\)</span> non c'e', c'e' una sola particella che si trova proprio sopra P3, con <span class="tex">\(m_1 = m_3 = m\)</span>: <br>
+<span class="tex">\(\displaystyle \vec P_1 = (0, 1, 0) L\)</span><br>
+<span class="tex">\(\displaystyle \vec P_3 = (0, -1,0) L \)</span><br>
+In questo caso le equazioni sopra bastano e ottengo <br>
+<span class="tex">\(\displaystyle A_{1x} = 0,A_{1y} = -\frac{1}{2} V_0^2/L ,A_{3x} = 0,A_{3y} = \frac{1}{2} V_0^2/L \)</span><br>
+Adesso immaginiamo di sdoppiare la particella <span class="tex">\(m_1\)</span> in due particelle di massa <span class="tex">\(m/2\)</span> nella stessa posizione, cosi' che:<br>
+<span class="tex">\(\displaystyle \vec P_1 = \vec P_2 = (0, 1, 0) L\)</span><br>
+Vorremmo immaginare che, per simmetria, il risultato per <span class="tex">\(\vec A_1\)</span> e <span class="tex">\(\vec A_2\)</span> sia lo stesso, ma in realta' questo non viene fuori dalle equazioni. Si puo' impartire una qualsiasi accelerazione <span class="tex">\(A_{1x}\)</span> alla prima particella e una opposta <span class="tex">\(-A_{1x}\)</span> alla seconda e tutto rimane uguale: queste accelerazioni sono ortogonali all'asta quindi non c'e' problema per il vincolo geometrico; non trasferiscono energia, agendo su particelle ferme; non cambiano la conservazione della quantita' di moto perche' la somma fa zero; ed agiscono nello stesso punto quindi non c'e' problema per il momento angolare.<br>
+<br>
+Immaginiamo pero' cosa succede nel resto del moto: P3 si muove verso destra e poi iniziera' a muoversi verso l'alto, intanto rallentera' e trasferira' energia a queste due masse. Dovendo trovare una condizione in piu', mi viene naturale supporre che si punti al minimo trasferimento di energia possibile. L'energia di queste masse e':<br>
+<span class="tex">\(\displaystyle 2K_{12} = m_1 V_1^2 + m_2 V_2^2\)</span><br>
+Derivata:<br>
+<span class="tex">\(\displaystyle 2\dot{K}_{12} = m_1 \vec V_1 \cdot \vec A_1 + m_2 \vec V_2 \cdot \vec A_2\)</span><br>
+Notiamo che <span class="tex">\(\dot{K}_{12}\)</span> e' zero perche' le velocita' sono nulle, comunque calcoliamo la derivata seconda, e in questa usiamo che la velocita' iniziale e' zero:<br>
+<span class="tex">\(\displaystyle 2\ddot{K}_{12} = m_1 A_1^2 + m_2 A_2^2\)</span><br>
+Per cui, se volessimo minimizzare il trasferimento di energia a queste particelle, dovremmo minimizzare <span class="tex">\(m_1 A_1^2 + m_2 A_2^2\)</span> che ci porterebbe a scegliere la soluzione per cui <span class="tex">\(A_{1x} = 0\)</span>. E se invece di avere diviso la massa in alto in due, la avessimo divisa in quattro? Il ragionamento funziona lo stesso, e ci direbbe che tutte e quattro hanno zero accelerazione lungo x. <br>
+<br>
+Torniamo al problema originario. Dopo qualche conto, le sette equazioni di cui fidarsi sono:<br>
+<span class="tex">\(\displaystyle \sqrt{3} (-A_{0x}+A_{1x})+(-A_{0y}+A_{1y}) = 0\)</span><br>
+<span class="tex">\(\displaystyle \sqrt{3} (A_{0x}-A_{2x})+(-A_{0y}+A_{2y}) = 0 \ \text{(edited)}\)</span><br>
+<span class="tex">\(\displaystyle A_{0y} - A_{3y} + V_0^2 / L = 0\)</span><br>
+<span class="tex">\(\displaystyle A_{1x} + 2A_{2x} + 3A_{3x} = 0\)</span><br>
+<span class="tex">\(\displaystyle A_{1y} + 2A_{2y} + 3A_{3y} = 0\)</span><br>
+<span class="tex">\(\displaystyle A_{3x} = 0\)</span><br>
+<span class="tex">\(\displaystyle -A_{1x} + \sqrt 3 A_{1y} +2 (-A_{2x} -\sqrt 3 A_{2y}) + 6 A_{3x} = 0 \ \text{(edited)}\)</span><br>
+<br>
+Trattiamo <span class="tex">\(\displaystyle A_{1x}\)</span> come un parametro e ricaviamo:<br>
+<span class="tex">\(\displaystyle A_{2x} = - A_{1x} / 2\)</span><br>
+<span class="tex">\(\displaystyle A_{3x} = 0\)</span><br>
+<span class="tex">\(\displaystyle A_{1y} = - \frac{12}{17} V_0^2 / L - \frac{9\sqrt 3}{17} A_{1x}\)</span><br>
+<span class="tex">\(\displaystyle A_{2y} = - \frac{6}{17} V_0^2 / L - \frac{9\sqrt 3}{34} A_{1x}\)</span><br>
+<span class="tex">\(\displaystyle A_{3y} = \frac{8}{17} V_0^2 / L + \frac{6\sqrt 3}{17} A_{1x}\)</span><br>
+<br>
+Se avessi un buon argomento per decretare che <span class="tex">\(\displaystyle A_{1x}\)</span> deve essere 0 lo userei e il risultato sarebbe abbastanza semplice, ma non ce l'ho, e mi rifaccio all'argomento sopra, per cui la soluzione preferita sara' quella per cui <span class="tex">\(\displaystyle m_1 A_1^2 + m_2 A_2^2\)</span> e' minima. In questo caso, dopo aver fatto una derivata, si trova<br>
+<span class="tex">\(\displaystyle A_{1x} = - \frac{27 \sqrt 3}{133} V_0^2 / L\)</span><br>
+E sostituendo nelle altre:<br>
+<span class="tex">\(\displaystyle A_{1y} = - \frac{51}{133} V_0^2 / L \)</span><br>
+<span class="tex">\(\displaystyle A_{2x} = \frac{27 \sqrt 3}{266} V_0^2 / L\)</span><br>
+<span class="tex">\(\displaystyle A_{2y} = - \frac{51}{266} V_0^2 / L \)</span><br>
+<span class="tex">\(\displaystyle A_{3x} = 0\)</span><br>
+<span class="tex">\(\displaystyle A_{3y} = \frac{34}{133} V_0^2 / L \)</span><br>
+I moduli sono:<br>
+<span class="tex">\(\displaystyle A_1 = \frac{6}{\sqrt 133} V_0^2 / L\)</span><br>
+<span class="tex">\(\displaystyle A_2 = \frac{3}{\sqrt 133} V_0^2 / L\)</span><br>
+<span class="tex">\(\displaystyle A_3 = \frac{34}{133} V_0^2 / L\)</span></article>
+<article class="post" id="p27260"><div class="who"><b>Luca Milanese</b><span>28 dic 2021, 21:52</span></div>I tuoi risultati sono sbagliati. <br>
+Non ho controllato tutti i tuoi conti, però ho trovato un paio di errori, cioè l'uso del pedice <span class="tex">\(1\)</span> al posto di <span class="tex">\(2\)</span> nella seconda equazione (non so se tu li abbia poi svolti col pedice giusto o meno):
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7120.html#p27259" data-post-id="27259" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">28 dic 2021, 19:43</div></cite>
+Torniamo al problema originario. Dopo qualche conto, le sette equazioni di cui fidarsi sono:<br>
+<span class="tex">\(\displaystyle \sqrt{3} (-A_{0x}+A_{1x})+(-A_{0y}+A_{1y}) = 0\)</span><br>
+<span class="tex">\(\displaystyle \sqrt{3} (A_{0x}-A_{1x})+(-A_{0y}+A_{1y}) = 0\)</span>
+</div></blockquote>
+Mentre qui hai dimenticato di moltiplicare anche l'ultimo termine per <span class="tex">\(2\)</span>:
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7120.html#p27259" data-post-id="27259" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">28 dic 2021, 19:43</div></cite>
+<span class="tex">\(\displaystyle -A_{1x} + \sqrt 3 A_{1y} +2 (-A_{2x} -\sqrt 3 A_{2y}) + 3 A_{3x} = 0\)</span>
+</div></blockquote>
+Tutte le condizioni che hai trovato sono corrette. Il tuo argomento sul minimo scambio di energia non mi convince affatto, ma non ho controllato se, correggendo gli errori di sopra, porti al risultato esatto. In ogni caso non è necessario: la condizione mancante che cerchi riguarda la direzione delle forze su ciascuna massa, che è ovvia dalla geometria del sistema; inoltre, dandoti tre equazioni, rende superflue quelle sulla conservazione del momento angolare e dell'energia.</article>
+<article class="post" id="p27261"><div class="who"><b>Pigkappa</b><span>29 dic 2021, 2:32</span></div>Avevo sbagliato a copiare quelle equazioni ma ho usato quelle giuste nei conti, phew.<br>
+<br>
+...Ok, la condizione mancante e' che la forza su un'asta di massa trascurabile deve essere per forza radiale.<br>
+<br>
+Non la definirei proprio ovvia, e' il tipo di cosa che serve raramente ed e' facile dimenticarsi :P. Comunque il motivo e' che se c'e' una forza trasversale, l'asta avrebbe accelerazione angolare infinita. In generale, se l'asta non ha massa trascurabile, la condizione non e' vera - la forza nel punto di giunzione puo' essere trasversale; quel che mi sono scordato di scrivere in pratica sono le equazioni per la rotazione delle aste.<br>
+<br>
+Aggiungendo queste condizioni il risultato mi viene:<br>
+<br>
+<span class="tex">\(\displaystyle A_{1x} = - \frac{3 \sqrt 3}{11} V_0^2 / L \)</span><br>
+<span class="tex">\(\displaystyle A_{1y} = - \frac{3}{11} V_0^2 / L \)</span><br>
+<span class="tex">\(\displaystyle A_{2x} = \frac{3 \sqrt 3}{22} V_0^2 / L\)</span><br>
+<span class="tex">\(\displaystyle A_{2y} = - \frac{3}{22} V_0^2 / L \)</span><br>
+<span class="tex">\(\displaystyle A_{3x} = 0\)</span><br>
+<span class="tex">\(\displaystyle A_{3y} = \frac{2}{11} V_0^2 / L \)</span><br>
+I moduli sono:<br>
+<span class="tex">\(\displaystyle A_1 = \frac{6}{11} V_0^2 / L\)</span><br>
+<span class="tex">\(\displaystyle A_2 = \frac{3}{11} V_0^2 / L\)</span><br>
+<span class="tex">\(\displaystyle A_3 = \frac{2}{11} V_0^2 / L\)</span></article>
+<article class="post" id="p27262"><div class="who"><b>Luca Milanese</b><span>29 dic 2021, 10:21</span></div>Va bene, adesso è giusto, a te la staffetta. :D</article>
+<nav class="pager"><a class="prev" href="olifis-7119.html"><small>← precedente</small>283 - Einstein batte Newton 2 a 1</a><a class="next" href="olifis-7121.html"><small>successivo →</small>285. Carica in un conduttore</a></nav>
+</main></body></html>

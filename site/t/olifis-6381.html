@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>89. Carica immagine</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 89</a></span></nav>
+<h1>89. Carica immagine</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6381">forum Olifis</a></p>
+<article class="post first" id="p22727"><div class="who"><b>BeppeBogna</b><span>11 ago 2016, 17:18</span></div>Mi è stato dato l'arduo compito di continuare la staffetta, propongo questo problema  :D <br>
+<br>
+Una carica <span class="tex">\(q\)</span> è posta nelle vicinanze di una sfera metallica neutra, di raggio <span class="tex">\(R\)</span> e collegata a terra a distanza <span class="tex">\(d\)</span> dal suo certo. Si sa che sulla sfera si induce una certa distribuzione di cariche, che all'esterno di essa produce lo stesso campo elettrico di una carica <span class="tex">\(q'\)</span> sulla congiungente tra la carica e il centro, a distanza <span class="tex">\(d'\)</span> da quest'ultimo.<br>
+<br>
+1) Esprimere <span class="tex">\(q'\)</span> e <span class="tex">\(d'\)</span> in funzione di <span class="tex">\(q\)</span>, <span class="tex">\(R\)</span> e <span class="tex">\(d\)</span>.<br>
+2) Trovare l'energia elettrostatica dovuta all'interazione tra <span class="tex">\(q\)</span> e le cariche indotte.<br>
+3) Trovare l'energia elettrostatica dovuta all'interazione tra le cariche indotte.<br>
+<br>
+Un corpo puntiforme di massa <span class="tex">\(m\)</span> e carica <span class="tex">\(q\)</span> è appeso a un filo di massa trascurabile lungo <span class="tex">\(L\)</span>, attaccato al soffitto. Il centro di una sfera metallica neutra, di raggio <span class="tex">\(R\)</span> e collegata a terra si trova esattamente sulla verticale del punto di contatto tra il filo e il soffitto, a distanza <span class="tex">\(l\)</span> da quest'ultimo. <br>
+<br>
+4) Trascurando la forza gravitazionale e ogni tipo di attrito, calcolare la frequenza delle oscillazioni della massa <span class="tex">\(m\)</span>, quando questa viene spostata di un piccolo angolo <span class="tex">\(\alpha\)</span> dalla verticale.</article>
+<article class="post" id="p22729"><div class="who"><b>DEhunt</b><span>12 ago 2016, 11:04</span></div>Posso chiederti cosa implica il fatto che sia collegata a terra? Nel senso, cosa cambierebbe se non lo fosse?</article>
+<article class="post" id="p22730"><div class="who"><b>BeppeBogna</b><span>12 ago 2016, 15:30</span></div>Serve solo a semplificare i calcoli, concettualmente a poco.</article>
+<article class="post" id="p22731"><div class="who"><b>rocco</b><span>12 ago 2016, 17:26</span></div>Provo a dare i primi tre risultati, se andranno darò il quarto<br>
+1)<span class="tex">\(q'=\frac{Rq}{d}\)</span> <span class="tex">\(d'=\frac{R^2}{d}\)</span>imponendo il potenziale nullo in due opportuni punti della superficie sferica<br>
+2) <span class="tex">\(U=- k\frac{qq'}{d-d'}\)</span> come energia di interazione fra due cariche puntiformi<br>
+3)<span class="tex">\(U= \frac{q'^2}{8\pi.\epsilon.R}\)</span> energia conduttore sferico di carica q' e capacità<span class="tex">\(C=4\pi\epsilon.R\)</span></article>
+<article class="post" id="p22732"><div class="who"><b>BeppeBogna</b><span>12 ago 2016, 21:23</span></div>Nel punto 1) probabilmente ti sei perso un segno, è <span class="tex">\(q'=- \frac{qR}{d}\)</span>, quindi anche l'energia al punto 2) ha segno opposto, per cui puoi postare i procedimenti.<br>
+L'energia al punto 3) è sbagliata invece, ritenta  :D</article>
+<article class="post" id="p22733"><div class="who"><b>rocco</b><span>13 ago 2016, 11:45</span></div>1) si mi ero perso il segno perchè con q' indicavo il modulo e quindi l'energia era giusta 2) considerando invece q' con segno allora in effetti l'energia ha segno complessivamente negativo come deve essere 3) ripenserò, ma le cariche q' sono sulla superficie sferica in realtà e quindi mi pareva il classico conduttore isolato per quanto riguarda le cariche indotte. Perchè sbaglio? <br>
+4) mentre ripenso al 3), ti darei il mio risultato: la forza elettrica di attrazione mi verrebbe<br>
+<span class="tex">\(F= \frac{kqq'}{[(d-d')^2+L^2.\alpha^2}\)</span>. Trovandone la componente tangente alla circonferenza come nel pendolo, cioè moltiplicando per <span class="tex">\(sen\alpha\simeq\alpha\)</span> e trascurando a denominatore l'infinitesimo di secondo ordine si arriva all'equazione <span class="tex">\(mL\frac{d^2\alpha}{dt^2}- \frac{kqq'\alpha}{(d-d')^2}=0\)</span> dove si osserva che il segno del secondo addendo al primo membro è positivo e quindi il moto è armonico. Da<span class="tex">\(\omega^2=\frac{-kqq'}{mL(d-d')^2}\)</span> si ricaverebbe per la frequenza <span class="tex">\(f= \frac{\sqrt(-kqq')}{2\pi.(d-d')\sqrt(mL)}\)</span> dove <span class="tex">\(d-d'= [(l-L)^2-R^2]/(l-L)\)</span><br>
+Ci sta che abbia fatto errori?</article>
+<article class="post" id="p22734"><div class="who"><b>BeppeBogna</b><span>13 ago 2016, 14:43</span></div>Attento a non approssimare troppo! L'equazione della forza è quasi giusta, ma devi anche tener conto del fatto che mentre <span class="tex">\(q\)</span> oscilla (e quindi varia la sua distanza dal centro della sfera) variano anche il valore e la posizione di <span class="tex">\(q'\)</span>. Però sei comunque sulla buona strada  ;) <br>
+<br>
+Per quanto riguarda l'energia, in un conduttore sferico con quella capacità se non sbaglio fai l'implicita assunzione che la carica sia uniformemente distribuita sulla superficie, cosa che qui non accade.</article>
+<article class="post" id="p22735"><div class="who"><b>rocco</b><span>14 ago 2016, 10:10</span></div>Si, hai ragione non è distribuita uniformente. Allora la vedo così: siccome il potenziale deve essere nullo in tutti i punti della sfera e quindi anche nella posizione occupata da q', ricaverei che il potenziale delle cariche distribuite sulla sfera (non importa sapere come) deve essere opposto a q/(d-d'). L'energia di interazione-indotte sarebbe questo potenziale per q' ovvero <br>
+(-qq')/(d-d'): mi verrebbe opposta all'altra! A ripensarci però mi sembra verosimile perchè deve essere positiva ed in definitiva è q che provoca tutto. Che ne pensi?<br>
+Per il punto 4), aderendo al suggerimento e in definitiva esprimendo q' in funzione di q perchè la distanza era già espressa con i dati certi (l-L) e R, otterrei<br>
+<span class="tex">\(f= \frac{q\sqrt{kR(l-L)}}{2\pi.[(l-L)^2-R^2]\sqrt{mL}}\)</span><br>
+dove gli errori di calcolo sono sempre in agguato.</article>
+<article class="post" id="p22736"><div class="who"><b>BeppeBogna</b><span>14 ago 2016, 17:46</span></div>La frequenza ora va quasi bene, probabilmente hai solo fatto un errore di calcolo e non dovrebbe esserci <span class="tex">\(L\)</span> nel numeratore sotto radice. Sull'energia ancora non ci siamo, più che altro per il fatto che il potenziale dovuto alle cariche indotte deve essere punto per punto opposto a quello di <span class="tex">\(q\)</span> come dici tu, ma quest'ultimo potenziale varia a seconda del punto considerato della sfera. Se entro un paio di giorni nessuno riesce a trovare qualcosa, darò qualche hint.  :D</article>
+<article class="post" id="p22737"><div class="who"><b>rocco</b><span>15 ago 2016, 11:22</span></div>E' per questo che avevo considerato proprio il potenziale di q nel posto occupato da q': il potenziale delle indotte in quel punto deve essere opposto a questo potenziale e dunque non capisco l'errore :?: Continuerò a pensarci in questi giorni prima del test  :cry: e spero di capirlo prima dell'hint o di qualche soluzione.<br>
+Ho un'altra idea che posto domani.<br>
+Sul previsto errore di calcolo, se il procedimento è giusto, francamente non ci perderò tempo.</article>
+<article class="post" id="p22739"><div class="who"><b>rocco</b><span>16 ago 2016, 10:23</span></div>Senti questa strada. Ho calcolato il campo sulla sup. sferica come somma dei campi di q e q', è perpendicolare alla superficie e dipende solo da <span class="tex">\(cos\theta\)</span> come c'era da attendersi (l'ascissa in pratica). Ho calcolato la densità superficiale di carica relativa alla corona sferica infinitesima compresa fra <span class="tex">\(\theta e \theta+d\theta\)</span> come cost. dielettrica per campo e ho moltiplicato la carica infinitesima per l'opposto del potenziale ivi generato da q. Con un cambio di variabile ho integrato per <span class="tex">\(\theta\)</span>variabile fra 0 e <span class="tex">\(\pi\)</span> ed ho ottenuto la seguente bestia<br>
+<span class="tex">\(U= \frac{q^2(d^2-R^2)R}{8\pi^2.\epsilon_0. (d^2+R^2)(d-R)^2}\)</span><br>
+Ci saranno errori di calcolo ma ovviamente mi interessa il tuo giudizio sul procedimento :?:</article>
+<article class="post" id="p22834"><div class="who"><b>FedericoC.</b><span>3 set 2016, 14:37</span></div>Non so se il testimone della staffetta è già stato dato Rocco, ad ogni modo provo a dare la mia soluzione dei due punti che rimangono, dato che la staffetta è ferma da un po'  :D<br>
+L'energia elettrostatica dovuta all'interazione tra le cariche indotte mi risulta <span class="tex">\(\displaystyle U=\frac{1}{8\pi \epsilon_0}\frac{q^2}{d^2-R^2}\)</span>;<br>
+la frequenza di oscillazione, invece mi risulta <span class="tex">\(\displaystyle \nu=\frac{1}{2 \pi}\frac{1}{\sqrt{4\pi \epsilon_0}}\sqrt{\frac{R\alpha (d+L)}{mL}}\frac{q}{(d^2-R^2)^2}\)</span>.</article>
+<article class="post" id="p22839"><div class="who"><b>BeppeBogna</b><span>3 set 2016, 19:06</span></div>L'energia elettrostatica è quasi giusta, ma ha le dimensioni di una forza. Penso sia dovuto a una svista perché manca solo un termine, magari ricontrolla i calcoli  :D la frequenza giusta invece, a meno di quella <span class="tex">\(L\)</span>, era quella di Rocco, ovvero <span class="tex">\(\displaystyle \nu = \frac{q}{(l-L)^2-R^2} \sqrt{\frac{Rl}{4 \pi \epsilon_{0}mL}}\)</span>. Per continuare la staffetta puoi accordarti con Rocco  :D</article>
+<article class="post" id="p22840"><div class="who"><b>FedericoC.</b><span>4 set 2016, 0:31</span></div>Effettivamente mi sono scordato nel trascrivere un <span class="tex">\(R\)</span> nella relazione dell'energia che sarebbe stata: <span class="tex">\(\displaystyle U=\frac{1}{8\pi \epsilon_0}\frac{q^2}{d^2-R^2}R\)</span>. <br>
+Per la staffetta io il testimone lo darei a Rocco che aveva comunque già fatto tre procedimenti giusti su quattro  ;)</article>
+<article class="post" id="p22841"><div class="who"><b>BeppeBogna</b><span>4 set 2016, 8:36</span></div>Ora è giusto  :D  direi che quando Rocco ha voglia e tempo la staffetta può continuare  :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6377.html"><small>← precedente</small>88. Disco</a><a class="next" href="olifis-6408.html"><small>successivo →</small>90. Oscillazioni</a></nav>
+</main></body></html>

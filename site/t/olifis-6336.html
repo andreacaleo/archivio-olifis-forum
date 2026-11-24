@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>78. Cilindro sul piano inclinato</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 78</a></span></nav>
+<h1>78. Cilindro sul piano inclinato</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6336">forum Olifis</a></p>
+<article class="post first" id="p22402"><div class="who"><b>rocco</b><span>13 giu 2016, 16:36</span></div>Problemino facile e noto ma carino<br>
+<br>
+Un cilindro di legno avente massa m= 0,25 kg e lunghezza l= 0,1 m, supporta 10 spire avvolte attorno ad esso longitudinalmente in modo che il loro piano contenga l'asse del cilindro. Qual è la minima corrente che deve circolare nell'avvolgimento per impedire al cilindro di rotolare lungo un piano inclinato che forma un angolo <span class="tex">\(\theta\)</span> con l'orizzontale in presenza di un campo di induzione magnetica B= 0,5 T , se il piano dell'avvolgimento è parallelo al piano inclinato?</article>
+<article class="post" id="p22403"><div class="who"><b>FedericoC.</b><span>13 giu 2016, 17:08</span></div>I momenti torcenti rispetto al punto di contatto con il piano inclinato devono annullarsi. In particolare il momento torcente della forza peso vale <span class="tex">\(\tau_P=mgrsen\theta\)</span> dove <span class="tex">\(r\)</span> è il raggio del cilindro, mentre quello della forza magnetica è <span class="tex">\(\tau_B=2lniBrsen\theta\)</span> dove <span class="tex">\(n\)</span> è il numero delle spire.<br>
+Uguagliando i due momenti si ottiene: <span class="tex">\(i=\frac{mg}{2lnB}=2,45 A\)</span></article>
+<article class="post" id="p22405"><div class="who"><b>rocco</b><span>14 giu 2016, 16:25</span></div>Bene, la staffetta è tua.</article>
+<nav class="pager"><a class="prev" href="olifis-6334.html"><small>← precedente</small>77. Campo magnetico</a><a class="next" href="olifis-6339.html"><small>successivo →</small>79. Blocchetto trasparente</a></nav>
+</main></body></html>

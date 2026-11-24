@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>18: acqua in un recipiente</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 18</a></span></nav>
+<h1>18: acqua in un recipiente</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5980">forum Olifis</a></p>
+<article class="post first" id="p19528"><div class="who"><b>andrea96</b><span>28 set 2014, 16:19</span></div>metto un problema parecchiò più facile degli ultimi perchè in questo momento ho un vuoto mentale e non mi vengono in mente bei problemi difficili ( non mi sembra il caso di mettere problemi contosi ) che non siano o ipho o ammissione a sns.  :lol:  :lol: <br>
+<br>
+<br>
+Determinare che forma deve avere un recipiente a simmetria cilindrica per fare in modo che se sul fondo c'è un foro di piccola dimensione ( cioè in modo tale da non dover considerare vortici o altri fenomeni brutti ) e mettiamo dell'acqua nel recipiente, il livello diminuisce a velocità costante.</article>
+<article class="post" id="p19529"><div class="who"><b>Simone256</b><span>28 set 2014, 18:36</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>il livello diminuisce a velocità costante.</div></blockquote>
+Intendi l'altezza del liquido giusto?  :) <br>
+Prima che per caso mi metto a fare cose senza senso  :mrgreen:</article>
+<article class="post" id="p19530"><div class="who"><b>andrea96</b><span>28 set 2014, 18:44</span></div>sisi! la distanza tra foro e superficie dell'acqua</article>
+<article class="post" id="p19531"><div class="who"><b>sall96</b><span>28 set 2014, 21:02</span></div>Provo a dare la mia soluzione  (sperando sia giusta) :D  <br>
+sia <br>
+<span class="tex">\(A(h)\)</span> l'area del recipiente all'altezza <span class="tex">\(h\)</span><br>
+<span class="tex">\(v_1\)</span> la velocita' di discesa del altezza (costante per ipotesi)<br>
+<span class="tex">\(A_2\)</span> la sezione del foro da cui esce l'acqua<br>
+<span class="tex">\(v_2\)</span> la velocita' di uscita del liquido dal foro<br>
+<br>
+inoltre so che <span class="tex">\(\displaystyle A(h)v_1=A_2v_2\)</span> perche' la portata e' costante e per Bernoulli <span class="tex">\(P_1+\dfrac{\rho {v_1}^2}{2}+\rho g h_1=P_2+\dfrac{\rho {v_2}^2}{2}+\rho g h_2\)</span> che si semplifica in <span class="tex">\({v_1}^2={v_2}^2 + \rho g h\)</span> <br>
+<br>
+sostituisco <span class="tex">\(v_2\)</span> della prima equazione nella seconda ed ottengo <span class="tex">\(\displaystyle A(h)=A_2\sqrt{1-\dfrac{2gh}{{v_1}^2}}\)</span> . Queste grandezze sono tutte costanti tranne <span class="tex">\(h\)</span> e quindi la sezione del recipiente ha equazione <span class="tex">\(\displaystyle A(h)=A_2\sqrt{1-kh}\)</span> con <span class="tex">\(k\)</span> un parametro.</article>
+<article class="post" id="p19532"><div class="who"><b>andrea96</b><span>28 set 2014, 22:43</span></div>la soluzione e non è corretta! rigurdati bene quali sono le ipotesi del teorema del bernoulli e controlla se qui sono rispettate...<br>
+se vuoi ti spiego in messagio privato qual'è il tuo errore ( se lo spiegassi qui darei un indizio troppo grande a chi vuole risolvere il problema... )</article>
+<article class="post" id="p19533"><div class="who"><b>sall96</b><span>28 set 2014, 22:51</span></div>Grazie, domani riprovo :) se proprio non ci cavo niente ti mando un messaggio :D</article>
+<article class="post" id="p19534"><div class="who"><b>andrea96</b><span>29 set 2014, 16:14</span></div>Devo fare una precisazione perchè mi sono accorto che per come ho scritto il testo si può creare un incomprensione: il foro è da considerarsi piccolo per non creare quei brutti fenomeni, ma abbastanza grande in modo che la velocità di fuoriuscita si confrontabile con la velocità di discesa del livello. Il risultato cambia sensibilmente ( e in quell'altro caso è abbastanza banale...).<br>
+Anzi fate proprio conto che io non abbia scritto "piccolo" scusatemi...</article>
+<article class="post" id="p19535"><div class="who"><b>poor</b><span>30 set 2014, 10:48</span></div>Ho visto per caso il problema perchè ho poco tempo per il forum. Mi sembra insidioso e non facile. Applicando l'equazione della portata e la conservazione dell'energia applicata all'unità di massa mi verrebbe una sezione A(x)=F.radice quadrata di (1+2gx/vzeroquadrato), dove x è la quota, F l'area del foro che si suppone circolare come A(x) data la simmetria cilindrica e vzero la velocità costante di abbassamento del liquido. E' una specie di imbuto che comincia da F con la concavità verso il basso. Naturalmente il raggio della sezione cresce come la radice quarta di (1+2gx/vzeroquadrato). Il risultato mi pare diverso da quello di Sall per cui la sezione diminuirebbe con la quota se ho ben capito in modo un pò improbabile.... Concettualmente però mi pare la stessa cosa a parte il suo errore tecnico nel calcolo di A(h)?</article>
+<article class="post" id="p19536"><div class="who"><b>andrea96</b><span>30 set 2014, 13:09</span></div>Innanzi  tutto mi scuso con tutti quello che hannk tentato di risolvere il problema, perchè l ho postato dopo che io lo avevo fatto di fretta e non mi ero assicurato che la mia soluzione fosse corretta :( <br>
+In realtá io conoscevo il problema nel caso di foro piccolo e pensavo si potesse estendere al caso generale senza troppe difficoltà matematiche.<br>
+Poi analizzando il grafico della mia soluzione mi ono accorto che era parecchio  strano allora ho ricontrollato il tutto e mi sono accorto che purtroppo avevo fatto un errore, e cercando di corregerlo mi sono accorto che il problema era parecchio più difficile di quello che pensavo, soprattutto dal punto di vista della matematica: vengono fuori derovate parziali, derivate totali di funzioni do due variabili, e l equazioni finale che mi viene ( quella che dovrebbe darmi la sezione in funzione della quota ), è un equazione  differenziale non lineare che non riesco a risolvere nemmeno con wolfram.... quindi magari qui si puo continuare a discutere del problema ( che poi in realtá è parecchio bello e parecchio interessante ) peró penso sia il caso che riguardo la staffetta posto un altro problema....<br>
+Quindi quando arrivo a casa metto un altro problema per la staffetta e qui si puo discutere del problema....</article>
+<nav class="pager"><a class="prev" href="olifis-5979.html"><small>← precedente</small>17: acqua su una nuvola</a><a class="next" href="olifis-5981.html"><small>successivo →</small>18:(capitolo secondo) cinematica delle formiche</a></nav>
+</main></body></html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>209. Razzo relativistico.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 209</a></span></nav>
+<h1>209. Razzo relativistico.</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6901">forum Olifis</a></p>
+<article class="post first" id="p26017"><div class="who"><b>Luca Milanese</b><span>28 mag 2020, 10:39</span></div>In assenza di gravità, abbiamo un razzo di massa variabile <span class="tex">\(m\)</span>. Il razzo espelle massa trasformandola in fotoni sparati nella stessa direzione del moto del razzo e in verso opposto ad esso. All'inizio il razzo è fermo nel nostro sistema di riferimento e ha massa <span class="tex">\(M\)</span>. Trovare la velocità <span class="tex">\(v\)</span> del razzo nel nostro s.d.r. in funzione della sua massa <span class="tex">\(m\)</span>.</article>
+<article class="post" id="p26018"><div class="who"><b>Navi</b><span>28 mag 2020, 17:42</span></div>Equazione relativistica del razzo | CARAMELLE di Forcone (ψ)</article>
+<article class="post" id="p26023"><div class="who"><b>bosone</b><span>29 mag 2020, 17:33</span></div>Non capisco che vuol dire Caramelle di Forcone comunque osservo che se rilascia dietro fotoni vuol dire che si ha scomparsa di materia e antimateria. Per quanto ne so io dovrebbero scomparire per esempio coppie positrone-elettrone. Ma c'è antimateria nel combustibile del razzo? :?:  :?:</article>
+<article class="post" id="p26025"><div class="who"><b>Navi</b><span>29 mag 2020, 17:37</span></div>Per quanto riguarda me (ma solo me), ho voluto semplicemente dire che, mutatis mutandis, l'argomento è stato altre volte affrontato: per es., nella pagina che ho indicato.</article>
+<article class="post" id="p26026"><div class="who"><b>Luca Milanese</b><span>29 mag 2020, 17:41</span></div>@bosone<br>
+Non penso che la situazione del problema sia davvero fisicamente possible, comunque per risolverlo a te basta sapere che il razzo perde massa e che questa diventa luce sparata all'indietro. Se hai mai visto come si ricava l'equazione del razzo non relativistico (equazione di Ciolkowsky), allora dovresti capire come impostare la soluzione...<br>
+@navi<br>
+In questo forum nessuno ha la pretesa di affrontare situazioni fisiche mai affrontate o fare scoperte, siamo qui per imparare risolvendo problemi e divertirci.</article>
+<article class="post" id="p26027"><div class="who"><b>Nicolás Lobato</b><span>29 mag 2020, 17:58</span></div>Salve sono nuovo nel forum e sicuramente la mia risposta sia piena di errori e incoerenze ma vorrei tentare comunque:<br>
+<br>
+Siccome sono conservati sia la quantità di moto che l’energia scriviamo le equazione per la quantità di moto e dell'energia:<br>
+<br>
+<span class="tex">\(0=d(\gamma (v)mv)-\gamma (u)u dm\)</span><br>
+<span class="tex">\(d(\gamma(v)mc^2)=-\gamma(u)(dm)c^2\)</span><br>
+<br>
+Facendo qualche sostituzione con le due equazioni arriviamo:<br>
+<br>
+<span class="tex">\(d(\gamma(v)mv)=\frac{v-u}{1-\frac{vu}{c^2}}d(\gamma(v)m)\)</span><br>
+<br>
+Cioè:<br>
+<br>
+<span class="tex">\( d(\gamma mv)dv=\frac{v-u}{1-\frac{vu}{c^2}}d(\gamma(v)m)dv\)</span><br>
+Poiché <span class="tex">\( d(\gamma mv)dv=m\gamma+vd(\gamma m)dv \)</span> perchè prodotto di due funzioni, possiamo ricavare:<br>
+<br>
+<span class="tex">\( m\gamma=\left(\frac{v-u}{1-\frac{vu}{c^2}}-v \right) \frac{d(\gamma m)}{dv}\)</span><br>
+<br>
+Se poi integriamo la formula che abbiamo ricavato:<br>
+<span class="tex">\( \int_{0}^{v} \frac{1}{u} \frac{uv-c^2}{c^2-v^2} dv\)</span><br>
+È uguale a:<br>
+<span class="tex">\( \int_{m_0}^{m \gamma} \frac{d(\gamma m)}{\gamma m}\)</span><br>
+Risolvendo entrambi integrali ed uguagliando i risultati otteniamo (Se non ho fatto qualche errore) :<br>
+<br>
+<span class="tex">\( -12\log{}(c^2-v^2)+\log{c}-c\cdot \tanh{}^{-1}(vc)+c\tanh^{-1}(0)=\log{}(m \gamma)-\log{m_0}\)</span><br>
+<br>
+Il  che ci riporta a <br>
+<br>
+<span class="tex">\( v=c\tanh \left(uc \log{}\frac{m}{m_0} \right) \)</span><br>
+Sicuramente la mia idea sia piena di errori pero tentare non nuoce... Spero sia tutto comprensibile</article>
+<article class="post" id="p26028"><div class="who"><b>Navi</b><span>29 mag 2020, 18:01</span></div>Luca, vedo che continuo a essere frainteso. Mi sono semplicemente limitato a dire che l'argomento era stato in parte (ma solo in parte!) già affrontato: ma hai fatto benissimo a riproporre la tematica, che per giunta hai prospettato con innovazioni. Dunque, complimentandomi, ripeto che ho solo indicato un riferimento che poteva e può ampliare l'interessante dibattito.<br>
+Ciò posto, però, e constatato che mi si rivolgono ipotesi che non so donde sgorghino, specifico (e lo faccio una volta per tutte qui) che sono persona che abita a Potenza, ho 70 anni. Sono autore di scritti, molti dei quali sono indicati anche in rete (uno solo è un modesto libbriccino di Rel.). Se qualcuno ha piacere, gli indico (in privato) le mie generalità, ecc.<br>
+Mi sono permesso di comparire qui per discutere, sommessamente, serenamente, in punta di piedi, con cortesia, tenuità, a capo scoperto. Se me lo si concede, lo faccio; se sono sgradito (pur non avendo offeso, attaccato o minimamente insolentito alcuno), vado via immediatamente.<br>
+Se poi, ma non è il nostro caso, si vuol comprimere in qualche modo la partecipazione per partito preso (ma sono certo che non è così!), allora chiarisco  che, nell'attività che ho svolto (da 26 a 29 anni),  non sono riusciti a turbarmi neppure candidati all'ergastolo.  <br>
+Sperando di essere stato eloquente, porgo sentiti e cordiali saluti.<br>
+Navi.</article>
+<article class="post" id="p26029"><div class="who"><b>Nicolás Lobato</b><span>29 mag 2020, 18:36</span></div>Scusate ho rivisto un errore di ricopiatura nelle ultime righe riparto da dove ero arrivato uguagliando i risultati delle integrali:<br>
+<br>
+<span class="tex">\(-12\log{}(c^2-v^2)+\log{c}-\frac{c}{u}\tanh^{-1}\left(\frac{v}{c}\right)+c \cdot \tanh^{-1}(0)=\log{}(m \gamma)-\log{m_0}\)</span><br>
+<br>
+Il che ci riporta a<br>
+<br>
+<span class="tex">\(v=c \cdot \tanh \left(\frac{u}{c} \log \frac{m}{m_0}\right)\)</span><br>
+<br>
+Adesso dovrebbe essere a posto ma sicuramente continui ad esserci qualcosa che non va... Non so perchè non mi convince  :?:</article>
+<article class="post" id="p26030"><div class="who"><b>Luca Milanese</b><span>29 mag 2020, 18:39</span></div>@Nicolás Lobato<br>
+Dovresti spiegare meglio i passaggi del tuo procedimento, che non sono riuscito a seguire completamente. Inoltre non ho capito cosa sarebbe quella <span class="tex">\(u\)</span> (che non era presente nel testo del problema) che compare nella tua soluzione.<br>
+@Navi<br>
+Mi fa piacere che ci siamo chiariti. Comunque non merito complimenti, non ho né inventato il problema né ho apportato modifiche personali rispetto alla versione in cui l'ho trovato.</article>
+<article class="post" id="p26031"><div class="who"><b>Nicolás Lobato</b><span>29 mag 2020, 19:10</span></div>ho cercato di rileggere il problema e impostarlo di nuovo e mettermi alla ricerca di un altra soluzione poichè quella scritta precedentemente non i convincie a fatto e probabilmente non è neanche degna di essere letta. Spero di essere stato più chiaro questa volta.<br>
+<br>
+Se non ho interpretato male il razzo parte da fermo con massa <span class="tex">\(M\)</span> e arriva alla velocità <span class="tex">\(v\)</span> con massa <span class="tex">\(m\)</span>. Se poniamo come <span class="tex">\(E\)</span> l’energia dei fotoni emessi il loro impulso sarà <span class="tex">\(E/c\)</span> il che comporta per la legge conservazione dell’energia:<br>
+<br>
+<span class="tex">\(Mc^2=\gamma mc2+E\)</span><br>
+<br>
+E per la conservazione della quantità di moto:<br>
+<br>
+<span class="tex">\(0=\gamma mv - \frac{E}{c}\)</span><br>
+<br>
+Eliminando E da entrambi equazioni possiamo giungere al seguente risultato. <br>
+<br>
+<span class="tex">\(v=  c \frac{M^2-m^2}{M^2+m^2}\)</span><br>
+  <br>
+In ogni caso probabilmente anche questa risposta sia piena di errori.</article>
+<article class="post" id="p26032"><div class="who"><b>Luca Milanese</b><span>29 mag 2020, 19:20</span></div>E invece è corretta! A te la staffetta, puoi postare il 210.</article>
+<article class="post" id="p26035"><div class="who"><b>Gamow00</b><span>30 mag 2020, 10:38</span></div>@Nicolas<br>
+Ciao, benvenuto nel forum.<br>
+Mi sono permesso di riformattare le tue risposte utilizzando <span class="tex">\(\LaTeX\)</span>, se dai un'occhiata ora vedi che sono molto più leggibili. Ti consiglio di studiarti un pochino come funziona, ci metti davvero un attimo a prenderci la mano e ti aiuta davvero tanto a non fare errori di trascrizione e a rendere il tuo lavoro più chiaro per te e per gli altri. Se hai dubbi chiedimi pure :D</article>
+<nav class="pager"><a class="prev" href="olifis-6899.html"><small>← precedente</small>208. L&#x27;Anello e le Perline</a><a class="next" href="olifis-6902.html"><small>successivo →</small>210. Aberrazione sferica</a></nav>
+</main></body></html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>68: Sistema meccanico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 68</a></span></nav>
+<h1>68: Sistema meccanico</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6316">forum Olifis</a></p>
+<article class="post first" id="p22219"><div class="who"><b>Flaffo</b><span>26 mag 2016, 17:13</span></div>Un piccolo blocco di massa m è delicatamente posto sulla superficie interna di un sottile cilindro cavo di massa M e raggio R. Inizialmente il cilindro è fermo sul piano orizzontale e il blocco è posto fermo ad un'altezza R sopra il piano.<br>
+<br>
+Trovare la forza di interazione F tra il blocco e il cilindro nel momento in cui il blocco descrive il punto più basso della sua traiettoria. Si assuma che non ci sia attrito tra il blocco e la superficie interna del cilindro e che il cilindro si muova sul piano senza strisciare. L'accelerazione di gravità è g.</article>
+<article class="post" id="p22221"><div class="who"><b>FedericoC.</b><span>26 mag 2016, 21:47</span></div>Provo la mia soluzione  :) <br>
+<br>
+Conservazione dell'energia:<br>
+<br>
+<span class="tex">\(mgR=\frac{1}{2}mv^2+\frac{1}{2}I\omega^2\)</span>   dove <span class="tex">\(I=MR^2\)</span><br>
+<br>
+Teorema dell'impulso della forza e del momento:<br>
+<br>
+<span class="tex">\(vm=\frac{\omega I}{R}\)</span><br>
+<br>
+Ricavo la velocità:<br>
+<br>
+<span class="tex">\(v^2=\frac{2Mg}{m+M}\)</span><br>
+<br>
+La forza centripeta è data da:<br>
+<br>
+<span class="tex">\(F_C=N-P\)</span>       da cui     <span class="tex">\(N=m(\frac{2Mg}{m+M}+g)\)</span><br>
+<br>
+Spero sia giusto  :D</article>
+<article class="post" id="p22222"><div class="who"><b>CaptainJohnCabot</b><span>26 mag 2016, 22:47</span></div>Mi sa che ti sei dimenticato l'energia cinetica traslazionale del cilindro... D'altronde a Flaffo piacciono i problemi delle IPho  :lol:   :shock:</article>
+<article class="post" id="p22223"><div class="who"><b>Flaffo</b><span>26 mag 2016, 23:26</span></div>Sì,  ti sei dimenticato l'energia cinetica translazionale.. prova a rifarlo anche ragionando in termini di forze. 
+<blockquote><div><cite>CaptainJohnCabot ha scritto:</cite>D'altronde a Flaffo piacciono i problemi delle IPhO </div></blockquote>
+Dai, però questo è fattibile  :lol:  :lol:</article>
+<article class="post" id="p22224"><div class="who"><b>FedericoC.</b><span>27 mag 2016, 15:40</span></div>Avete ragione sono proprio sbadato!  :lol: <br>
+<br>
+La conservazione dell'energia diventa:<br>
+<br>
+<span class="tex">\(mgR=\frac{1}{2}mv^2+\frac{1}{2}I\omega^2+\frac{1}{2}MV^2\)</span> da cui dato che <span class="tex">\(\omega=VR\)</span><br>
+<br>
+<span class="tex">\(2mgR=mv^2+2I\omega^2\)</span><br>
+<br>
+Uguagliando gli impulsi delle forze e dei momenti che differiscono solo per un fattore <span class="tex">\(R\)</span>:<br>
+<br>
+<span class="tex">\(R(mv-MV)=I\omega\)</span> da qui deriva <span class="tex">\(mv=2MV\)</span><br>
+<br>
+Troviamo dunque:<br>
+<br>
+<span class="tex">\(v=\sqrt{\frac{4gRM}{2M+m}}\)</span>   e    <span class="tex">\(V=\frac{m}{M}\sqrt{\frac{gRM}{2M+m}}\)</span><br>
+<br>
+Ora dato che:  <span class="tex">\(F_c=N-P\)</span> considerando la velocità per la forza centripeta <span class="tex">\(u=v+V\)</span> ottengo:<br>
+<br>
+<span class="tex">\(N=mg(3+\frac{m}{M})\)</span><br>
+<br>
+Ho risparmiato qualche calcolo nell'ultimo passaggio se volete li metto, sempre sia giusto questa volta  :D</article>
+<article class="post" id="p22225"><div class="who"><b>rocco</b><span>27 mag 2016, 17:16</span></div><blockquote><div><cite>CaptainJohnCabot ha scritto:</cite> D'altronde a Flaffo piacciono i problemi delle IPho  :lol:   :shock:</div></blockquote>
+Non sta a me a dirlo ma il risultato è giusto e la staffetta è di Federico. A proposito di Flaffo se fossi Federico mi vendicherei somministrandoci la parte B dello stesso problema IPHO 2014 sulla Termodinamica...</article>
+<article class="post" id="p22226"><div class="who"><b>Flaffo</b><span>27 mag 2016, 20:10</span></div>Sì,  la staffetta è tua.
+<blockquote><div><cite>rocco ha scritto:</cite>A proposito di Flaffo se fossi Federico mi vendicherei somministrandoci la parte B dello stesso problema IPHO 2014 sulla Termodinamica...</div></blockquote>
+
+Mi dispiace ma l'ho già risolto  :lol:  8-)</article>
+<article class="post" id="p22227"><div class="who"><b>FedericoC.</b><span>27 mag 2016, 20:21</span></div>Va bene! Comunque questo era molto carino, magari prendo spunto da Rocco e guardo tra vecchie ipho   :lol:</article>
+<article class="post" id="p22228"><div class="who"><b>sall96</b><span>27 mag 2016, 21:26</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>
+<blockquote><div><cite>rocco ha scritto:</cite>A proposito di Flaffo se fossi Federico mi vendicherei somministrandoci la parte B dello stesso problema IPHO 2014 sulla Termodinamica...</div></blockquote>
+
+Mi dispiace ma l'ho già risolto  :lol:  8-)</div></blockquote>
+
+Ma perché non fare anche la parte C  :)</article>
+<article class="post" id="p22229"><div class="who"><b>Flaffo</b><span>27 mag 2016, 22:34</span></div>Piuttosto cercate di risolvere il problema "moto di un razzo in un campo gravitazionale", avrete tutto il mio rispetto se ci riuscirete :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6313.html"><small>← precedente</small>67. Spaghettificazione</a><a class="next" href="olifis-6317.html"><small>successivo →</small>69. Sfere riscaldate</a></nav>
+</main></body></html>

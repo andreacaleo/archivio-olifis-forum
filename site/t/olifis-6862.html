@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>186. Satelliti Artificiali in orbita</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 186</a></span></nav>
+<h1>186. Satelliti Artificiali in orbita</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6862">forum Olifis</a></p>
+<article class="post first" id="p25687"><div class="who"><b>east_beast</b><span>2 mar 2020, 22:31</span></div>Due satelliti artificiali, modellizzabili a punti materiali di massa <span class="tex">\(m\)</span> orbitano su orbite circolari (di egual periodo <span class="tex">\(T\)</span>) attorno ad un pianeta di massa <span class="tex">\(M\)</span> (<span class="tex">\(m &lt;&lt; M\)</span>), il primo satellite ha una distanza dal centro del pianeta <span class="tex">\(R\)</span> (costante) mentre il secondo ha una distanza <span class="tex">\(R'\)</span> dal centro del pianeta,  <span class="tex">\(R' &gt; R\)</span>. <br>
+I due satelliti sono sempre equidistanti, cosicché <span class="tex">\(r\)</span> è la distanza tra di essi (<span class="tex">\(r&lt;&lt;R\)</span>). Una struttura rigida (che puoi modellizzare come un filo inestensibile di lunghezza <span class="tex">\(r\)</span>) tiene insieme i due satelliti alla stessa distanza, determinare il periodo <span class="tex">\(T\)</span> di rotazione dei satelliti rispetto al pianeta e la forza <span class="tex">\(F\)</span> che la struttura esercita sui satelliti.</article>
+<article class="post" id="p25693"><div class="who"><b>Spätzle</b><span>3 mar 2020, 14:06</span></div>Non vorrei dire una sciocchezza... ma da quello che ho capito la velocità angolare dei due satelliti è uguale (essendo il periodo <span class="tex">\(T = \frac{2 \pi}{\omega}\)</span> uguale). Quindi, sulla componente radiale, la risultante delle forze agenti sul satellite a distanza R è <span class="tex">\(m \omega^2 R\)</span> e sul satellite a distanza R' è <span class="tex">\(m \omega^2 R'\)</span>.<br>
+Ha senso fin qui?</article>
+<article class="post" id="p25694"><div class="who"><b>east_beast</b><span>3 mar 2020, 15:46</span></div>Ha senso, tuttavia scrivendo <span class="tex">\(T = {\frac{2{\pi}}{\omega}}\)</span> quell' <span class="tex">\({\omega}\)</span> rappresenta un valore medio, non puoi sapere se le due velocità angolari sono uguali istante per istante. Puoi mostrare che questo è vero in modo più formale considerando che: (fai un bel disegno)
+<ul><li>Le orbite sono circolari, ossia  <span class="tex">\({\frac {d{\vec{R}}}{dt}} = 0{\hat{R}} + {\vec{\omega}{\times}{\vec{R}}} \\ \)</span>  e   <span class="tex">\({\frac {d{\vec{R'}}}{dt}} = 0{\hat{R'}} + {\vec{\omega'}{\times}{\vec{R'}}}  \)</span></li></ul>
+<ul><li>Il supporto che le collega è rigido, quindi <span class="tex">\( |{\vec{r}}| = |{\vec{R'}}-{\vec{R}}| = r = cost.    \)</span></li></ul>
+<ul><li>Notando che puoi scomporre <span class="tex">\({\vec{r}}\)</span>  lungo i versori <span class="tex">\({\hat{R'}} \: e \:  {\hat{\theta}}\)</span> , infatti <br>
+<span class="tex">\(
+{\vec{r}} = Rsin{\theta}{\hat{\theta}} + (R'-R){\hat{R'}}
+\)</span> <br>
+<br>
+questo perchè essendo <span class="tex">\(r &lt;&lt; R &lt; R'\)</span>  l'angolo <span class="tex">\( {\theta} \)</span> compreso tra i vettori R ed R' è molto piccolo e la proiezione di <span class="tex">\( {\vec{R}} \)</span> su <span class="tex">\({\vec{R'}} {\approx} {|{\vec{R}}|}  \)</span></li>
+</ul>
+Essendo R, R', r costanti in modulo, notiamo che la componente lungo <span class="tex">\({\hat{R'}}\)</span> di <span class="tex">\({\vec{r}}\)</span> è costante, e di conseguenza deve esserlo la componente lungo <span class="tex">\({\hat{\theta}} \)</span>, l'angolo <span class="tex">\({\theta}\)</span> è quindi costante, <br>
+<span class="tex">\({\frac{d{\theta}}{dt}} = 0\)</span>, ossia   <span class="tex">\( \:{\vec{\omega}} - {\vec{\omega'}} = 0 \)</span>, le due velocità angolari sono uguali in tutto il moto.</article>
+<article class="post" id="p25695"><div class="who"><b>Spätzle</b><span>3 mar 2020, 16:58</span></div>Scrivo la seconda parte della mia idea di soluzione.<br>
+Detta <span class="tex">\(F_r\)</span> la componente radiale della tensione del filo, dal II principio della dinamica si ha<br>
+sul satellite a distanza R dal pianeta <span class="tex">\(\frac{GM}{R^2}-F_r = \omega^2 R\)</span><br>
+<br>
+sul satellite a distanza R' dal pianeta <span class="tex">\(\frac{GM}{(R')^2}+F_r = \omega^2 R'\)</span><br>
+<br>
+Si dovrebbe ricavare <span class="tex">\(F_r = GM (\frac{1}{R^3} - \frac{1}{(R')^3}) \cdot \frac{R' R}{R + R'} \approx F\)</span><br>
+<br>
+e sostituendo si dovrebbe ottenere <span class="tex">\(\omega = \sqrt{\frac{GM}{R^3} - GM (\frac{1}{R^3} - \frac{1}{(R')^3}) \cdot \frac{R'}{R + R'}}\)</span>, da cui si ricava <span class="tex">\(T\)</span> con la formula di prima.<br>
+<br>
+È possibile?<br>
+<br>
+<br>
+_______________<br>
+Grazie alla tua puntualizzazione, mi è venuta in mente questa considerazione. Se <span class="tex">\(\theta\)</span> è diverso da 0, allora la tensione su ciascun satellite ha una componente tangenziale. Questa componente tangenziale non dovrebbe far ruotare il filo finché non diventa <span class="tex">\(\theta = 0\)</span>? In quella condizione di regime effettivamente <span class="tex">\(\omega\)</span> è costante?</article>
+<article class="post" id="p25696"><div class="who"><b>east_beast</b><span>3 mar 2020, 18:17</span></div>Attenzione, la tua soluzione dovrebbe essere corretta (anche se credo che tu possa approssimare ancora di più) solo se i satelliti sono allineati con il centro del pianeta, ossia <span class="tex">\({\theta} =  0\)</span><br>
+Infatti in generale <span class="tex">\( {\vec{F}} {\cdot} {\hat{R}} \: {\neq} {\vec{F}} {\cdot} {\hat{R'}}  \)</span>,  a meno che non sia  <span class="tex">\( {\hat{R}} ||  {\hat{R'}}\)</span><br>
+<br>
+La tua considerazione sul momento è parzialmente corretta, la rotazione continua però anche dopo che <span class="tex">\({\theta = 0}\)</span>, il momento si inverte e la rotazione frena per poi iniziare nel verso opposto. Si generano quindi delle oscillazioni attorno al CM del sistema formato dai due satelliti. Data la traccia del problema, cosa concludi?</article>
+<article class="post" id="p25697"><div class="who"><b>Spätzle</b><span>4 mar 2020, 11:33</span></div>Se non sbaglio, a questo punto potrei affermare che, essendo <span class="tex">\(\theta\)</span> molto piccolo (e questo l'abbiamo già appurato, siccome r &lt;&lt; R etc.), possiamo considerare <span class="tex">\(\vec R \)</span> parallelo a <span class="tex">\(\vec R'\)</span>. Così si giustificano i passaggi precedenti.<br>
+<br>
+Detto ciò, provo a scrivere <span class="tex">\(\omega\)</span> in una forma più compatta:<br>
+<span class="tex">\(\omega = \sqrt{GM} \sqrt{\frac{1}{R^3} (1-\frac{R'}{R+R'}) + \frac{1}{(R')^2 (R+R')}}\)</span>.<br>
+Adesso devo usare delle approssimazioni per semplificare il radicando. Mi sembra sensato, alla luce di tutte le precedenti considerazioni, considerare <span class="tex">\(R \approx R'\)</span>. Si ottiene così <span class="tex">\(\omega = \sqrt{GM} \sqrt{\frac{1}{2 R^3} + \frac{1}{2 (R')^3}}\)</span>.<br>
+<br>
+Ricordo che, normalmente, un satellite a distanza <span class="tex">\(x\)</span> dal pianeta ha velocità angolare <span class="tex">\(\omega = \sqrt{\frac{GM}{x^3}}\)</span>.<br>
+Quindi il radicando mi pare sia la media aritmetica dei radicandi che avrei utilizzato se ci fosse stato uno solo dei 2 satelliti.<br>
+A me sembrerebbe eccessivo considerare <span class="tex">\(R^3 \approx (R')^3\)</span>.<br>
+<br>
+Può essere accettabile questa soluzione?</article>
+<article class="post" id="p25698"><div class="who"><b>east_beast</b><span>4 mar 2020, 14:43</span></div>Affinché le orbite siano circolari, non possono esserci delle oscillazioni rispetto al CM del sistema formato dai due satelliti (almeno credo) quindi deve essere che <span class="tex">\({\theta} = 0\)</span>, ossia i due satelliti sono allineati con il centro del pianeta. Quindi anche in modulo <span class="tex">\(R' = R +r\)</span> , ora la situazione è più semplice da studiare (pensa al CM). <br>
+Per quanto riguarda l'approssimazione, ricorda che <span class="tex">\((1+x)^{\alpha} =1+{\alpha}x\)</span> per x molto piccoli, per quanto riguarda il periodo va bene considerare <span class="tex">\(R {\approx} R'\)</span>, ma per trovare F non va più bene fisicamente, perché sarebbe come dire che la struttura rigida non ha lunghezza</article>
+<article class="post" id="p25699"><div class="who"><b>east_beast</b><span>4 mar 2020, 19:41</span></div>Comunque si la risoluzione è corretta, vai pure col 187!</article>
+<nav class="pager"><a class="prev" href="olifis-6861.html"><small>← precedente</small>185. Filo che si avvolge.</a><a class="next" href="olifis-6863.html"><small>successivo →</small>187. Secchio rotante</a></nav>
+</main></body></html>

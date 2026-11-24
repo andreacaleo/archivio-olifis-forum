@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>311. Massa in un cilindro sottile</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 311</a></span></nav>
+<h1>311. Massa in un cilindro sottile</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7202">forum Olifis</a></p>
+<article class="post first" id="p27854"><div class="who"><b>Francesco Leccese</b><span>17 lug 2023, 0:06</span></div>Una massa <span class="tex">\(m\)</span> di dimensioni trascurabili viene posta sulla circonferenza di un anello vuoto di raggio <span class="tex">\(R\)</span> a un'altezza <span class="tex">\(R\)</span> dal suolo (ovvero a uno degli estremi del diametro parallelo al suolo). Si trovi la forza di interazione <span class="tex">\(F\)</span> tra l'anello e la massa nel momento in cui la massa passa per il punto più basso della sua traiettoria.<br>
+Tra la circonferenza e la massa non c'è attrito e l'anello si muove senza strisciare sul piano. L'accelerazione di caduta libera è <span class="tex">\(g\)</span><br>
+<br>
+Questo problema è il primo delle IPhO 2014, quindi ecco il testo:<br>
+<a href="https://s3.eu-central-1.amazonaws.com/physprob.com/files/ipho/2014_Kazakhstan_p1.pdf" class="ext" class="postlink">https://s3.eu-central-1.amazonaws.com/p ... tan_p1.pdf</a><br>
+Spero che questo possa farmi perdonare per la poca chiarezza</article>
+<article class="post" id="p27857"><div class="who"><b>Torros</b><span>17 lug 2023, 19:55</span></div><blockquote><div><cite>Francesco Leccese ha scritto: <a href="olifis-7202.html#p27854" data-post-id="27854" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">17 lug 2023, 0:06</div></cite>
+Un piccolo disco
+</div></blockquote>
+Possiamo dunque, ponendo <span class="tex">\(R\)</span> il raggio del cilindro e <span class="tex">\(r\)</span> il raggio del disco, considerare <span class="tex">\(R&gt;&gt;r\)</span> e dunque considerare il raggio del disco praticamente ininfluente? In tal caso la soluzione è <span class="tex">\(F=0 N\)</span>?</article>
+<article class="post" id="p27858"><div class="who"><b>Francesco Leccese</b><span>17 lug 2023, 20:00</span></div>Sì, in sostanza si può considerare il disco un punto materiale che scivola senza attrito nel cilindro</article>
+<article class="post" id="p27859"><div class="who"><b>Francesco Leccese</b><span>17 lug 2023, 20:01</span></div>Tuttavia la soluzione non è quella che hai indicato, in quanto il punto materiale ha comunque una massa e avrà una certa velocità angolare, come anche il cilindro.<br>
+Quindi ecco un hint: bisogna usare le leggi di conservazione appropriate</article>
+<article class="post" id="p27860"><div class="who"><b>Higgs</b><span>18 lug 2023, 10:44</span></div>Non vedo cosa vuoi dire con  "...di un cilindro cavo molto sottile (quasi una circonferenza)..." Come fa un cilindro cavo ad assimilarsi ad una circonferenza??? :?:</article>
+<article class="post" id="p27861"><div class="who"><b>Francesco Leccese</b><span>18 lug 2023, 11:27</span></div><strong class="text-strong">Riformulo il problema</strong>:<br>
+pensate al "cilindro cavo molto sottile" come a un anello vuoto di raggio <span class="tex">\(R\)</span>, sulla cui circonferenza viene posta una massa <span class="tex">\(m\)</span> di dimensioni trascurabili a un'altezza <span class="tex">\(R\)</span> dal suolo (quindi a uno degli estremi del diametro parallelo al suolo). Si trovi la forza di interazione <span class="tex">\(F\)</span> tra l'anello e la massa nel momento in cui la massa passa per il punto più basso della sua traiettoria.<br>
+Tra la circonferenza e la massa non c'è attrito e l'anello si muove senza strisciare sul piano. L'accelerazione di caduta libera è <span class="tex">\(g\)</span>.<br>
+Spero sia più chiaro, modificherò anche il primo messaggio.<br>
+<br>
+Per essere sicuro che non ci siano più problemi di comprensione, ecco un link che rimanda al problema (è il primo):<br>
+<a href="https://s3.eu-central-1.amazonaws.com/physprob.com/files/ipho/2014_Kazakhstan_p1.pdf" class="ext" class="postlink">https://s3.eu-central-1.amazonaws.com/p ... tan_p1.pdf</a></article>
+<article class="post" id="p27862"><div class="who"><b>Higgs</b><span>19 lug 2023, 18:08</span></div>Siccome mi è parso complesso anche senza dubbi sull'interpretazione del testo, ti propongo uno schema di soluzione rispetto a cui ho fatto i conti che tuttavia espliciterò solo se tu ritieni attendibile lo schema medesimo. Esso si fonda su due leggi di conservazione 1) non essendo presente nessuna forza esterna al sistema anello/massa con componente sull'asse orizzontale x, si dovrebbe conservare la quantità di moto totale del sistema rispetto a questo asse - tenendo ovviamente conto che la massa si muove relativamente all'anello ed è trascinata orizzontalmente dal moto del CM dell'anello (la sua velocità assoluta rispetto a x è quella relativa più quella di trascinamento)  2) non esistendo attrito fra la massa e l'anello si conserva l'energia meccanica del sistema mentre la massa che si muove da ferma dalla quota R raggiunge la quota più bassa  dove passa l'asse istantaneo di rotazione perpendicolare al piano che contiene l'anello. Combinando le  due equazioni arriverei alle forze di interazione: il peso della massa, la forza centripeta della massa e la reazione normale dell'anello più piccola del peso della massa perché in parte è usata per fornire la forza centripeta alla massa consentendole la rotazione. Così almeno la vedo io ma può darsi che tutto o qualcosa non sia....   :?:  :?:  :?:  :roll:</article>
+<article class="post" id="p27863"><div class="who"><b>Francesco Leccese</b><span>19 lug 2023, 20:12</span></div>Il ragionamento mi sembra corretto, per quanto leggermente differente da quello della soluzione originale, se ricordo bene.<br>
+Posta e vediamo che hai trovato!</article>
+<article class="post" id="p27864"><div class="who"><b>Higgs</b><span>21 lug 2023, 18:28</span></div>Scusa il ritardo ma purtroppo anche se a te sembrava corretto in realtà avevo commesso un erroraccio. Era giusta l'intuizione di riferirsi solo alle componenti orizzontali, diciamo asse x, ma non c'e conservazione della quantità di moto del sistema poiché esiste invece una forza in questa direzione, la forza di attrito T che consente il puro rotolamento dell'anello. Troviamo allora le quantità di moto orizzontali ma a partire dalle leggi della dinamica e dall'esame delle forze agenti sul sistema. A partire dalla posizione iniziale di m sia <span class="tex">\(\theta\)</span>l'angolo spazzato da m fino al generico istante t. Su m agiscono la forza peso mg e la reazione dell'anello N diretta verso il CM dell'anello. Ovviamente sull'anello agisce la sua opposta nonché il suo peso Mg applicato nel CM e la forza T di attrito orizzontale  applicata perpendicolarmente all'asse istantaneo di rotazione passante per il punto di contatto con il terreno. Tre sono le equazioni della dinamica con componenti orizzontali . Dette a e A le accelerazioni di m e di M abbiamo<br>
+<span class="tex">\(ma=N cos\theta ; MA=N cos\theta -T; I(A/R)=T R\)</span>dove <span class="tex">\(I=MR^2\)</span>é il momento di inerzia dell'anello. Ricavato T=MA si arriva facilmente a <span class="tex">\(2MA=N cos\theta=ma\)</span> Ora il rapporto fra le accelerazioni è trasferibile alle quantità di moto per integrazione poiché tutto parte da fermo.<br>
+Abbiamo insomma mv=2MV.<br>
+A questo punto io avrei impostata la conservazione che vale cioè quella dell'energia meccanica fra la posizione iniziale e quella richiesta nel punto più basso di m. Abbiamo <span class="tex">\( mgR= (1/2)mv^2 + (1/2)MV^2+ (1/2)I\omega^2= (1/2)mv^2+MV^2\)</span>. Infatti<span class="tex">\((1/2)I\omega^2=(1/2)MV^2\)</span> Considerato che mv=2MV otteniamo <span class="tex">\( mgR=\frac{4mM^2V^2}{2m}+MV^2\)</span>ovvero <span class="tex">\(m^2gR=V^2.M(2M+m)\)</span>da cui<br>
+ <span class="tex">\(V=m\sqrt {\frac{gR}{M(2M+m)}\)</span> e quindi <span class="tex">\(v=\frac{2MV}{m}= 2\sqrt{\frac{MgR}{(2M+m)}}\)</span><br>
+Nel punto più basso della traiettoria quando m si sovrappone al punto fermo dell'asse istantaneo la sua velocità è sicuramente v'= v+V e quindi la sua accelerazione centripeta é <span class="tex">\(\frac{v'^2}{R}\)</span>e pertanto la forza J di interazione è la somma della forza peso mg e della forza centripeta richiesta da v' ovvero <span class="tex">\(J=mg+mg(2M+m)/M=3mg+m^2g/M\)</span> :?:  :?:</article>
+<article class="post" id="p27865"><div class="who"><b>Francesco Leccese</b><span>21 lug 2023, 19:21</span></div>Tutto corretto, a te la staffetta!<br>
+Avevo completamente dimenticato della forza d'attrito quando ho letto quanto avevi scritto, a mia discolpa ero in viaggio e un po' distratto  :roll:<br>
+Menomale che te ne sei accorto tu.<br>
+La soluzione ufficiale è la seguente:<br>
+<a href="https://s3.eu-central-1.amazonaws.com/physprob.com/files/ipho/2014_Kazakhstan_p1Sol.pdf" class="ext" class="postlink">https://s3.eu-central-1.amazonaws.com/p ... _p1Sol.pdf</a></article>
+<article class="post" id="p27866"><div class="who"><b>Higgs</b><span>22 lug 2023, 11:22</span></div>Non la voglio fare lunga ma devo notare che nella soluzione ufficiale lui si mette nel riferimento solidale con l'asse del cilindro (se traduco correttamente) per cui chiama relativa la velocità che ottiene <span class="tex">\(v_r=u+v\)</span> dove u è la mia v e v è la mia V. Io avevo interpretato diversamente quella somma perchè mi ero immaginato nel riferimento solidale con il terreno per cui v è la velocità di m relativa all'anello e V è la velocità di trascinamento dell'anello su cui si trova m. Pertanto io avevo preso la somma come velocità assoluta rispetto al terreno ovvero v'=v(relativa)+V(trascinamento). Ovviamente i risultati della soluzione ufficiale e miei coincidono e questo è quello che conta?? :D</article>
+<nav class="pager"><a class="prev" href="olifis-7200.html"><small>← precedente</small>310 - Rampa discendente seguita da anello della morte</a><a class="next" href="olifis-7203.html"><small>successivo →</small>312. Condensatore piano con dielettrico solido</a></nav>
+</main></body></html>

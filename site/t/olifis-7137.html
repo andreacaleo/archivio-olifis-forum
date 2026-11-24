@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>292 - Fuoriuscita di gas</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 292</a></span></nav>
+<h1>292 - Fuoriuscita di gas</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7137">forum Olifis</a></p>
+<article class="post first" id="p27381"><div class="who"><b>DeoGratias</b><span>4 mar 2022, 18:43</span></div>Un contenitore isolato di massa <span class="tex">\(M\)</span> è posto in uno spazio vuoto, in assenza di gravità. Osservandolo da un certo sistema di riferimento, la sua velocità iniziale è nulla. Il suo volume è <span class="tex">\(V\)</span> ed è riempito con un gas monoatomico a temperatura iniziale <span class="tex">\(T_0\)</span>, composto da <span class="tex">\(N_0\)</span> molecole, ognuna avente massa <span class="tex">\(m\)</span>. Al tempo <span class="tex">\(t=0\)</span> viene fatto un piccolo buco di area <span class="tex">\(S\)</span> sulla superficie del contenitore. Questo comincia a muoversi a causa della fuoriuscita di gas, ma senza ruotare. Si assuma che il gas rimanga in equilibrio termodinamico per tutto il processo. E' nota la distribuzione di Maxwell per la componente <span class="tex">\(x\)</span> delle velocità molecolari:<br>
+<span class="tex">\(f(v_x)=\sqrt{\frac{m}{2\pi kT}} \textup{exp}\left ( -\frac{mv_x^2}{2kT} \right )\)</span><br>
+Si trovino:<br>
+1) Il numero di molecole che fuoriescono dal foro per unità di tempo, in funzione di <span class="tex">\(T\)</span> e <span class="tex">\(N\)</span><br>
+2) La temperatura del gas all'istante <span class="tex">\(t\)</span><br>
+3) La velocità del contenitore all'istante <span class="tex">\(t\)</span>, assumendo <span class="tex">\(M \gg mN_0\)</span><br>
+<br>
+Nota: possono essere utili i seguenti integrali: <br>
+<span class="tex">\(\int_{0}^{\infty}xe^{-Ax^2}\textup{d}x=\frac{1}{2A}\)</span><br>
+<span class="tex">\(\int_{0}^{\infty}x^2 e^{-Ax^2}\textup{d}x=\frac{1}{4}\sqrt{\frac{\pi}{A^3}}\)</span><br>
+<span class="tex">\(\int_{0}^{\infty}x^3 e^{-Ax^2}\textup{d}x=\frac{1}{2A^2}\)</span></article>
+<article class="post" id="p27387"><div class="who"><b>Luca Milanese</b><span>5 mar 2022, 16:32</span></div>1) Mi metto in un sistema di riferimento inerziale in cui il contenitore sia istantaneamente a riposo. Il numero di particelle compreso in un volume <span class="tex">\(\mathrm{d}V\)</span>, con velocità compresa fra <span class="tex">\(v_x\)</span> e <span class="tex">\(v_x+\mathrm{d}v_x\)</span>, è:<br>
+<span class="tex">\(\frac{N}{V}\mathrm{d}V f(v_x) \mathrm{d}v_x\)</span><br>
+Essendo <span class="tex">\(N\)</span> il numero di particelle contenute a un certo istante. Consideriamo quelle che si trovano appena davanti il foro, prima di uscirne. Sia l'asse <span class="tex">\(x\)</span> diretto perpendicolarmente ad esso. Una particella con velocità <span class="tex">\(v_x\)</span> spazza un volume <span class="tex">\(Sv_x \mathrm{d}t\)</span>, ed esce se <span class="tex">\(v_x&gt;0\)</span>. Pertanto, in un tempo <span class="tex">\(\mathrm{d}t\)</span>, il numero di particelle uscenti è:<br>
+<span class="tex">\(\frac{N}{V}\mathrm{d}t \int_{0}^{+\infty} S v_x f(v_x) \mathrm{d}v_x=\frac{NS \mathrm{d}t}{V}\sqrt{\frac{m}{2\pi k_B T}} \int_{0}^{+\infty} v_x e^{-\big(\frac{m}{2k_B T}\big ) v_x^2} \mathrm{d}v_x\)</span><br>
+<span class="tex">\(=\frac{NS\mathrm{d}t}{V} \sqrt{\frac{m}{2\pi k_B T}} \frac{k_B T}{m}=\frac{NS \mathrm{d}t}{V} \sqrt{\frac{k_B T}{2\pi m}}\)</span><br>
+Perciò:<br>
+<span class="tex">\(\frac{\mathrm{d}N}{\mathrm{d}t}=- \frac{NS}{V} \sqrt{\frac{k_B T}{2\pi m}}\)</span><br>
+<br>
+2) 3) Con un ragionamento simile al precedente, si trova la quantità di moto uscente dal contenitore in un certo intervallo di tempo:<br>
+<span class="tex">\(\mathrm{d}^2 p_x=mv_x \frac{N S v_x \mathrm{d}t}{V} f(v_x) \mathrm{d}v_x \Rightarrow \frac{\mathrm{d}p_x}{\mathrm{d}t}=\frac{mNS}{V} \sqrt{\frac{m}{2\pi k_B T}} \int_{0}^{+\infty} v_x^2 e^{-\big (\frac{m}{2k_B T}\big ) v_x^2} \mathrm{d}v_x\)</span><br>
+<span class="tex">\(=\frac{SNk_B T}{2V}\)</span><br>
+Per conservazione della quantità di moto, l'accelerazione del contenitore risulta:<br>
+<span class="tex">\(a=\frac{SNk_B T}{2V(M+Nm)} \approx \frac{SNk_B T}{2VM}\)</span><br>
+Da adesso userò la distribuzione di Maxwell per il modulo della velocità di una particella:<br>
+<span class="tex">\(f(v)=4\pi \bigg(\frac{m}{2\pi k_B T}\bigg)^{\frac{3}{2}}v^2 e^{-\frac{mv^2}{2k_B T}}\)</span><br>
+L'energia interna del gas è <span class="tex">\(U=\frac{3Nk_B T}{2}\)</span>. Consideriamo una la cui velocità è inclinata di un angolo <span class="tex">\(\theta\)</span> rispetto all'asse <span class="tex">\(x\)</span>. Essendo la distribuzione isotropa, il numero <span class="tex">\(\mathrm{d}n\)</span> di tali particelle comprese in un volume <span class="tex">\(\mathrm{d}V\)</span> è proporzionale all'area della corrispondente corona circolare:<br>
+<span class="tex">\(\mathrm{d}n=\frac{N}{V} \mathrm{d}V f(v) \mathrm{d}v \frac{1}{2} \sin \theta \mathrm{d}\theta\)</span><br>
+Queste particelle trasportano un'energia:<br>
+<span class="tex">\(\mathrm{d}K=\frac{mv^2}{2} \frac{N}{2V} \mathrm{d}V f(v) \mathrm{d}v \sin \theta \mathrm{d}\theta=\frac{mv^2 N}{4V} Sv\cos \theta \mathrm{d}t f(v)\mathrm{d}v \sin \theta \mathrm{d}\theta\)</span><br>
+L'energia persa per unità di tempo è allora:<br>
+<span class="tex">\(\frac{\mathrm{d}U}{\mathrm{d}t}=-\frac{mNS}{4V}\int_{0}^{\frac{\pi}{2}} \sin \theta \cos \theta \mathrm{d}\theta \int_{0}^{+\infty} f(v)v^3 \mathrm{d}v=-\frac{NSk_B T}{V} \sqrt{\frac{2k_B T}{\pi m}}\)</span><br>
+Confrontando quest'equazione e quella ricavata al punto 1) si ottiene:<br>
+<span class="tex">\(4\frac{\mathrm{d}N}{N}=3\frac{\mathrm{d}(NT)}{NT} \Rightarrow N=\frac{N_0 T^3}{T_0^3}\)</span><br>
+Sostituendo nella prima:<br>
+<span class="tex">\(\frac{3 N_0 T^2 \dot T}{T_0^3}=-\frac{SN_0}{VT_0^3}\sqrt{\frac{k_B}{2\pi m}} T^{\frac{7}{2}} \Rightarrow T^{-\frac{3}{2}}\mathrm{d}T=-\frac{S}{3V}\sqrt{\frac{k_B}{2\pi m}} \mathrm{d}t\)</span><br>
+<span class="tex">\(\Rightarrow T(t)=\frac{T_0}{\bigg(1+\frac{St}{6V}\sqrt{\frac{k_B T_0}{2\pi m}}\bigg)^2} \Rightarrow N(t)=   \frac{N_0}{\bigg(1+\frac{St}{6V}\sqrt{\frac{k_B T_0}{2\pi m}}\bigg)^6} \)</span><br>
+Sostituendo nell'espressione dell'accelerazione:<br>
+<span class="tex">\(\frac{\mathrm{d}v}{\mathrm{d}t}=\frac{Sk_B N_0 T_0}{2MV} \bigg(1+\frac{St}{6V}\sqrt{\frac{k_B T_0}{2\pi m}}\bigg) ^{-8}\)</span><br>
+<span class="tex">\(\Rightarrow v(t)=\frac{3N_0 \sqrt{2\pi m k_B T_0}}{7M} \bigg [1-\bigg (1+\frac{St}{6V} \sqrt{\frac{k_B T_0}{2\pi m}} \bigg)^{-7}\bigg]\)</span></article>
+<article class="post" id="p27388"><div class="who"><b>DeoGratias</b><span>6 mar 2022, 12:47</span></div>Tutto corretto :D <br>
+Non sono sicuro al 100%, ma penso che in gara dovresti anche mostrare come passare dalla distribuzione unidimensionale a quella tridimensionale, visto che è possibile rispondere al quesito utilizzando esclusivamente quella fornita dal testo, anche se si tratta solo di pochi passaggi. Per il resto vai col prossimo!</article>
+<article class="post" id="p27390"><div class="who"><b>Luca Milanese</b><span>6 mar 2022, 13:47</span></div>Aggiungo il passaggio da una distribuzione all'altra.<br>
+Per isotropia, si ha chiaramente anche:<br>
+<span class="tex">\(f(v_y)=\sqrt{\frac{m}{2\pi k_B T}} \exp \bigg(-\frac{mv_y^2}{2k_B T} \bigg )\)</span><br>
+<span class="tex">\(f(v_z)=\sqrt{\frac{m}{2\pi k_B T}} \exp \bigg(-\frac{mv_z^2}{2k_B T} \bigg )\)</span><br>
+Essendo ciascuna distribuzione indipendente dalle altre due, la frazione di particelle con velocità <span class="tex">\(\vec v\)</span> le cui componenti sono comprese tra <span class="tex">\(v_x\)</span> e <span class="tex">\(v_x+\mathrm{d}v_x\)</span>, tra <span class="tex">\(v_y\)</span> e <span class="tex">\(v_y+\mathrm{d}v_y\)</span>, e tra <span class="tex">\(v_z\)</span> e <span class="tex">\(v_z+\mathrm{d}v_z\)</span>, è:<br>
+<span class="tex">\(f(v_x) \mathrm{d}v_x f(v_y) \mathrm{d}v_y f(v_z)\mathrm{d}v_z=\bigg( \frac{m}{2\pi k_B t}\bigg)^{\frac{3}{2}} \exp \bigg ( -\frac{m(v_x^2+v_y^2+v_z^2)}{2k_B T} \bigg) \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z\)</span><br>
+Poiché <span class="tex">\(v_x^2+v_y^2+v_z^2=v^2\)</span>, questa frazione dipende solo dal modulo della velocità e dal volume <span class="tex">\( \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z\)</span> considerato nello spazio delle velocità. Ne segue che la frazione di particelle con modulo della velocità <span class="tex">\(v\)</span> è proporzionale al volume di un guscio di raggio <span class="tex">\(v\)</span> e spessore <span class="tex">\(\mathrm{d}v\)</span>. Perciò:<br>
+<span class="tex">\(f(v)\mathrm{d}v=\bigg( \frac{m}{2\pi k_B t}\bigg)^{\frac{3}{2}} \exp \bigg ( -\frac{m v^2}{2k_B T} \bigg) 4\pi v^2 \mathrm{d}v\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-7133.html"><small>← precedente</small>291. Cilindro nel solenoide</a><a class="next" href="olifis-7141.html"><small>successivo →</small>293. Oscillazioni nel cubo</a></nav>
+</main></body></html>

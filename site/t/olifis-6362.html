@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>84. Secchio bucato</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 84</a></span></nav>
+<h1>84. Secchio bucato</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6362">forum Olifis</a></p>
+<article class="post first" id="p22570"><div class="who"><b>step98</b><span>19 lug 2016, 23:57</span></div>Al tempo <span class="tex">\(t = 0\)</span> un secchio di massa trascurabile contiene una massa <span class="tex">\(M\)</span> di sabbia. È connesso ad una parete da una molla di massa nulla che esercita una forza costante, cioè indipendente dall'allungamento della molla, <span class="tex">\(T\)</span>. Non c'è attrito con il suolo e la distanza iniziale dalla parete è <span class="tex">\(L\)</span>. Si indichi con <span class="tex">\(x(t)\)</span> la distanza dal muro in funzione del tempo, e con <span class="tex">\(m(t)\)</span> la massa del secchio (della sabbia in esso contenuta) sempre in funzione del tempo. Il secchio viene rilasciato e, mentre si avvicina al muro, perde sabbia al ritmo <span class="tex">\(\frac{\mathrm{d} m}{\mathrm{d} x} = \frac{M}{L}\)</span> (l'asse x punta in verso opposto al muro e dunque <span class="tex">\(\mathrm{d} x\)</span> è negativo e di conseguenza anche <span class="tex">\(\mathrm{d} m\)</span> lo è); il secchio, quando arriva a toccare il muro, è vuoto.<br>
+1)Trovare l'energia cinetica del secchio in funzione di x e calcolarne il valore massimo;<br>
+2)Trovare la quantità di moto del secchio in funzione di x e calcolarne il valore massimo.</article>
+<article class="post" id="p22572"><div class="who"><b>FedericoC.</b><span>20 lug 2016, 14:44</span></div>Ecco la mia soluzione!  :D <br>
+<br>
+Dato che <span class="tex">\(\frac{dm}{dx}=\frac{M}{L}\)</span> si può scrivere <span class="tex">\(m(x)=\frac{M}{L} x\)</span><br>
+<br>
+Applicando la seconda legge di Newton si ha: <span class="tex">\(-T=\frac{M}{L} xa\)</span> isolando l'accelerazione <span class="tex">\(a(x)=\frac{-LT}{Mx}\)</span><br>
+<br>
+Essendo che <span class="tex">\(a=\frac{dv}{dt}\)</span> e <span class="tex">\(v=\frac{dx}{dt}\)</span> eliminando <span class="tex">\(dt\)</span> si può scrivere <span class="tex">\(a=\frac{vdv}{dx}\)</span><br>
+<br>
+Unendo le due equazioni trovate per l'accelerazione: <span class="tex">\(vdv=\frac{-LT}{Mx}dx\)</span>, integrando:<br>
+<br>
+<span class="tex">\(\int_0^v{vdv}=\int_L^x{\frac{-LT}{Mx}dx}\)</span><br>
+<br>
+Si trova: <span class="tex">\(v^2=\frac{-2LT}{M}ln(\frac{x}{L})\)</span><br>
+<br>
+Si ha dunque: <span class="tex">\(K(x)=-Tx ln(\frac{x}{L})\)</span> mentre <span class="tex">\(p(x)=\frac{M}{L} x \sqrt{\frac{-2LT}{M}ln(\frac{x}{L})}\)</span><br>
+<br>
+Derivando ho trovato come massimi: <span class="tex">\(x_K=\frac{L}{e}\)</span> e <span class="tex">\(x_p=\frac{L}{\sqrt e}\)</span></article>
+<article class="post" id="p22580"><div class="who"><b>step98</b><span>21 lug 2016, 14:38</span></div>Giusto, direi che la staffetta é tua</article>
+<nav class="pager"><a class="prev" href="olifis-6358.html"><small>← precedente</small>83: ciotola stazionaria!</a><a class="next" href="olifis-6368.html"><small>successivo →</small>85. Sistema termodinamico</a></nav>
+</main></body></html>

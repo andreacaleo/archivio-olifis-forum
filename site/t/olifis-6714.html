@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>153. Scaling</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 153</a></span></nav>
+<h1>153. Scaling</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6714">forum Olifis</a></p>
+<article class="post first" id="p24853"><div class="who"><b>lance00</b><span>19 giu 2018, 11:13</span></div>Problema facile ma interessante   :mrgreen: <br>
+Un elicottero è in equilibrio in aria e il suo motore fornisce una potenza <span class="tex">\(P\)</span>. Qual è la potenza necessaria per far stare in equilibrio un elicottero identico al primo ma in scala <span class="tex">\(1:k\)</span> ?</article>
+<article class="post" id="p24855"><div class="who"><b>Paperottolo</b><span>19 giu 2018, 14:06</span></div>P/k*k?</article>
+<article class="post" id="p24858"><div class="who"><b>Gamow00</b><span>23 giu 2018, 14:58</span></div>Do qualche nome alle variabili:
+<ul>
+<li><span class="tex">\(l\)</span> è la lunghezza caratteristica dell'elicottero</li>
+<li><span class="tex">\(F_{caratt}\)</span> è associata alla forza che l'elicottero deve esercitare per rimanere in equilibrio dinamico, quindi <span class="tex">\(F_{caratt} \propto mg\)</span></li><li><span class="tex">\(v_{caratt}\)</span> è la velocità associabile al movimento delle eliche, quindi <span class="tex">\(v_{caratt}\propto \omega l\)</span></li></ul> <br>
+Per definizione di potenza:<br>
+<span class="tex">\(P \propto F_{caratt} \cdot v_{caratt} \propto mg \cdot \omega l \propto m \cdot l \propto \rho \cdot l^3 \cdot l\)</span><br>
+<br>
+Quindi <span class="tex">\(P \propto l^4\)</span><br>
+<br>
+Se l'elicottero viene scalato di un fattore <span class="tex">\(1 : k\)</span>, la potenza verrà moltiplicata per un fattore <span class="tex">\(1 : k^4\)</span><br>
+<br>
+In alternativa, posso notare che le uniche "costanti" riferibili all'elicottero sono la sua densità e la velocità angolare delle pale, in aggiunta al valore non variabile della accelerazione di gravità. Per analisi dimensionale, mi posso scrivere la potenza utilizzando queste costanti e lasciando fuori un fattore <span class="tex">\(m^4\)</span>, che sarà quindi riferito alla grandezza del veivolo.</article>
+<article class="post" id="p24859"><div class="who"><b>Marcus</b><span>23 giu 2018, 18:11</span></div>Mmh avevo provato a farlo con calcoli veloci e a me il fattore usciva una roba del tipo <span class="tex">\(k^{-7/2} \)</span>  :roll:</article>
+<article class="post" id="p24860"><div class="who"><b>lance00</b><span>23 giu 2018, 19:24</span></div>@Marcus: si è giusto, se posti il procedimento il testimone è tuo  :D</article>
+<article class="post" id="p24861"><div class="who"><b>Gamow00</b><span>23 giu 2018, 20:03</span></div>Io direi <span class="tex">\(7/2= 3,5 \approx 4\)</span>  ;)</article>
+<article class="post" id="p24862"><div class="who"><b>Marcus</b><span>23 giu 2018, 20:04</span></div>Avrei preferito lasciarlo a chi è ancora buon materiale olimpico, ma va beh :lol: <br>
+Se permetti aspetto ancora qualche giorno per postare la soluzione, tempo di fare la terza prova e pensare ad un eventuale problema 154. Intanto gamow o altri sentitevi liberi di risolverlo e prendere voi la staffetta.</article>
+<article class="post" id="p24866"><div class="who"><b>Marcus</b><span>26 giu 2018, 21:40</span></div>Va beh dato che nessuno si è fatto avanti...<br>
+<br>
+Proviamo a costruire un modello: nel loro movimento le pale dell'elicottero di massa <span class="tex">\(m\)</span> spazzano una circonferenza di raggio <span class="tex">\(L\)</span> con velocità <span class="tex">\(v\)</span>. Supponiamo che le pale dell'elicottero muovano l'aria che spazzano verso il basso con la stessa velocità. Allora si ha che il volume d'aria spostato in un tempo <span class="tex">\(dt \)</span> è <span class="tex">\(\pi L^2 v dt\)</span> dunque detta <span class="tex">\(\rho\)</span> la densità dell'aria si ha:<br>
+<br>
+<span class="tex">\(\displaystyle dp=\pi \rho v^2 L^2 dt\)</span><br>
+<br>
+Allora dato che la forza prodotta dalle pale verso l'alto è <span class="tex">\(F=dp/dt\)</span> imponendo l'equilibrio col peso si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \pi \rho v^2 L^2=mg \;\; \implies v=\sqrt {\dfrac{mg}{\pi \rho L^2}}\)</span><br>
+<br>
+Allora dato <span class="tex">\(P=Fv\)</span> si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle P=mg\sqrt {\dfrac{mg}{\pi \rho L^2}}\;\; \implies P=\sqrt {\dfrac{m^3g^3}{\pi \rho L^2}}\)</span><br>
+<br>
+Ora si riducono le dimensioni dell'elicottero di un fattore k, si indicano le grandezze dopo la trasformazione ponendo k al pedice. Si avrà <span class="tex">\(L_k=L/k\)</span> e <span class="tex">\(m_k=m/k^3\)</span> (per la dipendenza massa-volume). Allora:<br>
+<br>
+<span class="tex">\(P_k=\sqrt {\dfrac{m_k^3g^3}{\pi \rho L_k^2}}=\sqrt {\dfrac{\biggr(\dfrac{m}{k^3}\biggl)^3g^3}{\pi \rho \biggr(\dfrac{L}{k}\biggl)^2}}=\sqrt {\dfrac{m^3g^3}{\pi \rho L^2}}\sqrt {\dfrac{k^{-9}}{k^{-4}}}=k^{-7/2}P\)</span></article>
+<article class="post" id="p24867"><div class="who"><b>sg_gamma</b><span>27 giu 2018, 2:03</span></div>Molto interessante l'idea di Marcus; credo si possa giungere alla medesima soluzione per mezzo di Bernoulli (per cui si giunge alla fine a <span class="tex">\(F=\frac{1}{2}A \rho v^2\)</span>) o con un'equazione che ho trovato secondo cui la forza di sollevamento di un elicottero vale <span class="tex">\(L=\frac{1}{2}A \rho v^2C_L\)</span>: in entrambi i casi <span class="tex">\(\rho\)</span> indica la densità dell'aria, <span class="tex">\(v\)</span> la velocità dell'elicottero rispetto al sistema di riferimento dell'aria (che si suppone anche qui muoversi verso il basso), <span class="tex">\(A\)</span> indica l'area spazzata dalle pale; <span class="tex">\(C_L\)</span> pare essere un coefficiente che dipende dall'angolo tra le pale e lo spostamento dell'aria. La formula finale differisce per un fattore 2 sotto radice, ma per le richieste del problema è abbastanza ininfluente.</article>
+<article class="post" id="p24869"><div class="who"><b>lance00</b><span>27 giu 2018, 9:44</span></div>@Marcus posta pure il 154  8-)</article>
+<nav class="pager"><a class="prev" href="olifis-6713.html"><small>← precedente</small>152. Tick tack</a><a class="next" href="olifis-6718.html"><small>successivo →</small>154. Camini cadenti</a></nav>
+</main></body></html>

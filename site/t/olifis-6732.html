@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>156. Circuito RC</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 156</a></span></nav>
+<h1>156. Circuito RC</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6732">forum Olifis</a></p>
+<article class="post first" id="p24941"><div class="who"><b>nicarepo</b><span>13 lug 2018, 15:55</span></div>Salve a tutti, ecco l'esercizio che vi propongo; <br>
+è dato un circuito <span class="tex">\(RC\)</span> aperto con due condensatori in serie di capacità <span class="tex">\(C_1\)</span> e <span class="tex">\(C_2\)</span> e in mezzo una resistenza <span class="tex">\(R\)</span>. Il primo condensatore è carico ed ha potenziale <span class="tex">\(V_0\)</span>, mentre il secondo è scarico. In un istante <span class="tex">\(t=0\)</span> il circuito viene chiuso. Si chiede: <br>
+<br>
+1) Trovare corrente e potenziale dei due condensatori in ogni istante e discutere il loro andamento;<br>
+2) Spiegare cosa accade quando <span class="tex">\(R\)</span> tende a zero. <br>
+<br>
+Spero che non sia già stato proposto; se così fosse, credo sia sempre possibile cambiarlo.</article>
+<article class="post" id="p24944"><div class="who"><b>.Ruben.</b><span>14 lug 2018, 10:53</span></div>Una volta chiuso il circuito non é equivalente ad uno con i due condensatori in serie (prima quello di capacità C2) e poi la resistenza in serie?<br>
+Ho immaginato (col circuito chiuso e avendo posto da sinistra a destra il primo condensatore, la resistenza ed il secondo condensatore) di traslare il secondo consendatore verso sinistra fino a farlo arrivare (graficamente) alla sinistra del primo.<br>
+A questo punto il problema si ridurrebbe ad un RC classico<br>
+É corretto?</article>
+<article class="post" id="p24946"><div class="who"><b>nicarepo</b><span>14 lug 2018, 11:03</span></div>In un circuito RC classico la tensione viene imposta da un generatore, quindi è costante. In questo caso potrebbe non esserlo.</article>
+<article class="post" id="p24947"><div class="who"><b>Gamow00</b><span>14 lug 2018, 11:04</span></div>Secondo me così è giusto per trovare l'andamento generale, ma unendo i due condensatori perdi tutte le informazioni sui singoli, che sono proprio quelle che chiede il problema.<br>
+Ad esempio nel caso R-&gt; 0 unendo i due condensatori non ottieni nessuna informazione sui singoli potenziali</article>
+<article class="post" id="p24949"><div class="who"><b>.Ruben.</b><span>14 lug 2018, 12:32</span></div>Partendo dalla configurazione equivalente da me trovata, non si può dire che, essendo i condensatori in serie, la carica sul primo e sul secondo è uguale? Così a partire dalla soluzione per l'andamento generale (che è quella per un RC in evoluzione libera) si troverebbero i valori per i singoli condensatori.<br>
+Ha senso in questo caso?</article>
+<article class="post" id="p24950"><div class="who"><b>nicarepo</b><span>14 lug 2018, 12:51</span></div>Il primo condensatore inizialmente e carico, mentre il secondo non lo è</article>
+<article class="post" id="p24951"><div class="who"><b>.Ruben.</b><span>14 lug 2018, 13:03</span></div>Si ed era ovvio; ho confuso tra il caso statico e quello dinamico. Nel caso dinamico dovrebbe essere la corrente ad essere la stessa (per i 3 elementi)</article>
+<article class="post" id="p24952"><div class="who"><b>nicarepo</b><span>14 lug 2018, 13:07</span></div>Esatto</article>
+<article class="post" id="p24956"><div class="who"><b>.Ruben.</b><span>14 lug 2018, 14:22</span></div>Posto <span class="tex">\(C \text{ t.c. } \frac{1}{C} =\frac{1}{C_1}+\frac{1}{C_2}\)</span>, io direi:<br>
+<span class="tex">\(V_1(t) = \frac{V_0 C}{C_1}(e^{-\frac{t}{RC}}-1) + V_0\)</span><br>
+<span class="tex">\(V_2(t) = \frac{V_0 C}{C_2}(e^{-\frac{t}{RC}}-1)\)</span><br>
+<span class="tex">\(i_1(t)=i_2(t)=-\frac{V_0}{R} e^{-\frac{t}{RC}}\)</span><br>
+Corretto?<br>
+Gli altri punti li posterò se questo è giusto</article>
+<article class="post" id="p24957"><div class="who"><b>nicarepo</b><span>14 lug 2018, 15:06</span></div>Si è corretto! Ora va spiegato il limite</article>
+<article class="post" id="p24959"><div class="who"><b>.Ruben.</b><span>14 lug 2018, 21:18</span></div>Eseguendo in modo esclusivamente analitico il limite per <span class="tex">\(R \to 0\)</span> delle espressioni trovate in precedenza ottengo:<br>
+<span class="tex">\(\begin{cases} V_1 = V_0 \frac{C_1}{C_1 + C_2} \\ V_2 = - V_0 \frac{C_1}{C_1 + C_2} \\ i_1 = i_2 = 0\end{cases}\)</span>.<br>
+Ciò vuol dire che la redistribuzione di carica tra i due condensatori, alla chiusura del circuito, avviene in modo istantaneo.<br>
+<br>
+Cerchiamo ora una giustificazione fisica ai risultati ottenuti. Si hanno a tal fine due esigenze: una dettata dalla legge delle maglie ed una dalla conservazione della carica. Esse si formulano come:<br>
+<span class="tex">\(\begin{cases} V_1 + V_2 = 0 \\ |V_1 C_1| + |V_2 C_2| = V_0 C_1\end{cases}\)</span>.<br>
+Risolvendo il sistema si vede la soluzione è identica a quella trovata analiticamente.</article>
+<article class="post" id="p24960"><div class="who"><b>nicarepo</b><span>14 lug 2018, 21:57</span></div>Va bene, a te il prossimo problema. La spiegazione fisica si poteva approfondire con la seguente considerazione: l'integrale di <span class="tex">\(i(t)\)</span> con <span class="tex">\(t\)</span> che tende a infinito, è una grandezza costante che dipende da <span class="tex">\(V_0\)</span> e dalle due capacità. Si tratta della carica che passa da un condensatore all'altro. Ora, dire che la corrente è zero per <span class="tex">\(R\rightarrow0\)</span>, potrebbe anche significare che non c'è passaggio di carica. <br>
+<br>
+Per essere certi della soluzione si può ragionare così: da un punto di vista fisico si può pensare che, quando la resistenza è molto piccola, la corrente è grande, quindi al limite il passaggio di carica è repentino. Matematicamente il limite per <span class="tex">\(t\rightarrow0\)</span> e <span class="tex">\(R\rightarrow0\)</span> di <span class="tex">\(i(R,t)\)</span> è infinito. <br>
+<br>
+Come risultato si ha una funzione che assume il valore zero in tutti i punti del piano tranne che in <span class="tex">\(0^+\)</span>, in cui è infinito. Ma come già detto l'integrale è finito: si tratta del delta di Dirac. <br>
+<br>
+Ritornando all'interpretazione fisica, l'energia viene dissipata per effetto Joule in un tempo brevissimo e come risultato si ha potenza infinita.</article>
+<article class="post" id="p24964"><div class="who"><b>drago</b><span>16 lug 2018, 1:34</span></div>In realtà il problema è più complicato di quello che sembra infatti ci sono delle approssimazioni nella teoria da tenere conto;<br>
+se nel problema proposta al posto di una resistenza si metteva un induttanza si vedeva che sia la corente che la tensione oscillavano a una frequenza pari a <span class="tex">\(f = \frac{1}{2 \pi \sqrt{L C}}\)</span> quindi nel limite <span class="tex">\(L\to 0\)</span> si concludeva che la corrente oscillava a frequenza infinita invece di raggiungere il limite trovato.<br>
+<br>
+quale delle due soluzioni è quella corretta?<br>
+<br>
+facciamo un ragionamento più fisico, si prende in considerazione un circuito in cui c'è sia una resistenza dovuta ai fili elettrici e un autoinduttanza dovuta al fatto che il circuito è pur sempre una spira;<br>
+annullare la reisitenza è relativamente facile se si prende un materiale superconduttore, annullarte l'induttanza è più difficile bisognerebbe annullare l'area della spira ma questo, in pratica, è impossibile; quindi sembrerebbe che la soluzione corretta sia quella in cui il circuito oscilla indefinitamente ma se si dovesse fare un esperimento si vedrebbe che il circuito, dopo un certo tempo, raggiungerebbe la condizione di equilibrio da voi trovata quindi manca ancora qualcosa.<br>
+<br>
+Un effetto sempre trascurato ma in questo caso rilevate è la potenza persa per irraggiamento, cioè una correte variabile nel tempo perde energia perchè genera onde elettromagnetiche; questa energia persa è esattamente quella che serve a mandare il circuito all'equilirio.<br>
+<br>
+In conclusione non è l'effetto joule a prvocare la perdita di energia ma la potenza irraggiata in onde elettromagnetiche.</article>
+<article class="post" id="p24969"><div class="who"><b>nicarepo</b><span>16 lug 2018, 10:38</span></div>Grazie per la correzione! L'energia è sicuramente dissipata per irraggiamento. Il problema, come hai detto, è più complesso di quello che sembra.</article>
+<nav class="pager"><a class="prev" href="olifis-6729.html"><small>← precedente</small>155. Pendolo mobile</a><a class="next" href="olifis-6733.html"><small>successivo →</small>157. Similitudini in meccanica</a></nav>
+</main></body></html>

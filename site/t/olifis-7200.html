@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>310 - Rampa discendente seguita da anello della morte</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 310</a></span></nav>
+<h1>310 - Rampa discendente seguita da anello della morte</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7200">forum Olifis</a></p>
+<article class="post first" id="p27841"><div class="who"><b>Higgs</b><span>14 lug 2023, 17:50</span></div>Una macchina scivola senza attrito giù per una rampa liscia discendente descritta da una funzione h(x) decrescente rispetto all'ascissa x compresa fra 0 ed L. La rampa discendente termina per x=L ed è seguita senza discontinuità da un anello della morte liscio di raggio R su cui la macchina prosegue la sua corsa ora ascendente. L'accelerazione di gravità è g diretta verso il basso e perpendicolare all'asse x. La macchina parte da ferma dalla quota h(0)=<span class="tex">\(h_0\)</span>.<br>
+a) Determinare la quota minima <span class="tex">\(h_0\)</span> per cui la macchina percorre l'anello senza mai staccarsene<br>
+b) Considerata la rampa discendente con <span class="tex">\(0\leq x \leq L\)</span> determinare la componente della velocità della macchina lungo l'asse x , cioè <span class="tex">\(dx/dt\)</span>,  in funzione di h(x) e h'(x).<br>
+<br>
+PS mi piacerebbe riportare una figura in qualche testo; c'è un modo semplice per farlo?</article>
+<article class="post" id="p27844"><div class="who"><b>Torros</b><span>15 lug 2023, 15:16</span></div>Per la prima richiesta il risultato mi viene <span class="tex">\(h(0) = \frac{5}{2} R\)</span>; se confermi procedo alla giustificazione.<br>
+Per il secondo punto ho bisogno di una precisazione. Dire:
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7200.html#p27841" data-post-id="27841" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">14 lug 2023, 17:50</div></cite>
+in funzione di h(x) e h'(x).</div></blockquote>
+Significa conoscere <span class="tex">\(h(x)\)</span> e <span class="tex">\(Dh(x)\)</span> in ogni punto (e dunque la posizione iniziale della particella, data da <span class="tex">\((0; h(0))\)</span> e l'inclinazione della retta tangente alla curva in ogni punto), ma non conoscere velocità iniziale del corpo? Grazie</article>
+<article class="post" id="p27845"><div class="who"><b>Francesco Leccese</b><span>15 lug 2023, 16:29</span></div>Confermo il risultato di Torros per il primo punto.<br>
+Forse ho trovato la soluzione del secondo.<br>
+Se mi date il via libero la scrivo, altrimenti lascio fare a Torros</article>
+<article class="post" id="p27846"><div class="who"><b>Higgs</b><span>15 lug 2023, 17:31</span></div>a Torros: il risultato è corretto. Per il resto la velocità iniziale è nota perché il testo dice che parte da ferma.<br>
+a Leccese: non so come la pensi Pigkappa ma per quanto ne so tu non hai bisogno di nessuna autorizzazione perché nessuno ha impedito a Torros di postare la sua soluzione del secondo quesito :D</article>
+<article class="post" id="p27847"><div class="who"><b>Francesco Leccese</b><span>15 lug 2023, 17:57</span></div><strong class="text-strong">Primo punto.</strong><br>
+Sulla macchina agiscono sempre la forza peso, la forza centrifuga e la reazione vincolare. Nel punto più alto del percorso, forza peso e forza centrifuga hanno versi opposti e perché la macchina rimanga attaccata al terreno si deve avere<br>
+<span class="tex">\(F_g \ge P\)</span><br>
+e quindi<br>
+<span class="tex">\(\frac {mv_{cima}^2}{R }\ge mg\)</span><br>
+Da cui si risolve per <span class="tex">\(v_{cima}\)</span>, ovvero la velocità nel punto più alto:<br>
+<span class="tex">\(v_{cima} \ge \sqrt {gR}\)</span><br>
+L'energia in questa situazione è:<br>
+<span class="tex">\(E = \frac 12 m v_{cima}^2 + 2mgR= \frac 12 mgR + 2mgR = \frac 52 mgR\)</span> <br>
+Questa, per la conservazione dell'energia, deve essere la stessa della situazione iniziale, dove la quota è <span class="tex">\(h_0\)</span> e la velocità nulla:<br>
+<span class="tex">\(E = mgh_0\)</span><br>
+Uguagliando le due espressioni si ricava<br>
+<span class="tex">\(h_0 = \frac 52 R\)</span><br>
+<br>
+<strong class="text-strong">Secondo punto</strong><br>
+La velocità <span class="tex">\(v\)</span> può essere come sempre scomposta in due componenti:<br>
+<span class="tex">\(v^2 = v_x^2+v_y^2 = (\frac{dx}{dt})^2+(\frac{dy}{dt})^2\)</span><br>
+Moltiplicando entrambi i membri per <span class="tex">\(dt^2\)</span> si ottiene:<br>
+<span class="tex">\(v^2dt^2 = dx^2+dy^2\)</span><br>
+Ora divido per <span class="tex">\(dx^2\)</span>:<br>
+<span class="tex">\(v^2(\frac{dt}{dx})^2 = 1+(\frac{dy}{dx})^2\)</span><br>
+Ora, <span class="tex">\(\frac{dt}{dx}\)</span> è <span class="tex">\(\frac 1{v_x}\)</span>, mentre <span class="tex">\(\frac{dy}{dx}\)</span> è <span class="tex">\(h'(x)\)</span>.<br>
+Riscrivendo:<br>
+<span class="tex">\(\frac{v^2}{v_x^2} = 1+h'(x)^2 \rightarrow v_x = \sqrt{\frac{v^2}{1+h'(x)^2}\)</span><br>
+Per trovare <span class="tex">\(v\)</span>, facciamo di nuovo delle considerazioni energetiche. L'energia totale del sistema è conservata e vale:<br>
+<span class="tex">\(E = mgh_0\)</span><br>
+come nel primo punto.<br>
+Per una ascissa generica, invece, abbiamo:<br>
+<span class="tex">\(E = mgh(x) + \frac 12 mv^2\)</span><br>
+Uguagliando le due espressioni e risolvendo per <span class="tex">\(v^2\)</span> otteniamo:<br>
+<span class="tex">\(v^2 = 2g(h_0-h(x))\)</span><br>
+Sostituendo nell'equazione trovata prima, concludiamo che<br>
+<br>
+<span class="tex">\(v_x = \sqrt{\frac{2g(h_0-h(x))}{1+h'(x)^2}\)</span><br>
+<br>
+Proviamola su due casi particolari:<br>
+1) se <span class="tex">\(x=0\)</span>, ovviamente troviamo <span class="tex">\(v_x=0\)</span>, in quanto la velocità iniziale era nulla per ipotesi.<br>
+2) se <span class="tex">\(x=L\)</span>, per come abbiamo impostato il problema, dovrebbe essere <span class="tex">\(h=0\)</span> e <span class="tex">\(h' = 0\)</span>, in quando la curva subito prima del giro della morte è piana; di conseguenza <span class="tex">\(v_x = \sqrt{2gh_0}\)</span>, ovvero l'intera velocità della macchina è diretta lungo l'asse delle ascisse.<br>
+<br>
+Il risultato trovato dovrebbe potersi estendere anche al caso in cui la velocità iniziale sia diversa da zero.</article>
+<article class="post" id="p27848"><div class="who"><b>Torros</b><span>15 lug 2023, 18:11</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7200.html#p27846" data-post-id="27846" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">15 lug 2023, 17:31</div></cite>
+Per il resto la velocità iniziale è nota perché il testo dice che parte da ferma.
+</div></blockquote>
+Ah, perfetto. Ho provato il secondo punto dopo un po' di tempo e mi ero completamente dimenticato della frase che specifica le condizioni iniziali :D .<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7200.html#p27846" data-post-id="27846" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">15 lug 2023, 17:31</div></cite>
+a Leccese: non so come la pensi Pigkappa ma per quanto ne so tu non hai bisogno di nessuna autorizzazione perché nessuno ha impedito a Torros di postare la sua soluzione del secondo quesito
+</div></blockquote>
+Assolutamente. Ho creato problemi io scrivendo la soluzione del primo. Avrei prima dovuto chiedere le informazioni sul secondo quesito e successivamente postare la soluzione completa. Mi scuso con Leccese che aveva trovato la soluzione per primo e lo invito dunque a postare anche la soluzione del primo punto per essere completamente legittimato a prendere il testimone.</article>
+<article class="post" id="p27849"><div class="who"><b>Francesco Leccese</b><span>15 lug 2023, 18:18</span></div>Perfetto, allora modifico il messaggio e scrivo anche il primo punto, così è tutto insieme.</article>
+<article class="post" id="p27850"><div class="who"><b>Francesco Leccese</b><span>15 lug 2023, 18:36</span></div>Ho modificato.<br>
+Aspettiamo conferma da Higgs.</article>
+<article class="post" id="p27852"><div class="who"><b>Higgs</b><span>16 lug 2023, 10:23</span></div>Il tuo risultato Leccese è ora completo e corretto :D  A te la staffetta|</article>
+<nav class="pager"><a class="prev" href="olifis-7198.html"><small>← precedente</small>309. Gas di fotoni</a><a class="next" href="olifis-7202.html"><small>successivo →</small>311. Massa in un cilindro sottile</a></nav>
+</main></body></html>

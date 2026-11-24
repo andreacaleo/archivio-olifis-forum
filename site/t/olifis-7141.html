@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>293. Oscillazioni nel cubo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 293</a></span></nav>
+<h1>293. Oscillazioni nel cubo</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7141">forum Olifis</a></p>
+<article class="post first" id="p27391"><div class="who"><b>Luca Milanese</b><span>6 mar 2022, 13:52</span></div>È dato un cubo fisso di lato <span class="tex">\(a\)</span>, avente una densità di carica <span class="tex">\(\rho\)</span> costante e uniforme. Una particella puntiforme di massa <span class="tex">\(m\)</span> e carica <span class="tex">\(q\)</span>, tale che <span class="tex">\(q\rho &lt;0\)</span>, è costretta a muoversi lungo una retta fissa passante per il centro del cubo, senza alcun tipo di attrito. Si trovi il periodo delle sue piccole oscillazioni attorno al centro del cubo.</article>
+<article class="post" id="p27393"><div class="who"><b>roncu</b><span>9 mar 2022, 18:47</span></div>Confesso che è la prima volta che considero un'equazione di Maxwell in forma differenziale. Suppongo di istituire un sistema di riferimento Oxyz nel centro del cubo e di immaginare che la carica negativa q sia costretta ad avvicinarsi al centro del cubo lungo l'asse x di equazioni y=0 z=0. Lo scalare <span class="tex">\(div\vec E =\frac{\partial E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial E_z}{\partial z}\)</span> può ridursi solo al primo termine poichè le altre due componenti sono nulle lungo x. Allora per la prima equazione di Maxwell in forma differenziale risulta <span class="tex">\(\frac{\partial E_x}{\partial x}= \frac{\rho}{\epsilon_0}\)</span>. Fuori dal cubo la divergenza è nulla e nel centro O del cubo il campo dovrebbe annullarsi per simmetria. Allora integrando fra 0 e x mi pare che verrebbe<span class="tex">\(\int_0 ^x \frac {\partial E_x}{\partial x}dx=E_x = \frac {\rho}{\epsilon_0}.x\)</span>. Pertanto la forza agente sulla carica -q risulterebbe <span class="tex">\(F_x = \frac {-q\rho x}{\epsilon_0}\)</span> e l'equazione della dinamica sarebbe quella di un moto armonico <span class="tex">\(m\frac{d^2x}{dt^2} +\frac {q\rho x}{\epsilon_0}=0\)</span>. Da qui la pulsazione risulta <span class="tex">\(\omega = \sqrt{\frac{q \rho}{\epsilon_0 m}}\)</span> e quindi <span class="tex">\(T=2\pi\sqrt{\frac{\epsilon_0.m}{q\rho}}\)</span> Ma non si distinguono le piccole oscillazioni e la mia soluzione mi appare semplice rispetto alle tue usuali proposte. Inoltre chi ne sa molto più di me tace.  :roll:  :?:  :?:</article>
+<article class="post" id="p27394"><div class="who"><b>Luca Milanese</b><span>9 mar 2022, 19:08</span></div>Il risultato è sbagliato.
+<blockquote><div><cite>roncu ha scritto: <a href="olifis-7141.html#p27393" data-post-id="27393" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">9 mar 2022, 18:47</div></cite>
+Lo scalare <span class="tex">\(div\vec E =\frac{\partial E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial E_z}{\partial z}\)</span> può ridursi solo al primo termine poichè le altre due componenti sono nulle lungo x.
+</div></blockquote>
+Questo è falso, e non mi è chiaro cosa intendi scrivendo che le altre due componenti sono nulle lungo <span class="tex">\(x\)</span>. Inoltre nota che, essendo <span class="tex">\(q\rho &lt;0\)</span>, avresti dovuto ottenere un segno meno sotto radice.<br>
+Hint: si consideri il principio di sovrapposizione lineare.</article>
+<article class="post" id="p27396"><div class="who"><b>roncu</b><span>10 mar 2022, 12:43</span></div>Ecco cosa intendevo.Io ho pensato che, muovendosi sull'asse x , y=0 e z=0, non poteva esserci una variazione delle componenti di E in quelle direzioni ( che compaiono nella divergenza)  perchè, per apprezzarle,  y e z dovevano variare e non rimanere 0. Purtroppo non capisco perchè sbaglio. Ci rifletterò ancora. Sovrapposizione lineare vuol dire che nella divergenza le considero allo stesso titolo integrando successivamente rispetto a x,y e z? :?:</article>
+<article class="post" id="p27397"><div class="who"><b>Luca Milanese</b><span>10 mar 2022, 13:07</span></div><span class="tex">\(\frac{\partial E_y}{\partial y}\)</span> e <span class="tex">\(\frac{\partial E_z}{\partial z}\)</span> sono funzioni di <span class="tex">\(x, y, z\)</span>, il loro valore non dipende dalla direzione in cui si muove la particella. Quello che dici sul loro annullarsi è un errore logico.<br>
+Comunque consiglio di lasciar stare la forma differenziale della Legge di Gauss: benché esista una soluzione basata su di essa (un po' contorta), ce n'è un'altra molto più olimpica e interessante fondata sul principio di sovrapposizione (ad esempio, una zona con densità di carica nulla può essere considerata sovrapposizione di due densità di ugual modulo e segno opposto). Prova a immaginare come sfruttare le simmetrie per scrivere in maniera comoda la forza agente sulla carica.</article>
+<article class="post" id="p27398"><div class="who"><b>DeoGratias</b><span>12 mar 2022, 0:26</span></div>Avrei ottenuto <span class="tex">\(\omega=\sqrt{-\frac{q \rho}{3 \varepsilon_0}}\)</span>, ormai la soluzione la posterò domani :mrgreen:</article>
+<article class="post" id="p27399"><div class="who"><b>Luca Milanese</b><span>12 mar 2022, 0:35</span></div>Ti sei scordato la massa, per il resto è giusto. ;)</article>
+<article class="post" id="p27400"><div class="who"><b>DeoGratias</b><span>12 mar 2022, 23:06</span></div>Non credo corrisponda alla soluzione a cui stavi pensando, ma pare funzionare :D <br>
+In un sistema di assi cartesiani paralleli alle tre facce, supponiamo che la particella si sposti di <span class="tex">\(\vec{\delta r}=\delta r(\cos\theta \cos \phi, \sin \theta, \cos \theta \sin \phi )\)</span> e calcoliamo il campo elettrico parallelo ad esso al primo ordine. Consideriamo il parallelepipedo rettangolo centrato nella carica, di lati <span class="tex">\((a-2\delta r \cos \theta \cos \phi, a -2\delta r \sin \theta, a -2\delta r \cos \theta \sin \phi) \)</span>, tale che tre delle sue facce coincidano (parzialmente) con quelle del cubo; per simmetria, la forza che esso esercita sulla carica sarà nulla, quindi basta considerare la forza data dalla parte restante del cubo.<br>
+Possiamo scomporre la carica rimasta in 3 parallelepipedi di spessore infinitesimo (rispettivamente di lati <span class="tex">\((2\delta r \cos \theta \cos \phi, a-2\delta r \sin \theta, a-2\delta r \cos \theta \sin \phi)\)</span>, <span class="tex">\((a-2\delta r \cos \theta \cos \phi, 2\delta r \sin \theta, a-2\delta r \cos \theta \sin \phi)\)</span>, <span class="tex">\((a-2\delta r \cos \theta \cos \phi, a-2\delta r \sin \theta, 2\delta r \cos \theta \sin \phi)\)</span>, tre parallelepipedi con due lati di lunghezza infinitesima e un ultimo parallelepipedo con 3 lati infinitesimi. Questi ultimi daranno solo contributi al secondo ordine o più alto al campo elettrico, quindi possiamo trascurarli.<br>
+Calcoliamo la componente del campo generato dalla prima "lastra" lungo la direzione di movimento della carica: Si avrà<br>
+<br>
+<span class="tex">\(E_1=\frac{\rho}{4\pi \varepsilon_0}\int_{\frac{1}{2}a-\delta r \cos \theta \cos \phi}^{\frac{1}{2}a+\delta r \cos \theta \cos \phi}\int_{-(\frac{1}{2}a-\delta r \sin \theta)}^{\frac{1}{2}a-\delta r \sin \theta}\int_{-(\frac{1}{2}a-\delta r \cos \theta \sin \phi)}^{\frac{1}{2}a-\delta r \cos \theta \sin \phi}\frac{\textup{d}z\textup{d}y\textup{d}x}{x^2+y^2+z^2}\frac{(x,y,z)\cdot (\cos \theta \cos \phi, \sin \theta, \cos \theta \sin \phi)}{\sqrt{x^2+y^2+z^2}}\)</span><br>
+<br>
+dove si è sfruttato il fatto che il coseno dell'angolo tra due vettori è <span class="tex">\(\cos \alpha=\frac{\vec{a}\cdot \vec{b}}{|\vec{a}||\vec{b}|} \)</span><br>
+Al primo ordine, l'integrale diventa <br>
+<br>
+<span class="tex">\(E_1=\frac{\rho}{4\pi \varepsilon_0}\int_{\frac{1}{2}a-\delta r \cos \theta \cos \phi}^{\frac{1}{2}a+\delta r \cos \theta \cos \phi}\int_{-\frac{1}{2}a}^{\frac{1}{2}a}\int_{-\frac{1}{2}a}^{\frac{1}{2}a}\frac{\textup{d}z\textup{d}y\textup{d}x}{(x^2+y^2+z^2)^{3/2}}(x\cos \theta \cos \phi+y\sin \theta+z \cos \theta \sin \phi)\)</span><br>
+<br>
+Tuttavia, si ha <span class="tex">\(\int_{\frac{1}{2}a-\delta r \cos \theta \cos \phi}^{\frac{1}{2}a+\delta r \cos \theta \cos \phi}\int_{-\frac{1}{2}a}^{\frac{1}{2}a}\int_{-\frac{1}{2}a}^{\frac{1}{2}a}\frac{\textup{d}z\textup{d}y\textup{d}x}{(x^2+y^2+z^2)^{3/2}}(y\sin \theta +z \cos \theta \sin \phi)=0\)</span><br>
+<br>
+visto che stiamo integrando funzioni dispari su un dominio pari.<br>
+Ci resta da calcolare l'ultimo termine, ovvero <br>
+<br>
+<span class="tex">\(E_1=\frac{\rho \cos \theta \cos \phi}{4\pi \varepsilon_0}\int_{\frac{1}{2}a-\delta r \cos \theta \cos \phi}^{\frac{1}{2}a+\delta r \cos \theta \cos \phi}\int_{-\frac{1}{2}a}^{\frac{1}{2}a}\int_{-\frac{1}{2}a}^{\frac{1}{2}a}\frac{x\textup{d}z\textup{d}y\textup{d}x}{(x^2+y^2+z^2)^{3/2}}\)</span><br>
+<br>
+Notando ancora che il dominio è pari, sostituendo <span class="tex">\(x=\frac{a}{2}x' , y=\frac{a}{2}y' , z=\frac{a}{2}z' \)</span>, diventa<br>
+<br>
+<span class="tex">\(E_1=\frac{a\rho \cos \theta \cos \phi}{2\pi \varepsilon_0}\int_{1-\frac{2\delta r}{a} \cos \theta \cos \phi}^{1+\frac{2\delta r}{a} \cos \theta \cos \phi}x'\textup{d}x'\left (  \int_{0}^{1}\int_{0}^{1}\frac{\textup{d}z'\textup{d}y'}{(x'^2+y'^2+z'^2)^{3/2}}\right )\)</span><br>
+<br>
+Si può dimostrare (in un secondo post :lol: ) che il doppio integrale tra parentesi vale <span class="tex">\(\int_{0}^{1}\int_{0}^{1}\frac{\textup{d}z'\textup{d}y'}{(x'^2+y'^2+z'^2)^{3/2}}=\frac{1}{x'} \tan^{-1}{\frac{1}{\sqrt{(x'^2+1)^2-1}}\)</span><br>
+<br>
+Inoltre, dal teorema fondamentale del calcolo integrale si ha, al primo ordine, <span class="tex">\(\int_{1-\delta x}^{1+\delta x} f(t)\textup{d}t=2f(1)\delta x\)</span><br>
+Quindi, vale<br>
+<br>
+<span class="tex">\(E_1=\frac{a\rho \cos \theta \cos \phi}{2\pi \varepsilon_0}\int_{1-\frac{2\delta r}{a} \cos \theta \cos \phi}^{1+\frac{2\delta r}{a} \cos \theta \cos \phi}x'\textup{d}x'\frac{1}{x'} \tan^{-1}{\frac{1}{\sqrt{(x'^2+1')^2-1}}=\frac{2\rho \cos^2\theta\cos^2\phi}{\pi \varepsilon_0}\tan^{-1}{\frac{1}{\sqrt3}}\delta r=\frac{\rho \cos^2\theta\cos^2\phi}{3 \varepsilon_0} \delta r\)</span><br>
+<br>
+Analogamente, si otterrà <span class="tex">\(E_2=\frac{\rho \sin^2\theta}{3 \varepsilon_0} \delta r\)</span>, <span class="tex">\(E_3=\frac{\rho \cos^2\theta \sin^2\phi}{3 \varepsilon_0} \delta r\)</span>, quindi la forza esercitata sulla carica vale<br>
+<span class="tex">\(\vec{F}=\frac{q\rho}{3\varepsilon_0}\vec{\delta r}\)</span><br>
+<br>
+Infine, si trova facilmente che la frequenza delle piccole oscillazioni vale <span class="tex">\(\omega =\sqrt{-\frac{q\rho}{3m\varepsilon_0}}\)</span>.</article>
+<article class="post" id="p27401"><div class="who"><b>Luca Milanese</b><span>13 mar 2022, 0:23</span></div>Mi perdonerai se mi fido dei conti e non li controllo tutti, hai ottenuto il fattore numerico corretto con un procedimento logicamente esatto e quindi è abbastanza improbabile che tu li abbia sbagliati. Tuttavia, dato che esiste un modo molto olimpico per evitare tutti quegli integrali, ti invito a cercarlo prima di postare il prossimo problema.<br>
+Hint: Terza Legge di Newton</article>
+<article class="post" id="p27402"><div class="who"><b>DeoGratias</b><span>13 mar 2022, 0:49</span></div>Sì certo, sospettavo ce ne fosse una più semplice :)</article>
+<article class="post" id="p27403"><div class="who"><b>roncu</b><span>14 mar 2022, 18:43</span></div>Io avevo trovato una soluzione semplice che non avevo postato perchè Deo Gratias mi aveva preceduto. Siccome non la prendete in considerazione devo provarla avendo il sospetto che non sia corretta anche se il risultato lo è. Considero una terna Oxyz con origine nel centro del cubo e assi perpendicolari ciascuno a due facce opposte del medesimo. Il campo elettrico generato ha tre componenti  <span class="tex">\(E_x, E_y, E_z\)</span> ciascuna diretta come un asse e perpendicolare a due facce opposte. Suppongo inoltre per fissare le idee che q sia vincolato ad avvicinarsi al centro lungo l'asse x e che si trovi ad un'ascissa x&lt;a, volendo esaminare le piccole oscillazioni. Seguendo poi l'hint di Luca si può supporre che la densità <span class="tex">\(\rho\)</span> risulti dalla sovrapposizione di tre densità uguali a <span class="tex">\(\rho/3\)</span> ciascuna competente a  ogni asse e alle relative facce opposte. Considero allora la gaussiana cubica di lato 2x. Solo<span class="tex">\(E_x\)</span> ha flusso non nullo attraverso le due facce perpendicolari all'asse x mentre il flusso delle altre due componenti è nullo attraverso queste facce.<br>
+Pertanto essendo le normali alle facce <span class="tex">\(\pm \vec i\)</span> si può ottenere <span class="tex">\(2E_x.4x^2= \frac {8\rho x^3}{3 \epsilon_0}\)</span> da cui<span class="tex">\(E_x= \frac{\rho x}{3 \epsilon_0}\)</span> e quindi la forza  <span class="tex">\(F_x\)</span> agente su q da parte della carica nella gaussiana<span class="tex">\(F_x= \frac{q\rho x}{3\epsilon_0}\)</span>. La seconda legge di Newton <span class="tex">\(m\frac{d^2 x}{dt^2}- \frac {q\rho x}{3\epsilon_0}=0\)</span>fornisce facilmente <span class="tex">\(\omega= \sqrt{\frac{-q\rho}{3\epsilon_0 m}}\)</span> e dunque <span class="tex">\(T=2\pi\sqrt{\frac{-3\epsilon_0 m}{q\rho}}\)</span> Dove sbaglio :?:  :?:  :roll:</article>
+<article class="post" id="p27404"><div class="who"><b>DeoGratias</b><span>14 mar 2022, 20:08</span></div>Partiamo dal seguente fatto: la forza che una superficie quadrata <span class="tex">\(S\)</span> di lato <span class="tex">\(l\)</span> con densità di carica uniforme <span class="tex">\(\sigma\)</span> esercita su una carica <span class="tex">\(q\)</span> posta lungo l'asse del quadrato a distanza <span class="tex">\(\frac{l}{2}\)</span> vale <span class="tex">\(F=\frac{q\sigma}{6\varepsilon_0}\)</span><br>
+Consideriamo infatti la forza che la carica esercita sulla lastra (opposta in verso a quella esercitata dalla lastra: si avrà, in modulo <span class="tex">\(F=\int_{S}\sigma E_{\perp }\textup{d}A=\sigma \int_S \vec{E}\cdot \textup{d}\vec{A}=\sigma \Phi (S)\)</span>, dove <span class="tex">\(\Phi\)</span> indica il flusso del campo generato dalla carica. <br>
+Se consideriamo una gaussiana cubica centrata nella carica di lato <span class="tex">\(l\)</span>, con una faccia coincidente con la lastra, il flusso attraverso ciascuna faccia sarà lo stesso per simmetria; applicando il Teorema di Gauss si ha quindi <span class="tex">\(\frac{q}{\varepsilon_0}=\oint_{\partial V}\vec{E}\cdot \textup{d}\vec{A}=6\Phi(S)\)</span>, da cui <span class="tex">\(F=\frac{q\sigma}{6\varepsilon_0}\)</span>. Inoltre, per simmetria, la forza sarà perpendicolare al piano della lastra.<br>
+Torniamo alla configurazione del messaggio precedente e calcoliamo la forza esercitata dalle tre lastre di spessore <span class="tex">\(2\delta r \cos\theta\cos\phi, 2\delta r \sin\theta, 2\delta r \cos\theta\sin\phi\)</span>: le forze esercitate da ciascuna saranno rispettivamente (usando <span class="tex">\(\sigma \textup{d}A=\rho \textup{d}A \delta x\)</span><br>
+<br>
+<span class="tex">\(\vec{F_1}=\frac{\rho q \cos\theta\cos\phi}{3\varepsilon_0}\delta r(1,0,0), \vec{F_2}=\frac{\rho q \sin\theta}{3\varepsilon_0}\delta r(0,1,0), \vec{F_3}=\frac{\rho q \cos\theta\sin\phi}{3\varepsilon_0}\delta r(0,0,1) \)</span>,<br>
+<br>
+quindi facendo il prodotto scalare di ciascuna con <span class="tex">\((\cos\theta\cos\phi.\sin\theta,\cos\theta\sin\phi)\)</span> se ne otterrà la componente lungo la direzione di spostamento della particella; la conclusione è la stessa mostrata in precedenza.</article>
+<article class="post" id="p27405"><div class="who"><b>Luca Milanese</b><span>14 mar 2022, 21:47</span></div><strong class="text-strong"></strong>@DeoGratias<br>
+Esatto! Vai pure col 294  :D <br>
+@roncu<br>
+Ci sono due cose che non vanno nella tua soluzione. La prima, è che tratta solo il caso in cui la particella si muova parallelamente a uno degli assi da te fissati. La seconda è che non puoi supporre <span class="tex">\(E_x\)</span> uniforme sull'area <span class="tex">\(4x^2\)</span> da te considerata. L'idea di usare la Legge di Gauss su una superficie cubica è corretta, ed era quella da avere, ma il modo di sfruttarla è quello seguito da DeoGratias. Nota inoltre che, se fosse corretto il tuo procedimento, non servirebbe supporre piccole le oscillazioni, la quale invece è una condizione necessaria.</article>
+<article class="post" id="p27406"><div class="who"><b>Luca Milanese</b><span>15 mar 2022, 14:17</span></div>Aggiungo un'altra soluzione, decisamente non olimpica, ma che potrebbe risultare interessante.<br>
+Fisso anzitutto due sistemi di riferimento cartesiani <span class="tex">\(Oxyz\)</span> e <span class="tex">\(Ox'y'z'\)</span>, entrambi con l'origine nel centro del cubo. Il primo ha gli assi perpendicolari alle facce del cubo, il secondo è tale che l'asse <span class="tex">\(x'\)</span> coincida con la retta lungo la quale si muove la carica. Sia <span class="tex">\(V(x,y,z)=V(x',y',z')\)</span> il potenziale elettrico generato nelll spazio dalla densità di carica nel cubo. Per l'Equazione di Poisson, si ha:<br>
+<span class="tex">\(\nabla^2 V=-\frac{\rho}{\varepsilon_0} \Rightarrow \bigg (\frac{\partial^2 V}{\partial x^2 }\bigg)_{y, z} +\bigg (\frac{\partial^2 V}{\partial y^2 }\bigg)_{z, x} + \bigg (\frac{\partial^2 V}{\partial z^2 }\bigg)_{x, y} = -\frac{\rho}{\varepsilon_0} \)</span><br>
+Data la simmetria del cubo rispetto al sistema <span class="tex">\(Oxyz\)</span>, si ha chiaramente:<br>
+<span class="tex">\(\bigg (\frac{\partial^2 V}{\partial x^2 }\bigg)_{y, z}(0,0,0) =\bigg (\frac{\partial^2 V}{\partial y^2 }\bigg)_{z, x}(0,0,0) = \bigg (\frac{\partial^2 V}{\partial z^2 }\bigg)_{x, y}(0,0,0)\)</span><br>
+Da cui:<br>
+<span class="tex">\(\bigg (\frac{\partial^2 V}{\partial x^2 }\bigg)_{y, z}(0,0,0) =\bigg (\frac{\partial^2 V}{\partial y^2 }\bigg)_{z, x}(0,0,0) = \bigg (\frac{\partial^2 V}{\partial z^2 }\bigg)_{x, y}(0,0,0)=-\frac{\rho}{3\varepsilon_0}\)</span><br>
+Adesso, si consideri il campo elettrico agente sulla particella. Questo è dato dalla componente del campo elettrico generato dal cubo parallela all'asse <span class="tex">\(x'\)</span>, cioè:<br>
+<span class="tex">\(E(x')=-\bigg(\frac{\partial V}{\partial x'} \bigg)_{y', z'} (x', 0, 0)\)</span><br>
+Al centro del cubo il campo elettrico è nullo, perciò, espandendo l'espressione di sopra al primo ordine in <span class="tex">\(\frac{x'}{a}\)</span>, si trova:<br>
+<span class="tex">\(E(x&amp;apos;) \approx -x' \bigg(\frac{\partial^2 V}{\partial x'^2}\bigg)_{y',z'}(0,0,0)\)</span><br>
+Da cui la frequenza angolare del moto armonico risultante è data da:<br>
+<span class="tex">\(\omega^2=\frac{ q}{m} \bigg(\frac{\partial^2 V}{\partial x'^2}\bigg)_{y',z'}(0,0,0)\)</span><br>
+Il problema si riduce quindi al calcolo della derivata parziale seconda qui sopra.<br>
+Le trasformazioni di coordinate tra i due sistemi sono lineari e omogenee:<br>
+<span class="tex">\(\begin{cases}
+x=p_{11}x'+p_{12}y'+p_{13}z' \\
+y=p_{21}x'+p_{22}y'+p_{23}z' \\
+z=p_{31}x'+p_{32}y'+p_{33}z' \\
+\end{cases}\)</span><br>
+Dove i coefficienti <span class="tex">\(p_{ij}\)</span> dipendono solo dagli angoli tra gli assi dei due sistemi. L'unica cosa che mi serve sapere si ricava dalla conservazione della lunghezza del vettore posizione sotto rotazione:<br>
+<span class="tex">\(x^2+y^2+z^2=x'^2+y'^2+z'^2 \Rightarrow p_{11}^2+p_{21}^2+p_{31}^2=1\)</span><br>
+Dalle trasformazioni si ottiene inoltre:<br>
+<span class="tex">\(\begin{cases}
+\big( \frac{\partial x}{\partial x'} \big)_{y',z'}=p_{11} \\
+\big( \frac{\partial y}{\partial x'} \big)_{y',z'}=p_{21} \\
+\big( \frac{\partial z}{\partial x'} \big)_{y',z'}=p_{31} \\
+\end{cases}\)</span><br>
+Differenziando <span class="tex">\(V(x,y,z)\)</span>:<br>
+<span class="tex">\(\mathrm{d}V(x,y,z)=\bigg(\frac{\partial V}{\partial x}\bigg)_{y,z} \mathrm{d}x+\bigg(\frac{\partial V}{\partial y}\bigg)_{z,x}\mathrm{d}y+\bigg(\frac{\partial V}{\partial z}\bigg)_{x,y}\mathrm{d}z\)</span><br>
+<span class="tex">\(\Rightarrow \bigg(\frac{\partial V}{\partial x'}\bigg)_{y',z'}=p_{11} \bigg(\frac{\partial V}{\partial x}\bigg)_{y,z} +p_{21}  \bigg(\frac{\partial V}{\partial y}\bigg)_{z,x}+p_{31}  \bigg(\frac{\partial V}{\partial z}\bigg)_{x,y} \)</span><br>
+Ripetendo l'operazione:<br>
+<span class="tex">\(\bigg (\frac{\partial^2 V}{\partial x'^2}\bigg)_{y',z'}=p_{11}\bigg [ p_{11}\bigg (\frac{\partial^2 V}{\partial x^2}\bigg)_{y,z} +p_{21}\bigg (\frac{\partial^2 V}{\partial x \partial y}\bigg)_z+p_{31}\bigg(\frac{\partial^2 V}{\partial x \partial z}\bigg)_y\bigg]\)</span><br>
+<span class="tex">\(+  p_{21}\bigg [ p_{11}\bigg (\frac{\partial^2 V}{\partial y \partial x}\bigg)_{z} +p_{21}\bigg (\frac{\partial^2 V}{\partial y^2}\bigg)_{z,x}+p_{31}\bigg(\frac{\partial^2 V}{\partial y \partial z}\bigg)_x\bigg] \)</span><br>
+<span class="tex">\(+ p_{31}\bigg [ p_{11}\bigg (\frac{\partial^2 V}{\partial z \partial x}\bigg)_{y} +p_{21}\bigg (\frac{\partial^2 V}{\partial z \partial y}\bigg)_x+p_{31}\bigg(\frac{\partial^2 V}{\partial z^2}\bigg)_{x,y}\bigg]\)</span><br>
+Calcolando l'espressione in <span class="tex">\((0,0,0)\)</span>, tutte le derivate miste si annullano, poiché per simmetria si ha:<br>
+<span class="tex">\(\bigg (\frac{\partial V}{\partial x}\bigg)_{y,z}(0,y,z)=\bigg(\frac{\partial V}{\partial y}\bigg)_{z,x}(x,0,z)=\bigg(\frac{\partial V}{\partial z}\bigg)_{x,y}(x,y,0)=0\)</span><br>
+Sostituendo nei termini rimanenti le relazioni trovate sopra, si ottiene proprio:<br>
+<span class="tex">\( \bigg (\frac{\partial^2 V}{\partial x'^2}\bigg)_{y',z'}(0,0,0)  = -\frac{\rho}{3\varepsilon_0}\)</span><br>
+In conformità con quanto trovato nella soluzione di DeoGratias.</article>
+<article class="post" id="p27408"><div class="who"><b>roncu</b><span>15 mar 2022, 18:45</span></div>Della tua risposta devo osservare : a) sulla prima obiezione il testo diceva che q era costretta a muoversi su una retta passante per O come quella che ho considerato e legittimamente assunto come asse x;  b) sulla seconda obiezione mi sfugge allora l'enfasi posta da te sulla sovrapposizione delle densità di carica volumica usata con il mio metodo; poi l'enfasi è stata spostata nel tuo ultimo hint sul principio di azione e reazione. Inoltre mettendomi nella condizione x&lt;a, quindi anche molto minore di a, ritenevo di aver considerato giusto il caso delle piccole oscillazioni. <br>
+Ma c'è un dato di fatto per me molto pesante: anche con il mio procedimento il risultato è corretto :D Io penso che i risultati corretti non vengano dal caso! In conclusione ti ringrazio per la risposta ma per me non è questa volta convincente... :roll:</article>
+<article class="post" id="p27409"><div class="who"><b>Luca Milanese</b><span>15 mar 2022, 19:37</span></div>a) il testo, non parlando di nessuna retta in particolare, chiede di fare il problema nel caso generale, cioè di una retta con inclinazione qualunque rispetto alle facce del cubo, come ha fatto DeoGratias. Il tuo asse <span class="tex">\(x\)</span>, invece, è una retta molto particolare, essendo perpendicolare a due di queste facce. Se anche il tuo procedimento fosse stato poi corretto, avresti solo risolto un caso particolare (del tipo che in gara o in un test dà pochi o zero punti).<br>
+b) se ti è chiaro il procedimento di DeoGratias, che in nessun istante assume uniforme il campo prodotto dalla carica su una faccia di un cubo, capirai anche perché tu, nel momento in cui calcoli il flusso su una faccia come <span class="tex">\(E_x \cdot 4x^2\)</span>, cioè come campo per area, stai in realtà facendo tale assunzione, che non è valida. Inoltre, usare il principio di sovrapposizione non significa poter assumere che per ogni coppia di facce valga un terzo della densità di carica (e questa cosa, in realtà, non significa molto).<br>
+È vero che ti sei limitato a <span class="tex">\(x&lt;a\)</span>, ma in nessun momento hai usato davvero l'ipotesi che valga <span class="tex">\(x \ll a\)</span>. Ciò significa che, se il tuo metodo fosse corretto, il moto armonico si avrebbe anche per grandi oscillazioni, e ciò dovrebbe farti pensare che hai sbagliato qualcosa, dal momento che, altrimenti, il testo non avrebbe avuto motivo di chiedere solo le piccole oscillazioni (e la forma "irregolare" del cubo avrebbe dovuto ulteriormente suggerirti che in generale il moto della carica non è armonico). Per finire, il fatto che il risultato finale da te ottenuto sia corretto non implica che il ragionamento sia esatto: può succedere che diversi errori si compensino fortuitamente dando un risultato esatto, ma in ogni tipo di prova viene valutato prima e soprattutto il procedimento messo in atto per raggiungerlo, a tal punto che, specie nei problemi di fisica, dove diversi ragionamenti (validi) possono far ottenere risposte leggermente differenti per fattore numerico, conta soprattutto la correttezza del procedimento logico.</article>
+<article class="post" id="p27411"><div class="who"><b>Pigkappa</b><span>16 mar 2022, 0:10</span></div>Scomponiamo la carica in una sfera S di raggio <span class="tex">\(a/2\)</span> e in un solido R che contiene tutto il resto della carica. Sia <span class="tex">\(\vec r\)</span> la posizione della particella rispetto al centro, <span class="tex">\(r \ll a\)</span>. <br>
+<br>
+Il campo dovuto alla sfera S e' facile da calcolare con la legge di Gauss, e' radiale e proporzionale a <span class="tex">\(r\)</span>; nella formula non compare affatto <span class="tex">\(a\)</span>.<br>
+<br>
+Tutta la carica in R causa un campo elettrico nullo per simmetria nel centro, e che mentre ci si sposta dal centro sara' un infinitesimo di ordine almeno <span class="tex">\(O(r/a)\)</span>.<br>
+<br>
+Quindi il termine dovuto a R non conta nel limite <span class="tex">\(a \ll r\)</span> ed e' come se fosse una sfera, e non un cubo, e il problema della sfera e' molto facile.<br>
+<br>
+Sono convinto che il risultato sia lo stesso per qualunque forma della distribuzione di carica, purche' la densita' di carica sia uniforme, la carica totale non sia infinita, e la particella sia messa in una posizione di equilibrio stabile circondata da carica in tutte le direzioni. Probabilmente si puo' estendere il ragionamento di Luca qua sopra per dimostrarlo, anche se formalizzare bene e' un po' impestato.</article>
+<article class="post" id="p27414"><div class="who"><b>Luca Milanese</b><span>18 mar 2022, 20:24</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7141.html#p27411" data-post-id="27411" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 mar 2022, 0:10</div></cite>
+Tutta la carica in R causa un campo elettrico nullo per simmetria nel centro, e che mentre ci si sposta dal centro sara' un infinitesimo di ordine almeno <span class="tex">\(O(r/a)\)</span>.
+</div></blockquote>
+Questo fatto non mi sembra così ovvio a priori.
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7141.html#p27411" data-post-id="27411" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 mar 2022, 0:10</div></cite>
+Sono convinto che il risultato sia lo stesso per qualunque forma della distribuzione di carica, purche' la densita' di carica sia uniforme, la carica totale non sia infinita, e la particella sia messa in una posizione di equilibrio stabile circondata da carica in tutte le direzioni. Probabilmente si puo' estendere il ragionamento di Luca qua sopra per dimostrarlo, anche se formalizzare bene e' un po' impestato.
+</div></blockquote>
+Purtroppo ciò è falso. Nella mia dimostrazione ho sfruttato parecchio l'esistenza di un sistema di coordinate <span class="tex">\(Oxyz\)</span> in cui il potenziale fosse evidentemente abbastanza simmetrico, che mi ha dato sia relazioni come <span class="tex">\(V(x,y,z)=V(y,x,z)\)</span> e simmetriche (da cui, volendo, ottengo l'uguaglianza delle derivate nella terza riga di TeX) sia come <span class="tex">\(V(x,y,z)=V(-x,y,z)\)</span> e simmetriche (il che mi dà l'annullamento delle derivate miste alla fine). In generale, però, posso avere distribuzioni di carica uniformi e finite che ammettano posizioni di equilibrio stabile in cui almeno una di queste condizioni non è soddisfatta, e in cui la direzione dell'oscillazione ne varia la frequenza. Un esempio che ho trovato è quello di un cilindro di raggio <span class="tex">\(R\)</span> e altezza <span class="tex">\(h\)</span>. Si trova facilmente che, in coordinate cilindriche, si ha, per <span class="tex">\(|z| \ll h, R\)</span>:<br>
+<span class="tex">\(E_z(0, z) \approx \frac{\rho z}{\varepsilon_0} \bigg (1-\frac{h}{\sqrt{4R^2+h^2}}\bigg)\)</span><br>
+E quindi, per <span class="tex">\(r \ll h, R\)</span>:<br>
+<span class="tex">\(E_r(r, 0) \approx \frac{\rho h r}{2\varepsilon_0 \sqrt{4R^2+h^2}}\)</span><br>
+Da queste espressioni, è chiaro che, muovendosi radialmente o verticalmente, la carica seguirebbe moti armonici con periodi differenti.</article>
+<article class="post" id="p27417"><div class="who"><b>Pigkappa</b><span>23 mar 2022, 1:37</span></div>Ok! Era un'ipotesi azzardata :P</article>
+<nav class="pager"><a class="prev" href="olifis-7137.html"><small>← precedente</small>292 - Fuoriuscita di gas</a><a class="next" href="olifis-7143.html"><small>successivo →</small>294 - Taglio della corda</a></nav>
+</main></body></html>

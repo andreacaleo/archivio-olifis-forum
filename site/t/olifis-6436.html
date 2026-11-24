@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>107.  Atomi!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 107</a></span></nav>
+<h1>107.  Atomi!</h1>
+<p class="meta">17 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6436">forum Olifis</a></p>
+<article class="post first" id="p23175"><div class="who"><b>Flaffo</b><span>6 nov 2016, 21:08</span></div>Continuiamo la staffetta con un problema di una vecchia ipho.. magari fossero ancora così facili :D  :lol: <br>
+<br>
+Un fascio atomico è preparato riscaldando degli atomi a temperatura <span class="tex">\(T\)</span> all'interno di un contenitore e permettendoli di uscire da un foro (di dimenzioni atomiche) di diametro <span class="tex">\(D\)</span>. Stimare il diametro del fascio ad una distanza <span class="tex">\(L\)</span> dal foro. La massa molare degli atomi è <span class="tex">\(M\)</span><br>
+<br>
+Edit:<br>
+Aggiungo l'unica formula della meccanica quantistica che conosco.<br>
+<br>
+Principio di indeterminazione di Heisenberg:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta x \cdot \Delta p \geq \frac {\hbar}{2}\)</span><br>
+<br>
+<span class="tex">\(\Delta x\)</span> rappresenta l'incertezza sulla posizione e <span class="tex">\(\Delta p\)</span> quella sulla quantità di moto.<br>
+<br>
+Un altro esercizio carino che si fa con la meccanica quantistica è calcolare per quanto tempo una matita può stare in equilibrio sulla punta. 8-)</article>
+<article class="post" id="p23180"><div class="who"><b>guido</b><span>7 nov 2016, 21:13</span></div>L'idea è che il diametro del foro rappresenta l'indeterminazione sulla posizione di un atomo e il diametro del fascio a distanza L quella sulla posizione dell'atomo a L. Ci si potrebbe arrivare determinando l'indeterminazione della velocità in partenza, quindi quella del tempo di percorrenza, quindi quella dell'energia a L, ovvero della velocità a L da cui discenderebbe quella sulla posizione ovvero il diametro richiesto. L'idea mi è venuta perchè leggevo un mese fa un librino su Heisemberg. Siccome i conti sono per ora per me micidiali e tu dici che è facile :!:  :?:(ma sarebbe da Flaffo...) se la mia idea è folle dimmelo che desisto.</article>
+<article class="post" id="p23182"><div class="who"><b>Flaffo</b><span>7 nov 2016, 21:46</span></div>Ho modificato il testo. Prova a scrivere in formule il tuo ragionamento ;)</article>
+<article class="post" id="p23185"><div class="who"><b>guido</b><span>8 nov 2016, 13:27</span></div>Allora l'idea era giusta! Dammi tempo perchè avevo già provato prima della tua modifica e incontro difficoltà avendo anch'io più o meno le competenze che dichiari tu. Ma allora perchè il problemino da Flaffo? :roll:  :?:</article>
+<article class="post" id="p23187"><div class="who"><b>guido</b><span>9 nov 2016, 12:32</span></div>Ho trovato i conti terribili ma meno ostici se modifico la seconda parte del ragionamento che ora è il seguente. L'indeterminazione della posizione dell'atomo all'uscita dal foro (delle coordinate x,y rispetto al centro del foro) determina quella delle componenti x,y della velocità cioè quella della componente della velocità sul piano del foro. In definitiva della direzione della velocità rispetto alla perpendicolare al piano del foro su cui giace L. L'atomo andrà a colpire un punto del piano parallelo a quello del foro per l'estremo di L individuato da questa direzione determinando il raggio (e quindi il diametro) del fascio a L. Il modulo della velocità di uscita dal foro può considerarsi la velocità quadratica media <span class="tex">\(V= \sqrt{\frac{3RT}{M}}\)</span> mentre la massa dell'atomo <span class="tex">\(m=\frac{M}{N}\)</span> con N numero di Avogadro. Abbiamo<br>
+<span class="tex">\(\Delta v_{x,y}= \frac{h}{2\pi mD/2}=\frac{h}{\pi mD}\)</span> e quindi un'incertezza sulla componente della velocità sul piano del foro <span class="tex">\(\Delta v_p= \frac{h\sqrt{2}}{m\pi D}\)</span>. Con questa deviazione l'atomo va a colpire il piano parallelo a quello del foro per L ad una distanza R (raggio del fascio) dall'estremo di L (che è il centro del fascio). Si può allora impostare la proporzione<span class="tex">\(R:\sqrt{R^2+L^2}=\Delta v_p : V\)</span>. Fatti i conti che posso aver sbagliato nelle sostituzioni elevamenti ed estrazioni, mi risulta un diametro del fascio alla distanza L uguale a<br>
+<span class="tex">\(2R= \frac{2hL\sqrt{2}}{\sqrt{3RTM\pi^2D^2-2h^2N^2}}\)</span> :?:  :?: <br>
+Meno male che era facile :roll: Certo, facile di Flaffo :!:  :roll:</article>
+<article class="post" id="p23188"><div class="who"><b>Flaffo</b><span>9 nov 2016, 16:00</span></div>Ci sono alcuni errori, tra cui di calcolo o distrazione (per esempio ti rimane un <span class="tex">\(\pi\)</span> ma non dovrebbe esserci, nella velocità q.m devi di dividere per  <span class="tex">\(m\)</span>, non per <span class="tex">\(M\)</span>), ma anche errori propriamente concettuali che ti rendono i conti molto brutti mentre, in realtà, i conti sono pochi.</article>
+<article class="post" id="p23189"><div class="who"><b>guido</b><span>9 nov 2016, 17:31</span></div>Potresti dirmi di quali errori concettuali si tratta o non ti è consentito?</article>
+<article class="post" id="p23190"><div class="who"><b>Flaffo</b><span>9 nov 2016, 17:34</span></div>Non mi è consentito</article>
+<article class="post" id="p23191"><div class="who"><b>guido</b><span>9 nov 2016, 17:40</span></div>L'espressione del prodotto delle indeterminazioni che io ho trovato è &gt;<span class="tex">\(h/2\pi\)</span> e non semplicemente h/2 come dici tu.<br>
+Sull'Halliday nella vqm compare la massa molare M e non la massa atomica m come mi sembra dici tu. E' chiaro che l'impulso contiene invece m. Vedrò comunque di ripensare a quello che mi dici per scoprire dove sono gli errori di concetto (se ci riesco perchè il pdi i non l'ho mai frequentato ed ero già stato contento di aver avuto l'idea che ci volesse proprio quello e chi si accontenta gode anche se sarà un pessimo scienziato) :!: .</article>
+<article class="post" id="p23192"><div class="who"><b>Flaffo</b><span>9 nov 2016, 22:12</span></div>Nella formula ho scritto h tagliato che vale: <span class="tex">\(\hbar= h/2\pi\)</span>. Pensavo avessi usato ciò che avevo scritto</article>
+<article class="post" id="p23193"><div class="who"><b>guido</b><span>10 nov 2016, 10:22</span></div>Da scuola ti rispondo per chiarire e vedere se sbaglio. Il foro con il suo diametro rende incerte le posizioni lungo x e lungo y perpendicolari a L. E' vero? Quindi c'è incertezza su <span class="tex">\(v_x e v_y\)</span>. E' vero? Non c'è incertezza sulla componente della velocità lungo L? E invece mi sembra che ci dovrebbe essere. Ma D non mi pare c'entri nulla con questa direzione. <br>
+Quindi rimanendo alle incertezze su x e y l'unica idea che mi viene è che l'incertezza su queste velocità nel foro si trasforma in incertezza sulla posizione alla distanza L dopo il tempo L/V modificando così D della quantità 2<span class="tex">\(\Delta v.L/V\)</span> :?: <br>
+<br>
+P.S. Se quello che dico è mal posto comportati come ritieni opportuno. Ci sta che abbia preso lucciole per lanterne a manipolare un principio così difficile per la prima volta. Intanto non ritengo di impedire o avere impedito ad altri di esprimersi :roll: La costante è allora <span class="tex">\(h/4\pi\)</span> :?:</article>
+<article class="post" id="p23194"><div class="who"><b>Flaffo</b><span>10 nov 2016, 11:16</span></div>Ok. L'incertezza su <span class="tex">\(v_x\)</span> non è presente. Stiamo restringendo la posizione solo su <span class="tex">\(y\)</span>..</article>
+<article class="post" id="p23195"><div class="who"><b>guido</b><span>10 nov 2016, 18:39</span></div>Presumo che y rappresenti un raggio del cerchio foro. E' allora <span class="tex">\(V=vqm=\sqrt \frac{3RT}{M}\)</span>con M massa molare (Halliday) e <span class="tex">\(\Delta p_y.\Delta y\geq h/4\pi\)</span> con <span class="tex">\(\Delta y\leq D/2\)</span>. Se <span class="tex">\(m=\frac {M}{N}\)</span> con N num. Avog. è la massa dell'atomo dovrebbe risultare<br>
+<span class="tex">\(\Delta v_y = \frac{h}{2\pi mD}\)</span> la quale nel tempo di percorrenza <span class="tex">\(t_p=\frac{L}{V}\)</span>produce un'incertezza aggiuntiva nella posizione uguale a <span class="tex">\(\Delta v_y.\frac{L}{V}=\frac{hL}{2\pi mD.\sqrt\frac{3RT}{M}}\)</span> che sostituendo m e raddoppiando dovrebbe dare la quantità di modifica di D<br>
+<span class="tex">\(\frac{hLN}{\pi D.\sqrt {3MRT}}\)</span> :?:  :?:</article>
+<article class="post" id="p23196"><div class="who"><b>Flaffo</b><span>10 nov 2016, 19:31</span></div>Esatto. Non era poi così difficile  :lol: <br>
+<br>
+Ti manca solo un termine nella formula finale. Dopodiché la staffetta è tua.</article>
+<article class="post" id="p23197"><div class="who"><b>guido</b><span>11 nov 2016, 11:47</span></div>Sei un pò sibillino perchè mi dici "esatto" e poi che... manca un termine: a meno che tu non intenda che il diametro del fascio a distanza L è <br>
+<span class="tex">\(D_L = D + \frac{hLN}{\pi D \sqrt{3MRT}}\)</span> :?:  :?: <br>
+<br>
+Per quanto riguarda la difficoltà: ti ringrazio perchè mi ha dato molta soddisfazione :lol:  :lol:  indipendentemente dalla tua eventuale cessione a me del testimone (che come ho dimostrato nel passato mi interessa relativamente) essendo il problema "facile" per Flaffo, difficile per noi: ti dice qualcosa il fatto che nessun altro vi ci sia cimentato? :!:</article>
+<article class="post" id="p23198"><div class="who"><b>Flaffo</b><span>11 nov 2016, 12:07</span></div>Esatto! :lol:  :lol: <br>
+A te la staffetta.<br>
+<br>
+Mah, gli altri non ci hanno provato perché l'avranno trovato banale :?:  :lol:</article>
+<article class="post" id="p23201"><div class="who"><b>guido</b><span>11 nov 2016, 18:14</span></div>Si forse hai ragione tu :roll:  :!: <br>
+Vado con il prossimo dopo che è stato affrontato e risolto il tuo Newton :?:  :?: Mi sembra opportuno che non concorrano :!:</article>
+<nav class="pager"><a class="prev" href="olifis-6435.html"><small>← precedente</small>106. Sfera calda all&#x27;equilibrio</a><a class="next" href="olifis-6442.html"><small>successivo →</small>108     Un conduttore cubico</a></nav>
+</main></body></html>

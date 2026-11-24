@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>131: Verso il solenoide</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../staffetta.html">La staffetta, problema 131</a></span></nav>
+<h1>131: Verso il solenoide</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6630">forum Olifis</a></p>
+<article class="post first" id="p24354"><div class="who"><b>Aleksej99</b><span>17 gen 2018, 19:15</span></div>Un elettrone é sparato da una velocità <span class="tex">\(v_0&lt;&lt;c\)</span> dall'infinito verso l'asse di un solenoide, perpendicolarmente all'asse.<br>
+Trovare la minima corrente <span class="tex">\(i\)</span> per la quale l'elettrone non entra nel solenoide</article>
+<article class="post" id="p24356"><div class="who"><b>lance00</b><span>17 gen 2018, 20:02</span></div>indicando con <span class="tex">\(r\)</span>la distanza dell'elettrone dal centro del solenoide, <span class="tex">\(\frac{dL}{dt} = M = r \times (ev_0 B(r)) = ev_0 B(r)r\frac{dr}{dt} =&gt; dL = e B(r) dr =&gt; 2\pi dL = e B(r) 2\pi r dr = e d\Phi =&gt; L = \int_{\inf}^{R}\frac{e}{2\pi} d\Phi = \frac{e}{2\pi}(\Phi(0)-\Phi(inf)) = \frac{e B(R)R^2}{2} = mRv_0\)</span><br>
+<br>
+(il modulo velocità dell'elettrone non viene modificato dalla forza di Lorentz, inoltre <span class="tex">\(r \perp v_0\)</span> in quanto per <span class="tex">\(i = i_{min}\)</span> la traiettoria dell'elettrone è tangente al solenoide)<br>
+ sapendo che <span class="tex">\(B(R) = \mu_0 i n \)</span>, otteniamo <span class="tex">\(i = \frac{2mv_o}{e\mu_0 n R} \)</span></article>
+<article class="post" id="p24357"><div class="who"><b>Aleksej99</b><span>17 gen 2018, 20:22</span></div>Sintetico e corretto, puoi anche andare col prossimo  ;) <br>
+Non che cambi nulla, ma avevi già visto il problema? Anche perché provenendo da una gara nazionale in effetti era probabile che qualcuno lo conoscesse...</article>
+<article class="post" id="p24358"><div class="who"><b>lance00</b><span>17 gen 2018, 20:27</span></div>Questo problema è un classico  :lol:</article>
+<article class="post" id="p24359"><div class="who"><b>Gamow00</b><span>17 gen 2018, 20:28</span></div>Anch'io lo conoscevo già 8-) <br>
+Era di Senigallia giusto?</article>
+<article class="post" id="p24360"><div class="who"><b>lance00</b><span>17 gen 2018, 20:31</span></div>yep, mi pare 2015</article>
+<article class="post" id="p24361"><div class="who"><b>Aleksej99</b><span>17 gen 2018, 20:32</span></div>Si veniva da Senigallia del 2016 e c'é anche sulle dispense di Fabio zoratti  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6624.html"><small>← precedente</small>130:  Cariche in libertà</a><a class="next" href="olifis-6631.html"><small>successivo →</small>132. Disuguaglianza</a></nav>
+</main></body></html>
