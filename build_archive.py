@@ -35,7 +35,7 @@ SECTIONS = [
 # pages of chosen discussions: one or more sections each
 PAGES = [
     {'page': 'problemi-teorici.html', 'title': 'Altri problemi teorici', 'keys': ['teorici'],
-     'lede': 'Problemi di fisica proposti, risolti e discussi nella sezione più grande del forum, oltre a quelli della staffetta e delle prove di ammissione: una selezione.',
+     'lede': 'Una selezione dei problemi di fisica proposti, risolti e discussi nella sezione più grande del forum, oltre a quelli della staffetta e delle prove di ammissione.',
      'card': 'Una selezione degli altri problemi proposti, risolti e discussi sul forum.'},
     {'page': 'olimpiadi-caffe.html', 'title': 'Olimpiadi di Fisica e Caffè', 'keys': ['olimpiadi', 'caffe'],
      'lede': 'Una selezione di discussioni dalle sezioni dedicate alle gare e a tutto il resto.',
