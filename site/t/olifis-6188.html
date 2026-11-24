@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 15/16 N.1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2015-2016, problema 1</span></nav>
+<h1>SNS 15/16 N.1</h1>
+<p class="meta">21 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6188">forum Olifis</a></p>
+<article class="post first" id="p21407"><div class="who"><b>arna1998</b><span>22 set 2015, 9:58</span></div>Dato che nessuno ha ancora postato un problema dell'ammissione alla Normale di quest'anno, ne metto uno io, così si può iniziare a discuterne :D <br>
+<br>
+Supponendo che la superficie di un lago ghiacciato rimanga a temperatura costante <span class="tex">\(-5,2 C\)</span> per 60 giorni, sviluppare un modello per descrivere la velocità con cui cresce lo spessore del ghiaccio a partire dal suo valore iniziale <span class="tex">\(h_0=25cm\)</span>. Stimare il valore <span class="tex">\(h_f\)</span> del livello del ghiaccio dopo 60 giorni, sapendo che dopo 12 giorni il ghiaccio è spesso 37 cm, mentre dopo 21 giorni lo spessore è di 44cm.<br>
+<br>
+Scrivo anche la mia idea per risolverlo, così qualcuno può dirmi se funziona oppure è sbagliato, e magari proporre una sua soluzione.<br>
+Io ho pensato di calcolare il calore che l'acqua cede attraverso il ghiaccio, considerando che uno strato più spesso di ghiaccio conduce meno calore rispetto ad uno meno spesso, quindi mettere in relazione il calore ceduto con lo spessore di ghiaccio che si forma. A questo punto riesco a ricavare <span class="tex">\(h(t)\)</span>. Se secondo voi l'idea funziona, provo a mettere anche i conti.</article>
+<article class="post" id="p21408"><div class="who"><b>andrea96</b><span>22 set 2015, 11:48</span></div>sono stato colpito molto duramente e nel profondo del mio cuore vedendo di nuovo il testo di questo problema... :cry:  :cry:  :cry: <br>
+ :lol:  :lol:  :lol: <br>
+Si cumunque l'idea è più o meno quella ed il problema, ahimè, è molto semplice. Alla fine che funzione ti viene?</article>
+<article class="post" id="p21409"><div class="who"><b>arna1998</b><span>22 set 2015, 13:56</span></div>La funzione mi viene <span class="tex">\(\displaystyle h(t)=\sqrt{\frac{t+b}{a}}\)</span> dove <span class="tex">\(a\)</span> e <span class="tex">\(b\)</span> posso ricavarli dai valori che ho già</article>
+<article class="post" id="p21410"><div class="who"><b>andrea96</b><span>22 set 2015, 15:02</span></div>Si dovrebbe essere giusto anche se probabilmente sono la persona meno indicata al mondo per dirlo, quindi aspettiamo la conferma di qualche normalista</article>
+<article class="post" id="p21416"><div class="who"><b>arna1998</b><span>22 set 2015, 17:28</span></div>Se lo confermi tu vuol dire che è giusto dai :lol: <br>
+Magari più tardi  scrivo anche il procedimento completo, magari prima qualcun'altro vuole provarlo</article>
+<article class="post" id="p21424"><div class="who"><b>gluonstrongforce</b><span>23 set 2015, 12:40</span></div>Si, qualcosa del genere mi veniva. Se poi derivi e trovi la rapidità con cui il ghiaccio aumenta di spessore, vedi che essa diminuisce nel tempo, ovvero che lo spessore aumenta sempre più lentamente. Poi dai calcoli mi veniva uno spessore di 62 cm dopo 60 giorni. <br>
+Problemi molto facili quest' anno, ma il mio 80% circa di fisica è stato annichilito dal 30% di matematica.</article>
+<article class="post" id="p21425"><div class="who"><b>sall96</b><span>23 set 2015, 12:47</span></div><blockquote><div><cite>gluonstrongforce ha scritto:</cite>Poi dai calcoli mi veniva uno spessore di 62 cm dopo 60 giorni. </div></blockquote>
+Sicuro? A me usciva leggermente di più...  :?</article>
+<article class="post" id="p21427"><div class="who"><b>gluonstrongforce</b><span>23 set 2015, 12:50</span></div>Quanto?</article>
+<article class="post" id="p21429"><div class="who"><b>sall96</b><span>23 set 2015, 12:53</span></div>66 cm</article>
+<article class="post" id="p21431"><div class="who"><b>gluonstrongforce</b><span>23 set 2015, 13:06</span></div>Avrei anche potuto sbagliare i conti. Nulla è da escludere</article>
+<article class="post" id="p21434"><div class="who"><b>arna1998</b><span>23 set 2015, 16:17</span></div>Posto tutti i conti che ho fatto: <br>
+Innanzi tutto posso supporre l'acqua del lago a temperatura costante, dato che sta avvenendo un cambiamento di stato. Ogni volta che il lago cede una quantità di calore <span class="tex">\(dq\)</span>, lo spessore del ghiaccio aumenta di <span class="tex">\(dh\)</span>, quindi <span class="tex">\(dq=\rho c A dh\)</span> dove <span class="tex">\(\rho\)</span> è la densità dell'acqua, <span class="tex">\(c\)</span> il calore latente di fusione e <span class="tex">\(A\)</span> la superficie del lago.<br>
+Tra l'acqua del lago e l'aria viene trasferita una potenza:<br>
+<span class="tex">\(\displaystyle \frac{dq}{dt}=\frac{k\Delta T A}{h}\)</span> con <span class="tex">\(k\)</span> conducibilità termica del ghiaccio.<br>
+quindi posso scrivere:<br>
+<span class="tex">\(\displaystyle \rho c dh=\frac{k\Delta T}{h}dt\)</span><br>
+da cui:<br>
+<span class="tex">\(\displaystyle t(h)=\int dt=\int \frac{\rho c h}{k\Delta T}dh=\frac{\rho c h^2}{2k\Delta T}+c\)</span><br>
+Posso determinare <span class="tex">\(c\)</span> dalla condizione <span class="tex">\(t(0)=h_0\)</span>, ottenendo la funzione:<br>
+<span class="tex">\(\displaystyle t(h)=\frac{\rho c h^2}{2k\Delta T}-\frac{\rho c h_0^2}{2k\Delta T}\)</span><br>
+La funzione è del tipo <span class="tex">\(t=ah^2-b\)</span>, sfruttando le condizioni <span class="tex">\(t(37)=12\)</span> e <span class="tex">\(t(44)=21\)</span> ottengo che <span class="tex">\(a=1,59\cdot10^{-2}\frac{d}{cm^2}\)</span> e <span class="tex">\(b=9,73 d\)</span><br>
+Si ricava:<br>
+<span class="tex">\(\displaystyle h(t)=\sqrt{\frac{t+b}{a}}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle h(60)=61,5 cm\)</span><br>
+<br>
+Non ho usato alcuni dati, forse servivano per determinare <span class="tex">\(a\)</span> e <span class="tex">\(b\)</span> in modo più preciso</article>
+<article class="post" id="p21435"><div class="who"><b>sall96</b><span>23 set 2015, 19:07</span></div>Mi trovo con tutto, ma con le costanti che hai trovato ti dovrebbe venire 66,22cm :)</article>
+<article class="post" id="p21437"><div class="who"><b>arna1998</b><span>23 set 2015, 20:26</span></div>Si è vero, viene come dici tu. Mi sa che ho sbagliato a mettere i dati nella calcolatrice  :roll:</article>
+<article class="post" id="p21440"><div class="who"><b>OrsoBruno96</b><span>24 set 2015, 10:01</span></div>Una cosa carina che è interessante da notare è questa:<br>
+<br>
+Quando aumenti lo spessore del ghiaccio di un dh, non ti serve calore solo per congelare lo strato sotto, bensì anche per raffreddare tutto il ghiaccio sopra!<br>
+<br>
+Per un materiale come l'acqua, il contributo è praticamente trascurabile, ma è carino notare che, se fai i conti, ti accorgi che con i dati che hai a disposizione, il risultato non cambia. Prova :)</article>
+<article class="post" id="p21450"><div class="who"><b>arna1998</b><span>24 set 2015, 17:14</span></div>Non credo di aver capito perché il ghiaccio si deve raffreddare.<br>
+Ho immaginato il ghiaccio alla temperatura dell'aria, mentre quello a contatto con l'acqua a 0 gradi, quindi ogni strato di ghiaccio ha una temperatura diversa, ma sempre compresa tra 0 e -5,2 gradi. Quando lo spessore del ghiaccio aumenta e l'acqua cede calore, parte di esso scalderà il ghiaccio, ma la temperatura di uno strato non uscirà mai da quell'intervallo.<br>
+Sicuramente c'è qualcosa di sbagliato in quello che ho scritto, ma non trovo dove :?</article>
+<article class="post" id="p21451"><div class="who"><b>sall96</b><span>24 set 2015, 17:33</span></div>Prendi lo strato ad altezza <span class="tex">\(x\)</span> al tempo <br>
+<span class="tex">\(t=0\)</span>. Questo avrà una sua temperatura <span class="tex">\(T\)</span>, che ti puoi calcolare assumendo per esempio che il gradiente di temperatura attraverso il ghiaccio sia lineare. Questa linearità si conserva perché la temperatura dell'acqua e dell'aria rimangono costanti, però lo strato di ghiaccio aumenta. Allora ad altezza <span class="tex">\(x\)</span> dopo un certo tempo si avrà una temperatura <span class="tex">\(T_1&lt;T\)</span></article>
+<article class="post" id="p21453"><div class="who"><b>arna1998</b><span>25 set 2015, 15:55</span></div>Ok, ora ho capito. Ho provato ad impostare i conti ma ho trovato qualche difficoltà perché non me la cavo ancora benissimo con gli infinitesimi.<br>
+La temperatura di uno strato ad altezza <span class="tex">\(x\)</span> è : <span class="tex">\(T_g(x)=\frac{\Delta T}{h}x+c\)</span>, quindi quando l'altezza aumenta di <span class="tex">\(\Delta T_g(x)=(\frac{\Delta T}{h+dh}-\frac{\Delta T}{h})x\)</span>.<br>
+Premesso che non so se queste due cose che ho scritto sono giuste, ora non so più come muovermi... Dovrei contare la variazione di <span class="tex">\(T_g\)</span> per tutti gli strati, ma non so bene come fare.<br>
+Qualcuno riesci a darmi un aiuto con i conti?</article>
+<article class="post" id="p21455"><div class="who"><b>OrsoBruno96</b><span>26 set 2015, 9:38</span></div>Beh, se fai conti brutali ti viene <span class="tex">\(\Delta T \dfrac{-dh}{h(h+dh)} x\)</span> e se ricordi che <span class="tex">\(dh&lt;&lt;h\)</span>, rimane <span class="tex">\(- \dfrac{x \Delta T}{h^2} dh\)</span></article>
+<article class="post" id="p21464"><div class="who"><b>arna1998</b><span>27 set 2015, 20:38</span></div>Quindi <span class="tex">\(\Delta T_g(x)=-\frac{x\Delta T}{h^2}dh\)</span>. Siccome varia linermente posso fare i conti come se tutto il ghiaccio avesse una <span class="tex">\(\Delta T_g\)</span> uguale a quella di <span class="tex">\(\frac{h}{2}\)</span>. <br>
+Il calore ceduto dal ghiaccio per una variazione di spessore <span class="tex">\(dh\)</span> è quindi: <span class="tex">\(\displaystyle dq=c_sV\rho_g \frac{\Delta T}{2h}dh=\frac{c_s \rho_g  A \Delta T}{2}dh\)</span><br>
+L'equazione di prima diventa:<br>
+<span class="tex">\(\displaystyle \left (\rho_a c+\frac{c_s \rho_g  \Delta T}{2} \right ) dh=\frac{k\Delta T}{h} dt\)</span><br>
+Di fatto i risultati non cambieranno perché in entrambe le equazioni al primo membro ho un valore costante da determinare con dati forniti, moltiplicato per <span class="tex">\(dh\)</span>.<br>
+<br>
+Inoltre se si provano a sostituire i valori numerici si vede che <span class="tex">\(\displaystyle \frac{c_s \rho_g  \Delta T}{2} \ll \rho_a c\)</span> quindi il raffreddamento del ghiaccio è trascurabile rispetto al congelamento dell'acqua.</article>
+<article class="post" id="p25003"><div class="who"><b>Salvador</b><span>2 ago 2018, 11:19</span></div>Ho provato a fare questo problema e la forma della funzione mi esce circa come quella che è stata già detta dagli altri, ma i valori mi escono completamente sballati!<br>
+Dunque io ho fatto: consideriamo la potenza termica <span class="tex">\(H\)</span>, che ci dice quanto calore viene dissipato dall'acqua al ghiaccio nell'unità di tempo, e che possiamo scrivere come <span class="tex">\(\dfrac{dQ}{dt}=H=-kA\dfrac{dT}{dx}\)</span>. Supponiamo per semplicità che il gradiente di temperatura sia lineare, dunque deve essere uguale a <span class="tex">\(\dfrac{-5,2}{x(t)}\)</span>, dove <span class="tex">\(x(t)\)</span> rappresenta lo spessore dello strato di ghiaccio al tempo t. Abbiamo quindi <span class="tex">\(dQ/dt=5.2kA/x\)</span> e osserviamo che affinché una massa <span class="tex">\(dm\)</span> di acqua si solidifichi le deve essere sottratta una quantità di calore <span class="tex">\(dQ=c_s dm\)</span>, con c_s calore latente di solidificazione. Si ha quindi <span class="tex">\(dm/dt=c_s^-1 dQ/dt\)</span> e vado a sostituire ottenendo  <span class="tex">\(c_s dm/dt=5.2kA/x\)</span>. Ora <span class="tex">\(dm=ρAdx\)</span>, quindi <span class="tex">\(5,2k/x=ρdx/dt\)</span> e andando a integrare alla fine mi esce <span class="tex">\(x = \sqrt{10,4k/ρt+x_0^2}\)</span>, solo che sono tutti valori noti e non corrispondono a quelli forniti per 12 e 21 giorni! Dove ho sbagliato?? :(</article>
+<article class="post" id="p25004"><div class="who"><b>Salvador</b><span>2 ago 2018, 11:21</span></div>Mi si è mangiato i rho alla fine.<br>
+Ma non è possibile modificare i messaggi ?   :?:</article>
+<nav class="pager"><a class="prev" href="olifis-6027.html"><small>← precedente</small>SNS 2014 problema 7</a><a class="next" href="olifis-6196.html"><small>successivo →</small>SNS 2015/16 N. 2</a></nav>
+</main></body></html>

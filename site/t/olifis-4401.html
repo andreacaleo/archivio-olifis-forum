@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1968/69 esercizio n°3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1968-1969, problema 3</span></nav>
+<h1>SNS 1968/69 esercizio n°3</h1>
+<p class="meta">1 messaggio · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4401">forum Olifis</a></p>
+<article class="post first" id="p14505"><div class="who"><b>gilgamesh</b><span>10 lug 2013, 20:10</span></div>Un obiettivo consiste di una lente con fuoco +30mm e di una seconda lente con fuoco -20mm posta ad una distanza 20mm dalla prima. Trovare con semplici ragionamenti (per esempio , con costruzione geometrica) dove deve essere posta una unica lente convergente di opportuna distanza focale per ottenere sullo stesso piano normale all'asse ottico, immagini reali delle tesse minesioni, di oggetti sufficientemente lontani.<br>
+<br>
+Ecco la mia soluzione (geometrica):<br>
+<a class="lost" href="http://s18.postimg.org/6dz5m2j21/screenshot_10.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+dunque le freccette in rosso contrassegnate dai numeri 1,2,3,4 sono i vari oggetti (ho considerato come oggetto del "passaggio attraverso la seconda lente" (scusate l'espressione orrenda  :( ) l'immagine prodotta dalla prima lente , quella più a sinistra come se la seconda non ci fosse.Così ho fatto anche per le altre) . <br>
+<em class="text-italics">Innanzi tutto vi vorrei chiedere se è corretto questo modo di procedere per la costruzione di immagini in un sistema di puù lenti.</em><br>
+<br>
+Quindi ho costruito quella che credo sia l'immagine generata dal sistema delle due lenti. Successivamente ho trattato questa immagine come oggetto della terza lente che (dopo ripetuti tentativi ed errori, evviva Popper  :lol: ) ho posto esattamente nel fuoco della prima lente convergente, ad una distanza di 30mm dalla prima lente e di 10mm dalla lente divergente. A questa terza lente le ho dato infine un fuoco posto a 10mm lungo l'asse ottico, come nella figura. Credo dunque di aver ottenuto il risultato desiderato. <br>
+La mia costruzione geometrica <em class="text-italics">(se non vi sono errori teorici)</em> sembra funzionare...ma come giustificare tutto ciò da un punto di vista più brutalmente "analitico" ?<br>
+<br>
+Ho pensato che è possibile effettuare una sorta di "discesa":<br>
+<br>
+L'equazione dei punti coniugati per la prima lente:<br>
+<span class="tex">\(1/p+1/q=1/f\)</span>  <br>
+<span class="tex">\(q=(pf)/(p-f)\)</span>  <br>
+<span class="tex">\(f=30mm\)</span><br>
+<br>
+per la seconda:<br>
+  <span class="tex">\(q'=(p'f')/(p'-f')\)</span><br>
+<br>
+tuttavia:  <span class="tex">\(p'=q-20mm\)</span><br>
+ottengo:<span class="tex">\(q'=((q-20mm)f')/((q-20mm)-f')\)</span><br>
+ <span class="tex">\(f'=-20mm\)</span><br>
+<br>
+ed infine per la terza un poco la stessa cosa<br>
+<br>
+ <span class="tex">\(q''=(p''f'')/(p''-f'')\)</span><br>
+<br>
+tuttavia:  <span class="tex">\(p''=q'-10mm\)</span><br>
+ottengo:<span class="tex">\(q'=((q'-10mm)f'')/((q'-10mm)-f'')\)</span><br>
+ <span class="tex">\(f''=10mm\)</span><br>
+<br>
+quindi dovrebbe risultare che l'ingrandimento complessivo è nullo.Oltre che essere un calcolo lunghissimo non mi sembra la strada più pulita per risolvere il problema...qualche consiglio? Ho commesso errori ? Grazie! :)</article>
+<nav class="pager"><a class="prev" href="oliforum-8828.html"><small>← precedente</small>Semplice ma carino (SNS 1966-67)</a><a class="next" href="olifis-235.html"><small>successivo →</small>1970 SNS-Pompe</a></nav>
+</main></body></html>

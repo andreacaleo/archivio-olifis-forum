@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1975/6 - Problema 2 (Sbarre che ruotano)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1975-1976, problema 2</span></nav>
+<h1>SNS 1975/6 - Problema 2 (Sbarre che ruotano)</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6374">forum Olifis</a></p>
+<article class="post first" id="p22638"><div class="who"><b>np97</b><span>26 lug 2016, 19:58</span></div>Ciao a tutti,<br>
+quest'anno vorrei provare ad entrare alla Normale, così ho cominciato a fare un po' di problemi degli anni scorsi. Ne ho trovato uno che, secondo me, può essere interessante (Anno 1975/6 - n. 2):<br>
+<br>
+Si consideri una sbarra omogenea di sezione quadrata di lato 1 cm e lunghezza 100 cm, libera di ruotare attorno ad un estremo e soggetta alla gravità.  Essa viene abbandonata da ferma con un certo angolo rispetto alla verticale. Sotto l’effetto della gravità essa ruota e dopo un tempo <span class="tex">\(t_{1}\)</span> passa per la verticale. Si ripete l’identico esperimento con una sbarra simile alla prima, dello stesso materiale, ma di dimensione metà, cioè sezione di lato 0,5 cm e di lunghezza 50 cm.  Dopo un tempo <span class="tex">\(t_{2}\)</span>, pure essa passa per la verticale. Che<br>
+relazione esiste tra <span class="tex">\(t_{1}\)</span> e <span class="tex">\(t_{2}\)</span>?<br>
+<br>
+<strong class="text-strong">La soluzione a cui ho pensato è la seguente:</strong><br>
+<br>
+Inizio calcolando il volume di ciascuna sbarretta per calcolare poi la massa, lasciando come incognita la densità, che è uguale per le due sbarrette.<br>
+<br>
+La massa della prima sbarretta, quindi, è <span class="tex">\(m_{1}=dV_{1}=d*10^{-4}\)</span>.<br>
+La massa della seconda sbarretta, invece, è <span class="tex">\(m_{1}=dV_{2}=d*1,25*10^{-5}\)</span><br>
+<br>
+La velocità angolare è diversa, mentre il momento di inerzia è uguale, quindi considerando:<br>
+<span class="tex">\(M=mr\omega\)</span> si ha che <span class="tex">\(d*10^{-4} * \frac{2\pi}{T_{1}} * 1 = d*1,25 * 10^{-5} * \frac{2\pi}{T_{2}} * 0,5\)</span><br>
+<br>
+Da qui ottengo che <span class="tex">\(\frac{T_{1}}{T_{2}}=16\)</span>.<br>
+<br>
+Cosa ne pensate?</article>
+<article class="post" id="p22643"><div class="who"><b>BeppeBogna</b><span>27 lug 2016, 16:27</span></div>Il momento di inerzia di una sbarra sottile uniforme di massa <span class="tex">\(M\)</span> e lunghezza <span class="tex">\(L\)</span> calcolato rispetto a un estremo è <span class="tex">\(I=\frac{1}{3}ML^2\)</span>, quindi le due sbarre non hanno stesso momento di inerzia.<br>
+Le forza agenti sulla sbarretta sono il peso e la reazione del perno, ma il momento di quest'ultima è ovviamente nullo se calcolato rispetto al perno. In generale, in un generico istante l'accelerazione <span class="tex">\(\alpha\)</span> e l'angolo <span class="tex">\(\theta\)</span> con la verticale rispetteranno l'equazione:<br>
+<br>
+<span class="tex">\(\frac{1}{3}ML^2 \alpha=Mg \frac{L}{2}sen\theta\)</span><br>
+<br>
+Da cui ricavi in particolare <span class="tex">\(\alpha \propto L^{-1}\)</span>, quindi dato che <span class="tex">\(t \propto \alpha\)</span> ottieni <span class="tex">\(\frac{t_2}{t_1}= \frac{1}{\sqrt{2}}\)</span></article>
+<article class="post" id="p22644"><div class="who"><b>np97</b><span>27 lug 2016, 16:54</span></div>Grazie mille, in effetti avevo dei dubbi sul momento angolare. In questo caso, quindi, lo spessore delle sbarrette non ha nessun impatto sul momento angolare, giusto?</article>
+<article class="post" id="p22645"><div class="who"><b>BeppeBogna</b><span>27 lug 2016, 16:58</span></div>Non incide su <span class="tex">\(\alpha\)</span> e quindi presumibilmente sulla velocità angolare, ma incide sul momento di inerzia, e quindi sul momento angolare  :D</article>
+<article class="post" id="p22646"><div class="who"><b>np97</b><span>27 lug 2016, 17:05</span></div>Grazie mille ancora! Questa parte dovrò ripassarla bene, mi sa  :oops:<br>
+Buona giornata!</article>
+<article class="post" id="p22647"><div class="who"><b>Sadi</b><span>27 lug 2016, 17:47</span></div>Scusatemi, ma non mi sono chiari due punti.<br>
+Se t è proporzionale ad 1/L, allora il rapporto non dovrebbe essere 2? <br>
+Inoltre perché il secondo membro dell'uguaglianza è MgL/2senθ e non MgLsenθ?</article>
+<article class="post" id="p22648"><div class="who"><b>BeppeBogna</b><span>27 lug 2016, 18:08</span></div>Perchè ho sbagliato a digitare, la relazione corretta è <span class="tex">\(t \propto \alpha ^{- \frac{1}{2}}\)</span>   :oops: <br>
+Il centro di massa è ovviamente il centro geometrico della sbarra, dato che è omogenea. Quindi si trova a distanza <span class="tex">\(\frac{L}{2}\)</span> da ogni estremità.</article>
+<article class="post" id="p22650"><div class="who"><b>Sadi</b><span>27 lug 2016, 18:33</span></div>Giusto, il centro di massa!  :oops: <br>
+Invece non riesco a capire da dove ricavi la proporzionalità tra t ed a...</article>
+<article class="post" id="p22651"><div class="who"><b>BeppeBogna</b><span>27 lug 2016, 18:39</span></div>Per analogia con la caduta di un grave</article>
+<article class="post" id="p22653"><div class="who"><b>Sadi</b><span>27 lug 2016, 19:38</span></div>Grazie! :)</article>
+<nav class="pager"><a class="prev" href="oliforum-4103.html"><small>← precedente</small>Sembra semplice...(da un sns 72)</a><a class="next" href="oliforum-11511.html"><small>successivo →</small>SNS 1980 (vecchio ma istruttivo)</a></nav>
+</main></body></html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1983/84 N3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1983-1984, problema 3</span></nav>
+<h1>SNS 1983/84 N3</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4787">forum Olifis</a></p>
+<article class="post first" id="p15720"><div class="who"><b>bogcal11</b><span>23 ott 2013, 15:28</span></div>Il moto delle stelle nel disco della nostra galassia e con buona approssimazione una rotazione differenziale, cioè le stelle ruotano intorno al centro galattico con una velocita angolare <span class="tex">\(\Omega(R)\)</span> che dipende dalla distanza <span class="tex">\(R\)</span> della stella dal centro della galassia. Sia <span class="tex">\(\Omega(R)=\Omega(R_0)+2A(\frac{R-R_0}{R_0})\)</span> ove <span class="tex">\(A\)</span> è una costante e <span class="tex">\(R_0\)</span> indica la distanza del sole dal centro galattico. Si dimostri che, per le stelle vicine al Sole (cioè tali che <span class="tex">\(r&lt;&lt;R_0\)</span>, la poiezione <span class="tex">\(v_r\)</span> della velocità relativa delle stelle rispetto al sole lungo la congiungente stella-sole segue la legge: <span class="tex">\(v_r\sim Ar\sin2\theta\)</span> dove <span class="tex">\(\theta\)</span> è l'angolo tra <span class="tex">\(r\)</span> e <span class="tex">\(R_0\)</span>.</article>
+<article class="post" id="p15745"><div class="who"><b>Simone256</b><span>1 nov 2013, 12:58</span></div>Premetto che questa soluzione è un po' "inventata"... Non so bene se quello che ho fatto è lecito pertanto gradirei qualche commento (o anche rimprovero) da qualcuno più esperto  :mrgreen: <br>
+<br>
+Affermando che il movimento delle stelle nella nostra galassia avviene in un disco possiamo considerare tutte le orbite appartenenti allo stesso piano; definiamo <span class="tex">\(\vec{R'}\)</span> come il vettore posizione della stella che studieremo rispetto al sole.<br>
+La velocità vettoriale <span class="tex">\(\vec{v_s}\)</span> del sole rispetto al centro della galassia è <span class="tex">\(\vec{\omega_s} \times \vec{R_0}\)</span>;<br>
+la velocità vettoriale <span class="tex">\(\vec{v'}\)</span> della stella rispetto al centro della galassia è <span class="tex">\(\vec{\omega'} \times \vec{R'}\)</span>;<br>
+dove <span class="tex">\(\vec{\omega_0}\)</span> e <span class="tex">\(\vec{\omega'}\)</span> sono rispettivamente i vettori velocità angolare del sole e della stella rispetto al centro della galassia.<br>
+Se <span class="tex">\(\vec{r}\)</span> è il vettore posizione della stella rispetto al sole avremo <span class="tex">\(\vec{r}=\vec{R'}-\vec{R_0}\)</span>.<br>
+La velocità relativa <span class="tex">\(\vec{v}\)</span> della stella rispetto al sole sarà:<br>
+<span class="tex">\(\vec{v}= \vec{v'}-\vec{v_s}=\vec{\omega_s} \times \vec{R'} - \vec{\omega'} \times \vec{R_0}= \vec{\omega'} \times (\vec{R_0}+\vec{r}) - \vec{\omega_s} \times \vec{R_0} = (\vec{\omega'}- \vec{\omega_s}) \times \vec{R_0} + \vec{\omega'} \times \vec{r}\)</span>             <span class="tex">\((1)\)</span><br>
+Poiché i corpi celesti si muovono tutti nello stesso piano i vettori <span class="tex">\(\vec{\omega'}\)</span> e <span class="tex">\(\vec{\omega_s}\)</span> sono paralleli, chiamiamo il vettore differenza <span class="tex">\(\vec{\omega}\)</span> la velocità angolare relativa della stella rispetto al sole.<br>
+Il modulo di questa velocità angolare è:<br>
+<span class="tex">\(\omega=\omega'- \omega_s= \omega_s + 2A (\frac{R'-R_0}{R_0}) - \omega_s= 2A (\frac{R'-R_0}{R_0})\)</span><br>
+Poiché <span class="tex">\(\vec{\omega}\)</span> e <span class="tex">\(\vec{R_0}\)</span> sono tra loro perpendicolari il primo addendo della <span class="tex">\((1)\)</span> è un vettore giacente nel piano delle orbite perpendicolare a <span class="tex">\(\vec{R_0}\)</span> di modulo  <span class="tex">\(2A (R'-R_0)\)</span>:<br>
+<span class="tex">\(\vec{v}=(\vec{\omega'}- \vec{\omega_s}) \times \vec{R_0}  + \vec{\omega'} \times \vec{r} = \vec{v_1} + \omega' \times \vec{r}\)</span>;<br>
+dove il modulo di <span class="tex">\(v_1\)</span> è appunto <span class="tex">\(2A (R'-R_0)\)</span>.<br>
+la proiezione di <span class="tex">\(\vec{v}\)</span> sulla congiungente le due stelle è <span class="tex">\(\vec{v_r}\)</span>; notiamo però che il secondo addendo della <span class="tex">\((1)\)</span> sarà un vettore perpendicolare rispetto a <span class="tex">\(\vec{r}\)</span>, quindi la proiezione di questa componente sarà nulla.<br>
+Facendo il disegno si determina facilmente che:<br>
+<span class="tex">\(v_r=v \mbox{ sin } \theta = 2A (R'-R_0) \mbox{ sin } \theta\)</span>; per le deduzioni precedenti.<br>
+Ora, ammettendo che <span class="tex">\(r &lt;&lt; R_0\)</span>, sempre da un disegno fatto non troppo malamente si deduce che <span class="tex">\(R'-R_0 = r \mbox{ cos } \theta\)</span>.<br>
+Quindi <span class="tex">\(v_r \sim Ar 2\mbox{ sin } \theta \mbox{ cos } \theta\)</span>, ma <span class="tex">\(2\mbox{ sin } \theta \mbox{ cos } \theta= \mbox{ sin } 2\theta\)</span> pertanto:<br>
+<br>
+<span class="tex">\(v_r \sim Ar \mbox{ sin } 2\theta\)</span><br>
+<br>
+<br>
+C'è qualche errore di concetto o di utilizzo dei vettori? Spero che lo sforzo immane per scrivere in latex questa soluzione porti i suoi frutti  :P</article>
+<article class="post" id="p15746"><div class="who"><b>Pigkappa</b><span>1 nov 2013, 13:49</span></div>M sembra ok, anche se penso proprio che con la trigonometria sia più facile che manipolando i vettori. Ad ogni modo è giusto saper usare bene i vettori per queste cose.<br>
+<br>
+Quella costante A è detta costante di Oort: <a href="http://it.wikipedia.org/wiki/Costante_di_Oort" class="ext" class="postlink">http://it.wikipedia.org/wiki/Costante_di_Oort</a></article>
+<nav class="pager"><a class="prev" href="olifis-240.html"><small>← precedente</small>SNS 1983-1984 (2)</a><a class="next" href="oliforum-6388.html"><small>successivo →</small>Riferimento non Inerziale @ SNS 1984</a></nav>
+</main></body></html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2014 problema 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2014-2015, problema 5</span></nav>
+<h1>SNS 2014 problema 5</h1>
+<p class="meta">33 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6024">forum Olifis</a></p>
+<article class="post first" id="p20116"><div class="who"><b>sall96</b><span>30 dic 2014, 15:01</span></div>L'indice di rifrazione dell'atmosfera cresce con continuita' dall'atmosfrea piu' alta, dove <span class="tex">\(\displaystyle n=1\)</span>, fino alla superficie della terra, dove <span class="tex">\(n_T=1.0003\)</span>.<br>
+Esprimere la relazione fra gli angoli <span class="tex">\(\theta\)</span> e <span class="tex">\(\theta_T\)</span> rispetto alla verticale, dove <span class="tex">\(\theta\)</span> e' definito dalla direzione vera della luce proveniente da una stella al limite superiore dell'atmosfera e <span class="tex">\(\theta_T\)</span> dalla direzione apparente della stella come osservata sulla superficie della terra. Si ignori la curvatura della terra.</article>
+<article class="post" id="p20117"><div class="who"><b>bogcal11</b><span>30 dic 2014, 15:36</span></div>Quello che farei è dividere l'atmosfera in strati infinitesimi e applicherei  la legge di Snell. In questo modo i due angoli del testo sono ancora legati dalla legge di Snell</article>
+<article class="post" id="p20119"><div class="who"><b>andrea96</b><span>30 dic 2014, 15:44</span></div><blockquote><div><cite>bogcal11 ha scritto:</cite>Quello che farei è dividere l'atmosfera in strati infinitesimi e applicherei  la legge di Snell. In questo modo i due angoli del testo sono ancora legati dalla legge di Snell</div></blockquote>
+Si l'idea è chiaramente giusta ma non pensare che in quel modo ti venga subito una funzione che ti lega l'angolo all'altezza... c'è da usare un "piccolo" stratagemma e poi approssimare; il problema più grosso è trovare l'approssimazione giusta che permetta di trovare una funzione. Bisognerebbe vedere un po con i dati che da fino a che punto si può approssimare.. :shock:</article>
+<article class="post" id="p20121"><div class="who"><b>bogcal11</b><span>30 dic 2014, 15:47</span></div>Scusa ma sono un po' inebetito... Quale altezza indendi?</article>
+<article class="post" id="p20122"><div class="who"><b>andrea96</b><span>30 dic 2014, 15:49</span></div>più o meno quella che vuoi :D secondo me la più comoda è quella misurata a partire dal limite dell'atmosfera andando verso la terra</article>
+<article class="post" id="p20123"><div class="who"><b>bogcal11</b><span>30 dic 2014, 15:51</span></div>Scusa, non mi sono spiegato bene  :oops: Non capisco perché dovrei trovare una finzione che mi leghi l'angolo all'altezza</article>
+<article class="post" id="p20124"><div class="who"><b>andrea96</b><span>30 dic 2014, 16:03</span></div>Perchè se la trovi, sostituendo all'altezza l'altezza dell'atmosfera, trovi la relazione che stai cercando :D</article>
+<article class="post" id="p20125"><div class="who"><b>andrea96</b><span>30 dic 2014, 16:58</span></div>scrivo la mia soluzione ditemi che ne pensate:<br>
+Chiamo <span class="tex">\(x\)</span> la distanza verticale da un punto generico al limite dell'atmosfera dove <span class="tex">\(n=1\)</span>. Chiamo <span class="tex">\(a\)</span> l'altezza dell'atmosfera. L'assunzione fondamentale è che la funzione <span class="tex">\(n(x)\)</span> essendo monotona crescente ed avendo pendenza media <span class="tex">\(\frac{0.0003}{a}\)</span> (quindi piccolissima ) si può assumere lineare, e quindi:<br>
+<span class="tex">\(n(x)=\frac{n_t-1}{a}x+1\)</span><br>
+Ora chiamando <span class="tex">\(\theta(x)\)</span> l'angolo che la luce forma con la verticale ad un altezza <span class="tex">\(x\)</span> scrivo la legge di Snell all'altezza <span class="tex">\(x\)</span>:<br>
+<span class="tex">\(\frac{sen(\theta(x))}{sen(\theta(x+dx))}=\frac{n(x+dx)}{n(x)}=\frac{\frac{n_t-1}{a}(x+dx)+1}{\frac{n_t-1}{a}x+1}=1+\frac{\frac{n_t-1}{a}dx}{\frac{n_t-1}{a}x+1}\)</span><br>
+Ora nell'ultimo termine il denominatore è nella forma <span class="tex">\(1+(t)\)</span> con <span class="tex">\(t&lt;&lt;1\)</span> e utilizzando l'approssimazione (non sapendo scrivere circa con Tex scrivo uguale) <span class="tex">\((1+(t)^{\alpha}=1+\alpha (t)\)</span> se <span class="tex">\(t&lt;&lt;1\)</span> riduco magicamente la legge di Snell (trascurando il termine <span class="tex">\(xdx(\frac{n_t-1}{a})^2\)</span> perchè è molto più piccolo degli altri ) a:<br>
+<span class="tex">\(\frac{sen(\theta(x))}{sen(\theta(x+dx))}=1+\frac{n_t-1}{a}dx\)</span><br>
+Ora la cosa furba da fare è il cambio di variabile <span class="tex">\(\theta(t)=\theta-\phi(t)\)</span> così che <span class="tex">\(\phi(t)\)</span> è sempre piccolissimo e posso scrivere(sempre senza saper usare il circa) <span class="tex">\(cos(\phi(x))=1\)</span> e <span class="tex">\(sen(\phi(x))=\phi(x)\)</span>. Mettendo tutto nella legge di Snell ottengo quindi:<br>
+<span class="tex">\(\frac{1-\phi(x)cotg(\theta)}{1-\phi(x+dx)cotg(\theta)}=1+\frac{n_t-1}{a}dx\)</span><br>
+Ora utilizzando l'approssimazione di prima visto che <span class="tex">\(\phi(x+dx)cotg(\theta)&lt;&lt;1\)</span>:<br>
+<span class="tex">\(\frac{1-\phi(x)cotg(\theta)}{1-\phi(x+dx)cotg(\theta)}=(1-\phi(x)cotg(\theta))(1-\phi(x+dx)cotg(\theta))=1+cotg(\theta)(\phi(x+dx)-\phi(x))-\phi(x)\phi(x+dx)cotg^2\theta=1+cotg(\theta)\phi'(x)dx\)</span><br>
+dove ho trascurato il termine <span class="tex">\(\phi(x)\phi(x+dx)cotg^2\theta\)</span> perchè è piccolissimo, e ho usato il fatto che <span class="tex">\(\phi(x+dx)=\phi(x)+\phi'(x) dx\)</span><br>
+La legge di Snell diventa quindi:<br>
+<span class="tex">\(1+cotg(\theta)\phi'(x)dx=1+\frac{n_t-1}{a}dx\)</span> cioè <span class="tex">\(\phi'(x)=tg{\theta} \frac{n_t-1}{a} x\)</span><br>
+Quindi integrando e ricordando che <span class="tex">\(\theta(x)=\theta-\phi(x)\)</span> si arriva a <br>
+<span class="tex">\(\theta(x)=\theta-\frac{n_t-1}{a} tg{\theta} x\)</span><br>
+e visto che <span class="tex">\(\theta_T=\theta(a)\)</span> la relazione cercata è<br>
+<span class="tex">\(\theta_T=\theta-(n_t-1)tg{\theta}\)</span></article>
+<article class="post" id="p20126"><div class="who"><b>sall96</b><span>30 dic 2014, 17:08</span></div>Molto simile alla mia, io ho solo fatto qualche approssimazione in meno e mi è venuto un risultato diverso (spero di non aver fatto errori  :? , comunque l'impostazione è uguale  :) ). Penso vada bene  :D</article>
+<article class="post" id="p20127"><div class="who"><b>andrea96</b><span>30 dic 2014, 17:14</span></div>Se uno vuole può anche evitare di trascurare il termine <span class="tex">\(xdx(\frac{n_t-1}{a})^2\)</span> visto che essendo proporzionale a <span class="tex">\(dx\)</span> che poi si semplifica porta lo stesso a una soluzione nemmeno troppo più complicata, però non cambia di molto il risultato visto che quel termine è realmente molto piccolo anche quando <span class="tex">\(x=a\)</span>... però scrivo quello che viene se non si trascura quel termine:<br>
+è banale vedere come si arriva a:<br>
+<span class="tex">\(\phi'(x)=\frac{n_t-1}{a}tg{\theta}-x(\frac{n_t-1}{a})^2\)</span><br>
+Stavolta integrando si ottiene:<br>
+<span class="tex">\(\phi(x)tg(\theta)\frac{n_t-1}{a}x-\frac{1}{2}(\frac{n_t-1}{a})^2 x^2\)</span><br>
+e quindi <span class="tex">\(\theta(x)=\theta-\phi(x)tg(\theta)\frac{n_t-1}{a}x-\frac{1}{2}(\frac{n_t-1}{a})^2 x^2\)</span><br>
+e di conseguenza <span class="tex">\(\theta_T=\theta-(n_t-1)tg(\theta)-\frac{(n_t-1)^2}{2}\)</span><br>
+Però è evidente che il termine correttivo in più è talmente piccolo che non credo valga nemmeno la pena di scrivere questo pezzo in più al test...</article>
+<article class="post" id="p20128"><div class="who"><b>cabe95</b><span>30 dic 2014, 18:43</span></div>Anch'io nella prova l'avevo risolto supponendo l'indice lineare e integrando, però la soluzione più gettonata è molto (ma molto) più stupida  :?</article>
+<article class="post" id="p20129"><div class="who"><b>andrea96</b><span>30 dic 2014, 18:51</span></div>Se hai tempo (e voglia) puoi scrivere la soluzione stupida?<br>
+Comunque secondo me questa soluzione dava il massimo dei punti...</article>
+<article class="post" id="p20131"><div class="who"><b>cabe95</b><span>30 dic 2014, 18:59</span></div>Guarda la prima parte del problema <span class="tex">\(O 12\)</span> "Le olimpiadi della fisica"<br>
+sennò Olimpiadi internazioneli - Sigtuna, Svezia - 1984</article>
+<article class="post" id="p20134"><div class="who"><b>Simone256</b><span>30 dic 2014, 19:15</span></div>Credo interessi solo l'angolo all'arrivo quindi basta iterare la legge di Snell fino ad averla praticamente in forma semplice...</article>
+<article class="post" id="p20136"><div class="who"><b>Simone256</b><span>30 dic 2014, 19:20</span></div><blockquote><div><cite>bogcal11 ha scritto:</cite>Quello che farei è dividere l'atmosfera in strati infinitesimi e applicherei  la legge di Snell. In questo modo i due angoli del testo sono ancora legati dalla legge di Snell</div></blockquote>
+Quello che intendo dire è in parole povere propeio questo! Dal testo almeno mi pare sensato  :oops:</article>
+<article class="post" id="p20138"><div class="who"><b>bogcal11</b><span>30 dic 2014, 19:51</span></div>Sì, effettivamente l'avrei risolto come ho trovato la soluzione di quell'Ipho dell'84. Infatti non sbuca da nessuna parte l'altezza in quella soluzione... :roll:</article>
+<article class="post" id="p20139"><div class="who"><b>Simone256</b><span>30 dic 2014, 19:55</span></div>È come avere tre materiali con 3 indici di rifrazione... Il raggio parte nel primo, entra nel secondo e infine nel terzo. L'angolo nel terzo materiale è indipendente dall'indice di rifrazione del materiale in mezzo ma dipende solo dall'angolo e dall'indice di rifrazione iniziale... In mezzo potrebbe esserci vuoto o un indice di rifrazione pari a millemila. Il fatto che ci interessano solo le condizioni agli estremi ci permette di trascurare tutto il macello che avviene in mezzo  8-)</article>
+<article class="post" id="p20142"><div class="who"><b>andrea96</b><span>30 dic 2014, 20:26</span></div>Hai ragione non ci avevo pensato proprio!  quello che dite voi é molto più priciso. Tra l altro non avevo nemmeno capito quello che aveva scritto bogcal al primo commento</article>
+<article class="post" id="p20143"><div class="who"><b>sall96</b><span>30 dic 2014, 20:42</span></div>Eccola la mia soluzione  :lol: <br>
+In qualche strano modo facendo come Andrea (integrando e tutto) mi viene la legge di Snell con i due angoli. Secondo me ho sbagliato qualcosa  e mi viene per caso  :lol:</article>
+<article class="post" id="p20144"><div class="who"><b>andrea96</b><span>30 dic 2014, 20:54</span></div>Prova a pubblicarla!  :D <br>
+Comunque mi sa che mi tocca fare un po di problemi di ottica! Se uno è abituato a pensare che i materiali in mezzo non contano vede subito la soluzione appena legge il testo... io che non ci sono abituato ho fatto tutto quel casino, che alla fine è anche giusto, ma è approssimato  :cry:  :cry:  :cry:</article>
+<article class="post" id="p20145"><div class="who"><b>sall96</b><span>30 dic 2014, 21:45</span></div>Appena posso la pubblico :)</article>
+<article class="post" id="p20146"><div class="who"><b>bogcal11</b><span>31 dic 2014, 3:18</span></div>Ma l'assunzione della linearità della funzione (che, per carità, è perfetta come approssimazione) non può mai portarti alla legge di Snell. Diciamo che con quell'ipotesi perdi qualcosa di insignificante... Ma per trovare Snell non devi perdere niente!</article>
+<article class="post" id="p20161"><div class="who"><b>sall96</b><span>1 gen 2015, 16:14</span></div>Sia <span class="tex">\(H\)</span> l'altezza dell'atmosfera.<br>
+L'indice di rifrazione cresce secondo la legge <span class="tex">\(n(x)=\dfrac{n_T-n}{H}x+n\)</span> (lo zero e' posto al limite dell'atmosfera).<br>
+<br>
+Divido l'atmosfera in tanti strati di spessore <span class="tex">\(dx\)</span>. Per la legge di Snell:<br>
+<span class="tex">\(n(x)sin(\alpha)=n(x+dx)sin(\alpha+d\alpha)\)</span><br>
+si ha che <span class="tex">\(n(x+dx)=n(x)+\dfrac{n_T-n}{H}dx\)</span> e <span class="tex">\(sin(\alpha+d\alpha)=sin(\alpha)cos(d\alpha)+sin(d\alpha)cos(\alpha)\simeq sin(\alpha)+d\alpha cos(\alpha)\)</span> posto <span class="tex">\(cos(d\alpha)\simeq 1\)</span> e <span class="tex">\(sin(d\alpha)\simeq d\alpha\)</span><br>
+<br>
+sostituendo questi accorgimenti nella legge di Snell (dopo qualche passaggio algebrico) si arriva a <br>
+<span class="tex">\(n(x)cos(\alpha)d\alpha+\dfrac{n_T-n}{H}dx*sin(\alpha)+\dfrac{n_T-n}{H}dxd\alpha*cos(\alpha)=0\)</span><br>
+L'ultimo termine si puo' trascurare e si arriva a <br>
+<span class="tex">\(\dfrac{cos(\alpha)}{sin(\alpha)}d\alpha=-\dfrac{\dfrac{n_T-n}{H}}{\dfrac{n_T-n}{H}x+n}dx\)</span><br>
+<br>
+Integro a sinistra da <span class="tex">\(\theta\)</span> a <span class="tex">\(\theta_T\)</span> e a destra da <span class="tex">\(0\)</span> a <span class="tex">\(H\)</span> che da<br>
+<span class="tex">\(ln\dfrac{sin\theta_T}{sin\theta}=-ln\dfrac{n_T}{n}=ln\dfrac{n}{n_T}\)</span> che infine da<br>
+<span class="tex">\(n_Tsin(\theta_T)=n sin(\theta)\)</span><br>
+<br>
+A parte l'altra soluzione piu' facile ed elegante (averci pensato prima  :roll: ) come dimostrazione potrebbe andare o ci sono degli errori grossolani?</article>
+<article class="post" id="p20162"><div class="who"><b>bogcal11</b><span>1 gen 2015, 16:56</span></div>Ok, ho un dubbio. Perché <br>
+<span class="tex">\(n(x)\sin(\alpha)=n(x+dx)\sin(\alpha + d\alpha)\)</span>? Cioè, perché si può assumere che se l'altezza aumenti di <span class="tex">\(dx\)</span> anche l'angolo aumenta di <span class="tex">\(d\alpha\)</span>?</article>
+<article class="post" id="p20164"><div class="who"><b>sall96</b><span>1 gen 2015, 17:19</span></div>Mi verrebbe da dire che se l'altezza aumenta di poco, l'indice di rifrazione cambia di poco e di conseguenza anche l'angolo cambia di poco, e aumenta di una quantità infinitesimale. Spero di essere stato chiaro  :) <br>
+<br>
+Tuttavia mi sembra ci sia un errore che non avevo notato: io ho preso come riferimento a zero il limite dell'atmosfera e come <span class="tex">\(H\)</span> il suolo (l'asse positivo è rivolto verso il basso). Solo che se <span class="tex">\(x\)</span> lo aumento di <span class="tex">\(dx\)</span> (andando verso il basso) l'angolo diminuisce di <span class="tex">\(d\alpha\)</span> (perché l'indice di rifrazione aumenta)... Solo che così vengono i segni scambiati  :oops:  :? ...</article>
+<article class="post" id="p20170"><div class="who"><b>bogcal11</b><span>1 gen 2015, 23:59</span></div>ok, ho detto una cretinata prima. Quindi non importa com'è fatta <span class="tex">\(n(x)\)</span> se non agli estremi? Secondo voi si può dimostrare che esce così solo assumendo che <span class="tex">\(n\)</span> è continua?</article>
+<article class="post" id="p20173"><div class="who"><b>sall96</b><span>2 gen 2015, 0:11</span></div>Penso che se anche sia discontinua valga comunque.<br>
+<br>
+prendi <span class="tex">\(k\)</span> strati uno sopra l'altro di indici di rifrazione <span class="tex">\(n_1,n_2,...,n_k\)</span>.<br>
+allora si ha che;<br>
+<span class="tex">\(n_1sin(\theta_1)=n_2sin(\theta_2)\)</span><br>
+<span class="tex">\(n_2sin(\theta_2)=n_3sin(\theta_3)\)</span><br>
+<br>
+<span class="tex">\(...\)</span><br>
+<br>
+<span class="tex">\(n_{k-1}sin(\theta_{k-1})=n_ksin(\theta_k)\)</span> <br>
+ovvero <span class="tex">\(n_1sin(\theta_1)=n_ksin(\theta_k)\)</span>, che e' come se ci fossero solo il primo e l'ultimo  :D</article>
+<article class="post" id="p20174"><div class="who"><b>bogcal11</b><span>2 gen 2015, 0:18</span></div>Sì, l'ho risolto così anche io... però intendevo integrando o facendo qualcos'altro</article>
+<article class="post" id="p20175"><div class="who"><b>sall96</b><span>2 gen 2015, 0:40</span></div>Scusa non avevo capito   :lol: <br>
+Allora penso di non essere la persona più adatta a rispondere alla tua domanda</article>
+<article class="post" id="p20176"><div class="who"><b>andrea96</b><span>2 gen 2015, 0:59</span></div>Penso che il fatto che la funzione è continua l'abbiano scritto solo per confondere e indurre a fare il lunghissimo procedimento che ho fatto io perdendo parecchio tempo. In realtà interessano solo i valori agli estremi tutto il resto può essere qualsiasi, lì l'indice di rifrazione potrebbe anche assumere valori complessi ma il risultato non cambierebbe.</article>
+<article class="post" id="p20177"><div class="who"><b>sall96</b><span>2 gen 2015, 10:03</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>l'indice di rifrazione potrebbe anche assumere valori complessi ma il risultato non cambierebbe.</div></blockquote>
+Si possono anche avere indici di rifrazione complessi?</article>
+<article class="post" id="p20184"><div class="who"><b>andrea96</b><span>2 gen 2015, 17:50</span></div>Diciamo che la mia era una battuta... :lol:  :lol:  :lol: Però se mi fai la domanda la risposta è si: un indice di rifrazione può avere valore complesso, anzi è praticamente sempre un numero complesso. Non è che io vorrei confonderti, però l'indice di rifrazione di cui ti sto parlando non è il rapporto tra velocità della luce nel vuoto e nel mezzo, quella è solo la sua parte reale; l'indice di rifrazione di cui ti sto parlando io viene da un calcolo basato su un modello in cui gli atomi del mezzo iniziano a oscillare e producono altra radiazione che da l'illusione che la luce "rallenti" nel mezzo. Per darti un idea si suppone che gli elettroni negli atomi siano oscillatori forzati dal campo esterno ( quello della luce incidente sul mezzo ), e la parte complessa dell'indice esce fuori se si suppone che nel oscillazione ci sia uno smorzamento, e questo nei casi reali è sempre vero. La parte reale di quello che viene fuori è appunto quello che comunemente chiamiamo indice di rifrazione, la parte complessa è quello che sia chiama coefficiente di assorbimento e ha appunto a che fare con l'assorbimento della luce.</article>
+<article class="post" id="p20186"><div class="who"><b>sall96</b><span>2 gen 2015, 17:56</span></div>Mi era venuto il dubbio che fosse una battuta ma poi mi è venuta la curiosità  :lol: <br>
+Grazie!</article>
+<nav class="pager"><a class="prev" href="olifis-6023.html"><small>← precedente</small>SNS 2014 problema 4</a><a class="next" href="olifis-6591.html"><small>successivo →</small>SNS 2014-2015 n.6</a></nav>
+</main></body></html>

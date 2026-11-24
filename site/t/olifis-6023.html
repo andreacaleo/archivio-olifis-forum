@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2014 problema 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2014-2015, problema 4</span></nav>
+<h1>SNS 2014 problema 4</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6023">forum Olifis</a></p>
+<article class="post first" id="p20094"><div class="who"><b>sall96</b><span>29 dic 2014, 13:39</span></div>A due sfere identiche di ferro e' data la stessa quantita' di calore <span class="tex">\(Q\)</span>. La prima sfera e' posta su un supporto mentre la seconda e' sospesa ad un cavo. Le due sfere sono isolate termicamente. Quale delle due sfere raggiungera' la temperatura piu' alta? Calcolare la differenza di temperatura, considerando conosciuti il raggio della sfera <span class="tex">\(R\)</span>, il calore specifico del ferro <span class="tex">\(C\)</span> e il coefficiente di dilatazione lineare <span class="tex">\(\alpha\)</span>, definito da <span class="tex">\(\Delta l=\alpha l\Delta T\)</span><br>
+<br>
+PS: Volevo mettere la mia soluzione in spoiler ma non mi funziona il comando, forse sbaglio io a metterlo  :?  C'e' un modo?</article>
+<article class="post" id="p20097"><div class="who"><b>Simone256</b><span>29 dic 2014, 14:10</span></div>Credo che su sto forum non sia possibile :(<br>
+<br>
+Puoi fare al massimo così:<br>
+<br>
+<span style="color:#E6F0E7">INVISIBILE</span><br>
+
+<blockquote><div><cite>Simone256 ha scritto:</cite><div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>[color=#E6F0E7]INVISIBILE[/color]</code></pre></div></div></blockquote></article>
+<article class="post" id="p20103"><div class="who"><b>andrea96</b><span>29 dic 2014, 18:32</span></div>Provo a scrivere la mia soluzione anche se penso sia sbagliata perchè c'è la dipendenza dalla massa delle sfere che non credo si possa assumere implicitamente nota visto che il testo dice esplicitamente quali cose sono da considerarsi note.<br>
+Allora la differenza tra i due casi è solo l'estremo fissato della della sfera, così che quando la sfera è appoggiata a terra dilatandosi si espande verso l'alto e aumenta la sua energia potenziale gravitazionale mentre quando è appesa si espande verso l'alto e diminuisce la sua energia potenziale gravitazionale. Nel primo caso quindi una parte del calore fornito aumenta l'energia potenziale gravitazionale, nel secondo sia il calore che l'energia guadagnata dalla "discesa" aumentano la temperatura, pertanto avrà temperatura più alta la sfera appesa al filo. Ora il problema è che per quantificare mi servirebbe la massa delle due sfere... quindi assumo sia <span class="tex">\(m\)</span>  :cry: <br>
+Ora se una sfera aumenta la sua temperatura di <span class="tex">\(\Delta T\)</span> il centro della sfera si sposta ( in alto o in basso, dipende dal caso ) di <span class="tex">\(\alpha R \Delta T\)</span> e quindi l'energia potenziale aumenta o diminuisce di <span class="tex">\(\Delta U=mg\alpha R \Delta T\)</span>.<br>
+Nel caso in cui la sfera è appesa al filo quindi si ha <span class="tex">\(Cm\Delta T_1=\Delta U + Q\)</span> cioè <span class="tex">\(\Delta T_1=\frac{Q}{Cm-mg\alpha R}\)</span>.<br>
+Nel caso in cui la sfera è appoggiata a terra <span class="tex">\(Cm\Delta T_2=Q-\Delta U\)</span> cioè <span class="tex">\(\Delta T_2=\frac{Q}{Cm+mg\alpha R}\)</span><br>
+Ora <span class="tex">\(T_1-T_2=\Delta T_1-\Delta T_2=\frac{2g\alpha RQ}{C^2m-mg^2{\alpha}^2R^2}\)</span><br>
+Questa è l'unica cosa che mi viene in mente ora e probabilmente è quello che avrei scritto al test, come modello non mi sembra nemmeno troppo assurdo, però se il testo non da la massa delle sfere probabilmente chi ha scritto il problema voleva altro....</article>
+<article class="post" id="p20104"><div class="who"><b>sall96</b><span>29 dic 2014, 18:42</span></div>Esattamente identica alla mia   :shock: :D   <br>
+L'unica cosa e' che <span class="tex">\(C\)</span> l'hai considerato come la capacita' della sfera ma e' il calore specifico del ferro (non so perche' l'abbiano scritto in maiuscolo, io ho copiato esattamente quello che c'era scritto...), comunque e' una sottigliezza  :) .<br>
+<br>
+Anche io non capisco se posso assumere di avere la massa o no, perche' se no non capisco come possa essere fatto  :? . Se qualcuno ha altre idee le metta  :D</article>
+<article class="post" id="p20105"><div class="who"><b>andrea96</b><span>29 dic 2014, 18:49</span></div><blockquote><div><cite>sall96 ha scritto:</cite>
+L'unica cosa e' che <span class="tex">\(C\)</span> l'hai considerato come la capacita' della sfera ma e' il calore specifico del ferro</div></blockquote>
+ :o  :o  :o non me ne ero proprio accorto! correggo subito! ;) Comunque a maggior ragione serve la massa delle sfere, credo sia il classico testo cattivissimo che mettono ai test per confonderti!  :twisted:  :twisted:  :twisted:<br>
+O forse i prof che hanno scritto il testo ritengono che la densità del ferro dovrebbe essere una costante nota per un normalista... :(</article>
+<article class="post" id="p20106"><div class="who"><b>Simone256</b><span>29 dic 2014, 19:19</span></div>Come fisico dato che <span class="tex">\(\alpha\)</span> è ben piccolo mi vien voglia di scrivere:<br>
+<span class="tex">\(\displaystyle \Delta T=\frac{2g\alpha RQ}{C^2m}\)</span><br>
+:D<br>
+<br>
+Comunque indicazioni sulla massa (o sulla densità) anche secondo me sono indispensabili  :roll:</article>
+<article class="post" id="p20107"><div class="who"><b>andrea96</b><span>29 dic 2014, 19:52</span></div>Comunque pensandoci bene il fatto che il testo dice che le sfere sono di ferro forse ci autorizza ad utilizzare nel problema la densità del ferro...</article>
+<article class="post" id="p20108"><div class="who"><b>Simone256</b><span>29 dic 2014, 19:59</span></div>Anche secondo me in stretti termini di punteggio al test forse è meglio scrivere tutto in termini di <span class="tex">\(\rho_{ferro}\)</span> dato che fornire il materiale significa forse concedere l'utilizzo di ogni proprietá fisica intrinseca del materiale...</article>
+<article class="post" id="p20109"><div class="who"><b>sall96</b><span>29 dic 2014, 20:28</span></div>Sono quelle cose che non sapremo mai  :twisted: <br>
+Ad ogni modo penso (e spero) che in questo test valorizzino la capacita'  di ragionare e di trovare belle idee, non i formalismi come questo  :)</article>
+<nav class="pager"><a class="prev" href="olifis-6031.html"><small>← precedente</small>SNS 2014 - 3</a><a class="next" href="olifis-6024.html"><small>successivo →</small>SNS 2014 problema 5</a></nav>
+</main></body></html>

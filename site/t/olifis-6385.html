@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1986/7 n. 2 - Lancio di un sasso</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1986-1987, problema 2</span></nav>
+<h1>SNS 1986/7 n. 2 - Lancio di un sasso</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6385">forum Olifis</a></p>
+<article class="post first" id="p22746"><div class="who"><b>np97</b><span>20 ago 2016, 13:06</span></div>Buongiorno,<br>
+ho trovato un altro problema della Normale che secondo me potrebbe essere interessante:<br>
+
+<blockquote class="uncited"><div>
+Un ragazzo lancia un sasso con velocità iniziale <span class="tex">\(v_{0}\)</span> e con angolo di elevazione <span class="tex">\(\theta\)</span> del tutto casuale. Davanti a lui c’è una buca nel terreno di lunghezza a, a distanza l.<br>
+Assumendo  che  i  lanci  avvengano  tutti  nello  stesso  piano  verticale, passante per il centro della buca, si calcoli la probabilità che il sasso cada nella buca.<br>
+Si usino i seguenti dati numerici:<br>
+<br>
+<span class="tex">\(v_{0} = 10 m/s\)</span><br>
+<span class="tex">\(l = 5 m\)</span><br>
+<span class="tex">\(a = 20 cm\)</span>
+</div></blockquote>
+
+La soluzione a cui ho pensato, invece, è:<br>
+
+<blockquote class="uncited"><div>
+In un moto parabolico generico si ha:<br>
+<span class="tex">\(x=v_{0x}t\)</span><br>
+<span class="tex">\(y=-\frac{1}{2}gt^2 + v_{0y}t\)</span><br>
+<br>
+Da cui si ottiene:<br>
+<span class="tex">\(y=-\frac{1}{2}g\frac{x^2}{v_{0x}^2} + v_{0y}\frac{x}{v_{0x}}\)</span><br>
+<br>
+La gittata, quindi, è pari a:<br>
+<span class="tex">\(L = 2v_{0}^2sin\theta cos\theta\)</span><br>
+<br>
+La gittata, quindi, deve essere compresa fra <span class="tex">\(l-a\)</span> ed <span class="tex">\(l+a\)</span>, quindi dopo aver svolto i calcoli ottengo:<br>
+<span class="tex">\(14,04 \leq \theta \leq 17,33\)</span><br>
+<span class="tex">\(\Delta\theta = 3,29\)</span><br>
+(angoli espressi in gradi)<br>
+Di conseguenza la probabilità di centrare la buca è:<br>
+<span class="tex">\(p=\frac{3,29}{90}*100 = 3,66\%\)</span>
+</div></blockquote>
+
+Cosa ne pensate?<br>
+Grazie in anticipo.</article>
+<article class="post" id="p22747"><div class="who"><b>AleDonda</b><span>21 ago 2016, 22:32</span></div>Ciao!Il ragionamento in se è giusto;solo che hai scordato <span class="tex">\(g\)</span> al denominatore della gittata e poi  dire che <blockquote class="uncited"><div> Davanti a lui c’è una buca nel terreno di lunghezza a, a distanza l. </div></blockquote> significa che il centro della buca è a distanza l.Dunque le gittate associate alla variazione dell'angolo sono <span class="tex">\(l- {a \over 2}\)</span> e <span class="tex">\(l+ {a \over 2}\)</span>. Il risultato dovrebbe essere <span class="tex">\(P=0.0154\)</span>. Comunque sia il tuo ragionamento è corretto :D <br>
+<br>
+Farai il test il 25? :P</article>
+<article class="post" id="p22748"><div class="who"><b>np97</b><span>21 ago 2016, 23:14</span></div>Ah già, è vero. All'inizio sul foglio scritto a mano l'avevo anche scritto, poi qua non l'ho più messo e non ho più sostituito i valori si vede.<br>
+Si si, provo anch'io il 25 per informatica. Anche tu?</article>
+<article class="post" id="p22749"><div class="who"><b>AleDonda</b><span>21 ago 2016, 23:31</span></div>Volevo provare...Ma dato il mio livello di preparazione per il test temo che mi iscriverò direttamente alla statale per Fisica :oops:</article>
+<article class="post" id="p22753"><div class="who"><b>np97</b><span>23 ago 2016, 12:32</span></div>Secondo me ti conviene provare, anche io non sono messo benissimo su alcuni argomenti di fisica e di matematica alcuni argomenti a scuola non li ho mai fatti, però è un'occasione che capita una volta nella vita.</article>
+<nav class="pager"><a class="prev" href="olifis-1329.html"><small>← precedente</small>SNS 1986 n.2</a><a class="next" href="olifis-234.html"><small>successivo →</small>SNS 1988-1989 (2)</a></nav>
+</main></body></html>

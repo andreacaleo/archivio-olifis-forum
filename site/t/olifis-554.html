@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1996/1997 n.6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1996-1997, problema 6</span></nav>
+<h1>SNS 1996/1997 n.6</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=554">forum Olifis</a></p>
+<article class="post first" id="p4990"><div class="who"><b>Luke</b><span>23 ago 2010, 19:18</span></div>Una spira conduttrice circolare è fissata sul piano xy con centro nell’origine ed è collegata ad un generatore di corrente che vi mantiene una corrente I costante. Una seconda spira conduttrice chiusa, identica alla prima, è vincolata a muoversi mantenendosi col centro lungo l’asse z e parallela al piano xy. La spira mobile è inizialmente molto lontana dall’origine, ma vi si sta<br>
+avvicinando; essa inizialmente non è percorsa da corrente. Se ne descriva il moto qualitativamente e, in particolare, si dica se viene attratta o respinta dalla spira fissa e come tale interazione dipende dalla corrente nella spira fissa e dalla distanza fra le spire, supponendo che tale distanza si mantenga molto grande rispetto alle dimensioni delle spire.</article>
+<article class="post" id="p4991"><div class="who"><b>Stardust</b><span>23 ago 2010, 20:19</span></div>E' solo un'idea appena abbozzata questa risposta.<br>
+Per quanto riguarda la spira fissa, essa genera un campo magnetico lungo l'asse z il cui valore è<br>
+<span class="tex">\(B_z=\displaystyle{\frac{\mu _0iR^2}{2\sqrt{(z^2+R^2)^3}}}\)</span>.<br>
+Questo si ottiene integrando tutti i contributi dB dovuti a ogni piccolo pezzetto della spira di partenza sull'intera circonferenza, in modo non molto diverso da quanto è stato fatto in altri topic con analoghi gravitazionali/elettrici.<br>
+(Per favore, fatemi risparmiare un po' di LaTeX oggi, se qualcuno vuole scrivere la dimostrazione, è benvenuto. :D )<br>
+Data la grande distanza tra le due spire, è questo il valore del campo magnetico che agisce sulla spira secondaria.<br>
+Se questa è in moto verso la prima, allora subirà una variazione di flusso magnetico al suo interno, a cui deve reagire con la creazione di una forza elettromotrice lungo la spira stessa. Da ciò deriva una corrente, che è a sua volta sotto l'influsso del campo elettrico iniziale, il che ci porta ad osservare l'esistenza di una forza magnetica lungo la spira. Dato che B è perpendicolare al piano xy, cui è sempre parallela la seconda spira, questa forza deve essere orientata in direzione radiale, nel piano xy appunto. <br>
+Entro questi limiti, quindi, non mi sembra che l'interazione magnetica influisca sul moto, che invece avviene lungo l'asse z. A naso però direi pure che l'altra spira dovrebbe essere respinta dalla prima, proprio per la questione della variazione del flusso magnetico. <br>
+Non so perchè ma alla fine sento puzza di errore nel mio ragionamento...</article>
+<article class="post" id="p4994"><div class="who"><b>Luke</b><span>24 ago 2010, 11:31</span></div>Avevo iniziato a ragionare nello stesso modo anchio, ma ero in dubbio sul fatto che la prima spira fosse inizialmente "molto lontana" da quella ferma: trovandomi a distanza molto maggiore del raggio della spira ferma, il campo magnetico non dovrebbe essere praticamente nullo? Mi spiego: dato che il campo magnetico attorno ad una porzione infinitesima di filo per Biot-Savart è circolare, a grande distanza da una spira prendendo il campo generato da una porzione infinitesima della stessa questo non dovrebbe essere praticamente uguale a quello opposto generato dalla sua simmetrica, e quindi annullarsi? Un po' lo stesso principio per cui in un solenoide si considera il campo esterno nullo per capirci.</article>
+<article class="post" id="p5073"><div class="who"><b>Rigel</b><span>30 ago 2010, 20:11</span></div>riprendo questo problema che mi era sembrato carino<br>
+volendo fare una cosa più quantitativa si può partire dall'equazione di Stardust (chiamo a il raggio della spira) che per z&gt;&gt;a da<br>
+<span class="tex">\(\displaystyle B=ki\frac{a^2}{z^3}\)</span><br>
+assumendo che il campo magnetico sia praticamente uniforme sulla sezione della seconda spira, il flusso è<br>
+<span class="tex">\(\displaystyle \Phi=ki\frac{a^4}{z^3}\)</span><br>
+se non è uniforme credo si possa correggere tutto con un fattore numerico &lt;1. il k indica costanti via via diverse<br>
+la fem indotta è<br>
+<span class="tex">\(\displaystyle f=kia^4\frac{\dot z}{z^4}\)</span><br>
+dove <span class="tex">\(\dot z\)</span>. questo si ha dal fatto che <span class="tex">\(f=-\dot{\Phi}=-\dot{z^{-3}}\)</span><br>
+detta R la resistenza della spira, la potenza dissipata è quindi<br>
+<span class="tex">\(\displaystyle P=f^2/R=k\frac{i^2a^8\dot{z}^2}{Rz^8}\)</span><br>
+tale energia dissipata proviene dall'energia cinetica, la cui variazione temporale è<br>
+<span class="tex">\(\displaystyle \dot{E_c}=m\dot z\ddot z=-P\)</span><br>
+dove <span class="tex">\(\displaystyle \ddot z=\frac{d\dot z}{dt}=\frac{d\dot z}{dz}\frac{dz}{dt}=\frac{d\dot z}{dz}\dot z\)</span> è l'accelerazione della spira. sostituendo e semplificando un pò di cose si ha<br>
+<span class="tex">\(\displaystyle \frac{d\dot z}{dz}=-k\frac{i^2a^8}{mRz^8}\)</span><br>
+si pone <span class="tex">\(-v_0\)</span> la velocità della spira a distanza infinita. il segno meno è dovuto al fatto che la spira si avvicina<br>
+integrando si ha<br>
+<span class="tex">\(\displaystyle v(z)=k\frac{i^2a^8}{mRz^7}-v_0=k\frac{i^2a^6}{\delta\rho z^7}-v_0\)</span><br>
+dove <span class="tex">\(\delta\)</span> e <span class="tex">\(\rho\)</span> sono la densità e la resistività della spira. l'aver sostituito la massa e la resistenza ha mostrato che la decelerazione della spira è indipendente dalla sua sezione<br>
+conoscendo la costante k e i parametri si può calcolare la distanza a cui la velocità della spira si annulla, cioè la distanza a cui essa si ferma.<br>
+volendo si potrebbe considerare la corrente indotta dalla seconda spira nella prima, ma essendo dipendente da potenze molto alte di 1/z, si può tranquillamente ignorare e porre uguale a zero</article>
+<nav class="pager"><a class="prev" href="olifis-213.html"><small>← precedente</small>SNS 1996/1997 n°5 - superconduttore cilindrico</a><a class="next" href="oliforum-11591.html"><small>successivo →</small>SNS 1997 + Bonus.</a></nav>
+</main></body></html>

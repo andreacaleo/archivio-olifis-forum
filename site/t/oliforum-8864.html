@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>trenino fastidioso...... sns 2005/2006 n5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 5</span></nav>
+<h1>trenino fastidioso...... sns 2005/2006 n5</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8864">OliForum</a></p>
+<article class="post first" id="p73684"><div class="who"><b>HoFinitoLeIdee</b><span>09 ago 2007, 10:29</span></div>salve a tutti. mi sono appena iscritto al forum, e voglio postarvi questo problemino della sns che spero qualkuno mi dia una mano a risolverlo..... kiedo aiuto a voi, perchè di fisica in 5 anni di liceo avrò fatto una decina di esercizi in tutto..... e ora che vorrei provare ad entrare alla sns sono indietro forte...cmq inutile lamentarsi. ecco il problema:<br>
+<br>
+si consideri un trenino elettrico composto da una locomotiva di massa <em class="text-italics">m</em> posta su un circuito circolare di raggio <em class="text-italics">R</em> appoggiato su un piano orizzontale fisso. le dimensioni della locomotiva sono trascurabili rispetto a <em class="text-italics">R</em>, la massa di tutti i binari componenti il circuito è <em class="text-italics">M</em> e il circuito può scorrere sul piano senza attrito alcuno. locomotiva e circuito sono inizialmente fermi., poi la locomotiva si mette in moto fino a raggiungere la velocità di scorrimento relativa ai binari <em class="text-italics">v<span style="font-size:59%;line-height:116%">0</span> </em> costante. si determini la traiettoria della locomotiva rispetto al piano d'appoggio, ed il periodo <em class="text-italics">T</em> del suo moto dopo il transiente iniziale. si discutano i due limiti <em class="text-italics">M&gt;&gt;m</em> e <em class="text-italics">m&gt;&gt;M</em>. in che senso il secondo di essi può essere irrealistico?<br>
+<br>
+<br>
+bello lungo come traccia... aspetto fiducioso.<br>
+<br>
+ciao a tutti</article>
+<article class="post" id="p73700"><div class="who"><b>memedesimo</b><span>09 ago 2007, 12:06</span></div>Non è un problema proprio facile, secondo me. Bisogna usare il fatto che le forze sono interne e quindi 1) il centro di massa non si sposta, 2) si conserva il momento angolare.<br>
+<br>
+<br>
+Ciao!</article>
+<article class="post" id="p73708"><div class="who"><b>HoFinitoLeIdee</b><span>09 ago 2007, 13:30</span></div>il trenino è sempre + fastidioso...... :x <br>
+<br>
+<br>
+aspetto fiducioso l'intervento di altri..... grazie mille cmq.<br>
+<br>
+ciao</article>
+<article class="post" id="p73718"><div class="who"><b>TADW_Elessar</b><span>09 ago 2007, 14:20</span></div>Un'idea potrebbe essere sfruttare le evidenti analogie con il moto di due corpi in orbita circolare l'uno intorno all'altro.<br>
+<br>
+Provo con un disegnino (collaborazione grafica Cabri Géomètre II):<br>
+<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img466.imageshack.us/img466/2888/treninofastidiosoui3.jpg" class="ext">[immagine non più disponibile]</a></a></article>
+<article class="post" id="p73724"><div class="who"><b>zancus</b><span>09 ago 2007, 15:39</span></div>Hai già guardato qui?<br>
+<a href="oliforum-4833.html" class="postlink">viewtopic.php?t=4833</a></article>
+<article class="post" id="p73770"><div class="who"><b>memedesimo</b><span>09 ago 2007, 19:52</span></div>Ragazzi, faccio riferimento alla figura che è stata postata da TADW_Elessar:<br>
+<br>
+ho usato: conservazione momento angolare, centro di massa sta fermo e composizione velocità.<br>
+<br>
+Premessa teorica sul momento angolare: Il momento angolare di un corpo rigido che trasla e ruota rispetto a un punto $ P $, è la somma di 1) del momento angolare del corpo considerato come puntiforme nel suo Centro di massa, rispetto a $ P $, 2) il momento angolare del corpo in rotazione attorno al suo centro di massa, rispetto al centro di massa.<br>
+<br>
+Il momento angolare totale deve essere uguale a zero. Legenda: $ L $=distanza Locomotiva-centrodimassa; $ C $=distanza centro del circuito-centro di massa; $ W $= velocità angolare di L e di C attorno al centro di massa; $ W_c $=velocità angolare del circuito rispetto a C (cioè la velocità a cui ruota C).<br>
+<br>
+momento angolare di $ L= mwL^2 $<br>
+momento angolare di $ C= MWC^2+MR^2W_c $<br>
+<br>
+La somma di questi due deve essere zero, il che mi porta a <br>
+<br>
+ $ W= - Wc (1+\frac{M} m)      [1]  $<br>
+<br>
+Nei calcoli intermedi si è usato il fatto che $ mL=MC $ e che $ L+C=R $.<br>
+<br>
+l'altra equazione è la composizione delle velocità. La velocità del treno rispetto ai binari, siccome sia il cdm che i binari si muovono "contro" al treno, è $ V_o=V_c+V_L-W_cR $; dove $ V_c $ è la velocità di rispetto al terreno e $ V_L $ la velocità di L rispetto al terreno. (questa equazione non è facile da capire, ma senza un foglio dubito di riuscire a spiegarla decentemente. C'è un meno perchè considero che $ W_c $ ha segno opposto a $ W $)<br>
+Dunque $ V_o=WL+W_C-W_cR=WR-W_cR      [2]  $<br>
+<br>
+facendo il sistema tra [1] e [2] si ottiene $ W= \frac {V_o(m+M)} {R(2m+M)} $ e conseguentemente il periodo $ T=\frac{2\pi}W $<br>
+<br>
+spero di essere stato chiaro!<br>
+<br>
+Ciao!</article>
+<article class="post" id="p73791"><div class="who"><b>Deerber</b><span>09 ago 2007, 22:47</span></div>Io penso che il problema principale sia dimostrare che la traiettoria è effettivamente una circonferenza. Di espressioni per T se ne sono trovate, e anche spiegazioni per i limiti. Ma ancora nessuno ha dimostrato che sta cavolo di locomotiva fa effettivamente un moto circolare (cosa per niente ovvia). Detto questo, non è l'ora adatta per cercare una dimostrazione, quindi il mio post è solo per puntualizzare l'unico punto del problema ancora irrisolto. Una volta appurato che è una circonferenza, tanto, si tratta solo di capire come applicare la relatività delle velocità. Buonanotte a tutti  :)</article>
+<article class="post" id="p73797"><div class="who"><b>memedesimo</b><span>10 ago 2007, 08:35</span></div>Beh questo è facile: il CDM rimane fermo rispetto al terreno, e qui non ci piove. La distanza tra CDM e locomotiva rimane sempre la stessa, e qui non ci piove. Qual'è il luogo dei punti che hanno distanza fissa da un centro?</article>
+<article class="post" id="p73822"><div class="who"><b>Deerber</b><span>10 ago 2007, 12:47</span></div>Uhm non capisco bene un tuo passaggio.
+<blockquote class="uncited"><div>La distanza tra CDM e locomotiva rimane sempre la stessa, e qui non ci piove. </div></blockquote>
+Se la traiettoria della locomotiva è effettivamente circolare, questo non è possibile, dato che il CdM non si trova nel centro dei binari.<br>
+Se sono io a dire stupidaggini ditelo, probabilmente è che sono ancora addormentato  :)</article>
+<article class="post" id="p73823"><div class="who"><b>TADW_Elessar</b><span>10 ago 2007, 12:49</span></div>Tra centro di massa del sistema e locomotiva, oltre che tra centro dei binari e locomotiva.</article>
+<article class="post" id="p73832"><div class="who"><b>Deerber</b><span>10 ago 2007, 14:02</span></div>Infatti, è proprio come dicevo io. Sono ancora addormentato  :lol: <br>
+Allora direi che la dimostrazione c'è, le formule per i limiti e T anche... il problema è risolto. Ciao</article>
+<nav class="pager"><a class="prev" href="oliforum-6143.html"><small>← precedente</small>Ammissione SNS (2005-2006).4</a><a class="next" href="oliforum-6107.html"><small>successivo →</small>Al centro dell&#x27;attenzione</a></nav>
+</main></body></html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2017 n.6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2017-2018, problema 6</span></nav>
+<h1>SNS 2017 n.6</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6706">forum Olifis</a></p>
+<article class="post first" id="p24811"><div class="who"><b>phab182</b><span>9 giu 2018, 2:14</span></div>Un'importante evento scientifico avvenuto nel 2016 è stata la prima osservazione sperimentale delle onde gravitazionali. La figura riproduce in forma semplificata e filtrata dal rumore l'andamento temporale di questo primo, famoso evento, che è stato attribuito alla collisione di due buchi neri inizialmente in rotazione uno attorno all'altro, che gradualmente perdono energia fino a fondersi in un corpo unico. Malgrado la descrizione completa del fenomeno richieda conoscenze di fisica avanzate e calcoli complessi, è possibile capire molte caratteristiche del fenomeno usando soltanto le conoscenze di gravitazione newtoniana insegnate nelle scuole superiori, se si fanno in aggiunta le seguenti semplici assunzioni:<br>
+A) un buco nero è un corpo sferico di massa tale che la velocità di fuga dalla sua superficie è uguale a quella della luce;<br>
+B)l'ampiezza dell'onda gravitazionale (riportata nel grafico), è proporzionale a un componente del vettore accelerazione di una delle due masse in rotazione (le quali per semplicità si assumono uguali).<br>
+6a)si spieghi qualitativamente perché l'andamento generale del grafico è in accordo con l'interpretazione data sopra;<br>
+6b)si stimi la massa dei buchi neri (supposti uguali) che hanno dato luogo all'evento;<br>
+6c)si spieghi che cosa fa pensare che i corpi celesti che hanno dato luogo all'evento siano proprio dei buchi neri e non delle normali stelle.<br>
+<br>
+Questo è il problema n.6 del test della SNS dell'anno scorso... Qualche Hint per il secondo e terzo punto? :D  :D  :D</article>
+<article class="post" id="p24829"><div class="who"><b>Pigkappa</b><span>14 giu 2018, 0:12</span></div>Io penserei a cose come... Assumendo che tutto quel che si muove si muove circa alla velocità della luce, e osservando quanto dura l'emissione di forti onde gravitazionali, che raggio hanno questi oggetti? Dato il raggio possiamo stimare la massa? Dato raggio e massa possiamo immaginare che tipo di oggetti celesti sono?</article>
+<article class="post" id="p24831"><div class="who"><b>phab182</b><span>14 giu 2018, 20:54</span></div>Per il raggio potremmo considerare le ampiezze delle onde a t=0.13 e t=0.175 poiché potremmo assumere che l'ampiezza del picco (a t=0.175) si ha quando la distanza è minima ed uguale al raggio, e ci si accorge che le due ampiezza sono una la metà dell'altra e dunque anche le accelerazioni sono doppie e dunque le distanze fra i centri dei corpi sono <span class="tex">\(R\sqrt(2)\)</span> e <span class="tex">\(R\)</span>. Approssimarsi la velocità costante e pari a <span class="tex">\(c\)</span> otteniamo <span class="tex">\(R=c\delta t \sqrt(2) +1\)</span> con <span class="tex">\(\delta t =0.045 s\)</span>. Può essere considerata un'assunzione valida ?</article>
+<article class="post" id="p24832"><div class="who"><b>Pigkappa</b><span>14 giu 2018, 20:59</span></div>Più o meno direi di sì... Non mi metterei a cercare davvero di capire come funziona l'emissione perché sarà molto complicato, ma semplicemente direi che il tempo tra due picchi dell'emissione vicino al massimo sarà dell'ordine di R / c. In problemi di questo tipo l'obiettivo è stimare ordini di grandezza per cui non preoccuparti di fattori numerici dell'ordine dell'unità.</article>
+<article class="post" id="p24992"><div class="who"><b>Matteo</b><span>22 lug 2018, 10:56</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-6706.html#p24832" data-post-id="24832" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">14 giu 2018, 20:59</div></cite>
+Più o meno direi di sì... Non mi metterei a cercare davvero di capire come funziona l'emissione perché sarà molto complicato, ma semplicemente direi che il tempo tra due picchi dell'emissione vicino al massimo sarà dell'ordine di R / c. In problemi di questo tipo l'obiettivo è stimare ordini di grandezza per cui non preoccuparti di fattori numerici dell'ordine dell'unità.
+</div></blockquote>
+Scusa ma non ho capito perchè l'ordine di grandezza dovrebbe essere R/c. Come l'hai dedotto?</article>
+<nav class="pager"><a class="prev" href="olifis-7156.html"><small>← precedente</small>SNS 2017/18 n.5</a><a class="next" href="olifis-6755.html"><small>successivo →</small>SNS Pisa 2018 Problema 1 (Tunnel al centro della terra)</a></nav>
+</main></body></html>

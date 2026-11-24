@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riferimento non Inerziale @ SNS 1984</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1984-1985, problema 1</span></nav>
+<h1>Riferimento non Inerziale @ SNS 1984</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6388">OliForum</a></p>
+<article class="post first" id="p57850"><div class="who"><b>Gauss_87</b><span>15 set 2006, 10:59</span></div>Penso che questo problema sia molto carino:<br>
+<br>
+Sia ha un'astronave cilindrica di raggio $ R $, la quale ruota attorno al proprio asse con velocità angolare $ \omega $ costante.<br>
+<br>
+All'interno c'è un piccolo pianeta abitato, una cascata d'acqua parte da altezza $ \frac{R}{2} $ dal suolo e arriva allo stesso non proprio sulla direzione radiale, ma spostata di un arco $ S $ visto che è inclinata da un lato.<br>
+<br>
+per la figura: <a href="http://download.sns.it/proveesame/fisf_all.pdf" class="ext" class="postlink">http://download.sns.it/proveesame/fisf_all.pdf</a><br>
+<br>
+Calcolare la lunghezza dell'arco $ S $</article>
+<article class="post" id="p57868"><div class="who"><b>SkZ</b><span>15 set 2006, 15:34</span></div>in teoria, l'acqua della cascata non dovrebbe muoversi di moto rettilineo uniforme (per un osservatore in quiete rispetto all'asse dell'astronave)? La forza "peso" fittizia generata con la rotazione ha lo spiacevole intoppo di essere esercitata per contatto (e' una reazione vicolare), al contrario della forza gravitazionale che opera a distanza.</article>
+<article class="post" id="p57880"><div class="who"><b>Gauss_87</b><span>15 set 2006, 16:55</span></div><blockquote><div><cite>SkZ ha scritto:</cite>in teoria, l'acqua della cascata non dovrebbe muoversi di moto rettilineo uniforme (per un osservatore in quiete rispetto all'asse dell'astronave)? La forza "peso" fittizia generata con la rotazione ha lo spiacevole intoppo di essere esercitata per contatto (e' una reazione vicolare), al contrario della forza gravitazionale che opera a distanza.</div></blockquote>
+
+dimentichi Coriolis  :? <br>
+Qua l'acqua sta cadendo da $ R/2 $ non da 2 metri su 6000 chilometri di raggio.</article>
+<article class="post" id="p57882"><div class="who"><b>SkZ</b><span>15 set 2006, 17:04</span></div><blockquote><div><cite>SkZ ha scritto:</cite>moto rettilineo uniforme (per un osservatore in quiete rispetto all'asse dell'astronave)</div></blockquote>
+Non mene sono dimeticato. La forza di Coriolis e' una forza apparente dovuta al fatto che il sistema non e' inerziale. Io mi riferivo appunto ad un osservatore che guarda l'astronave ruotare (forse mi sono espresso male)<br>
+su <a href="http://it.wikipedia.org/wiki/Coriolis" class="ext" class="postlink">http://it.wikipedia.org/wiki/Coriolis</a> c'e' un'animazione che mostra l'effetto: un retta per l'osservatore inerziale e una curva per quello "ruotante"</article>
+<article class="post" id="p57884"><div class="who"><b>SkZ</b><span>15 set 2006, 17:18</span></div>cioe'?<br>
+comunque la risposta dovrebbe essere $  ~ R\frac{\pi}{3} $<br>
+<br>
+edit: che fine ha fatto il post precedente?</article>
+<article class="post" id="p57921"><div class="who"><b>Gauss_87</b><span>16 set 2006, 12:41</span></div><blockquote><div><cite>SkZ ha scritto:</cite><blockquote><div><cite>SkZ ha scritto:</cite>moto rettilineo uniforme (per un osservatore in quiete rispetto all'asse dell'astronave)</div></blockquote>
+Non mene sono dimeticato. La forza di Coriolis e' una forza apparente dovuta al fatto che il sistema non e' inerziale. Io mi riferivo appunto ad un osservatore che guarda l'astronave ruotare (forse mi sono espresso male)<br>
+su <a href="http://it.wikipedia.org/wiki/Coriolis" class="ext" class="postlink">http://it.wikipedia.org/wiki/Coriolis</a> c'e' un'animazione che mostra l'effetto: un retta per l'osservatore inerziale e una curva per quello "ruotante"</div></blockquote>
+
+si, non avevo capito bene a quale sistema di riferimento ti ... "riferivi"  :lol:</article>
+<article class="post" id="p57931"><div class="who"><b>Gauss_87</b><span>16 set 2006, 16:49</span></div><blockquote><div><cite>SkZ ha scritto:</cite>cioe'?<br>
+comunque la risposta dovrebbe essere $  ~ R\frac{\pi}{3} $<br>
+<br>
+edit: che fine ha fatto il post precedente?</div></blockquote>
+
+direi di NO...</article>
+<article class="post" id="p57976"><div class="who"><b>SkZ</b><span>17 set 2006, 01:04</span></div>infatti.<br>
+$  ~ R(\sqrt{3}- \frac{\pi}{3} ) $<br>
+l'acqua percorre $  ~ \frac{R\sqrt{3}}{2}  $ a $  ~ \frac{\omega R}{2}  $ in $  ~ \frac{\sqrt{3}}{\omega}  $ secondi.<br>
+L'acqua tocca la superficie  a $  ~ R \frac{\pi}{3}  $ dalla "verticale"  e intanto il cilindro si sposta di $  ~ R\sqrt{3}  $ nello stesso verso<br>
+<br>
+OK adesso? non mi sono dimenticato di altro?</article>
+<article class="post" id="p57997"><div class="who"><b>Gauss_87</b><span>17 set 2006, 14:04</span></div><blockquote><div><cite>SkZ ha scritto:</cite>infatti.<br>
+$  ~ R(\sqrt{3}- \frac{\pi}{3} ) $<br>
+l'acqua percorre $  ~ \frac{R\sqrt{3}}{2}  $ a $  ~ \frac{\omega R}{2}  $ in $  ~ \frac{\sqrt{3}}{\omega}  $ secondi.<br>
+L'acqua tocca la superficie  a $  ~ R \frac{\pi}{3}  $ dalla "verticale"  e intanto il cilindro si sposta di $  ~ R\sqrt{3}  $ nello stesso verso<br>
+<br>
+OK adesso? non mi sono dimenticato di altro?</div></blockquote>
+
+no, non ci siamo.<br>
+<br>
+sfruttiamo il suggerimento del testo: mettiamoci fuori il cilindro che ruota: vediamo "cadere" l'acqua sulla verticale dalla distanza $ \frac{R}{2} $ alla distanza $ R $.<br>
+<br>
+quale sarà la sua accelerazione in funzione della distanza $ x $ dal centro del cilindro  :?:</article>
+<article class="post" id="p58032"><div class="who"><b>SkZ</b><span>17 set 2006, 21:16</span></div>scusa ma un corpo in moto circolare quando cessa di essere soggetto al vincolo che lo trattiene si muove lungo una traiettoria tangente all'orbita circolare nel punto di distacco.<br>
+Quindi un osservatore esterno vedra' l'acqua muoversi con traiettoria perpendicolare a quella che, al momento del "distacco", era la verticale.</article>
+<article class="post" id="p58063"><div class="who"><b>Gauss_87</b><span>18 set 2006, 12:24</span></div><blockquote><div><cite>SkZ ha scritto:</cite>scusa ma un corpo in moto circolare quando cessa di essere soggetto al vincolo che lo trattiene si muove lungo una traiettoria tangente all'orbita circolare nel punto di distacco.<br>
+Quindi un osservatore esterno vedra' l'acqua muoversi con traiettoria perpendicolare a quella che, al momento del "distacco", era la verticale.</div></blockquote>
+
+distacco da che?</article>
+<article class="post" id="p58092"><div class="who"><b>SkZ</b><span>18 set 2006, 18:16</span></div>definivo distacco il momento in cui l'acqua esce dalla condotta e quini non e' piu' sottoposta al vincolo che la mantiene in moto circolare</article>
+<article class="post" id="p58168"><div class="who"><b>Gauss_87</b><span>19 set 2006, 22:09</span></div><blockquote><div><cite>SkZ ha scritto:</cite>definivo distacco il momento in cui l'acqua esce dalla condotta e quini non e' piu' sottoposta al vincolo che la mantiene in moto circolare</div></blockquote>
+
+se non è soggetta a nessuna forza perchè dovrebbe "cadere", allora ???</article>
+<article class="post" id="p58176"><div class="who"><b>SkZ</b><span>20 set 2006, 03:04</span></div>infatti non cade, ma si sposta di moto rettilineo uniforme.<br>
+Ma dato che il sistema di riferimento dell'astronave e' (molto) limitato, un osservatore al suo interno vede comunque l'acqua impattare al suolo.<br>
+Il film hanno fatto molti danni in questo ambito quando mostrano che quando la navicella ruota c'e' una gravita' normalissima e quando la rotazione si ferma (sempre istantaneamente, ovviamente) tutto parte a fluttuare (mai visto Moonraker?). <br>
+La gravita' non e' normalissima: piccolo esperimento da fare quando la mamma/coinquilino/responsabile non c'e':<br>
+1) prendete la lavatrice<br>
+2) togliete l'oblo'<br>
+3) inserite qualcosa nella "serratura" per far credere che l'oblo' sia chiuso<br>
+4) fate partire la centrifuga<br>
+5) infilate un oggetto allungato (i.e. un mestolo) e muovetelo dal centro al bordo mentre il cestello gira (evitando le pareti in movimento)<br>
+Notate qualche accelerazione?<br>
+<br>
+Per rendere piu' complicato il problema si potrebbe considerare anche l'atmosfera della navicella (ferma al centro e in moto con $  ~ v=\omega R  $ sul bordo)<br>
+<br>
+<br>
+PS: dimenticavo<br>
+6) inventatevi una buona scusa per quello che ho fatto, ricordandovi di dire che io non c'entro nulla e non ho mai postato nulla che vi consigliasse di manomettere la lavatrice  :wink:</article>
+<nav class="pager"><a class="prev" href="olifis-4787.html"><small>← precedente</small>SNS 1983/84 N3</a><a class="next" href="oliforum-5777.html"><small>successivo →</small>universo snsoso</a></nav>
+</main></body></html>

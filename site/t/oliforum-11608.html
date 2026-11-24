@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2004-2005 termodinamica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 5</span></nav>
+<h1>SNS 2004-2005 termodinamica</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11608">OliForum</a></p>
+<article class="post first" id="p94481"><div class="who"><b>Faust</b><span>21 ago 2008, 16:23</span></div>Nel 1997 nella stazione spaziale Mir si produsse un piccolo foro con<br>
+l’esterno, a causa del quale la pressione interna pass`o dal valore normale<br>
+di 750 mm di mercurio a quello di 675 mm in 8 minuti.<br>
+(a) Si mostri che durante tale periodo la pressione interna diminu`ı con<br>
+legge esponenziale.<br>
+(b) Si stimi l’area del foro sapendo che il volume pressurizzato della<br>
+stazione era di 400 m3 e che la temperatura interna era di 24 oC.</article>
+<article class="post" id="p94673"><div class="who"><b>Algebert</b><span>23 ago 2008, 21:47</span></div>A quanto pare è già stato <a href="oliforum-8841.html" class="postlink">postato</a> :P .</article>
+<nav class="pager"><a class="prev" href="oliforum-6216.html"><small>← precedente</small>Ammissione SNS (2004-2005).4</a><a class="next" href="oliforum-8841.html"><small>successivo →</small>Astronauti russi un pò sfigati (sns 2004/2005)</a></nav>
+</main></body></html>

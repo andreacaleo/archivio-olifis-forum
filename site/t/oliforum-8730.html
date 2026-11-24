@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fisica sns o geometria da senior?</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2006-2007, problema 6</span></nav>
+<h1>Fisica sns o geometria da senior?</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8730">OliForum</a></p>
+<article class="post first" id="p72743"><div class="who"><b>enomis_costa88</b><span>23 lug 2007, 13:57</span></div>Due sfere di raggio R e uniformemente cariche con densità di carica opposta hanno una distanza tra i due centri $ d&lt; 2R $.<br>
+Si mostri che il campo elettrico all'interno della regione di sovrapposizione delle due sfere è uniforme e proporzionale a d.<br>
+<br>
+Davvero carinissimo questo problema (sns 2006), potevo quasi postarlo in geometria  :wink:</article>
+<article class="post" id="p72765"><div class="who"><b>TADW_Elessar</b><span>23 lug 2007, 19:22</span></div>Potremmo partire dal fatto che:<br>
+<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img108.imageshack.us/img108/1627/eqn14615sz4.gif" class="ext">[immagine non più disponibile]</a></a><br>
+<br>
+Detto $ ~E_+ $ il campo dovuto alla sfera con carica positiva a distanza $ ~r_+ $ ed $ ~E_- $ il campo dovuto alla carica negativa a distanza $ ~r_- $, e $ ~\rho $ la carica per unità di volume, e considerando che i vettori campo elettrico e area sono in ogni punto perpendicolari e che E è costante su una superficie sferica:<br>
+<br>
+$ \displaystyle \varepsilon_0 \cdot E_+ \cdot 4\pi r_+^2 = \frac{4}{3} \pi r_+^3  \cdot \rho $<br>
+<br>
+$ \displaystyle \vec{E_+} = \frac{\rho}{3 \varepsilon_0} \vec{r_+}  $<br>
+<br>
+e, ovviamente, anche:<br>
+<br>
+$ \displaystyle \vec{E_-} = -\frac{\rho}{3 \varepsilon_0} \vec{r_-}  $<br>
+<br>
+Per cui nella zona d'intersezione:<br>
+<br>
+$ \displaystyle \vec{E} = \vec{E_+} -\vec{E_-} = \frac{\rho}{3 \varepsilon_0} (\vec{r_+} - \vec{r_-}) $<br>
+<br>
+Ma, per ogni punto nello spazio, $ \vec{r_+} - \vec{r_-} $ è la distanza $ ~d $ tra i centri delle sfere. <em class="text-italics">Quod erat demonstrandum</em>.</article>
+<article class="post" id="p72766"><div class="who"><b>enomis_costa88</b><span>23 lug 2007, 19:31</span></div><blockquote><div><cite>TADW_Elessar ha scritto:</cite>Ma, per ogni punto nello spazio, $ \vec{r_+} - \vec{r_-} $ è la distanza $ ~d $ tra i centri delle sfere. </div></blockquote> Già alla fine la cosa più difficile è accorgersi che si lavora con vettori (per questo è più geometria che altro  :wink: ) il resto è un banale gauss.</article>
+<article class="post" id="p72769"><div class="who"><b>TADW_Elessar</b><span>23 lug 2007, 19:48</span></div>È vero, però con l'aiuto del disegno non dovrebbe essere eccessivamente difficile.  :wink:</article>
+<article class="post" id="p73373"><div class="who"><b>enomis_costa88</b><span>03 ago 2007, 17:57</span></div>Rilancio con un problema moooolto simile (ok sempre una cavolata è) :wink: <br>
+<br>
+Sia considerato un contenuitore cilindrico di raggio a in cui è praticato un lungo foro di raggio b.<br>
+Gli assi dei due cilindri sono paralleli e posti ad una distanza d.<br>
+Una corrente i è uniformemente distribuita sull'area della sezione trasversale appartenente solo al cilindro di raggio a (insomma i è distruibuita sul cilindro meno che nel buco).<br>
+Determinare il campo magnetico all'interno del foro.<br>
+<br>
+Buon lavoro!</article>
+<article class="post" id="p73375"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 18:09</span></div>È zero? Non sono sicuro di aver capito la situazione...</article>
+<article class="post" id="p73389"><div class="who"><b>enomis_costa88</b><span>03 ago 2007, 20:58</span></div>No non è 0 ( e si risolve in modo molto analogo al precedente) .. la situazione è questa:<br>
+Hai un cilindro pieno con un buco cilindrico dentro..e la corrente non passa nel buco cilindrico, nel resto del cilindro la densità di corrente è omogenea.<br>
+<br>
+Buon lavoro!</article>
+<article class="post" id="p73392"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 21:07</span></div>Continuo a non capire: se prendo una linea circolare dentro il foro e concentrica con esso devo avere:<br>
+<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img510.imageshack.us/img510/1570/showequationzu4.gif" class="ext">[immagine non più disponibile]</a></a><br>
+(Legge di Ampère)<br>
+<br>
+Essendo nel caso specifico $ ~i_{ch} = 0 $ dovrebbe seguire immediatamente $ ~B = 0 $. Mi sono perso qualcosa?</article>
+<article class="post" id="p73394"><div class="who"><b>enomis_costa88</b><span>03 ago 2007, 21:16</span></div><blockquote><div><cite>TADW_Elessar ha scritto:</cite>dovrebbe seguire immediatamente $ ~B = 0 $. Mi sono perso qualcosa?</div></blockquote>
+Si..hai sciolto l'integrale in modo sbagliato direi..stai applicando una simmetria che non c'è nella situazione in esame :D i centri dei due cilindri non sono gli stessi (sono a distanza d come detto prima).Quindi nel cilindrettino il B non è necessariamente in direzione radiale.</article>
+<article class="post" id="p73397"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 21:40</span></div>Se imparassi a leggere bene i problemi... :S<br>
+<br>
+$ \displaystyle B = \frac{\mu_0 i}{2\pi}\frac{d}{a^2-b^2} $</article>
+<article class="post" id="p87844"><div class="who"><b>Barbara</b><span>17 apr 2008, 23:26</span></div>Ciao...scusa se te lo chiedo adesso. Spero che ti ricorderai ancora di questo problema.<br>
+Potresti spiegare bene i passaggi che hai fatto??<br>
+<br>
+Perchè a me non risulta che B all'interno del foro sia uniforme..<br>
+<br>
+Grazie Ciao!!</article>
+<nav class="pager"><a class="prev" href="olifis-179.html"><small>← precedente</small>Sns 2006/07 problema 5</a><a class="next" href="oliforum-6273.html"><small>successivo →</small>sns 2006-2007 es. n°6</a></nav>
+</main></body></html>

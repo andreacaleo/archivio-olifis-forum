@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2004/2005 #3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 3</span></nav>
+<h1>sns 2004/2005 #3</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8747">OliForum</a></p>
+<article class="post first" id="p72852"><div class="who"><b>bruno222</b><span>25 lug 2007, 21:49</span></div>Una particella di massa m è costretta a muoversi in una regione di piano delimita da due pareti che formano un angolo retto. La particella subisce in ogni punto una forza diretta verso il vertice dell'angolo di intensità pari a $ \alpha/r^2 $ (ad esempio la forza gravitazionale o quella elettrica), dove r è la distanza dal vertice e $ \alpha $ una costante. Inizialmente essa viene lanciata contro una delle pareti ad una distanza  $ \(r_0 $ dal vertice con una velocità V diretta perpendicolarmente alla parete stessa. I rimbalzi sulla parete sono perfettamente elastici.<br>
+<br>
+a)  Quali quantità si conservano nel moto della particella ?<br>
+<br>
+b) Quale è la condizione sulla velocità iniziale affinche il moto della particella sia periodico? Nel caso di questa condizione quale è il numero massimo di rimbalzi in un periodo?<br>
+<br>
+c) Si determinino nel caso del moto periodico la distanza minima e la distanza massima dal vertice raggiunte dalla particella durante il suo moto.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Mi sto scervellando da giorni su questo problema ...... vi chiedo aiuto e vi ringrazio per le risposte.</article>
+<article class="post" id="p72856"><div class="who"><b>TADW_Elessar</b><span>25 lug 2007, 23:52</span></div>Allora: immagine!<br>
+<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img254.imageshack.us/img254/1891/3sns0405zp6.jpg" class="ext">[immagine non più disponibile]</a></a><br>
+<br>
+Dovrei aver risolto se non altro un caso particolare. Dovrei indagare meglio le conseguenze dell'avere v più grande del valore indicato qui:
+<ol style="list-style-type:lower-alpha">
+<li>Si conserva l'energia cinetica, se si verifica la condizione di cui al punto b.</li>
+<li>La condizione perché il corpo compia un moto periodico è ovviamente che sbatta perpendicolarmente <em class="text-italics">anche </em>contro l'altra parete, e per fare ciò è necessario percorrere un quarto di circonferenza. La forza misteriosa agirà da forza centripeta e si avrà:<br>
+$ \displaystyle \frac{\alpha}{r_0^2} = m\frac{v^2}{r_0} $<br>
+<br>
+$ \displaystyle v = \sqrt{\frac{\alpha}{mr_0} $<br>
+<br>
+Inoltre, se $ v \geq \sqrt{\frac{2\alpha}{mr_0} $, la pallina sfuggirà dall'origine per non tornare mai più.</li></ol>
+
+Domani sera controllo meglio perché non ho capito se sia possibile anche che il corpo percorra un quarto di orbita ellittica. Le domande successive suggeriscono ci sia dell'altro.</article>
+<article class="post" id="p72865"><div class="who"><b>darkcrystal</b><span>26 lug 2007, 09:56</span></div>Link!<br>
+<a href="http://www.oliforum.it/viewtopic.php?t=6068&amp;highlight=particella+pareti" class="ext" class="postlink">viewtopic.php?t=6068&amp;highlight=particella+pareti</a><br>
+<a href="http://www.oliforum.it/viewtopic.php?t=3871&amp;highlight=particella+pareti" class="ext" class="postlink">viewtopic.php?t=3871&amp;highlight=particella+pareti</a><br>
+<br>
+Ciau</article>
+<nav class="pager"><a class="prev" href="oliforum-8916.html"><small>← precedente</small>SNS 2004/2005 Problema 2</a><a class="next" href="oliforum-11599.html"><small>successivo →</small>SNS 2004-2005 es. 4 (Piramide di Erodoto)</a></nav>
+</main></body></html>

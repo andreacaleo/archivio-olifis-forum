@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ottica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 1</span></nav>
+<h1>ottica</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=10354">OliForum</a></p>
+<article class="post first" id="p85367"><div class="who"><b>ludo90</b><span>02 mar 2008, 15:54</span></div>Ecco un problema sns che non sembra molto difficile ma che non so come risolvere<br>
+<br>
+<br>
+Un uomo in piedi di altezza h vede la sua immagine completa in uno specchio verticale di altezza Hs. Qual'è il minimo valore di Hs affinche questo possa succedere? Un tale specchio deve essere posizionato in modo preciso? Se si come?</article>
+<article class="post" id="p86035"><div class="who"><b>Enialis</b><span>11 mar 2008, 19:15</span></div>Consiglio: considera a partire dall'altezza degli occhi quanto deve essere alto per vedere la punta dei piedi e contemporaneamente anche la sommita' della testa...la risposta e' Hs=h/2</article>
+<nav class="pager"><a class="prev" href="oliforum-8784.html"><small>← precedente</small>Fluidi storti in Normale</a><a class="next" href="olifis-241.html"><small>successivo →</small>SIMULAZIONE: SNS 2003/2004 Problema 1</a></nav>
+</main></body></html>

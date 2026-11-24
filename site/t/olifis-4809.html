@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns n.3 - 2013</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2013-2014, problema 3</span></nav>
+<h1>sns n.3 - 2013</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4809">forum Olifis</a></p>
+<article class="post first" id="p15989"><div class="who"><b>poor</b><span>23 gen 2014, 18:53</span></div>Normalmente, non è una buona idea piazzare un telescopio, ottico o radio, vicino ad uno specchio d'acqua come un lago o il mare. Assumendo che il telescopio sia ad un' altezza H sopra il livello dell'acqua, sapreste spiegare, qualitativamente, perchè?<br>
+Ora considerate l'osservazione di una sorgente astronomica puntiforme, man mano che essa sorge all'orizzonte e poi si avvicina allo zenith. Sapete calcolare la luminosità della sorgente in funzione di <span class="tex">\(\theta\)</span>, la sua elevazione angolare sopra l'orizzonte?</article>
+<article class="post" id="p16032"><div class="who"><b>poor</b><span>29 gen 2014, 19:23</span></div>E' sintomatico che nessuno abbia tentato risposte a questo infelice problema nonostante gli "aiuti" che ciascuno può procurarsi a casa con calma. Perchè riesce difficile immaginare che un liceale abbia su un argomento così specialistico conoscenze che gli permettano di affrontarlo: sarei curioso di conoscere la percentuale di partecipanti al test che ci si sono provati la scorsa estate...<br>
+Comunque, essendo tra coloro che brancolano nel buio, si ritiene utile avviare uno scambio di opinioni?</article>
+<article class="post" id="p16036"><div class="who"><b>desga</b><span>30 gen 2014, 22:36</span></div>Questo problema è risultato essere abbastanza controverso: ne ho anche parlato un professore universitario molto bravo  conosciuto per via fortuita (il vicino di casa di mia nonna  :D !), ed era totalmente in disaccordo con la soluzione di chi ha scritto il problema!<br>
+<br>
+<br>
+Se volete un hint, ve lo scrivo in bianco <span style="color:#FFFFFF"><span style="font-size: 50%; line-height: normal">interferenza</span></span></article>
+<article class="post" id="p16037"><div class="who"><b>BorisM</b><span>31 gen 2014, 0:10</span></div><blockquote><div><cite>poor ha scritto:</cite>Normalmente, non è una buona idea piazzare un telescopio, ottico o radio, vicino ad uno specchio d'acqua come un lago o il mare. Assumendo che il telescopio sia ad un' altezza H sopra il livello dell'acqua, sapreste spiegare, qualitativamente, perchè?<br>
+Ora considerate l'osservazione di una sorgente astronomica puntiforme, man mano che essa sorge all'orizzonte e poi si avvicina allo zenith. Sapete calcolare la luminosità della sorgente in funzione di <span class="tex">\(\theta\)</span>, la sua elevazione angolare sopra l'orizzonte?</div></blockquote>
+L' unica cosa che mi è venuta in mente è questa:<br>
+l' acqua se investita da un' onda ne riflette una parte e ne rifrange un' altra. L' onda riflessa potrebbe quindi causare perturbazioni.<br>
+Non so se è corretta come osservazione in quanto sono sempre alle prime armi. Tuttavia la posto per essere corretto e per far partire una discussione. Per quanto riguarda la seconda parte del problema non saprei da dove iniziare..</article>
+<article class="post" id="p16039"><div class="who"><b>Pigkappa</b><span>31 gen 2014, 5:14</span></div>Ricordo che c'entra la diversa stratificazione dell'atmosfera sopra al mare ma non i dettagli. Provate a cercare su qualche libro specialistico. Se avessi dovuto fare questo problema ai tempi del test in SNS, ci avrei sicuramente preso 0; ora potrei provare a inventarmi qualcosa ma con scarsi risultati (e ho una laurea specialistica in astrofisica!).</article>
+<article class="post" id="p16052"><div class="who"><b>poor</b><span>31 gen 2014, 18:19</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Ricordo che c'entra la diversa stratificazione dell'atmosfera sopra al mare ma non i dettagli. Provate a cercare su qualche libro specialistico. Se avessi dovuto fare questo problema ai tempi del test in SNS, ci avrei sicuramente preso 0; ora potrei provare a inventarmi qualcosa ma con scarsi risultati (e ho una laurea specialistica in astrofisica!).</div></blockquote>
+
+Sento il bisogno di esprimere un pò di sollievo perchè uno pensa, nonostante tutto, che ci deve essere qualcosa di clamoroso che non ha visto. Soprattutto se si è così inesperti come me. Credo però che non vada abbandonato, soprattutto nella seconda parte in cui varia la distanza della stella dal telescopio man mano che arriva allo zenith (dovrebbe diminuire e dunque la luminosità dovrebbe aumentare: si tratta di quantificare e non ci riesco)</article>
+<article class="post" id="p16053"><div class="who"><b>Pigkappa</b><span>31 gen 2014, 19:23</span></div>La prima parte è quella per cui bisogna sapere che effetti ci sono ed è un po' folle. La seconda vi chiede di fare una stima vaga a cui potete arrivare. Non penso vogliano valori numerici ma solo un andamento.</article>
+<article class="post" id="p16079"><div class="who"><b>BorisM</b><span>1 feb 2014, 19:55</span></div>Parlando con il tecnico del laboratorio di fisica di scuola mia è venuto fuori che una cosa che potrebbe dare noia è l' evaporazione dell' acqua. Secondo lui infatti l' acqua, che oltre i 4 gradi inizia ad evaporare, potrebbe interferire con la luce proveniente dai corpi osservati. Può essere una spiegazione plausibile?</article>
+<article class="post" id="p16092"><div class="who"><b>poor</b><span>2 feb 2014, 11:22</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>La prima parte è quella per cui bisogna sapere che effetti ci sono ed è un po' folle. La seconda vi chiede di fare una stima vaga a cui potete arrivare. Non penso vogliano valori numerici ma solo un andamento.</div></blockquote>
+
+Ma parla di "calcolare" la luminosità e quindi invece sembrerebbe volessero valori numerici. Mettiamoci d'accordo: è giusto dire che la luminosità da calcolare è la potenza irradiata per unità di angolo solido? Essa allora dovrebbe variare con l'elevazione e quindi con la distanza. Per questo calcolo si possono ignorare le variazioni di indice di rifrazione sopra l'acqua o è proprio ciò che vogliono?</article>
+<article class="post" id="p16095"><div class="who"><b>Pigkappa</b><span>3 feb 2014, 4:14</span></div>@ BorisM <br>
+Mah, sì, è plausibile, ma sinceramente non ti so dire se è la risposta giusta o no. Puoi cercare il libro di Lena che si intitola Observational Astronomy o qualcosa del genere.<br>
+<br>
+@ poor<br>
+Il testo è scritto con i piedi. Lui vuole la luminosità apparente, cioè qualcosa di proporzionale all'energia per unità di tempo che tu ricevi.<br>
+Il senso della domanda è che più l'oggetto è inclinato sull'orizzonte, più è largo lo strato di atmosfera che la luce deve attraversare, e assumendo che la luce assorbita sia proporzionale alla quantità di aria attraversata...</article>
+<article class="post" id="p16108"><div class="who"><b>poor</b><span>3 feb 2014, 18:36</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Il testo è scritto con i piedi. Lui vuole la luminosità apparente, cioè qualcosa di proporzionale all'energia per unità di tempo che tu ricevi.<br>
+Il senso della domanda è che più l'oggetto è inclinato sull'orizzonte, più è largo lo strato di atmosfera che la luce deve attraversare, e assumendo che la luce assorbita sia proporzionale alla quantità di aria attraversata...</div></blockquote>
+La luminosità apparente secondo me dovrebbe essere la potenza emessa dalla stella divisa per 4pigrecoralquadrato (potenza per unità di area che arriva al telescopio a distanza r) per la superficie dell'obiettivo del telescopio. Viene fuori potenza per unità di angolo solido e viene inversamente proporzionale al quadrato della distanza. D'altra parte anche con il tuo schema di assorbimento ci si scontra con la distanza, anche se solo nella parte atmosferica: ma non riuscirei a quantificare "quanta atmosfera assorbe quanta radiazione". La distanza poi varia fra il raggio dell'orizzonte (massima quando la stella sorge,pari alla radice del quadrato della distanza della stella dal centro della terra meno il quadrato del raggio terrestre) fino al valore allo zenith. Ma detto questo,non riesco a legarre r  a teta...</article>
+<article class="post" id="p16109"><div class="who"><b>Pigkappa</b><span>4 feb 2014, 3:53</span></div>Scrivo dall'iphone da letto quindi perdona la sintesi e la mancanza di latex. Chiamiamo theta l'angolo zenit-osservatore-stella. In prima approssimazione l'altezza H dell'atmosfera è molto minore del raggio terrestre. Lo spessore dello strato attraversato dalla luce è proporzionale a H/ cos(theta). Quindi la luminosità sarà " numero - altronumero / cos(theta)".<br>
+<br>
+Per grandi (quanto?) theta non vale più H &lt;&lt; raggioterrestre e bisogna fare il disegno e i conti un po' meglio.<br>
+<br>
+Ricorda il valore di riferimento H = 100 km, è importante</article>
+<article class="post" id="p16137"><div class="who"><b>poor</b><span>5 feb 2014, 12:08</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Scrivo dall'iphone da letto quindi perdona la sintesi e la mancanza di latex. Chiamiamo theta l'angolo zenit-osservatore-stella. In prima approssimazione l'altezza H dell'atmosfera è molto minore del raggio terrestre. Lo spessore dello strato attraversato dalla luce è proporzionale a H/ cos(theta). Quindi la luminosità sarà " numero - altronumero / cos(theta)".<br>
+<br>
+Per grandi (quanto?) theta non vale più H &lt;&lt; raggioterrestre e bisogna fare il disegno e i conti un po' meglio.<br>
+<br>
+Ricorda il valore di riferimento H = 100 km, è importante</div></blockquote>
+
+Forse non capisco ma il tuo theta (zenith, cioè punto più alto raggiunto dalla stella,- osservatore- stella) non mi pare quello del testo: stella- osservatore-piano dell'orizzonte (elevazione). Non mi pare neppure il suo complementare. Se fosse vero la tua formula non risponderebbe al quesito del problema. Ma ripeto che forse non ti ho capito.</article>
+<article class="post" id="p16138"><div class="who"><b>Pigkappa</b><span>5 feb 2014, 14:51</span></div>Il mio theta è il complementare del suo. Lo zenit non è il punto più alto raggiunto dalla stella ma il punto ad elevazione angolare di novanta gradi sull'orizzonte.</article>
+<article class="post" id="p16168"><div class="who"><b>poor</b><span>6 feb 2014, 19:34</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Il mio theta è il complementare del suo. Lo zenit non è il punto più alto raggiunto dalla stella ma il punto ad elevazione angolare di novanta gradi sull'orizzonte.</div></blockquote>
+
+Mi fai pensare e mi scuso per la mia petulanza. Allora lo zenith è il punto della sfera celeste sulla perpendicolare al piano dell'orizzonte passante per il telescopio. Secondo il testo la stella sorge e si "avvicina" a questo punto. Non mi pare sempre vero. Essa potrebbe avere una traiettoria in cui per esempio il valor massimo di theta, cioè la sua elevazione massima, è pochi gradi. Come si fa a dire in generale che si avvicina allo zenith?</article>
+<article class="post" id="p16169"><div class="who"><b>Pigkappa</b><span>6 feb 2014, 20:54</span></div>- abbiamo già appurato che il testo non è molto chiaro sotto mille punti di vista...<br>
+<br>
+- comunque è vero che la stella "si avvicina" allo zenit, nel senso che la sua distanza dallo zenit diminuisce. Tuttavia, a meno che non sia proprio nell'orbita perpendicolare all'orizzonte, dallo zenit non ci passa mai. Nel testo si assume che tu sappia cosa è lo zenit, non si cerca di spiegarti che cosa è. <br>
+<br>
+Se non ti fidi di cosa sia lo zenit, controlla su wikipedia :)</article>
+<article class="post" id="p16185"><div class="who"><b>poor</b><span>7 feb 2014, 18:26</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>- abbiamo già appurato che il testo non è molto chiaro sotto mille punti di vista...<br>
+- comunque è vero che la stella "si avvicina" allo zenit, nel senso che la sua distanza dallo zenit diminuisce. Tuttavia, a meno che non sia proprio nell'orbita perpendicolare all'orizzonte, dallo zenit non ci passa mai. Nel testo si assume che tu sappia cosa è lo zenit, non si cerca di spiegarti che cosa è.<br>
+Se non ti fidi di cosa sia lo zenit, controlla su wikipedia :)</div></blockquote>
+Ma figurati se non mi fido di uno specializzato in Astrofisica! Infatti ho accettato subito la definizione come si evince dal mio post e mi sono scusato e mi scuso perchè i miei problemi sono solo...miei. Ce n'ho un altro: scrivesti, seppur dall'Iphone, che lo spessore dello strato attraversato dalla luce stellare è proporzionale ad <span class="tex">\(H/cos\theta\)</span>, con il tuo theta. Quando la stella sorge il tuo theta è prossimo a 90° e dunque lo strato dovrebbe essere infinito mentre è pur sempre un tratto piccolo rispetto al tragitto che la luce compie dalla stella al telescopio.<br>
+Ecco perchè fra l'altro, a prescindere da questa eventuale contraddizione se l'ho capita bene, il tuo metodo non mi convince: l'assorbimento di luce da parte dello spessore di atmosfera attraversato piccola rispetto alla distanza percorsa sarebbe più importante della diminuzione della distanza stella-telescopio al diminuire del tuo theta o all'aumentare di quello del testo.</article>
+<article class="post" id="p16186"><div class="who"><b>Pigkappa</b><span>7 feb 2014, 20:03</span></div>Avevo già risposto alla prima domanda:
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Per grandi (quanto?) theta non vale più H &lt;&lt; raggioterrestre e bisogna fare il disegno e i conti un po' meglio.</div></blockquote>
+
+La distanza stella-telescopio non cambia mentre la stella si "muove" nel cielo (in realtà è la terra che gira)... O, meglio, cambia di una quantità dell'ordine del raggio terrestre che è almeno <span class="tex">\(10^{10}\)</span> volte più piccolo della distanza Terra-stella.</article>
+<article class="post" id="p16206"><div class="who"><b>poor</b><span>10 feb 2014, 11:26</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>La distanza stella-telescopio non cambia mentre la stella si "muove" nel cielo (in realtà è la terra che gira)... O, meglio, cambia di una quantità dell'ordine del raggio terrestre che è almeno <span class="tex">\(10^{10}\)</span> volte più piccolo della distanza Terra-stella.</div></blockquote>
+Finalmente questo è per me davvero interessante: io pensavo che non variasse la distanza stella-centro della Terra ma che invece fosse rilevante la variazione stella-telescopio. Mi hai convinto. Vedrò allora di lavorare nella corona fra R e R+H. Con una incertezza: l'assorbimento di luce stellare come può legarsi allo spessore attraversato? Semplicemente in modo proporzionale? Ho trovato che i gas presenti assorbono quelle frequenze che son capaci di emettere ma come si fa a quantificarne l'energia? Dopo tutto ribadisco che chiede di "calcolare", seppur con le tue riserve sul testo...</article>
+<article class="post" id="p16209"><div class="who"><b>Pigkappa</b><span>10 feb 2014, 20:13</span></div>Non cerchiamo di studiare lo spettro della luce che arriva, limitiamoci a fare cose semplici. Se un fascio luminoso di intensità <span class="tex">\(I\)</span> attraversa uno strato sottile di spessore <span class="tex">\(\delta l\)</span>, possiamo immaginare che sia <span class="tex">\(\delta I = - \alpha I \rho \delta l\)</span> dove <span class="tex">\(\rho\)</span> e' la densita' in quello strato e <span class="tex">\(\alpha\)</span> una qualche costante...</article>
+<article class="post" id="p16214"><div class="who"><b>poor</b><span>12 feb 2014, 11:56</span></div>Provo allora la soluzione della seconda domanda poiché per la prima si possono ipotizzare discorsi qualitativi che riguardano la perturbazione della luce stellare da parte della riflessione sullo specchio d'acqua e dell'indice di rifrazione variabile per l'evaporazione sopra lo stesso.<br>
+Sia R il raggio della sfera terrestre e T la posizione del telescopio ad una certa latitudine al centro del piano dell'orizzonte tangente in T alla sfera. La Terra è circondata da una corona sferica di atmosfera di spessore A (circa 100 Km). L'attenuazione dell'intensità radiante <span class="tex">\(I_0\)</span> (= luminosità =<span class="tex">\(\Phi/4\pi\)</span> con<span class="tex">\(\Phi\)</span> energia irradiata nell'unità di tempo in watt in maniera omogenea senza lobi= potenza per unità di angolo solido) avviene in maniera proporzionale allo spessore s di atmosfera attraversata dalla luce proveniente dalla stella, alla stessa <span class="tex">\(I_0\)</span> e ad un fattore k che può tener conto della densità media atmosferica e della qualità dei gas. Abbiamo, quando la stella sorge  ( <span class="tex">\(\theta=0\)</span>), <span class="tex">\(s_0=\sqrt {(R+A)^{2}-R^{2}}\)</span> che giace sulla corda della sfera di raggio R+A sul piano dell'orizzonte. Quando, per la rotazione terrestre, la stella assume un'elevazione <span class="tex">\(\theta\)</span>, compresa fra 0 e un certo <span class="tex">\(\theta _{max}\)</span>, generalmente minore di <span class="tex">\(\pi/2\)</span>, s(<span class="tex">\(\theta\)</span>) giace su una corda della stessa sfera che può supporsi sempre formare un angolo <span class="tex">\(\theta\)</span> con quella precedente eventualmente ruotata per disporla sullo stesso piano verticale. Abbiamo ora, tenendo conto che anche le distanze dei centri delle corde dal centro della sfera formano un angolo <span class="tex">\(\theta\)</span>,<br>
+<span class="tex">\(s(\theta)=\sqrt{(R+A)^{2}- (R cos\theta)^{2}}- R sen\theta\)</span><br>
+Come si vede per <span class="tex">\(\theta =0\)</span> si riduce ad <span class="tex">\(s_0\)</span> e per <span class="tex">\(\theta=\pi/2\)</span> si ridurrebbe ad A. <br>
+In definitiva risulta allora<br>
+<span class="tex">\(I(\theta) = I_0 [1-k s(\theta)]\)</span><br>
+con <span class="tex">\(I_0\)</span> luminosità all'ingresso dell'atmosfera già definita.</article>
+<article class="post" id="p19418"><div class="who"><b>Dino</b><span>23 ago 2014, 11:37</span></div><blockquote><div><cite>desga ha scritto:</cite>Questo problema è risultato essere abbastanza controverso: ne ho anche parlato un professore universitario molto bravo  conosciuto per via fortuita (il vicino di casa di mia nonna  :D !), ed era totalmente in disaccordo con la soluzione di chi ha scritto il problema!<br>
+<br>
+<br>
+Se volete un hint, ve lo scrivo in bianco <span style="color:#FFFFFF"><span style="font-size: 50%; line-height: normal">interferenza</span></span></div></blockquote>
+
+Mi puoi dire dove si trova questa soluzione?<br>
+Grazie,<br>
+Dino</article>
+<nav class="pager"><a class="prev" href="olifis-4807.html"><small>← precedente</small>sns n.2 - 2013</a><a class="next" href="olifis-4870.html"><small>successivo →</small>sns n. 4 -2013</a></nav>
+</main></body></html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2001/2002</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 2</span></nav>
+<h1>sns 2001/2002</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=374">forum Olifis</a></p>
+<article class="post first" id="p3283"><div class="who"><b>giggiotb</b><span>18 gen 2010, 15:08</span></div>So che questo problema è già stato postato,ma vorrei "riportarlo all'attenzione" del forum.. Ho letto la vecchia discussione,il problema della conservazione dell'energia e,anche se ciò non evita questo inghippo,io ho cercato un'altra via di soluzione. Ho considerato: 1)l'impulso ricevuto dalla pallina,che deve essere uguale alla variazione della quantità di moto; 2)lo stesso impulso moltiplicato per il raggio della pallina,cioè l'impulso angolare,che deve essere uguale al prodotto del suo momento d'inerzia per la variazione della velocità angolare; 3)la relazione tra la velocità angolare finale e la velocità lineare finale,che deve essere del tipo moto di rotolamento puro. Combinando queste tre equazioni ho ricavato che la velocità angolare iniziale che verifica le condizioni del problema deve essere v(i)*6/R, dove v(i) è la componente della velocità orizzontale iniziale della pallina e R è il raggio della pallina.Non posto lo svolgimento delle equazioni,dato che ho poca dimistichezza col pulsante TeX e penso che a questo punto non sia necessario.Il mio approccio al problema è plausibile?<br>
+<br>
+Ah,che sbadato!ho dimenticato, per chiarezza, di riportare la traccia del problema..<br>
+Problema 2<br>
+Una pallina sferica di raggio R e momento d'inerzia I = (2/5)*M*R^2 può rimbalzare elasticamente su un piano con sufficiente attrito statico perché nell'urto non ci sia strisciamento. Determinare la relazione tra la velocità angolare ( di rotazione attorno al baricentro ) e la velocità orizzontale del baricentro prima dell'urto perché, subito dopo l'urto, la pallina abbia velocità opposta.</article>
+<article class="post" id="p3292"><div class="who"><b>Falco5x</b><span>20 gen 2010, 13:17</span></div>Sono un po' perplesso.<br>
+Non ho letto la discussione originaria (e nemmeno ho intenzione di farlo) però penso che il testo non sia chiaro.<br>
+Tutto sta a capire cosa significa "subito dopo l'urto, la pallina abbia velocità opposta".<br>
+Come al solito (90% dei casi) occorre interpretare il problema a proprio rischio, perché chi l'ha inventato non ha scritto l'enunciato in modo da dirimere qualunque dubbio. E' una cosa penosa, ogni volta mi dico che servirebbe un corso universitario apposito che insegni a scrivere i testi degli esercizi...<br>
+Comunque, note polemiche a parte, tu hai supposto che la velocità orizzontale dopo il rimbalzo debba essere uguale e opposta rispetto alla velocità orizzontale prima del rimbalzo (e in queste ipotesi la tua soluzione mi pare corretta).<br>
+Interpretazione personale condivisibile, ma non l'unica. Un altro potrebbe invece interpretare che la direzione del vettore velocità dopo il rimbalzo debba essere parallela rispetto alla direzione del vettore velocità prima del rimbalzo, e con verso opposto ...<br>
+In questo modo non si potrebbe prescindere dall'energia, perchè nella tua soluzione la omega finale viene 1/6 della omega iniziale, dunque l'energia cinetica rotazionale è molto minore dopo il rimbalzo, per cui l'energia cinetica traslazionale dopo il rimbalzo deve essere maggiore di quella prima del rimbalzo. Ma essendo uguali in modulo le velocità orizzontali, significa che la velocità verticale dopo il rimbalzo è maggiore di quella prima del rimbalzo, dunque i due vettori velocità prima e dopo non sono paralleli.<br>
+Ovviamente questa interpretazione renderebbe molto più "contosa" la soluzione.<br>
+Ritengo pertanto che la tua interpetazione sia corretta e che invece il problema, come al solito, sia enunciato in modo insufficientemente chiaro. Avrebbe dovuto dire "subito dopo l'urto, la pallina abbia velocità orizzontale uguale in modulo e di segno opposto".</article>
+<article class="post" id="p3294"><div class="who"><b>giggiotb</b><span>20 gen 2010, 16:24</span></div>In effetti il testo non è chiarissimo...Io ho pensato che quando dice "elasticamente" volesse intendere che la componente verticale della velocità resta invariata dopo l'urto,nel senso che l'impulso esercitato dal piano in direzione verticale sia tale da permettere un'inversione della velocità verticale della pallina.Poi ho pensato un'altra cosa,ma dato che non sono pratico in fatto di lavoro svolto da forze di attrito può darsi che mi sbagli: se nell'urto non c'è strisciamento,la palla rotola durante quel piccolo istante di tempo,quindi il suo centro di massa si sposta in orizzontale e perciò la forza di attrito compie comunque un lavoro su di essa,no?e l'energia cinetica non si conserva solo se il lavoro svolto dalle forze esterne è nullo?correggimi se sbaglio perchè,come ti ho detto,non sono pratico in queste cose..Comunque questa discordanza tra i risultati ottenuti con diversi approcci credo derivi da qualche ipotesi semplificatrice introdotta nel problema dagli autori,forse per semplificare la situazione, e invece si è solo complicato il tutto..bisognerebbe chiedere agli autori cosa intendevano,magari facendo notare loro che il problema,così posto, è emblematico..  :twisted:  :lol:</article>
+<article class="post" id="p3295"><div class="who"><b>Falco5x</b><span>20 gen 2010, 21:21</span></div>Urto elastico significa proprio conservazione dell'energia totale, che non vuol dire necessariamente uguaglianza in modulo delle velocità verticali prima e dopo.<br>
+Riguardo al rotolare per un piccolo tratto la cosa non è plausibile, perché altrimenti chi fornirebbe alla palla l'impulso per rimbalzare indietro in senso orizzontale? questo impulso deriva proprio dall' "urto" che la palla subisce (in senso orizzontale) quando incontra una superficie scabra tale da costringerla a invertire il suo senso di rotazione. Insomma la palla non striscia e non rotola, rimbalza sulla scabrosità in senso orizzontale. Però se rotolasse non consumerebbe comunque energia, l'energia si spende solo se c'è strisciamento, perché nel rotolamento puro il punto di contatto non si muove, dunque la forza di contatto non fa lavoro.</article>
+<article class="post" id="p3296"><div class="who"><b>giggiotb</b><span>20 gen 2010, 22:12</span></div>Si,in effetti è giusto..ho guardato l'halliday giusto un pò dopo aver risposto e mi sono reso conto che mi sbagliavo!Io comunque più ci penso e più non ci capisco niente!magari potrei provare a proporlo al mio prof di fisica,chissà!</article>
+<article class="post" id="p3479"><div class="who"><b>akipowa</b><span>20 feb 2010, 17:18</span></div>io ho interpreato il problema come te al primo punto! <br>
+DQx= 2Mvx= KNdt (con K coefficente d'attrito)..e da questa ho ricavato la velocita orizzontale subito prima l'urto!!...<br>
+Per la conservazione dell'energia abbiamo:<br>
+<br>
+1/2ω(x)^2 + 1/2Mv(x)^2 = 1/2ω(1)^2 + 1/2Mv(x)^2<br>
+dovendo essere ovviamente il quadrato della velocita orizzontale dopo l'urto, uguale a quella precedente. Da cio discende che in modulo deve essere |ω(x)|=|ω(1)| ovvero la velocita angolare di rotazione intorno al baricentro della sfera puo essere diversa al più in verso prima e dopo l'urto!<br>
+Però la sfera nel punto in cui tocca il piano subisce l'azione della forza d'attrito che provoca un momento non nullo e che causa quindi una variazione del momento angolare secondo la nota relazione τdt= DL con ovvia variazione della velocità angolare!!<br>
+Da ciò ne discende che la variazione della velocita angolare è Dω= 2ω(x). Da questa relazione si ricava facilmente il rapporto tra ω(x) e v(x)!!  <br>
+Che ne pensate??</article>
+<nav class="pager"><a class="prev" href="oliforum-8816.html"><small>← precedente</small>Pallina che rimbalza (sns 2001/02)</a><a class="next" href="oliforum-4057.html"><small>successivo →</small>fluido dinamica sns 2001</a></nav>
+</main></body></html>

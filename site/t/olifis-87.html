@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008/2009 Problema 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 5</span></nav>
+<h1>SNS 2008/2009 Problema 5</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=87">forum Olifis</a></p>
+<article class="post first" id="p803"><div class="who"><b>CoNVeRGe.</b><span>23 apr 2009, 21:22</span></div>Un blocco di massa <span class="tex">\(\displaystyle M\)</span> e velocità iniziale <span class="tex">\(\displaystyle V_0\)</span> urta una particella ferma di massa <span class="tex">\(\displaystyle m \ll M\)</span>. Questa, messa in moto, urta contro un muro, torna indietro, urta di nuovo col blocco, cambia di nuovo direzione, poi urta di nuovo contro il muro e così via. Supponendo che tutti gli urti che avvengono siano perfettamente elastici e avvengano sempre sulla stessa retta, dimostrare che il numero di urti che intercorrono tra la particella e il blocco prima dell'arresto di quest'ultimo sono <span class="tex">\(\displaystyle n \approx \frac{\pi}{4}\sqrt{\frac{M}{m}}\)</span>.</article>
+<article class="post" id="p805"><div class="who"><b>Pigkappa</b><span>24 apr 2009, 14:20</span></div>Nota: questo era il problema più difficile tra i 6 proposti. Ci sono vari modi di risolverlo, nessuno dei quali è banale. Provateci senza arrendervi se non vi riesce subito.</article>
+<article class="post" id="p826"><div class="who"><b>Falco5x</b><span>27 apr 2009, 20:13</span></div>Mah, la soluzione proposta è talmente approssimata da apparire cervellotica.<br>
+Certo ho capito come c'è arrivato chi l'ha proposta, però basta scendere un po' di più coi piedi per terra, fare qualche iterazione e se ne trova una un po' più precisa, che ha anche il pregio di essere più semplice senza scomodare inutilmente il pi-greco, ovvero:<br>
+<br>
+<span class="tex">\(n\simeq\sqrt{\frac{M}{2m}\)</span>.<br>
+<br>
+Sempre che io non abbia preso un grosso granchio, naturalmente... :D</article>
+<article class="post" id="p829"><div class="who"><b>CoNVeRGe.</b><span>27 apr 2009, 21:10</span></div>Il pi-greco mi fa pensare ad un moto periodico, in cui il processo descritto rappresenterebbe un quarto del periodo, ovvero il passaggio da velocità massima del blocco a velocità nulla (e forza impulsiva della particella massima).<br>
+Ma non è molto ragionevole e spiegabile...<br>
+<br>
+Su questo problema non son riuscito a perderci troppo tempo perchè mi vien da pensare che ci servono robe tipo sommatorie o relazioni tra situazione n-esima e n+1-esima, che non so proprio sviluppare...</article>
+<article class="post" id="p830"><div class="who"><b>Pigkappa</b><span>27 apr 2009, 21:26</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Su questo problema non son riuscito a perderci troppo tempo perchè mi vien da pensare che ci servono robe tipo sommatorie o relazioni tra situazione n-esima e n+1-esima, che non so proprio sviluppare...</div></blockquote>
+
+Non è difficile trovare come variano le due velocità in un urto. Basta che imponi conservazione di quantità di moto ed energia. Usando quelle due leggi, prova a scrivere il sistema con <span class="tex">\(v_{n+1}\)</span> e <span class="tex">\(V_{n+1}\)</span> in funzione di <span class="tex">\(v_n\)</span> e <span class="tex">\(V_n\)</span>. Poi eventualmente vedo se riesco a darti un suggerimento su come andare avanti.</article>
+<article class="post" id="p832"><div class="who"><b>CoNVeRGe.</b><span>27 apr 2009, 22:25</span></div>Dopo un'immersione nei calcoli mi escono:<br>
+<br>
+<span class="tex">\(\displaystyle v_{n+1} = \frac{2M}{M+m} V_n + \frac{M-m}{M+m} v_n\)</span><br>
+<br>
+<span class="tex">\(\displaystyle V_{n+1} = \frac{M-m}{M+m}V_n - \frac{2m}{M+m}v_n\)</span><br>
+<br>
+Chi l'avrebbe mai detto che uscivano così 'semplici' da tutta quella roba?  :? <br>
+In questo l'aver già visto problemi aiuta in maniera fondamentale al test, non c'è che dire.<br>
+<br>
+Forse adesso si dovrebbe trovare <span class="tex">\(\displaystyle V\)</span> in funzione di <span class="tex">\(\displaystyle n\)</span> e porlo poi uguale a 0. (sapendo della relazione tra <span class="tex">\(\displaystyle v_{finale}\)</span> e <span class="tex">\(\displaystyle V_0\)</span>)<br>
+E questo non saprei comunque farlo..</article>
+<article class="post" id="p836"><div class="who"><b>Falco5x</b><span>28 apr 2009, 8:29</span></div>@ Converge<br>
+Giusto per puntualizzare una cosa che forse per te è scontata, le tue formule sono giuste solo se si sottintende che la <span class="tex">\(v_{n+1}\)</span> e la <span class="tex">\(v_{n}\)</span> hanno versi opposti. Insomma le tue velocità vanno prese in modulo. Le formule corrette (velocità con segno) avrebbero i segni invertiti sulle <span class="tex">\(v_{n}\)</span><br>
+<br>
+Adesso per arrivare alla soluzione le devi però semplificare assumendo <span class="tex">\(M&gt;&gt;m\)</span> (non troppo però, altrimenti la massa grande non rallenta mai!)</article>
+<article class="post" id="p837"><div class="who"><b>pascal</b><span>28 apr 2009, 19:22</span></div>La conservazione dell’energia negli urti impone che:<br>
+<span class="tex">\(V_0^2 = V^2 +  \frac {m}{M}\ v^2\)</span>,<br>
+dove V e v sono le velocità di M ed m dopo un urto. Ponendo <span class="tex">\(u = \sqrt{m/M} \ v = x \ v\)</span>, si ottiene:<br>
+<br>
+<span class="tex">\(V_0^2 = V^2 + u^2\)</span> che rappresenta sul piano cartesiano una circonferenza.<br>
+<br>
+Se chiamiamo con <span class="tex">\(V_{n-1}\)</span> e <span class="tex">\(u_{n-1}\)</span>, <span class="tex">\(V_n\)</span> e <span class="tex">\(u_n\)</span> le suddette grandezze dopo le collisioni di ordine n-1 ed n, si ha per la conservazione dell’energia e della quantità di moto in un generico urto:<br>
+<br>
+<span class="tex">\(v_n - v_{n-1}= V_n +V_{n-1}\)</span>,<br>
+<br>
+<span class="tex">\(u_n - u_{n-1}= x (V_n +V_{n-1})\)</span>.<br>
+ <br>
+Inoltre risulta che <span class="tex">\(\beta = \widehat {DOC}= 2 \ \widehat {DEC} = 2 \ \alpha\)</span>, <br>
+perché i due angoli hanno vertici al centro e sulla circonferenza e nel contempo insistono sullo stesso arco CD. <br>
+<br>
+Da <span class="tex">\(OI = V_{n-1}, \ IC = u_{n-1}, \ OH = V_n, \ DH = u_n\)</span> <br>
+scaturisce che<br>
+<br>
+<span class="tex">\(DH-CI= x (OH+OI)=x(FG+EF)\)</span>,<br>
+<br>
+<span class="tex">\(DG=x \ EG\)</span><br>
+<br>
+<span class="tex">\(\tan \alpha =x\)</span><br>
+<br>
+<span class="tex">\(\beta=2 \ \alpha = 2 \ \arctan x\)</span>.<br>
+<br>
+Allora il punto rappresentativo del moto per ogni urto si sposta sulla circonferenza dello stesso arco CD che in radianti vale <span class="tex">\(\beta\)</span>. Quando gli urti aumentano, <br>
+il punto sulla circonferenza passa da L a N (associati alle velocità iniziale <span class="tex">\(V_0\)</span> e finale nulla di M). Pertanto per conoscere il numero n di urti basta contare quanti angoli <span class="tex">\(\beta\)</span> sono contenuti in <span class="tex">\(\pi/2\)</span>:<br>
+<br>
+<span class="tex">\(n=\frac{\pi}{2 \beta} = \frac {\pi}{4 \arctan x}\approx \frac {\pi}{4 x} = \frac {\pi}{4} \sqrt{\frac {M}{m}}\)</span>.<br>
+<br>
+Non c’è molto tempo per risolvere questi problemi così difficili della SSN, soprattutto alla fine dell’anno scolastico quando gli impegni si moltiplicano in modo esponenziale.</article>
+<article class="post" id="p838"><div class="who"><b>Falco5x</b><span>28 apr 2009, 22:09</span></div><blockquote><div><cite>pascal ha scritto:</cite>
+...
+</div></blockquote>
+Bravo, sono ammirato per la soluzione e la rappresentazione geometrica ineccepibile. Provo sempre ammirazione per chi riesce a visualizzare in questo modo soluzioni che se lasciate nella sfera astratta dell'algebra rimarrebbero poco intuitive.</article>
+<article class="post" id="p839"><div class="who"><b>pascal</b><span>29 apr 2009, 7:58</span></div>Grazie</article>
+<article class="post" id="p840"><div class="who"><b>Falco5x</b><span>29 apr 2009, 9:58</span></div>Beh, dopo l'olimpica prova di pascal un po' mi vergogno a mostrare la mia brutta soluzione, però non mi sottraggo.<br>
+Partendo dalle equazioni trovate anche da Converge e posto:<br>
+<br>
+<span class="tex">\(p = \frac{{2M}}{{M + m}}\)</span><br>
+<br>
+<span class="tex">\(q = \frac{{M - m}}{{M + m}}\)</span><br>
+<br>
+<span class="tex">\(k = \frac{m}{M}\)</span> <br>
+<br>
+posso scrivere:<br>
+<br>
+<span class="tex">\({v_n} = p{V_{n - 1}} + q{v_{n - 1}}\)</span><br>
+<br>
+<span class="tex">\({V_n} = q{V_{n - 1}} - kp{v_{n - 1}}\)</span><br>
+<br>
+Da queste due derivo poi le successive:<br>
+<br>
+<span class="tex">\({V_{n + 1}} = q{V_n} - kp{v_n}\)</span><br>
+<br>
+<span class="tex">\({v_n} = p{V_{n - 1}} + q\left( {\frac{q}{{kp}}{V_{n - 1}} - \frac{1}{{kp}}{V_n}} \right)\)</span><br>
+<br>
+<span class="tex">\({V_{n + 1}} = q{V_n} - kp\left[ {p{V_{n - 1}} + q\left( {\frac{q}{{kp}}{V_{n - 1}} - \frac{1}{{kp}}{V_n}} \right)} \right]\)</span><br>
+<br>
+cioè in definitiva:<br>
+<br>
+<span class="tex">\({V_{n + 1}} = 2q{V_n} - {V_{n - 1}}\left( {{q^2} + k{p^2}} \right)\)</span><br>
+<br>
+Modifco poi quest'ultima in questo modo:<br>
+<br>
+<span class="tex">\(\left( {{V_{n + 1}} - {V_n}} \right) - \left( {{V_n} - {V_{n - 1}}} \right) = 2{V_n}\left( {q - 1} \right) + {V_{n - 1}}\left( {1 - {q^2} - k{p^2}} \right)\)</span><br>
+<br>
+e osservando che<br>
+<br>
+<span class="tex">\(1 - {q^2} - k{p^2} = 0\)</span><br>
+<br>
+la posso scrivere così:<br>
+<br>
+<span class="tex">\(\left( {{V_{n + 1}} - {V_n}} \right) - \left( {{V_n} - {V_{n - 1}}} \right) = 2{V_n}\left( {q - 1} \right) =  - \frac{{4m}}{{M + m}}{V_n}\)</span><br>
+<br>
+A causa della condizione M&gt;&gt;m ci si può aspettare che tra un urto e l'altro la V cambi molto poco, per cui posso assimilare n alla variabile continua x; in tale ipotesi il primo membro dell'equazione precedente può essere assimilato alla derivata seconda della funzione V(x). Si ha allora:<br>
+<br>
+<span class="tex">\(\frac{{{d^2}V}}{{d{x^2}}} =  - \frac{{4m}}{{M + m}}V\)</span><br>
+<br>
+la cui soluzione, date le condizioni iniziali, è:<br>
+<br>
+<span class="tex">\(V = {V_0}\cos \left[ {2\sqrt {\frac{m}{{M + m}}} x} \right]\)</span><br>
+<br>
+ponendo n=x quando V=0 si ha in definitva<br>
+<br>
+<span class="tex">\(n \approx \frac{\pi }{4}\sqrt {\frac{{M + m}}{m}}  \approx \frac{\pi }{4}\sqrt {\frac{M}{m}}\)</span><br>
+<br>
+<br>
+<br>
+Tutto ciò è abbastanza indegno, lo so, ma di meglio non m'era venuto in mente... :oops:</article>
+<article class="post" id="p841"><div class="who"><b>CoNVeRGe.</b><span>29 apr 2009, 16:42</span></div>Mmm.. diciamo che questo problema è stato dato per tenere impegnati duramente per tutte le 6 ore anche i partecipanti più bravi..  :mrgreen:</article>
+<article class="post" id="p844"><div class="who"><b>CoNVeRGe.</b><span>29 apr 2009, 18:35</span></div><blockquote><div><cite>pascal ha scritto:</cite>
+si ha per la conservazione dell’energia e della quantità di moto in un generico urto:<br>
+<span class="tex">\(\displaystyle v_n - v_{n-1}= V_n +V_{n-1}\)</span>
+</div></blockquote>
+Notevole soluzione  :D  Solo che ora non riesco a vedere come si ottiene quanto ho citato.<br>
+
+<blockquote><div><cite>Falco5x ha scritto:</cite>
+A causa della condizione M&gt;&gt;m ci si può aspettare che tra un urto e l'altro la V cambi molto poco, per cui posso assimilare n alla variabile continua x; in tale ipotesi il primo membro dell'equazione precedente può essere assimilato alla derivata seconda della funzione V(x).
+</div></blockquote>
+Perchè puo essere assimilato alla derivata seconda e non alla prima, o a che altro? Sul fatto che V cambi poco ci sono.<br>
+
+<blockquote><div><cite>Falco5x ha scritto:</cite>
+Giusto per puntualizzare una cosa che forse per te è scontata, le tue formule sono giuste solo se si sottintende che la <span class="tex">\(\displaystyle v_{n+1}\)</span> e la  <span class="tex">\(\displaystyle v_{n}\)</span> hanno versi opposti. Insomma le tue velocità vanno prese in modulo. Le formule corrette (velocità con segno) avrebbero i segni invertiti sulle <span class="tex">\(\displaystyle  v_{n}\)</span>
+</div></blockquote>
+Ho capito, intendi dire che le formule sono corrette perchè in caso le v siano discordi si fissa un verso positivo e le v assumono di per sè un segno a seconda che abbiano verso positivo o negativo.<br>
+In effetti non sono mai rigoroso/preciso sui segni, in particolare nel caso delle velocità, devo ancora impararlo bene.</article>
+<article class="post" id="p846"><div class="who"><b>Falco5x</b><span>29 apr 2009, 21:02</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>
+A causa della condizione M&gt;&gt;m ci si può aspettare che tra un urto e l'altro la V cambi molto poco, per cui posso assimilare n alla variabile continua x; in tale ipotesi il primo membro dell'equazione precedente può essere assimilato alla derivata seconda della funzione V(x).
+</div></blockquote>Perchè puo essere assimilato alla derivata seconda e non alla prima, o a che altro? Sul fatto che V cambi poco ci sono.
+</div></blockquote>
+E' il punto che mi fa più schifo, ma te lo spiego ugiualmente:<br>
+<br>
+<span class="tex">\(\frac{d^2V( n )}{dn^2} = \frac{d}{dn}\frac{dV( n )}{dn} = \frac{d}{dn} \frac{V( n + dn) - V( n )}{dn} =\)</span><br>
+<br>
+<span class="tex">\(=\frac{\frac{V(n + dn) - V( n )}{dn} - \frac{V( n ) - V( n - dn )}{dn}}{dn}\)</span><br>
+<br>
+Poiché la minima variazione per dn è 1, allora posso dire<br>
+<br>
+<span class="tex">\(\frac{d^2V( n )}{dn^2} =( V_{n + 1} - V_n}) - ( V_n - V_{n - 1})\)</span><br>
+<br>
+Fa abbastanza ribrezzo, sono d'accordo, ma questa non poteva essere la derivata prima o qualcosa d'altro: per come è stata costruita somiglia alla derivata seconda.</article>
+<article class="post" id="p847"><div class="who"><b>pascal</b><span>29 apr 2009, 22:42</span></div>Conservazione energia cinetica:<br>
+<br>
+<span class="tex">\(m \ v_{n-1}^2 \ / \ 2 + M \ V_{n-1}^2 \ / \ 2 = m \ v_n^2 \ / \ 2 + M \ V_n^2 \ / \ 2.\)</span><br>
+<br>
+Conservazione quantità di moto con velocità discordi prima dell’urto:<br>
+<br>
+<span class="tex">\(- m \ v_{n-1} + M \ V_{n-1} = m \ v_n + M \ V_n.\)</span><br>
+<br>
+Le due espressioni equivalgono a:<br>
+<br>
+<span class="tex">\(m (v_n^2 - v_{n-1}^2) = M (V_{n-1}^2 - V_n^2 )\)</span><br>
+<br>
+<span class="tex">\(m (v_n + v_{n-1}) = M (V_{n-1}- V_n)\)</span><br>
+<br>
+che rapportate membro a membro forniscono:<br>
+<br>
+<span class="tex">\(v_n - v_{n-1} = V_n + V_{n-1}.\)</span><br>
+<br>
+Colgo l'occasione per farti i complimenti per la menzione di merito conseguita nella gara nazionale.<br>
+<br>
+Modifica: avevo digitato qualche minuscola a posto della maiuscola.</article>
+<article class="post" id="p7138"><div class="who"><b>exodd</b><span>8 ago 2011, 13:37</span></div>Metto un'altra soluzione possibile che non fa uso di derivate o geometria <br>
+<br>
+Chiamiamo <span class="tex">\(V_n\)</span> e <span class="tex">\(v_n\)</span> le velocità del blocco e della particella dopo l'<span class="tex">\(n\)</span>-esimo urto<br>
+Poniamo quindi <span class="tex">\(V_0=V_0\)</span> e <span class="tex">\(v_0=0\)</span><br>
+<br>
+Come già fatto notare, le formule che legano le due velocità, ricavabili dalla conservazione di energia cinetica e della quantità di moto, sono<br>
+<span class="tex">\(V_n=\frac{M-m}{M+m}V_{n-1}-\frac{2m}{M+m}v_{n-1}\)</span><br>
+<span class="tex">\(v_n=\frac{M-m}{M+m}v_{n-1}+\frac{2M}{M+m}V_{n-1}\)</span><br>
+dove si tiene conto del fatto che la velocità della particella poco prima dell'urto successivo è <span class="tex">\(-v_n\)</span><br>
+<br>
+Utilizzando<br>
+<span class="tex">\(v_n=\frac{M-m}{M+m}v_{n-1}+\frac{2M}{M+m}V_{n-1}\)</span><br>
+<span class="tex">\(V_{n-1}=\frac{M-m}{M+m}V_{n-2}-\frac{2m}{M+m}v_{n-2}\)</span><br>
+<span class="tex">\(v_{n-1}=\frac{M-m}{M+m}v_{n-2}+\frac{2M}{M+m}V_{n-2}\)</span><br>
+ricaviamo che<br>
+<span class="tex">\(v_n=2\frac{M-m}{M+m}v_{n-1}-v_{n-2}\)</span><br>
+<br>
+Ricaviamoci ora la formula generale che lega <span class="tex">\(v_n\)</span> a <span class="tex">\(n\)</span>, usando la regola delle successioni<br>
+Dapprima troviamo le soluzioni di <br>
+<span class="tex">\(x^2-2\frac{M-m}{M+m}+1=0\)</span><br>
+che sono<br>
+<span class="tex">\(x_1=\frac{M-m}{m+M}+2i\frac{\sqrt{mM}}{m+M}\)</span><br>
+<span class="tex">\(x_2=\frac{M-m}{m+M}-2i\frac{\sqrt{mM}}{m+M}\)</span><br>
+Quindi la successione deve essere del tipo<br>
+<span class="tex">\(v_n=ax_1^n+bx_2^n\)</span><br>
+Troviamoci <span class="tex">\(a\)</span> e <span class="tex">\(b\)</span> sistemando <span class="tex">\(v_0\)</span> e <span class="tex">\(v_1\)</span><br>
+Ci ricaviamo che <span class="tex">\(v_1=V_0\frac{2M}{m+M}\)</span><br>
+E, dal sistema<br>
+<span class="tex">\(0=a+b\)</span><br>
+<span class="tex">\(V_0\frac{2M}{m+M}=ax_1+bx_2\)</span><br>
+troviamo<br>
+<span class="tex">\(a=\frac{V_0}{2i}\sqrt{\frac{M}{m}}\)</span><br>
+<span class="tex">\(b=-\frac{V_0}{2i}\sqrt{\frac{M}{m}}\)</span><br>
+Quindi<br>
+<span class="tex">\(v_n=\frac{V_0}{2i}\sqrt{\frac{M}{m}}(x_1^n-x_2^n)\)</span><br>
+<br>
+Dalla conservazione di energia cinetica, sappiamo che<br>
+<span class="tex">\(mv_n^2+MV_n^2=MV_0^2\)</span><br>
+Dato che il blocco alla fine si ferma, allora <span class="tex">\(V_n=0\)</span><br>
+<span class="tex">\(v_n=\sqrt{\frac{M}{m}}V_0\)</span><br>
+Sostituendo, troviamo che<br>
+<span class="tex">\(2i=x_1^n-x_2^n\)</span><br>
+<br>
+Notiamo ora che, in<br>
+<span class="tex">\(x_1=\frac{M-m}{m+M}+2i\frac{\sqrt{mM}}{m+M}\)</span><br>
+abbiamo che<br>
+<span class="tex">\(0&lt;\frac{M-m}{m+M}&lt;1\)</span><br>
+e che<br>
+<span class="tex">\((\frac{M-m}{m+M})^2+(2\frac{\sqrt{mM}}{m+M})^2=1\)</span><br>
+quindi esiste un angolo t, tale che<br>
+<span class="tex">\(\frac{M-m}{m+M}=cos(t)\)</span><br>
+<span class="tex">\(2\frac{\sqrt{mM}}{m+M}=sen(t)\)</span><br>
+e ciò ci porta all'identità<br>
+<span class="tex">\(x_1=e^{it}\)</span><br>
+E, similmente,<br>
+<span class="tex">\(x_2=1/e^{it}\)</span><br>
+<br>
+Sostituendo quello che abbiamo trovato, abbiamo che<br>
+<span class="tex">\(2i=e^{nit}-1/e^{nit}\)</span><br>
+<span class="tex">\(e^{2nit}-2ie^{nit}-1=0\)</span><br>
+<span class="tex">\(e^{nit}=i\)</span><br>
+<span class="tex">\(e^{nit}=e^{i\pi/2}\)</span><br>
+<span class="tex">\(nit=i\pi/2\)</span><br>
+<span class="tex">\(n=\frac{\pi}{2t}\)</span><br>
+Ricordandoci che <br>
+<span class="tex">\(t=arcsen(2\frac{\sqrt{mM}}{m+M})\)</span><br>
+e notando che la quantità dentro l'arcoseno è molto piccola, e che la massa della particella è molto minore della massa del blocco, possiamo approssimare<br>
+<span class="tex">\(t=2\frac{\sqrt{mM}}{m+M}=2\sqrt{\frac{m}{M}}\)</span><br>
+<br>
+quindi<br>
+<span class="tex">\(n=\frac{\pi}{4}\sqrt{\frac{M}{m}}\)</span><br>
+<br>
+CVD</article>
+<article class="post" id="p25257"><div class="who"><b>sg_gamma</b><span>17 nov 2018, 17:09</span></div>Sono consapevole di riesumare un topic vecchissimo, ma volevo chiedere: mi sono imbattuto recentemente in questo problema e, nel provare una strada risolutiva, sono giunto a qualcosa di abbastanza improbabile. Vorrei perciò sottoporla per capire quale distrazione di fondo abbia commesso...<br>
+<br>
+La mia idea per risolvere il problema è la seguente: prendo in considerazione il sistema di riferimento solidale con il blocco di massa M e calcolo dapprima in questo le velocità della pallina e della massa dopo l’urto: in particolare il blocco M risulta avere una velocità nel verso opposto rispetto a quello in cui si stava muovendo nel sistema del laboratorio. La pallina urta contro il muro e torna indietro: a questo punto cambio sistema di riferimento, “aggiornandomi” e collocandomi in quello attuale della massa M calcolando così l’ulteriore riduzione della velocità e sostituendo nelle equazioni di volta in volta a <span class="tex">\(V_0\)</span> la velocità trovata precedentemente, reiterando il processo finché la somma dei risultati nei vari sistemi, che sono appunto le riduzioni di velocità, non corrispondono alla velocità stessa che il blocco aveva all’inizio (nella pratica, il sistema in cui il blocco è fermo e quindi solidale con questo è quello di laboratorio stesso). A questo punto calcolo il primo urto, in cui la particella ha velocità V verso il blocco, e ottengo: 
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/b6e9ef2fd4f5efec.jpg" class="postimage" alt="Primo urto.JPG" onclick="viewableArea(this);" /></dt>
+						<dd>Primo urto.JPG (27.27 KiB) Visto 8904 volte</dd>
+		</dl>
+		
+		
+		
+			</div>
+<div class="inline-attachment">
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/350c2b781c5075a6.jpg" class="postimage" alt="Tentativo.JPG" onclick="viewableArea(this);" /></dt>
+						<dd>Tentativo.JPG (95.46 KiB) Visto 8904 volte</dd>
+		</dl>
+		
+		
+		
+			</div>
+
+Il problema della soluzione dunque è questo: al tendere di n a infinito, il blocco risulta tendere solo a metà della sua velocità iniziale.</article>
+<article class="post" id="p25386"><div class="who"><b>sg_gamma</b><span>24 feb 2019, 21:02</span></div>Faccio un up informativo, visto che poi la ragione è venuta fuori: nel continuo cambio di sistemi di riferimento, bisogna considerare che anche il muro ha in questi una sua velocità al fine di calcolare gli urti elastici della pallina con il suddetto; nella mia soluzione si era assunto che fosse sempre fermo, cosa che in effetti non è vera.</article>
+<article class="post" id="p25389"><div class="who"><b>nicarepo</b><span>26 feb 2019, 10:41</span></div>Giusto perché si è tornati su questo problema, sicuramente avrete visto questo: <a href="https://www.youtube.com/watch?v=jsYwFizhncE" class="ext" class="postlink">https://www.youtube.com/watch?v=jsYwFizhncE</a>. Nel caso non lo abbiate visto, vi consiglio vivamente di farlo (e di guardare anche il secondo sempre collegato a questo, anche perché di esercizi sugli specchi ne sono usciti un paio anche alla Normale). Nel video suppone che il rapporto delle masse sia una potenza di 100 e conta gli urti anche con il muro, finché la massa grande non torna indietro (quindi x4).</article>
+<nav class="pager"><a class="prev" href="olifis-114.html"><small>← precedente</small>SNS 2008/2009 Problema 4</a><a class="next" href="oliforum-11678.html"><small>successivo →</small>SNS 2008/2009 problema 5</a></nav>
+</main></body></html>

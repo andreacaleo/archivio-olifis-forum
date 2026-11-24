@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2011 n.5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2011-2012, problema 5</span></nav>
+<h1>sns 2011 n.5</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=979">forum Olifis</a></p>
+<article class="post first" id="p7771"><div class="who"><b>modesto</b><span>6 dic 2011, 19:39</span></div>Un'asta rigida di lunghezza <span class="tex">\(a\)</span> e massa trascurabile ha un estremo incernierato in un punto ad un'altezza <span class="tex">\(a\)</span> dal piano orizzontale attorno al quale può ruotare mantenendosi in un piano verticale. All'altra estremità e al centro dell'asta sono fissati due punti materiali di egual massa <span class="tex">\(m\)</span>. Sul piano orizzontale, esattamente sotto il punto attorno al quale l'asta ruota, è posto un punto materiale di massa <span class="tex">\(M\)</span>. L'asta viene rilasciata da ferma e in posizione orizzontale; ruotando sotto l'azione della gravità colpisce la massa <span class="tex">\(M\)</span> e rimbalza all'indietro. Trascurando tutti gli attriti e considerando l'urto perfettamente elastico, si determini il rapporto <span class="tex">\(M/m\)</span> sapendo che dopo l'urto l'estremo libero dell'asta risale fino alla quota <span class="tex">\(a/4\)</span>.<br>
+<br>
+Il momento d'inerzia dell'asta rispetto ad un asse per il punto-cerniera perpendicolare al piano verticale è <span class="tex">\(I= ma^2 + m(a/2)^2= (5/4)ma^2\)</span> e per il teorema di conservazione dell'energia (essendo le forze dell'asta sulle masse a lavoro nullo) fra la posizione finale immediatamente prima dell'urto e quella iniziale, abbiamo, indicando con <span class="tex">\(\theta\)</span> l'angolo istantaneo formato dall'asta con l'orizzontale<br>
+<span class="tex">\((1/2)I\omega^2 = (3/2)mga\)</span> da cui <br>
+<span class="tex">\((\omega)^2 = (12/5)\frac{g}{a}\)</span>. La velocità di <span class="tex">\(m\)</span> all'estremo risulterà<br>
+<span class="tex">\(v_m= \sqrt{(12/5)ga}\)</span> e quella della massa ad <span class="tex">\(a/2\)</span> la metà. <br>
+Essendo l'urto della massa all'estremo con <span class="tex">\(M\)</span> perfettamente elastico si conservano il momento della quantità di moto e l' energia cinetica <br>
+<span class="tex">\((1/2)I \omega^{2} = (1/2)I\omega'^{2}+ (1/2) MV^{2}\)</span><br>
+<span class="tex">\(I\omega = - I\omega'\)</span> + MV<br>
+con ovvio simbolismo. Inoltre l'energia cinetica di rinculo deve essere tale da far raggiungere all'estremo la quota <span class="tex">\((a/4)\)</span> cioè<br>
+<span class="tex">\((1/2) I \omega'^{2}= (3/8)mga\)</span><br>
+per cui facendo i conti risolvendo il sistema delle tre equazioni risultano due valori  per <span class="tex">\(M/m\)</span> che deve soddisfare alla condizione di superare (5/4). Risulta accettabile la soluzione<br>
+<span class="tex">\((M/m) = 15/4\)</span></article>
+<article class="post" id="p15168"><div class="who"><b>bozzio</b><span>18 ago 2013, 16:05</span></div>Ma hai ragionato sul centro di massa dell'asta che si trova a 3/4a dal perno? In questo modo la variazione di energia potenziale come l'hai calcolata? Ponendo lo 0 per la linea verticale che passa per il perno? Non capisco come ti escano quei risultati   :roll:  anche se il risultato viene uguale al mio ( 15/4) dove ho considerato le due masse separate e non il centro di massa.</article>
+<article class="post" id="p15193"><div class="who"><b>t4ilgr4b</b><span>21 ago 2013, 17:53</span></div>Immagino che all'estremita dell'asta sia presente una massa <span class="tex">\(M_a=\frac{5}{4}m\)</span> che produce lo stesso momento d'inerzia della configurazione con due masse.<br>
+Si conservano la qdm <span class="tex">\(M_aV_i=Mv-M_aV_f\)</span><br>
+e l'energia <span class="tex">\(M_aV_i^2=M_aV_f^2+Mv^2\)</span><br>
+<br>
+Dalla prima ricavo <span class="tex">\(\frac{5}{4}m(V_i+V_f)=Mv\)</span> e quindi <span class="tex">\(\frac{M}{m}=\frac{5(V_i+V_f)}{4v}\)</span><br>
+Dalla seconda ricavo <span class="tex">\(v=\sqrt{\frac{5}{4}\frac{m}{M}(V_i^2-V_f^2)}\)</span><br>
+<br>
+Sostituendo <span class="tex">\(\frac{M}{m}=\frac{5}{4}\frac{V_i+V_f}{V_i-V_f}\)</span> con <span class="tex">\(V_i=\sqrt{2ga}\)</span> e <span class="tex">\(V_f=\sqrt{1/2ga}\)</span><br>
+<br>
+Che da <span class="tex">\(\frac{M}{m}=\frac{5}{4}\frac{\sqrt{2}+\sqrt{1/2}}{\sqrt{2}-\sqrt{1/2}}=\frac{15}{4}\)</span><br>
+<br>
+Meno elegante ma funzionante..<br>
+<br>
+P.S.: Mi sono appena accorto che è un posto molto vecchio :/ Tu come lo hai risolto bozzio?</article>
+<article class="post" id="p15194"><div class="who"><b>bozzio</b><span>21 ago 2013, 18:20</span></div>La tua soluzione è la migliore di tutti! fai molti meno conti imponendo semplicemente la conservazione dell'energia cinetica. La mia è molto più lunga e non ho tanta voglia di fare i conti   :roll: Comunque  considero le due masse separate e non come se fossero nel cdm. Energia e momento angolare si conservano. <span class="tex">\(E_0=2mga\)</span> e calcolandola prima e dopo l'urto e nella posizione finale ottengo 2 equazioni. <span class="tex">\(L=5/4mva=MVa-5/4mv'a\)</span>. Da qui svolgi i conti trovati e ottieni il risultato.<br>
+<br>
+Ps quello che non mi torna nella prima soluzione è quel 3/2mga, che a me viene 2mga.</article>
+<article class="post" id="p15201"><div class="who"><b>t4ilgr4b</b><span>22 ago 2013, 10:35</span></div><blockquote><div><cite>bozzio ha scritto:</cite>quello che non mi torna nella prima soluzione è quel 3/2mga, che a me viene 2mga.</div></blockquote>
+
+E' la variazione di energia potenziale del centro di massa. Se ti fai i conti con le singole masse la variazione è la stessa!</article>
+<article class="post" id="p15202"><div class="who"><b>bozzio</b><span>22 ago 2013, 11:21</span></div>Si hai ragione, lo stavo considerando come potenziale iniziale e non come differenza di potenziale.</article>
+<nav class="pager"><a class="prev" href="olifis-871.html"><small>← precedente</small>sns 2011 n.4</a><a class="next" href="olifis-6054.html"><small>successivo →</small>41. Asta ed urto(SNS 2011)</a></nav>
+</main></body></html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2005/2006 Problema 6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 6</span></nav>
+<h1>SNS 2005/2006 Problema 6</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=186">forum Olifis</a></p>
+<article class="post first" id="p1638"><div class="who"><b>CoNVeRGe.</b><span>21 lug 2009, 0:01</span></div>Ecco un problema (secondo me molto carino) per il quale non mi ritrovo col risultato (confrontandomi con due discussioni nell'oliforum).<br>
+La differenza dei risultati è minima (un 3 al posto di un 5) ed è dovuta esclusivamente alla conservazione dell'energia. Sarei contento ( :mrgreen:  :mrgreen: ) se questa si discutesse anche tra chi l'ha già svolto o chi non ha intenzione di svolgerlo tutto.<br>
+<br>
+<br>
+Un gas monoatomico ideale scorre all’interno di un lungo tubo di sezione costante <span class="tex">\(\displaystyle A\)</span>. Nel primo tratto del tubo, la velocità di scorrimento del gas è <span class="tex">\(\displaystyle v\)</span>, la sua temperatura <span class="tex">\(\displaystyle T\)</span> e la sua densità <span class="tex">\(\displaystyle \rho\)</span>. Nel mezzo del tubo vi è un dispositivo solidale col tubo che cede al gas una quantità di energia per unità di tempo pari a <span class="tex">\(\displaystyle W\)</span>. Nel tratto finale del tubo, la velocità di scorrimento del gas è <span class="tex">\(\displaystyle v'\)</span>con <span class="tex">\(\displaystyle 0 &lt; v' -v \ll v\)</span>, la sua temperatura <span class="tex">\(\displaystyle T'\)</span> e la sua densità <span class="tex">\(\displaystyle \rho'\)</span>. Assumendo che la pressione <span class="tex">\(\displaystyle P\)</span> del gas lungo tutto il tubo sia costante, si determini la forza di reazione risultante sul tubo in funzione di <span class="tex">\(\displaystyle W, v, \rho, P\)</span>.</article>
+<article class="post" id="p1664"><div class="who"><b>String</b><span>22 lug 2009, 17:22</span></div>Ho provato a risolverlo, ma ho qualche dubbio sulla mia soluzione e tra l'altro anche a me esce un 3 invece di un 5...Allora, supponiamo che in mezzo al tubo non ci sia quel dispositivo e che la velocità aumenti a causa di una diminuzione della sezione. In queste condizioni, fra le due sezioni ci sarà una determinata differenza di pressione, ma il problema dice che la pressione del gas è costante lungo il tubo, quindi evidentemente il gas dovrà esercitare sul tubo un'ulteriore forza corrispondente a questa differrenza di pressione. Abbiamo quindi:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta p=\frac {\rho (v'^2-v^2)}{2}=\frac {m(v'^2-v^2)}{2Av\Delta t}\qquad (1)\)</span><br>
+<br>
+L'energia fornita dal dispositivo presente nel tubo produce una variazione dell'energia cinetica del gas e anche una variazione della sua energia interna. In formule:<br>
+<br>
+<span class="tex">\(\displaystyle W\Delta t=\frac {3nR\Delta T+m(v'^2-v^2)}{2}\qquad (2)\)</span><br>
+<br>
+Sosituiamo ora nella (1) l'espressione di <span class="tex">\(\Delta t\)</span> che si ricava dalla (2) e si trova:<br>
+<br>
+<br>
+<span class="tex">\(\displaystyle \Delta p=\frac {m (v'^2-v^2)W}{Av(3nR\Delta T+m(v'^2-v^2))}\)</span><br>
+<br>
+<br>
+Ora al posto di <span class="tex">\(n\)</span> sostituisco <span class="tex">\(\displaystyle \frac {m}{MM}\)</span> e al posto di MM <span class="tex">\(\displaystyle \frac {\rho RT}{p}\)</span> quindi si giunge a <br>
+<br>
+<span class="tex">\(\displaystyle \Delta p=\frac {\rho RT(v'^2-v^2)W}{pAv(3R\Delta T+\frac {\rho RT(v'^2-v^2)}{p})}\)</span><br>
+<br>
+Sappiamo inoltre per l’equazione dei gas perfetti che <br>
+<br>
+<span class="tex">\(\displaystyle \frac {V}{T}=\frac {V'}{T'}\Rightarrow \frac {v}{T}=\frac {v'}{T'}\Rightarrow vT'=v'T\)</span><br>
+<br>
+Sostituendo si ottiene ancora:<br>
+<br>
+<span class="tex">\(\Delta  p=\displaystyle \frac {\rho vW}{A(3p+\rho v^2)}\)</span><br>
+<br>
+Ora per sapere la forza dovrei moltiplicare <span class="tex">\(\Delta p\)</span> per la superficie laterale del cilindro, pari a <br>
+<br>
+<span class="tex">\(\displaystyle S=\frac {2A}{r}v\Delta t\)</span><br>
+<br>
+Per eliminare la dipendenza da r prendo un <span class="tex">\(\displaystyle \Delta t\)</span> tale che <span class="tex">\(\displaystyle v\Delta t=r\)</span> e si arriva a :<br>
+<br>
+<span class="tex">\(\displaystyle F=\frac {2\rho vW}{3p+\rho v^2}\)</span><br>
+<br>
+Come si può vedere oltre che un 3 al posto del 5 manca anche un 2 al secondo termine del denominatore. Inoltre vorrei capire perchè il risultato corretto viene prorio se calcolo la forza su un tratto di tubo tale che <span class="tex">\(v\Delta t=r\)</span><br>
+Dove sta l'errore?</article>
+<article class="post" id="p1668"><div class="who"><b>CoNVeRGe.</b><span>22 lug 2009, 20:27</span></div><blockquote><div><cite>String ha scritto:</cite>
+Allora, supponiamo che in mezzo al tubo non ci sia quel dispositivo e che la velocità aumenti a causa di una diminuzione della sezione. In queste condizioni, fra le due sezioni ci sarà una determinata differenza di pressione, ma il problema dice che la pressione del gas è costante lungo il tubo, quindi evidentemente il gas dovrà esercitare sul tubo un'ulteriore forza corrispondente a questa differrenza di pressione. Abbiamo quindi:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta p=\frac {\rho (v'^2-v^2)}{2}=\frac {m(v'^2-v^2)}{2Av\Delta t}\qquad (1)\)</span><br>
+<br>
+[...]<br>
+<br>
+Ora per sapere la forza dovrei moltiplicare <span class="tex">\(\Delta p\)</span> per la superficie laterale del cilindro, pari a <br>
+<br>
+<span class="tex">\(\displaystyle S=\frac {2A}{r}v\Delta t\)</span><br>
+<br>
+Per eliminare la dipendenza da r prendo un <span class="tex">\(\displaystyle \Delta t\)</span> tale che <span class="tex">\(\displaystyle v\Delta t=r\)</span>[...] 
+</div></blockquote>
+
+Non capisco perchè supponi un sistema diverso. Evidentemente vuoi renderlo equivalente ma non capisco per quali aspetti.. <br>
+E poi di che forza parli? La sezione laterale che c'entra? (l'eliminazione della dipendenza è indice che la soluzione è molto dubbia  :roll: , dovresti cambiare approccio.. )<br>
+<br>
+<br>
+Io nel frattempo ho riflettuto un po' e mi sono accorto del mio errore (cioè di aver trascurato un termine nella conservazione dell'energia che in effetti andava messo).<br>
+<br>
+Chiedete un aiuto se volete.  8-)</article>
+<article class="post" id="p1670"><div class="who"><b>String</b><span>22 lug 2009, 21:26</span></div>oook ho sparato solo cavolate, vabbè, ci penserò ancora un pò su :)</article>
+<article class="post" id="p1677"><div class="who"><b>Hope</b><span>23 lug 2009, 9:44</span></div>dai la soluzione</article>
+<article class="post" id="p1681"><div class="who"><b>CoNVeRGe.</b><span>23 lug 2009, 10:45</span></div><blockquote><div><cite>String ha scritto:</cite>
+<span class="tex">\(\displaystyle \frac {V}{T}=\frac {V'}{T'}\Rightarrow \frac {v}{T}=\frac {v'}{T'}\)</span>
+</div></blockquote>
+Che passaggio c'è?<br>
+<br>
+Ecco il primo hint per chiarire la direzione della forza: il liquido subisce un'accelerazione, quindi è sottoposto ad una forza. Stessa forza (con verso opposto) agisce sul dispositivo, e cioè sul tubo. Per calcolarla considerate quindi una parte di gas <span class="tex">\(\displaystyle dm\)</span> (e <span class="tex">\(\displaystyle dn\)</span>) che viene accelerata.</article>
+<article class="post" id="p1682"><div class="who"><b>String</b><span>23 lug 2009, 11:18</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Ecco il primo hint per chiarire la direzione della forza: il liquido subisce un'accelerazione, quindi è sottoposto ad una forza. Stessa forza (con verso opposto) agisce sul dispositivo, e cioè sul tubo. Per calcolarla considerate quindi una massa <span class="tex">\(\displaystyle dm\)</span> (e <span class="tex">\(\displaystyle dn\)</span>) che viene accelerata.</div></blockquote>
+
+Si, mi sono accorto che prima non avevo capito bene la forza richiesta dal problema...<br>
+
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>String ha scritto:</cite>
+<span class="tex">\(\displaystyle \frac {V}{T}=\frac {V'}{T'}\Rightarrow \frac {v}{T}=\frac {v'}{T'}\)</span>
+</div></blockquote>
+Che passaggio c'è?
+</div></blockquote>
+
+Mah, sempre che ciò che ho detto sia giusto, se consideriamo una determinata quantità di gas prima e dopo l'azione del dispositivo, allora questa percorre in un intervallo di tempo <span class="tex">\(\Delta t\)</span> volumi diversi a causa della differente velocità nei due casi. Per l'equazione dei gas perfetti abbiamo quindi:<br>
+<br>
+prima: <span class="tex">\(\displaystyle PV=nRT\Rightarrow PAv\Delta t=nRT\)</span><br>
+<br>
+dopo: <span class="tex">\(\displaystyle PV'=nRT'\Rightarrow PAv'\Delta t=nRT\)</span><br>
+<br>
+Facendo il rapporto membro a membro si ottiene<br>
+<br>
+<span class="tex">\(\displaystyle \frac {V}{V'}=\frac {T}{T'}\Rightarrow \frac {V}{T}=\frac {V'}{T'}\Rightarrow \frac {Av\Delta t}{T}=\frac {Av'\Delta t}{T'}\Rightarrow \frac {v}{T}=\frac {v'}{T'}\)</span><br>
+<br>
+Giusto?</article>
+<article class="post" id="p1683"><div class="who"><b>CoNVeRGe.</b><span>23 lug 2009, 11:32</span></div><blockquote><div><cite>String ha scritto:</cite>
+Mah, sempre che ciò che ho detto sia giusto, se consideriamo una determinata quantità di gas prima e dopo l'azione del dispositivo, allora questa percorre in un intervallo di tempo <span class="tex">\(\Delta t\)</span> volumi diversi a causa della differente velocità nei due casi. Per l'equazione dei gas perfetti abbiamo quindi:<br>
+<br>
+prima: <span class="tex">\(\displaystyle PV=nRT\Rightarrow PAv\Delta t=nRT\)</span><br>
+<br>
+dopo: <span class="tex">\(\displaystyle PV'=nRT'\Rightarrow PAv'\Delta t=nRT\)</span><br>
+<br>
+Facendo il rapporto membro a membro si ottiene<br>
+<br>
+<span class="tex">\(\displaystyle \frac {V}{V'}=\frac {T}{T'}\Rightarrow \frac {V}{T}=\frac {V'}{T'}\Rightarrow \frac {Av\Delta t}{T}=\frac {Av'\Delta t}{T'}\Rightarrow \frac {v}{T}=\frac {v'}{T'}\)</span><br>
+<br>
+Giusto?</div></blockquote>
+Sì è giusto. Io avevo ottenuto quella relazione in modo diverso.<br>
+<br>
+Per la conservazione della porta massica:<br>
+<br>
+<span class="tex">\(\displaystyle \frac {dm}{dt} = \rho A v = \rho' A v' \Rightarrow \frac{v}{v'} = \frac{\rho'}{\rho}\)</span><br>
+<br>
+Per l'equazione dei gas perfetti:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{nT}{V} = cost. \Rightarrow \rho T = \rho' T'\)</span><br>
+<br>
+Quindi:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{v}{v'} = \frac{\rho'}{\rho} = \frac{T}{T'}\)</span><br>
+<br>
+Ottengo quindi una relazione anche con le densità che tuttavia non è necessario avere nel procedimento del problema.</article>
+<article class="post" id="p1685"><div class="who"><b>eli9o</b><span>23 lug 2009, 12:15</span></div>L'energia fornita dal dispositivo aumenterà l'energia cinetica di traslazione e la temperatura. Cioè <span class="tex">\(W= \frac{mdv^2}{2dt}+\mu C_p \frac{dT}{dt}\)</span><br>
+Ma <span class="tex">\(\frac{mdv^2}{2dt}=Fv\)</span> e utilizzando la legge dei gas perfetti (e ricordando che <span class="tex">\(C_p=\frac{5}{2}R\)</span>) otteniamo <span class="tex">\(\mu C_p \frac{dT}{dt}=\frac{5}{2}p\frac{dV}{dt}\)</span><br>
+Calcoliamo ora <span class="tex">\(\frac{dV}{dt}\)</span>. Abbiamo che <span class="tex">\(dV=Av'dt-Avdt\)</span> quindi <span class="tex">\(\frac{dV}{dt}=A\Delta v\)</span><br>
+Per il teorema dell'impulso <span class="tex">\(F\Delta t=m \Delta v\)</span> quindi <span class="tex">\(\Delta v=\frac{F \Delta t}{\rho Av \Delta t}=\frac{F}{\rho Av}\)</span><br>
+Ora abbiamo tutto. Sostituiamo nell'equazione della conservazione dell'energia e ricavando <span class="tex">\(F\)</span> otteniamo <span class="tex">\(F=\frac{2\rho v W}{5p+2\rho v^2}\)</span></article>
+<article class="post" id="p1686"><div class="who"><b>String</b><span>23 lug 2009, 13:13</span></div>Scusate, ma ditemi perchè procedendo in modo simile (cioè usando le stesse espressioni per la conservazione dell'energia e per la forza) il risultato viene leggermente diverso.<br>
+Abbiamo detto che<br>
+<br>
+ <span class="tex">\(\displaystyle W\Delta t=\frac {m(v'^2-v^2)+5nR\Delta T}{2}\)</span><br>
+<br>
+Possiamo poi scrivere l'espressione della forza come<br>
+<br>
+<span class="tex">\(\displaystyle F=\frac {m\Delta v}{\Delta t}\)</span><br>
+<br>
+Sostituendo a <span class="tex">\(\Delta t\)</span> l'espressione che si trova dalla prima equazione alla fine si trova questo:<br>
+<br>
+<span class="tex">\(\displaystyle F=\frac {2\rho vW}{5p+\rho v^2}\)</span><br>
+<br>
+ :?:</article>
+<article class="post" id="p1687"><div class="who"><b>CoNVeRGe.</b><span>23 lug 2009, 14:07</span></div>Boh, rivedi i calcoli..  :)</article>
+<article class="post" id="p1688"><div class="who"><b>String</b><span>23 lug 2009, 14:23</span></div>I calcoli mi sembrano giusti ma c'è sempre quel 2 che non compare...boh :?</article>
+<article class="post" id="p1689"><div class="who"><b>CoNVeRGe.</b><span>23 lug 2009, 14:35</span></div>Se compi questi passaggi il 2 te lo ritroverai:<br>
+<br>
+<span class="tex">\(\displaystyle v'^2 - v^2 = (v' + v) (v'-v) \approx 2v\Delta v\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-147.html"><small>← precedente</small>SNS 2005/2006 Problema 5</a><a class="next" href="oliforum-6145.html"><small>successivo →</small>Tubo con gas [SNS 05-06 / 6]</a></nav>
+</main></body></html>

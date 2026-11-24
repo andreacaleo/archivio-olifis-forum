@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Due SNS in un colpo solo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 3</span></nav>
+<h1>Due SNS in un colpo solo</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8962">OliForum</a></p>
+<article class="post first" id="p74486"><div class="who"><b>memedesimo</b><span>21 ago 2007, 15:01</span></div>1) L’osservazione di un piccolo spostamento periodico delle frequenze della<br>
+luce emessa da una stella può consentire di rivelare la presenza attorno<br>
+alla stella di un pianeta non altrimenti visibile. Che spostamenti di<br>
+frequenza dovrebbe saper rivelare un osservatore esterno al sistema solare,<br>
+posizionato in modo ottimale, per mettere in evidenza la presenza<br>
+di Giove in questo modo? (sono date la massa di Giove $ M_g $, la massa del Sole $ M_s $ e la distanza Sole-Giove $ d $<br>
+<br>
+<br>
+2) Siano date due orbite circolari intorno alla Terra, complanari, di raggi $ R1 $<br>
+e $ R2 $, con $ R2 &gt; R1 $. Si vuole portare un satellite artificiale da $ R1 $ a $ R2 $, accendendo<br>
+i suoi razzi. Si assuma che il cambiamento di velocità causato<br>
+dall’accensione dei razzi sia istantaneo e avvenga quando il satellite lascia<br>
+l’orbita iniziale e quando raggiunge la distanza $ R2 $. Si assuma inoltre<br>
+che il consumo di carburante sia proporzionale al quadrato della velocità<br>
+impartita dai razzi. Qual'è l’orbita intermedia fra $ R1 $ e $ R2 $ che consente il<br>
+minor consumo di carburante?</article>
+<article class="post" id="p74487"><div class="who"><b>Deerber</b><span>21 ago 2007, 15:13</span></div>Il primo eccolo: <a href="oliforum-4043.html" class="postlink">viewtopic.php?t=4043&amp;highlight=luce</a><br>
+('azzo di problema... mah) :? <br>
+<br>
+Il secondo non mi ci sono ancora messo a farlo, ma non capisco di che orbita intermedia si parli O.o</article>
+<article class="post" id="p74556"><div class="who"><b>memedesimo</b><span>22 ago 2007, 09:25</span></div>Oddio...non mi sarebbe mai venuto in mente di fare quella cosa lì nel primo problema! Nel secondo: prima il satellite si trova su un'orbita circolare, poi con una variazione di velocità percorre un'orbita diversa (ad esempio ellittica), e poi quando quest'orbita intermedia interseca la seconda orbita circolare, una seconda variazione di velocità ce lo piazza.<br>
+<br>
+<br>
+Mattia</article>
+<nav class="pager"><a class="prev" href="olifis-242.html"><small>← precedente</small>SIMULAZIONE: SNS 2003/2004 Problema 2</a><a class="next" href="olifis-243.html"><small>successivo →</small>SIMULAZIONE: SNS 2003/2004 Problema 3</a></nav>
+</main></body></html>

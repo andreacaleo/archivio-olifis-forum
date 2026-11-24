@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1990-1991, n°5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1990-1991, problema 5</span></nav>
+<h1>SNS 1990-1991, n°5</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=539">forum Olifis</a></p>
+<article class="post first" id="p4848"><div class="who"><b>spn</b><span>14 ago 2010, 14:18</span></div>Mi pare che non ci sia quà sul forum. E' uno dei pochi SNS che ho trovato carini.<br>
+<br>
+Si considerino due corpi sferici (solidi) di massa <span class="tex">\(m\)</span> e raggio <span class="tex">\(r\)</span>, orbitanti attorno ad un pianeta di massa <span class="tex">\(M\)</span> su uno stesso piano, nello stesso verso e su orbite circolari di raggio <span class="tex">\(R+r\)</span> e <span class="tex">\(R-r\)</span>, con <span class="tex">\(r \ll R\)</span>. Supponiamo inizialmente che essi siano abbastanza distanti tra loro in modo da poter trascurare la mutua attrazione gravitazionale.<br>
+<br>
+a) Si calcoli di quanto differiscono le loro velocità angolari dalla velocità angolare <span class="tex">\(\omega_0\)</span> che avrebbero se si muovessero sull’orbita di raggio <span class="tex">\(R\)</span>.<br>
+<br>
+b)Quale forza oltre a quella del pianeta occorre esercitare su ciascuno dei due corpi affinchè essi possano ruotare sulle orbite di raggi <span class="tex">\(R+r\)</span> e <span class="tex">\(R-r\)</span> ma con velocità angolare <span class="tex">\(\omega_0\)</span>?<br>
+<br>
+Consideriamo ora la situazione in cui i due corpi, per effetto della loro mutua interazione gravitazionale, ruotano ancora su orbite di raggio <span class="tex">\(R+r\)</span> e <span class="tex">\(R-r\)</span> ma a contatto tra di loro.<br>
+<br>
+c) Tenuto conto del risultato del punto b) precedente, si determini in funzione di <span class="tex">\(m\)</span>, <span class="tex">\(M\)</span>, <span class="tex">\(r\)</span>, <span class="tex">\(R\)</span>, la disuguaglianza che rende questa situazione possibile.<br>
+<br>
+d) Supponendo uguali le densità dei due corpi e del pianeta, si riduca la relazione ricavata in c) ad una disuguaglianza fra <span class="tex">\(R\)</span> e il raggio <span class="tex">\(R_0\)</span> del pianeta.<br>
+<br>
+e) Che cosa si può concludere in merito alla formazione di satelliti o di anelli attorno ad un pianeta?</article>
+<article class="post" id="p4853"><div class="who"><b>Stardust</b><span>14 ago 2010, 21:04</span></div>Muovendosi su orbite di raggio differente i due corpi si spostano con velocità angolari diverse, calcolabili con un approccio dinamico:<br>
+-per il corpo più esterno <span class="tex">\(m_1=m\)</span> con raggio orbitale <span class="tex">\(r_1=R+r\)</span> si ha<br>
+<span class="tex">\(\omega _1=\displaystyle {\sqrt{\frac{GM}{(R+r)^3}}}\)</span>;<br>
+-per il corpo più interno di massa <span class="tex">\(m_2=m\)</span> con raggio orbitale <span class="tex">\(r_2=R-r\)</span> si ha<br>
+<span class="tex">\(\omega _2=\displaystyle {\sqrt{\frac{GM}{(R-r)^3}}}\)</span>.<br>
+<br>
+La differenza tra queste velocità angolare e quella <span class="tex">\(\omega _0\)</span> propria dell'orbita di raggio <span class="tex">\(R\)</span> è:<br>
+-per <span class="tex">\(m_1\)</span>:<br>
+<span class="tex">\(\Delta \omega _1= \omega _1- \omega _0=\displaystyle{\sqrt{\frac{GM}{R^3}}\left( \frac{1}{\displaystyle{\sqrt{(1+\frac{r}{R})^3}}}-1\right)}\)</span><br>
+Si noti che <span class="tex">\(\omega _1&lt;\omega _0\)</span> quindi questa differenza è negativa;<br>
+<br>
+-per <span class="tex">\(m_2\)</span>:<br>
+<span class="tex">\(\Delta \omega _2=\omega_2-\omega _0=\displaystyle{\sqrt{\frac{GM}{R^3}}\left( \frac{1}{\displaystyle{\sqrt{(1-\frac{r}{R})^3}}}-1\right)}\)</span>. <br>
+In questo caso invece <span class="tex">\(\omega _2&gt; \omega _0\)</span>, quindi <span class="tex">\(\Delta \omega_2 &gt;0\)</span>.<br>
+<br>
+Se poi si innalza la velocità del corpo 1 a <span class="tex">\(\omega _0\)</span>, lasciando invariata l'orbita, per garantire la stabilità bisogna aggiungere una forza extra che compensi l'incremento della forza centrifuga (che compare se ci si mette in un sistema non inerziale). Da queste considerazioni si ha:<br>
+<span class="tex">\(\Delta F_{c1}=F_{c1}'-F_{c1}=m(r+R)(\omega_0 ^2-\omega_1 ^2)=GMm\displaystyle{\frac{(R+r)^3-R^3}{R^3(R+r)^2}}\)</span>.<br>
+Questo è anche il modulo della forza extra che deve essere esercitata per mantenere il corpo in moto sulla traiettoria iniziale pur avendone incrementato la velocià angolare.<br>
+Questa forza deve essere diretta verso l'interno in direzione radiale.<br>
+Per il corpo 2 invece si ha una riduzione di velocità, che comporta la necessità di una forza di controllo stavolta diretta verso l'esterno, in direzione opposta alla linea che porta da m2 al corpo di massa maggiore M.<br>
+Essa vale:<br>
+<br>
+<span class="tex">\(\Delta F_{c2}=F_{c2}'-F_{c2}=m(R-r)(\omega_0 ^2-\omega_2^2)=GMm\displaystyle{\frac{(R-r)^3-R^3}{R^3(R-r)^2}}\)</span>.<br>
+<br>
+Queste sono considerazioni utili per il punto successivo. Se i due pianeti sono a contatto, il punto di giunzione deve muoversi a velocità <span class="tex">\(v_0=\omega _0 R\)</span>. Avendo questo punto una velocità angolare <span class="tex">\(\omega_0\)</span> allora anche i centri di massa di <span class="tex">\(m_1\)</span> e <span class="tex">\(m_2\)</span> si spostano alla medesima velocità angolare. <br>
+Quindi sono necessarie quelle forze di contenimento sopra analizzate per garantire l'equilibrio del sistema. Questa azione deriva dall'interazione gravitazionale tra il corpo 1 e quello 2, che dà:<br>
+<span class="tex">\(F_{m1,m2}=\displaystyle{\frac{Gm^2}{4r^2}}\)</span>.<br>
+Osservando le direttrici di <span class="tex">\(F_{m1,m2}\)</span> si osserva che questa forza gravitazionale deve essere almeno uguale se non maggiore rispetto a <span class="tex">\(\Delta F_{c1}\)</span> e <span class="tex">\(\Delta F_{c2}\)</span>.<br>
+Dunque si impone:<br>
+<span class="tex">\(F_{m1.m2}\geq \Delta F_{c1}\)</span><br>
+e<br>
+<span class="tex">\(F_{m1.m2}\geq \Delta F_{c2}\)</span>.<br>
+Sviluppare la seconda disuguaglianza non porta a nulla di interessante (ci dice solo che il rapporto tra una massa e un quadrato di distanza deve essere maggiore di una certa quantità negativa -cosa ovvia-). La prima diseguaglianza ci offre uno spunto di riflessione più importante:<br>
+<span class="tex">\(\displaystyle{\frac{Gm^2}{4r^2} \ge \frac{GMm[(R+r)^3-R^3]}{R^3(R+r)^2}}\)</span><br>
+<span class="tex">\(\displaystyle{\frac{m}{4r^2} \ge \frac{Mr(3R^2+3Rr+r^2)}{R^3(R+r)^2}}\)</span><br>
+<span class="tex">\(\displaystyle{\frac{m}{4r^2} \ge \frac{Mr3R^2\displaystyle{(1+\frac{r}{R}+\frac{r^2}{3R^2})}}{R^3(R+r)^2} }\)</span>.<br>
+Semplifichiamo il termine a destra tra parentesi, ricordando che <span class="tex">\(\frac{r}{R}&lt;&lt;1\)</span><br>
+<span class="tex">\(\displaystyle{\frac{m}{4r^2} \ge \frac{3Mr}{R(R+r)^2}}\)</span><br>
+<span class="tex">\(\displaystyle{\frac{m}{4r^2} \ge \frac{3Mr}{R^3\left(1+\frac{r}{R}\right)^2}}\)</span><br>
+<br>
+Approssiamiamo anche qui ottenendo:<br>
+<span class="tex">\(\displaystyle{\frac{m}{4r^3} \ge \frac{3M}{R^3}}\)</span>.<br>
+<br>
+Questa è (o dovrebbe essere) la disuguaglianza cercata.<br>
+Se poi assumiamo che i tre corpi in gioco abbiano la stessa densità media allora le loro masse sono (approssiamandoli a delle sfere):<br>
+<span class="tex">\(M=\displaystyle{\frac{4}{3}\pi R_0^3 \rho}\)</span><br>
+<span class="tex">\(m=\displaystyle{\frac{4}{3}\pi r^3 \rho}\)</span>.<br>
+<br>
+Sviluppando la disuguaglianza di sopra con queste nuove idee si arriva a:<br>
+<span class="tex">\(R \ge (12)^{1/3} R_0\)</span>.<br>
+Questo significa che la distanza a cui si possono formare satelliti o anelli intorno ad un certo corpo celeste è determinata dalle dimensioni e dalla massa del pianeta in questione, oltrechè dagli stessi parametri delle particelle o degli oggetti che orbitano intorno ad esso. Se però questi hanno origine comune a quella del pianete (composizione molto simile, densità praticamente identica) allora questa distanza ideale dipende solo dalle dimensioni del corpo celeste maggiore, il nostro M.</article>
+<article class="post" id="p4857"><div class="who"><b>spn</b><span>15 ago 2010, 23:43</span></div>Ti consiglio di approssimare quando puoi. I risultati dei primi punti vengono più carini  ;) .<br>
+Poi è strano come hai approssimato nel punto c, di solito si usa direttamente <span class="tex">\((1 + x)^\alpha \approx 1+ \alpha x\)</span>. Non ho ben capito che procedimento hai usato tu.<br>
+Comunque per il resto va bene.</article>
+<article class="post" id="p4860"><div class="who"><b>Stardust</b><span>16 ago 2010, 18:37</span></div>Il punto a) non dovrebbe richiedere alcuna approssimazione altrimenti avremmo che <span class="tex">\(\omega_1=\omega_2=\omega_0\)</span>, cosa che farebbe perdere ogni differenza, seppur piccola, tra le velocità orbitali dei due corpi.<br>
+<br>
+Per il punto b) provo ad usare l'approssimazione da te suggerita <span class="tex">\((1+x)^{\alpha} \approx 1+\alpha x\)</span> per <span class="tex">\(\alpha&lt;&lt;1\)</span>, ottenendo (in modulo):<br>
+<br>
+<span class="tex">\(\Delta F_{c1}=GMm\displaystyle{\frac{R^3(1+\frac{r}{R})^3-R^3}{R^3R^2(1+\frac{r}{R})^2}}\)</span><br>
+da cui:<br>
+<span class="tex">\(\Delta F_{c1}=\displaystyle{GMm \frac{1+3\frac{r}{R}-1}{R^2(1+2\frac{r}{R})}}\)</span><br>
+Con successive manipolazioni si arriva a:<br>
+<span class="tex">\(\Delta F_{c1}=\displaystyle{\frac{GMm}{R^2}\frac{1}{\frac{R}{3r}+\frac{2}{3}}=3\frac{GMm}{R^2}\frac{1}{2+\frac{R}{r}}}\)</span><br>
+<br>
+In modo analogo si dimostra che:<br>
+<span class="tex">\(\Delta F_{c2}=GMm\displaystyle{\frac{R^3(1-\frac{r}{R})^3-R^3}{R^3R^2(1-\frac{r}{R})^2}=\frac{3GMm}{R^2}\frac{1}{2-\frac{R}{r}}}\)</span>.<br>
+<br>
+Per il punto c) ho fatto solo dei raccoglimenti di fattori comuni estraendo preferibilmente R o <span class="tex">\(R^2\)</span>, così da avere una serie di termini frazionari come <span class="tex">\(\frac{r}{R}\)</span> o <span class="tex">\(\frac{r^2}{3R^2}\)</span> che nelle condizioni del problema finiscono per approssimarsi a 0, togliendosi gentilmente di torno nelle uguaglianze del mio primo post. Comunque ho riportato quasi tutti i passaggi lì, quindi puoi controllare se sono mosse lecite o meno.<br>
+Ho adottato questo metodo in un problema di elettrostatica (sul quadrupolo elettrico) fatto pochi giorni fa, applicando la stessa strategia di approssimazioni e raccoglimenti, e i conti tornavano pure lì. Probabilmente le nostre sono solo strade diverse per ottenere le medesime approssimazioni, anche se usare<span class="tex">\((1+x)^{\alpha} \approx 1+\alpha x\)</span> dà sicuramente una maggiore eleganza e chiarezza al procedimento.</article>
+<article class="post" id="p4910"><div class="who"><b>spn</b><span>20 ago 2010, 12:29</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Il punto a) non dovrebbe richiedere alcuna approssimazione altrimenti avremmo che <span class="tex">\(\omega_1= \omega_2= \omega_0\)</span>, cosa che farebbe perdere ogni differenza, seppur piccola, tra le velocità orbitali dei due corpi.</div></blockquote>
+
+Approssimare è sempre cosa buona e giusta se la situazione lo consente, come in questo caso. <span class="tex">\(\Delta \omega_1\)</span> e <span class="tex">\(\Delta \omega_2\)</span> vengono di modulo uguali ma con il segno opposto.</article>
+<nav class="pager"><a class="prev" href="oliforum-8696.html"><small>← precedente</small>Pianetuncoli (sns 90/91)</a><a class="next" href="olifis-4725.html"><small>successivo →</small>6: Minigolf! (SNS 91/92 N°5)</a></nav>
+</main></body></html>

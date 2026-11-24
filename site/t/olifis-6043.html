@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>36: SNS 1980 - 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1980-1981, problema 3</span></nav>
+<h1>36: SNS 1980 - 3</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6043">forum Olifis</a></p>
+<article class="post first" id="p20286"><div class="who"><b>Lasker</b><span>25 gen 2015, 19:05</span></div>Le onde del mare sono onde di superficie in cui la gravità agisce come forza di richiamo.<br>
+<br>
+(i) Si consideri un'onda di frequenza angolare <span class="tex">\(\omega\)</span> e di lunghezza d'onda <span class="tex">\(\lambda\)</span> che si propaga in un mare di profondità infinita. Sapendo che <span class="tex">\(\omega\)</span> dipende dall'accelerazione di gravità <span class="tex">\(g\)</span>, si deduca con argomenti dimensionali, cioè a meno di fattori numerici, la velocità di propagazione <span class="tex">\(v_{\infty}\)</span> di queste onde.<br>
+<br>
+(ii) Quando la lunghezza d'onda non è piccola rispetto alla profondità del mare, la velocità di propagazione <span class="tex">\(v\)</span> è minore di <span class="tex">\(v_{\infty}\)</span> e non può superare una velocità limite <span class="tex">\(v_L\)</span> indipendente da <span class="tex">\(\omega\)</span> e <span class="tex">\(\lambda\)</span>, ma dipendente dalla profondità del mare. Si determini, ancora con ragionamenti dimensionali, l'espressione di <span class="tex">\(v_L\)</span>.<br>
+<br>
+(iii) Si ponga <span class="tex">\(v=v_{\infty}f\left(\frac{v_{\infty}}{v_{L}}\right)\)</span>, dove <span class="tex">\(f\)</span> è una funzione non determinabile con i ragionamenti dimensionali usati fino ad ora. Si discuta il comportamento di <span class="tex">\(f\)</span> per <span class="tex">\(v_{\infty}\gg v_{L}\)</span> e <span class="tex">\(v_{\infty}\ll v_L\)</span>.<br>
+<br>
+(iv) Si consideri un'onda di frequenza <span class="tex">\(\omega\)</span> che si propaga nella direzione <span class="tex">\(x\)</span>, perpendicolarmente alla riva, in un mare la cui profondità sia dapprima costante e uguale ad <span class="tex">\(h_0\)</span> e poi, per l'avvicinarsi della riva, diminuisca gradualmente come funzione di <span class="tex">\(x\)</span>. Sapendo che <span class="tex">\(\omega\)</span> si mantiene costante, si dica qualitativamente come variano <span class="tex">\(\lambda\)</span> e <span class="tex">\(v\)</span> all'avvicinarsi dell'onda a riva. Si considerino esplicitamente i due casi in cui, lontano dalla riva, <span class="tex">\(\lambda\ll h_0\)</span> e quello in cui <span class="tex">\(\lambda\gg h_0\)</span>.<br>
+<br>
+(v) Si supponga che l'onda incida obliquamente sulla riva sicché la profondità dipenda sia da <span class="tex">\(x\)</span> (lungo la cui direzione si propaga l'onda) che da <span class="tex">\(y\)</span>, cioè dall'altra coordinata nel piano orizzontale. Quale nuovo fenomeno si produce? Ne esiste un analogo ottico?</article>
+<article class="post" id="p20288"><div class="who"><b>phyknight</b><span>26 gen 2015, 0:07</span></div>Non c'è domanda in cui non ci siano le parole "dimensionali", "qualitativamente" e "ottica"  :twisted:  ;) <br>
+Ed è un problema che possono fare anche i più piccoli (secondo me è troppo facile per essere un sns, ma poi boh giustamente devono dare qualche problema da far risolvere a tutti)</article>
+<article class="post" id="p20289"><div class="who"><b>andrea96</b><span>26 gen 2015, 1:39</span></div><blockquote><div><cite>phyknight ha scritto:</cite>secondo me è troppo facile per essere un sns</div></blockquote>
+Guarda la data! all'epoca i problemi che uscivano erano molto molto molto molto più facili di quelli che escono ora. Questo problema credo sia circa nella media (se non sopra) di quelli di quel periodo.</article>
+<article class="post" id="p20292"><div class="who"><b>arna1998</b><span>28 gen 2015, 0:14</span></div>Provo a rispondere, premettendo che non sono sicuro su qualche passaggio e se ho risposto completamente a tutte le domande. <br>
+<br>
+(i) Siccome <span class="tex">\(\omega\)</span> possiamo vederla come il  reciproco del periodo, se fissiamo una <span class="tex">\(\lambda\)</span>, all'aumentare di <span class="tex">\(\omega\)</span> aumenta anche la velocità. Se invece fissiamo <span class="tex">\(\omega\)</span> se aumenta <span class="tex">\(\lambda\)</span>, aumenta la velocità. Il testo ci dice che <span class="tex">\(\omega\)</span> dipende da <span class="tex">\(g\)</span> e intuitivamente possiamo pensarle proporzionali, sotituiamo a <span class="tex">\(\omega\)</span> la <span class="tex">\(g\)</span>. Data un accellerazione è una lunghezza per ottenere una velocità possiamo combinarle in questo modo <span class="tex">\(v_{\infty}=\sqrt{g \lambda}\)</span><br>
+<br>
+(ii) Mi sembra ragionevole dire che la velocità decresca al diminuire dell'altezza. Per ottenere una velocità con le grandezze in gioco devo combinare l'altezza con l'accelerazione di gravità in questo modo <span class="tex">\(v_{lim}=\sqrt{g h}\)</span>.<br>
+<br>
+(iii) Innanzi tutto possiamo riscrivere <span class="tex">\(\frac{v_{\infty}}{v_{lim}}=\sqrt{\frac{\lambda}{h}}\)</span> quindi <span class="tex">\(v=v_\infty f(\frac{\lambda}{h})\)</span>. Se <span class="tex">\(v_{lim}\ll v_{\infty}\)</span> significa  che <span class="tex">\(h\gg \lambda\)</span> e di conseguenza in questo caso <span class="tex">\(f\)</span> si avvicina sempre più ad <span class="tex">\(1\)</span> perché nelle ipotesi del primo punto si diceva che quando l'altezza era molto più grande della lunghezza d'onda, la velocità è <span class="tex">\(v_\infty\)</span>. Se invece la velocità limite è molto minore della velocità in acqua infinitamente profonda significa che <span class="tex">\(\lambda \gg h\)</span> quindi <span class="tex">\(f\)</span> diminuirà progressivamente fino a 0.<br>
+<br>
+(iv) La velocità è legata a <span class="tex">\(\lambda\)</span> e al periodo in questo modo: <span class="tex">\(v=\frac{\lambda}{T}\)</span>, ma <span class="tex">\(T\)</span> dipende soltanto da <span class="tex">\(\omega\)</span>, che è costante,  si conclude che <span class="tex">\(\lambda\)</span> è direttamente proporzionale a <span class="tex">\(v\)</span>. Quando l'altezza è costante anche la velocità e la lunghezza d'onda non variano. Quando l'altezza diminuisce sia <span class="tex">\(\lambda\)</span> che <span class="tex">\(v\)</span> diminuiscono secondo <span class="tex">\(\sqrt{h}\)</span>. Per i due casi citati non ho ben capito cosa devo dire :?  Credo che dovrebbero variare allo stesso modo( cioè sono sempre legati da proporzionalità diretta), forse si può dire qualcosa su <span class="tex">\(\omega\)</span>, ma non credo sia questo la domanda. L'unica cosa che mi viene di dire è che cambia la velocità in <span class="tex">\(h_0\)</span>, ma anche qui non credo sia la risposta.<br>
+<br>
+(v) La domanda che mi è sembrata più interessante, ma anche dove non sono tanto sicuro, quindi quello che scrivo potrebbe essere totalmente sbagliato. Supponiamo che un onda passi da due zone con una profondità costante, ma differente. Facendo un disegnino si può notare che viene deviata è avvicinata alla perpendicolare esattamente come se fosse un raggio di luce che passa in un mezzo differente. Mi viene quindi da pensare che il fenomeno è simile alla rifrazione. Quindi un'onda obliqua che si avvicina alla riva dove la profondità diminuisce progressivamente è come se passasse in moltissimi strati in cui l'indice di rifrazione aumenta e viene quindi deviato fino a raggiungere la normale alla riva quando incontrerà essa.</article>
+<article class="post" id="p20306"><div class="who"><b>Lasker</b><span>7 feb 2015, 0:39</span></div>@arna1998: Allora, per i punti (i), (ii) e (v) la soluzione è proprio quella che aspettavo, e direi che sono perfetti (se proprio vogliamo esagerare, aggiungiamo il fattore di conversione <span class="tex">\(2\pi\)</span> per distinguere la frequenza angolare dalla frequenza "normale"). Nel (iii) mi sembra ci siano dei typo (dalle formule scritte nei punti precedenti dovrebbe essere <span class="tex">\(v_{L}\ll v_{\infty}\Rightarrow h\ll \lambda\)</span> e non il viceversa, e anche l'altra risposta cambia per lo stesso motivo... comunque, ragionando un po' su cosa sono <span class="tex">\(v_{L}\)</span> e <span class="tex">\(v_{\infty}\)</span> con procedimenti del tutto analoghi a quelli che hai fatto le cose si mettono a posto), ma non è niente di grave, mentre nel (iv) le cose dovrebbero tornare meglio se provi a studiare un po' la <span class="tex">\(f\)</span> definita al punto precedente con la funzione <span class="tex">\(h(x)\)</span> al posto di un <span class="tex">\(h\)</span> fissato.<br>
+<br>
+Comunque la tua soluzione in generale mi convince, a te il testimone per il proseguo della staffetta! <br>
+<br>
+PS: se qualcuno volesse complicare un po' le cose o approfondire il punto (iv), il problema è facilmente generalizzabile e può essere reso impossibile a piacere  :twisted:</article>
+<article class="post" id="p20326"><div class="who"><b>arna1998</b><span>8 feb 2015, 16:38</span></div>Bene!  :D  Posto subito il prossimo problema, poi appena riesco riguardo i punti (iii) e (iv).</article>
+<article class="post" id="p20361"><div class="who"><b>Simone256</b><span>12 feb 2015, 20:23</span></div><blockquote><div><cite>Lasker ha scritto:</cite>PS: se qualcuno volesse complicare un po' le cose o approfondire il punto (iv), il problema è facilmente generalizzabile e può essere reso impossibile a piacere  :twisted:</div></blockquote>
+Mi dai un aiutino sia su come commentare/risolvere il punto 4 si su come generalizzarlo? :P<br>
+<br>
+P.s. Il punto 5 è fantastico! Un quesito a fine capitolo sull'Halliday chiedeva proprio perchè secondo il lettore le onde sulla spiaggia arrivano sempre nella direzione "giusta" e non si vedono quasi mai onde parallele al bagnasciuga! Avevo fatto anch'io il ragionamento di arna1998 e ora ne sono molto più convinto! Effettivamente è una gran figata  :mrgreen:</article>
+<nav class="pager"><a class="prev" href="olifis-1147.html"><small>← precedente</small>Problema 2 sns 1980</a><a class="next" href="olifis-6030.html"><small>successivo →</small>34: SNS 1980 - 5</a></nav>
+</main></body></html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1997-1998</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica anno ?</span></nav>
+<h1>SNS 1997-1998</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=9021">OliForum</a></p>
+<article class="post first" id="p74952"><div class="who"><b>Milzbrand</b><span>28 ago 2007, 00:04</span></div>Un’imposta rettangolare, liberamente girevole attorno ad un suo asse mediano è inizialmente ferma. Una pallina di massa m = 20 g e velocità v = 50 m/s la urta perpendicolarmente in un punto che si trova ad una distanza di 15 cm dall’asse di rotazione. Sapendo che la massa totale dell’imposta M = 720 gr e che a = 40 cm, b = 20 cm sono le sue dimensioni rispettivamente perpendicolare e parallela all’asse di rotazione, si chiede la velocità angolare w dell’imposta e la velocità V della pallina dopo l’urto, che si suppone elastico.<br>
+<br>
+[ Nota: il momento di inerzia dell’imposta relativamente all’asse I =Ma^2/12 ]</article>
+<article class="post" id="p74954"><div class="who"><b>Zoidberg</b><span>28 ago 2007, 08:40</span></div>Mi viene qualcosa del tipo  w=29.85rad\s  e v=45.5m\s</article>
+<nav class="pager"><a class="next" href="oliforum-3656.html"><small>successivo →</small>rilancio parabolico</a></nav>
+</main></body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sns 1982 n.5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1982-1983, problema 5</span></nav>
+<h1>Sns 1982 n.5</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=202">forum Olifis</a></p>
+<article class="post first" id="p1798"><div class="who"><b>Miralansa</b><span>31 lug 2009, 12:48</span></div>Un S.N.S. non troppo difficile, ma che mi lascia perplesso all'ultimo punto.<br>
+<br>
+Si consideri un sistema costituito da "nubi" di idrogeno atomico in un mezzo meno denso e più caldo. Si faccia l'ipotesi che lo scambio di calore tra le nubi e l'esterno sia trascurabile. Il presente modello è, sotto Alcuni aspetti, analogo a un modello proposto per il mezzo interstellare. Si consideri una nube sferica, in equilibrio, di raggio <span class="tex">\(R\cong10^{19}cm\)</span>, di densità <span class="tex">\(n\cong10atomi/cm^3\)</span> e di temperatura media<span class="tex">\(T\cong100K\)</span>.<br>
+A) Mostrare che le forze gravitazionali interne alla nube stessa non hanno rilevanza per l'equilibrio.<br>
+B) Valutare la pressione del mezzo circostante ed osservare quanto è piccola rispetto alla pressione atmosferica.<br>
+C) Considerare l'urto di due nubi identiche che si scontrino con la velocità relativa di <span class="tex">\(4Km/s\)</span> formando un'unica nube di massa doppia e valutare l'energia sviluppata.<br>
+D) Stimare volume e temperatura della nube così formata, nell'ipotesi che l'energia liberata sia tutta utilizzata a innalzare la temperatura della nube.</article>
+<article class="post" id="p1836"><div class="who"><b>Ippo</b><span>2 ago 2009, 11:41</span></div>Per il punto D direi che (mettendoci nel sistema del c.d.m.) l'energia cinetica iniziale viene interamente convertita in energia interna (si suppone in pratica un urto perfettamente anelastico), perciò, conoscendo il numero di atomi, conosciamo anche la temperatura finale: <span class="tex">\(3NkT_f=3NkT_i+2K_i\)</span> chiamando <span class="tex">\(K_i\)</span> l'energia cinetica di ciascuna nube rispetto al c.d.m. all'inizio e N il numero di atomi in ciascuna nube; conosciamo anche la pressione finale (dal punto B), che deve essere uguale a quella iniziale per avere l'equilibrio col mezzo esterno; con la legge dei gas perfetti (supponendo di poterla applicare) calcoliamo il volume finale: <span class="tex">\(PV_f=2NkT_f=2NkT_i+4K_i/3\)</span>.</article>
+<article class="post" id="p1839"><div class="who"><b>Miralansa</b><span>2 ago 2009, 12:48</span></div>Il mio dubbio era proprio questo, prima usiamo il fatto che tutta l'energia fornita sia stata usata per l'innalzamento della temperatura e quindi dell'energia interna, poi cerchiamo il nuovo volume delle due nubi che hanno subito un'espansione, quindi hanno compiuto del lavoro che, dovrebbe, essere stato fornito dall'energia cinetica delle nubi.</article>
+<article class="post" id="p1840"><div class="who"><b>Ippo</b><span>2 ago 2009, 13:11</span></div>È vero, non ho considerato il lavoro. In realtà non ci ho pensato, ma potrebbe anche darsi che in realtà non vada proprio considerato. Mi spiego: se la differenza tra <span class="tex">\(V_f\)</span> e <span class="tex">\(2V_i\)</span> è sufficientemente piccola, sapendo che la pressione esterna è anch'essa molto piccola, il lavoro compiuto potrebbe essere trascurabile. In ogni caso non ci sono informazioni sufficienti per fare un modello decente del processo di espansione, e comunque si richiede una <em class="text-italics">stima</em> del volume finale. Credo che questo permetta di trascurare il lavoro.</article>
+<article class="post" id="p1841"><div class="who"><b>Miralansa</b><span>2 ago 2009, 14:41</span></div>La formula per trovare il volume finale dovrebbe essere:<br>
+<br>
+<span class="tex">\(V_{fin}=2V_{in}\frac{T_{fin}}{T{in}}\)</span><br>
+<br>
+Usando il fatto che tutta l'energia cinetica delle nubi sia stata usata per il riscaldamento abbiamo che <span class="tex">\(T_{fin}=261K\)</span> da cui <span class="tex">\(V_{fin}=2.19E52\)</span> la variazione di volume sarà quindi notevole e nonostante la pressione estremamente debole <span class="tex">\(P=1.34E-14Pa\)</span> l'espansione dovrebbe richiedere <span class="tex">\(1.81E38J\)</span> molto rilevante rispetto all'energia liberata dalle nubi che dovrebbe essere<span class="tex">\(2.8E38J\)</span>(errori di calcolo permettendo).<br>
+<br>
+Concordo naturalmente con te Ippo riguardo il modello decente, più che altro non riuscivo a capire proprio la richiesta che prima ti chiede di considerare tutta l'energia spesa per aumentare la temperatura della nube=aumentare l'energia interna, poi chiede l'espansione conseguente, ma il processo richiesto prima non dovrebbe essere a volume costante? La stessa soluzione ufficiale non aiuta.</article>
+<article class="post" id="p1850"><div class="who"><b>Ippo</b><span>3 ago 2009, 12:18</span></div><blockquote><div><cite>Miralansa ha scritto:</cite>Usando il fatto che tutta l'energia cinetica delle nubi sia stata usata per il riscaldamento abbiamo che <span class="tex">\(T_{fin}=261K\)</span> da cui <span class="tex">\(V_{fin}=2.19E52\)</span> la variazione di volume sarà quindi notevole e nonostante la pressione estremamente debole <span class="tex">\(P=1.34E-14Pa\)</span> l'espansione dovrebbe richiedere <span class="tex">\(1.81E38J\)</span> molto rilevante rispetto all'energia liberata dalle nubi che dovrebbe essere<span class="tex">\(2.8E38J\)</span>(errori di calcolo permettendo).
+</div></blockquote>
+ah ok, la mia era una pura supposizione (speranza?  :mrgreen: )<br>
+allora (fermo restando che i testi dei problemi sns sono poco chiari e che qui si può fare tutto e il contrario di tutto) bisogna inventarsi un modello plausibile benché indecente per l'espansione. In generale, per eventi che si suppongono "traumatici" e veloci come questo, si ritiene che la nube si espanda in regime adiabatico. In meteorologia funziona, forse ha senso anche qui. Seconda questione: il volume iniziale è la somma del volume delle due nubi o è il volume di una singola nube? A rigore dovrebbero prima sovrapporsi nell'urto, riscaldandosi, e poi espandersi. Ma è una cosa completamente irrealistica. Intuitivamente verrebbe da dire che il volume iniziale sia la somma dei volumi iniziali delle due nubi. Forse con "stima" s'intende proprio che uno può calcolare un po' quello che gli pare.</article>
+<nav class="pager"><a class="prev" href="olifis-446.html"><small>← precedente</small>SNS 1982: Pallina rotante</a><a class="next" href="oliforum-8746.html"><small>successivo →</small>SNS 1983 problema 1</a></nav>
+</main></body></html>

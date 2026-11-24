@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2002-03@4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2002-2003, problema 4</span></nav>
+<h1>SNS 2002-03@4</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6219">OliForum</a></p>
+<article class="post first" id="p56896"><div class="who"><b>Enialis</b><span>28 ago 2006, 17:25</span></div>Si consideri un filo disposto lungo una spirale piana di equazione $ r =k\phi $, ove r è la distanza dall’origine e $ \phi $ è l’angolo azimutale del raggio vettore $ \vec{r} $ che descrive lo svolgersi della spirale a partire dall’origine fino ad un valore $ \phi_{max}\gg 2\pi $. La spirale è immersa in un campo magnetico uniforme ortogonale al suo piano e di modulo variabile nel tempo secondo la legge $ B(t) = B_0 sen(\omega t) $. Si determini la forza elettromotrice indotta tra le due estremità del filo.</article>
+<article class="post" id="p56930"><div class="who"><b>__Cu_Jo__</b><span>29 ago 2006, 11:33</span></div>A me non viene l'area concatenata alla spira. Ho provato a trovare la superficie con un integrale utilizzando le coordinate polari ma mi viene area negativa  :? ...<br>
+Comunque avevo proceduto in questo modo:<br>
+$ \displaystyle 
+\begin{array}{l}
+ y = \rho \sin \phi  = k\phi \sin \phi  \\ 
+ x = \rho \cos \phi  = k\phi \cos \phi  \\ 
+ dx = k\left( {\cos \phi  - \phi \sin \phi } \right)d\phi  \\ 
+ \end{array}
+
+ $<br>
+quindi<br>
+$ \displaystyle A = \int {ydx = k^2 \int {\left( {\phi \frac{{\sin 2\phi }}{2} - \phi ^2 \sin ^2 \phi } \right)} } d\phi  $<br>
+Non è un integrale simpatico,comunque si può fare per parti. Tu ce l'hai la soluzione di questo problema?</article>
+<article class="post" id="p56932"><div class="who"><b>MaMo</b><span>29 ago 2006, 12:44</span></div><blockquote><div><cite>__Cu_Jo__ ha scritto:</cite>
+....<br>
+$ \displaystyle A = \int {ydx = k^2 \int {\left( {\phi \frac{{\sin 2\phi }}{2} - \phi ^2 \sin ^2 \phi } \right)} } d\phi  $<br>
+Non è un integrale simpatico,comunque si può fare per parti. Tu ce l'hai la soluzione di questo problema?</div></blockquote>
+
+ :shock: <br>
+L'area limitata dalla curva $ r=f(\phi) $ e dai raggi vettori $ \phi=\phi_1  $ e $  \phi=\phi_2 $ è data da:<br>
+<br>
+$ \displaystyle A=\frac{1}{2} \int_{\phi_1}^{\phi_2}r^2d \phi $<br>
+<br>
+L'area "interna" alla spirale perciò diventa:<br>
+<br>
+$ \displaystyle A= \frac{k^2 \phi_{max}^3}{6} $</article>
+<article class="post" id="p56933"><div class="who"><b>__Cu_Jo__</b><span>29 ago 2006, 13:05</span></div>Ma da dove ti viene  quella formula?</article>
+<article class="post" id="p56938"><div class="who"><b>EvaristeG</b><span>29 ago 2006, 14:07</span></div>Quella è l'area in coordinate polari spazzata dal raggio vettore che descrive la curva $ r(\phi) $; infatti, considera l'area spazzata al variare dell'angolo tra $ \phi $ e $ \phi+d\phi $. Essa, a meno di infinitesimi di ordine superiore  è $ \frac12 r\cdot r\cdot \sin(d\phi)\equiv \frac12 r^2d\phi $ (mancano gli ordini maggiori o uguali a 3 nello sviluppo del seno e un termine che va come dr per compensare la variazione del raggio tra $ \phi $ e $ \phi+d\phi $ e in cui compare inevitabilmente anche un $ rd\phi $ e quindi va come $ drd\phi $, di ordine 2).<br>
+Quindi per sapere l'area spazzata dal raggio vettore che descrive la curva $ r(\phi) $ tra $ \phi_1 $ e $ \phi_2 $ è<br>
+$ \displaystyle{A(\phi_1,\phi_2)=\frac12 \int_{\phi_1}^{\phi_2}r^2d\phi} $<br>
+<br>
+...<br>
+<br>
+Comunque, anche approssimando la spirale con N circonferenze concentriche di raggi $ 2\pi k n $ con $ n=0,\ldots, N $, si arrivava al risultato <br>
+$ A=\dfrac{k^2(2\pi)^3N^3}{6}+\mathcal{O}(N^2) $<br>
+che coincide a meno di termini N^2 con quello esatto; penso che questa approssimazione fosse più che accettabile.</article>
+<article class="post" id="p56968"><div class="who"><b>__Cu_Jo__</b><span>29 ago 2006, 19:15</span></div>Grazie mille Simone!</article>
+<article class="post" id="p56971"><div class="who"><b>EvaristeG</b><span>29 ago 2006, 19:22</span></div>simone a chi?? (mi chiamo samuele ... cmq ev, evg o sam bastano ampliamente)</article>
+<article class="post" id="p56975"><div class="who"><b>__Cu_Jo__</b><span>29 ago 2006, 19:31</span></div>hahahaha,sono sempre stato una frana con i nomi...</article>
+<article class="post" id="p56990"><div class="who"><b>Gauss_87</b><span>29 ago 2006, 21:43</span></div><blockquote><div><cite>MaMo ha scritto:</cite>
+<br>
+L'area "interna" alla spirale perciò diventa:<br>
+<br>
+$ \displaystyle A= \frac{k^2 \phi_{max}^3}{6} $</div></blockquote>
+
+concordo...</article>
+<article class="post" id="p57296"><div class="who"><b>Phoenix87</b><span>03 set 2006, 22:29</span></div>uhm<br>
+io farei<br>
+<br>
+$ A = \displaystyle\frac{k^2}{2}\displaystyle\int_{\phi_{max}-2\pi}^{\phi_{max}}\phi^2 \mbox{d}\phi $<br>
+<br>
+solo per evitare di spazzare più volte la stessa area...</article>
+<nav class="pager"><a class="prev" href="olifis-543.html"><small>← precedente</small>SNS 2002/2003, n°3</a><a class="next" href="oliforum-8784.html"><small>successivo →</small>Fluidi storti in Normale</a></nav>
+</main></body></html>

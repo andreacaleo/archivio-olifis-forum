@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011 problema 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011, problema 3</span></nav>
+<h1>SNS 2010/2011 problema 3</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4675">forum Olifis</a></p>
+<article class="post first" id="p15379"><div class="who"><b>bozzio</b><span>29 ago 2013, 11:02</span></div>Considerate la corda inestensibile e di peso trascurabile e lunghezza L, avvolta attorno ad una carrucola di raggio R e alle cui estremità sono appesi inizialmente due corpi S e B di massa m. Il sistema è inizialmente in quiete e con i corpi S e B alla stessa quota, ma a t = 0 il corpo S inizia ad arrampicarsi sulla corda con una accelerazione costante a grazie ad un meccanismo interno. Il corpo raggiunge così una velocità <span class="tex">\(v_0\)</span> e quindi rallenta con decelerazione uguale ad a in valore assoluto, fino a tornare in quiete. Tutte le velocità ed accelerazioni del corpo S si considerino sempre relative alla corda.<br>
+Assumendo che la corda non slitti mai sulla carrucola, determinare il moto dei due corpi nei seguenti casi:<br>
+3a. la carrucola ha massa trascurabile; <br>
+3b. la carrucola è un disco rigido omogeneo di massa M e momento di inerzia I = MR2/2.</article>
+<article class="post" id="p15380"><div class="who"><b>bozzio</b><span>29 ago 2013, 11:46</span></div>Per il punto a) avevo provato questo:<br>
+Quando il corpo S compie uno spostamento dx arrampicandosi sulla corda anche il corpo B farà uno spostamento dx verso l'alto. Infatti, la forza interna a S è relativa solamente alla corda e in un sistema esterno alla corda le uniche forze che agiscono sono le due forze peso che tendono a riequilibrarsi istante per istante. Dunque, posizionando un sistema di riferimento xy all'altezza dei corpi nell'istante t=0 si ha che i due corpi prima salgono e poi scendono nello stesso modo. Ciò comporta che se <span class="tex">\(a\)</span> è l'accelerazione relativa alla corda di S, la sua accelerazione assoluta sarà <span class="tex">\(a/2\)</span>, uguale a quella di B e la sua velocità assoluta sarà <span class="tex">\(v_0/2\)</span>. Detto ciò il loro moto sarà: <span class="tex">\(y=1/4at^2\)</span> con <span class="tex">\(0\leq t\leq v_0/a\)</span> e <span class="tex">\(y=v^2_0/4a+v_0/2 t' - at'^2 /4\)</span> con <span class="tex">\(t'=t- v_0/a\)</span> e <span class="tex">\(v_0/a \leq t \leq 2v_0/a\)</span></article>
+<article class="post" id="p15434"><div class="who"><b>gilgamesh</b><span>31 ago 2013, 11:17</span></div><blockquote><div><cite>bozzio ha scritto:</cite>...salgono e poi scendono nello stesso modo. Ciò comporta che se <span class="tex">\(a\)</span> è l'accelerazione relativa alla corda di S, la sua accelerazione assoluta sarà <span class="tex">\(a/2\)</span>, uguale a quella di B.. </div></blockquote>
+
+Sono d'accordo con la tua soluzione, molto intuitiva nella prima parte. Io l'avevo affrontato in base alle tensioni considerando il caso più generale, cioè quando la carrucola è dotata di massa M.  In questo caso infatti le due tensioni <span class="tex">\(T_s\)</span> e <span class="tex">\(T_b\)</span> sono diverse. In particolare:<br>
+<br>
+<span class="tex">\(T_s=m(g+a_c-a)\)</span><br>
+<br>
+<span class="tex">\(T_b=m(g-a_c)\)</span><br>
+<br>
+Dato che, se il cilindro non ha massa le tensioni dovranno essere uguali, ( altrimenti l'accelerazione angolare <span class="tex">\(\alpha\)</span> del cilindro risulterebbe infinita  :shock: ) allora si ottiene facilmente :<br>
+<br>
+<span class="tex">\(T_s=T_b\)</span> da cui <span class="tex">\((g+a_c-a)=(g-a_c)\)</span> quindi <span class="tex">\(a_c= \frac {a}{2}\)</span></article>
+<article class="post" id="p15436"><div class="who"><b>bozzio</b><span>31 ago 2013, 11:25</span></div><blockquote><div><cite>gilgamesh ha scritto:</cite><blockquote><div><cite>bozzio ha scritto:</cite>...salgono e poi scendono nello stesso modo. Ciò comporta che se <span class="tex">\(a\)</span> è l'accelerazione relativa alla corda di S, la sua accelerazione assoluta sarà <span class="tex">\(a/2\)</span>, uguale a quella di B.. </div></blockquote>
+
+Sono d'accordo con la tua soluzione, molto intuitiva nella prima parte. </div></blockquote>
+Meno male  :D  dici che non va bene scritta così la dimostrazione?</article>
+<article class="post" id="p15437"><div class="who"><b>gilgamesh</b><span>31 ago 2013, 11:33</span></div><blockquote><div><cite>bozzio ha scritto:</cite>
+Meno male  :D  dici che non va bene scritta così la dimostrazione?</div></blockquote>
+
+Secondo me è importante sottolineare perchè si ha questo tipo di moto , sostanzialmente quindi spiegare perchè le tensioni che agiscono sui due corpi sono le stesse (se la carrucola non ha massa) e di conseguenza le accelerazioni...<br>
+Poi io e te siamo sulla stessa barca, dovresti chiedere a qualcuno che abbia già affrontato questi test  :)</article>
+<article class="post" id="p15438"><div class="who"><b>bozzio</b><span>31 ago 2013, 11:56</span></div>Ok grazie  :D</article>
+<nav class="pager"><a class="prev" href="olifis-561.html"><small>← precedente</small>SNS 2010/2011 numero 1</a><a class="next" href="olifis-560.html"><small>successivo →</small>SNS 2010/2011 numero 4</a></nav>
+</main></body></html>

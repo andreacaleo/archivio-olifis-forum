@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>questa e proprio banale...</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1995-1996, problema 2</span></nav>
+<h1>questa e proprio banale...</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=4139">OliForum</a></p>
+<article class="post first" id="p44109"><div class="who"><b>info</b><span>18 ago 2005, 16:16</span></div>... ma ciononostante mi serve sapere cosa ne pensate: ho letto l'analisi di questo problema e mi ha lasciato con qualche dubbio...<br>
+<br>
+Immaginate due segmenti consecutivi di cui uno orizzontale... Ora dategli massa e considerate il termine orizzontale nel senso: il campo g e perpendicolare al segmento... Il segmento orizzontale schematizza un trampolino, quello verticale un uomo che si sta lasciando cadere (senza spingere sul trampolino)... La domanda e questa:<br>
+<br>
+Chiamata omega la velocita angolare dell'uomo al momento del distacco, come evolvera quantitativamente la traiettoria dell'uomo? In particolare si vuole sapere la velocita del CM subito dopo il distacco e le eventuali nuove velocita angolari in funzione di omega...<br>
+<br>
+se poi volete trovare anche omega meglio per voi... cmq non e quello il problema: non pretendo che lo facciate  :wink: ...<br>
+<br>
+Saluti!</article>
+<article class="post" id="p44153"><div class="who"><b>Paoloca</b><span>19 ago 2005, 15:58</span></div>In particolare qual è il dubbio?</article>
+<article class="post" id="p44313"><div class="who"><b>info</b><span>26 ago 2005, 00:31</span></div>Ora non ricordo ma mi pareva che il testo eguagliasse l'energia prima e dopo lo stacco (l'energia potenziale rimaneva costante), considerando quella dopo come solo quella di rotazione rispetto al CM e "dimenticandosi" di quella di traslazione del CM...<br>
+<br>
+Io avrei risolto il tutto inserendo anche quella energia cinetica ed imponendo anche la conservazione del momento angolare... (considerando che nell'istante dello stacco la forza peso agisce in modo trascurabile)... questo se ben ricordo mi portava a risultati un pò strani e comunque in contraddizione con quello che il testo affermava... e sicuramente sono io nell'errore, dato che e un test SNS...<br>
+<br>
+Cmq provate a risolverlo e poi ne parliamo, eh  :D <br>
+<br>
+Ciao!</article>
+<nav class="pager"><a class="prev" href="olifis-218.html"><small>← precedente</small>SNS 1994 n. 5 - Satellite</a><a class="next" href="oliforum-8760.html"><small>successivo →</small>Troppe stelle che girano!</a></nav>
+</main></body></html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gravità, secondo round (SNS 2005-2006)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 2</span></nav>
+<h1>Gravità, secondo round (SNS 2005-2006)</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=12744">OliForum</a></p>
+<article class="post first" id="p104807"><div class="who"><b>atat1tata</b><span>19 apr 2009, 22:49</span></div>Ragazzi, vi posto un problema che mi spacco la testa inutilmente a cercare di risolvere, da giorni e giorni...  :(, mi immagino un corpo che cade in una sorta di imbuto di energia potenziale (che tende a meno infinito) ma non riesco a calcolare il tempo che ci impiega. Ho provato a immaginare il moto come una sorta di ellisse molto schiacciato, ma non mi è stato utile (a proposito avete mai notato che un ellisse, quando il semiasse minore tende a zero, tende a diventare un segmento ma l'equazione con $ b=0 $ dà i due soli estremi?).<br>
+<br>
+Un punto materiale, soggetto solo alla forza gravitazionale, orbita attorno ad un oggetto massivo (ossia di massa molto superiore a quella del punto materiale), inizialmente su un’orbita circolare, con periodo $ T $. Esso viene improvvisamente arrestato nel suo moto, e lasciato cadere verso la particella massiva. Dimostrate che il tempo necessario per la collisione è $ \tau = T /(4\sqrt{2}) $.</article>
+<article class="post" id="p104812"><div class="who"><b>SkZ</b><span>19 apr 2009, 23:23</span></div>$\ddot{r}=-\frac{GM}{r^2} $<br>
+$\frac{1}{2}\dot{r}^2-\frac{GM}{r}=-\frac{GM}{r_0} $<br>
+e integri r da $ ~r_0 $ a $ ~R $ raggio dell'oggetto</article>
+<article class="post" id="p104817"><div class="who"><b>atat1tata</b><span>19 apr 2009, 23:36</span></div><blockquote><div><cite>SkZ ha scritto:</cite>$\ddot{r}=-\frac{GM}{r^2} $<br>
+$\frac{1}{2}\dot{r}^2-\frac{GM}{r}=-\frac{GM}{r_0} $<br>
+e integri r da $ ~r_0 $ a $ ~R $ raggio dell'oggetto</div></blockquote>
+
+Non ho capito bene, cioè da  $\frac{1}{2}\dot{r}^2-\frac{GM}{r}=-\frac{GM}{r_0} $ dovrei fare tipo $\frac{1}{2}(\frac{dr}{dt})^2-\frac{GM}{r}=-\frac{GM}{r_0} $ e lavorare sui differenziali? E come uso la seconda equazione? (purtroppo non sono ferrato sugli integrali :oops: )<br>
+Ma il problema è anche che $ R $ non è dato, quindi lo immaginerei uguale a 0. È possibile integrare questa cosa fino a $ R=0 $?</article>
+<article class="post" id="p104821"><div class="who"><b>SkZ</b><span>19 apr 2009, 23:59</span></div>1) essendo un SNS ho supposto conosciuto gli integrali. <br>
+Non so se l'integrale e ' finito fino a 0. non l'ho calcolato.<br>
+<br>
+<br>
+la prima eq serve a niente, ma l'avevo gia' scritta :P <br>
+<br>
+cmq guarda qui<br>
+<a href="oliforum-12687.html" class="postlink">viewtopic.php?t=12687</a></article>
+<article class="post" id="p104891"><div class="who"><b>Salvo1991</b><span>21 apr 2009, 21:35</span></div>potresti postare la soluzione con l'integrale?<br>
+grazie in anticipo</article>
+<article class="post" id="p104937"><div class="who"><b>atat1tata</b><span>22 apr 2009, 15:08</span></div><blockquote><div><cite>SkZ ha scritto:</cite>1) essendo un SNS ho supposto conosciuto gli integrali. <br>
+Non so se l'integrale e ' finito fino a 0. non l'ho calcolato.<br>
+<br>
+<br>
+la prima eq serve a niente, ma l'avevo gia' scritta :P <br>
+<br>
+cmq guarda qui<br>
+<a href="oliforum-12687.html" class="postlink">viewtopic.php?t=12687</a></div></blockquote>
+
+Anch'io avevo notato che col metodo dell'ellisse allungato si otteneva la risposta voluta, ma c'è un problema: un corpo materiale reale arrivato presso il corpo massivo ruoterebbe con una velocità altissima attorno a lui e tornerebbe indietro, per compiere appunto un'orbita ellittica. Tuttavia la situazione qui è idealizzata e si parla di <strong class="text-strong">punto</strong> materiale senza <strong class="text-strong">alcuna</strong> velocità iniziale. La traiettoria è quindi rettilinea e non è possibile alcuna rotazione (sia perché la forza è perfettamente simmetrica, sia perché si sta parlando di un corpo senza estensione). La velocità a cui giungerebbe il punto tende all'infinito con il diminuire della distanza e quando viene raggiunto il corpo massivo la velocità non è definibile. La situazione non mi sembra fisica, in quanto un corpo deve avere una velocità definita.</article>
+<article class="post" id="p104947"><div class="who"><b>Salvo1991</b><span>22 apr 2009, 16:06</span></div>E' giusto che ti venga velocità infinita, poichè i due corpi si trovano a essere a distanza zero, il motivo per cui non è una situazione fisica reale è che i corpi massivi hanno sempre estensione, cosicchè non ne trovi mai due a distanza zero.<br>
+<br>
+Sono sicuro che la soluzione del barbatrucco sia accettabile, il semiperiodo dell'orbita ellittica è assimilabile al tempo di caduta libera.<br>
+<br>
+Per risolverlo in maniera molto più fica devi usare il calcolo integrale, non ci riesco proprio perchè non lo padroneggio ancora, comunque ti viene una equazione differenziale strana ma risolvibile.<br>
+<br>
+La cosa bella di questo esercizio è che la forza e quindi l'accelerazione non è costante, e per di più non dipende dal tempo ma dallo spazio.<br>
+Hai presente la legge oraria? Quella per il moto rettilineo unif. accelerato è 1/2 at^2+vt + s0, se conosci un pò di analisi è interessante vedere come essa sia formata da tre pezzi (i tre addendi) che si aggiungono uno dopo l'altro; partendo dal più semplice, s0, che descrive un moto a v costante, ci aggiungi sempre più cose, mano a mano che hai nuove derivate... Cosi ti ritrovi ad avere vt e 1/2at^2.<br>
+In questo esercizio a questa legge oraria devi aggiungere un altro pezzetto, che ti rappresenta l'aumento della forza.</article>
+<article class="post" id="p105029"><div class="who"><b>CoNVeRGe.</b><span>23 apr 2009, 16:44</span></div><blockquote><div><cite>Salvo1991 ha scritto:</cite>potresti postare la soluzione con l'integrale?<br>
+grazie in anticipo</div></blockquote>
+
+Dalla conservazione dell'energia:<br>
+$  \displaystyle v (s) = \sqrt{ 2GM \frac{r - s}{sr} } $ <br>
+con $  \displaystyle s  $ la distanza dal corpo massivo ed $  \displaystyle r  $ il raggio dell'orbita precedente.<br>
+<br>
+$  \displaystyle dt = \frac{1}{v(s)} ds \Rightarrow \tau =  \int_0 ^ \tau dt = \int_r ^R \frac{1}{v(s)} ds = \sqrt{r/2GM} \int_r ^R \sqrt{ \frac{s}{r-s} } ds  $<br>
+$  \displaystyle R  $ è il raggio dell'oggetto massivo.<br>
+<br>
+Vedendo l'integrale su internet (li ho appena iniziati e questo non ho idea di come si faccia!):<br>
+$  \displaystyle \int_r ^R \sqrt{ \frac{s}{r-s} } ds = r \arctan \sqrt{ \frac{s}{r-s} } - \sqrt{(r-s)s}  $<br>
+<br>
+e con l'approssimazione $ \displaystyle R = 0 $ otteniamo il risultato richiesto.<br>
+<br>
+<br>
+<br>
+Certo che con il metodo dell'ellisse è una cavolata.. ad averle certe idee al test..  :roll:</article>
+<article class="post" id="p105043"><div class="who"><b>SkZ</b><span>23 apr 2009, 20:15</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Vedendo l'integrale su internet (li ho appena iniziati e questo non ho idea di come si faccia!)</div></blockquote>
+1) si nota: hai posto (integrale definito)=(integrale indefinito)<br>
+$ $ \int_r ^R \sqrt{ \frac{s}{r-s} } ds = \left. r \arctan \sqrt{ \frac{s}{r-s} } - \sqrt{(r-s)s} \right|_r^R=r \arctan \sqrt{ \frac{R}{r-R} } - \sqrt{(r-R)R}-\frac{\pi r}{2} $<br>
+(tecnicamente si ha $ ~r-\epsilon $ come estremo)<br>
+e manca un meno: la velocita' e' opposta al versore del raggio.<br>
+<br>
+2) non penserai mica che si conosca tutti gli integrali a memoria? ci sono i programmi tipo mathematica o libri di integrali (io ne ho uno con 400 pag di integrali indefiniti svolti)</article>
+<article class="post" id="p105047"><div class="who"><b>CoNVeRGe.</b><span>23 apr 2009, 20:43</span></div>1)Volevo scrivere la formula indefinita ma facendo copia e incolla per risparmiare tempo mi son portato appresso tutto quanto.<br>
+Il meno l'avevo corretto scegliendo $ - \pi / 2 $ come soluzione dell 'arctng' senza che mi saltasse in mente che c'era un errore precedente...<br>
+<br>
+2)Si ma dell'esistenza di programmi e libri non te ne fai nulla al test  :lol: <br>
+Magari tra un paio di giorni quell'integrale lo saprò pure fare.</article>
+<article class="post" id="p105056"><div class="who"><b>SkZ</b><span>23 apr 2009, 23:44</span></div>tesoro mio, quando il gioco si fa duro....<br>
+i furbi cambiano strada!  :wink: <br>
+<br>
+se ti ritrovi con un integrale impestato (e quello non e' di certo semplice), vuol dire che ti stai per impantanare. :D</article>
+<nav class="pager"><a class="prev" href="oliforum-6131.html"><small>← precedente</small>Preparando un cenone... [SNS (2005-2006).1]</a><a class="next" href="oliforum-12687.html"><small>successivo →</small>accelerazione variabile (HELP!)</a></nav>
+</main></body></html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluidi storti in Normale</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2002-2003, problema 5</span></nav>
+<h1>Fluidi storti in Normale</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8784">OliForum</a></p>
+<article class="post first" id="p73132"><div class="who"><b>darkcrystal</b><span>30 lug 2007, 23:20</span></div>Ho sentito spiegare la soluzione di questo problema qualche tempo fa da Boll, ma non avevo sentito la fonte... e poi me lo sono ritrovato tra i test di ammissione in Normale, quindi penso che interessi a parecchie persone, qui :), quindi ve lo giro senza altri indugi:<br>
+<br>
+un recipiente cilindrico posto in rotazione con velocità angolare $ \omega $ attorno al suo asse verticale contiene un liquido che ruota anch’esso assieme al recipiente. Si determini, in presenza dell’accelerazione di gravità g, la forma assunta dalla superficie libera del liquido all’equilibrio.<br>
+<br>
+Ciao a tutti!</article>
+<article class="post" id="p73153"><div class="who"><b>rargh</b><span>31 lug 2007, 12:21</span></div>Veramente mi sembra un po' troppo noto come problema per essere messo alla normale... la soluzione è su tutti i libri di fisica, anche quelli del liceo...<br>
+<br>
+Vuoi la soluzione? Anche quella si da in un attimo...</article>
+<article class="post" id="p73163"><div class="who"><b>TADW_Elessar</b><span>31 lug 2007, 14:16</span></div>La risposta la conosco per averla vista con i miei occhi, ed è un paraboloide. Ma una dimostrazione? Ne ho visto una su MathWorld ma è decisamente al di là delle mie capacità matematiche. Non c'è nessun modo più semplice?</article>
+<article class="post" id="p73165"><div class="who"><b>darkcrystal</b><span>31 lug 2007, 14:41</span></div>Non so come sia quella su MathWorld, ma si fa in modo abbastanza accessibile, almeno dal punto di vista matematico...<br>
+Aspettiamo comunque se qualcuno, invece di commentare, decide di divertirsi a scrivere la sua soluzione  :twisted: <br>
+<br>
+Ciao!</article>
+<article class="post" id="p73183"><div class="who"><b>rargh</b><span>01 ago 2007, 01:30</span></div>Ho ripensato al problema, e hai ragione! E' molto più complicato di quello che credevo... sul libro di fisica del liceo diceva semplicemente di andare nel sistema di riferimento non inerziale solidale al fluido. In questo sistema di riferimento c'è un campo di forza (apparente) che sarebbe la forza centrifuga, e il campo gravitazionale. La superficie si dispone in modo che la normale sia parallela alla risultante tra le due forze, da questo deduci che dy/dr=a*r e quindi che y è un paraboloide di rotazione... però, c'è una cosa che non capisco.<br>
+<br>
+Nel sistema di riferimento solidale al fluido, ogni volumetto del fluido è fermo. Quindi la forza di contatto risultante dall'interazione col resto del fluido bilancia esattamente la risultante tra forza centrifuga e forza peso.<br>
+<br>
+Ora, chi mi garantisce che sulla superficie del fluido (separazione tra fluido e vuoto) la forza di contatto sia lungo la normale? Per ogni volumetto tangente a questa superficie, la forza di contatto potrebbe avere una componente non nulla lungo la superficie!<br>
+<br>
+Non riesco a vedere come si può fare la verifica senza matematica complessa...<br>
+<br>
+Però se vedi il sistema da un punto di vista puramente energetico. forse è più semplice.<br>
+Prima associ un potenziale al campo di forza (dato dalla somma di forza centrifuga e forza di gravità.. puoi verificare che sono conservative e quindi ammettono potenziale).<br>
+<br>
+Se supponi che non ci sia attrito tra contenitore e fluido, e che non ci sia attrito tra i diversi volumetti che compongono il fluido, allora sai che le forze interne di questo sistema non fanno lavoro. Il lavoro è fatto completamente dal campo di forza esterno.<br>
+<br>
+A ogni possibile forma della superficie corrisponde un diverso contenuto di energia (che ricavi dal potenziale). All'equilibrio quest'energia totale viene minimizzata.<br>
+<br>
+Come fai a vedere qual'è la forma che minimizza quest'energia?<br>
+<br>
+Dividi il contenitore in superfici equipotenziali. Immagina di mettere l'acqua un volumetto alla volta, e di farlo in modo che l'energia potenziale contenuta sia sempre minima. Visto che ogni volta che aggiungi un po' d'acqua devi metterla per forza in posizioni a energia potenziale più alta di prima, perché quelle a potenziale più basso sono già occupate, allora sai che devi disporre ogni volumetto addizionale d'acqua in modo che l'energia potenziale addizionale sia minimizzata.<br>
+<br>
+Allora vedi facilmente che devi distribuire ognuno di questi volumetti lungo una superficie equipotenziale. Via via che aggiungi volumetti dovrai distribuirli su superfici equipotenziali sempre più in alto, perché quelle più in basso (a energia minore) sono già occupate.<br>
+<br>
+Se infatti distribuissi questo volume addizionale lungo una superficie diversa da quella equipotenziale (a potenziale minimo consentito dal vincolo), allora significa che parte di quest'acqua sta su questa superficie equipotenziale a potenziale minimo, e il resto è posizionato a potenziali più alti.<br>
+<br>
+La superficie equipotenziale di questo campo di forza è proprio un paraboloide di rotazione. Per definizione di superficie equipotenziale, vedrai che il gradiente del potenziale è diretto esattamente lungo la normale a questa superficie (perché per ogni spostamento tangente alla superficie il lavoro dev'essere nullo).<br>
+<br>
+L'energia potenziale totale è somma di questi due potenziali:<br>
+<br>
+(m indica la densità del fluido, che si suppone incompressibile e omogeneo).<br>
+<br>
+U=mgz-(1/2)*m*(omega)^2*r^2<br>
+<br>
+Fissato U:<br>
+<br>
+z=[U+(1/2)*m*(omega)^2*r^2]/(mg)<br>
+<br>
+Come vedi la forma di questa superficie è sempre la stessa, solo che viene traslata più in alto all'aumentare di U.<br>
+<br>
+Però in principio non mi sembra affatto banale sapere che equilibrio=minimizzazione energia potenziale totale..., né sapere le forze interne del sistema sono conservative (e quindi il loro lavoro totale è sempre nullo, per cui basta vedere il lavoro fatto dal campo di forza esterno).<br>
+<br>
+anzi più correttamente, i punti di equilibrio sono gli "estremanti" della funzione potenziale... possono essere massimi, minimi, punti di sella... i punti di equilibrio stabile sono però i punti di minimo.<br>
+<br>
+Per cui mi sembra che i libri di fisica del liceo diano per scontato cose intuitive, ma non banali da dimostrare....<br>
+<br>
+Le ipotesi che ti servono sono comunque queste:<br>
+<br>
+-il fluido è incompressibile<br>
+-la quantità totale di fluido è costante<br>
+-non c'è attrito tra fluido e recipiente esterno<br>
+-non c'è attrito tra volumi adiacenti del fluido<br>
+<br>
+(l'ipotesi di fluido omogeneo non è necessaria).<br>
+<br>
+Da queste puoi dedurre che all'equilibrio, il campo di forza all'interno di un fluido è conservativo... credo che il "teorema di torricelli" sia una visione equivalente.</article>
+<article class="post" id="p73847"><div class="who"><b>HoFinitoLeIdee</b><span>10 ago 2007, 17:50</span></div>ciao raga.<br>
+<br>
+ho trovato un problema + articolato ma parzialmente guidato sull'Halliday, che sto usando x prepararmi ai test x SNS e Galileiana. con guidato intendo che lui dava già le equazioni che io poi ho dovuto dimostrare. vi posto al mia soluzione.<br>
+<br>
+indico:<br>
+p= pressione generica<br>
+pc= pressione lungo l'asse di rotazione cioè a r=0<br>
+r= distanza tra l'asse e il singolo volumetto di liquido<br>
+h= altezza rispetto alla base del cilindro<br>
+p0= pressione atmosferica<br>
+ro= massa volumica<br>
+w= velocità angolare<br>
+<br>
+nei due punti precedenti si è dimostrato che <br>
+<br>
+dp/dr= ro*w^2*r<br>
+<br>
+e che<br>
+<br>
+p=pc + 1/2*ro*w^2*r^2<br>
+<br>
+a questo punto possiamo dire che la posizione assunta dal singolo volumetto di liquido è di equilibrio. in che modo il volumetto può essere in equilibrio? facendo in modo che la differenza di pressione rispetto all'asse di rotazione e quella rispetto all'atmosfera sia uguale, in modo da annullarsi. ricordo che la pressione è uno scalare, quindi non si deve scomporre nulla.<br>
+<br>
+otteniamo quindi che (uso i dp invece che i delta xkè nn li so scrivere  :roll: )<br>
+<br>
+dpc= 1/2*ro*w^2*r^2<br>
+<br>
+e come tutti sanno<br>
+<br>
+dp0= ro*g*h<br>
+<br>
+imponendo l'uguaglianza e con qualke passaggino si ottiene che:<br>
+<br>
+h= (w^2/2g) r^2<br>
+<br>
+che è la traiettoria di una parabola con vertice nell'origine.                        c.v.d.<br>
+<br>
+la parabola si ottiene sezionando il paraboloide con un piano verticale... quindi si ragiona tutto sulla sezione. <br>
+<br>
+spero sia corretta e utile.<br>
+<br>
+ciao[/tex]</article>
+<article class="post" id="p73858"><div class="who"><b>pic88</b><span>10 ago 2007, 19:50</span></div>Non ho voglia (ahimè) di leggere le soluzioni proposte, ma a me il problema è venuto. Chi mi conosce sa che un problema con una soluzione più lunga di 5 righe difficilmente mi riesce, quindi...<br>
+<br>
+Allora un punto che dista $ {r} $ dall'asse di rotazione è soggetto ad un'accelerazione $ {a=\omega ^2 r} $ che poi è quella che chiamiamo accelerazione centrifuga.<br>
+Ovviamente il punto è soggetto anche all'accelerazione di gravità, g.<br>
+<br>
+Allora come si vede nel disegno, la reazione vincolare deve avere una certa direzione.. e la tangente alla superficie deve essere perpendicolare alla reazione vincolare.. e allora $ f'(r)= \tan \alpha = \frac{\omega ^2 r}{g} $, essendo $ {y=f(x)} $ il grafico della curva intersezione tra la superficie dell'acqua ed un piano contenente l'asse.<br>
+<br>
+EDIT: aggiunto il disegno<br>
+<br>
+<a class="lost" href="http://img516.imageshack.us/img516/3152/fisicacl4.png" class="ext">[immagine non più disponibile]</a></article>
+<nav class="pager"><a class="prev" href="oliforum-6219.html"><small>← precedente</small>SNS 2002-03@4</a><a class="next" href="oliforum-10354.html"><small>successivo →</small>ottica</a></nav>
+</main></body></html>

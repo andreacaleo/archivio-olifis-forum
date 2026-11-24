@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2005/2006 Problema 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 5</span></nav>
+<h1>SNS 2005/2006 Problema 5</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=147">forum Olifis</a></p>
+<article class="post first" id="p1339"><div class="who"><b>djoko92</b><span>21 giu 2009, 17:00</span></div>Si consideri un trenino elettrico composto da una locomotiva di massa<br>
+<span class="tex">\(m\)</span> posta su un circuito circolare di raggio <span class="tex">\(R\)</span> appoggiato su un piano oriz- <br>
+zontale ﬁsso. Le dimensioni della locomotiva sono trascurabili rispetto <br>
+a <span class="tex">\(R\)</span>, la massa di tutti i binari componenti il circuito è <span class="tex">\(M\)</span> e il circuito può <br>
+scorrere sul piano di appoggio senza attrito alcuno. Locomotiva e cir- <br>
+cuito sono inizialmente fermi, poi la locomotiva si mette in moto ﬁno <br>
+a raggiungere una velocità di scorrimento relativa ai binari <span class="tex">\(v_0\)</span> costante. <br>
+Si determini la traiettoria della locomotiva rispetto al piano di appoggio, <br>
+ed il periodo <span class="tex">\(T\)</span> del suo moto dopo il transiente iniziale. Si discutano i <br>
+due limiti <span class="tex">\(M &gt;&gt; m\)</span> e <span class="tex">\(m &gt;&gt; M\)</span>. In che senso il secondo di essi può essere <br>
+irrealistico?</article>
+<article class="post" id="p1341"><div class="who"><b>Timmo</b><span>21 giu 2009, 18:20</span></div>EDIT-AVVISO: i link contengono ragionamenti, discussioni e soluzioni al problema - non leggere se volete provare a risolverlo da soli qui
+<blockquote class="uncited"><div><span style="color:#FFFFFF"><br>
+<a href="http://olimpiadi.dm.unibo.it/oliForum/viewtopic.php?t=8864" class="ext" class="postlink">http://olimpiadi.dm.unibo.it/oliForum/v ... php?t=8864</a><br>
+<br>
+<a href="http://olimpiadi.dm.unibo.it/oliForum/viewtopic.php?t=4833" class="ext" class="postlink">http://olimpiadi.dm.unibo.it/oliForum/v ... php?t=4833</a> </span>
+</div></blockquote>
+P.S.<br>
+<br>
+Benvenuto nel forum!  :)<br>
+<br>
+EDIT</article>
+<article class="post" id="p1342"><div class="who"><b>CoNVeRGe.</b><span>21 giu 2009, 19:16</span></div>Bello questo problema (e pure difficile). L'ho visto non molto tempo fa quindi se qualcuno vuole risolverlo senza vedere i link delle discussioni posso dare qualche aiuto io, se non riesce. :mrgreen:<br>
+<br>
+P.S.: Benvenuto!</article>
+<article class="post" id="p1345"><div class="who"><b>djoko92</b><span>21 giu 2009, 20:07</span></div>Ciao a tutti!  :) <br>
+Non avevo visto i topic sull'oliforum...</article>
+<article class="post" id="p1353"><div class="who"><b>Alex90</b><span>22 giu 2009, 10:08</span></div><blockquote><div><cite>Timmo ha scritto:</cite><a href="http://olimpiadi.dm.unibo.it/oliForum/viewtopic.php?t=8864" class="ext" class="postlink">http://olimpiadi.dm.unibo.it/oliForum/v ... php?t=8864</a><br>
+<br>
+<a href="http://olimpiadi.dm.unibo.it/oliForum/viewtopic.php?t=4833" class="ext" class="postlink">http://olimpiadi.dm.unibo.it/oliForum/v ... php?t=4833</a><br>
+<br>
+P.S.<br>
+<br>
+Benvenuto nel forum!  :)</div></blockquote>
+
+Non smontiamo il problema prima che qualcuno provi a risolverlo...si possono ripostare problemi postati 2 anni fa su un altro forum no?  ;)</article>
+<article class="post" id="p1354"><div class="who"><b>Timmo</b><span>22 giu 2009, 13:55</span></div><blockquote><div><cite>Alex90 ha scritto:</cite><blockquote><div><cite>Timmo ha scritto:</cite><a href="http://olimpiadi.dm.unibo.it/oliForum/viewtopic.php?t=8864" class="ext" class="postlink">http://olimpiadi.dm.unibo.it/oliForum/v ... php?t=8864</a><br>
+<br>
+<a href="http://olimpiadi.dm.unibo.it/oliForum/viewtopic.php?t=4833" class="ext" class="postlink">http://olimpiadi.dm.unibo.it/oliForum/v ... php?t=4833</a><br>
+<br>
+P.S.<br>
+<br>
+Benvenuto nel forum!  :)</div></blockquote>
+
+Non smontiamo il problema prima che qualcuno provi a risolverlo...si possono ripostare problemi postati 2 anni fa su un altro forum no?  ;)</div></blockquote>
+
+Non era mia intenzione, pensavo che fosse utile sapere che era stato già discusso....<br>
+Comunque edito il post precedente per avvisare chi legge.. :)</article>
+<article class="post" id="p1359"><div class="who"><b>Alex90</b><span>22 giu 2009, 15:42</span></div><blockquote><div><cite>Timmo ha scritto:</cite>
+Non era mia intenzione, pensavo che fosse utile sapere che era stato già discusso...</div></blockquote>
+
+Senza dubbio utile ma magari dopo che ne abbiamo discusso qui...sennò c'è il rischio che qualcuno che vuole provare e magari ha bisogno di un hint va a vedere là e si trova tutta la soluzione  :)</article>
+<article class="post" id="p1360"><div class="who"><b>Davide90</b><span>22 giu 2009, 15:51</span></div>Tentiamo di rispondere, va'...  :roll: <br>
+<br>
+In assenza di forze d'attrito tra il pavimento e il circuito, non vi sono forze esterne agenti sul sistema, dunque il centro di massa O del sistema rimane fermo. Il centro di massa del circuito è il centro della circonferenza delle rotaie, mentre il trenino possiamo considerarlo come punti forme rispetto al circuito (grazie all'ipotesi provvidenziale che le dimensioni del trenino siano trascurabili rispetto a R).<br>
+Dunque la traiettoria del trenino è una circonferenza di centro O <em class="text-italics">(è sufficente questa frase o va motivato meglio?)</em> e raggio pari a <span class="tex">\(R\cdot\dfrac{M}{M+m}\)</span>.<br>
+Di conseguenza possiamo ricavare il periodo <span class="tex">\(T=\dfrac{2\pi}{\omega}=\dfrac{2\pi}{v_0}\cdot R\dfrac{M}{M+m}\)</span>.<br>
+<br>
+Il limite per <span class="tex">\(\frac{m}{M}\rightarrow0\)</span> porta a <span class="tex">\(T \approx \dfrac{2\pi R}{v_0}\)</span>, quindi il centro di massa va a coincidere con il centro della circonferenza del circuito, che rimane fermo.<br>
+Invece il limite per <span class="tex">\(\frac{M}{m}\rightarrow0\)</span> porta a <span class="tex">\(T \rightarrow 0\)</span>: questo risultato è poco credibile, in quanto la velocità angolare <span class="tex">\(\omega\)</span> tenderebbe a infinito.<br>
+<br>
+Troppo facile  :? , vediamo cosa ho sbagliato...</article>
+<article class="post" id="p1365"><div class="who"><b>CoNVeRGe.</b><span>22 giu 2009, 16:18</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>
+Dunque la traiettoria del trenino è una circonferenza di centro O <em class="text-italics">(è sufficente questa frase o va motivato meglio?)</em> e raggio pari a <span class="tex">\(R\cdot\dfrac{M}{M+m}\)</span>.
+</div></blockquote>
+
+Si, precisamente si dovrebbe dire che la distanza tra i centri di massa del treno e del circuito è costante e da qui dedurre che la distanza tra i centri di massa del treno e del sistema è costante, quindi non può che muoversi su una circonferenza.<br>
+<br>
+In formule:<br>
+<br>
+<span class="tex">\(\displaystyle MD = md\)</span><br>
+<br>
+<span class="tex">\(\displaystyle R = d + D = d + \frac{m}{M} d \leadsto d = R \frac{M}{M+m} = cost.\)</span><br>
+
+<blockquote><div><cite>Davide90 ha scritto:</cite>
+Di conseguenza possiamo ricavare il periodo <span class="tex">\(T=\dfrac{2\pi}{\omega}=\dfrac{2\pi}{v_0}\cdot R\dfrac{M}{M+m}\)</span>.
+</div></blockquote>
+
+<blockquote><div><cite>djoko92 ha scritto:</cite> [...] velocità di scorrimento <span style="text-decoration:underline">relativa ai binari </span><span class="tex">\(v_0\)</span> costante. </div></blockquote></article>
+<article class="post" id="p1433"><div class="who"><b>String</b><span>26 giu 2009, 15:19</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>djoko92 ha scritto:</cite> [...] velocità di scorrimento <span style="text-decoration:underline">relativa ai binari </span><span class="tex">\(v_0\)</span> costante. </div></blockquote></div></blockquote>
+Ciao! Stavo provando a determinare il periodo richiesto, ma il risultato non mi viene corretto...forse commetto qualche errore riguardo l'interpretazione dei segni delle velocità...posto i passaggi perchè mi piacerebbe capire dove sbaglio...<br>
+Supponiamo che la locomotiva si muova in senso orario, quindi si muoverà nello stesso verso anche il centro del circuito rispetto al centro di massa del sistema, mentre rispetto al suo baricentro si muoverà in senso contrario, ovvero antiorario. Prendo ora come verso positivo delle velocità quello orario. Poichè il momento angolare si conserva abbiamo:<br>
+<br>
+<span class="tex">\(\displaystyle mv\frac {MR}{M+m}+MV\frac {mR}{M+m}-MR^2\omega '=0\)</span><br>
+<br>
+Quindi <br>
+<br>
+<span class="tex">\(\displaystyle mv+mV-\omega' MR-\omega 'mR=0\)</span><br>
+<br>
+Sostituisco a <span class="tex">\(v\)</span> e <span class="tex">\(\displaystyle V\)</span> rispettivamente <span class="tex">\(\displaystyle \omega \frac {MR}{M+m}\)</span> e <span class="tex">\(\displaystyle \omega \frac {mR}{M+m}\)</span> quindi si arriva a<br>
+<br>
+<span class="tex">\(\displaystyle \omega =\omega '\frac {(M+m)}{m} \qquad (1)\)</span><br>
+<br>
+Ora, per la composizione delle velocità possiamo scrivere:<br>
+<br>
+<span class="tex">\(\displaystyle \vec v_0=\vec  v-\vec  V- \vec  v' \rightarrow v_0=v-V+\omega' R\)</span> quindi<br>
+<br>
+<span class="tex">\(\displaystyle v_0=\omega \frac {MR}{M+m}-\omega \frac {mR}{M+m}+\omega ' R\)</span> che porta a <br>
+<br>
+<span class="tex">\(\displaystyle \omega ' =\frac {Mv_0+mv_0-\omega MR+\omega mR}{mR}\qquad (2)\)</span> <br>
+<br>
+Sostituendo questa espressione per <span class="tex">\(\displaystyle \omega '\)</span> nella (1) si arriva a<br>
+<br>
+<span class="tex">\(\displaystyle \omega =v_0\frac {(M+m)}{RM}\)</span> che non è il risultato corretto...<br>
+<br>
+Dove sbaglio?</article>
+<article class="post" id="p1435"><div class="who"><b>CoNVeRGe.</b><span>26 giu 2009, 22:40</span></div><blockquote><div><cite>String ha scritto:</cite>
+<span class="tex">\(\displaystyle \vec v_0=\vec  v-\vec  V- \vec  v' \rightarrow v_0=v-V+\omega' R\)</span><br>
+<br>
+Dove sbaglio?</div></blockquote>
+
+Credo sia questo l'errore. <br>
+<br>
+Da come hai supposto i vettori inizialmente, <span class="tex">\(\displaystyle \vec v', \vec  V\)</span> sono opposti a <span class="tex">\(\displaystyle \vec v\)</span>, quindi <span class="tex">\(\displaystyle  -\vec v',- \vec  V\)</span> sono concordi a <span class="tex">\(\displaystyle \vec v\)</span>, e allora:<br>
+<br>
+<span class="tex">\(\displaystyle  \vec v_0=\vec  v + (-\vec  V) + (- \vec  v') \rightarrow | \vec{v_0}|= |\vec{v}| + |\vec{V}| + |{\vec{\omega'} \wedge \vec{R}|\)</span></article>
+<article class="post" id="p1436"><div class="who"><b>String</b><span>27 giu 2009, 12:09</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><span class="tex">\(\displaystyle \vec v, \vec  V\)</span> sono opposti a <span class="tex">\(\displaystyle \vec v_0\)</span></div></blockquote>
+Perchè? La locomotiva (che supponiamo si muova in senso orario) non si muove sempre in verso orario rispetto ai binari? 
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite> quindi <span class="tex">\(\displaystyle  -\vec v,- \vec  V\)</span> sono concordi a <span class="tex">\(\displaystyle \vec v_0\)</span>, e allora:<br>
+<span class="tex">\(\displaystyle  \vec v_0=\vec  v + (-\vec  V) + (- \vec  v') \rightarrow v_0=v+V+\omega' R\)</span></div></blockquote>
+Ma così <span class="tex">\(v_0\)</span> verrebbe positiva come <span class="tex">\(v\)</span>, che è in contraddizione con quanto affermato prima, cioè che sono opposti...</article>
+<article class="post" id="p1437"><div class="who"><b>CoNVeRGe.</b><span>27 giu 2009, 13:27</span></div>Scusami, all'inizio volevo dire <span class="tex">\(\displaystyle \vec{v'}\)</span> al posto di <span class="tex">\(\displaystyle \vec{v}\)</span>, si poteva capire dai passaggi successivi..<br>
+<br>
+Comunque dipende tutto da come hai supposto i vettori. E, da come mi sembra che tu li abbia supposti, è lì che hai sbagliato. <br>
+Infatti all'inizio, dalla conservazione della quantità di moto che hai scritto, vedo che il vettore <span class="tex">\(\displaystyle \vec{V}\)</span> è opposto a <span class="tex">\(\displaystyle \vec{v}\)</span> e allora la differenza <span class="tex">\(\displaystyle \vec{v} - \vec{V}\)</span> "diventa" la somma <span class="tex">\(\displaystyle v + V\)</span>.</article>
+<article class="post" id="p2090"><div class="who"><b>Davide90</b><span>23 ago 2009, 11:56</span></div><blockquote><div><cite>String ha scritto:</cite>
+<span class="tex">\(\displaystyle \omega ' =\frac {Mv_0+mv_0-\omega MR+\omega mR}{mR}\qquad (2)\)</span> 
+</div></blockquote>
+Se non mi sbaglio qui hai sbagliato a ricopiare, anzichè <span class="tex">\(\omega '\)</span> hai scritto il valore ottenuto per <span class="tex">\(\omega\)</span> sostituendo nella (1).<br>
+<br>
+Aldilà di queste sciocchezzuole, non ho capito perchè dovremmo assumere nella composizione delle velocità (passando ai moduli) <span class="tex">\(v_0=v+V+\omega R\)</span>...  :oops: <br>
+Se ho capito ben le convenzioni sono:<br>
+<span class="tex">\(\vec v\)</span> = velocità della locomotiva rispetto al centro di massa del sistema<br>
+<span class="tex">\(\vec V\)</span> = velocità dei binari rispetto al centro di massa del sistema<br>
+<span class="tex">\(\vec v'\)</span> = velocità dei binari rispetto al baricentro del circuito<br>
+Quindi <span class="tex">\(\vec v\)</span> e <span class="tex">\(\vec V\)</span> sono entrambe in senso orario, perchè M ed m si mantengono da parti opposte rispetto al centro di massa del sistema, mentre <span class="tex">\(\vec v'\)</span> è in senso antiorario perchè i binari slittano in senso opposto alle ruote della locomotiva.<br>
+<br>
+Quindi non dovrebbe essere <span class="tex">\(v_0=v-V+\omega R\)</span>  :?: <br>
+Comunque con i segni proposti da CoNVeRGe salta fuori<br>
+<span class="tex">\(\omega=\dfrac{v_o}{R}\dfrac{M+m}{M+2m}\)</span></article>
+<article class="post" id="p2091"><div class="who"><b>CoNVeRGe.</b><span>23 ago 2009, 12:42</span></div>Correggo quel che ho scritto prima che non era tanto chiaro:<br>
+
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Da come String ha supposto i vettori inizialmente, <span class="tex">\(\displaystyle \vec v', \vec  V\)</span> sono opposti a <span class="tex">\(\displaystyle \vec v\)</span>, quindi <span class="tex">\(\displaystyle  -\vec v',- \vec  V\)</span> sono concordi a <span class="tex">\(\displaystyle \vec v\)</span>, e allora:<br>
+<br>
+<span class="tex">\(\displaystyle  \vec v_0=\vec  v + (-\vec  V) + (- \vec  v') \rightarrow | \vec{v_0}|= |\vec{v}| + |\vec{V}| + |{\vec{\omega'} \wedge \vec{R}|\)</span>
+</div></blockquote>
+
+Ho usato i moduli così ci si capisce meglio. Adesso vi ritrovate?</article>
+<article class="post" id="p2092"><div class="who"><b>Davide90</b><span>23 ago 2009, 13:27</span></div>Allora il mio problema è perchè <span class="tex">\(\vec V\)</span> e opposto a <span class="tex">\(\vec v\)</span> ...<br>
+Non sono entrambi diretti in senso orario?  :roll:</article>
+<article class="post" id="p2093"><div class="who"><b>CoNVeRGe.</b><span>23 ago 2009, 13:58</span></div>Basta vedere la quantità di moto totale:<br>
+<br>
+<span class="tex">\(\displaystyle \vec{P} = M \vec{V} + m \vec{v} = 0\)</span></article>
+<article class="post" id="p2094"><div class="who"><b>Davide90</b><span>23 ago 2009, 15:08</span></div>Ahh, forse ora ho avuto l'illuminazione. <span class="tex">\(\vec V\)</span> lo assumiamo convenzionalmente in senso antiorario quando scriviamo la relazione<br>
+<span class="tex">\(\displaystyle \vec{P} = M \vec{V} + m \vec{v} = 0\)</span><br>
+Ma in realtà il suo modulo è negativo, quindi nella pratica  <span class="tex">\(\vec V\)</span> diventa orario. Però quando scriviamo la composizione delle velocità in questo modo<br>
+<span class="tex">\(\displaystyle \vec v_0=\vec v + (-\vec V) + (- \vec v') \rightarrow | \vec{v_0}|= |\vec{v}| + |\vec{V}| + |{\vec{\omega'} \wedge \vec{R}|\)</span><br>
+tutto si mette a posto.<br>
+Grazie!  ;)</article>
+<article class="post" id="p2108"><div class="who"><b>CoNVeRGe.</b><span>23 ago 2009, 23:02</span></div>Vettori orari o antiorari...  :?  :?:   Cosi non ci capiremo mai!  :mrgreen: <br>
+<br>
+Ecco le conservazioni della quantità di moto e del momento angolare (rispetto al centro di massa):<br>
+<br>
+<span class="tex">\(\displaystyle \vec{P} = M \vec{V} + m \vec{v} = 0\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \vec{L} = M \vec D \wedge \vec{V} + m \vec d \wedge \vec{v} + I \vec w' = 0\)</span><br>
+<br>
+Dalla prima vediamo che V ha verso opposto a v. Ma i primi due termini della seconda equazione allora hanno stesso verso (perchè anche d è opposto a D ovviamente), da ciò è determinato il verso di w' e, quindi, di v'. Ora dovrebbe essere tutto chiaro.  :D</article>
+<article class="post" id="p2116"><div class="who"><b>Davide90</b><span>24 ago 2009, 10:20</span></div>La convenzione dei segni l'ho capita: da quelle due equazioni, come hai spiegato tu, si vede quali velocità sono concordi e quali no, quindi sono d'accordo con la composizione delle velocità.<br>
+Nella mia infinita ignoranza però mi manca ancora un passaggino: <span class="tex">\(\vec v\)</span> e <span class="tex">\(\vec V\)</span> saltano fuori con segni opposti perchè, in ogni istante, circuito e locomotiva hanno direzioni opposte (rispetto al centro di massa) nella loro orbita, giusto?<br>
+Quindi pensare a versi orari e antiorari poteva risultare fuorviante...<br>
+Se è così allora mi è perfettamente chiaro il tutto! <span style="font-size: 85%; line-height: normal">(grazie per la pazienza :) )</span></article>
+<article class="post" id="p2119"><div class="who"><b>CoNVeRGe.</b><span>24 ago 2009, 10:42</span></div>Oh, è semplice  :mrgreen: , forse ho capito male la richiesta.. comunque: <span class="tex">\(\displaystyle m\)</span> e <span class="tex">\(\displaystyle M\)</span> sono le uniche masse del sistema. Il sistema inizialmente ha quantità di moto nulla, dunque se alla fine una delle due masse ha una certa quantità di moto, l'altra deve averla necessariamente opposta e uguale in modulo.<br>
+<br>
+<span class="tex">\(\displaystyle \vec v = - \frac{M}{m} \vec V\)</span><br>
+<br>
+E' per questo che ruotano entrambe in senso orario (o antiorario) rispetto al centro di massa, non perchè ce lo siamo inventati ;) .</article>
+<article class="post" id="p2121"><div class="who"><b>Davide90</b><span>24 ago 2009, 10:47</span></div>Ok, avevo chiesto una cosa leggermente diversa ma indirettamente mi hai risposto, tutto chiaro, grazie.  ;)</article>
+<nav class="pager"><a class="prev" href="oliforum-4833.html"><small>← precedente</small>Locomotiva elettrica e Binari... senza attrito...</a><a class="next" href="olifis-186.html"><small>successivo →</small>SNS 2005/2006 Problema 6</a></nav>
+</main></body></html>

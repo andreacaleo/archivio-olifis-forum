@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2009/2010 Problema 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2009-2010, problema 3</span></nav>
+<h1>SNS 2009/2010 Problema 3</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=251">forum Olifis</a></p>
+<article class="post first" id="p2221"><div class="who"><b>Alex90</b><span>28 ago 2009, 20:55</span></div>Si nota spesso che in condizioni di traffico intenso, le automobili in austrada procedono con accelerazioni seguite sempre da brusche frenate. Spiegate quantitativamente come mai le frenate devono essere brusche, sull'autostrada ma non sulle statali. Si assuma, per semplicità, che ogni autista veda solo la macchina immediatamente davanti a sè. potete utilizzare i seguenti dati: velocità tipica in autostrada <span class="tex">\(v_A = 120 \, Km/h\)</span>, sulla statale <span class="tex">\(v_S = 40 \, Km/h\)</span>, lunghezza tipica della macchina <span class="tex">\(L = 4 \, m\)</span>, tempo di reazione tipico <span class="tex">\(T = 0,4 \, s\)</span></article>
+<article class="post" id="p2268"><div class="who"><b>Agi_90</b><span>29 ago 2009, 16:59</span></div>Nessuno che si cimenta con questo fantastico problema :D btw qualcuno ha usato in modo sensato la lunghezza del veicolo?</article>
+<article class="post" id="p2273"><div class="who"><b>MrTeo</b><span>29 ago 2009, 18:33</span></div>Mah... da "esterno" ho pensato ai fatti banalissimi che lo spazio percorso nel tempo inerte di reazione è maggiore (roba da scuola guida  :mrgreen: ) e che ovviamente con una velocità maggiore ci si mette più spazio per frenare se si applica la medesima decelerazione, ergo si frena più a fondo (occhio a non bloccare le ruote xò  :D ).<br>
+<br>
+Qualcuno ha considerazioni più interessanti di queste mie ovvietà?</article>
+<article class="post" id="p2330"><div class="who"><b>CoNVeRGe.</b><span>31 ago 2009, 14:11</span></div><blockquote><div><cite>Agi_90 ha scritto:</cite>Nessuno che si cimenta con questo fantastico problema :D </div></blockquote>
+Fantastico? Io non volevo neanche farlo..  :(<br>
+<br>
+La lunghezza della macchina non ho capito come ci potesse entrare..</article>
+<article class="post" id="p2331"><div class="who"><b>Alex90</b><span>31 ago 2009, 14:22</span></div>Io ho detto che lo spazio percorso durante il tempo di reazione a velocità della statale è circa lungo quanto una macchina, quindi una distanza plausibile da mantenere anche in condizioni di traffico, mentre nell'altro caso è oltre il triplo, quindi un po' meno "usuale"</article>
+<article class="post" id="p2439"><div class="who"><b>Gianpierpippo</b><span>7 set 2009, 22:12</span></div>Il fatto che il traffico sia intenso può essere interpretato pensando che, in una tale situazione, la "densità di traffico" (definita come rapporto tra spazio occupato effettivamente dalle auto e lunghezza della strada) è molto elevata.<br>
+Nel caso dell'autostrada questa densità dev'essere nettamente minore di 1/4: lo spazio percorso da un'auto durante il tempo di reazione, come si può facilmente vedere, è maggiore di tre lunghezze d'auto. Nelle ipotesi date, e cioè che ogni autista freni solo dopo aver visto quello davanti fare altrettanto, per avere una certa sicurezza c'è bisogno che ogni macchina abbia a disposizione, supponendo che la frenata sia istantanea, uno spazio di almeno 4 lunghezze d'auto. Questo spazio aumenta se i tempi di frenata sono apprezzabili. Per permettere elevate densità di traffico è dunque necessario che le frenate siano molto brevi.<br>
+Passiamo ora alla strada statale: la velocità è un terzo, e quindi lo spazio percorso nel tempo di reazione è a sua volta ridotto a un terzo, quindi a una lunghezza di macchina. Questo significa che, a parità di traffico, in strada statale c'è molto più spazio per l'effettiva frenata (due lunghezze di macchina, per densità pari a 1/4), quindi più tempo, e le frenate non devono dunque essere brusche come in autostrada.</article>
+<article class="post" id="p2440"><div class="who"><b>eli9o</b><span>9 set 2009, 9:22</span></div>Quando dici a parità di traffico supponi che le macchine stiano alla stessa distanza in autostrada e nella statale quindi per forza devono frenare più forte in autostrada, anche senza definire densità. Ma in autostrada si sta più lontani.<br>
+<br>
+Sempre meglio che consegnare in bianco come me quel problema  :roll:</article>
+<article class="post" id="p2441"><div class="who"><b>Gianpierpippo</b><span>9 set 2009, 12:05</span></div>Perchè si sta più distanti in autostrada? Proprio per evitare 1. di rischiare di stamparsi su quello davanti, e 2. per non consumare i copertoni dovendo inchiodare ogni volta che quello davanti frena. Il problema chiedeva precisamente questo: perchè a parità di condizioni le situazioni sono diverse? È vero anche quello che dici, ma questo non spiega perchè le frenate siano necessariamente brusche "in condizioni di traffico intenso" e non quando ci sono quattro gatti. Chiaro che se in autostrada su una lungezza di 100km ci sono 10 auto non c'è bisogno di di queste brusche frenate. Ho introdotto la "densità di traffico" soltanto per interpretare quantitativamente (cosa che era espressamente richiesta) il fatto che la strada fosse trafficata. Poi, ragazzi, libera interpretazione al testo: secondo me questo problema l'hanno fatto apposta per vedere chi fosse in grado di dare un'interpretazione a dei dati che non possano essere inseriti in un modello noto (e anche un po' senza senso, come tutti abbiamo convenuto).</article>
+<article class="post" id="p2442"><div class="who"><b>Pigkappa</b><span>9 set 2009, 15:19</span></div>Sì ma "densità di traffico elevata" in autostrada è diverso da "densità di traffico elevata" nelle strade normali. Secondo me era opportuno fare delle stime sulle distanze di sicurezza che si tengono nei due casi e fare i conti su quelle. Mentre sulle strade normali si parla di traffico intenso quando le macchine sono a 10-15 metri l'una dall'altra, nell'autostrada lo si fa quando le macchine sono a 40-50 metri. <br>
+<br>
+
+<blockquote class="uncited"><div>Sempre meglio che consegnare in bianco come me quel problema :roll:</div></blockquote>
+
+Consegnare in bianco questo problema non ha senso. E' il classico problema in cui si possono rosicare punti anche senza risolverlo per bene...</article>
+<article class="post" id="p2443"><div class="who"><b>Gianpierpippo</b><span>9 set 2009, 15:42</span></div>Uhm... Forse la cosa è arbitraria, ma per "strada trafficata" penso una strada usata da molte persone, indipendentemente dal tipo di strada...</article>
+<article class="post" id="p2581"><div class="who"><b>Paolone</b><span>16 set 2009, 19:12</span></div>Io credo che questo esercizio richieda che si giustifichi come si fa a passare da una situazione<br>
+in cui magari qualcuno frena dolcemente, ad una in cui le persone seguenti sono obbligate ad<br>
+inchiodare. <br>
+<br>
+Per farlo, ragionerei così. Consideriamo una situazione di traffico in cui le auto sono spaziate <br>
+di una quantità d. Il primo della fila incomincia a frenare ad una distanza x dall'ostacolo. Non c'è<br>
+bisogno che si tratti di una distanza "critica", si può benissimo assumere anzi che il primo si<br>
+prenda tutto il tempo, e freni con grande delicatezza. Il secondo ha a disposizione per eseguire<br>
+la stessa frenata uno spazio x+d-vT, ove T è il tempo di reazione. Può succedere che <br>
+<br>
+x+d-vT &lt; x<br>
+<br>
+nel qual caso la frenata del secondo è un po' più brusca di quella del primo. Questo ovviamente <br>
+avviene quando <br>
+<br>
+d &lt; vT<br>
+<br>
+Notate che questa condizione non dipende dall'ordine delle macchine (terza, quarta, quinta...):<br>
+essa assicura ugualmente che la frenata del terzo sia più brusca di quella del secondo, che<br>
+quella del quarto sia più brusca di quella del terzo, e così via. Inoltre, lo spazio di frenata <br>
+che "scompare" fra una macchina e un'altra è una quantità costante, cosicchè ben presto ci<br>
+sarà qualcuno che ha 0 spazio a disposizione per frenare. Abbiamo allora trovato un meccanismo <br>
+che "genera" frenate brusche, anche se inizialmente, il primo ha effettuato una frenata <br>
+dolcissima. Si arriva cioè a frenate brusche sempre, anche se i primi sono prudenti.<br>
+<br>
+A me sembra che si tratti di un problema deliberatamente vago, che voleva obbligare a ragionare <br>
+in maniera quantitativa su una situazione vaga come spesso è la ricerca. <br>
+<br>
+Ma forse mi sbaglio, e chi l'ha proposto ....</article>
+<nav class="pager"><a class="prev" href="olifis-249.html"><small>← precedente</small>SNS 2009/2010 Problema 2</a><a class="next" href="olifis-252.html"><small>successivo →</small>SNS 2009/2010 Problema 4</a></nav>
+</main></body></html>

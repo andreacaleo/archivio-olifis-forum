@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2012 n.6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2012-2013, problema 6</span></nav>
+<h1>sns 2012 n.6</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=2877">forum Olifis</a></p>
+<article class="post first" id="p11796"><div class="who"><b>modesto</b><span>28 gen 2013, 12:32</span></div>Si consideri un sistema di quattro fili uniformemente carichi e paralleli all'asse z di un sistema di riferimento cartesiano. La posizione dei fili è tale da lasciare nel piano xy quattro tracce puntiformi (i vertici di un quadrato simmetrico rispetto all'origine) contrassegnate con il + per x&gt;0 e con il - per x&lt;0. La distanza di ogni filo da ogni asse vale d. La densità di carica lineare dei fili <span class="tex">\(\lambda\)</span> è la stessa in modulo ma è positiva per x&gt;0 e negativa per x&lt;0 - come detto.<br>
+<br>
+1. Per y= 0 si calcoli l'andamento in funzione di x del campo elettrico e si grafichi (sempre in funzione di x) la dipendenza del potenziale.<br>
+<br>
+2. Discutere qualitativamente il moto di una particella carica positiva posta per t=0 ferma in un punto x=a arbitrario e y=0. In particolare si analizzi sotto quali condizioni la carica può dar luogo ad un moto oscillatorio uniforme e, nel caso affermativo, se ne calcoli la frequenza.</article>
+<article class="post" id="p11806"><div class="who"><b>t4ilgr4b</b><span>29 gen 2013, 14:21</span></div><blockquote><div><cite>modesto ha scritto:</cite>1. Per y= 0 si calcoli l'andamento in funzione di x del campo elettrico e si grafichi (sempre in funzione di x) la dipendenza del potenziale.</div></blockquote>
+
+Sarà una domanda stupida ma.. bisogna disegnare il grafico della dipendenza del potenziale DA x giusto? Calcolare la V(x) insomma. L'unico procedimento che mi viene in mente è tramite un'integrale che però non saprei risolvere. Gli integrali non sono però nel programma dell'esame, quindi c'è un'altra via?</article>
+<article class="post" id="p11807"><div class="who"><b>michele95</b><span>29 gen 2013, 14:56</span></div>Nota che c'è scritto "graficare" e anche al punto dopo ti chiede un'analisi "qualitativa"</article>
+<article class="post" id="p11809"><div class="who"><b>t4ilgr4b</b><span>29 gen 2013, 15:08</span></div><blockquote><div><cite>michele95 ha scritto:</cite>Nota che c'è scritto "graficare" e anche al punto dopo ti chiede un'analisi "qualitativa"</div></blockquote>
+
+Ok, mi sembrava troppo vago.. Quindi si intende un grafico probabile! Ok grazie!</article>
+<article class="post" id="p11811"><div class="who"><b>michele95</b><span>29 gen 2013, 15:49</span></div>E' la mia interpretazione, non prenderla per vera in assoluto.</article>
+<article class="post" id="p11812"><div class="who"><b>t4ilgr4b</b><span>29 gen 2013, 16:47</span></div><blockquote><div><cite>michele95 ha scritto:</cite>E' la mia interpretazione, non prenderla per vera in assoluto.</div></blockquote>
+sì certo.. ma perchè è la prima cosa che ho pensato anche io ma come ti ho detto mi sembrava troppo a sentimento.. in realtà pensandoci un attimo si può disegnare un grafico sensato lo stesso, o almeno abbastanza "preciso" da far trovare punti di equilibrio instabile e stabile e il relativo moto oscillatorio.<br>
+Mi manca di calcolare le frequenza e capire se è uniforme (se i punti prima sono corretti).</article>
+<article class="post" id="p11824"><div class="who"><b>modesto</b><span>30 gen 2013, 11:44</span></div>Non ho saputo riportare la figura del testo che ho un po' integrato in modo da descrivere la figura medesima. Se qualcuno riesce a farlo ben venga. Comunque c'è scritto "si grafichi" e penso che la vostra interpretazione sia giusta. Si tratta di calcolare il campo dei 4 fili in P(x,0) quando è notissimo il campo generato da un filo uniformemente carico. Basta poi proiettarlo sull'asse x. Da dove si annulla e dal suo segno si può dedurre già l'andamento di V(x)(graficare) - essendo dV/dx= -E. Comunque se uno volesse integrare credo che V sia esprimibile come differenza di due logaritmi perchè E (e quindi -E) è somma di due addendi in cui il numeratore è praticamente la derivata del denominatore. Integrali e derivate semplici credo che bisogna saperli. Vista la posizione di equilibrio stabile si tratta (e secondo me è il punto difficile del problema) di esprimere E, nell'intorno di questa posizione, in modo proporzionale all'opposto dello spostamento - piccolo- da essa (come nella molla del moto armonico). La domanda è: il "moto oscillatorio uniforme" di cui parla è come il moto armonico?<br>
+Un'osservazione che non so se condividete: la frequenza mi viene in funzione della carica e della massa. Ma NON sono date.</article>
+<article class="post" id="p11826"><div class="who"><b>michele95</b><span>30 gen 2013, 14:10</span></div>Tra parentesi, il potenziale non è eccessivamente difficile da calcolare. Basta sommare i potenziali dei quattro fili.</article>
+<article class="post" id="p11827"><div class="who"><b>Gabry</b><span>30 gen 2013, 17:09</span></div><blockquote><div><cite>michele95 ha scritto:</cite>Tra parentesi, il potenziale non è eccessivamente difficile da calcolare. Basta sommare i potenziali dei quattro fili.</div></blockquote>
+
+Ma per calcolare il potenziale di un filo infinito carico è necessario integrare (comunque gli integrali non sono presenti nel syllabus della prova di matematica ma mi pare fosse esplicitamente scritto che sarebbero potuti servire nella prova di fisica). <br>
+
+<blockquote><div><cite>modesto ha scritto:</cite> La domanda è: il "moto oscillatorio uniforme" di cui parla è come il moto armonico?</div></blockquote>
+Il dubbio era venuto anche a me ma credo di si, infatti moto oscillatorio sarebbe un qualunque moto ripetuto ciclicamente, uniforme credo che sia proprio il moto armonico (è infatti uniforme nel senso che è simmetrico rispetto ad un punto centrale).<br>
+
+<blockquote class="uncited"><div>Un'osservazione che non so se condividete: la frequenza mi viene in funzione della carica e della massa. Ma NON sono date.</div></blockquote>
+Non ho ancora svolto il problema comunque mi aspetto anch'io che nel calcolo della frequenza spuntino la carica e la massa. Credo che non importi se non sono date la massa e la carica la domanda principale in fondo era stabilire se fosse possibile il moto armonico, il calcolo della frequenza è una domanda aggiuntiva.</article>
+<article class="post" id="p11836"><div class="who"><b>modesto</b><span>31 gen 2013, 12:35</span></div>Sono d'accordo con le vostre considerazioni, in particolare con quelle di Gabry - capita anche questo.. Tranne che sulla ragione del termine "uniforme" che non credo sia dovuto alla simmetria rispetto al centro di oscillazione. Penso che sia dovuto all'uniformità della frequenza e del periodo che sono costanti. Insomma si può pensare ad un'oscillazione a frequenza costante o variabile, come a un moto a velocità costante (uniforme) o variabile.<br>
+Siccome penso poi che il punto 2. sia più complicato e che il campo generato da un filo carico si trova su quasi tutti i manuali, vorrei dare i miei risultati su campo e potenziale per confrontarli e vedere se ho commesso errori nella prima parte del punto 1. prima di confrontarci sul punto 2.<br>
+1. Il campo generato da un filo positivo nel punto <span class="tex">\(P(x,0)\)</span> è dato da <span class="tex">\(E_1(x)= \frac{\lambda}{2\pi\epsilon_0. \sqrt{(x-d)^{2}+d^{2}}}\)</span> che è diretto lungo la distanza di P dal filo rappresentata dalla radice e va quindi proiettato sull'asse x moltiplicandolo per il coseno dell'angolo che l'asse forma con la distanza cioè per <span class="tex">\(\frac{x-d}{\sqrt{(x-d)^{2}+d^{2}}}\)</span>. Tenuto conto di due fili simmetrici positivi e dei due simmetrici negativi ma a distanza<span class="tex">\(\sqrt {(x+d)^{2}+d^{2}}\)</span> otteniamo<br>
+<span class="tex">\(E(x)= \frac{\lambda}{\pi\epsilon_0}.(\frac{x-d}{(x-d)^{2}+d^{2}}-\frac{x+d}{(x+d)^{2}+d^{2}}) = \frac{2\lambda d}{\pi\epsilon_0}.\frac{(x-d\sqrt{2})(x+d\sqrt{2})}{x^{4}+4d^{4}}\)</span><br>
+Integrando l'opposto del secondo membro delle uguaglianze avrei ricavato<br>
+<span class="tex">\(V(x)= \frac{\lambda}{2\pi\epsilon_0}.log\frac{(x+d)^{2}+d^{2}}{(x-d)^{2}+d^{2}}\)</span><br>
+Ci sono errori?</article>
+<article class="post" id="p11837"><div class="who"><b>Gabry</b><span>31 gen 2013, 14:32</span></div><blockquote><div><cite>modesto ha scritto:</cite>Ci sono errori?</div></blockquote>
+Credo di si. Il campo elettrico è un vettore quindi bisogna fare quattro casi:<br>
+x&lt;-d (da qui in poi solo nei calcoli considero con x il valore assoluto della distanza dall'origine)<br>
+<br>
+Abbiamo allora:<br>
+<span class="tex">\(E_-=-{\lambda \over 2\pi \epsilon_0 \sqrt{d^2+(x-d)^2}}\)</span> e <span class="tex">\(E_+={\lambda \over 2\pi \epsilon_0 \sqrt{d^2+(x+d)^2}}\)</span> da cui le proiezioni lungo l'asse x <span class="tex">\(E_{x-}=-{\lambda (x-d) \over 2\pi \epsilon_0 (d^2+(x-d)^2)}\)</span> e <span class="tex">\(E_{x+}={\lambda (x+d) \over 2\pi \epsilon_0 (d^2+(x+d)^2)}\)</span> e il campo elettrico risultante sarà <span class="tex">\(E=-2E_{x-}-2E_{x+}\)</span> <br>
+<br>
+per -d&lt;x&lt;0<br>
+avremo <span class="tex">\(E_-=-{\lambda \over 2\pi \epsilon_0 \sqrt{d^2+(d-x)^2}}\)</span> e <span class="tex">\(E_+={\lambda \over 2\pi \epsilon_0 \sqrt{d^2+(x+d)^2}}\)</span> e le proiezioni lungo l'asse x <span class="tex">\(E_{x-}=-{\lambda (d-x) \over 2\pi \epsilon_0 (d^2+(d-x)^2)}\)</span> e <span class="tex">\(E_{x+}={\lambda (x+d) \over 2\pi \epsilon_0 (d^2+(x+d)^2)}\)</span> e il campo elettrico risultante  <span class="tex">\(E=2E_{x-}-2E_{x+}\)</span><br>
+<br>
+Gli altri due casi non ho il tempo di scriverli ma tanto per simmetria si scambiano semplicemente i valori di <span class="tex">\(E_{x-}\)</span> e <span class="tex">\(E_{x+}\)</span> rispetto ai casi precedenti (ma non i segni della carica!) e il campo totale si inverte di segno sempre rispetto ai casi precedenti. Per il potenziale secondo me è conveniente calcolare singolarmente i potenziali dei quattro fili (può risultare più facile prendere solo l'espressione del campo orizzontale di ognuno, tanto quello verticale si annulla,  perchè mi sembra più semplice da integrare) e poi fare la somma algebrica (prestando attenzione ai segni).</article>
+<article class="post" id="p11838"><div class="who"><b>t4ilgr4b</b><span>31 gen 2013, 16:08</span></div>In realtà il mio calcolo per il campo elettrico è esattamente uguale a quello di modesto.<br>
+Gabri non capisco perchè devi distinguere i casi, il verso del vettore è dato dal coseno dell'angolo, quindi il segno da tenere nella somma per il campo totale è sempre più. Inoltre i campi che tu hai calcolato sono identici, e lo sono anche quelli per x&gt;d.</article>
+<article class="post" id="p11839"><div class="who"><b>Gabry</b><span>31 gen 2013, 18:05</span></div><blockquote><div><cite>t4ilgr4b ha scritto:</cite>Gabri non capisco perchè devi distinguere i casi, il verso del vettore è dato dal coseno dell'angolo, quindi il segno da tenere nella somma per il campo totale è sempre più.</div></blockquote>
+Hai ragione, avevo separato i casi per evitare di mettere lati negativi nel triangolo rettangolo da cui ho ricavato il coseno, ma non ce n'era bisogno.<br>
+Comunque ho calcolato il potenziale e mi è venuto uguale a quello di modesto.</article>
+<article class="post" id="p11840"><div class="who"><b>t4ilgr4b</b><span>31 gen 2013, 20:16</span></div>Cmq io non capisco bene ancora cosa significhi uniforme... So che modesto ha già data la sua opinione ma il fatto è che negli x&lt;0 è sempre possibile un moto oscillatorio, ma impossibile uno uniforme (la seconda affermazione non l'ho dimostrata, lo dico ad occhio visto che la curva non è simmetrica rispetto a x=<span class="tex">\(\sqrt{2}d\)</span>)... Quindi che restrizioni da a un generale moto periodoco la parola "uniforme"?</article>
+<article class="post" id="p11842"><div class="who"><b>Gabry</b><span>31 gen 2013, 21:04</span></div>I moti armonici per come è disposto il sistema non possono sussistere quindi entrando nel problema posso dire che uniforme non si riferiva ad armonico (come invece pensavo  avendo semplicemente letto il testo). <br>
+I moti periodici non sempre si verificano per x&lt;0, prendendo una particella carica posta nella regione tra i 4 fili  cioè per -d&lt;x&lt;d allora si avrà sicuramente un moto periodico. Se invece si trova in una posizione in cui il campo è diretto verso l'origine (x&lt;-d per una carica positiva e x &gt;d per una negativa) allora potrebbe dare luogo a moto periodico ma bisogna controllare tramite considerazioni energetiche che la particella non superi tutti e 4 i fili (cioè che si fermi nella regione -d&lt;x&lt;d). La frequenza verrebbe un pò brutta da calcolare, sarebbe necessario risolvere qualche equazione differenziale e questo mi sembra strano. Per il fatto di cosa significhi uniforme potrebbe essere giusta l'interpretazione di modesto nel senso che si mantiene costante nel tempo, ma perchè sottolinearlo nel testo? Non essendoci attriti è ovvio che il moto periodico non dovrebbe alterarsi, quindi non saprei dire con certezza.</article>
+<article class="post" id="p11843"><div class="who"><b>t4ilgr4b</b><span>1 feb 2013, 7:58</span></div><blockquote><div><cite>Gabry ha scritto:</cite>I moti periodici non sempre si verificano per x&lt;0 [...] per -d&lt;x&lt;d allora si avrà sicuramente un moto periodico.</div></blockquote> <br>
+In realtà sì e l'ho dimostrato, ma comunque si vede anche dal grafico se lo fai bene, e anche dal fatto che il potenziale in zero è zero e a -infinito tende sempre a zero. Visto che la situazione trattata nel testo si riferisce a una carica senza velocità iniziale, se messa in un x&lt;0, non ci esce dal moto periodico! E il punto di equilibrio stabile è x=<span class="tex">\(-\sqrt{2}d\)</span>, non zero, per x&gt;0 non può esserci alcun moto periodico!<br>
+<br>
+Per l'uniforme penso che abbiate ragione, anche se non capisco che bisogno ci fosse inserirlo nel testo.</article>
+<article class="post" id="p11844"><div class="who"><b>modesto</b><span>1 feb 2013, 11:48</span></div><blockquote><div><cite>t4ilgr4b ha scritto:</cite> <br>
+In realtà sì e l'ho dimostrato, ma comunque si vede anche dal grafico se lo fai bene, e anche dal fatto che il potenziale in zero è zero e a -infinito tende sempre a zero. Visto che la situazione trattata nel testo si riferisce a una carica senza velocità iniziale, se messa in un x&lt;0, non ci esce dal moto periodico! E il punto di equilibrio stabile è x=<span class="tex">\(-\sqrt{2}d\)</span>, non zero, per x&gt;0 non può esserci alcun moto periodico!<br>
+Per l'uniforme penso che abbiate ragione, anche se non capisco che bisogno ci fosse inserirlo nel testo.</div></blockquote>
+Condivido quanto dici. In conclusione V è positivo per x&gt;0, è nullo per x=0, è negativo per x&lt;0; ammette minimo negativo per <span class="tex">\(x=-d\sqrt{2}\)</span>(equilibrio stabile, ai suoi lati il vettore campo tende sempre a <span class="tex">\(-d\sqrt{2}\)</span>) e massimo positivo nell'ascissa opposta (equilibrio instabile). I valori del potenziale attorno al minimo sono gli stessi ma a distanze diverse dall'ascissa di minimo perchè il grafico del potenziale non è simmetrico rispetto all'asse verticale passante per questa ascissa. Questo vuol dire che, se prendiamo <span class="tex">\(a\)</span>compreso fra questa ascissa e 0, la carica andrà verso l'ascissa di minimo, la supererà verso <span class="tex">\(-\infty\)</span> e si fermerà per poi invertire la rotta ad un'ascissa che non è simmetrica di <span class="tex">\(a\)</span> rispetto a quella di minimo. Si vede bene con la conservazione dell'energia: si fermerà nell'ascissa avente potenziale <span class="tex">\(V(a)\)</span><br>
+Dunque l'ampiezza di oscillazione è generalmente diversa a destra e a sinistra dell'ascissa di minimo.<br>
+Tuttavia credo di poter dimostrare che, se si indica con <span class="tex">\(\epsilon\)</span> lo spostamento da <span class="tex">\(-d\sqrt{2}\)</span>, uno spostamento piccolo rispetto a d, allora il campo può essere espresso come <span class="tex">\(E=-k\epsilon\)</span>. Dunque prendendo <span class="tex">\(a\)</span> in quest'intorno il moto diventa proprio armonico con periodo e frequenza costanti. Chiedo se qualcuno può confermare.</article>
+<article class="post" id="p11848"><div class="who"><b>Gabry</b><span>1 feb 2013, 17:20</span></div><blockquote><div><cite>t4ilgr4b ha scritto:</cite><blockquote><div><cite>Gabry ha scritto:</cite>I moti periodici non sempre si verificano per x&lt;0 [...] per -d&lt;x&lt;d allora si avrà sicuramente un moto periodico.</div></blockquote> <br>
+In realtà sì e l'ho dimostrato, ma comunque si vede anche dal grafico se lo fai bene, e anche dal fatto che il potenziale in zero è zero e a -infinito tende sempre a zero. Visto che la situazione trattata nel testo si riferisce a una carica senza velocità iniziale, se messa in un x&lt;0, non ci esce dal moto periodico!
+</div></blockquote>
+
+<br>
+Non capisco, consideriamo una carica positiva ferma posta in un punto con ascissa x&lt;-d. In questo punto la forza elettrica è diretta verso destra e quindi sicuramente la carica arriverà ad un'ascissa x&gt;-d. Quando -d&lt;x&lt;d la forza elettrica è diretto verso sinistra quindi se la carica non ha acquistato abbastanza energia cinetica si ferma e torna indietro compiendo un moto oscillatorio all'infinito. Se invece la carica ha acquistato abbastanza energia cinetica allora riuscirà ad arrivare nella regione x&gt;d qui la forza che risente è diretta nuovamente verso destra quindi superata l'ascissa x=d la carica verrà spinta all'infinito, il campo elettrico non cambia più di segno quindi la carica non tornerà indietro.  <br>
+ 
+<blockquote class="uncited"><div>E il punto di equilibrio stabile è x=<span class="tex">\(-\sqrt{2}d\)</span>, non zero, per x&gt;0 non può esserci alcun moto periodico!
+</div></blockquote>
+
+Prendiamo sempre la nostra carica positiva e mettiamola in un punto 0&lt;x&lt;d qui il campo elettrico è diretto verso sinistra quindi la carica arriva sicuramente nella zona x&lt;-d. Ora nella zona x&lt;-d la forza elettrica è diretta verso destra e se la carica non ha abbastanza energia cinetica da arrivare all'infinito questa tornerà indietro e compierà un moto periodico all'infinito.<br>
+<br>
+P.s. Ho fatto i calcoli e ho visto che la carica non avrà mai energia sufficiente per superare la regione -d&lt;x&lt;0 e viceversa una carica posta in x&gt;0 avrà energia sufficiente per "scappare" all'infinito quindi per una carica positiva è vero che può compiere moti periodici solo per x&lt;0 (per una carica negativa sarà il contrario).</article>
+<article class="post" id="p11849"><div class="who"><b>t4ilgr4b</b><span>1 feb 2013, 18:28</span></div>Bhe ti sei risposto da solo :D attento però che i punti di minimo e massimo e dove la E(x) cambia segno sono più o meno <span class="tex">\(\sqrt{2}d\)</span> non più o meno d!</article>
+<article class="post" id="p11852"><div class="who"><b>Gabry</b><span>1 feb 2013, 21:00</span></div><blockquote><div><cite>t4ilgr4b ha scritto:</cite>Bhe ti sei risposto da solo :D attento però che i punti di minimo e massimo e dove la E(x) cambia segno sono più o meno <span class="tex">\(\sqrt{2}d\)</span> non più o meno d!</div></blockquote>
+
+Si, dall'espressione del campo elettrico si vede anche questo. Prima avevo postato "ad occhio" (senza considerare né aver svolto la parte analitica del problema, infatti dopo aver considerato il potenziale ho visto che la carica non poteva acquistare mai l'energia cinetica necessaria ad arrivare all'infinito) e non avevo considerato il coseno dell'angolo.</article>
+<article class="post" id="p11855"><div class="who"><b>modesto</b><span>2 feb 2013, 12:15</span></div><blockquote><div><cite>Gabry ha scritto:</cite>infatti dopo aver considerato il potenziale ho visto che la carica non poteva acquistare mai l'energia cinetica necessaria ad arrivare all'infinito) e non avevo considerato il coseno dell'angolo.</div></blockquote>
+In realtà se la carica positiva ha ascissa tendente a 0 meno e viene lasciata da ferma essa tende a meno infinito dovendosi arrestare dove il potenziale riacquista il valore che ha nell'ascissa tendente a 0 meno.<br>
+Inoltre l'espressione di E che avevo postato il 31/01 e che nessuno ha contestato cioè<br>
+<span class="tex">\(E= \frac{2\lambda d }{\pi\epsilon_0}. \frac{(x-d\sqrt{2})(x+d\sqrt{2})}{x^{4}+d^{4}}\)</span><br>
+può essere così approssimata quando <span class="tex">\(x=-d\sqrt{2}\pm{s}\)</span> con <span class="tex">\(s\)</span> piccolo rispetto a <span class="tex">\(d\sqrt{2}\)</span>:<br>
+<span class="tex">\((x-d\sqrt{2})\simeq(-2d\sqrt{2})\)</span>, <span class="tex">\((x+d\sqrt{2})\simeq(\pm{s})\)</span> e <span class="tex">\(x^{4}\simeq(4d^{4})\)</span> per modo che l'espressione del campo nell'intorno di ampiezza <span class="tex">\(s\)</span> di <span class="tex">\(-d\sqrt{2}\)</span> risulta se non sbaglio i conti<br>
+<span class="tex">\(E\simeq{-\frac{\sqrt{2}\lambda}{2\pi\epsilon_0 d^{2}}s}\)</span><br>
+La carica q di massa m avrà allora in quest'intorno l'equazione del moto <span class="tex">\(m\frac{d^{2}s}{dt^{2}}-qE=0\)</span> che è l'equazione di un moto armonico di frequenza (sempre se non ho sbagliato i conti)<br>
+<span class="tex">\(f=\frac{1}{2\pi d}. \sqrt{\frac{\sqrt{2}\lambda q}{2\epsilon_0 m}}\)</span></article>
+<article class="post" id="p11856"><div class="who"><b>Gabry</b><span>2 feb 2013, 16:48</span></div><blockquote><div><cite>modesto ha scritto:</cite>
+In realtà se la carica positiva ha ascissa tendente a 0 meno e viene lasciata da ferma essa tende a meno infinito dovendosi arrestare dove il potenziale riacquista il valore che ha nell'ascissa tendente a 0 meno.
+</div></blockquote>
+Mi riferivo ad una carica che parte da x&lt;0, questa non potra mai arrivare a più infinito (cioè non potrà mai arrivare nella zona in cui il campo elettrico è diretto nuovamente verso destra).</article>
+<nav class="pager"><a class="prev" href="olifis-6108.html"><small>← precedente</small>prima parte di sns 2012 n 5</a><a class="next" href="olifis-4801.html"><small>successivo →</small>sns n.1- 2013</a></nav>
+</main></body></html>

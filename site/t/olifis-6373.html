@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>problema 5 sns 2015</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2015-2016, problema 5</span></nav>
+<h1>problema 5 sns 2015</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6373">forum Olifis</a></p>
+<article class="post first" id="p22627"><div class="who"><b>wotzu</b><span>25 lug 2016, 19:12</span></div>Cerco la soluzione al problema 5 di fisica dell'anno scorso almeno per confrontarmi, lo trovate al seguente link:<br>
+<a href="http://www.sns.it/sites/default/files/documenti/07-09-2015/prove_di_ammissione_al_i_anno_di_scienze_a.a._2015-16.pdf" class="ext" class="postlink">http://www.sns.it/sites/default/files/d ... 015-16.pdf</a></article>
+<article class="post" id="p22633"><div class="who"><b>sall96</b><span>26 lug 2016, 9:24</span></div>La soluzione la puoi trovare (insieme a molti altri esercizi belli) qui<br>
+<a href="https://www.google.it/url?sa=t&amp;source=web&amp;rct=j&amp;url=http://www.princeton.edu/~xxiang/prelim/cahn/Cahn_part1.pdf&amp;ved=0ahUKEwjV9NXmypDOAhXFDxoKHUiSDzkQFggbMAA&amp;usg=AFQjCNE1rIbmad2Tbg0Pgt7mNVpWfJpAOw&amp;sig2=gsqHbTjCCGi13ZVMt9j1ag" class="ext" class="postlink">https://www.google.it/url?sa=t&amp;source=w ... 3ZVMt9j1ag</a><br>
+<br>
+Pagina 6 il problema e 88 la soluzione</article>
+<nav class="pager"><a class="prev" href="olifis-6196.html"><small>← precedente</small>SNS 2015/16 N. 2</a><a class="next" href="olifis-6337.html"><small>successivo →</small>SNS FISICA 2015/2016</a></nav>
+</main></body></html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 5 2003/2004</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 5</span></nav>
+<h1>SNS 5 2003/2004</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11504">OliForum</a></p>
+<article class="post first" id="p93731"><div class="who"><b>Desh</b><span>06 ago 2008, 11:26</span></div>L'osservazione di un piccolo spostamento periodico delle frequenze della luce emessa da una stella può consentire di rivelare la presenza attorno alla stella di un pianeta non altrimenti visibile. Che spostamenti di frequenza dovrebbe saper rivelare un osservatore esterno al sistema solare, posizionato in modo ottimale, per mettere in evidenza la presenza di Giove in questo modo?</article>
+<article class="post" id="p93742"><div class="who"><b>EUCLA</b><span>06 ago 2008, 13:11</span></div>Non so quanto sia esatta la mia soluzione, vediamo..<br>
+<br>
+La variazione si ha nel rilevamento della frequenza, non nella frequenza emessa. Ciò potrebbe essere dovuto a qualcosa di analogo dell'effetto Doppler che si studia comunemente per le onde sonore. In fondo, si tratta di luce, quindi è pur sempre un'onda.<br>
+Assumiamo che il nostro rilevatore sia fermo, e che la stella si muova a una velocità $ v_S  $ relativa al nostro sistema di riferimento. Quindi inizialmente la consideriamo ferma.<br>
+La freqenza rilevata allora sarà: $ f_1=\displaystyle f_0\cdot \frac{c}{c\pm v_S}  $, dove $ f_0  $ è la frequenza ricavata in precedenza.<br>
+Intuitivamente, se supponiamo che la stella si stia allontanando, la frequenza diminuirà, dunque: $ f_1=\displaystyle f_0\cdot \frac{c}{c+v_S}  $ dove $ c  $ è la nota velocità della luce.<br>
+<br>
+<br>
+<em class="text-italics">Quanto vale $ v_S  $?</em><br>
+<br>
+Tra Giove e la stella viene esercitata una forza attrattiva, solo che mentre per Giove, con la sua bella massa, l'accelerazione è ininfluente, non vale altrettanto per la stella.<br>
+Sia $ m_S  $ la massa della stella, e $ m_G  $ la massa di Giove.<br>
+L'accelerazione a cui è sottoposta la stella è $ a_S=G\cdot \displaystyle \frac{m_G}{d^2}  $ dove $ d  $ è la distanza tra stella e pianeta che per ipotesi è piccola. In un tempo $ t  $ che adattiamo secondo le richieste del rilevatore la stella assume una velocità $ v_S=Gt\cdot \displaystyle \frac{m_G}{d^2}  $.<br>
+<br>
+Andando a sostituire $ f_1=f_0\cdot \displaystyle \frac{c}{c+Gt\cdot \frac{m_G}{d^2}}  $.<br>
+<br>
+E adesso si tratterebbe di avere un pò di dati. <br>
+Tipo $ t  $ l'intervallo di tempo che intercorre tra due misurazioni del rilevatore, $ d  $ quanto piccolo possa essere..<br>
+<br>
+Che dice Desh, son completamente fuori strada?  :?</article>
+<article class="post" id="p93753"><div class="who"><b>Desh</b><span>06 ago 2008, 15:38</span></div><blockquote><div><cite>EUCLA ha scritto:</cite>Che dice Desh, son completamente fuori strada?  :?</div></blockquote>
+Non saprei, l'ho postato perché su questo non avevo assolutamente nessuna idea, <br>
+<br>
+
+<blockquote class="uncited"><div>Tra Giove e la stella viene esercitata una forza attrattiva, solo che mentre per Giove, con la sua bella massa, l'accelerazione è ininfluente</div></blockquote>
+la stella in questione è il sole, quindi direi che l'accelerazione di Giove non è ininfluente, visto che lo tiene in rotazione!<br>
+
+<blockquote class="uncited"><div>
+E adesso si tratterebbe di avere un pò di dati. <br>
+Tipo $ t  $ l'intervallo di tempo che intercorre tra due misurazioni del rilevatore, $ d  $ quanto piccolo possa essere..
+</div></blockquote>
+
+più che altro il risultato a cui sei arrivata implicherebbe che l'effetto Doppler aumenti con il tempo; dipende dalla velocità della sorgente, se questa aumenta continuamente, aumenta anche l'effetto (diminuisce la frequenza), cosa che non mi convince molto.<br>
+<br>
+Non bisognerebbe considerare anche il fatto che Giove ruoti attorno al sole e quindi l'accelerazione del sole dovuta a giove cambia continuamente direzione? (questo potrebbe essere ciò che porta alla <em class="text-italics">periodicità</em> di cui parla il testo)</article>
+<article class="post" id="p93758"><div class="who"><b>EUCLA</b><span>06 ago 2008, 15:55</span></div>A dir la verità penso che $ t  $ dovrebbe essere piccolo, ma non so ogni quanto tempo il rilevatore possa effettuare le sue misure.<br>
+<br>
+E il problema del crescere di $ t  $ me l'ero posto anch'io, ma ho pensato poi che, dato che a noi interessava la variazione minima (per dirci quanto la macchina dovesse essere precisa..) ci potevamo riportare in una situazione istantanea :roll: <br>
+<br>
+Una cosa: perchè la stella è il sole?  :shock:</article>
+<article class="post" id="p93759"><div class="who"><b>Fedecart</b><span>06 ago 2008, 16:30</span></div>Per Eucla, il sole è l'unica stella attorno alla quale si può trovare giove!  :D <br>
+<br>
+Ok potrei dire una marea di idiozie enormi... Ma ci provo. Poi nel caso chi ne sa più di me mi correggerà, così imparo anche io =)<br>
+Allora credo che le stelle non si muovano per effetto di forze gravitazionali dei pianeti in quanto contengono molta più massa dei pianeti, e in ogni caso si sta parlando del sole e di giove quindi è noto che il sole è molto più massiccio, non si muove rispetto a giove se non insieme a tutta la galassia ma sono movimenti così lenti che spero non si debbano tenere in conto. Secondo me la frequanza della luce diversa è dovuta al pianeta orbitante.<br>
+Immagina che sia la stella che l'osservatore siano fermi, in linea d'aria l'uno con l'altro, a una distanza maggiore del raggio del sistema solare, sullo stesso piano in cui orbita Giove, e l'osservatore non scolla mai gli occhi di dosso dal sole. Ora, la stella emette sempre la stessa frequanza, ma ad un certo punto succederà che Giove incrocierà la linea osservatore-sole. In quel momento, il raggio di luce, che viaggia lungo la stessa linea, verrà deviato dal campo gravitazionale del pianeta, per via della relatività generale. Ma se la velocità della luce e sempre la stessa, e nello stesso intervallo di tempo la stella produce lo stesso numero di onde, perchè quaste onde arrivino a destinazione in ugual numero, nonostante ci sia Giove in mezzo devono un po stirarsi, avendo una lunghezza d'onda maggiore e dunque una frequenza minore, e questo succede per via della relatività genereale e del campo gravitazionale del pianeta. Poi giove supera la line e tutto torna come prima per un altro anno siderale...<br>
+<br>
+Fatemi sapere se è tutto oscenamente sbagliato, se si può prendere qualcosa di giusto e cestinare il resto, o se va bene...</article>
+<article class="post" id="p93763"><div class="who"><b>g(n)</b><span>06 ago 2008, 17:01</span></div>Provo a scrivere il mio ragionamento. Forse il punto fondamentale è che sia il pianeta che la stella ruotano attorno al centro di massa comune, e quindi anche la stella in realtà compie un moto circolare. (in realtà ho appena letto il post di Fedecart che lo esclude :(  però lo posto lo stesso, almeno potete insultarmi)<br>
+<br>
+Quindi un osservatore posto nello stesso piano dell'orbita di Giove potrebbe rilevare un cambiamento di frequenza luminosa del Sole tra il periodo in cui questo si allontana e quello in cui si avvicina. Dalla formula per l'effetto Doppler si può calcolare il rapporto tra le frequenze che risulta<br>
+<br>
+$  \displaystyle\frac{c-v_S}{c+v_S}  $<br>
+<br>
+Si tratta quindi di calcolare la velocità massima di allontanamento (o avvicinamento) che coincide con la velocità tangenziale del moto circolare del Sole, ma poichè $  v=\omega r  $ basta trovare <br>
+<br>
+$  r  $ (distanza tra il centro del Sole ed il centro di massa comune)<br>
+<br>
+$  \omega  $ (che penso si possa considerare nota)<br>
+<br>
+$  r  $ si trova tramite la relazione<br>
+<br>
+$ \sum x_im_i=x_{cm}r $<br>
+<br>
+dove le $  x_i  $ sono calcolate a partire dal Sole, e quindi si trova<br>
+<br>
+$  \displaystyle r=d\frac{m_G}{m_G+m_S}  $<br>
+<br>
+A questo punto si svolgono i conti e quindi si ottiene il rapporto tra le frequenze, che è legato alla sensibilità che lo strumento dovrebbe avere.<br>
+<br>
+<br>
+Ciò che non mi convince è che ci potrebbero essere altri pianeti (e in effetti ci sono!) e quindi non so quanto possa essere valido il ragionamento sopra...cioè, magari il centro di massa attorno a cui ruotano tutti i pianeti è talmente vicino al centro di massa del Sole che questo in realtà è pressochè fermo..oppure anche considerando solo Giove $  r  $ risulta troppo piccolo..<br>
+<br>
+attendo spiegazioni da qualcuno più esperto<br>
+<br>
+PS
+<blockquote><div><cite>Fedecart ha scritto:</cite>Per Eucla, il sole è l'unica stella attorno alla quale si può trovare giove!  :D 
+</div></blockquote>
+
+Sembra una esclamazione del tipo "Per Bacco!" o "Per Giove!" :lol: (da notare che tra l'altro sono entrambi forumisti)</article>
+<article class="post" id="p93764"><div class="who"><b>EUCLA</b><span>06 ago 2008, 17:13</span></div>Leggendo la tua soluzione non capisco perchè parli del rapporto.. secondo me il rapporto, essendo adimensionale, non ci dà informazioni sulla sensibilità che lo strumento deve avere. <br>
+Penso che sia la differenza tra la frequenze da tenere in considerazione, giusto perchè lo strumento deve essere in grado di rilevarle come diverse.<br>
+<br>
+Per il resto della dimostrazione sono troppo scarsa per poter esprimere un parere  :lol:</article>
+<article class="post" id="p93783"><div class="who"><b>Desh</b><span>06 ago 2008, 20:55</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>per via della relatività generale.</div></blockquote>
+
+è la prima cosa che mi è venuta in mente quando ho letto il problema, ma l'ho subito scartata perché escluderei a priori che serva la relatività generale per quel test.<br>
+Non so quanti neodiplomati ci siano, per quanto il test possa puntare in altro, che sappiano trattare con quest'argomento (intendo andando oltre il tuo discorso qualitativo)</article>
+<article class="post" id="p93799"><div class="who"><b>Fedecart</b><span>07 ago 2008, 08:35</span></div>Si infatti io non so mettere un equazione in croce dopo quel post...  :oops: <br>
+Anchè se un problema della normale con relatività ristretta e trasformazioni di Lorentz è già capitato!... Quindi meglio aspettarsi davvero di tutto per quel test...</article>
+<article class="post" id="p93802"><div class="who"><b>g(n)</b><span>07 ago 2008, 09:38</span></div><blockquote><div><cite>EUCLA ha scritto:</cite>Leggendo la tua soluzione non capisco perchè parli del rapporto.. </div></blockquote>
+
+ :oops: sì, in effetti non l'ho spiegato proprio!<br>
+<br>
+Hai ragione nel dire che conta la differenza tra le frequenze, ma non so per quale motivo io consideravo $  f_0  $ come non nota. Quindi per eliminarla ho fatto il rapporto, chiamiamolo $  k  $, tra la frequenza minima e quella massima. A questo punto, basta che lo strumento dell'osservatore riesca a distinguere $  f_{max}  $ che rileva e $  k f_{max}  $.<br>
+<br>
+Non so perchè ho fatto questo ragionamento contorto (ovviamente se consideri $  f_0  $ come nota non serve), comunque dubito che sia la strada corretta...</article>
+<article class="post" id="p93807"><div class="who"><b>Desh</b><span>07 ago 2008, 11:00</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>Anchè se un problema della normale con relatività ristretta e trasformazioni di Lorentz è già capitato!</div></blockquote>
+
+Non è la stessa cosa, la relatività ristretta è molto più accessibile (almeno lle basi :P ), fa persino parte del programma dello scientifico PNI</article>
+<article class="post" id="p94187"><div class="who"><b>String</b><span>15 ago 2008, 09:49</span></div>uppo questo topic perchè mentre lo leggevo mi è  venuta in mente una domanda che forse è un pò stupida e banale, ma che non mi so spiegare forse per la mia ignoranza in tale argomento:
+<blockquote><div><cite>Fedecart ha scritto:</cite>In quel momento, il raggio di luce, che viaggia lungo la stessa linea, verrà deviato dal campo gravitazionale del pianeta, per via della relatività generale. </div></blockquote>
+Allora mi chiedo: come fa la luce che è formata da fotoni,<span style="text-decoration:underline"> particelle prive di massa</span>, ad essere quindi deviata dal campo gravitazionale?</article>
+<article class="post" id="p94189"><div class="who"><b>Fedecart</b><span>15 ago 2008, 11:08</span></div>A quanto ho capito io leggendo un articolo divulgativo sull'argomento, i pianeti e le stelle creano, causa solo la loro massa, una curvatura tridimensionale nello spazio e nel tempo.<br>
+Quindi la luce non viene deviata, ma è lo spazio ad essere cambiato e quindi la luce, che deve pur muoversi nello spazio, fa un percorso più lungo.<br>
+Poi potrei aver detto una marea di scemenze, perchè ne so pochissimo sull'argomento.<br>
+Metto due immagini fregate a wikipedia che secondo me solo più eloquenti di molte parole...<br>
+<img src="../img/e5d18d496cfbeb29.jpg" class="postimage" alt="Immagine"><br>
+<img src="../img/741660867cce6602.png" class="postimage" alt="Immagine"></article>
+<article class="post" id="p94196"><div class="who"><b>String</b><span>15 ago 2008, 13:36</span></div>Ok, ho capito, grazie Fedecart!</article>
+<article class="post" id="p94206"><div class="who"><b>SkZ</b><span>15 ago 2008, 19:22</span></div>Ogni corpo tramite il suo campo gravitazionale modifica la geometria dello spazio tempo che lo circonda. Il fotone va dritto, ovvero percorre la via piu' breve, una geodetica (come nel caso della rifrazione).<br>
+<br>
+per la luce per velocità' piccole si puo' usare l'approssimazione $\frac{\Delta \lambda}{\lambda}=\frac{v}{c}$</article>
+<nav class="pager"><a class="prev" href="olifis-244.html"><small>← precedente</small>SIMULAZIONE: SNS 2003/2004 Problema 4</a><a class="next" href="oliforum-4043.html"><small>successivo →</small>Luce!</a></nav>
+</main></body></html>

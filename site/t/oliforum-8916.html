@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2004/2005 Problema 2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 2</span></nav>
+<h1>SNS 2004/2005 Problema 2</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8916">OliForum</a></p>
+<article class="post first" id="p74126"><div class="who"><b>Pigkappa</b><span>15 ago 2007, 04:13</span></div>Come devo lanciare una palla da tennis contro una parete inclinata a 45° in modo che, fissato il valore dell’energia cinetica con cui la palla è lanciata, essa raggiunga la massima altezza possibile dopo un solo rimbalzo? Si indichi con alfa l’inclinazione del lancio e con L la distanza in orizzontale del punto di lancio dalla parete.</article>
+<article class="post" id="p74130"><div class="who"><b>ummagumma</b><span>15 ago 2007, 09:09</span></div>il problema non è molto chiaro e io non molto lucido, cmq provo:<br>
+<br>
+suppongo che l'urto sia completamente elastico e che il rimbalzo avvenga con uno stesso angolo rispetto alla parete obliqua (1).<br>
+<br>
+la palla raggiungerà la massima altezza rispetto al suolo quando è deviata perpendicolarmente ad esso, ovvero quando forma un angolo di 45 gradi con la parete. Per la (1) la palla deve raggiungere la parete inclinata di 45 gradi rispetto ad essa, ovvero parallelamente al suolo.<br>
+La max altezza si avrà dunque quando la palla colpisce il muro nel punto più alto della parabola:<br>
+<br>
+v(y)= v(0) sinx - gt =0; quindi t=v(0)sinx/g  (2)<br>
+<br>
+nell'istante dell'impatto, la palla ha percorso una distanza L:<br>
+<br>
+L= v(0)cosx* t; quindi t= L/(v(0)*cosx)  (3)<br>
+<br>
+Uguagliando (2) e (3):<br>
+<br>
+sin 2x = 2*g*L/(v(0)^2)<br>
+da cui facilmente si ricava x<br>
+<br>
+spero di non averne dette troppe!</article>
+<article class="post" id="p74148"><div class="who"><b>Pigkappa</b><span>15 ago 2007, 14:16</span></div>Secondo me il problema era un po' diverso... Le incognite sono L ed alfa, non solamente alfa. Io ho trovato qual è il punto più alto da cui posso lanciare la pallina in modo che colpisca il muro nel vertice della parabola, e mi viene circa:<br>
+<br>
+$ L = 0,309 \frac{v_0^2}{g} $<br>
+$ \alpha = 36,9° $<br>
+<br>
+A questo punto però dovrei dimostrare che, aumentando L (cioè lanciandola da un punto più alto), l'altezza a cui arriva la pallina è diminuita e non aumentata, per qualsiasi valore di alfa, e non sono riuscito a farlo.</article>
+<article class="post" id="p74149"><div class="who"><b>ummagumma</b><span>15 ago 2007, 14:27</span></div><blockquote class="uncited"><div>aumentando L (cioè lanciandola da un punto più alto</div></blockquote>
+non capisco...<br>
+l'altezza massima raggiunta e la distanza orizzontale sono inversamente proporzionali in un moto parabolico se fissi l'angolo alfa di lancio...<br>
+poi da come è posto il problema mi sembra che sia richiesta una relazione tra alfa e L...per la serie tracce oscure!</article>
+<article class="post" id="p74152"><div class="who"><b>Pigkappa</b><span>15 ago 2007, 15:11</span></div><a class="lost" href="http://img530.imageshack.us/img530/1802/problemasnsgu0.jpg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+L'altezza massima rispetto ad O raggiunta in funzione di L (L rappresenta sia la distanza dal muro, sia l'altezza iniziare rispetto ad O) è, per la conservazione dell'energia:<br>
+<br>
+$ \displaystyle h_{max}=L + \frac{v_0^2}{2g} $<br>
+<br>
+Il problema è che l'unico modo per raggiungere tale altezza massima è quella di far seguire la traiettoria blu in figura, e secondo me questo si può fare con massimo valore di L uguale a $ L = 0,309 \frac{v_0^2}{g} $ (si trova velocemente questo valore). Se L è maggiore, la pallina non raggiunge $ h_{max} $, ma siccome parte da un punto più alto non è escluso che possa arrivare lo stesso più in alto rispetto ai lanci eseguiti senza spreco di energia.</article>
+<article class="post" id="p86370"><div class="who"><b>Goldrake</b><span>16 mar 2008, 16:59</span></div>Ripesco questo topic che stavo proprio cercando.<br>
+Ieri in un' ora di buco l'ho proposto al mio professore e una delle prime cose a cui è giunto è che il vertice della parabola deve appartenere alla retta.<br>
+Impostando questa condizione arrivo a un'equazione di secondo grado che dà<br>
+$ \tan\alpha=... $ <br>
+dove all'altro membro ho g, L, v. (il fatto è che poi la velocità non è data).<br>
+Anche io non ho capito bene se le incognite sono L e l'angolo, o solo l'angolo, e soprattutto mi sono posto lo stesso problema di Pigkappa: se L cresce troppo, c'è lo svantaggio che il rimbalzo non è più verticale, ma L è comunque maggiore e la velocità d'urto anche (rispetto al caso di urto nel vertice, dove la velocità è ridotta alla sola componente orizzontale).<br>
+<br>
+Pigkappa, se ricordi come hai fatto potresti indicarmi come hai trovato il valore massimo di L ?</article>
+<article class="post" id="p86465"><div class="who"><b>Goldrake</b><span>17 mar 2008, 22:40</span></div><blockquote><div><cite>Goldrake ha scritto:</cite>
+Pigkappa, se ricordi come hai fatto potresti indicarmi come hai trovato il valore massimo di L ?</div></blockquote>
+A posto, l'ho trovato.</article>
+<nav class="pager"><a class="prev" href="olifis-225.html"><small>← precedente</small>SNS 2004/2005 n 1 facile facile...</a><a class="next" href="oliforum-8747.html"><small>successivo →</small>sns 2004/2005 #3</a></nav>
+</main></body></html>

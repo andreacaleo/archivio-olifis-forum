@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMULAZIONE: SNS 2003/2004 Problema 2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 2</span></nav>
+<h1>SIMULAZIONE: SNS 2003/2004 Problema 2</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=242">forum Olifis</a></p>
+<article class="post first" id="p2174"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 21:12</span></div>La luce `e costituita da fotoni, ciascuno dei quali trasporta una energia <span class="tex">\(E = h \nu\)</span> ed un impulso <span class="tex">\(p = h / \lambda\)</span>, dove <span class="tex">\(\nu\)</span> e la frequenza e <span class="tex">\(\lambda\)</span> la lunghezza d’onda della luce in questione. Un granello di polvere stellare che assorbe (senza riflettere) la luce del sole che lo investe, subisce per questo una forza che lo respinge dal sole stesso. Determinare il rapporto dell’intensita di questa forza con quella della gravitazione solare per un granello sferico di raggio <span class="tex">\(r\)</span> e densità <span class="tex">\(\rho\)</span>. Assumendo <span class="tex">\(\rho = 10^{-1}g/cm^3\)</span> calcolare l’ordine di grandezza di <span class="tex">\(r\)</span> per cui queste forze si bilanciano.</article>
+<article class="post" id="p2185"><div class="who"><b>spn</b><span>24 ago 2009, 21:51</span></div>Questo mi sembra abbastanza simile al n° 3 97/98...<br>
+comunque ti sei perso dei dati:<br>
+luminosità del sole <span class="tex">\(W_0= 4 \cdot 10^{26} W\)</span><br>
+costante di newton <span class="tex">\(G=6,7 \cdot 10^{-11} m^3 /kg \cdot s^2\)</span><br>
+<span class="tex">\(c= 3 \cdot 10^8 m/s\)</span><br>
+massa del sole <span class="tex">\(M=2 \cdot 10^{30} Kg\)</span><br>
+<br>
+a me viene:<br>
+<br>
+<span class="tex">\(k= {3 W_0 \over 16 cGMr\pi \delta}\)</span><br>
+<br>
+<span class="tex">\(r=5,9 \cdot 10^{-6} m\)</span></article>
+<article class="post" id="p2187"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 22:15</span></div><blockquote><div><cite>spn ha scritto:</cite>Questo mi sembra abbastanza simile al n° 3 97/98...<br>
+comunque ti sei perso dei dati:<br>
+luminosità del sole <span class="tex">\(W_0= 4 \cdot 10^{26} W\)</span><br>
+costante di newton <span class="tex">\(G=6,7 \cdot 10^{-11} m^3 /kg \cdot s^2\)</span><br>
+<span class="tex">\(c= 3 \cdot 10^8 m/s\)</span><br>
+massa del sole <span class="tex">\(M=2 \cdot 10^{30} Kg\)</span><br>
+<br>
+a me viene:<br>
+<br>
+<span class="tex">\(k= {3 W_0 \over 16 cGMr\pi \delta}\)</span><br>
+<br>
+<span class="tex">\(r=5,9 \cdot 10^{-6} m\)</span></div></blockquote>
+
+OK grazie mille! La forza dei fotoni è  <span class="tex">\(F = W / c\)</span> vero??</article>
+<article class="post" id="p2189"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 22:47</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite><blockquote><div><cite>spn ha scritto:</cite>Questo mi sembra abbastanza simile al n° 3 97/98...<br>
+comunque ti sei perso dei dati:<br>
+luminosità del sole <span class="tex">\(W_0= 4 \cdot 10^{26} W\)</span><br>
+costante di newton <span class="tex">\(G=6,7 \cdot 10^{-11} m^3 /kg \cdot s^2\)</span><br>
+<span class="tex">\(c= 3 \cdot 10^8 m/s\)</span><br>
+massa del sole <span class="tex">\(M=2 \cdot 10^{30} Kg\)</span><br>
+<br>
+a me viene:<br>
+<br>
+<span class="tex">\(k= {3 W_0 \over 16 cGMr\pi \delta}\)</span><br>
+<br>
+<span class="tex">\(r=5,9 \cdot 10^{-6} m\)</span></div></blockquote>
+
+OK grazie mille! La forza dei fotoni è  <span class="tex">\(F = W / c\)</span> vero??</div></blockquote>
+
+OK anche a me viene quel risultato. Ri guardandoci poi era un vecchio problema del 1979..</article>
+<article class="post" id="p2196"><div class="who"><b>Albertopisa</b><span>25 ago 2009, 9:26</span></div>Ok, stesso risultato anche per me, posto anche i passaggi (d e' la distanza terra-sole)...<br>
+<br>
+<span class="tex">\(F_g={GMm \over d^2}={4GMm \delta r^3 \pi \over 3 d^2  }\)</span><br>
+<br>
+<span class="tex">\(h=p\lambda \rightarrow E=pc=Fdtc\)</span><br>
+<br>
+<span class="tex">\(E={ W_0 \pi r^2 dt \over 4 \pi d^2 }\rightarrow pc=Fdtc={W_0 \pi r^2 dt \over 4 \pi d^2}\)</span><br>
+<br>
+<span class="tex">\(F={ W_0 r^2 \over 4 d^2 c{}\)</span><br>
+<br>
+Facendo il rapporto viene il risultato che avete detto voi</article>
+<article class="post" id="p2198"><div class="who"><b>MrTeo</b><span>25 ago 2009, 10:43</span></div>Solo un chiarimento... perchè nei calcoli viene utilizzata per la superficie incidente quella della sezione del granello invece che quella dell'emisfera dello stesso?</article>
+<article class="post" id="p2199"><div class="who"><b>Ippo</b><span>25 ago 2009, 10:45</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>OK grazie mille! La forza dei fotoni è  <span class="tex">\(F = W / c\)</span> vero??</div></blockquote>
+La quantità di moto di un singolo fotone è <span class="tex">\(h/\lambda=E/c\)</span>, la forza è questa quantità per il numero di urti nell'unità di tempo cioè la potenza ricevuta fratto c. Questo è vero solo nel caso di completo assorbimento: se riflettesse la luce la forza sarebbe doppia.</article>
+<article class="post" id="p8174"><div class="who"><b>Omar93</b><span>18 mar 2012, 21:20</span></div><blockquote><div><cite>Albertopisa ha scritto:</cite>Ok, stesso risultato anche per me, posto anche i passaggi (d e' la distanza terra-sole)...<br>
+<br>
+<span class="tex">\(F_g={GMm \over d^2}={4GMm \delta r^3 \pi \over 3 d^2  }\)</span><br>
+<br>
+<span class="tex">\(h=p\lambda \rightarrow E=pc=Fdtc\)</span><br>
+<br>
+<span class="tex">\(E={ W_0 \pi r^2 dt \over 4 \pi d^2 }\rightarrow pc=Fdtc={W_0 \pi r^2 dt \over 4 \pi d^2}\)</span><br>
+<br>
+<span class="tex">\(F={ W_0 r^2 \over 4 d^2 c{}\)</span><br>
+<br>
+Facendo il rapporto viene il risultato che avete detto voi</div></blockquote>
+
+Sinceramente non mi convince molto questa soluzione. <br>
+Posto la mia così confrontiamo anche perchè è più lunga di questa.<br>
+<br>
+Voglio trovare <span class="tex">\(F_f / F_g\)</span> dove il numeratore è la forza dovuta al contatto con fotoni il denominatore alla forza gravitazionale del sole(quella dei fotoni la lascio stare) entrambe sul granello.<br>
+<br>
+Allora <span class="tex">\(F_f = \frac{N \Delta p }{\Delta t}\)</span> dove N è il numero di fotoni incidenti<br>
+E <span class="tex">\(F_g = \frac{G M_s m}{d^2}\)</span> <br>
+Il primo fatto da notare è che quando un fotone si 'attacca'(ovvero viene assorbito) al granello,proprio in quel momento in cui i due s'attaccano possiamo dire che la forza di gravità agente su di essi è come se non ci fosse dato che non fa lavoro. Quindi la quantità di moto totale del sistema granello+fotoni si conserva in quest'istante. Dal punto di vista del granello si ha che <span class="tex">\(- \Delta p = -p\)</span> la variazione di quantità di moto del fotone <br>
+Dall'altra parte il granello 'riceve' = +p<br>
+Secondo dato che mi serve è il numero di fotoni incidenti o il tempo <span class="tex">\(\Delta t\)</span>. Allora la luminosità è data proprio da loro. <br>
+Se prendo in considerazione l'intensità della luce incidente so che essa ,in questo caso,è costante in ogni unità d'area. <br>
+Inoltre essa mi permette di trovare il numero di fotoni incidenti. Infatti : <span class="tex">\(I = W / A\)</span> ,A è l'area della sfera centrata nel sole e con raggio d,la distanza da esso <br>
+<span class="tex">\(P_i = I A_m = N E / \Delta t\)</span> Pi potenza assorbita dal mio granello e A_m la sezione sua (è come un flusso d'acqua su una superficie ad ex. inclinata)<br>
+<br>
+Quindi <span class="tex">\(\Delta t = \frac{N E A}{W A_m}\)</span> <br>
+<br>
+<span class="tex">\(\frac{F_f}{F_g} = \frac{W A_m N p d^2}{E A N G M_s m}\)</span><br>
+<br>
+Che alla fine da <span class="tex">\(\frac{3 W}{16 c G M_s \pi r \rho}\)</span></article>
+<article class="post" id="p8175"><div class="who"><b>Pigkappa</b><span>18 mar 2012, 22:28</span></div>Non mi metto a cercare un senso nei post vecchi di anni fa, ma si vede subito che il risultato di Albertopisa dipende dalla distanza Terra-Sole che non c'entra proprio niente con il problema... <br>
+<br>
+Il tuo risultato è lo stesso degli utenti che avevano scritto sopra, ed il metodo è giusto, anche se hai scritto le cose in modo veramente poco chiaro.<br>
+
+<blockquote><div><cite>Omar93 ha scritto:</cite>(quella dei fotoni la lascio stare)</div></blockquote>
+Come mai la puoi lasciar stare per studiare i fotoni che se ne vanno dal Sole? <br>
+<br>
+Se in un problema ti servisse tenerne conto, sapresti qualcosa a riguardo?</article>
+<article class="post" id="p8176"><div class="who"><b>Omar93</b><span>18 mar 2012, 22:42</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Non mi metto a cercare un senso nei post vecchi di anni fa, ma si vede subito che il risultato di Albertopisa dipende dalla distanza Terra-Sole che non c'entra proprio niente con il problema... <br>
+<br>
+Il tuo risultato è lo stesso degli utenti che avevano scritto sopra, ed il metodo è giusto, anche se hai scritto le cose in modo veramente poco chiaro.<br>
+
+<blockquote><div><cite>Omar93 ha scritto:</cite>(quella dei fotoni la lascio stare)</div></blockquote>
+Come mai la puoi lasciar stare per studiare i fotoni che se ne vanno dal Sole? <br>
+<br>
+Se in un problema ti servisse tenerne conto, sapresti qualcosa a riguardo?</div></blockquote>
+
+Anche se sono molto stanco rispondo. Rispetto al sole,credo,la somma degli N fotoni hanno una massa molto piccola(basta vedere la realtà)<br>
+<br>
+La seconda domanda non so se l'ho capita bene. A me in classe,non è che si facciano grandi cose però per cose del genere.., una volta è stato detto che i fotoni quando sono in movimento hanno una quantità di moto. Quindi possiamo ipotizzare una massa(non a caso,se non mi sbaglio,i buchi neri attirano pure la luce) E' questo quello che mi domandavi??<br>
+<br>
+<br>
+EDIT: <br>
+Per i problemi sns tu hai creato <a href="olifis-228.html" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=228</a></article>
+<article class="post" id="p8177"><div class="who"><b>Omar93</b><span>18 mar 2012, 22:46</span></div>O forse intendevi che si dovrebbe tener conto dell'accelerazione,credo mooolto piccola,dei fotoni soprattutto per causa della forza gravitazionale del sole??<br>
+Se è così non credo che conti molto per la risoluzione del problema.</article>
+<article class="post" id="p8178"><div class="who"><b>Pigkappa</b><span>19 mar 2012, 3:44</span></div><blockquote><div><cite>Omar93 ha scritto:</cite>Anche se sono molto stanco rispondo. Rispetto al sole,credo,la somma degli N fotoni hanno una massa molto piccola(basta vedere la realtà)</div></blockquote>
+Il fotone è privo di massa. Perciò la massa di N fotoni è sempre 0.<br>
+<br>
+Per rendere chiare le cose, è bene sapere che ci sono due convenzioni diverse per parlare della massa di una particella in relatività. <br>
+In una delle due, la massa è una costante che dipende solo dalla particella e non dal suo stato di moto. In questo modo, la massa del fotone è sempre 0, la massa dell'elettrone è sempre <span class="tex">\(m_e\)</span> e così via.<br>
+Nell'altra convenzione, si dice che la massa di una particella dipende dal suo stato di moto, e la si costruisce in modo che valga sempre <span class="tex">\(\vec F = m \vec a\)</span>, dove <span class="tex">\(m\)</span> dipende da <span class="tex">\(\vec v\)</span> (la cosa in realtà è ancora più complicata ma lasciamo stare). Questa convenzione è in disuso da non so quanto tempo ed è quasi meglio non conoscerla per niente.<br>
+<br>
+Perciò, dire che i fotoni hanno una massa in quanto si muovono è da evitare. Dato il nome della particella, la massa è sempre la stessa.<br>
+<br>
+
+<blockquote><div><cite>Omar93 ha scritto:</cite>(non a caso,se non mi sbaglio,i buchi neri attirano pure la luce)</div></blockquote>
+Vabbè, evito di girarci intorno e dico quello che avevo in mente. I fotoni sono particelle che si devono trattare per forza con la relatività, perchè hanno massa nulla. Un fotone in un campo di gravità viene in un qualche modo accelerato, e quando si mette insieme la relatività a un campo di gravità si va nell'ambito della relatività generale.<br>
+Tutto quello che dovete sapere prima di arrivare all'università a riguardo è che i fotoni risentono della gravità, che il loro moto è in qualche modo simile a quello delle particelle massive ma non si possono usare impunemente tutti i risultati ottenuti per le particelle non relativistiche, perchè a volte le cose non funzionano così bene.<br>
+Volendo approfondire, ci sono un sacco di libri divulgativi ma comunque seri di relatività generale; magari un giorno ne aggiungerò qualcuno al topic dei libri...<br>
+<br>
+<br>
+Riguardo a questo problema, il senso della mia prima domanda era: immaginando che l'effetto del campo gravitazionale sul fotone che si allontana sia quello di diminuirne l'energia (che in questo caso non vuol dire rallentarlo, ma abbassarne la frequenza), siamo in grado di dire che <span class="tex">\(\Delta E\)</span> è molto piccola?<br>
+Se vuoi provarci, fallo provando a usare furbescamente le formule della meccanica non relativistica. Il risultato che si trova è comunque giusto come ordine di grandezza.</article>
+<article class="post" id="p8187"><div class="who"><b>Omar93</b><span>19 mar 2012, 22:43</span></div>Grazie mille come al solito ora la situazione mi è un pò più chiara.<br>
+<br>
+Primo ti chiedo: tu vuoi una conservazione dell'energia??<br>
+Poi a cosa serve sapere che <span class="tex">\(\Delta E\)</span> è piccolo?<br>
+<br>
+Secondo: mi hai fatto sorgere un dubbio. Mi ricordo che in un post si era detto che il sole emette a varie frequenze. Allora questo vuol dire che i fotoni incidenti sul granello hanno varie frequenze e non una sola.<br>
+Quindi <span class="tex">\(F_f = \frac{ \sum \Delta p_i}{\Delta t}\)</span> dal primo all'ultimo fotone<br>
+E <span class="tex">\(P_i= I A_m = \frac{\sum E_i}{\Delta t}\)</span> dal primo all'ultimo fotone<br>
+<br>
+<span class="tex">\(\Delta t = \frac{\sum E_i}{ I A_m}\)</span><br>
+<br>
+<span class="tex">\(F_f = \frac{ \sum \Delta p_i I A_m}{\sum E_i}\)</span><br>
+<br>
+Dal testo si sa che <span class="tex">\(p = h/ \lambda\)</span> ed <span class="tex">\(E = E \nu\)</span><br>
+Ricordando la relazione tra frequenza e lunghezza d'onda:<span class="tex">\(v = c = \lambda \nu\)</span><br>
+Ottengo che <span class="tex">\(p = h \nu / c\)</span><br>
+Ora ho <span class="tex">\(F_f = \frac{h \sum \nu_i   (I A_m)}{c h \sum \nu_i }\)</span><br>
+E salta fuori che :<span class="tex">\(F_f = \frac{I A_m}{c}\)</span> (una potenza su una velocità ovvero W s / m = J / m = N m / m = N)<br>
+Poi si continua come prima...<br>
+<br>
+E questo ci dice che la forza Ff non dipende dal tipo di fotone incidente(ovvero dalla sua frequenza) interessantissimo<br>
+<br>
+<br>
+Non so proprio come ringraziarti..</article>
+<article class="post" id="p8188"><div class="who"><b>Pigkappa</b><span>19 mar 2012, 23:25</span></div><blockquote><div><cite>Omar93 ha scritto:</cite>Primo ti chiedo: tu vuoi una conservazione dell'energia??
+</div></blockquote>
+Anche conviene che io dica cosa ho in mente visto che non puoi leggermi nel cervello e trattandosi di un effetto che non hai mai visto, difficilmente ci puoi arrivare.<br>
+<br>
+Semplicemente, un fotone che parte da un campo di gravità e si allontana, cambia frequenza in modo che <span class="tex">\(\frac{\Delta \nu}{\nu} \approx \frac{GM}{c^2 R}\)</span> (M è la massa del Sole per un fotone che parte dalla sua superficie, R il raggio del Sole). Ci sono dei modellini che sono chiaramente poco corretti e, basandosi sull'energia, arrivano a una formula tipo quella. Questo effetto potrebbe essere importante per fotoni che ci arrivano da oggetti con un campo gravitazionale alla superficie molto intenso. La spiegazione corretta richiede la relatività generale.<br>
+
+<blockquote><div><cite>Omar93 ha scritto:</cite>E questo ci dice che la forza Ff non dipende dal tipo di fotone incidente(ovvero dalla sua frequenza)</div></blockquote>
+Beh, non è difficile capire perchè. La forza dipende solo dalla quantità di moto totale dei fotoni, e per un fotone la quantità di moto è uguale all'energia (a parte costanti moltiplicative), quindi il risultato finale dipende solo dall'energia totale.</article>
+<article class="post" id="p8189"><div class="who"><b>Omar93</b><span>19 mar 2012, 23:54</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Omar93 ha scritto:</cite>Primo ti chiedo: tu vuoi una conservazione dell'energia??
+</div></blockquote>
+Anche conviene che io dica cosa ho in mente visto che non puoi leggermi nel cervello e trattandosi di un effetto che non hai mai visto, difficilmente ci puoi arrivare.<br>
+<br>
+Semplicemente, un fotone che parte da un campo di gravità e si allontana, cambia frequenza in modo che <span class="tex">\(\frac{\Delta \nu}{\nu} \approx \frac{GM}{c^2 R}\)</span> (M è la massa del Sole per un fotone che parte dalla sua superficie, R il raggio del Sole). Ci sono dei modellini che sono chiaramente poco corretti e, basandosi sull'energia, arrivano a una formula tipo quella. Questo effetto potrebbe essere importante per fotoni che ci arrivano da oggetti con un campo gravitazionale alla superficie molto intenso. La spiegazione corretta richiede la relatività generale.
+</div></blockquote>
+
+Ero proprio quello che stavo per scrivere. Se non mi sbaglio,dato che tu l'avevi consigliato,c'è un ipho(forse del 1997 o su di lì)  che tratta proprio questo problema.</article>
+<nav class="pager"><a class="prev" href="oliforum-5713.html"><small>← precedente</small>di nuovo sns, 2003-2004</a><a class="next" href="oliforum-8962.html"><small>successivo →</small>Due SNS in un colpo solo</a></nav>
+</main></body></html>

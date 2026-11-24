@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2002/2003, n°3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2002-2003, problema 3</span></nav>
+<h1>SNS 2002/2003, n°3</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=543">forum Olifis</a></p>
+<article class="post first" id="p4911"><div class="who"><b>spn</b><span>20 ago 2010, 12:38</span></div>Altro problemino simpatico degli SNS:<br>
+<br>
+Dentro una sfera di raggio <span class="tex">\(R_0\)</span> sono distribuite un gran numero di particelle, ciascuna di massa <span class="tex">\(m\)</span> e carica <span class="tex">\(q\)</span>, in modo tale che il loro numero per unità di volume sia lo stesso ovunque entro la sfera. <br>
+All’istante iniziale, si rimuovono i vincoli che tenevano ferme queste particelle e le si lascia libere di muoversi sotto la sola azione delle mutue interazioni elettromagnetiche. Si dimostri come all’aumentare del tempo la distribuzione delle particelle rimanga uniforme all’interno di una sfera, e si calcoli la velocità asintotica con cui aumenta il raggio <span class="tex">\(R(t)\)</span> di tale sfera.</article>
+<article class="post" id="p4918"><div class="who"><b>Gauss91</b><span>20 ago 2010, 14:32</span></div>Il caso è analogo a quello gravitazionale: l'unica forza che agisce su una carica è quella prodotta dal campo elettrico delle cariche contenute nella sfera posta sotto di essa. (Non sono molto chiaro ma penso che il caso gravitazionale sia ben presente a tutti). Questo fondamentalmente perché i conti in un caso o nell'altro "si fanno allo stesso modo".<br>
+<br>
+<br>
+PUNTO 1<br>
+<br>
+Consideriamo una sfera di raggio r concentrica alla prima, con r &lt; R_0.<br>
+Sia <span class="tex">\(\rho\)</span> la densità di carica. Allora, a distanza r dal centro della sfera, il campo elettrico è radiale ed è dato da<br>
+<span class="tex">\(E(r) = \dfrac{\rho}{3\epsilon_0}r\)</span>, la forza subita da una carica q sulla superficie di una sfera di raggio r sarà dunque data da<br>
+<span class="tex">\(F(r) = \dfrac{\rho q}{3\epsilon_0}r\)</span> da cui l'accelerazione<br>
+<br>
+<span class="tex">\(a(r) = \dfrac{\rho q}{3m\epsilon_0}r\)</span>.<br>
+Consideriamo due particelle che stiano rispettivamente a distanze <span class="tex">\(r_1\)</span> e <span class="tex">\(r_2 = kr_1, k &gt; 1\)</span> dal centro. Il rapporto tra le loro due accelerazioni, in ogni istante, è dato da<br>
+<span class="tex">\(\dfrac{a_2}{a_1} = \dfrac{r_2}{r_1} = k\)</span>, costante ad ogni istante. Esso sarà quindi uguale al rapporto tra gli spazi percorsi in uno stesso istante: se le due particelle, dopo un certo istante t, saranno distanti <span class="tex">\(r_1 '\)</span>e <span class="tex">\(r_2 '\)</span> dal centro, si avrà <span class="tex">\(\dfrac{r_2 '}{r_1 '} = \dfrac{a_2}{a_1} = k\)</span> (*). Ma allora <br>
+<span class="tex">\(\dfrac{r_2}{r_1} = \dfrac{r_2 '}{r_1 '}\)</span> e di conseguenza <span class="tex">\((\dfrac{r_1'}{r_1})^3 = (\dfrac{r_2 '}{r_2})^3\)</span>. Ma i rapporti appena scritti sono i rapporti tra i volumi sottesi dalle due particelle nei due istanti. Si vede quindi che tale rapporto è lo stesso per tutte le particelle, in un determinato istante t. Di conseguenza, se la densità diminuisce di un certo fattore x in una qualsiasi sfera concentrica alla prima, diminuisce dello stesso fattore x anche in tutte le altre sfere concentriche alla prima, e la densità globale rimarrà sempre uniforme.<br>
+(DIMOSTRAZIONE della (*): le due equazioni differenziali che descrivono il moto sono infatti, rispettivamente, <span class="tex">\(\ddot{r_1} = a_1\)</span> e <span class="tex">\(\ddot{r_2} = ka_1\)</span>, con k costante, e se quindi esistono due soluzioni <span class="tex">\(r_1(t)\)</span> e <span class="tex">\(r_2(t)\)</span> alle rispettive equazioni differenziali, sarà <span class="tex">\(r_2(t) = kr_1(t)\)</span>).<br>
+<br>
+PUNTO 2. L'energia potenziale di una particella sulla superficie della sfera è<br>
+<span class="tex">\(U = \dfrac{1}{4\pi\epsilon_0}\dfrac{Nq^2}{R_0}\)</span>, dove N è il numero di cariche contenute nella sfera. (Si è approssimato N-1 a N visto che le cariche sono in gran numero).<br>
+All'infinito, la sua energia potenziale risulterà trasformata totalmente in energia cinetica, quindi<br>
+<span class="tex">\(\dfrac{1}{2}mv_f ^2 = \dfrac{1}{4\pi\epsilon_0}\dfrac{Nq^2}{R_0}\)</span> da cui<br>
+<br>
+<span class="tex">\(v_f = \sqrt{\dfrac{1}{2\pi\epsilon_0}\dfrac{Nq^2}{mR_0}}\)</span>.<br>
+Ovviamente la velocità della particella più esterna è uguale alla velocità con cui la sfera a cui si riferisce il problema si ingrandisce. La velocità richiesta è quindi proprio <span class="tex">\(v_f\)</span>.<br>
+<br>
+P.S.: tutto questo ovviamente si sminchia se si richiede di esaminare anche le interazioni magnetiche... spero vivamente che non sia così! ahahah</article>
+<article class="post" id="p4920"><div class="who"><b>spn</b><span>20 ago 2010, 15:23</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>tutto questo ovviamente si sminchia se si richiede di esaminare anche le interazioni magnetiche... spero vivamente che non sia così!</div></blockquote>
+
+Ogni campo magnetico generato su una carica Q da un'altra carica q, si annulla con il campo generato dalla carica q' che si muove rispetto a Q simmetricamente a q. Per cui non ci dovrebbe essere di cui preoccuparci  ;).</article>
+<article class="post" id="p7610"><div class="who"><b>Omar93</b><span>16 ott 2011, 13:03</span></div>Per il punto 1 non si poteva dire che essendo la sommatoria delle forze esterne = 0 il centro di massa non si muove e rimane nel centro(perchè la sfera all'inizio era uniforme): quindi supponendo che in un dato istante una data zona ha una particella in meno di un'altra,si arriverebbe a dire che il centro di massa non è al centro come prima cioè si è spostato.</article>
+<article class="post" id="p7611"><div class="who"><b>Pigkappa</b><span>16 ott 2011, 13:25</span></div><blockquote><div><cite>Omar93 ha scritto:</cite>Per il punto 1 non si poteva dire che essendo la sommatoria delle forze esterne = 0 il centro di massa non si muove e rimane nel centro(perchè la sfera all'inizio era uniforme): quindi supponendo che in un dato istante una data zona ha una particella in meno di un'altra,si arriverebbe a dire che il centro di massa non è al centro come prima cioè si è spostato.</div></blockquote>
+
+No; ad esempio, se tutte le particelle fossero andate sul bordo della sfera, il centro di massa sarebbe rimasto comunque fermo ma la densità non sarebbe uniforme.</article>
+<article class="post" id="p7612"><div class="who"><b>Omar93</b><span>16 ott 2011, 13:30</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Omar93 ha scritto:</cite>Per il punto 1 non si poteva dire che essendo la sommatoria delle forze esterne = 0 il centro di massa non si muove e rimane nel centro(perchè la sfera all'inizio era uniforme): quindi supponendo che in un dato istante una data zona ha una particella in meno di un'altra,si arriverebbe a dire che il centro di massa non è al centro come prima cioè si è spostato.</div></blockquote>
+
+No; ad esempio, se tutte le particelle fossero andate sul bordo della sfera, il centro di massa sarebbe rimasto comunque fermo ma la densità non sarebbe uniforme.</div></blockquote>
+Vero :lol:</article>
+<nav class="pager"><a class="prev" href="oliforum-4170.html"><small>← precedente</small>Cariche in fuga</a><a class="next" href="oliforum-6219.html"><small>successivo →</small>SNS 2002-03@4</a></nav>
+</main></body></html>

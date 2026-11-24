@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008/2009 problema 6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 6</span></nav>
+<h1>SNS 2008/2009 problema 6</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11785">OliForum</a></p>
+<article class="post first" id="p96002"><div class="who"><b>caparezza89</b><span>10 set 2008, 18:47</span></div>6) Un aereo sta volando in linea retta ad un'altezza pari a 1km dal terreno. Dalla torre di controllo, di altezza trascurabile rispetto al terreno, si sente il boom sonico dell'aereo 2,5s dopo che quest'ultimo è passato sopra di essa. Ponendo la velocità del suono pari a 340m/s , trovare la velocità dell'aereo. <br>
+Dopo il boom sonico si sente il suono dei motori dell'aereo, modificato dall'effetto Doppler. Considerando l'aereo una sorgente sonora con frequenza <em class="text-italics">f0</em> , si scriva una formula per la frequenza <em class="text-italics">f</em> udita nella torre di controllo. Dove si trova l'aereo quando si ode una frequenza pari a <em class="text-italics">f0/2</em> ?</article>
+<article class="post" id="p96003"><div class="who"><b>caparezza89</b><span>10 set 2008, 18:49</span></div>Io ho provato a risolverlo. La prima parte credo di averla fatta giusta (a casa :) ). Sulla seconda ho un'idea ma non ne sono tanto sicuro. Potrei sapere come lo avete risolto voi? :) <br>
+<br>
+Caparezza89</article>
+<article class="post" id="p96005"><div class="who"><b>Desh</b><span>10 set 2008, 19:04</span></div><a href="http://olimpiadi.sns.it/oliForum/viewtopic.php?t=11683" class="ext" class="postlink">http://olimpiadi.sns.it/oliForum/viewtopic.php?t=11683</a></article>
+<article class="post" id="p96007"><div class="who"><b>Algebert</b><span>10 set 2008, 20:18</span></div>Beh dai era solo quattro topic più giù :roll: ! Cercare un minutino di più no eh :wink: ?</article>
+<article class="post" id="p96072"><div class="who"><b>caparezza89</b><span>12 set 2008, 17:02</span></div><blockquote class="uncited"><div>Beh dai era solo quattro topic più giù  :roll:  ! Cercare un minutino di più no eh  :wink:  ? 
+</div></blockquote>
+
+No, va bene?  :) <br>
+<br>
+Cmq grazie per le indicazioni.  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6018.html"><small>← precedente</small>32: Quantitá di Moto 2.0 [SNS 2008 n.5]</a><a class="next" href="oliforum-11683.html"><small>successivo →</small>SNS 2008/2009 problema 6</a></nav>
+</main></body></html>

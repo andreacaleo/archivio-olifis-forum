@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problema sns</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 3</span></nav>
+<h1>Problema sns</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=10280">OliForum</a></p>
+<article class="post first" id="p84670"><div class="who"><b>pi</b><span>20 feb 2008, 18:22</span></div>Ciao..mi chiedevo se qualcuno voleva aiutarmi..<br>
+<br>
+Si consideri un treno che entra in una galleria e si stimi la variazione<br>
+di pressione che si produce nel tratto di galleria in cui è presente il treno,<br>
+rispetto alla pressione in assenza del treno. Mostrare come essa dipenda<br>
+dal rapporto tra la velocità del treno vt , e la velocità del suono<br>
+vs, dalla sezione del treno St , e della sezione della galleria S0. (Si ricordi<br>
+che la velocità del suono è legata alla temperatura dalla relazione<br>
+vs = (g RT/μ)1/2, dove μ è la massa della grammomolecola di aria e<br>
+l’indice adiabatico per l’aria è g =1.41; si consideri l’aria come fluido<br>
+perfetto).<br>
+<br>
+Scusate ma non ho imparato a usare Latex.<br>
+<br>
+Grazie<br>
+ :D</article>
+<article class="post" id="p93793"><div class="who"><b>EUCLA</b><span>06 ago 2008, 22:40</span></div>Riesumando topic vecchi (sì, non ho di meglio da fare), tenterò di dare una soluzione.<br>
+Tra l'altro ho riguardato il problema originale, quindi riscrivo meglio alcuni dati:<br>
+$ v_S=\displaystyle \bigg(\frac{\gamma RT}{\mu}\bigg)^{\frac{1}{2}}  $<br>
+<br>
+Per massa della grammomolecola d'aria $ \mu  $ ho inteso che $ \mu =\displaystyle \frac{M}{n}  $ dove $ M  $ è la massa di una "porzione" ( :shock: ) d'aria che contiene $ n  $ moli.<br>
+Ma possiamo anche scrivere $ M=V\rho  $.<br>
+Andando a sostituire otteniamo: $ v_S^2=\displaystyle \frac{\gamma nRT}{V\rho}  $.<br>
+<br>
+Ora, potendo considerare l'aria un gas ideale: $ p_0V=nRT\rightarrow v_S^2=\gamma \displaystyle \frac{p_0}{\rho}  $ o meglio, per quel che ci interesserà a noi: $ \rho =\displaystyle \frac{\gamma p_0}{v_S^2} $.<br>
+<br>
+A questo punto consideriamo i due momenti (1) in cui l'aria è libera di scorrere nella galleria, e (2) quello in cui l'aria subisce l'impatto col treno.<br>
+<br>
+(1) La velocità dell'aria è $ v_1  $ e si trova a pressione $ p_1  $.<br>
+<br>
+(2) La velocità relativa treno-aria è $ v_T  $, la corrispondente pressione esercitata dall'aria sul treno è $ p_T  $.<br>
+<br>
+<br>
+Per Bernoulli, si ha: $ \displaystyle p_1+\frac{1}{2}\rho v_1^2=p_T+\frac{1}{2}\rho v_T^2  $.<br>
+<br>
+Ora, vale $ S_0\cdot v_1=S_T\cdot v_T  $  da cui $ v_1=\displaystyle \frac{S_T\cdot v_T}{S_0}  $.<br>
+<br>
+$ \displaystyle p_1+\frac{1}{2}\frac{\gamma p_0}{v_S^2}\bigg(\frac{S_T}{S_0}\bigg)^2v_T^2=p_T+\frac{1}{2} \frac{\gamma p_0}{v_S^2}S_T^2v_T^2 $.<br>
+<br>
+Dunque $ \Delta p=p_T-p_1=\displaystyle \frac{1}{2}\gamma p_0}\cdot \bigg(\frac{v_T}{v_S}\bigg)^2\bigg(\frac{S_T^2-S_0^2}{S_0^2}\bigg)  $.<br>
+<br>
+Io mi sto chiedendo perchè ci han dato il valore di $ \gamma  $. L'ipotesi è per farci sapere che è roba nota, non da ricavare, sennò sai che casino :lol: . Spero di non aver sbagliato troppe cose.</article>
+<article class="post" id="p93867"><div class="who"><b>iactor</b><span>08 ago 2008, 10:53</span></div>Mi convince molto poco l'uso del teorema di bernoulli perchè è valido solo per i fluidi incomprimibili (in cui la velocità del suono è infinita.....)<br>
+Quello che succede è che il treno produce un'onda di pressione che si propaga a velocità Vs.<br>
+Ho provato a fare un modello che non so quanto sia giusto e ottengo<br>
+<br>
+delta p= (a/(1-a))^gamma dove a è il prodotto tra i rapporti delle sezioni (treno/galleria) e (vt/vs =numero di mach)<br>
+<br>
+La cosa dovrebbe essere poi complicata dalle riflessioni contro le estremità della galleria.<br>
+<br>
+Qualcuno ha la soluzione ufficiale?</article>
+<article class="post" id="p93870"><div class="who"><b>EUCLA</b><span>08 ago 2008, 11:27</span></div><blockquote><div><cite>iactor ha scritto:</cite>Mi convince molto poco l'uso del teorema di bernoulli perchè è valido solo per i fluidi incomprimibili (in cui la velocità del suono è infinita.....)</div></blockquote>
+Era scritto di pensare l'aria come fluido perfetto.. ha un altro significato per caso perfetto, rispetto a ideale? Perchè se è ideale è incomprimibile, no?<br>
+Mamma mia che confusione  :oops: <br>
+
+<blockquote><div><cite>iactor ha scritto:</cite>Qualcuno ha la soluzione ufficiale?</div></blockquote>
+Purtroppo credo proprio di no, dato che è recente (2001-2002).</article>
+<article class="post" id="p93874"><div class="who"><b>iactor</b><span>08 ago 2008, 12:54</span></div>boh un gas perfetto direi che è proprio comprimibile..........<br>
+E poi se non lo è la velocità del suono diventa infinita</article>
+<nav class="pager"><a class="prev" href="olifis-174.html"><small>← precedente</small>SNS 2001/2002 - 3</a><a class="next" href="oliforum-6062.html"><small>successivo →</small>Treno in una Galleria @ SNS</a></nav>
+</main></body></html>

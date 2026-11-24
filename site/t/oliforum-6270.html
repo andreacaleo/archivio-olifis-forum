@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2006-2007 es. n°3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2006-2007, problema 3</span></nav>
+<h1>sns 2006-2007 es. n°3</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6270">OliForum</a></p>
+<article class="post first" id="p57171"><div class="who"><b>Simo_the_wolf</b><span>02 set 2006, 09:31</span></div>Dalla meccanica quantistica si sa che nell'atomo di idrogeno il momento angolare dell'elettrone può assumere solo certi valori quantizzati $ L_n =  \frac h{2 \pi } n  $.<br>
+<br>
+Si determini la frequenza $ \nu_n $ e l'energia $ E_n $ dell'elettrone. Successivamente, sapendo che quando l'elettrone passa da un livello all'altro l'atomo rilascia un fotone di frequenza $ \bar{ \nu } _n = \frac {E_n - E_{n-1} }h $ stabilire la relazione che c'è fra $ \nu_n  $ e $ \bar{\nu}_n $</article>
+<article class="post" id="p57182"><div class="who"><b>__Cu_Jo__</b><span>02 set 2006, 12:41</span></div>Posto la mia soluzione così la confrontiamo.<br>
+$ \displaystyle [1]\,\, mvr = n\frac{h}{{2\pi }} $<br>
+La forza centripeta che mantiene l'elettrone nella sua orbita circolare è la forza elettrica che si esercita tra l'elettrone e il nucleo. Il nucleo dell'atomo di idrogeno è costituito da un solo protone quindi:<br>
+<br>
+$ \displaystyle m\frac{{v^2 }}{r} = \frac{1}{{4\pi \varepsilon _0 }}\frac{{e^2 }}{{r^2 }} $<br>
+$ \displaystyle [2]\,\,mv^2  = \frac{1}{{4\pi \varepsilon _0 }}\frac{{e^2 }}{r} $<br>
+Ricavando la velocità $ v $ dalla [1] e sostituendo nella [2] e risolvendo poi rispetto a r troviamo:<br>
+$ \displaystyle [3]\,\,r = n^2 \frac{{h^2 \varepsilon _0 }}{{\pi me^2 }} $<br>
+<br>
+L'energia totale dell'elettrone è data dalla somma della sua energia cinetica e della sua enegria potenziale. L'energia cinetica per la [2] è data da:<br>
+$ \displaystyle K = \frac{1}{2}mv^2  = \frac{1}{{8\pi \varepsilon _0 }}\frac{{e^2 }}{r} $<br>
+quindi:<br>
+$ \displaystyle [4]\,\,E = K + U = \frac{1}{{8\pi \varepsilon _0 }}\frac{{e^2 }}{r} - \frac{1}{{4\pi \varepsilon _0 }}\frac{{e^2 }}{r} =  - \frac{{e^2 }}{{8\pi \varepsilon _0 r}} $<br>
+Sosituendo l'espressione [3] nella [4] si ricava E in funzione di n:<br>
+$ \displaystyle [5]\,\, E =  - \frac{{me^4 }}{{8\varepsilon _0^2 h^2 n^2 }} $<br>
+Possiamo riscrivere la legge di Newton come:<br>
+$ \displaystyle m\left( {2\pi \nu _n } \right)^2  = \frac{1}{{4\pi \varepsilon _0 }}\frac{{e^2 }}{{r^3 }} $<br>
+da cui si ricava:<br>
+$ \displaystyle \nu _n  = \frac{{e^4 m}}{{4\varepsilon _0^2 n^3 h^3 }} $<br>
+Quando un atomo passa da un livello si energia ad uno adiacente emette un quanto di luce di frequenza:<br>
+$ \displaystyle \[
+\overline {\nu _n }  = \frac{{E_n  - E_{n - 1} }}{h} = \frac{{me^4 }}{{8\varepsilon _0^2 h^3 }}\left( {\frac{1}{{\left( {n - 1} \right)^2 }} - \frac{1}{{n^2 }}} \right) =  $$ \displaystyle \frac{{me^4 }}{{8\varepsilon _0^2 h^3 }}\left( {\frac{{2n - 1}}{{n^4  - 2n^3  + n^2 }}} \right) \approx \frac{{me^4 }}{{4\varepsilon _0^2 h^3 n^3 }} = \nu _n  $<br>
+Ciao</article>
+<article class="post" id="p57238"><div class="who"><b>Samu</b><span>03 set 2006, 13:28</span></div>Solo una cosa non mi torna: come hai fatto a calcolare l'energia potenziale dell'elettrone?</article>
+<article class="post" id="p57244"><div class="who"><b>HomoPatavinus</b><span>03 set 2006, 14:28</span></div>la regola generale che vale sia per il campo gravitazionale sia per quello elettrico è che l'energia potenziale è il doppio di quella cinetica cambiata di segno. se ti interessa dimostrarlo devi prima calcolare la distanza dall'elettrone dal nucleo, che si calcola con F(coulomb)= M(V^2)/r e poi applichi la formula dell'energia potenziale, che se non ti ricordi qual'è (come accade spesso a me), la ottieni facendo l'integrale della forza di coulomb in dR dove R è la distanza, per R che va da R a infinito.</article>
+<article class="post" id="p57249"><div class="who"><b>evans</b><span>03 set 2006, 15:07</span></div>L'energia potenziale è il lavoro necessario per portare  la carica da un punto fissato A e un punto fissato 0 nel caso in questione  lo zero viene preso a +infinito.</article>
+<article class="post" id="p57259"><div class="who"><b>Phoenix87</b><span>03 set 2006, 16:32</span></div>$ \nu_n = - \frac{2E_n}{hn} $<br>
+$ \overline{\nu}_n = \frac{E_n}{h}\left(1 - \frac{E_{n-1}}{E_n}\right) = \frac{n}{2}\nu_n\left(\frac{E_{n-1}}{E_n} - 1\right) $<br>
+$ \ldots $<br>
+$ \overline{\nu}_n = \frac{n}{2}\frac{2n-1}{(n-1)^2}\nu_n $</article>
+<article class="post" id="p57273"><div class="who"><b>Gauss_87</b><span>03 set 2006, 19:44</span></div><blockquote><div><cite>HomoPatavinus ha scritto:</cite>la regola generale che vale sia per il campo gravitazionale sia per quello elettrico è che l'energia potenziale è il doppio di quella cinetica cambiata di segno. </div></blockquote>
+
+sinceramente ho utilizzato direttamente questo fatto nel problema, ma non l'ho dimostrato (non ho fatto quei 4 calcoletti), pensate sia grave?<br>
+spero di no perchè proprio questo problema era il più facile, credo.</article>
+<article class="post" id="p57317"><div class="who"><b>__Cu_Jo__</b><span>04 set 2006, 09:20</span></div>Avete applicato il teorema del viriale. Nel libro delle prove di fisica della normale l'aveva applicato ad un problema simile.Io ho fatto tutti i calcoli  per sicurezza, ma state sicuri che ve lo daranno per buono...</article>
+<nav class="pager"><a class="prev" href="oliforum-6266.html"><small>← precedente</small>sns 2006-2007, es. 2</a><a class="next" href="olifis-204.html"><small>successivo →</small>SNS 2006/2007 n 4</a></nav>
+</main></body></html>

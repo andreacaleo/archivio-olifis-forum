@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>variazioni di entropia</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 4</span></nav>
+<h1>variazioni di entropia</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6091">OliForum</a></p>
+<article class="post first" id="p56119"><div class="who"><b>tuvok</b><span>19 ago 2006, 18:57</span></div>Questo è ispirato a un problema dato all'ammissione della SNS qualche anno fa: è dato un recipiente meccanicamente e termicamente isolato dall'esterno, diviso in due parti da un setto divisorio permeabile al calore, inizialmente bloccato. Ciascuna parte del recipiente è riempita con un gas monoatomico (considerato ideale); i gas nelle due parti del recipiente sono inizialmente a pressione e temperatura diverse. Il sistema, lasciato libero di evolversi, raggiunge una situazione di equilibrio. Si chiede di mettere in ordine crescente le variazioni di entropia del gas nei seguenti 3 casi:<br>
+1. Il setto divisorio è mantenuto bloccato fino al raggiungimento dell'equilibrio<br>
+2. Il setto divisorio è libero di scorrere (senza attrito) fino al raggiungimento dell'equilibrio<br>
+3. Il setto divisorio è mantenuto bloccato, ma vi viene praticato un foro</article>
+<article class="post" id="p56139"><div class="who"><b>Gauss_87</b><span>20 ago 2006, 15:07</span></div>quindi sorvoliamo la risoluzione vera e propria che consiste nel trovare gli stati finali a partire dai dati iniziali?</article>
+<article class="post" id="p56147"><div class="who"><b>Tamaladissa</b><span>20 ago 2006, 16:14</span></div><blockquote><div><cite>tuvok ha scritto:</cite> Si chiede di mettere in ordine crescente le variazioni di entropia del gas nei seguenti 3 casi:
+</div></blockquote>
+
+Si intende la variazione d'entropia dell'intero sistema o di uno dei due gas? Tali gas sono uguali?</article>
+<article class="post" id="p56157"><div class="who"><b>Bacco</b><span>20 ago 2006, 19:19</span></div>Le notazioni sono quelle standard.<br>
+Suppongo inoltre che le due parti del recipiente siano uguali (tanto se non lo sono basta aggiungere un rapporto numerico..). Ognuna di esse abbia volume $ V $.<br>
+<br>
+Innanzitutto:<br>
+calcolo la temperatura di equilibrio $ T_x $ con la conservazione dell'energia.<br>
+Ottengo $ T_x=(n_1T_1+n_2T_2)/(n_1+n_2) $.<br>
+<br>
+<br>
+Caso 1:<br>
+considero la trasformazione equivalente composta dalle isocore che portano il gas 1 e il gas 2 alla temp. d'equilibrio.<br>
+Ottengo: $ \Delta S=3R(n_1ln\frac{T_x}{T_1}+n_2ln\frac{T_x}{T_2})/2 $.<br>
+<br>
+Caso 2:<br>
+considero la trasformazione equivalente composta da quelle del caso 1 seguite dalle isoterme che portano i gas alla stessa pressione d'equilibrio.<br>
+I volumi sono proporzionali al rispettivo numero di moli, all'equilibrio.<br>
+Integrando: $ \Delta S_2 - \Delta S_1=R(n_1ln\frac{2n_1}{n_1+n_2}+n_2ln\frac{2n_2}{n_1+n_2}) $.<br>
+<br>
+Caso 3:<br>
+ora i gas si mescolano. Allora è come se facessi tutto ciò che ho fatto nel caso 2 e poi togliessi il separatore, lasciando mescolare spontaneamente i gas.<br>
+Allora di certo l'entropia aumenta ancora, per il secondo principio.<br>
+Ecco, qui non sono sicuro sul metodo da adottare per calcolare la variazione; dato che col foro si perde la reversibilità, penserei di eseguire le trasf. del punto 1 e poi di aggiungere le variazioni d'entropia date dall'espansione isoterma (separatamente) dei gas dal volume V al volume 2V. Che ne pensi, Tuvok? Tornerebbe $ \Delta S_3 - \Delta S_1=(n_1+n_2)Rln 2 $.<br>
+<br>
+Dunque le variazioni d'entropia sono ordinate in ordine crescente come i casi: 1&lt;2&lt;3.<br>
+<br>
+Il tutto, come sempre, modulo errori di calcolo e/o bischerate...<br>
+<br>
+Ciao!<br>
+<br>
+P.S.: lunga vita e prosperità.</article>
+<article class="post" id="p56171"><div class="who"><b>Tamaladissa</b><span>21 ago 2006, 00:02</span></div>I casi 1 e 2 mi vengono uguali a Bacco. Anche l ordinamento torna. Pero per il terzo caso bisogna supporre secondo i tuoi calcoli che i volumi iniziali siano uguali. Non e specificato nel problema. In tal caso andrebbe bene.</article>
+<article class="post" id="p56177"><div class="who"><b>mates</b><span>21 ago 2006, 10:48</span></div>Nel terzo bisogna anche supporre che i gas siano diversi.<br>
+Se i gas sono uguali il risultato è molto minore!  :wink:</article>
+<article class="post" id="p56182"><div class="who"><b>Bacco</b><span>21 ago 2006, 11:57</span></div>@Tamaladissa: :D<br>
+
+<blockquote><div><cite>Bacco ha scritto:</cite>
+Suppongo inoltre che le due parti del recipiente siano uguali (tanto se non lo sono basta aggiungere un rapporto numerico..). Ognuna di esse abbia volume $ V $.
+</div></blockquote>
+
+@mates: capisco ciò che vuoi dire.... c'avevo pesato anch'io, ma non sono molto sicuro che se sono gas uguali l'entropia non cambi più. Se è una misura del disordine, togliendo il separatore hai molte più combinazioni possibili per la disposizione delle molecole, no? Inoltre ragionando col fatto delle trasformazioni equivalenti (le isoterme  finali che dilatano) il fatto che sono gas diversi o uguali non viene mai usato...</article>
+<article class="post" id="p56185"><div class="who"><b>tuvok</b><span>21 ago 2006, 12:10</span></div>Io avevo ragionato così: la variazione di entropia tra due stati, come giustamente ha detto Bacco, è data dalla somma di due termini, uno dovuto alla variazione di volume e proporzionale a $ \ln{\frac{V_2}{V_1}} $, e uno dovuto alla variazione di temperatura e proporzionale a $ \ln{\frac{T_2}{T_1}} $. Premesso che il termine dovuto alla variazione di temperatura è lo stesso in tutti e 3 i casi, allora sarà vero che:<br>
+caso 1) il volume non varia, la variazione di entropia dovuta alla variazione di volume è nulla<br>
+caso 2) uno dei due gas si comprime, mentre l'altro si espande; in ogni caso la variazione di entropia dovuta alla variazione di volume è positiva per il 2° principio della termodinamica. La variazione di entropia nel caso 2 è maggiore che nel caso 1.<br>
+caso 3) tutti e due i gas si espandono, quindi la variazione di entropia dovuta alla variazione di volume sarà maggiore che nel caso 2<br>
+In conclusione ero arrivato allo stesso risultato di Bacco:  $ \Delta S_1 &lt; \Delta S_2 &lt; \Delta S_3 $</article>
+<article class="post" id="p56193"><div class="who"><b>mates</b><span>21 ago 2006, 14:17</span></div>@Bacco : Se i gas sono identici e quindi le motecole indistinguibili, puoi utilizzare il caso 2 e poi rimuovere la divisione. In quest'ultimo passaggio l'entropia non cambia più. Il fenomeno è stato molto discusso e prende il nome di "paradosso di Gibbs". In realtà è spiegabile abbastanza facilmente con un po' di meccanica statistica. Deriva dalla differenza del numero di combinazioni...<br>
+Per fare un esempio semplice, il numero di anagrammi di abc è 6, ma se due lettere sono uguali (aac) allora il numero scende a 3.<br>
+Lo stesso succede per l'entropia (come saprai, si può dare una definizione equivalente dell'entropia in funzione del numero di stati).<br>
+Se ti interessa, formalmente si può dimostrare il tutto o dalla definizione statistica oppure ricorrendo all'equazione di Sackur-Tetrode.....<br>
+<br>
+ciao,<br>
+<br>
+mates</article>
+<article class="post" id="p56194"><div class="who"><b>Bacco</b><span>21 ago 2006, 14:19</span></div>Grazie della spiegazione, tutto chiarito. :D<br>
+<br>
+Ciao!</article>
+<article class="post" id="p56198"><div class="who"><b>NEONEO</b><span>21 ago 2006, 15:56</span></div>Ciao, ho seguito la soluzione del problema, ma ho due dubbi:<br>
+1. Il fatto che i due gas siano uguali cosa vuol dire? Due gas sono uguali se hanno lo stesso grado di libertà, infatti si tratta il gas come un insieme di piccolissime sferette che si urtano in continuazione, senza distinguere se le sferette siano blu rosse o verdi. Se sono entrambi monoatomici (come specifica il testo) allora i gas sono uguali. <br>
+Di conseguenza una volta raggiunto l'equilibrio termico e barico, e successivamente si rimuove la lastra separatrice, non dovrebbe succedere nulla di diverso, sia che siano due elementi monoatomici uguali sia che siano diversi, purchè entrambi monoatomici, cioè con gli stessi gradi di libertà. Quindi l'entropia per me in ogni caso non cambia, e il caso due, seguendo questo ragionamento è equivalente al caso tre. Se mi sbaglio vi prego di chiarirmi le idee, perchè non vorrei essere sicuro di una cosa completamente sbagliata.<br>
+2. Purtroppo quest'altro mio dubbio va contro a quello che ho detto prima, il che denota una necessità di chiarimenti. L'ultima riga di Bacco, dove considera l'espansione su tutto il volume 2V mi convince abbastanza, ma per quanto ho detto poco sopra essa dovrebbe essere uguale al caso due e questo va dimostrato ma non saprei come farlo. Se non fosse uguale al caso due e il procedimento di Bacco è giusto allora il punto 1. qui sopra è scorretto. <br>
+Che ne pensate?</article>
+<article class="post" id="p56200"><div class="who"><b>NEONEO</b><span>21 ago 2006, 16:01</span></div>Bhe in effetti mi sono accorto ora che ilcalcolo di Bacco per il caso tre, se giusto, produce effettivamente una variazione di entropia maggiore risèetto al caso due. Di conseguenza o ha ragione Bacco, o è corretto quello che dicevo io poco fa. In ogni caso a me  sembrano corretti entrambi  :roll: :(  :cry: , quindi bho.......</article>
+<article class="post" id="p56203"><div class="who"><b>mates</b><span>21 ago 2006, 16:49</span></div>@NEONEO : il calcolo di Bacco è corretto nel caso di due gas diversi. Poi se ci pensi, i due gas si mescolano spontaneamente, quindi il tutto avviene con aumento di entropia  per la seconda legge della termodinamica.<br>
+Per quanto riguarda i gas uguali il problema stà nella definizione di Entropia: è vero che nel caso ideale due gas monoatomici hanno le stesse proprietà cinetiche, ma, nella definizione statistica di entropia si richiede esplicitamente di contare il numero di possibili stati, e, in questo "conteggio" bisogna dividere se le particelle sono "distinguibili" od "indistinguibili". Non sei il primo a sollevare questo problema..... sul paradosso di Gibbs hanno discusso per anni!<br>
+Con lo sviluppo della meccanica statistica e tutto è stato superato e non c'è, in realtà, alcun paradosso.<br>
+Anche in meccanica quantistica c'è differenza tra particelle distinguibili e indistinguibili.<br>
+Ti sarà tutto molto più chiaro dopo il tuo primo esame di meccanica statistica  :lol: <br>
+<br>
+Spero di essere stato chiaro, altrimenti chiedi pure.<br>
+<br>
+ciao,<br>
+<br>
+mates<br>
+<br>
+PS : L'entropia può essere definita come $ S = k \log{\Omega} $, dove k è la costante di Boltzmann e $ \Omega $ è la funzione di "peso" (ossia il numero di microstati) della configurazione più probabile.<br>
+Si dimostra che questa definizione è equivalente a quella della termodinamica classica ($ dS= \frac{\delta q_{rev}}{T}) $</article>
+<article class="post" id="p74412"><div class="who"><b>Pigkappa</b><span>20 ago 2007, 14:53</span></div>Ripesco per chiedere se la mia soluzione è giusta... È parecchio più corta delle altre e non usa calcoli, perciò mi insospettisce (loro comunque chiedevano di non calcolare le singole variazioni di entropia).<br>
+<br>
+Siano A, B e C i tre stati. <br>
+Noto che, se tolgo il blocco al setto divisorio nello stato A, il sistema passa in modo spontaneo e irreversibile dalla situazione A alla B. Perciò S_B &gt; S_A<br>
+Se faccio un buco nel setto divisorio nello stato A, i gas si mescolano in modo spontaneo e irreversibile fino allo stato C, perciò S_C&gt;S_A.<br>
+Se faccio un buco nel setto divisorio nella situazione B, i gas si mescolano in modo spontaneo e irreversibile fino alla situazione C. Perciò S_C&gt;S_B.<br>
+<br>
+Allora S_C &gt; S_B &gt; S_A.</article>
+<article class="post" id="p74415"><div class="who"><b>Deerber</b><span>20 ago 2007, 15:30</span></div>A mio modo di vedere, la tua soluzione va benissimo. Non c'era alcun bisogno di fare tutta quella discussione per arrivare alla soluzione, in verità è a dir poco immediato.<br>
+(Ciò vuol dire che l'avrei risolto anch'io come te)  :)</article>
+<nav class="pager"><a class="prev" href="oliforum-6062.html"><small>← precedente</small>Treno in una Galleria @ SNS</a><a class="next" href="olifis-219.html"><small>successivo →</small>SNS 2001/2002</a></nav>
+</main></body></html>

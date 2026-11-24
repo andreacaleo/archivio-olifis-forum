@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2017 n.1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2017-2018, problema 1</span></nav>
+<h1>SNS 2017 n.1</h1>
+<p class="meta">26 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6535">forum Olifis</a></p>
+<article class="post first" id="p23742"><div class="who"><b>lance00</b><span>2 set 2017, 12:09</span></div>Una grande massa <span class="tex">\(M\)</span> di un liquido incomprimibile si trova nel vuoto e riempie un volume sferico di raggio <span class="tex">\(R\)</span> all'equilibrio, sotto l'azione della propria attrazione gravitazionale. Trascurando la tensione superficiale, si determini la pressione al centro del liquido. Si consideri ora immerso nel liquido un piccolo corpo solido di densità <span class="tex">\(\rho\)</span>  e volume <span class="tex">\(V\)</span>, posizionato ad una distanza <span class="tex">\(l\)</span> dal centro del liquido, molto grande rispetto all'estensione del corpo, ma piccola rispetto a <span class="tex">\(R\)</span>. Si determini la forza risultante su di esso, giustificando eventuali assunzioni fatte.</article>
+<article class="post" id="p23746"><div class="who"><b>Parmamath</b><span>3 set 2017, 8:25</span></div>Non sono sicuro di averlo svolto correttamente   :lol: <br>
+Ma aprire un topic con la prova di fisica in generale ? E solo io non ho trovato da nessuna parte discussioni su quella di mate ?</article>
+<article class="post" id="p23748"><div class="who"><b>carol</b><span>3 set 2017, 10:17</span></div>Vorrei fare una prima prova anche perchè sono nuovo del Latex<br>
+<br>
+La pressione P nel centro risulta P=<span class="tex">\(\frac{3M^2}{8\pi.R^4}\)</span>. Il liquido che attrae è solo quella compreso nella sfera di raggio <span class="tex">\(l\)</span> e risulterebba a me <span class="tex">\(F=\frac{GMl\rho.V}{R^3}\)</span> :?: <br>
+Il procedimento solo se vanno bene <span class="tex">\(\rho\)</span></article>
+<article class="post" id="p23750"><div class="who"><b>arna1998</b><span>3 set 2017, 10:26</span></div><blockquote><div><cite>Parmamath ha scritto: <a href="olifis-6535.html#p23746" data-post-id="23746" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">3 set 2017, 8:25</div></cite>
+Ma aprire un topic con la prova di fisica in generale ? E solo io non ho trovato da nessuna parte discussioni su quella di mate ?
+</div></blockquote>
+Si potrebbe fare un topic sul test in generale nella sezione Caffè :) <br>
+<br>
+<br>
+@Carol: la pressione al centro è praticamente giusta, ma stai attento che così non torna dimensionalmente; nel calcolare la forza sull'oggetto invece hai dimenticato un altro tipo di forza che agisce su di esso ;)</article>
+<article class="post" id="p23751"><div class="who"><b>Vinci</b><span>4 set 2017, 9:51</span></div>Potreste spiegarmi come si fa?</article>
+<article class="post" id="p23754"><div class="who"><b>carol</b><span>4 set 2017, 10:32</span></div>Si scusa avevo dimenticato G credo. Per scrivere due formule ho impiegato tre ore devo allenarmi con latex. Mi dici poi che ho dimenticato un tipo di forza. Presumo oltre a quella considerata e non in alternativa ad essa?. Ci penserò perchè pensavo che la parte di sfera fra l ed R non avesse effetto...</article>
+<article class="post" id="p23755"><div class="who"><b>lance00</b><span>4 set 2017, 10:39</span></div>@carol: il corpo è immerso in un liquido  :)  quindi ...</article>
+<article class="post" id="p23756"><div class="who"><b>lance00</b><span>4 set 2017, 10:42</span></div>@Vinci: prova a trovare p(r) <br>
+per farlo puoi considerare un cilindretto di liquido di altezza dh a distanza r dal centro e imporre che la risultante delle forze su di esso (peso, pressione sulle due basi) sia 0  :D</article>
+<article class="post" id="p23757"><div class="who"><b>carol</b><span>4 set 2017, 10:47</span></div>Ripensandoci credo si tratti della forza di Archimede pari alla forza che avrebbe agito sul liquido spostato che dovrebbe avere la forma di quella scritta con la massa però pari a densità liquido per V.</article>
+<article class="post" id="p23759"><div class="who"><b>lance00</b><span>4 set 2017, 10:52</span></div>si è la forza di Archimede. E vale come hai detto tu dVg .. però g varia</article>
+<article class="post" id="p23760"><div class="who"><b>carol</b><span>4 set 2017, 10:58</span></div>Non intendevo g di gravità. Ma l'acc. che intendevo era (G.M.l/R al cubo) e quindi varia con l . Poi va moltiplicata per (dens.liquido x V):?:</article>
+<article class="post" id="p23761"><div class="who"><b>lance00</b><span>4 set 2017, 11:10</span></div>guarda che GMl/R^3 è l'accelerazione di gravità  :D   cmq è giusto</article>
+<article class="post" id="p23762"><div class="who"><b>Vinci</b><span>4 set 2017, 12:55</span></div><blockquote><div><cite>lance00 ha scritto: <a href="olifis-6535.html#p23756" data-post-id="23756" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">4 set 2017, 10:42</div></cite>
+@Vinci: prova a trovare p(r) <br>
+per farlo puoi considerare un cilindretto di liquido di altezza dh a distanza r dal centro e imporre che la risultante delle forze su di esso (peso, pressione sulle due basi) sia 0  :D
+</div></blockquote>
+Ma così non ho due incognite? La pressione a distanza r e la pressione a distanza r+dh ??</article>
+<article class="post" id="p23763"><div class="who"><b>lance00</b><span>4 set 2017, 13:01</span></div>no .. hai una bella derivata  :)</article>
+<article class="post" id="p23769"><div class="who"><b>Vinci</b><span>4 set 2017, 16:27</span></div>Si, mi trovo, grazie mille :D</article>
+<article class="post" id="p23770"><div class="who"><b>carol</b><span>5 set 2017, 10:25</span></div>Scusa ma io intendo per acc.di gravità quella terrestre e quindi dal mio punto di vista lo sarebbe solo se M fosse la massa della Terra e non quella del liquido che non è detto abbia la stessa massa del nostro pianeta. :P  Comunque grazie perchè mi hai detto che è giusto :D</article>
+<article class="post" id="p24985"><div class="who"><b>Salvador</b><span>21 lug 2018, 12:17</span></div>Non ho ben capito quale sarebbe il procedimento di lance00.<br>
+Considero il cilindretto di spessore dx che si trova a distanza x dal centro. Allora l'area della base del cilindretto è $A=\pi (R^2-x^2)$ e il volume del cilindretto è $dV=Adx$, mentre la massa è $dm=ρAdx$, con $ρ$ massa volumica, supposta uniforme. A questo punto le forze che agiscono sul cilindro sono la forza di pressione $p(x)A$ diretta verso l'alto, la forza di pressione $-p(x+dx)A$ diretta verso il basso e la forza di gravità $-dmg=-ρAdx$ diretta verso il basso. A questo punto si ha $\sum{F}=p(x)A-p(x+dx)A-ρAdx=0$, che diventa $p'(x)=-ρg$, da cui $p(a)-p(R)=\integral_{a}^{R}{ρgdx}=ρg(R-a)$ e $p(0)=2p(R)+2ρgR$ dovendo considerare anche la pressione della calotta sottostante, che però non ricorda per niente le espressioni che sono state scritte qui.  :roll: Dov'è che sbaglio?</article>
+<article class="post" id="p24986"><div class="who"><b>Salvador</b><span>21 lug 2018, 12:23</span></div>Anche perché nel computo totale forze diametralmente opposte rispetto al centro di massa dovrebbero annullarsi a vicenda no? Però così uscirebbe una forza totale nulla :?:</article>
+<article class="post" id="p24987"><div class="who"><b>Salvador</b><span>21 lug 2018, 13:18</span></div>E il secondo punto com'è? La spinta di Archimede non mi sembra dipenda dalla profondità del corpo</article>
+<article class="post" id="p24988"><div class="who"><b>lance00</b><span>21 lug 2018, 18:49</span></div>1. La pressione è una grandezza scalare quindi no, non si annulla per simmetria.<br>
+2. g non è costante<br>
+Comunque ti scrivo la soluzione del punto 1  :) <br>
+<span class="tex">\(A dp = -g(r)dm = -\frac{GMr}{R^3} \rho A dr =&gt; dp = -\frac{GM \rho r dr}{R^3} =&gt; p = \frac{GM\rho(R^2-r^2)}{2R^3} = \frac{3GM^2(R^2-r^2)}{8 \pi R^6}\)</span> che per <span class="tex">\(r=0\)</span> vale <span class="tex">\(p = \frac{3GM^2}{8\pi R^4}\)</span></article>
+<article class="post" id="p24989"><div class="who"><b>Salvador</b><span>21 lug 2018, 19:20</span></div>Perché <span class="tex">\(g(r)=GMr/R^3\)</span>? Se ho capito bene dovrebbe essere come l'accelerazione di gravità, quindi per <span class="tex">\(r=R\)</span> si trova, ma perché poi è proporzionale a <span class="tex">\(r\)</span>? Non dovrebbe esserlo a <span class="tex">\(r^-2\)</span>?</article>
+<article class="post" id="p24990"><div class="who"><b>Gamow00</b><span>21 lug 2018, 20:02</span></div>Posto anche la mia soluzione al punto 1.<br>
+<br>
+Immagino di inserire al centro del corpo liquido una piccolissima quantità di gas, in modo da spostare un volume <span class="tex">\(V\)</span> di liquido. Posso immaginare che la quantità di liquido spostata formi un sottile guscio all'esterno della sfera. Per spostare una massa <span class="tex">\(m\)</span> dal centro all'esterno della sfera è richiesta un'energia <span class="tex">\(U=\int_0^R \! mg \, \mathrm{d}r={4 \over 3} \pi mG \rho\int_0^R \! r \, \mathrm{d}r={2 \over 3} \pi \rhomGR^2={2 \over 3} \pi \rho^2 VGR^2\)</span><br>
+Quest'energia è uguale al lavoro fatto dal gas inserito, ovvero <span class="tex">\(W=pV\)</span><br>
+<span class="tex">\(U=W\)</span><br>
+<span class="tex">\({2 \over 3} \pi \rho^2 VGR^2=pV\)</span><br>
+<span class="tex">\(p={2 \over 3} \pi G\rho^2 R^2={2 \over 3} \pi G\rho^2 R^2\)</span><br>
+Quindi <span class="tex">\(p={3 GM^2\over 8 \pi R^4}\)</span><br>
+La pressione del gas è anche uguale, per il bilanciamento delle forze, alla pressione del liquido, quindi <span class="tex">\(p\)</span> è proprio la pressione cercata.</article>
+<article class="post" id="p24991"><div class="who"><b>lance00</b><span>21 lug 2018, 20:05</span></div>c'è un teorema che afferma che un corpo posto all'interno di un guscio sferico di densità uniforme non risente di alcuna forza gravitazionale (dimostralo se vuoi, non è difficile). Quindi non tutto il pianeta contribuisce alla forza gravitazionale, ma solo la sfera di raggio <span class="tex">\(r\)</span>. Sfruttando questo fatto puoi ricavarti facilmente l'accelerazione. <br>
+Inoltre puoi fare lo stesso ragionamento per trovare il campo all'interno di una sfera conduttrice carica o il campo magnetico all'interno di un filo percorso da corrente (viene sempre lineare in r)</article>
+<article class="post" id="p24993"><div class="who"><b>Salvador</b><span>22 lug 2018, 14:07</span></div>Per il punto (b) la soluzione quindi sarebbe: la forza risultante è data dalla somma vettoriale della spinta di Archimede esercitata sul fluido e della forza peso che lo attrae verso il centro. Come sappiamo la forza di Acrhimede è pari al peso del fluido spostato, quindi <span class="tex">\(F_Arch=\dfrac{3M}{4πR^2}Vg(l)\)</span>, mentre la forza-peso è <span class="tex">\(F_p=ρVg(l)\)</span> e dunque si ha <span class="tex">\(\sum{F}=\( \dfrac{3M}{4πR^2} - ρ \)Vg(l)=\dfrac{(3M-4πR^2ρ)VGMl}{4πR^5}\)</span> giusto?</article>
+<article class="post" id="p24994"><div class="who"><b>Salvador</b><span>22 lug 2018, 14:11</span></div><span class="tex">\(F = \dfrac{GMVl(3M-4πρR^3)}{4πR^6}\)</span> giusto?</article>
+<article class="post" id="p24995"><div class="who"><b>Salvador</b><span>22 lug 2018, 14:11</span></div>Si è mangiato i <span class="tex">\(\pi\)</span> sopra e sotto</article>
+<nav class="pager"><a class="prev" href="olifis-6860.html"><small>← precedente</small>n. 184- SNS 2016</a><a class="next" href="olifis-6534.html"><small>successivo →</small>Ottimizzazione di un ciclotrone (SNS 2017-2)</a></nav>
+</main></body></html>

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2014 problema 7</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2014-2015, problema 7</span></nav>
+<h1>SNS 2014 problema 7</h1>
+<p class="meta">31 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6027">forum Olifis</a></p>
+<article class="post first" id="p20171"><div class="who"><b>sall96</b><span>2 gen 2015, 0:02</span></div>I nuclei degli atomi sono costituiti da <span class="tex">\(Z\)</span> protoni e <span class="tex">\(N\)</span> neutroni, il numero totale di nucleoni e' dunque <span class="tex">\(A=Z+N\)</span>. Si assuma che i nucleoni siano sfere non compenetrabili di raggio <span class="tex">\(R_0\sim 1 fm=10^{-15}m\)</span> e che siano distribuiti in modo da poter approssimare i nuclei come sfere di densita' di carica e massa uniformi.<br>
+<br>
+1. Determinare approssimativamente il raggio del nucleo in funzione di <span class="tex">\(A\)</span><br>
+2. Scrivere un'espressione per la componente <span class="tex">\(U_e\)</span> dell'energia del nucleo dovuta all'interazione Coulombiana.<br>
+3. La componente dell'energia dovuta all'interazione nucleare forte per <span class="tex">\(Z,A\gg 1\)</span> puo' essere scritta come <span class="tex">\(U_f=E_fA^rZ^p\)</span> dove <span class="tex">\(E_f\)</span> e' una costante con le dimensioni di un'energia. Determinare gli esponenti <span class="tex">\(r\)</span> e <span class="tex">\(p\)</span> sapendo che l'interazione forte i) non distingue tra neutroni e protoni ii) e' di contatto.<br>
+4. Stimare l'ordine di grandezza di <span class="tex">\(E_f\)</span><br>
+5. Il valore di <span class="tex">\(U_f\)</span> stimato al punto 3. sovrastima l'attrazione perche' i nucleoni sulla superficie interagiscono con un numero minore di nucleoni rispetto a quelli interni. La prima correzione sara' quindi proporzionale alla superficie del nucleo. Scrivere un'espressione per <span class="tex">\(U_f\)</span> che includa questo effetto e disegnare un grafico dell'energia totale per nucleone <span class="tex">\(\dfrac{U_f+U_e}{A}\)</span> in funzione di <span class="tex">\(Z\)</span>, approssimando <span class="tex">\(A\simeq 2Z\)</span>.<br>
+6. Stimare l'ordine di grandezza dell'energia rilasciata dalla fissione (rottura di un nucleo pesante in due leggeri) di un kg di uranio (<span class="tex">\(Z=92\)</span>).<br>
+<br>
+Sono date le seguenti costanti: numero di Avogadro <span class="tex">\(N_A\simeq 6\cdot 10^{23}\)</span>, <span class="tex">\(\dfrac{e^2}{4\pi\epsilon_0}\simeq 10^{-28} J\cdot m\)</span></article>
+<article class="post" id="p20182"><div class="who"><b>phyknight</b><span>2 gen 2015, 17:41</span></div>Questo problema è strabello  :twisted:<br>
+Grazie a Simone256 e andrea96 per i punti 3 e 5 molto più eleganti e sensati dei miei  ;)   <br>
+<br>
+1)banalmente il volume del nucleo è <span class="tex">\(\frac{4}{3}\pi R_0^3 A\)</span> e quindi il raggio del nucleo è <span class="tex">\(R_n=\sqrt[3]{\dfrac{\frac{4}{3}\pi R_0^3 A}{\frac{4}{3}\pi}}=R_0\sqrt[3]{A}\)</span><br>
+<br>
+2)è un facile esercizio di elettrostatica, si "costruisce" la sfera carica uniformemente mettendo insieme gusci sferici di spessore <span class="tex">\(dr\)</span>, quindi <span class="tex">\(dV=4\pi r^2dr\)</span>, e, sapendo che il potenziale sulla superficie di una sfera carica uniformemente di raggio <span class="tex">\(r\)</span> è <span class="tex">\(V_r=\dfrac{\varrho r^2}{3\varepsilon_0}\)</span> ricavo<br>
+<span class="tex">\(dU=\varrho V_r dV\)</span> (edit: la notazione con tutte V fa un po' schifo, avrei dovuto usare altro, spero si capisca)<br>
+Allora <span class="tex">\(U_{e}=\displaystyle\int_0^{R_n} \varrho V_r 4\pi r^2dr=\dfrac{\varrho^24\pi R^5}{15\varepsilon_0}=\dfrac{3}{5}\dfrac{e^2}{4\pi\varepsilon_0}\dfrac{1}{R_0}\dfrac{Z^2}{\sqrt[3]{A}}\)</span><br>
+<br>
+3)Ora, se la forza forte non distingue protoni e neutroni, allora l'energia non deve dipendere da <span class="tex">\(Z\)</span>, quindi <span class="tex">\(p=0\)</span><br>
+<br>
+\soluzionediSimone256on<br>
+L'energia è data come somma di contributi di energie C per ogni nucleone; C non dipende dal numero di nucleoni totali perchè la forza è di contatto quindi C può essere considerata (per A&gt;&gt;1) costante<br>
+\soluzionediSimone256off<br>
+quindi l'energia dipende solo dal numero di nucleoni per cui è moltiplicata la costante C<br>
+Siamo giunti a <span class="tex">\(U_f=E_fA\)</span><br>
+<br>
+4)A questo punto, l'interazione forte tende a far stare insieme il nucleo, mentre quella elettrostatica tende a separarlo, e la loro differenza è quindi (trascurando tutto il resto) l'energia di legame del nucleo.<br>
+Quest'energia di legame è molto piccola e poiché sono in vena di approssimare tanto, la approssimo quasi <span class="tex">\(0\)</span><br>
+Allora <span class="tex">\(U_e\approx U_f\Rightarrow E_f\approx \dfrac{3}{5}\dfrac{e^2}{4\pi\varepsilon_0}\dfrac{1}{R_0}\dfrac{Z^2}{A^{4/3}}\)</span><br>
+e stimando che <span class="tex">\(\dfrac{3}{5}\dfrac{Z^2}{A^{4/3}}\sim 10\)</span> ottengo <span class="tex">\(E_f\sim10^{-12}\)</span><br>
+<br>
+5)Qualche osservazione:<br>
+Se <span class="tex">\(U_f\)</span> è sovrastimato, si dovrà sottrarre un qualche contributo<br>
+Questo contributo deve essere proporzionale alla superficie della sfera, e quindi <span class="tex">\(\sim \sqrt[3]{A^2}\)</span>.<br>
+Tuttavia non sappiamo quale sia il coefficiente per quest'altro termine di correzione, e quindi, avendo solo <span class="tex">\(E_f\)</span> come coefficiente a disposizione, dovrà essere quello<br>
+\soluzionediandrea96on<br>
+Il fatto che la densità è approssimabile come costante ci porta a dire che i nucleoni si incastrano in modo da lasciare meno spazio vuoto possibile. Possiamo quindi dire che la superficie del nucleo è uguale alla somma delle semisuperfici dei nucleoni in superficie (chiaramente non è una cosa precisa ma alla fine in questo problema si fanno solo delle stime e nel caso in cui A è grande questa è un' ottima stima). <span class="tex">\(S=\frac{1}{2}S_n A_s\)</span> dove <span class="tex">\(S_n\)</span> è la superficie di un nucleone e <span class="tex">\(A_s\)</span> è il numero di nucleoni in superficie. Da qui si deduce che <span class="tex">\(A_s=2A^{\frac{2}{3}}\)</span>. Ora la supposizione che faccio è questa: questi nucleoni a differenza degli altri non hanno i "nucleoni sopra" quindi diciamo che perdono metà dell'energia nucleare forte che avrebbero se fossero "circondati". Di conseguenza il termine di correzione è proprio<span class="tex">\(E_fA^{\frac{2}{3}}\)</span><br>
+\soluzionediandrea96off<br>
+Si arriva quindi a <span class="tex">\(U_f=E_f(A-\sqrt[3]{A^2})\)</span><br>
+<br>
+L'energia totale per un nucleone è quindi la somma delle due energie (con il segno meno a quella elettrostatica[per la spiegazione di questo si veda qualche pagina avanti]) ed è uno schifo assoluto (una cosa simile a  <span class="tex">\(E(Z)=E_f-E_f2^{-1/3}Z^{-1/3}+kZ^{2/3}\)</span> che barando un po' e approssimando molto si potrebbe scrivere come <span class="tex">\(E=E_f(2-A^{-1/3})\)</span>), non so come si possa disegnare nella fretta di un test sns quindi non lo disegno per la mia salute mentale <br>
+<br>
+6) Tutto quello ottenuto fin ora è che l'energia di un atomo è circa (approssimando <span class="tex">\(m_p\approx m_n\)</span>) <span class="tex">\(E_{A,Z}=Am_pc^2-\left(E_f(A-\sqrt[3]{A^2})-\dfrac{3}{5}\dfrac{e^2}{4\pi\varepsilon_0}\dfrac{1}{R_0}\dfrac{Z^2}{\sqrt[3]{A}}\right)\)</span><br>
+<br>
+L'uranio usato nelle reazioni solitamente ha <span class="tex">\(A=235\)</span>. Prendo come prodotti (non ho idea di cosa prendere, ma in effetti stiamo facendo delle approssimazioni enormi, quindi continuo ad approssimare e prendo il cesio che ricordo come prodotto di fissione, poi uno potrebbe anche prendere due prodotti quasi uguali e viene sempre un risultato sensato) Cesio 140 (Z=55) e l'altro che non ricordo che sottraendo risulta avere Z=37 e A=93 (edit: wikipedia dice che è il rubidio)<br>
+Ora, si fa il conto enorme che non sto a scrivere <span class="tex">\(E_{em}=E_{235,92}-E_{140,55}-E_{93,37}-2m_pc^2\)</span> ovviamente vanno via i termini con l'energia di massa (l'energia nucleare viene dall'energia di legame), e restano gli <span class="tex">\(U\)</span> che abbiamo trovato<br>
+Se interessa scrivo almeno i tre <span class="tex">\(U\)</span> senza farmi problemi di cifre significative e approssimazioni<br>
+<span class="tex">\(U_{235,92}\approx1,146\cdot 10^{-10}\)</span><br>
+<span class="tex">\(U_{140,55}\approx 7,808\cdot10^{-11}\)</span><br>
+<span class="tex">\(U_{93,37}\approx5,434\cdot10^{-11}\)</span><br>
+Quindi, sottraendo si trova <span class="tex">\(E_{em}\approx 1.78\cdot10^{-11} \, J\approx2\cdot10^{-11} \, J\)</span><br>
+Questa trovata è per un singolo atomo di uranio, e sembra sensata perchè cercando su internet ho trovato che l'energia emessa è di circa <span class="tex">\(200MJ\)</span> che è vicinissimo al mio risultato<br>
+<br>
+Infine si trova l'energia per <span class="tex">\(1Kg\)</span> di uranio usando <span class="tex">\(N_A\)</span> e si trova il risultato  <span class="tex">\(E\approx5\cdot 10^{13} J\)</span></article>
+<article class="post" id="p20188"><div class="who"><b>Simone256</b><span>2 gen 2015, 18:03</span></div><blockquote class="uncited"><div>Ancora, noto che all'aumentare del volume l'energia deve aumentare(aumentano i contatti tra particelle) e quindi l'energia aumenta con il volume, e quindi <span class="tex">\(U_f\propto V\propto R_n^3\propto A\)</span>
+</div></blockquote>
+Ma la proporzionalitá diretta <span class="tex">\(U_f\propto V\)</span> come fai a dedurla? Cioè puoi dire che <span class="tex">\(r&gt;0\)</span> con il ragionamento ma non so se va bene dire che <span class="tex">\(r=1\)</span>.<br>
+Io ho pensato che l'energia è data come somma di contributi di energie <span class="tex">\(C\)</span> per ogni nucleone; <span class="tex">\(C\)</span> non dipende dal numero di nucleoni totali perchè la forza è di contatto quindi <span class="tex">\(C\)</span> può essere considerata (per <span class="tex">\(A&gt;&gt;1\)</span>) costante.<br>
+Poi fidandomi del tuo risultato sono fiducioso :)<br>
+<br>
+Riesci però a dirmi il ragionamento di base che ti porta a scegliere la proporzionalitá diretta?  :oops:</article>
+<article class="post" id="p20189"><div class="who"><b>phyknight</b><span>2 gen 2015, 18:15</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Riesci però a dirmi il ragionamento di base che ti porta a scegliere la proporzionalitá diretta?  :oops:</div></blockquote>
+
+<blockquote><div><cite>phyknight ha scritto:</cite>[in realtà non ho dimostrato nulla, ho solo fatto osservazioni...e inoltre il risultato finale sembra sensato]</div></blockquote>
+
+il motivo l'hai trovato tu
+<blockquote><div><cite>Simone256 ha scritto:</cite>Io ho pensato che l'energia è data come somma di contributi di energie C per ogni nucleone; C non dipende dal numero di nucleoni totali perchè la forza è di contatto quindi C può essere considerata (per A&gt;&gt;1) costante</div></blockquote>
+
+posso inserire la tua correzione nella soluzione?</article>
+<article class="post" id="p20190"><div class="who"><b>sall96</b><span>2 gen 2015, 18:19</span></div><blockquote><div><cite>Simone256 ha scritto:</cite><blockquote class="uncited"><div>Ancora, noto che all'aumentare del volume l'energia deve aumentare(aumentano i contatti tra particelle) e quindi l'energia aumenta con il volume, e quindi <span class="tex">\(U_f\propto V\propto R_n^3\propto A\)</span>
+</div></blockquote>
+Ma la proporzionalitá diretta <span class="tex">\(U_f\propto V\)</span> come fai a dedurla? Cioè puoi dire che <span class="tex">\(r&gt;0\)</span> con il ragionamento ma non so se va bene dire che <span class="tex">\(r=1\)</span>.<br>
+Io ho pensato che l'energia è data come somma di contributi di energie <span class="tex">\(C\)</span> per ogni nucleone; <span class="tex">\(C\)</span> non dipende dal numero di nucleoni totali perchè la forza è di contatto quindi <span class="tex">\(C\)</span> può essere considerata (per <span class="tex">\(A&gt;&gt;1\)</span>) costante.<br>
+Poi fidandomi del tuo risultato sono fiducioso :)<br>
+<br>
+Riesci però a dirmi il ragionamento di base che ti porta a scegliere la proporzionalitá diretta?  :oops:</div></blockquote>
+Io avevo detto che l'enegia è proporzionale ai contatti.<br>
+Ogni nucleone è in contatto con circa altri 8 (mi sembra, non sono sicuro  :? ) nucleoni. Quindi i contatti <span class="tex">\(C\)</span> li posso contare 2 volte contando ogni nucleone <span class="tex">\(2C\simeq 8A\rightarrow C\simeq 4A\)</span> e dato che <span class="tex">\(U_f\propto C\)</span> allora <span class="tex">\(U_f\propto A\)</span><br>
+Secondo voi potrebbe andare anche così?</article>
+<article class="post" id="p20191"><div class="who"><b>Simone256</b><span>2 gen 2015, 18:27</span></div><blockquote class="uncited"><div>posso inserire la tua correzione nella soluzione?</div></blockquote>
+Yeeeep!<br>
+<br>
+Comunque avevo letto del fatto che la tua non era una dimostrazione ma dato che fino a quel punto filava tutto perfettamente dimostrato e mi mancava solo quel tassello ho voluto chiarire  ;)</article>
+<article class="post" id="p20192"><div class="who"><b>Simone256</b><span>2 gen 2015, 18:32</span></div><blockquote><div><cite>sall96 ha scritto:</cite>
+Io avevo detto che l'enegia è proporzionale ai contatti.<br>
+Ogni nucleone è in contatto con circa altri 8 (mi sembra, non sono sicuro  :? ) nucleoni. Quindi i contatti <span class="tex">\(C\)</span> li posso contare 2 volte contando ogni nucleone <span class="tex">\(2C\simeq 8A\rightarrow C\simeq 4A\)</span> e dato che <span class="tex">\(U_f\propto C\)</span> allora <span class="tex">\(U_f\propto A\)</span><br>
+Secondo voi potrebbe andare anche così?</div></blockquote>
+Non mi è chiaro il conteggio che fai :(<br>
+Io prima con <span class="tex">\(C\)</span> intendevo energia che possiede ogni nucleone in termini di interazione forte con tutto quello che gli sta attorno. Da cui <span class="tex">\(E=CA\)</span>.<br>
+Tu come la intendi?</article>
+<article class="post" id="p20193"><div class="who"><b>phyknight</b><span>2 gen 2015, 18:37</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Comunque avevo letto del fatto che la tua non era una dimostrazione ma dato che fino a quel punto filava tutto perfettamente dimostrato e mi mancava solo quel tassello ho voluto chiarire  ;)</div></blockquote>
+se riesci a trovare una dimostrazione anche per il claim al punto 5 il problema dovrebbe essere risolto completamente :lol:</article>
+<article class="post" id="p20194"><div class="who"><b>sall96</b><span>2 gen 2015, 18:38</span></div>Si infatti è diversa!<br>
+Io dico che ogni contatto ha un'energia potenziale (data dall'interazione forte), quindi l'energia totale è proporzionale al numero di contatti totali <span class="tex">\(C\)</span> che ci sono. Poi mi sono immaginato che ogni nucleone ha attorno a se altri 8 nucleoni (circa) e ho contato tutti i contatti, che sono proporzionali ad <span class="tex">\(A\)</span>. Quindi anche <span class="tex">\(U_f\)</span> è proporzionale ad <span class="tex">\(A\)</span>.<br>
+Spero ora sia chiaro :)</article>
+<article class="post" id="p20195"><div class="who"><b>andrea96</b><span>2 gen 2015, 18:56</span></div>Sto facendo il problema e ad ogni punto sto confrontando il risultato che mi viene... Al punto 2) non dovrebbe esserci <span class="tex">\(R_0\)</span> al posto di <span class="tex">\(R_n\)</span>? ho letto solo fino lì perchè non voglio sapere i risultati che ti vengono prima di aver fatto il resto del problema quindi se hai scritto qualcosa dopo al riguardo non lo so...</article>
+<article class="post" id="p20196"><div class="who"><b>phyknight</b><span>2 gen 2015, 19:00</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Al punto 2) non dovrebbe esserci <span class="tex">\(R_0\)</span> al posto di <span class="tex">\(R_n\)</span>? </div></blockquote>
+sisi, piccolo typo  :D ora correggo</article>
+<article class="post" id="p20197"><div class="who"><b>andrea96</b><span>2 gen 2015, 19:15</span></div>Scusami se divento un po palloso :oops:  :oops:  :oops: :visto che il 3 mi sembra il punto più bello e anche quello su cui sono più indeciso, se controllo il tuo risultato ho paura di essere costretto a leggere qualcosa del tuo ragionamento. Puoi dirmi se ti viene <span class="tex">\(r=1\)</span> e <span class="tex">\(p=0\)</span>?</article>
+<article class="post" id="p20198"><div class="who"><b>phyknight</b><span>2 gen 2015, 19:16</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Scusami se divento un po palloso :oops:  :oops:  :oops: :visto che il 3 mi sembra il punto più bello e anche quello su cui sono più indeciso, se controllo il tuo risultato ho paura di essere costretto a leggere qualcosa del tuo ragionamento. Puoi dirmi se ti viene <span class="tex">\(r=1\)</span> e <span class="tex">\(p=0\)</span>?</div></blockquote>
+confermo!</article>
+<article class="post" id="p20199"><div class="who"><b>andrea96</b><span>2 gen 2015, 19:23</span></div>grazieeeeeeee :D  :D  :D  fantastico quel punto!!!! :D</article>
+<article class="post" id="p20202"><div class="who"><b>andrea96</b><span>2 gen 2015, 20:44</span></div>Come hai detto tu il problema è davvero bello, e soprattuto è un problema da fisici!!!!! i risultati mi vengono praticamente identici ai tuoi :D ! Volevo solo scrivere una cosa per il punto 6 che mi sembra quello in cui sei stato più in difficoltà perchè il risultato che mi viene è molto interessante:<br>
+Allora il fatto che la densità è approssimabile come costante ci porta a dire che i nucleoni si incastrano in modo da lasciare meno spazio vuoto possibile. Possiamo quindi dire che la superficie del nucleo è uguale alla somma delle semisuperfici dei nucleoni in superficie ( chiaramente non è una cosa precisa ma alla fine in questo problema si fanno solo delle stime e nel caso in cui <span class="tex">\(A\)</span> è grande questa è un ottima stima ). <span class="tex">\(S=\frac{1}{2}S_n A_s\)</span> dove <span class="tex">\(S_n\)</span> è la superficie di un nucleone e <span class="tex">\(A_s\)</span> è il numero di nucleoni in superficie. Da qui si deduce che <span class="tex">\(A_s=2A^{\frac{2}{3}}\)</span>. Ora la supposizione che faccio è questa: questi nucleoni a differenza degli altri non hanno i "nucleoni sopra" quindi diciamo che perdono metà dell'energia nucleare forte che avrebbero se fossero "circondati". Di conseguenza il termine di correzione è proprio <span class="tex">\(E_fA^{\frac{2}{3}}\)</span> che è il risultato che tu avevi messo "quasi" a casaccio  :lol:  :lol:  :lol: . Ora la cosa più bella di questo punto è proprio la funzione <span class="tex">\(E(Z)\)</span> che ci da l'energia di un nucleone in funzione del numero di protoni. Scrivendo:<br>
+<span class="tex">\(E(Z)=\frac{E_f(A-A^{\frac{2}{3}})+U_e}{2Z}\)</span><br>
+e facendo un paio di conti si ottiene:<br>
+<span class="tex">\(E(Z)=E_f-\alpha Z^{-\frac{1}{3}}\)</span><br>
+Dove <span class="tex">\(\alpha\)</span> è facilmente stimabile con le stime che già abbiamo fatto nel problema e viene <span class="tex">\(\alpha\sim 9\cdot 10^{-13}\)</span><br>
+il grafico io l'ho disegnato molto approssimativo e credo che al test basti un grafico approssimato con un paio di punti, ma la cosa bella è che <span class="tex">\(E(Z)\)</span> è sempre crescente ed è asintotico a <span class="tex">\(E_f\)</span> che quindi è praticamente la massima energia che può avere un nucleone in un nucleo! :D</article>
+<article class="post" id="p20203"><div class="who"><b>phyknight</b><span>2 gen 2015, 21:50</span></div>Bene!
+<blockquote><div><cite>andrea96 ha scritto:</cite>la superficie del nucleo è uguale alla somma delle semisuperfici dei nucleoni in superficie</div></blockquote>
+ok a questo c'ero arrivato, quello che mi mancava è che per <span class="tex">\(A\)</span> grande
+<blockquote><div><cite>andrea96 ha scritto:</cite>Ora la supposizione che faccio è questa: questi nucleoni a differenza degli altri non hanno i "nucleoni sopra" quindi diciamo che perdono <strong class="text-strong">metà</strong> dell'energia nucleare forte che avrebbero se fossero "circondati"</div></blockquote>
+avevo momentaneamente dimenticato che la forza forte era solo di contatto :D <br>
+quindi anche il punto 5 è ok (poi se ho tempo lo modifico nella soluzione)<br>
+<br>
+poi, non ho voglia di rifare i conti...ma a me viene <span class="tex">\(E(Z)=E_f-E_f2^{-1/3}Z^{-1/3}+kZ^{2/3}\)</span> mentre a te
+<blockquote><div><cite>andrea96 ha scritto:</cite><span class="tex">\(E(Z)=E_f-\alpha Z^{-\frac{1}{3}}\)</span></div></blockquote>
+puoi mettere i tuoi conti così vedo dove sbaglio? :?</article>
+<article class="post" id="p20204"><div class="who"><b>andrea96</b><span>2 gen 2015, 22:09</span></div>no scusami avevo fatto i conti di fretta e avevo dimenticato di mettere un esponente viene quello che hai scritto tu :oops:  :oops:  :oops: <br>
+Quindi il grafico è più difficile da fare e <span class="tex">\(E_f\)</span> non ha quel significato che avevo scritto. Per il fatto del grafico allora io probabilmente al test avrei fatto così: visto che <span class="tex">\(E_f\)</span> è piccolissimo per <span class="tex">\(A\)</span> grande ( ma non solo ) il termine proporzionale a <span class="tex">\(A^{-\frac{1}{3}}\)</span>  è quasi zero quindi io avrei disegnato solo il grafico di <span class="tex">\(f(z)=E_f-kA^{\frac{2}{3}}\)</span> che è abbastanza semplice da fare...</article>
+<article class="post" id="p20205"><div class="who"><b>phyknight</b><span>2 gen 2015, 22:18</span></div>ok ;) allora era davvero il grafico brutto
+<blockquote><div><cite>andrea96 ha scritto:</cite>visto che <span class="tex">\(E_f\)</span> è piccolissimo per <span class="tex">\(A\)</span> grande ( ma non solo ) il termine proporzionale a <span class="tex">\(A^{-\frac{1}{3}}\)</span>  è quasi zero quindi io avrei disegnato solo il grafico di <span class="tex">\(f(z)=E_f-kA^{\frac{2}{3}}\)</span> che è abbastanza semplice da fare...</div></blockquote>
+il problema è che anche l'altro coefficiente è piccolo</article>
+<article class="post" id="p20206"><div class="who"><b>andrea96</b><span>2 gen 2015, 22:19</span></div>si però visto che i due coefficienti hanno lo stesso ordine di grandezza per <span class="tex">\(A\)</span> grande quel termine è molto più grande dell'altro</article>
+<article class="post" id="p20207"><div class="who"><b>phyknight</b><span>2 gen 2015, 22:27</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>si però visto che i due coefficienti hanno lo stesso ordine di grandezza per <span class="tex">\(A\)</span> grande quel termine è molto più grande dell'altro</div></blockquote>
+uhmm non so, certo è un'appossimazione...però conta che (se ho fatto bene i conti) quel coefficiente è <span class="tex">\(\sim10^{-14}\)</span> mentre <span class="tex">\(E_f\sim10^{-12}\)</span></article>
+<article class="post" id="p20208"><div class="who"><b>phyknight</b><span>2 gen 2015, 22:32</span></div>forse mi è venuta un'idea...ma è barare puro...<br>
+ho trovato <span class="tex">\(E_f\)</span> ponendo le energie uguali, ovvero <span class="tex">\(E_f=\dfrac{U_e}{A}\)</span><br>
+Non la potrei usare più perché per trovare <span class="tex">\(E_f\)</span> ho posto la differenza di energia circa 0...ma se uso quella relazione trovo<br>
+<span class="tex">\(E=E_f(2-A^{-1/3})\)</span><br>
+che ne pensi?<br>
+[inoltre in <span class="tex">\(E_f\)</span> c'è la nostra variabile <span class="tex">\(Z\)</span>, quindi è un'approssimazione estrema]</article>
+<article class="post" id="p20209"><div class="who"><b>andrea96</b><span>2 gen 2015, 23:12</span></div>Non avevo fatto il calcolo per quel coefficiente ed effettivamente la mia approssimazione non è buona... nell'approssimazione che hai fatto tu se ci fai caso confrontando quello che ti viene con la funzione "non approssimata" (per così dire anche se siamo già giunti a quella facendo grosse approssimazioni), quella che hai trovato tu è un approssimazione per valori piccoli di <span class="tex">\(A\)</span>, quando il termine proporzionale a <span class="tex">\(A^{\frac{2}{3}}\)</span> è trascurabile... Però probabilmente è un approssimazione migliore della mia... in ogni caso è un po strana come domanda da fare a un test, non la trovo molto sensata.</article>
+<article class="post" id="p20210"><div class="who"><b>drago</b><span>3 gen 2015, 0:10</span></div>Uguagliare le energie è una buona idea però non puoi dire che ciò è vero per piccoli nuclei.<br>
+Provate a pensate a quale numero atomico i nuclei diventano instabili.<br>
+Comunque questo problema è identico a un ipho 2010 senza le spiegazioni.</article>
+<article class="post" id="p20211"><div class="who"><b>andrea96</b><span>3 gen 2015, 0:18</span></div><blockquote><div><cite>drago ha scritto:</cite>Uguagliare le energie è una buona idea però non puoi dire che ciò è vero per piccoli nuclei.
+</div></blockquote>
+beh ma infatti il problema dice di supporre <span class="tex">\(A,Z&gt;&gt;1\)</span> cioè stiamo considerando nuclei grandi.</article>
+<article class="post" id="p20212"><div class="who"><b>phyknight</b><span>3 gen 2015, 1:09</span></div><blockquote><div><cite>drago ha scritto:</cite> Comunque questo problema è identico a un ipho 2010 senza le spiegazioni.</div></blockquote>
+non è identico, è solo che i due problemi si basano sullo stesso modello teorico
+<blockquote><div><cite>drago ha scritto:</cite>Uguagliare le energie è una buona idea però non puoi dire che ciò è vero per piccoli nuclei. Provate a pensate a quale numero atomico i nuclei diventano instabili.</div></blockquote>
+Beh come ha già detto andrea il problema ci dice di prendere Z,A molto maggiori di 1...anche perché il modello teorico che il problema ci sta facendo trovare approssimativamente non è valido per A piccoli<br>
+<br>
+Se a qualcuno può interessare, dopo un po' di ricerca ho trovato a cosa somigliava la formula che viene da questo problema e che aveva un'aria conosciuta ;)<br>
+è la Bethe-Weizsacker (BW) mass formula (questa qui è una versione valida anche per A più piccoli ma non troppo)<br>
+<span class="tex">\(B(A,Z) = a_vA-a_sA^{2/3}-\dfrac{a_cZ(Z-1)}{A^{1/3}}-\dfrac{a_{sym}(A-2Z)^2}{(1+e^{-A/k})A}+(1-e^{-A/c})\delta\)</span><br>
+dove <span class="tex">\(c=30\)</span>, <span class="tex">\(a_v=15.79~MeV\)</span>, <span class="tex">\(a_s=18.34~MeV\)</span>, <span class="tex">\(a_c=0.71~MeV\)</span>, <span class="tex">\(a_{sym}=23.21~MeV\)</span> e <span class="tex">\(a_p=12~MeV\)</span> e<br>
+<span class="tex">\(\delta=a_pA^{-1/2}\)</span>per N pari-Z pari,<br>
+         <span class="tex">\(=-a_pA^{-1/2}\)</span>per N dispari-Z dispari,<br>
+         =<span class="tex">\(0\)</span> per A dispari<br>
+<br>
+come ordini di grandezza, siamo vicini a quelli che abbiamo trovato con il problema, che quindi dovrebbe essere abbastanza corretto :D</article>
+<article class="post" id="p20221"><div class="who"><b>Simone256</b><span>6 gen 2015, 20:23</span></div><blockquote><div><cite>phyknight ha scritto:</cite>4)A questo punto, l'interazione forte tende a far stare insieme il nucleo, mentre quella elettrostatica tende a separarlo, e la loro differenza è quindi (trascurando tutto il resto) l'energia di legame del nucleo.<br>
+Quest'energia di legame è molto piccola e poiché sono in vena di approssimare tanto, la approssimo quasi <span class="tex">\(0\)</span></div></blockquote>
+
+Scusami ma davvero non mi è chiaro questo punto... L'energia nucleare forte è negativa? (qui è proprio questione di ignoranza scusa)  :oops: <br>
+
+<blockquote><div><cite>phyknight ha scritto:</cite><span class="tex">\(E_{A,Z}=Am_pc^2-E_f(A-\sqrt[3]{A^2})+\dfrac{3}{5}\dfrac{e^2}{4\pi\varepsilon_0}\dfrac{1}{R_0}\dfrac{Z^2}{\sqrt[3]{A}}\)</span></div></blockquote>
+
+Quello che fai qui è di dire che l'energia totale è quella dovuta alla massa più quella potenziale elettrostatica meno quella forte. Anche qui forse per lo stesso motivo sopra sono straconfuso  :cry:  :oops: <br>
+
+<blockquote><div><cite>phyknight ha scritto:</cite>L'uranio usato nelle reazioni solitamente ha A=235. Prendo come prodotti (non ho idea di cosa prendere, ma in effetti stiamo facvendo delle approssimazioni enormi, quindi continuo ad approssimare e prendo il cesio che ricordo come prodotto di fissione) Cesio 140 (Z=55) e l'altro che non ricordo che sottraendo risulta avere Z=37 e A=93</div></blockquote>
+
+E questo nel test credo verrebbe in mente solo a te  :evil: <br>
+Serio se esce un problema così mi sparo quest'anno  :lol:</article>
+<article class="post" id="p20225"><div class="who"><b>phyknight</b><span>6 gen 2015, 23:11</span></div>[dopo riguardo la soluzione per vedere se ho scambiato qualche segno(spero di no)]
+<blockquote><div><cite>Simone256 ha scritto:</cite><blockquote><div><cite>phyknight ha scritto:</cite>4)A questo punto, l'interazione forte tende a far stare insieme il nucleo, mentre quella elettrostatica tende a separarlo, e la loro differenza è quindi (trascurando tutto il resto) l'energia di legame del nucleo.<br>
+Quest'energia di legame è molto piccola e poiché sono in vena di approssimare tanto, la approssimo quasi <span class="tex">\(0\)</span></div></blockquote>
+
+Scusami ma davvero non mi è chiaro questo punto... L'energia nucleare forte è negativa? (qui è proprio questione di ignoranza scusa)  :oops:  </div></blockquote>
+no, è il contrario per come l'ho interpretato io<br>
+ora spiego meglio: tu sai che l'energia potenziale è legata al lavoro che devo compiere per costruire la mia configurazione<br>
+L'energia di legame è l'opposto, è l'energia per distruggere la mia configurazione e portare gli elementi a distanza tale da non interagire più<br>
+Per questo, l'energia associata alla forza nucleare forte è positiva (devo compiere lavoro per liberare le particelle da questa forza) mentre quella elettrostatica è negativa (essendo tutti protoni, le particelle già da sole tenderebbero ad allontanarsi)<br>
+
+<blockquote><div><cite>Simone256 ha scritto:</cite>
+<blockquote><div><cite>phyknight ha scritto:</cite><span class="tex">\(E_{A,Z}=Am_pc^2-E_f(A-\sqrt[3]{A^2})+\dfrac{3}{5}\dfrac{e^2}{4\pi\varepsilon_0}\dfrac{1}{R_0}\dfrac{Z^2}{\sqrt[3]{A}}\)</span></div></blockquote>
+
+Quello che fai qui è di dire che l'energia totale è quella dovuta alla massa più quella potenziale elettrostatica meno quella forte. Anche qui forse per lo stesso motivo sopra sono straconfuso  :cry:  :oops: </div></blockquote>
+No e si<br>
+No perché i segni sono esattamente l'opposto di quello che scrivi se consideri l'energia di legame(che è quello che faccio io, poi se tu usi i segni in modo opposto allora ok), e si perché è per lo stesso motivo di prima  :) <br>
+In altri termini, quello che intendo è che l'energia di massa di un atomo (<span class="tex">\(mc^2\)</span>) è l'energia di massa delle particelle che lo costituiscono <strong class="text-strong">meno</strong> l'energia del legame. Perché? Perché questa energia non contribuisce alla massa dell'atomo ma a farlo stare legato<br>
+Forse avrei dovuto scrivere <span class="tex">\(E_{A,Z}=Am_pc^2-\left(E_f(A-\sqrt[3]{A^2})-\dfrac{3}{5}\dfrac{e^2}{4\pi\varepsilon_0}\dfrac{1}{R_0}\dfrac{Z^2}{\sqrt[3]{A}}\right)\)</span>, ora lo metto così nella soluzione
+<blockquote><div><cite>Simone256 ha scritto:</cite>
+<blockquote><div><cite>phyknight ha scritto:</cite>L'uranio usato nelle reazioni solitamente ha A=235. Prendo come prodotti (non ho idea di cosa prendere, ma in effetti stiamo facvendo delle approssimazioni enormi, quindi continuo ad approssimare e prendo il cesio che ricordo come prodotto di fissione) Cesio 140 (Z=55) e l'altro che non ricordo che sottraendo risulta avere Z=37 e A=93</div></blockquote>
+
+E questo nel test credo verrebbe in mente solo a te  :evil: <br>
+Serio se esce un problema così mi sparo quest'anno  :lol:</div></blockquote>
+ :lol: beh semplicemente ricordavo(come tutti) i numeri dell'uranio, e poi quelli del cesio 140, e il resto viene automaticamente<br>
+poi comunque uno può anche dividere l'uranio in due atomi (quasi) uguali e dovrebbe venire un risultato abbastanza simile, questa credo sia l'idea più giusta, ho voluto semplicemente trovare un risultato che avrei poi potuto verificare</article>
+<article class="post" id="p20227"><div class="who"><b>andrea96</b><span>7 gen 2015, 0:00</span></div><blockquote><div><cite>phyknight ha scritto:</cite>(come tutti)</div></blockquote> ecco è questa parte che io metterei in discussione  :lol:  :lol:  :lol:</article>
+<article class="post" id="p20232"><div class="who"><b>Simone256</b><span>7 gen 2015, 16:29</span></div>@phyknight<br>
+<br>
+Ok chiarissimo grazie mille :)<br>
+Mi rimane solo un dubbio, hai posto giustificando che era una buona approssimazione che <span class="tex">\(AE_F=U_E\)</span> (in modulo) affermando che l'energia di legame è trascurabile. Poi se non ho capito male partendo da questa hai ricavato l'effettiva energia dell'atomo sottraendo dall'energia massiva quella di legame dove all'interno c'era il termine correttivo della superficie. Ma ho il complesso che quello che facciamo è una correzione di un termine giá di suo incerto (almeno per me :( ) quindi penso in questo modo:<br>
+"Potremmo approssimare l'energia forte uguale con anche il termine correttivo a quella elettrostatica; in questo modo l'energia di legame del nucleo complessiva la valutiamo 0."<br>
+Ovviamente è sbagliato e ce se ne convince subito... Ma mi rimane il dilemma su come tu abbia posto correttamente senza problemi quasi <span class="tex">\(AE_F=U_E\)</span>.<br>
+<br>
+@andrea96<br>
+<br>
+Quoterrimo  :lol:  :oops:  :cry:</article>
+<article class="post" id="p20248"><div class="who"><b>phyknight</b><span>9 gen 2015, 22:06</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Ma ho il complesso che quello che facciamo è una correzione di un termine giá di suo incerto</div></blockquote>
+quello che facciamo è approssimazioni su approssimazioni, tanto è un problema di ammissione, non un articolo di fisica  ;) 
+<blockquote><div><cite>Simone256 ha scritto:</cite>Potremmo approssimare l'energia forte uguale con anche il termine correttivo a quella elettrostatica</div></blockquote>
+e questo, beh, non lo possiamo fare, sempre perché questo è un problema di ammissione   :lol:   e si devono fare i punti in ordine e usare quello che hai fatto prima per quello che viene dopo
+<blockquote><div><cite>Simone256 ha scritto:</cite>Ma mi rimane il dilemma su come tu abbia posto correttamente senza problemi quasi <span class="tex">\(AE_F=U_E\)</span>.</div></blockquote>
+Sempre per lo stesso motivo! Ho pensato così: nei punti precedenti mi fa trovare il raggio e me lo fa usare, poi mi fa trovare <span class="tex">\(U_e\)</span> e <span class="tex">\(U_f\)</span><br>
+quindi ho solo queste due energie e con queste devo trovarmi una stima dell'ordine di <span class="tex">\(E_f\)</span>, sicuramente l'energia di legame sarà ben più piccola delle due energie <span class="tex">\(U_e , U_f\)</span> e quindi fine<br>
+...essenzialmente mi sono basato sul fatto che vuole solo una stima...e che ho semplicemente due dati, nient'altro, e quindi l'unica strada credo sia una relazione tra i miei unici due dati  ;) <br>
+poi boh se c'è una strada migliore non lo so</article>
+<article class="post" id="p20250"><div class="who"><b>Simone256</b><span>9 gen 2015, 23:43</span></div>Ok mi hai convinto! Sisi il tuo metodo è intelligentissimo e ovviamente in un test è la cosa da fare! Spero di avere la tua freddezza nel porre uguaglianze fiduciose nelle gare e nei test a venire  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6591.html"><small>← precedente</small>SNS 2014-2015 n.6</a><a class="next" href="olifis-6188.html"><small>successivo →</small>SNS 15/16 N.1</a></nav>
+</main></body></html>

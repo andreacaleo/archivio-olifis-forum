@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1990 n. 1 - Potenza dissipata in un circuito</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1990-1991, problema 1</span></nav>
+<h1>SNS 1990 n. 1 - Potenza dissipata in un circuito</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=209">forum Olifis</a></p>
+<article class="post first" id="p1876"><div class="who"><b>Davide90</b><span>6 ago 2009, 20:50</span></div>Un generatore di tensione a 100 Volt fornisce potenza ad un carico di utilizzazione attraverso una linea di trasmissione di resistenza 1 ohm. Qual è la potenza dissipata nella linea se viene erogato un kilowatt? Quale sarebbe la potenza dissipata se il generatore funzionasse a 10 kilovolt? Si commenti il risultato trovato.<br>
+<br>
+Ho qualche dubbio sul procedimento... :roll:</article>
+<article class="post" id="p1881"><div class="who"><b>MrTeo</b><span>6 ago 2009, 23:48</span></div>A occhio direi che va risolto così... però mi sembra un po' troppo semplice e poi nel secondo punto non è chiaro se si debba calcolare la potenza dissipata considerando che produce sempre un kW oppure pensare ad una proporzionalità tra tensione e potenza dissipata, in tal caso servono ulteriori considerazioni  :roll: <br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ i = \frac{{\Delta V}}{R} \\ 
+ P_{tot}  = i^2 R \\ 
+ P_{tot}  = \left( {\frac{{\Delta V}}{R}} \right)^2 R \\ 
+ P_{tot}  = \frac{{\Delta V^2 }}{R} = 10kW \\ 
+  \\ 
+ P_{diss}  = P_{tot}  - P_{eff}  = 9 \; kW \\ 
+ P'_{diss}  = 99999 \; kW \\
+ \end{array}\)</span><br>
+<br>
+Tarpatemi come al solito se necessario  :D</article>
+<article class="post" id="p1882"><div class="who"><b>Loren Kocillari89</b><span>7 ago 2009, 0:57</span></div>Il punto importante sta tutto nella considerazione delle parole del testo. Per Potenza erogata infatti si intende la potenza che un ipotetico utilizzatore come una lampada, avrebbe diritto ad utilizzare; poichè tale potenza si trova a 100 V allora si avranno le seguenti misure:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+i = \frac{{\Delta V}}{R} \\ 
+P_{tot}  = i*{\Delta V}\\ 
+i  =\frac{{ P_{tot}}}{\Delta V} =10 A \\
+P_{diss1}  = i^2 R = 100 W\\ 
+P_{diss2}  = i^2 R = 0.01 W\\
+ \end{array}\)</span><br>
+Allora per differenze di potenziale molto elevate la dissipazione di energia è relativamente basso; per questo nelle linee elettriche si preferisce utilizzare potenziale relativamente elevato.<br>
+<br>
+A voi</article>
+<article class="post" id="p1903"><div class="who"><b>Falco5x</b><span>8 ago 2009, 9:23</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Il punto importante sta tutto nella considerazione delle parole del testo. Per Potenza erogata infatti si intende la potenza che un ipotetico utilizzatore come una lampada, avrebbe diritto ad utilizzare; poichè tale potenza si trova a 100 V allora si avranno le seguenti misure</div></blockquote>
+A leggere il testo non si direbbe.<br>
+Il testo dice chiaro "Un generatore di tensione a 100 Volt", dunque i 100 volt sono al generatore, non al carico.<br>
+Riguardo alla potenza erogata si può intendere in due modi, cioè sul generatore o sul carico. Però visto come è stato semplicisticamente posto il problema (in ottica ente erogatore e non in ottica utente) ho il sospetto che il kW sia al generatore. Nel qual caso il tuo calcolo va ancora bene. :D</article>
+<nav class="pager"><a class="prev" href="olifis-233.html"><small>← precedente</small>SNS 1989-1990 (3)</a><a class="next" href="olifis-208.html"><small>successivo →</small>SNS 1990 n. 3 - Lenti convergenti</a></nav>
+</main></body></html>

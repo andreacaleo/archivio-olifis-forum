@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6: Minigolf! (SNS 91/92 N°5)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1991-1992, problema 5</span></nav>
+<h1>6: Minigolf! (SNS 91/92 N°5)</h1>
+<p class="meta">25 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4725">forum Olifis</a></p>
+<article class="post first" id="p15495"><div class="who"><b>desga</b><span>4 set 2013, 11:15</span></div>In una delle prove di un minigolf, la buca (di diametro 2a) è posta al centro<br>
+di una collinetta circolare piatta (di diametro 20a) che si erge dalla pista<br>
+tramite un gradino di altezza h e di estensione orizzontale trascurabile rispetto<br>
+ad a.<br>
+Supponendo che:<br>
+ (i) il giocatore invii la pallina con una velocit`a assegnata v0 dal punto O<br>
+posto a distanza L dal centro della buca;<br>
+(ii) le dimensioni della pallina siano molto piccole, cio`e essa possa essere<br>
+considerata puntiforme;<br>
+(iii) la pallina segua il profilo della collinetta senza salti, e quindi vi possa<br>
+salire se ha energia sufficiente;<br>
+(iv) attriti e rotazione della pallina possano essere trascurati.<br>
+Si valuti:<br>
+(a) con quale precisione deve tirare il giocatore per poter andare in buca;<br>
+(b) se, su questa base, al giocatore convenga tirare forte o piano;<br>
+(c) brevemente, quali effetti modificano queste conclusioni in un caso reale</article>
+<article class="post" id="p15554"><div class="who"><b>desga</b><span>8 set 2013, 16:30</span></div>Non ci prova nessuno ? Vi assicuro che è bello  :D</article>
+<article class="post" id="p15562"><div class="who"><b>pascal</b><span>8 set 2013, 22:45</span></div>Un’idea potrebbe scaturire dalla simulazione delle Olimpiadi del 2009.</article>
+<article class="post" id="p15567"><div class="who"><b>Andg94</b><span>9 set 2013, 1:07</span></div>Io proverei a risolverlo, ma non credo proprio di aver capito la situazione descritta  :oops: . Visto dall'alto deve essere qualcosa di simile (per intenderci la circonferenza sarebbe la collinetta, che sarebbe assimilabile ad un disco di spessore h)?</article>
+<article class="post" id="p15574"><div class="who"><b>pascal</b><span>9 set 2013, 8:02</span></div>Ho interpretato alla stessa maniera questa traccia un po’ ermetica, nel senso che la pallina incontra un rialzo di spessore h che si estende fino alla buca.</article>
+<article class="post" id="p15577"><div class="who"><b>desga</b><span>9 set 2013, 10:14</span></div>IL disegno è come quello di Andg94, solo che il disco ed il piano sono "connessi" da una salita liscia, con un profilo continuo qualsiasi (e a simmetria circolare).</article>
+<article class="post" id="p15579"><div class="who"><b>NoRe</b><span>9 set 2013, 11:39</span></div>Non ho capito bene come la pallina sale sul gradino...<br>
+C'è una rampa?<br>
+Poi, la collinetta è un 'altipiano' ?</article>
+<article class="post" id="p15580"><div class="who"><b>desga</b><span>9 set 2013, 12:16</span></div><blockquote><div><cite>NoRe ha scritto:</cite>Non ho capito bene come la pallina sale sul gradino...<br>
+C'è una rampa?<br>
+Poi, la collinetta è un 'altipiano' ?</div></blockquote>
+Sì, una specie di rampa (non per forza dritta) di lunghezza trascurabile. Il piano sotto e il disco sono completamente piatti.</article>
+<article class="post" id="p15582"><div class="who"><b>NoRe</b><span>9 set 2013, 12:45</span></div>Quindi la rampa non dovrebbe aver effetto sulla direzione della della palla?</article>
+<article class="post" id="p15583"><div class="who"><b>desga</b><span>9 set 2013, 12:48</span></div><blockquote><div><cite>NoRe ha scritto:</cite>Quindi la rampa non dovrebbe aver effetto sulla direzione della della palla?</div></blockquote> Sta proprio lì il problema!</article>
+<article class="post" id="p15584"><div class="who"><b>desga</b><span>9 set 2013, 12:49</span></div>Se la palla incide perpendicolare alla circonferenza delimitata dalla rampa prosegue dritta, ma se forma un angolo...</article>
+<article class="post" id="p15587"><div class="who"><b>NoRe</b><span>9 set 2013, 14:20</span></div><blockquote><div><cite>desga ha scritto:</cite><blockquote><div><cite>NoRe ha scritto:</cite>Quindi la rampa non dovrebbe aver effetto sulla direzione della della palla?</div></blockquote> Sta proprio lì il problema!</div></blockquote>
+Allora avevo capito bene :)<br>
+Sappi che non ho pranzato bene per pensare Ad una possibile soluzione :D<br>
+Pisolino e ci provo...<br>
+Per precisione cosa si intende?<br>
+Di quanti gradi si può sbagliare?<br>
+E poi é da mettere in. Relazione alla velocità?<br>
+P.s.<br>
+Se c'é da usare integrali avvisatemi che non ci perdo tempo. Anche se non credo siano utili.</article>
+<article class="post" id="p15589"><div class="who"><b>desga</b><span>9 set 2013, 16:17</span></div>No no nessun integrale  :D ! E per quanto riguarda la "precisione", parte del problema sta proprio nel darne una ragionevole definizione ! Ricordati che la pallina può essere considerata puntiforme.</article>
+<article class="post" id="p15592"><div class="who"><b>NoRe</b><span>9 set 2013, 16:43</span></div>Credo che l precisione possa essere definita come:<br>
+<br>
+L'angolo massimo che la traiettoria della pallina (prima di salire ) può formare con OP per assicurare la buca.<br>
+<br>
+Edit: credo di non saper andare avanti perché non ho minimamente considerato che il cerchio grande ha raggio 10 a e non saprei come inserirlo<br>
+<br>
+Edit2:<br>
+Quando la pallina incide la circonferenza, mi verrebbe da scomporre la velocità in due componenti...<br>
+Una tangente alla circonferenza e l'altra perpendicolare ad essa( che alla fine è la direzione radiale)<br>
+Salendo la rampa la pallina perde solo parte della componente radiale.<br>
+Sono sulla retta via?</article>
+<article class="post" id="p15596"><div class="who"><b>desga</b><span>9 set 2013, 18:26</span></div>Sei sulla retta via, ma devi giustificarlo bene ! Continua così  :D <br>
+(Come ti ho detto via PM sarò un po' occupato sti giorni)</article>
+<article class="post" id="p15603"><div class="who"><b>Andg94</b><span>10 set 2013, 11:12</span></div>Mah, a me viene in mente una certa legge...  :D  <br>
+Ma prima di postare un'eventuale soluzione vorrei chiedere due cose: il giocatore può tirare da qualsiasi parte (ovvero l'angolo compreso tra <span class="tex">\(v_0\)</span> ed <span class="tex">\(l\)</span> sarebbe <span class="tex">\(0\le \alpha \le 2\pi\)</span>)? E non è necessario tenere conto di eventuali rimbalzi contro le pareti del minigolf giusto? Chiedo per sicurezza.</article>
+<article class="post" id="p15604"><div class="who"><b>NoRe</b><span>10 set 2013, 12:46</span></div>Voglio la soluzione :(<br>
+Uffi <br>
+Comunque a me verrebbe da tirare più forte in base al ragionamento che ho fatto.</article>
+<article class="post" id="p15616"><div class="who"><b>pascal</b><span>12 set 2013, 11:17</span></div>In base ai miei calcoli, quando la Vo è sufficientemente grande, la pallina per cadere nella buca dovrebbe essere lanciata in modo che al massimo <span class="tex">\(sen  \alpha = \frac{a}{L}\)</span>, il che è indipendentemente giustificabile poiché, in questo limite, la modifica irrisoria della velocità radiale produce un’impercettibile variazione della traiettoria.</article>
+<article class="post" id="p15617"><div class="who"><b>NoRe</b><span>12 set 2013, 13:10</span></div><blockquote><div><cite>pascal ha scritto:</cite>In base ai miei calcoli, quando la Vo è sufficientemente grande, la pallina per cadere nella buca dovrebbe essere lanciata in modo che al massimo <span class="tex">\(sen  \alpha = \frac{a}{L}\)</span>, il che è indipendentemente giustificabile poiché, in questo limite, la modifica irrisoria della velocità radiale produce un’impercettibile variazione della traiettoria.</div></blockquote>
+
+Fn qui avrei detto la stessa cosa... ma interessa anche sapere la precisione in funzione alla velocità... credo</article>
+<article class="post" id="p15618"><div class="who"><b>pascal</b><span>12 set 2013, 14:16</span></div>Le condizioni che hai specificato in precedenza ed alcune considerazioni trigonometriche conducono ad un’utile relazione.</article>
+<article class="post" id="p15627"><div class="who"><b>NoRe</b><span>13 set 2013, 19:34</span></div>il problem è che non riesco a trovar la relazione...<br>
+<br>
+sembrerebbe quasi un fenomeno dinrifrazione se le velocità della pallina non fossero variabili in questo modo</article>
+<article class="post" id="p15628"><div class="who"><b>pascal</b><span>13 set 2013, 22:25</span></div>Dopo aver disegnato il percorso che fornisce il massimo <span class="tex">\(\alpha\)</span>, applicato la conservazione dell’energia e scritto l’uguaglianza delle componenti tangenti utilizzando gli angoli rispetto alla normale alle circonferenze, ho fatto sistema e legato tali angoli a <span class="tex">\(sen \, \alpha\)</span>, 10a, a.</article>
+<article class="post" id="p15667"><div class="who"><b>Andg94</b><span>26 set 2013, 18:12</span></div>Dato che questo problema è rimasto senza una soluzione esplicita scrivo qui di seguito la mia (il tempo è quello che è e riesco a scriverla solo ora). Dato che non è meglio specificata la situazione ho assunto che l'angolo <span class="tex">\(\alpha\)</span> non abbia restrizioni, ovvero possa essere <span class="tex">\(-\pi \le \alpha \le \pi\)</span>.<br>
+Mediante il teorema dei seni possiamo scrivere, considerando il triangolo OTA, che <span class="tex">\(\frac {\overline{TA}}{\sin \alpha} = \frac{\overline{OA}}{\sin \pi - \theta _1}\)</span>. Essendo <span class="tex">\(\overline{TA}=10a\)</span> e <span class="tex">\(\overline{OA} = l\)</span>, abbiamo <span class="tex">\(\sin \theta _1 = \frac{l}{10a} \sin \alpha\)</span>.<br>
+Sappiamo poi che <span class="tex">\(\frac{1}{2}mv_1 ^2 = \frac{1}{2}mv_2 ^2 + mgh\)</span>, dove <span class="tex">\(v_1\)</span> è la velocità iniziale e ovviamente <span class="tex">\(v_2\)</span> la velocità della pallina dopo aver "superato" il gradino h.<br>
+Come è stato già giustamente fatto notare, la componente di <span class="tex">\(v_1\)</span> che varia tra prima e dopo aver sorpassato la collinetta è solamente quella radiale (io per giustificare il fatto mi son ricondotto semplicemente al caso in cui il gradino sia assimilabile ad un cuneo: si nota subito che la somma tra le forze agenti, ovvero il peso e la reazione vincolare, non ha un vettore tangente alla circonferenza, bensì radiale ad essa). Perciò possiamo scrivere che la velocità tangenziale alla circonferenza rimane costante, ovvero: <span class="tex">\(v_1 \sin \theta _1 = v_2 \sin \theta _2\)</span> (la legge a cui mi riferivo nel mio post precedente era la legge di Snell, per l'appunto). Il caso per cui è massimo l'angolo <span class="tex">\(\alpha\)</span>, e quindi <span class="tex">\(\theta _2\)</span>, si ha proprio quando la pallina arriva ad essere tangente alla circonferenza di raggio a, ovvero <span class="tex">\(\widehat{TPA} = \frac{\pi}{2}\)</span>. Essendo <span class="tex">\(\overline{TA}=10a\)</span> e <span class="tex">\(\overline{PA} = a\)</span>, allora <span class="tex">\(\sin \theta _2 = \frac{1}{10}\)</span>.<br>
+Mediante queste considerazioni possiamo quindi scrivere <span class="tex">\(v_1 \frac{l}{10a} \sin \alpha = \frac{\sqrt{v_1 ^2 - 2gh}}{10}\)</span>, da cui si ricava che l'angolo massimo entro cui la pallina va in buca è <span class="tex">\(\alpha = \arcsin \frac{a}{l} \sqrt{1-2gh/v_1 ^2}\)</span>.<br>
+Per il punto due, ovviamente, si nota sia a livello intuitivo sia passando per la formula già trovata che converrebbe tirare forte. <br>
+Per l'ultimo punto, invece, penso che citare possibili rimbalzi, moti rotatori e non considerare più la pallina come oggetto puntiforme sia più che sufficiente. ;)<br>
+(Nell'immagine allegata ho sfalsato le proporzioni tra le due circonferenze per rendere più visibili gli angoli!)</article>
+<article class="post" id="p15668"><div class="who"><b>desga</b><span>26 set 2013, 18:34</span></div>Bene, a te il prossimo!</article>
+<article class="post" id="p15673"><div class="who"><b>Simone256</b><span>27 set 2013, 15:15</span></div>Ho capito adesso la consegna...  :cry: <br>
+Pensavo che tutto il disco fosse "il rialzo" e che il cerchio di raggio 10a fosse diciamo... tutto storto! (sempre con simmetria circolare però)</article>
+<nav class="pager"><a class="prev" href="olifis-539.html"><small>← precedente</small>SNS 1990-1991, n°5</a><a class="next" href="olifis-6856.html"><small>successivo →</small>183. SNS 1991-1992</a></nav>
+</main></body></html>

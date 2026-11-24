@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2001-2002, 6.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 6</span></nav>
+<h1>SNS 2001-2002, 6.</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6323">forum Olifis</a></p>
+<article class="post first" id="p22292"><div class="who"><b>Antonio Mele</b><span>3 giu 2016, 21:25</span></div>Ragazzi, propongo questo problema dell'SNS 2001. <br>
+<br>
+Il semispazio x &gt; 0 è sede di un campo magnetico ` B che assumiamo costante, uniforme e parallelo all’asse z. Un motorino mantiene in rotazione una spira semicircolare di raggio a e resistenza R. La spira e` disposta nel piano xy con il centro del diametro nell’origine e ruota in verso antiorario (rispetto a B) con velocità angolare ` ω attorno all’asse passante per il centro del diametro e parallelo al campo magnetico. Si trascurino gli effetti dovuti all’autoinduzione della spira.<br>
+<br>
+(a) Calcolare la corrente I(t) che circola nella spira, e farne il grafico.<br>
+(b) Calcolare la potenza dissipata per effetto Joule nella spira. Da dove proviene l’energia dissipata per effetto Joule?<br>
+(c) Dire come viene modificato, qualitativamente, l’andamento della corrente I(t) se si tiene conto dell’autoinduzione della spira e fare un grafico approssimativo della corrente.<br>
+<br>
+Grazie in anticipo!</article>
+<article class="post" id="p22297"><div class="who"><b>rocco</b><span>4 giu 2016, 17:09</span></div>Scusa ma non so disegnare. Spero di spiegarmi e di non sbagliare i conti. Il problema non è difficile tranne alcuni passaggi matematici che ho trovato sull'Halliday (eq. differenziale).<br>
+Se si parte con la semicirconferenza nel semipiano x&lt;0 senza campo magnetico si vede che il suo flusso attraverso la spira cresce costantemente quando ruota nel semipiano x&gt;0 e decresce costantemente quando ruota in quello con x&lt;0. Pertanto la fem indotta come derivata del flusso e la corrente indotta saranno costanti e opposte nei due semiperiodi relativi. Detto <span class="tex">\(\alpha=\omega.t\)</span>l'angolo spazzato dal raggio a rispetto al semiasse positivo x, abbiamo<br>
+rispettivamente nei due semiperiodi<br>
+<span class="tex">\(\Phi(B)= (1/2)Ba^2(\omega.t-2k\pi)\)</span>   per <span class="tex">\(\frac{2k\pi}{\omega}\leq t \leq\frac{(2k+1)\pi}{\omega}\)</span> e <span class="tex">\(\Phi(B)=(1/2)\pi Ba^2- (1/2)Ba^2[\omega.t-(2k+1)\pi]\)</span> per <span class="tex">\(\frac{(2k+1)\pi}{\omega}\leq t\leq \frac{(2k+2)\pi}{\omega}\)</span> con k=0,1...<br>
+Quindi nei due semiperiodi le correnti saranno costanti e opposte<br>
+(a) I(t)= (1/R)(d<span class="tex">\(\Phi\)</span>/dt)= -(1/2)B<span class="tex">\(a^2 \omega\)</span><br>
+e I(t)= fem/R= +(1/R)(d<span class="tex">\(\Phi\)</span>/dt)= (1/2)B<span class="tex">\(a^2 \omega\)</span><br>
+Ho visto su Internet che si chiama "onda quadra": è fatta di rettangoli consecutivi senza la base superiore (i negativi) e senza la base inferiore (i positivi). <br>
+(b) La potenza che non dipende dal segno della corrente = <span class="tex">\(I^2.R\)</span>=(1/4R)<span class="tex">\(B^2.a^4.\omega^2\)</span> è costante.<br>
+(c) In questo caso l'equazione della spira diventa fem=RI+LdI/dt. Ho visto la soluzione che si ottiene separando le variabili dal libro e si ha se non sbaglio i conti<br>
+I(t)= E/R+(k/R) exp[-(R/L)t] dove k=- (B/R)<span class="tex">\(a^2 \omega\)</span><br>
+dove i rettangoli dell'onda quadra hanno un vertice curvo, come nell'esponenziale. Questa non so come si chiama.</article>
+<nav class="pager"><a class="prev" href="olifis-220.html"><small>← precedente</small>Sns 2001/2002 n 6 - Spira in un campo magnetico</a><a class="next" href="oliforum-7527.html"><small>successivo →</small>PROBLEMA DI FISICA SNS 2002/2003  AIUTOOO!</a></nav>
+</main></body></html>

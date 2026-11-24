@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2000/2001 #2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2000-2001, problema 2</span></nav>
+<h1>sns 2000/2001 #2</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8948">OliForum</a></p>
+<article class="post first" id="p74348"><div class="who"><b>bruno222</b><span>18 ago 2007, 16:59</span></div>salve a tutti ...<br>
+<br>
+propongo questo esercizio dato ai test di ammissione sns per verificare se la mia soluzione è corretta...<br>
+<br>
+La forza con cui la terra attrae un punto materiale di massa m, che si trovi in un punto generico p è $ \ F= -\mu m OP/OP^3  $ dove O è il centro della terra e $ \mu = 4 *10^{14} m^3s^{-2}  $.<br>
+Si abbia un satellite artificiale costituito da due sferette uguali di massa m e legate rigidamente da una barra di lunghezza AB=2L e di massa trascurabile. Si vuole studiare il moto del satellite attorno al suo centro di massa G mentre questo orbita attorno alla terra su di una traiettoria circolare di raggio R.<br>
+<br>
+(a) Per quali valori di  $ \ alpha $ il momento delle forze agenti sul satellite è nullo?(a me torna $  0+k{\pi}/2   $.)<br>
+(b) Tenendo conto che L&lt;&lt;r, mostrare che , in prima approssimazione questo momento, diretto lungo l'asse z, è :<br>
+$  M_z= -(3{\mu}m/L)(L/R)^3 sin{2\alpha}  $.<br>
+(c) Calcolare il periodo delle piccole oscillazioni attorno alla posizione di equilibrio stabile per R=7000Km,L=5m e m=4Kg. <br>
+allego il disegno.</article>
+<article class="post" id="p74351"><div class="who"><b>memedesimo</b><span>18 ago 2007, 19:16</span></div>la formula mi torna uguale, ma con un 2 al posto del 3....sto cercando di capire come mai</article>
+<article class="post" id="p74352"><div class="who"><b>memedesimo</b><span>18 ago 2007, 19:30</span></div>gnum gnum...forse ci sto arrivando</article>
+<article class="post" id="p74353"><div class="who"><b>memedesimo</b><span>18 ago 2007, 19:35</span></div>Rettifico: non torna ancora</article>
+<article class="post" id="p74355"><div class="who"><b>memedesimo</b><span>18 ago 2007, 20:23</span></div>ditemi dove sbaglio ragionamento:<br>
+<br>
+Agisce una sola forza per ciascuna massa, cioè la gravità. Siccome sono molto lontane da O, allora posso supporre che la forze siano parallele a OG. Adesso per calcolare il momento totale basta sottrarre i due momenti, tenendo conto che le forze sono diverse perchè le due masse si trovano a distanze diverse dal centro della terra.</article>
+<article class="post" id="p74357"><div class="who"><b>Zoidberg</b><span>18 ago 2007, 20:52</span></div>Anch'io faccio cosi ma il fattore 3 non spunta in nessun caso!<br>
+Evitando di semplificare gli angoli però viene un casino!<br>
+Prevedo che domani ci perderò la mattinata... Anzi no facciamo il pomeriggio perché domenica mattina si dorme! :D</article>
+<article class="post" id="p74358"><div class="who"><b>TADW_Elessar</b><span>18 ago 2007, 20:55</span></div>anche io l'avevo fatto tempo fa e mi veniva sempre 2... però non mi ricordo se alla fine ero riuscito a risolverlo come diceva lui :D</article>
+<article class="post" id="p74435"><div class="who"><b>rbtqwt</b><span>20 ago 2007, 20:13</span></div>Io ho provato così.. però ottengo sempre un $ 2 $..<br>
+considerando i vettori$ \vec BO $ e $ \vec AO $ paralleli a $ \vec{GO} $:<br>
+$ \vec{M_G} = \vec{GB} \times \vec F_{BO} + \vec{GA} \times \vec F_{AO} $<br>
+considerando le lunghezze dei vettori come $ |\vec{BO}| \simeq (R+L\cos\alpha) $ e $ |\vec{AO}| \simeq (R-L\cos\alpha) $:<br>
+$ \vec{M_G} = L\mu m \sin \alpha \left( \frac{1}{(R+L\cos\alpha)^2} - \frac{1}{(R-L\cos\alpha)^2} \right) \hat z  $<br>
+da cui:<br>
+$ |\vec{M_G}| = -4L\mu m \sin \alpha \left( \frac{RLcos\alpha}{(R^2-L^2\cos^2\alpha)^2} \right)  $<br>
+$ |\vec{M_G}| = -2L^2\mu m R \sin 2\alpha(R^2-
+L^2\cos^2\alpha)^{-2}  $<br>
+dato che $ L \ll R $<br>
+$ |\vec{M_G}| = -2L^2\mu m \sin 2\alpha R^{-3}  $<br>
+ossia, in altra forma:<br>
+$ |\vec{M_G}| = -(2\mu m / L)(L/R)^3 \sin 2\alpha  $<br>
+<br>
+Dove sbaglio?</article>
+<article class="post" id="p74440"><div class="who"><b>mitchan88</b><span>20 ago 2007, 21:32</span></div>Io l'avevo fatto e mi veniva giusto il fattore 3... Però non so dove ho messo il foglio coi contazzi XD domani provo a rifarli</article>
+<article class="post" id="p74443"><div class="who"><b>Zoidberg</b><span>21 ago 2007, 00:15</span></div>Arriva lui... :D</article>
+<article class="post" id="p74462"><div class="who"><b>mitchan88</b><span>21 ago 2007, 12:10</span></div>Prendiamo la massa B. Allora, detta Hb la proiezione di G su OB, si ha che il modulo del momento di B rispetto a G è Fb*GHb. Considerando l'area del triangolo OGB (=1/2*GO*GB*sen(alfa)=1/2*BO*GHb), si ha che Hb=Lrsen(alfa)/OB, per cui il momento di B sarà GMmLrsen(alfa)/OB^3, essendo Fb=GMm/OB^2. <br>
+Per cui il momento totale (a meno del segno) è, essendo i due momenti opposti, M=GMmLrsen(alfa)*(1/OB^3-1/OA^3)<br>
+<br>
+Ma si ha che 1/OB^3-1/OA^3=(OA^3-OB^3)/(OA*OB)^3=(OA-OB)(OA^2+OB^2+OA*OB)/(OA*OB)^3<br>
+<br>
+Ora essendo L&lt;&lt;r possiamo approssimare OA-OB=2Lcos(alfa)  (considerando OA e OB paralleli), OA^2=OB^2=Oa*OB=r^2, OA^3*OB^3=r^6, per cui<br>
+<br>
+1/OB^3-1/OA^3=6Lcos(alfa)/r^4, da cui con pochi conti si ottiene la relazione cercata, con il fattore 3  :P</article>
+<article class="post" id="p74515"><div class="who"><b>Deerber</b><span>21 ago 2007, 19:34</span></div>Oddio non ci ho capito nulla... non è che la potresti postare in latex mitch?  :oops:</article>
+<article class="post" id="p74535"><div class="who"><b>Deerber</b><span>21 ago 2007, 21:53</span></div>Ah tra parentesi... qualcuno è riuscito a risolvere il secondo punto del problema? Chiede di calcolare il periodo delle piccole oscillazioni attorno alla posizione di equilibrio stabile per r=7000 km, L=5 m e m=4 Kg. Good luck  :P<br>
+<br>
+EDIT: ok, mi sono appena accorto che i dati erano già nel post iniziale. Qualcuno l'ha fatto?  :D</article>
+<article class="post" id="p74559"><div class="who"><b>mitchan88</b><span>22 ago 2007, 10:24</span></div>Beh basta vedere che se l'angolo di oscillazione è piccolo allora sen(2alfa)=2alfa per cui abbiamo che il momento è M=-costante*alfa, che è la legge di Hooke in forma angolare... per cui trovare il periodo di oscillazione è facile :wink:</article>
+<article class="post" id="p74561"><div class="who"><b>Deerber</b><span>22 ago 2007, 10:55</span></div>E mi pare anche giusto... hehe grazie mitch :)</article>
+<nav class="pager"><a class="prev" href="olifis-521.html"><small>← precedente</small>[SNS 2000/2001, n°1]</a><a class="next" href="olifis-1361.html"><small>successivo →</small>Sns 2000-2001 #3</a></nav>
+</main></body></html>

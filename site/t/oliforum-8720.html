@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2003-2004 / 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 4</span></nav>
+<h1>SNS 2003-2004 / 4</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8720">OliForum</a></p>
+<p class="notice">Qui c'è solo la prima pagina della discussione: il seguito è su OliForum, al link qui sopra.</p>
+<article class="post first" id="p72690"><div class="who"><b>pic88</b><span>21 lug 2007, 11:56</span></div>Si consideri una piastra metallica (indicata in figura con un la lettera P)<br>
+collegata capacitivamente ad un generatore di tensione. Determinare il<br>
+numero di elettroni in eccesso (o difetto) presenti sulla piastra che minimizzano<br>
+l’energia del sistema ($ C_1 = 10^{-15} F $, $ C_2 = 0.5 \cdot 10^{-15} F $, $ V_0 =
+1.6 \cdot 10^{-3} V $).<br>
+<br>
+<br>
+   ____________________<br>
+   |                                 <br>
+   |                                 <br>
+   =  C2                               <br>
+                                  <br>
+   P                               <br>
+   =   C1                                    <br>
+   |                                 <br>
+   |__________________<br>
+<br>
+A destra c'è il generatore di tensione V0 che non riesco a disegnare, spero si capisca <br>
+ :wink:</article>
+<article class="post" id="p72695"><div class="who"><b>TADW_Elessar</b><span>21 lug 2007, 15:59</span></div>Di preciso cosa s'intende per "minimizzare l'energia del sistema"? Vabbè... direi che l'energia si minimizza da sola :P</article>
+<article class="post" id="p72715"><div class="who"><b>TADW_Elessar</b><span>22 lug 2007, 12:06</span></div>Risolto!<br>
+Intanto ecco l'immagine:<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img176.imageshack.us/img176/3820/sns344vb8.jpg" class="ext">[immagine non più disponibile]</a></a><br>
+<br>
+Applichiamo la famosa equazione che in questo caso rende felicissimi entrambi i signori Kirchhoff e Faraday:<br>
+<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img516.imageshack.us/img516/2843/eqn14536vv0.gif" class="ext">[immagine non più disponibile]</a></a><br>
+<br>
+Percorrendo il circuito in senso orario. Il contributo del campo dei condensatori è $ ~q_i/C_i $ mentre all'interno del generatore, attraversiamo il campo in senso contrario, quindi è $ ~-V_0 $.<br>
+<br>
+$ \displaystyle \frac{q_1}{C_1} + \frac{q_2}{C_2} - V_0 = 0 $<br>
+<br>
+E, rimescolando un poco:<br>
+<br>
+$ \displaystyle V_0 (C_1 C_2) = q_1C_2 + q_2C_1 $<br>
+<br>
+Ora, dai dati è chiaro che $ C_1 = 2C_2 $, e quindi:<br>
+<br>
+$ \displaystyle 2V_0 C_2 = q_1 + 2q_2 = ne $<br>
+<br>
+per trovare n, basta sostituire e, ricordando che la carica dell'elettrone è $ -1,6 \cdot 10^{-19}\ C $:<br>
+<br>
+$ \displaystyle \frac{2 \cdot 1.6 \cdot 10^{-3} \cdot 0.5 \cdot 10^{-15}}{-1.6\cdot 10^{-19}} = -10 $<br>
+<br>
+Si semplifica il 2 con 1/2 (=0.5), l'1.6 sopra con quello sotto e rimane solo l'esponente del 10: -3-15+19 = 1. Quindi ci sono dieci elettroni in meno sulla piastra.</article>
+<article class="post" id="p74471"><div class="who"><b>memedesimo</b><span>21 ago 2007, 12:54</span></div>faccio rivivere questa discussione, per sapere cosa ne pensate del problema :D</article>
+<article class="post" id="p74473"><div class="who"><b>Deerber</b><span>21 ago 2007, 13:00</span></div>Penso che i dati sono veramente brutti, e che la soluzione di TADW non mi convince per niente (senza offesa eh  :) )<br>
+Per come l'ho fatto io, l'energia si dovrebbe minimizzare quando non ci sono elettroni in più sulla piastra. Ma questo non è possibile perchè verrebbe q1=q2=3,3*e, cosa che mi pare improbabile visto che la carica è quantizzata (appunto dicevo che i dati sono brutti). A questo punto mi faccio i vari casi con i numeri interi, e ne deduco che l'energia si minimizza effettivamente quando c'è un solo elettrone in più sulla piastra. Ma alla fine è anche possibile che abbia detto boiate, guardate un pò voi... si prega di segnalarle, in caso  :D <br>
+Byez</article>
+<article class="post" id="p74478"><div class="who"><b>memedesimo</b><span>21 ago 2007, 13:17</span></div>Anche a me viene che l'energia è minima quando non ci sono elettroni, però non avevo considerato che in quel caso la carica viene non multipla di $ e $...adesso provo a fare i casi!</article>
+<article class="post" id="p74538"><div class="who"><b>TADW_Elessar</b><span>21 ago 2007, 22:42</span></div>Perché l'energia si dovrebbe minimizzare quando non ci sono elettroni in più sulla piastra?<br>
+<br>
+(macché offesa, anzi! :))</article>
+<article class="post" id="p74541"><div class="who"><b>Deerber</b><span>21 ago 2007, 23:01</span></div>Perchè se ti fai la derivata rispetto a q della somma delle energie dei condensatori e ti trovi il minimo di quella funzione, vedi che q1=q2=(10/3)e. Capisco i tuoi dubbi, anch'io all'inizio pensavo che l'energia si minimizzasse da sola. Ma questo non è un sistema "isolato", perchè noi possiamo aggiungere o togliere elettroni alla piastra. In verità in ogni situazione, dopo che noi abbiamo deciso il numero di elettroni da metterci, l'energia si minimizza da sola PER QUELLA SITUAZIONE. Il che è rappresentato in termini fisici dal fatto che non scorra più corrente nel circuito. Ma la situazione la scegliamo noi, scegliendo il numero di elettroni sulla piastra... il che influisce anche sulla quantità di energia del sistema, perchè è vero che ogni situazione tende al suo minimo di energia, ma questi minimi in generale sono tutti diversi. Boh spero di essermi spiegato abbastanza, è troppo tardi per cercare di essere più chiaro  :) <br>
+Ah comunque l'energia si minimizza quando c'è un elettrone solo, perchè l'energia è quantizzata e la soluzione della derivata prevede cariche razionali. Ora, siccome non mi sembra che si possano vedere quark liberi di posizionarsi su piastre metalliche di solito, ne deduciamo facendo i casi che n=1.<br>
+Buonanotte  :)</article>
+<article class="post" id="p74555"><div class="who"><b>memedesimo</b><span>22 ago 2007, 09:18</span></div>Però, scusate un po', ma le formule che usiamo di solito per i condensatori sono ricavate nei casi di distribuzione omogenea di carica. Qua abbiamo a che fare con pochi elettroni, quindi va tutto a p....allino!</article>
+<article class="post" id="p74562"><div class="who"><b>Deerber</b><span>22 ago 2007, 10:58</span></div>No non credo sia così memedesimo. Io ho usato solo che la circuitazione del campo elettrico è pari a Vo, che è vero a prescindere dalla distribuzione di carica, e l'energia del condensatore che è (q^2)C/2, a prescindere dalla distribuzione di q. Io credo che semplicemente non abbiano considerato che la carica è quantizzata quando hanno scritto il problema... 8)</article>
+<article class="post" id="p74650"><div class="who"><b>TADW_Elessar</b><span>23 ago 2007, 10:29</span></div><blockquote class="uncited"><div>Io credo che semplicemente non abbiano considerato che la carica è quantizzata quando hanno scritto il problema...</div></blockquote>
+Non credo proprio. E il valore di $ ~V_0 $ non può essere "casualmente" uguale alla carica dell'elettrone.<br>
+<br>
+Comunque derivando la somma di energie potenziali<br>
+<br>
+$ \displaystyle \frac{q_1^2}{2C_1} + \frac{q_2^2}{2C_2} = QV_0 $<br>
+<br>
+ottieni esattamente il mio stesso risultato...</article>
+<article class="post" id="p74651"><div class="who"><b>memedesimo</b><span>23 ago 2007, 10:29</span></div>Secondo me invece l'hanno considerato benissimo...io credo invece che la formula per l'energia del condensatore non è una formula a prescindere dalla distribuzione di carica.</article>
+<article class="post" id="p74652"><div class="who"><b>TADW_Elessar</b><span>23 ago 2007, 10:34</span></div><strong class="text-strong">Energia immagazzinata in un campo elettrico</strong><br>
+Per caricare un condensatore occorre un agente esterno che compia lavoro. Partendo da un condensatore scarico, ad esempio, si immagini di utilizzare delle "pinzette magiche" per rimuovere gli elettroni da un piatto e trasferirli <em class="text-italics">uno alla volta</em> sull'altro piatto. (Halliday, 25.5)</article>
+<article class="post" id="p74659"><div class="who"><b>Deerber</b><span>23 ago 2007, 12:19</span></div>Hahaha bellissimo TADW, sembra che tu stia citando la bibbia  :P <br>
+Si comunque sono d'accordo sul fatto che le equazioni che abbiamo applicato vanno bene anche in questo caso.<br>
+Ah e ovviamente TADW, la prima cosa da fare è applicare la legge che hai usato tu, nessuno lo discute quello. Solo che tu hai trovato q1+2q2, che non è quello che richiede il problema, tutto qui. Penso che a quel punto si debba derivare l'energia e farsi i casi considerando la quantizzazione della carica. Il che porta al risultato che l'energia si minimizza quando c'è 1 elettrone in più sulla piastra.  :D</article>
+<article class="post" id="p74661"><div class="who"><b>TADW_Elessar</b><span>23 ago 2007, 12:22</span></div>A che punto? Continuo a non capire...[/tex]</article>
+<nav class="pager"><a class="prev" href="olifis-243.html"><small>← precedente</small>SIMULAZIONE: SNS 2003/2004 Problema 3</a><a class="next" href="oliforum-5917.html"><small>successivo →</small>Piastra Metallica e Condensatori @ SNS</a></nav>
+</main></body></html>

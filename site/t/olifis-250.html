@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2009/2010 Problema 1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2009-2010, problema 1</span></nav>
+<h1>SNS 2009/2010 Problema 1</h1>
+<p class="meta">26 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=250">forum Olifis</a></p>
+<article class="post first" id="p2220"><div class="who"><b>Alex90</b><span>28 ago 2009, 19:13</span></div>Una particella di massa <span class="tex">\(m\)</span> è posta in cima ad una emsifera di raggio <span class="tex">\(R\)</span> e massa <span class="tex">\(M\)</span>. La particella può scivolare senza attrito lungo il piano sul quale è posata. Assumiamo ora che la particella di massa <span class="tex">\(m\)</span> venga messa in moto verso destra con velocità iniziale trascirabile. Sapete determinare per quale angolo <span class="tex">\(\theta\)</span> essa si stacca dall'emisfera? Derivate solo l'equazione che determina <span class="tex">\(\theta\)</span> senza provare a risolverla.</article>
+<article class="post" id="p2224"><div class="who"><b>MrTeo</b><span>28 ago 2009, 21:05</span></div>Wow... SNS in presa diretta  :mrgreen: <br>
+Questo non mi pare molto difficile, basta eguagliare la componente centrifuga con quella normale alla tangente nell'istante di distacco, credo fosse anche già stato risolto nel forum.<br>
+<br>
+Il problema automobilistico invece è affascinante...  :D <br>
+<br>
+(ot: prime impressioni?)</article>
+<article class="post" id="p2226"><div class="who"><b>Alex90</b><span>28 ago 2009, 21:19</span></div>Non sottovalutiamo i SNS  ;)</article>
+<article class="post" id="p2227"><div class="who"><b>MrTeo</b><span>28 ago 2009, 21:26</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Non sottovalutiamo i SNS  ;)</div></blockquote>
+
+Sibillino  :roll: <br>
+<br>
+Cmq rivedendolo mi darebbe da pensare che l'emisfera, dato che si parla di massa <span class="tex">\(M\)</span> non è fissa e quindi bisogna pensare alla conservazione della quantità di moto... cmq piuttosto criptico se è così  :D (e non c'è da meravigliarsi)</article>
+<article class="post" id="p2228"><div class="who"><b>came14</b><span>28 ago 2009, 21:41</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>
+ basta eguagliare la componente centrifuga con quella normale alla tangente nell'istante di distacco
+</div></blockquote>
+
+Io ci ho aggiunto anche la forza apparente che deriva dal fatto che l'emisfera accelera in direzione opposta</article>
+<article class="post" id="p2229"><div class="who"><b>Loren Kocillari89</b><span>28 ago 2009, 22:53</span></div>La quantità di moto si conserva, l'emisfero quindi si muove di velocità V, cosa che non era compresa nell'esempio risolto nel forum tempo fa.</article>
+<article class="post" id="p2234"><div class="who"><b>Ippo</b><span>29 ago 2009, 0:21</span></div>Una simpatica ( :!: ) variazione sul tema  :D <br>
+<br>
+i passi principali della mia soluzione:<br>
+<br>
+- sia <span class="tex">\(V\)</span> la velocità dell'emisfero, <span class="tex">\(v_x\)</span> quella orizzontale della particella, <span class="tex">\(v_y\)</span> quella verticale della particella, <span class="tex">\(\theta\)</span> l'angolo tra la verticale e il segmento centro-particella.<br>
+- conservazione dell'energia: relazione tra queste quattro grandezze<br>
+- conservazione della quantità di moto: V in funzione di <span class="tex">\(v_x\)</span><br>
+- nel sistema non inerziale solidale con l'emisfero la velocità della particella tange l'emisfero; composizione delle velocità, <span class="tex">\(v_y\)</span> in funzione di <span class="tex">\(v_x\)</span> e <span class="tex">\(\theta\)</span><br>
+- si ottiene una funzione <span class="tex">\(v_x(\theta)\)</span> che si può massimizzare<br>
+- dopo il punto di massimo la particella dovrebbe decelerare per continuare ad aderire all'emisfero, ma nessun vincolo la trattiene perciò avviene il distacco.<br>
+<br>
+La brutta equazione da non risolvere risulta essere <span class="tex">\({d v_x(\theta) \over d \theta}=0\)</span> e in effetti <span class="tex">\(v_x(\theta)\)</span> non sembra piacevolissima da derivare.</article>
+<article class="post" id="p2246"><div class="who"><b>SARLANGA</b><span>29 ago 2009, 11:43</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>l'emisfero quindi si muove di velocità V, cosa che non era compresa nell'esempio risolto nel forum tempo fa</div></blockquote>
+Potreste gentilmente mettere il link all'esempio (seppure diverso) di qualche tempo fa??? grazie :P</article>
+<article class="post" id="p2250"><div class="who"><b>eli9o</b><span>29 ago 2009, 11:50</span></div>Era compreso, era compreso<br>
+<a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=12&amp;t=175" class="ext" class="postlink">http://forumwww.cadnet.marche.it#46;oli ... f=12&amp;t=175</a><br>
+<br>
+Io non me la ricordavo più e alla fine ho fatto in un modo diverso (osceno). Comunque a me non sembra tanto facile  :roll:</article>
+<article class="post" id="p2260"><div class="who"><b>CoNVeRGe.</b><span>29 ago 2009, 13:22</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>. La particella può scivolare senza attrito lungo <strong class="text-strong">il piano </strong> sul quale è posata.</div></blockquote>
+Non capisco cosa gli costi ad essere più chiari... alla fine sono 6 problemi di un paio di righe, non un libro.<br>
+Almeno son passati per le stanze ad avvisare di questo.<br>
+<br>
+Per me il problema più difficile.</article>
+<article class="post" id="p2290"><div class="who"><b>Jacopo</b><span>30 ago 2009, 18:10</span></div>La brutta equazione da non risolvere risulta essere <span class="tex">\({d v_x(\theta) \over d \theta}=0\)</span> e in effetti <span class="tex">\(v_x(\theta)\)</span> non sembra piacevolissima da derivare.[/quote]<br>
+<br>
+ti va di provare a scriverla per confrontarla?</article>
+<article class="post" id="p2475"><div class="who"><b>CoNVeRGe.</b><span>11 set 2009, 20:26</span></div>Posto la mia soluzione per i posteri.<br>
+Siano <span class="tex">\(\displaystyle \vec u\)</span> la velocità della particella nel sistema dell'emisfera e <span class="tex">\(\displaystyle \theta\)</span> l'angolo rispetto all'orizzonte del raggio-posizione. Siano <span class="tex">\(\displaystyle \vec v\)</span> e <span class="tex">\(\displaystyle \vec V\)</span> le velocità della particella e dell'emisfera in un sistema solidale col terreno. Pongo <span class="tex">\(\displaystyle x = m/M\)</span><br>
+Si dimostra che al momento del distacco si ha:<br>
+<br>
+<span class="tex">\(\displaystyle u^2 = gR \sin \theta\)</span><br>
+<br>
+Per la conservazione dell'energia:<br>
+<br>
+<span class="tex">\(\displaystyle 2xgR(1-\sin \theta) = xv^2 + V^2\)</span><br>
+<br>
+Ora calcoliamo <span class="tex">\(\displaystyle v^2\)</span>. Sappiamo per la conservazione della quantità di moto orizzontale e per la conservazione della componente verticale della velocità della particella nei due sistemi che:<br>
+<br>
+<span class="tex">\(\displaystyle v_y = u_y = u \cos \theta\)</span><br>
+<br>
+<span class="tex">\(\displaystyle v_x = V/x\)</span><br>
+<br>
+<span class="tex">\(\displaystyle v^2 = v_x^2 + v_y^2 = u^2 cos^2 \theta + V^2 / x^2\)</span><br>
+<br>
+Quindi ci resta soltanto da calcolare <span class="tex">\(\displaystyle V\)</span>. <br>
+La trasformazione galileiana della velocità orizzontale nel passaggio da un sistema all'altro ci da:<br>
+<br>
+<span class="tex">\(\displaystyle u_x = u \sin \theta = V + v_x = V \frac{x+1}{x}\)</span><br>
+<br>
+Con un po' di calcoli (non necessari al test) si arriva all'equazione che ho scritto anche nel vecchio topic:<br>
+<br>
+<span class="tex">\(\displaystyle \sin^3 \theta \cdot x - 3 \sin \theta \cdot (x+1) + 2 (x + 1) = 0\)</span></article>
+<article class="post" id="p2477"><div class="who"><b>Ippo</b><span>11 set 2009, 20:53</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Si dimostra che al momento del distacco si ha:<br>
+<br>
+<span class="tex">\(\displaystyle u^2 = gR \sin \theta\)</span>
+</div></blockquote>
+questa cosa funziona in un sistema inerziale, in cui g è l'unica accelerazione. Qui abbiamo anche l'accelerazione apparente del sistema non-inerziale, che è orizzontale e quindi ha componente centrifuga non nulla. Temo che quella formula non valga.<br>
+Ne approfitto per recuperare la mia soluzione (e mi scuso con Jacopo, non avevo visto il post  :oops: )<br>
+
+<blockquote><div><cite>Ippo ha scritto:</cite>
+- sia <span class="tex">\(V\)</span> la velocità dell'emisfero, <span class="tex">\(v_x\)</span> quella orizzontale della particella, <span class="tex">\(v_y\)</span> quella verticale della particella, <span class="tex">\(\theta\)</span> l'angolo tra la verticale e il segmento centro-particella.<br>
+<br>
+- conservazione dell'energia: relazione tra queste quattro grandezze<br>
+<em class="text-italics">è quella già scritta da Converge,</em> <span class="tex">\(2mgR (1-\cos \theta)=m(v_x^2+v_y^2)+MV^2\)</span> <em class="text-italics">(la convenzione sull'angolo è diversa, ma non cambia niente)</em><br>
+<br>
+- conservazione della quantità di moto: V in funzione di <span class="tex">\(v_x\)</span><br>
+<span class="tex">\(MV=mv_x\)</span> <em class="text-italics">da cui segue</em> <span class="tex">\(V=mv_x/M\)</span> <em class="text-italics">e abbiamo eliminato un'incognita</em><br>
+<br>
+- nel sistema non inerziale solidale con l'emisfero la velocità della particella tange l'emisfero; composizione delle velocità, <span class="tex">\(v_y\)</span> in funzione di <span class="tex">\(v_x\)</span> e <span class="tex">\(\theta\)</span><br>
+<span class="tex">\(v_y/(V+v_x)=\tan \theta\)</span>, <span class="tex">\(v_y=v_x(1+m/M) \tan \theta\)</span><br>
+<br>
+- si ottiene una funzione <span class="tex">\(v_x(\theta)\)</span> che si può massimizzare<br>
+<em class="text-italics">Riprendendo la conservazione dell'energia, facendo le sostituzioni che abbiamo trovato e risolvendo per <span class="tex">\(v_x\)</span>:</em><br>
+<span class="tex">\(2gR (1-\cos \theta)=v_x^2(1+(1+m/M)^2 \tan^2 \theta)+mv_x^2/M\)</span><br>
+<span class="tex">\(v_x^2={2g R(1-\cos \theta) \over (1+m/M)(1+(1+m/M) \tan^2 \theta)\)</span><br>
+<em class="text-italics">La radice di questa schifezza è l'espressione cercata per</em> <span class="tex">\(v_x(\theta)\)</span>.<br>
+<br>
+- dopo il punto di massimo la particella dovrebbe decelerare per continuare ad aderire all'emisfero, ma nessun vincolo la trattiene perciò avviene il distacco.<br>
+<br>
+La brutta equazione da non risolvere risulta essere <span class="tex">\({d v_x(\theta) \over d \theta}=0\)</span> e in effetti <span class="tex">\(v_x(\theta)\)</span> non sembra piacevolissima da derivare.</div></blockquote></article>
+<article class="post" id="p2478"><div class="who"><b>Pairo</b><span>11 set 2009, 20:55</span></div>Premetto che la mia soluzione era sostanzialmente equivalente, sebbene mi fossi messo in coordinate cartesiane, facendo quindi una considerevole quantità di conti  :D .<br>
+<br>
+C'è una cosa che non mi convince però:<br>
+
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Si dimostra che al momento del distacco si ha:<br>
+<br>
+<span class="tex">\(\displaystyle u^2 = gR \sin \theta\)</span> </div></blockquote>
+
+Se ti metti nel sistema di riferimento della semisfera, dovresti tenere conto anche della forza apparente, no? Se tu applichi la seconda legge di Newton sulla massa, ottieni che la risultante delle forze è uguale all'accelerazione per la massa; questa accelerazione nel sistema della semisfera è giustamente solo quella centripeta, ma agiscono sia la forza di gravità (il contributo tenuto conto da te) ma anche la forza apparente, che è legata all'accelerazione della semisfera nel piano.<br>
+<br>
+EDIT: anticipato da Ippo.<br>
+<br>
+P.S. Per me la parte più difficile del problema è stato proprio trovare la forza apparente. Se riesco questa sera posto la mia (lunghissima e tediosa) soluzione.</article>
+<article class="post" id="p2479"><div class="who"><b>CoNVeRGe.</b><span>11 set 2009, 21:07</span></div><blockquote><div><cite>Ippo ha scritto:</cite><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Si dimostra che al momento del distacco si ha:<br>
+<br>
+<span class="tex">\(\displaystyle u^2 = gR \sin \theta\)</span>
+</div></blockquote>
+questa cosa funziona in un sistema inerziale, in cui g è l'unica accelerazione. Qui abbiamo anche l'accelerazione apparente del sistema non-inerziale, che è orizzontale e quindi ha componente centrifuga non nulla. Temo che quella formula non valga.
+</div></blockquote>
+Ma al momento del distacco l'accelerazione apparente è nulla; è comunque errato?</article>
+<article class="post" id="p2480"><div class="who"><b>Pairo</b><span>11 set 2009, 21:16</span></div>E' giusto che ti risponda Ippo perché hai fatto a lui la domanda, intanto ti dico la mia; fintanto che la massa tocca la semisfera è soggetta alla forza apparente, perché la semisfera continua ad accelerare. Appena prima del momento del distacco questa forza (apparente) è ancora presente; sostanzialmente, finché la reazione normale del piano è positiva, questa forza c'è. Siccome devi calcolare l'angolo per cui la reazione normale si annulla, per continuità fino a che la massa si è distaccata devi tenere conto della forza apparente.<br>
+<br>
+Comunque il modo di procedere sarebbe lo stesso; l'unica differenza sta nel trovare il valore dell'accelerazione della semisfera per calcolare la forza apparente, che comporta però un sacco di conti; a questo punto puoi applicare la condizione del distacco.</article>
+<article class="post" id="p2481"><div class="who"><b>CoNVeRGe.</b><span>11 set 2009, 21:18</span></div>Indico con <span class="tex">\(\displaystyle N_x\)</span> il modulo della componente orizzontale della forza di contatto tra i corpi.<br>
+<br>
+Si ha: <br>
+<br>
+<span class="tex">\(\displaystyle N_x = MA = ma_x\)</span><br>
+<br>
+La forza fittizia è:<br>
+<br>
+<span class="tex">\(\displaystyle F_f = m A = m \frac{N_x}{M} = m \frac{N \cos \theta}{M} = x N \cos \theta\)</span><br>
+<br>
+Scrivo la risultante delle forze radiali sulla particella assumendo come verso positivo quello entrante nell'emisfera:<br>
+<br>
+<span class="tex">\(\displaystyle F_r = m a_r = mg \sin \theta - N - F_f \cos \theta = mg \sin \theta - N ( 1 + x \cos^2 \theta)\)</span><br>
+<br>
+Per il contatto si ha <span class="tex">\(\displaystyle a_r =  u^2 / R\)</span>, ma questo avviene per <span class="tex">\(\displaystyle N \geq 0\)</span>, ovvero per:<br>
+<br>
+<span class="tex">\(\displaystyle  \frac{mg \sin \theta - m u^2/R}{1 + x \cos^2 \theta} \geq 0\)</span><br>
+<br>
+Questo porta a <span class="tex">\(\displaystyle  gR \sin \theta \geq u^2\)</span>, e quindi il distacco si ha con l'uguaglianza.<br>
+<br>
+Che dite?</article>
+<article class="post" id="p2482"><div class="who"><b>Pairo</b><span>11 set 2009, 21:40</span></div>Mi sembra che adesso vada tutto bene; faccio un po' fatica a confrontarla con la mia perché come ti ho detto era in cartesiane, però dovrebbe essere tutto giusto (l'ultima parola a Ippo però  :D ). Tra l'altro complimenti perché la tua è molto più corta della mia.</article>
+<article class="post" id="p2484"><div class="who"><b>Ippo</b><span>11 set 2009, 22:23</span></div>Sì sì, è giusto!   :)<br>
+ho detto una boiata, il sistema passa "con continuità" da non-inerziale a inerziale (l'accelerazione è una funzione continua dell'angolo che si annulla ad un certo punto), quindi nell'istante del distacco, e anche "subito prima", è a tutti gli effetti inerziale.<br>
+Chiedo umilmente perdono  :mrgreen:</article>
+<article class="post" id="p2485"><div class="who"><b>Pairo</b><span>11 set 2009, 22:33</span></div><blockquote><div><cite>Ippo ha scritto:</cite>Sì sì, è giusto!   :)<br>
+ho detto una boiata, il sistema passa "con continuità" da non-inerziale a inerziale (l'accelerazione è una funzione continua dell'angolo che si annulla ad un certo punto), quindi nell'istante del distacco, e anche "subito prima", è a tutti gli effetti inerziale.<br>
+Chiedo umilmente perdono  :mrgreen:</div></blockquote>
+
+Quindi stai dicendo che il primo approccio di Converge era corretto? In ogni caso, non so se il primo metodo e il secondo conducono allo stesso risultato; però certamente il secondo è corretto, perché tiene conto che la forza apparente tende ad annullarsi al tendere dell'istante del distacco.</article>
+<article class="post" id="p2486"><div class="who"><b>CoNVeRGe.</b><span>11 set 2009, 22:40</span></div><blockquote><div><cite>Pairo ha scritto:</cite>
+Quindi stai dicendo che il primo approccio di Converge era corretto? In ogni caso, non so se il primo metodo e il secondo conducono allo stesso risultato; però certamente il secondo è corretto, perché tiene conto che la forza apparente tende ad annullarsi al tendere dell'istante del distacco.</div></blockquote>
+
+<br>
+Non ho capito, per secondo approccio intendi quello di Ippo?<br>
+<br>
+Anche a me sembra corretto, però non capisco perchè a lui dipende anche da g e da R ...</article>
+<article class="post" id="p2487"><div class="who"><b>Ippo</b><span>11 set 2009, 22:45</span></div>Buona notizia: ho risolto numericamente le equazioni trovate da me e da Converge per un paio di valori di x, e risulta che i risultati sono in accordo fino alla quarta cifra decimale (per la cronaca: con <span class="tex">\(x=0.5\)</span> si ha <span class="tex">\(\theta=0.7834 \ {\rm rad}\)</span> e con <span class="tex">\(x=0.1\)</span> si ha <span class="tex">\(\theta=0.7423 \ {\rm rad}\)</span>)  :D<br>
+<br>
+@ Converge: g ed R sono solo costanti moltiplicative, quando poni l'equazione "derivata=0" spariscono. Tra l'altro all'inizio mi venivano risultati diversi, solo dopo mi sono accorto che abbiamo usato convenzioni diverse sull'angolo  :mrgreen: <br>
+<br>
+la mia equazione va riscritta come <span class="tex">\({d \over d \theta} {\left[ {1 - \sin \theta \over 1+(1+x)\tan^{-2}\theta} \right]}^{1/2}=0\)</span></article>
+<article class="post" id="p2488"><div class="who"><b>Pairo</b><span>11 set 2009, 22:46</span></div>No, no, sono io che dico boiate; la tua dimostrazione va benissimo, mi ero perso nel confronto con la mia, in cui avevo svolto i calcoli e non vedevo più l'equivalenza dei risultati.<br>
+<br>
+Ancora, complimenti per la tua soluzione, che hai dimostrato essere mooolto più corta della mia  :D</article>
+<article class="post" id="p8554"><div class="who"><b>Omar93</b><span>26 mag 2012, 14:55</span></div>Mettermi dal punto di vista di M non è molto conveniente dato che devo considerare l'azione della forza fittizia. Quindi mi metto solidale con il piano.<br>
+L'equazione da vedere è quella che regola il moto circolare di m. Dato che si vuole tutto in funzione di theta allora devo cercare un'esperessione in funzione di questo per la velocità tangenziale. Con composizione di velocità ed usando, grazie alle ipotesi, le leggi gi conservazione della quantità di moto e dell'energia alla fine mi salta fuori un'equazione con dei coseni di theta. <br>
+<br>
+Scrivo solo questo così se c'è qualche errore ci riprovo.</article>
+<article class="post" id="p22635"><div class="who"><b>Zenit</b><span>26 lug 2016, 16:34</span></div>Qualcuno potrebbe spiegarmi perché la particella si stacca dalla'emisfera quando v ( Theta) raggiunge il suo massimo?</article>
+<article class="post" id="p22637"><div class="who"><b>rocco</b><span>26 lug 2016, 18:03</span></div>Perchè la forza centripeta raggiunge e supera quella disponibile che è la componente di mg lungo R.</article>
+<nav class="pager"><a class="prev" href="oliforum-11683.html"><small>← precedente</small>SNS 2008/2009 problema 6</a><a class="next" href="olifis-982.html"><small>successivo →</small>Sns 2009</a></nav>
+</main></body></html>

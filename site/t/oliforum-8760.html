@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troppe stelle che girano!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1995-1996, problema 3</span></nav>
+<h1>Troppe stelle che girano!</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8760">OliForum</a></p>
+<p class="notice">Qui c'è solo la prima pagina della discussione: il seguito è su OliForum, al link qui sopra.</p>
+<article class="post first" id="p72948"><div class="who"><b>enomis_costa88</b><span>27 lug 2007, 18:56</span></div>Un altro sns..non è difficile però è un simpatico problemino!<br>
+<br>
+Tre stelle di ugual massa, M/3 (M è la massa totale del sistema), in mutua attrazione gravitazionale, ruotano su un’orbita circolare di raggio R intorno al centro di massa del sistema, mantenendo la loro posizione relativa in modo da occupare i vertici di un triangolo equilatero.<br>
+a) Determinare la velocità angolare W3 di ciascuna stella intorno al centro di massa.<br>
+b) Per orbite circolari di raggio R fissato e sistemi di massa totale M assegnata, come si paragona il valore di W3 con la velocità angolare W2 di un sistema binario e con la velocità angolare W4 di un insieme di 4 stelle disposte ai vertici di un quadrato?<br>
+c) Siete in grado di valutare il valore limite W, quando la massa totale M è distribuita tra un numero sempre più grande di stelle?<br>
+<br>
+Buon lavoro, Simone.</article>
+<article class="post" id="p73052"><div class="who"><b>vitellocromato</b><span>29 lug 2007, 21:57</span></div>Rispondo tanto per ridere :D  avrò fatto mille errori<br>
+<br>
+W3= +/- sqrt(8/27*K*M/R )<br>
+<br>
+w2= +/- sqrt(1/8*K*M/R) <br>
+w4= +/- sqrt(27/64*K*M/R)    // tirata a caso<br>
+<br>
+winf= +/- sqrt(K*M/R)<br>
+<br>
+<strong class="text-strong">un primo errore</strong>: confusione con formule le R dovrebbero essere al cubo<br>
+<br>
+<br>
+con K costante gravitazionale che non mi ricordo<br>
+( spero almeno di non aver sbagliato le dimensioni :roll: )<br>
+<br>
+Saluti<br>
+<br>
+prima o poi imparerò Tex</article>
+<article class="post" id="p73053"><div class="who"><b>TADW_Elessar</b><span>29 lug 2007, 22:15</span></div>Edit: La formula che segue è <strong class="text-strong">sbagliata</strong>: il 2 dovrebbe essere un 8.<br>
+<br>
+$ \displaystyle \omega_2 = \sqrt{\frac{GM}{2R^3}} $<br>
+<br>
+Le altre devo ancora vedere :).<br>
+Ma dopo che finisco con l'effetto Doppler.</article>
+<article class="post" id="p73054"><div class="who"><b>enomis_costa88</b><span>29 lug 2007, 22:36</span></div>Confermo il risultato di TadW_elessar per n=2.<br>
+Vitellocromato non sono giuste neppure le dimensioni sorry..se vuoi prova a scrivere come hai fatto che vediamo dove sbagli ok?<br>
+<br>
+Edit..confermo solo che non sono capace a fare due conti..ma era risaputo  :wink:</article>
+<article class="post" id="p73057"><div class="who"><b>TADW_Elessar</b><span>30 lug 2007, 00:47</span></div>Non sono riuscito a trovare una formula generica per n stelle di uguale massa. Però per n = 3, chiamando $ ~GM = \mu $ ho:<br>
+<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img252.imageshack.us/img252/5375/om3tx5.gif" class="ext">[immagine non più disponibile]</a></a><br>
+<br>
+... Sembra facile ma non riesco proprio a trovare niente di più, sarà l'ora tarda.</article>
+<article class="post" id="p73063"><div class="who"><b>enomis_costa88</b><span>30 lug 2007, 09:13</span></div>Non è richiesta una formula generica..ma solo per infinite stelle  :D <br>
+Hint:<br>
+<span style="font-size:59%;line-height:116%">io ho supposto una distribuzione lineare omogenea di massa e ho lavorato un po' con integrali per calcolare che accellerazione avrebbe la stella considerata.   </span></article>
+<article class="post" id="p73064"><div class="who"><b>TADW_Elessar</b><span>30 lug 2007, 09:28</span></div>Piuttosto, mi sa che era sbagliato quello per due stelle, quello giusto è:<br>
+<br>
+$ \displaystyle \omega_2 = \sqrt{\frac{\mu}{8R^3}}. $<br>
+<br>
+Infatti la distanza è 2R al cubo, non R.<br>
+Ora torno a quell'altro.</article>
+<article class="post" id="p73065"><div class="who"><b>enomis_costa88</b><span>30 lug 2007, 09:34</span></div>No torna l'altro..<br>
+<br>
+m/2Rw^2=Gm^2/(4(2R)^2)  hum..già mi stavo un po' bevendo il cervello  :oops:<br>
+Che cavolo se avessi un quaderno potrei evitare di rifare sempre i calcoli sul momento che per la fretta li sbaglio  :D <br>
+<br>
+Dai fatti il caso con infinite stelle suvvia!<br>
+<br>
+Edit (stavolta solo una typo)</article>
+<article class="post" id="p73066"><div class="who"><b>vitellocromato</b><span>30 lug 2007, 09:40</span></div>Scusate sono un fesso :oops: <br>
+<br>
+avevo usato come formula della accelerazione centrifuga w^2/R anzichè w^2*R<br>
+( mi sono confuso)<br>
+<br>
+Tutte le R nel primo post così dovrebbero apparire al cubo.<br>
+<br>
+Sicuramente questo è un primo errore ma ne avrò fatti altri, anche perchè l'ho fatto un po' a casaccio<br>
+<br>
+<strong class="text-strong">Provo a riscriverle in latex</strong><br>
+$ w_3 = \sqrt{{\frac{8}{27}\frac{K M}{R^3}}} $<br>
+<br>
+almeno il latex sono riusito a scrirverci!<br>
+ :mrgreen:</article>
+<article class="post" id="p73071"><div class="who"><b>TADW_Elessar</b><span>30 lug 2007, 10:17</span></div>Allora allora: ecco la formula nel caso di n stelle, che avevo trovato anche ieri ma avevo scartato perché non tornava col caso di due stelle, che invece avevo sbagliato io.<br>
+<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img261.imageshack.us/img261/5985/eqn14984nf0.gif" class="ext">[immagine non più disponibile]</a></a><br>
+<br>
+Con l'integrale mi viene $ ~\omega = \infty $... :?.<br>
+<br>
+Vi metto l'integrale che ho ottenuto:<br>
+<br>
+<a href="http://imageshack.us" class="ext" class="postlink"><a class="lost" href="http://img227.imageshack.us/img227/8044/eqn14985pn8.gif" class="ext">[immagine non più disponibile]</a></a></article>
+<article class="post" id="p73078"><div class="who"><b>enomis_costa88</b><span>30 lug 2007, 13:03</span></div>Per quanto sembri strano anche a me esce infinito come risultato..<br>
+<br>
+Io ho fatto così:<br>
+Suppongo che la massa m sia distribuita omogeneamente lungo la circonferenza.<br>
+Pongo quindi:<br>
+$ \lambda=\frac{M}{2\pi R} $<br>
+Da cui:<br>
+$ d m=\lambda d l=\lambda 2R d \theta $ (theta angolo alla circonferenza)<br>
+mi interessa solo la componente che punta verso il centro dell'accellerazione prodotta da ogni singolo punto..<br>
+Quindi:<br>
+$  d a=\frac{G dm}{d^2} \cos\theta $<br>
+ $ d=2R\cos\theta  $ <br>
+Ovvero:<br>
+$  d a = \frac{G \lambda d \theta}{2Rcos( \theta)} $ che integrando da 0 a pi greco mezzi (e raddoppiando il risultato) risulta:<br>
+$  K\frac{G\lambda}{R}(\ln(\frac{1+\tan(\frac{\pi}{4})}{1-\tan(\frac{\pi}{4})}) $ che va un po' ad infinito.. Dove K sono un po' di 2 e 1/2 che ora non ho voglia di calcolare o contare perchè mi stanno antipatici e di sicuro sbaglierei nel contarli (al solito rifatto i conti sul momento perchè nel mio immenso disordine non trovavo il foglio su cui avevo fatto il problema) :wink: <br>
+Visto che w^2=a/R il risultato dovrebbe essere uguale al tuo e ciò mi conforta visto che avevo postato questo problema solo per vedere se andava veramente ad infinito la velocità..</article>
+<article class="post" id="p73081"><div class="who"><b>vitellocromato</b><span>30 lug 2007, 13:46</span></div>Nella mia più completa ignoranza io avevo ragionato nel seguente modo per quanto riguarda il valore all'infinito.<br>
+<br>
+Mi riducevo ad un sistema equivalente ( nei miei sogni credo) con la massa M-m di tutte le stelle meno una concentrata nel centro della circonferenza e la massa m della stella studiata nel suo punto esatto.<br>
+<br>
+Poi facevo il limite per m tendente a zero ( tanto andava via in una semplificazione).<br>
+<br>
+Evidentemente non è valido ( ci penserò in futuro)<br>
+<br>
+L'avrei comunque potuto fare se la stella fosse stata a distanza elevata dalle altre stelle?<br>
+<br>
+---------------------------------------------------------------------------------------------<br>
+<br>
+Forse mi sono lasciato ingannare dal fatto che quando calcolo la forza peso tra me e la terra considero la massa della terra concentrata nel suo baricentro ( credo ;?) ma in quel caso però la distribuzione di massa della terra è considerata in tutto il volume della terra e non superficiale<br>
+<br>
+<strong class="text-strong">sbagliando si impara</strong></article>
+<article class="post" id="p73083"><div class="who"><b>TADW_Elessar</b><span>30 lug 2007, 13:51</span></div>occhio che è $ \lambda dl =\lambda Rd\theta $, senza il 2. Poi $ ~d = 2R^2 (1-\cos\theta) $ (Teorema di Carnot) e la componente radiale si ottiene moltiplicando non per $ \cos\theta $ ma per $ \cos(\frac \pi 2 - \frac \theta 2) = \sin\frac{\theta}{2} $.</article>
+<article class="post" id="p73084"><div class="who"><b>enomis_costa88</b><span>30 lug 2007, 13:57</span></div><blockquote><div><cite>TADW_Elessar ha scritto:</cite>occhio che è $ \lambda dl =\lambda Rd\theta $, senza il 2. Poi $ ~d = 2R^2 (1-\cos\theta) $ (Teorema di Carnot) e la componente radiale si ottiene moltiplicando non per $ \cos\theta $ ma per $ \cos(\frac \pi 2 - \frac \theta 2) = \sin\frac{\theta}{2} $.</div></blockquote>il 2 c'è  :P l'angolo al centro è il doppio di un'angolo alla circonferenza..<br>
+In particolare se ho un'angolo alla circonferenza di pigreco mezzi che insiste su un'arco l'arco sarà lungo pi greco R..<br>
+<br>
+e d= sen(pi greco mezzi-theta)2R=cos(theta)2R..stai parlando di un'angolo diverso quindi la componente radiale torna (a meno di granchi paurosi..ma per questo ci metterei pure la mano sul fuoco)</article>
+<article class="post" id="p73157"><div class="who"><b>TADW_Elessar</b><span>31 lug 2007, 13:31</span></div>Ah, ecco, stiamo parlando di due angoli diversi :) Niente allora, scusa per il fraintendimento.<br>
+<br>
+Ma infine questa velocità va a infinito o no?</article>
+<nav class="pager"><a class="prev" href="oliforum-4139.html"><small>← precedente</small>questa e proprio banale...</a><a class="next" href="oliforum-6116.html"><small>successivo →</small>SNS 1995</a></nav>
+</main></body></html>

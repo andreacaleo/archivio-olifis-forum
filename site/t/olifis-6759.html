@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS Pisa 2018 Problema 5 (Bobina di Hemholtz)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2018-2019, problema 5</span></nav>
+<h1>SNS Pisa 2018 Problema 5 (Bobina di Hemholtz)</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6759">forum Olifis</a></p>
+<article class="post first" id="p25136"><div class="who"><b>Schrodingers_Bat</b><span>26 ago 2018, 11:29</span></div>Una bobina di Hemholtz è un dispositivo costituito da due spire coassiali di raggio a=20 cm, poste a distanza a e con l'asse parallelo al terreno, in entrambe le quali scorre una corrente continua I. Si può assumere che il coampo magnetico sia quasi uniforme nella regione vicina all'asse, e che sia a esso parallelo.<br>
+<br>
+a. Determinare il campo magnetico B nel punto medio O dell'asse.<br>
+b. Nel punto O è posta una bussola che indica il nord magnetico quando nella bobina non scorre corrente. Accendendo la bobina è possibil misurare la componente parallela al terreno del campo magnetico terrestre. Supponendo che la deflessione angolare si possa misurare con un'incertezza assoluta di un grado, e che la corrente I sia nota con un incertezza relativa dell'1%, determinare il minimo valore della corrente perché si possa avere una misura significativa del campo magnetico.<br>
+c. Determinare la corrente I minima se il campo magnetico terrestre è di <span class="tex">\(2,5*10\textsuperscript{-5}T$\)</span>. Qual è la massima incertezza sul risultato?</article>
+<article class="post" id="p25147"><div class="who"><b>nicarepo</b><span>26 ago 2018, 15:31</span></div>Il primo punto è semplice e si trova nel capitolo del campo magnetico dell'Halliday spiegato per filo e per segno. Riassumendo, nel punto centrale tra le bobine il campo di ciascuna ha stesso modulo e stesso verso. Quindi, sommando i due campi in quel punto viene: <span class="tex">\(B_s=\frac{\mu_0 R^2I}{(R^2+(a/2)^2)^{3/2}}\)</span> sostituendo i dati veniva <span class="tex">\(B=k I\)</span> con <span class="tex">\(k \approx 4,5\cdot10^{-6} N/mA^2\)</span> (sempre che non abbia sbagliato i conti). <br>
+Il secondo sono un po' incerto, ma ci provo: se si mettevano la bobine perpendicolari al campo si otteneva <span class="tex">\(tg \alpha = \frac {B_s}{B_t}\)</span> quindi <span class="tex">\(B_t = \frac{B_s}{tg \alpha}\)</span><br>
+Per ottenere una stima accettabile del campo magnetico terrestre, dato che è dell'ordine dei <span class="tex">\(10^{-6} T\)</span>, si doveva avere un errore assoluto per lo meno di <span class="tex">\(10^{-8} T\)</span> (spero si possa accettare). <br>
+Detto ciò, la propagazione degli errori dovrebbe funzionare così:<br>
+<span class="tex">\(dB_t = \frac{kdI}{tg \alpha} + kId \frac{1}{tg \alpha}\)</span> <br>
+Dividendo tutto per <span class="tex">\(I\)</span> e facendo i conti si ottiene: <span class="tex">\(I = \frac{\Delta B_t sen^2 \alpha}{sen \alpha cos \alpha kh +k \Delta \alpha}\)</span> <br>
+con <span class="tex">\(h=\Delta I / I\)</span><br>
+Minimizzando in <span class="tex">\(\alpha\)</span> si ottiene quanto richiesto. Spero anche in questo caso di non aver commesso errori. In ogni caso il segno positivo nella derivata della tangente ci vuole perché dovrebbe funzionare così la propagazione degli errori. Il terzo punto non l'ho fatto per mancanza di tempo, appena posso ci ripenso. Comunque credo siano necessarie altre considerazioni sugli errori.</article>
+<article class="post" id="p25148"><div class="who"><b>nicarepo</b><span>26 ago 2018, 15:34</span></div>Ah scusate, quando si deriva la tangente, bisogna derivare anche <span class="tex">\(\alpha\)</span>, che sarebbe l'incertezza assoluta rispetto all'angolo!</article>
+<article class="post" id="p25153"><div class="who"><b>Schrodingers_Bat</b><span>26 ago 2018, 18:40</span></div><blockquote><div><cite>nicarepo ha scritto: <a href="olifis-6759.html#p25147" data-post-id="25147" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">26 ago 2018, 15:31</div></cite>
+<span class="tex">\(I = \frac{\Delta B_t sen^2 \alpha}{sen \alpha cos \alpha kh +kcos \alpha}\)</span> <br>
+con <span class="tex">\(h=\Delta I / I\)</span>
+</div></blockquote>
+L'ultimo coseno da dove esce? a me viene senza. Al suo posto ci dovrebbe essere il <span class="tex">\(d\alpha\)</span> di cui parlavi.</article>
+<article class="post" id="p25154"><div class="who"><b>nicarepo</b><span>26 ago 2018, 18:44</span></div>Si hai ragione, mi sa che li ho confusi mentre facevo i calcoli</article>
+<article class="post" id="p25157"><div class="who"><b>Schrodingers_Bat</b><span>26 ago 2018, 21:36</span></div>Grazie mille ancora! Riesci a dare un'occhiata anche al thread del problema 3, così chiudiamo il cerchio di fisica? Intanto io ho postato il 6 di mate su olimat.</article>
+<article class="post" id="p25160"><div class="who"><b>nicarepo</b><span>26 ago 2018, 22:21</span></div>Domani mattina scrivo quello che rimane</article>
+<nav class="pager"><a class="prev" href="olifis-6761.html"><small>← precedente</small>Re: SNS Pisa 2018 Problema 4 (Rifrazione sulle ali di una farfalla)</a><a class="next" href="olifis-6758.html"><small>successivo →</small>SNS Pisa 2018 Problema 6 (Differenza tra pendolo ideale e pendolo reale)</a></nav>
+</main></body></html>

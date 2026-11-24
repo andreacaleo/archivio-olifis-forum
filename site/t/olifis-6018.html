@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>32: Quantitá di Moto 2.0 [SNS 2008 n.5]</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 5</span></nav>
+<h1>32: Quantitá di Moto 2.0 [SNS 2008 n.5]</h1>
+<p class="meta">46 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6018">forum Olifis</a></p>
+<article class="post first" id="p20010"><div class="who"><b>Simone256</b><span>20 dic 2014, 20:16</span></div>Un blocco di massa <span class="tex">\(M\)</span> con velocitá <span class="tex">\(V\)</span> scivola su un piano orizzontale privo di attrito e urta elasticamente un blocco di massa <span class="tex">\(m&lt;M\)</span> inizialmente fermo; La massa <span class="tex">\(m\)</span> si muove velocemente allontanandosi dalla massa <span class="tex">\(M\)</span> e urta un muro fermo elasticamente rimbalzando indietro. A questo punto la massa <span class="tex">\(m\)</span> rimbalza di nuovo contro la massa <span class="tex">\(M\)</span>, ritorna verso il muro e così via... Idealmente il muro è troppo lontano perchè il blocco <span class="tex">\(M\)</span> riesca a raggiungerlo e questo viene progressivamente rallentato dal blocco <span class="tex">\(m\)</span>.<br>
+<br>
+<span class="tex">\((1)\)</span> Quanti urti avverranno tra il blocco di massa <span class="tex">\(M\)</span> e quello di massa <span class="tex">\(m\)</span> prima che il blocco di massa <span class="tex">\(M\)</span> si fermi?<br>
+<br>
+<span class="tex">\((2)\)</span> Detta <span class="tex">\(d\)</span> la distanza iniziale tra il blocco <span class="tex">\(M\)</span> e il muro, quanta strada avrá percorso il blocco <span class="tex">\(M\)</span> prima di fermarsi?<br>
+<br>
+Per proseguire con la staffetta basta risolvere il punto <span class="tex">\((1)\)</span>, il punto <span class="tex">\((2)\)</span> non possiedo una soluzione e forse se è necessario si può assumere <span class="tex">\(m&lt;&lt;M\)</span> ("inventatevi" anche tutte le condizioni necessarie :)); ritengo il problema abbastanza difficile e forse anche abbastanza noto; è il problema più tosto di una vecchia ammissione in SNS. Così i vecchi che come me hanno i test tra qualche mesetto fanno un po' di preparazione :lol:</article>
+<article class="post" id="p20011"><div class="who"><b>matpro98</b><span>20 dic 2014, 21:53</span></div>Il blocco <span class="tex">\(m\)</span> è fermo o si muove all'inizio?</article>
+<article class="post" id="p20012"><div class="who"><b>Simone256</b><span>20 dic 2014, 22:16</span></div>Ecco mi son dimenticato di scriverlo  :oops: <br>
+Ci avevo pure pensato... Edito subito!<br>
+Grazie :)</article>
+<article class="post" id="p20016"><div class="who"><b>OrsoBruno96</b><span>21 dic 2014, 12:49</span></div>ho visto la soluzione di questo problema proposta su oliforum. pubblicherai mai un problema di fisica e non di matematica? ;)</article>
+<article class="post" id="p20017"><div class="who"><b>Lasker</b><span>21 dic 2014, 14:16</span></div>E che ci facevi su oliforum? Non è da te  :lol: <br>
+<br>
+P.S. simone continua così, che almeno compare qualcosina che (forse) riesco a fare! Magari appena finisco con l'ammissione al winter ci perdo un po' di tempo...</article>
+<article class="post" id="p20018"><div class="who"><b>andrea96</b><span>21 dic 2014, 14:34</span></div>Vi prego se qualcuno conosce già la soluzione non postatela! :oops: stanotte non ho dormito per questo problema! mi sono svegliato una decina di volte con gli incubi  :(  :(  :(  :( se qualcuno che lo conosce scrive la soluzione prima che la trovo lo uccido  :twisted:  :twisted:  :twisted:</article>
+<article class="post" id="p20020"><div class="who"><b>Simone256</b><span>21 dic 2014, 14:43</span></div>Hahahaha :P<br>
+Dai non si può dire che non sia figo :D<br>
+Credo ci sia anche sul Morin...</article>
+<article class="post" id="p20021"><div class="who"><b>andrea96</b><span>21 dic 2014, 14:54</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>
+Credo ci sia anche sul Morin...</div></blockquote>
+L'ho appena trovato! :D è tra gli "esercizi" cioè i problemi di cui non porta soluzione ed ha 4 stelle!!!! :o i problemi a 4 stelle del morin sono davvero difficili!<br>
+Li però lui dice di assumere <span class="tex">\(M&gt;&gt;m\)</span>... la prima domanda si può fare senza questa assunzione?</article>
+<article class="post" id="p20022"><div class="who"><b>Simone256</b><span>21 dic 2014, 17:26</span></div>Si nel punto 1 sono sicuro che questa assunzione può essere evitata! :)</article>
+<article class="post" id="p20023"><div class="who"><b>andrea96</b><span>21 dic 2014, 17:42</span></div>altra domandina ( lo so... sto diventando pesante :( ): nel testo delle sns viene chiesto di dimostrare che viene "circa" un numero, però lì fa l'assunzione che ho detto prima... non facendo l'assunzione deve venirmi un numero esatto o sempre un "circa" un numero?</article>
+<article class="post" id="p20024"><div class="who"><b>Simone256</b><span>21 dic 2014, 19:06</span></div>Viene un numero esatto, ma come ben sai difficilmente ci sará un momento in cui il blocco M sará perfettamente fermo! Il risultato è in generale un numero reale e si può dire che dopo un numero di urti pari alla sua parte intera il blocco M si muove ancora verso il muro, all'urto successivo però cambierá direzione! ;)</article>
+<article class="post" id="p20027"><div class="who"><b>Simone256</b><span>24 dic 2014, 0:21</span></div>Questo può essere utile! Ho risposto a sall96 in messaggio privato ma presumo (e so) che è utile ad altre persone ;)<br>
+
+<blockquote><div><cite>Simone256 nel messaggio privato a sall96 ha scritto:</cite>Gran bel metodo!!! :)<br>
+<br>
+Per la risoluzione della successione ci vuole un piccolo trick da olimpiadi di matematica ma niente paura!!!<br>
+Fallo così:<br>
+Se hai una ricorsione:<br>
+<br>
+<span class="tex">\(A_{n+2}+kA_{n+1}+jA_{n}=0\)</span><br>
+<br>
+Per due reali <span class="tex">\(k\)</span>, <span class="tex">\(j\)</span>... Trova le soluzioni <span class="tex">\(\lambda_1\)</span> e <span class="tex">\(\lambda_2\)</span> del polinomio:<br>
+<br>
+<span class="tex">\(x^2+kx+j=0\)</span><br>
+<br>
+E per magia la soluzione della ricorsione è:<br>
+<br>
+<span class="tex">\(A_n=\alpha (\lambda_1)^n + \beta (\lambda_2)^n\)</span><br>
+<br>
+Con <span class="tex">\(\alpha\)</span> e <span class="tex">\(\beta\)</span> costanti che ti ricavi imponendo le condizioni iniziali della successione! Così ti ricavi per esempio anche fibonacci... Prova! Se i conti sono proponibili credo riuscirai a risolvere il problema ;)</div></blockquote></article>
+<article class="post" id="p20029"><div class="who"><b>andrea96</b><span>24 dic 2014, 4:05</span></div>visto che ho fatto davvero tanti conti ( e potrei anche averne sbagliato qualcuno ) prima di perdere un ora a scrivere la soluzione completa posto il risultato che mi viene ( che considerando che viene da dei calcoli fatti alle 3 di notte potrebbe essere sbagliato per errori di calcoli ):<br>
+<span class="tex">\(n=\frac{\pi}{2arctg{(\frac{2\sqrt{mM}}{M+m}})}\)</span></article>
+<article class="post" id="p20030"><div class="who"><b>Simone256</b><span>24 dic 2014, 10:35</span></div>Credo sia sbagliato per la simmetria del risultato! Se scambi m con M vedrai che il risultato non cambia anche se intuitivamente nel risultato corretto non dovrebbe essere così!<br>
+In ogni caso la scrittura della soluzione finale è molto simile!!! :)<br>
+Riguarda i conti ;)</article>
+<article class="post" id="p20031"><div class="who"><b>Lasker</b><span>24 dic 2014, 11:15</span></div>Può darsi che la risposta giusta sia invece<br>
+<br>
+<span class="tex">\(n= \frac{\pi}{2\arctan\left(\frac{2\sqrt{\frac{M}{m}}}{\frac{M}{m}-1}\right)}\)</span><br>
+<br>
+A me scambiando <span class="tex">\(M\)</span> con <span class="tex">\(m\)</span> cambiano le cose...</article>
+<article class="post" id="p20032"><div class="who"><b>andrea96</b><span>24 dic 2014, 12:59</span></div>Scusate ho sbagliato a digitare nel massegio! C è un segno meno tra le due m al denominatore, ora posto la soluzione :D</article>
+<article class="post" id="p20033"><div class="who"><b>andrea96</b><span>24 dic 2014, 15:12</span></div>Allora dico subito che non ho mai fatto tanta fatica a risolvere un problema di fisica nella mia vita, poi mi sono accorto che nessuno dei metodi che usavo mi portava a concludere perchè non conoscevo il teorema che ha scritto ieri simone :D <br>
+Cerco di spiegarlo il meglio possibile perchè il problema è parecchio bello:<br>
+durante tutto il processo l'energia totale si conserva mentre la quantità di moto totale delle due masse no perchè quando la massa piccola urta il muro la sua quantità di moto diminuisce ( prendendo come verso positivo quello che va dalla "zona delle masse" al muro ) del doppio della sua quantità di moto prima dell'urto con il muro; infatti se dopo un urto con la massa grande, la massa piccola ha una certa velocità, dopo aver urtato il muro ha la stessa velocità cambiata di segno.<br>
+Diciamo allora che <span class="tex">\(v_n\)</span> è la velocità di <span class="tex">\(M\)</span> dopo l'ennesimo urto, mentre <span class="tex">\(u_n\)</span> è la velocità di <span class="tex">\(m\)</span> dopo l'ennesimo urto; prima dell'<span class="tex">\(n+1\)</span> esimo urto le velocità sono quindi <span class="tex">\(v_n\)</span> e <span class="tex">\(-u_n\)</span>. Ora lo studio dell'<span class="tex">\(n+1\)</span> esimo urto si può fare in vari modi: i cinesi generalmente lo fanno nel sistema di riferimento del muro perchè gli piace soffrire, se non siete cinesi la cosa migliore di solito è farlo nel sistema di riferimento del centro di massa ( io in realtà l'ho fatto nel sistema di riferimento della massa piccola, e forse vengono meno conti, però lasciamo stare metto la cosa più ovvia... ); prima dell'urto il centro di massa ha velocità <span class="tex">\(v_c=\frac{p_{tot}}{M+m}=\frac{Mv_n-mu_n}{M+m}\)</span>, quindi cambiando sistema di riferimento le velocità diventano <span class="tex">\(v'_n=v_n-v_c=\frac{m}{M+m} (v_n+u_n)\)</span> e <span class="tex">\(u'_n=-\frac{M}{m+M}(u_n+v_n)\)</span><br>
+la quantità di moto totale quindi è nulla mentre l'energia cinetica è <span class="tex">\(K'=\frac{1}{2}M{v'_n}^2+\frac{1}{2}m{u'_n}^2=\frac{1}{2}\frac{mM}{M+m}(v_n+u_n)^2\)</span>.<br>
+Ora scrivendo le leggi di conservazione ( che per ogni urto valgono entrambe, quella della quantità di moto non vale quando si considerano processi in cui c'è di mezzo l'urto con il muro):<br>
+<span class="tex">\(Mv'_{n+1}+mu'{n+1}=0\)</span><br>
+<span class="tex">\(M{v'_{n+1}}^2+m{u'_{n+1}}^2=\frac{mM}{M+m}(v_n+u_n)^2\)</span><br>
+Ora qui i risultati sono semplici da trovare, poi visto che vogliamo tornare nel riferimento del muro si ha <span class="tex">\(v_{n+1}v'_{n+1}+v_c\)</span> e <span class="tex">\(u_{n+1}=u'_{n+1}+v_c\)</span><br>
+e si trovano le due equazioni fondamentali del problema:<br>
+<span class="tex">\(v_{n+1}=v_n\frac{M-m}{M+m}-u_n\frac{2m}{M+m}\)</span><br>
+<span class="tex">\(u_{n+1}=u_n\frac{M-m}{M+m}+v_n\frac{2M}{M+m}\)</span><br>
+Ora esplicitando <span class="tex">\(u_n\)</span> nella seconda e sostituendolo nella prima, si può eliminare nella relazione che viene <span class="tex">\(u_{n+1}\)</span> scrivendo la prima come <span class="tex">\(v_{n+2}=v_{n+1}\frac{M-m}{M+m}-u_{n+1}\frac{2m}{M+m}\)</span> esplicitando in questa <span class="tex">\(u_{n+1}\)</span> e sostituendo ( spero di essere stato chiaro in questi passaggi, se ce n'è bisogno scrivo tutti i calcoli ) viene:<br>
+<span class="tex">\(v_{n+2}+2\frac{m-M}{m+M}v_{n+1}+v_n=0\)</span><br>
+Ora per questa uso il teorema che ha scritto simone dove <span class="tex">\(k=2\frac{m-M}{m+M}\)</span>; allora le radici del polinomio vengono <span class="tex">\(x_{1}=\frac{M-m+2i\sqrt{mM}}{m+m}\)</span> e <span class="tex">\(x_2=\frac{M-m-2i\sqrt{mM}}{m+m}\)</span><br>
+Quindi si riesce finalmente a scrivere imponendo le condizioni iniziali <span class="tex">\(v_0=v\)</span> e <span class="tex">\(v_1=v\frac{M-m}{M+m}\)</span>:<br>
+<span class="tex">\(v_n=\frac{v}{2}((\frac{M-m+2i\sqrt{mM}}{m+m})^n+(\frac{M-m-2i\sqrt{mM}}{m+m})^n)\)</span><br>
+ e imponendo <span class="tex">\(v_n=0\)</span> si trova <span class="tex">\((M-m+2i\sqrt{mM})^n=-(M-m-2i\sqrt{mM})^n\)</span>; fortunatamente questi sono due numeri complessi ed hanno anche lo stesso modulo, quest'uguaglianza si può scrivere quindi come:<br>
+<span class="tex">\(cos(narctg(2\frac{\sqrt{Mm}}{M-m})+i sen(narctg(2\frac{\sqrt{Mm}}{M-m})=-cos(narctg(2\frac{\sqrt{Mm}}{M-m})+isen(narctg(2\frac{\sqrt{Mm}}{M-m})\)</span> e quindi la soluzione è:<br>
+<span class="tex">\(n=\frac{\pi}{2 arctg(\frac{2\sqrt{mM}}{M-m})}\)</span><br>
+Ho ridotto al minimo i calcoli, se ce n'è bisogno ditemelo che li metto</article>
+<article class="post" id="p20034"><div class="who"><b>andrea96</b><span>24 dic 2014, 15:56</span></div>Ho letto il testo del problema che è stato dato all'ammissione sns e li c'era scritto di assumere <span class="tex">\(M&gt;&gt;m\)</span> e di dimostrare che <span class="tex">\(n\)</span> è circa <span class="tex">\(\pi/4 \sqrt{\frac{M}{m}}\)</span>.<br>
+Ora se scriviamo il mio risultato come <span class="tex">\(n=\frac{\pi}{2 arctg(\frac{2\sqrt{\frac{m}{M}}}{1-\frac{m}{M}})}\)</span> usando taylor per l'arcotangente (<span class="tex">\(arctgx=x-\frac{x^3}{3}+\frac{x^5}{5}+....\)</span>) considerando che nel nostro caso <span class="tex">\(x&lt;&lt;1\)</span> possiamo usare solo il primo termine, e considerando poi che <span class="tex">\(\frac{m}{M}\)</span> è trascurabile rispetto a <span class="tex">\(1\)</span> si ottiene proprio <span class="tex">\(n=\pi/4 \sqrt{\frac{M}{m}}\)</span>. Spero però che per il caso <span class="tex">\(M&gt;&gt;m\)</span> si possa trovare una soluzione semplice che porta direttamente alla soluzione approssimata, altrimenti se mi fosse capitato a me il problema, tra l'agitazione del test, il tempo limitato ecc... avrei preso meno di un quarto dei punti per il problema...</article>
+<article class="post" id="p20035"><div class="who"><b>Simone256</b><span>24 dic 2014, 18:48</span></div>Benissimo la soluzione è corretta! Con lo sdoppiamento della tangente si ricava anche:<br>
+<br>
+<span class="tex">\(n=\displaystyle \frac{\pi}{4 \mbox{ arctg}\sqrt{\frac{m}{M}}}\)</span><br>
+<br>
+Con due passaggi algebrici anche Lasker aveva azzeccato!!! Picchiatevi pure per decidere chi mette il prossimo problema!!  :lol:</article>
+<article class="post" id="p20036"><div class="who"><b>Simone256</b><span>24 dic 2014, 18:54</span></div>Intanto metto l'Hint per una seconda soluzione molto ben figherrima:<br>
+Definendo <span class="tex">\(x=\sqrt{M}V\)</span> e <span class="tex">\(y=\sqrt{m}v\)</span>, si ha che <span class="tex">\(x^2+y^2=C\)</span>, con <span class="tex">\(C\)</span> costante positiva.<br>
+Quindi ogni urto può essere identificato come un punto di una circonferenza...</article>
+<article class="post" id="p20037"><div class="who"><b>Lasker</b><span>24 dic 2014, 19:21</span></div>Lascio ad andrea che di sicuro può proporre esercizi molto più interessanti ed istruttivi di quelli che potrei racimolare adesso con fatica, ed ha il merito di aver condiviso per primo una soluzione completa</article>
+<article class="post" id="p20039"><div class="who"><b>matpro98</b><span>24 dic 2014, 22:42</span></div>Non abbandonate il problema: il metodo con la circonferenza mi incuriosisce</article>
+<article class="post" id="p20040"><div class="who"><b>Simone256</b><span>25 dic 2014, 1:19</span></div>Prova tu :)<br>
+Usa un po' di trigonometria ;)</article>
+<article class="post" id="p20041"><div class="who"><b>matpro98</b><span>25 dic 2014, 11:12</span></div>Non ho capito come usare la circonferenza in realtà  :oops:  :lol:</article>
+<article class="post" id="p20042"><div class="who"><b>sall96</b><span>25 dic 2014, 12:19</span></div>Per pura curiosita', c'e' un modo che non utilizzi i complessi?  :?  In caso contrario vado a studiarmeli per bene perche' questo dimostra che possono capitare queste cose anche ai test della SNS  :lol:</article>
+<article class="post" id="p20043"><div class="who"><b>andrea96</b><span>25 dic 2014, 14:24</span></div><blockquote><div><cite>sall96 ha scritto:</cite>Per pura curiosita', c'e' un modo che non utilizzi i complessi?  :?  In caso contrario vado a studiarmeli per bene perche' questo dimostra che possono capitare queste cose anche ai test della SNS  :lol:</div></blockquote>
+Nel test si considerava <span class="tex">\(M&gt;&gt;m\)</span> e si voleva una formula approssimata. Sinceramente non ho proprio provato a cercare un metodo per quel caso ( penso sia comunque difficile ) però a occhio direi ( anche perchè li non compare l'arcotangente ) che nel caso approssimato i numeri complessi non possano uscire da nessuna parte...</article>
+<article class="post" id="p20045"><div class="who"><b>Pigkappa</b><span>26 dic 2014, 1:19</span></div>Questo era uno dei problemi assegnati al mio anno, il piu' difficile. Io non l'ho risolto, ho solo fornito un argomento che faceva uso di buonsenso e analisi dimensionale per dire che il risultato andava come <span class="tex">\(\sqrt{M/m}\)</span>. Gli altri problemi, piu' o meno, li ho fatti, ed e' bastato a prendere 94/100. Non preoccupatevi se non vi e' venuto facilmente (o anche per niente), non sono tutti cosi'.</article>
+<article class="post" id="p20046"><div class="who"><b>andrea96</b><span>26 dic 2014, 1:24</span></div><blockquote><div><cite>matpro98 ha scritto:</cite>Non ho capito come usare la circonferenza in realtà  :oops:  :lol:</div></blockquote>
+Ho appena trovato la soluzione con quest'altro metodo... per ora non la posto perchè è davvero fantastica e non sarebbe giusto togliervi l'emozione di risolverlo, anche perchè non utilizza niente di complesso, solo basi di trigonometria. Scrivo qui un piccolo suggerimento per te e per chiunque altro volesse provarci ( chi non vuole il suggerimento non deve leggere più avanti ):<br>
+Suggerimento: chiaramente non si può prescindere dallo studio dell'urto, quindi le equazione che legano le velocità dopo l'urto a quelle prima dell'urto vanno trovate ( ma con il riferimento del centro di massa praticamente non si fanno conti ); ora prova a dimostrare che in ogni urto l'angolo che viene spazzato dal raggio nella circonferenza è indipendente da quale urto è, poi fai tutte le deduzioni... ;)</article>
+<article class="post" id="p20047"><div class="who"><b>andrea96</b><span>26 dic 2014, 1:30</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Questo era uno dei problemi assegnati al mio anno, il piu' difficile.</div></blockquote> Penso che se qualcuno lo avesse risolto con il metodo della circonferenza ( che è anche veloce ) gli avrebbero dato 100 punti anche se avesse lasciato in bianco tutti gli altri problemi! chi inventa un metodo del genere merita di entrare a prescindere  :lol:  :lol:  :lol:</article>
+<article class="post" id="p20050"><div class="who"><b>andrea96</b><span>26 dic 2014, 2:03</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>ho solo fornito un argomento che faceva uso di buonsenso e analisi dimensionale per dire che il risultato andava come <span class="tex">\(\sqrt{M/m}\)</span></div></blockquote>
+capisco benissimo come si arrivi a dire che il risultato è proporzionale a <span class="tex">\((\frac{M}{m})^{\alpha}\)</span>, però non mi viene in mente come si possa dire intuitivamente che <span class="tex">\(\alpha=\frac{1}{2}\)</span>...  :o</article>
+<article class="post" id="p20053"><div class="who"><b>Pigkappa</b><span>26 dic 2014, 3:19</span></div>Sono passati 7 anni, non mi ricordo cosa avevo fatto. Puo' darsi che io abbia calcolato il delta (relativo) di energia del blocco di massa <span class="tex">\(M\)</span> nel primo urto, sperabilmente e' proporzionale a <span class="tex">\(\sqrt{m/M}\)</span>, e quindi detto che serviranno <span class="tex">\(\sqrt{M/m}\)</span> urti. Se non funziona con l'energia, forse prova con la quantita' di moto. Se non basta il primo urto, prova a vedere se c'e' qualcosa di interessante relativo all'ultimo urto.<br>
+<br>
+All'orale un professore mi ha anche fatto i complimenti perche' era un metodo astuto, ma piu' a livello di dimostrare intuizione fisica che di essere un argomento ben fondato.</article>
+<article class="post" id="p20059"><div class="who"><b>andrea96</b><span>26 dic 2014, 14:56</span></div>Mi sono accorto ora che nel metodo della circonferenza se vi impicciate a cambiare i riferimenti per arrivare alle equazioni che legano le velocità dopo l'urto n+1 con quelle dopo l'urto n, si può studiare l'urto da "un altro punto di vista" che concettualmente è più semplice ma vengono forse un po più conti... è il classico procedimento dove si può spegnere il cervello e fare solo conti. Secondo me è meglio l'altra strada però se non vi trovate sappiate che con la circonferenza si può evitare...</article>
+<article class="post" id="p20068"><div class="who"><b>andrea96</b><span>27 dic 2014, 19:28</span></div>Niente idee per il metodo della circonferenza??? è una soluzione che merita di essere conosciuta da tutti quindi va scritta... se nessuno trova niente entro qualche giorno metto un accenno di soluzione.</article>
+<article class="post" id="p20079"><div class="who"><b>Simone256</b><span>28 dic 2014, 17:14</span></div>Come diceva Andrea 96 la soluzione della circonferenza merita davvero.<br>
+Comincio con le prime due idee, chi vuole provarci può partire da qui:<br>
+La prima è quella di identificare ogni <span class="tex">\(n\)</span>-esima situazione del sistema come punto sulla circonferenza definita prima.<br>
+Ora la conservazione dell'energia la sfruttiamo per definire questa circonferenza... E la quantità di moto?<br>
+Valutando due situazioni successive si ha:<br>
+<br>
+<span class="tex">\(V_{n+1}M+v_{n+1}m=V_nM-v_nm\)</span><br>
+ossia:<br>
+<span class="tex">\(x_{n+1}\sqrt{M}+y_{n+1}\sqrt{m}=x_{n}\sqrt{M}-y_{n}\sqrt{m}\)</span><br>
+<br>
+Ma possiamo definire <span class="tex">\(x=C \cos \theta\)</span> e <span class="tex">\(y=C \sin \theta\)</span>;<br>
+<br>
+<span class="tex">\(\cos \theta_{n+1}\sqrt{M}+\sin \theta_{n+1}\sqrt{m}=\cos \theta_{n}\sqrt{M}-\sin \theta_{n}\sqrt{m}\)</span><br>
+<br>
+Ora con un po' di trigonometria bisogna cercare di ricavare <span class="tex">\(\theta_{n+1}-\theta_{n}\)</span>... Dipende da n?<br>
+<br>
+Graficamente quando <span class="tex">\(M\)</span> si ferma?? forse quando <span class="tex">\(cos \theta=0\)</span> ???</article>
+<article class="post" id="p20080"><div class="who"><b>Simone256</b><span>28 dic 2014, 17:43</span></div>Intanto provo a scrivere una soluzione un po' campata per aria anche per sentire il vostro parere  :? :<br>
+<br>
+Nell'ipotesi in cui <span class="tex">\(\displaystyle \frac{m}{M}&lt;&lt;1\)</span> possiamo assumere le variazioni di <span class="tex">\(v\)</span> e di <span class="tex">\(V\)</span> come continue.<br>
+<br>
+Dalla variazione di quantità di moto si ha:<br>
+<br>
+<span class="tex">\(v_{n+1}-v_n=V_n+V_{n+1}\)</span><br>
+<br>
+che ci concediamo di scrivere come:<br>
+<br>
+<span class="tex">\(dv=2Vdn\)</span><br>
+<br>
+dove <span class="tex">\(dn\)</span> è un bruttissimo modo per rendere integrabile questa cosa, se <span class="tex">\(dn\)</span> valesse <span class="tex">\(1\)</span> allora si avrebbe la relazione discreta.<br>
+<br>
+Per la conservazione dell'energia si ha <span class="tex">\(\displaystyle V=\sqrt{V_0^2-\frac{m}{M}v^2}\)</span>.<br>
+<span class="tex">\(\displaystyle \frac{dv}{ 2\sqrt{V_0^2-\frac{m}{M}v^2}}=dn\)</span><br>
+<br>
+Ora non so quanto questo integrale sia fattibile, forse è una scemata per chi conosce l'analisi... Io mi sono fatto aiutare da Wolfram integrando da <span class="tex">\(v=0\)</span> a <span class="tex">\(v=V_0 \frac{M}{m}\)</span>. Il risultato è proprio:<br>
+<br>
+<span class="tex">\(\displaystyle n=\frac{\pi}{4} \sqrt{\frac{M}{m}}\)</span></article>
+<article class="post" id="p20081"><div class="who"><b>Simone256</b><span>28 dic 2014, 18:50</span></div>Meglio precisare meglio:<br>
+<br>
+<span class="tex">\(V\)</span> è la velocità di <span class="tex">\(M\)</span>;<br>
+<span class="tex">\(v\)</span> è la velocità di <span class="tex">\(m\)</span>.<br>
+<br>
+Inoltre la relazione tra le velocità che ho scritto si ottiene dividendo membro a membro la conservazione dell'energia con la conservazione della quantità di moto. Sono stato molto poco chiaro e anche poco corretto nel dire che derivava solo dalla conservazione della quantità di moto  :oops:</article>
+<article class="post" id="p20082"><div class="who"><b>andrea96</b><span>28 dic 2014, 19:16</span></div>Se non fosse per quell'integrale avrei pensato che questa era la soluzione che volevano al test  :D</article>
+<article class="post" id="p20083"><div class="who"><b>sall96</b><span>28 dic 2014, 20:43</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>
+<br>
+<span class="tex">\(v_{n+1}-v_n=V_n+V_{n+1}\)</span><br>
+<br>
+che ci concediamo di scrivere come:<br>
+<br>
+<span class="tex">\(dv=2Vdn\)</span><br>
+<br>
+dove <span class="tex">\(dn\)</span> è un bruttissimo modo per rendere integrabile questa cosa, se <span class="tex">\(dn\)</span> valesse <span class="tex">\(1\)</span> allora si avrebbe la relazione discreta.
+</div></blockquote>
+Potresti spiegare meglio questo passaggio che non l'ho capito molto? :?</article>
+<article class="post" id="p20086"><div class="who"><b>Pigkappa</b><span>28 dic 2014, 22:05</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Intanto provo a scrivere una soluzione un po' campata per aria anche per sentire il vostro parere.</div></blockquote>
+
+E' giusta anche questa soluzione, e sembra molto piu' fisica che giocare con le ricorsioni.<br>
+<br>
+Passare da <span class="tex">\(a_{n+1} - a_n\)</span> a <span class="tex">\(\frac{d a}{d n}\)</span> e' un po' come trasformare <span class="tex">\(\sum_{n \geq 0}{f(n)}\)</span> in <span class="tex">\(\int_0^{+\infty}{f(x)} dx\)</span>. Se <span class="tex">\(f\)</span> cambia poco nel passare da <span class="tex">\(n\)</span> a <span class="tex">\(n+1\)</span>, potete farlo. In questo problema vale se il numero totale di urti e' molto maggiore di 1.</article>
+<article class="post" id="p20087"><div class="who"><b>matpro98</b><span>28 dic 2014, 22:48</span></div>Ormai è rimasta solo la trigonometria, ma va beh, controlliamo almeno quella...<br>
+Come ha detto Simone, <span class="tex">\(cos \theta_{n+1} \sqrt{M}+sin \theta_{n+1} \sqrt{m}= cos \theta_n \sqrt{M} -sin \theta_n \sqrt{m}\)</span>, cioè <span class="tex">\((cos \theta_{n+1}-cos \theta_n) \sqrt{M}+(sin \theta_{n+1} +sin \theta_n) \sqrt{m}= 0\)</span>. Prostaferesi + semplificazioni e ottengo <span class="tex">\(cos \frac {\theta_{n+1}-\theta_n}{2} \sqrt{m} - sin\frac { \theta_{n+1}- \theta_n}{2} \sqrt {M}=0\)</span>, quindi, posto <span class="tex">\(\alpha=\frac{\theta_{n+1}-\theta_n}{2}\)</span><br>
+<span class="tex">\(tg \alpha=\sqrt{\frac{m}{M}}\)</span> e <span class="tex">\(\alpha=2arctg\sqrt{\frac{m}{M}}\)</span>, costante.<br>
+Ora, all'inizio il punto della circonferenza sarà in <span class="tex">\((C,0)\)</span>, a noi interessa quanti angolini ci sono, in senso antiorario, per arrivare all'asse y. È proprio, come detto prima, <span class="tex">\(n=\frac{\pi}{2\cdot 2arctg \sqrt{\frac{m}{M}}}\)</span>.</article>
+<article class="post" id="p20090"><div class="who"><b>Simone256</b><span>28 dic 2014, 23:19</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Simone256 ha scritto:</cite>Intanto provo a scrivere una soluzione un po' campata per aria anche per sentire il vostro parere.</div></blockquote>
+
+E' giusta anche questa soluzione, e sembra molto piu' fisica che giocare con le ricorsioni.<br>
+<br>
+Passare da <span class="tex">\(a_{n+1} - a_n\)</span> a <span class="tex">\(\frac{d a}{d n}\)</span> e' un po' come trasformare <span class="tex">\(\sum_{n \geq 0}{f(n)}\)</span> in <span class="tex">\(\int_0^{+\infty}{f(x)} dx\)</span>. Se <span class="tex">\(f\)</span> cambia poco nel passare da <span class="tex">\(n\)</span> a <span class="tex">\(n+1\)</span>, potete farlo. In questo problema vale se il numero totale di urti e' molto maggiore di 1.</div></blockquote>
+
+Buono a sapersi :)<br>
+
+<blockquote><div><cite>sall96 ha scritto:</cite><blockquote><div><cite>Simone256 ha scritto:</cite>
+<br>
+<span class="tex">\(v_{n+1}-v_n=V_n+V_{n+1}\)</span><br>
+<br>
+che ci concediamo di scrivere come:<br>
+<br>
+<span class="tex">\(dv=2Vdn\)</span><br>
+<br>
+dove <span class="tex">\(dn\)</span> è un bruttissimo modo per rendere integrabile questa cosa, se <span class="tex">\(dn\)</span> valesse <span class="tex">\(1\)</span> allora si avrebbe la relazione discreta.
+</div></blockquote>
+Potresti spiegare meglio questo passaggio che non l'ho capito molto? :?</div></blockquote>
+
+Se scrivi la conservazione dell'energia come differenza di quadrati e scomponi puoi dividere entrambi i membri per due quantitá uguali grazie alla conservazione della quantitá di moto! Ora non sono nelle condizioni di scrivere in TeX se non hai ben chiaro ancora al più presto scrivo il procedimento completo  ;)</article>
+<article class="post" id="p20091"><div class="who"><b>sall96</b><span>29 dic 2014, 0:34</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>
+
+<blockquote><div><cite>sall96 ha scritto:</cite><blockquote><div><cite>Simone256 ha scritto:</cite>
+<br>
+<span class="tex">\(v_{n+1}-v_n=V_n+V_{n+1}\)</span><br>
+<br>
+che ci concediamo di scrivere come:<br>
+<br>
+<span class="tex">\(dv=2Vdn\)</span><br>
+<br>
+dove <span class="tex">\(dn\)</span> è un bruttissimo modo per rendere integrabile questa cosa, se <span class="tex">\(dn\)</span> valesse <span class="tex">\(1\)</span> allora si avrebbe la relazione discreta.
+</div></blockquote>
+Potresti spiegare meglio questo passaggio che non l'ho capito molto? :?</div></blockquote>
+
+Se scrivi la conservazione dell'energia come differenza di quadrati e scomponi puoi dividere entrambi i membri per due quantitá uguali grazie alla conservazione della quantitá di moto! Ora non sono nelle condizioni di scrivere in TeX se non hai ben chiaro ancora al più presto scrivo il procedimento completo  ;)</div></blockquote>
+Non capivo la trasformazione dalla successione all'equazione con i differenziali, con l'analogia di Pigkappa penso di aver capito.<br>
+Grazie!  :)</article>
+<article class="post" id="p20092"><div class="who"><b>Simone256</b><span>29 dic 2014, 1:35</span></div>Ops ho capito male io allora  :oops:</article>
+<article class="post" id="p21195"><div class="who"><b>Mdz</b><span>16 ago 2015, 15:11</span></div>Esiste anche una soluzione algebrica che fa uso delle matrici, non e avvincente quanto la circonferenza ma comunque non e cattiva, nel caso fosse richiesta posso postarla</article>
+<article class="post" id="p21238"><div class="who"><b>phyknight</b><span>16 ago 2015, 21:40</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Questo può essere utile! Ho risposto a sall96 in messaggio privato ma presumo (e so) che è utile ad altre persone ;)<br>
+
+<blockquote><div><cite>Simone256 nel messaggio privato a sall96 ha scritto:</cite>Gran bel metodo!!! :)<br>
+<br>
+Per la risoluzione della successione ci vuole un piccolo trick da olimpiadi di matematica ma niente paura!!!<br>
+Fallo così:<br>
+Se hai una ricorsione:<br>
+<br>
+<span class="tex">\(A_{n+2}+kA_{n+1}+jA_{n}=0\)</span><br>
+<br>
+Per due reali <span class="tex">\(k\)</span>, <span class="tex">\(j\)</span>... Trova le soluzioni <span class="tex">\(\lambda_1\)</span> e <span class="tex">\(\lambda_2\)</span> del polinomio:<br>
+<br>
+<span class="tex">\(x^2+kx+j=0\)</span><br>
+<br>
+E per magia la soluzione della ricorsione è:<br>
+<br>
+<span class="tex">\(A_n=\alpha (\lambda_1)^n + \beta (\lambda_2)^n\)</span><br>
+<br>
+Con <span class="tex">\(\alpha\)</span> e <span class="tex">\(\beta\)</span> costanti che ti ricavi imponendo le condizioni iniziali della successione! Così ti ricavi per esempio anche fibonacci... Prova! Se i conti sono proponibili credo riuscirai a risolvere il problema ;)</div></blockquote></div></blockquote>
+
+Credo che la soluzione con le matrici sia equivalente a questa: la formula che usa simone256 in effetti è (se non sbaglio) la stessa cosa di trovare gli autovalori e risolvere la successione ;)</article>
+<article class="post" id="p21239"><div class="who"><b>Mdz</b><span>16 ago 2015, 21:45</span></div>Scusami non avevo minimamente guardato quel post ahaha, beh in questo caso si, forse ci si impiega un pelo di meno con le matrici ma dubito... Per curiosità anche tu provi a pisa quest'anno?</article>
+<nav class="pager"><a class="prev" href="olifis-221.html"><small>← precedente</small>SNS 2008/2009 Problema 5</a><a class="next" href="oliforum-11785.html"><small>successivo →</small>SNS 2008/2009 problema 6</a></nav>
+</main></body></html>

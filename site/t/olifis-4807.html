@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns n.2 - 2013</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2013-2014, problema 2</span></nav>
+<h1>sns n.2 - 2013</h1>
+<p class="meta">20 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4807">forum Olifis</a></p>
+<article class="post first" id="p15972"><div class="who"><b>poor</b><span>14 gen 2014, 18:01</span></div>In natura esistono sistemi stellari a tre corpi. Consideriamone uno in cui le masse delle tre stelle <span class="tex">\(m_1\)</span>,<span class="tex">\(m_2\)</span> e <span class="tex">\(m_3\)</span> siano tutte diverse fra loro. Immaginiamo ora che l'intero sistema delle tre stelle ruoti rigidamente con velocità angolare <span class="tex">\(\omega\)</span>, non necessariamente costante, attorno ad un asse (z) passante per il centro di massa del sistema e perpendicolare al piano contenente le tre stelle (che non sono allineate). Dimostrate per prima cosa che <span class="tex">\(\omega\)</span> non dipende dal tempo.<br>
+Poi determinate le condizioni che devono essere soddisfatte da <span class="tex">\(\omega\)</span>, <span class="tex">\(r_{12}\)</span>, <span class="tex">\(r_{13}\)</span> e <span class="tex">\(r_{23}\)</span> perchè il sistema sia in equilibrio centrifugo (cioè non cambi la sua configurazione a parte la rotazione sopra descritta) dove <span class="tex">\(r_{ij}\)</span> è la distanza fra la stella i e la stella j.</article>
+<article class="post" id="p15973"><div class="who"><b>Simone256</b><span>15 gen 2014, 15:36</span></div>Mi daresti un aiuto? Il fatto che l'intero sistema ruota con velocitá angolare <span class="tex">\(\omega\)</span> significa che tutte e tre le masse ruotano con la medesima velocitá angolare? Perchè considerato un sistema di tre masse questo non accade sempre... Volevo sapere se è un dato del problema  :oops: <br>
+Grazie :)</article>
+<article class="post" id="p15974"><div class="who"><b>poor</b><span>15 gen 2014, 18:45</span></div>E' un problema di interpretazione che ho anch'io. Se penso al test della prossima estate nell'ansia comprensibile dell'esame..Comunque,sì, secondo me le 3 masse (il sistema) ruotano a quella velocità angolare che bisogna dimostrare, mi pare, non dipende dal tempo. Siccome dice..immaginiamo che il sistema..ruoti..direi che è proprio un dato. Ma ovviamente non è la "soluzione ufficiale"(che non credo esista) ma solo il mio punto di vista.</article>
+<article class="post" id="p15975"><div class="who"><b>Pigkappa</b><span>15 gen 2014, 18:52</span></div>A me sembra molto chiaro. Nell'istante iniziale, ruotano attorno a un punto comune con la stessa velocità angolare.</article>
+<article class="post" id="p15977"><div class="who"><b>Simone256</b><span>18 gen 2014, 16:26</span></div>"Ruotare" significa che sono su orbite circolari?</article>
+<article class="post" id="p15978"><div class="who"><b>Pigkappa</b><span>18 gen 2014, 22:56</span></div>Ruotare rigidamente attorno a un asse vuol dire muoversi in orbita circolare attorno a quell'asse.</article>
+<article class="post" id="p15979"><div class="who"><b>Simone256</b><span>19 gen 2014, 1:00</span></div>Grazie mille allora domani se riesco provo a postare una soluzione  :)</article>
+<article class="post" id="p15980"><div class="who"><b>Simone256</b><span>19 gen 2014, 17:19</span></div>Avevo scritto tutta la soluzione e me l'ha cancellata  :cry:  :cry:  :cry: <br>
+Non me la sento di riscriverla ora... Faccio solo alcune domande:<br>
+Dico che per soddisfare le ipotesi la risultante delle forze sulla massa <span class="tex">\(m_1\)</span> (per esempio) deve essere un vettore giacente sulla retta passante per il centro di massa;<br>
+deduco lavorando con i vettori che <span class="tex">\(r_{12}=r_{23}=r_{31}=r\)</span>;<br>
+la velocità angolare di ogni massa diviene quindi <span class="tex">\(\displaystyle\omega=\sqrt{\dfrac{G(m_1+m_2+m_3)}{r^3}}\)</span>.<br>
+Avendo tutte la stessa velocità angolare ruotano rigidamente attorno al centro di massa senza mutare la geometria del sistema.<br>
+Può essere corretto? I risultati non mi sembrano molto sensati con le domande poste dal problema...  :|</article>
+<article class="post" id="p15981"><div class="who"><b>poor</b><span>20 gen 2014, 18:55</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>deduco lavorando con i vettori che <span class="tex">\(r_{12}=r_{23}=r_{31}=r\)</span>;<br>
+la velocità angolare di ogni massa diviene quindi <span class="tex">\(\displaystyle\omega=\sqrt{\dfrac{G(m_1+m_2+m_3)}{r^3}}\)</span>.<br>
+Avendo tutte la stessa velocità angolare ruotano rigidamente attorno al centro di massa senza mutare la geometria del sistema.<br>
+Può essere corretto? I risultati non mi sembrano molto sensati con le domande poste dal problema...  :|</div></blockquote>
+Mi pare che secondo te le masse stiano ai vertici di un triangolo equilatero di lato r e che anche il centro di massa disti r da ciascuna massa. Se ho capito bene non sono d'accordo perchè il centro di massa dovrebbe essere interno al triangolo equilatero e distare dai vertici del lato: non lo vedo... <br>
+Per dimostrare l'indipendenza di <span class="tex">\(\omega\)</span> dal tempo credo invece che bisogna far intervenire una famosa legge di conservazione.</article>
+<article class="post" id="p15982"><div class="who"><b>Simone256</b><span>20 gen 2014, 19:40</span></div>Sì in effetti si faceva subito con la conservazione del momento angolare  :) <br>
+No quella formula si ricava dopo alcuni passaggi e sostituzioni... L'idea del mio ragionamento viene principalmente da questo problema che avevo trovato tempo prima  ;) <br>
+<a href="http://forum.olifis.it/olifis/phpBB3/viewtopic.php?f=12&amp;t=51" class="ext" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=51</a></article>
+<article class="post" id="p15984"><div class="who"><b>poor</b><span>21 gen 2014, 19:25</span></div>Non conoscevo il problema che mi sembra incredibilmente identico. Io l'avevo svolto con i vettori in un sistema in cui il centro di massa è l'origine <span class="tex">\(\vec 0\)</span>. Per la massa <span class="tex">\(m_1\)</span>, imponendo che la risultante delle forze gravitazionali ad opera delle altre due masse coincida con la forza centripeta e introducendo i vettori posizione delle masse <span class="tex">\(\vec r_1,\vec r_2, \vec r_3\)</span>, si ottiene<br>
+<br>
+<span class="tex">\(\frac{Gm_2(\vec r_2 - \vec r_1)}{r_{12}^{3}}+ \frac{Gm_3(\vec r_3 - \vec r_1)}{r_{13}^{3}}= -\omega^{2}\vec r_1\)</span><br>
+Confesso che la cosa più difficile è stata per me scrivere<br>
+<span class="tex">\(-\vec r_1 = \frac {m_2(\vec r_2 - \vec r_1)+m_3(\vec r_3 - \vec r_1)}{m_1 +m_2+m_3}\)</span><br>
+in funzione dei vettori al primo membro per arrivare alla soluzione.</article>
+<article class="post" id="p15985"><div class="who"><b>Simone256</b><span>21 gen 2014, 20:54</span></div>Possiamo quindi dire che per risolvere il problema:<br>
+Affermare che <span class="tex">\(\omega\)</span> è costante visto che i raggi delle orbite sono costanti e il momento angolare si conserva;<br>
+Affinché le ipotesi siano rispettate le tre masse devono trovarsi per forza nei vertici di un triangolo equilatero.<br>
+Ma la domanda finale che chiede l'equilibri centrifugo non risulterebbe in tal caso "superflua"? Se <span class="tex">\(\omega\)</span> è costante e i raggi delle orbite anche abbiamo semplici rotazioni attorno al centro di massa che non variano la geometria del sistema... Quindi l'ipotesi che il sistema sia in equilibrio centrifugo rientra nell'ipotesi che <span class="tex">\(\omega\)</span> è costante! Quindi la domanda finale poteva essere cambiata da:<br>
+"Poi determinate le condizioni che devono essere soddisfatte da  <span class="tex">\(\omega\)</span>, <span class="tex">\(r_{12}\)</span>, <span class="tex">\(r_{13}\)</span> e <span class="tex">\(r_{23}\)</span> perchè il sistema sia in equilibrio centrifugo (cioè non cambi la sua configurazione a parte la rotazione sopra descritta) dove r_{ij} è la distanza fra la stella i e la stella j."<br>
+in:<br>
+"Poi determinate le condizioni che devono essere soddisfatte da <span class="tex">\(\omega\)</span>, <span class="tex">\(r_{12}\)</span>, <span class="tex">\(r_{13}\)</span> e <span class="tex">\(r_{23}\)</span> perchè il sistema  abbia veramente <span class="tex">\(\omega\)</span> costante dove r_{ij} è la distanza fra la stella i e la stella j."<br>
+<br>
+Non sono molto sicuro però... Tu cosa ne pensi?  :)</article>
+<article class="post" id="p15986"><div class="who"><b>poor</b><span>22 gen 2014, 18:57</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Possiamo quindi dire che per risolvere il problema:<br>
+Affermare che <span class="tex">\(\omega\)</span> è costante visto che i raggi delle orbite sono costanti e il momento angolare si conserva;<br>
+Affinché le ipotesi siano rispettate le tre masse devono trovarsi per forza nei vertici di un triangolo equilatero.</div></blockquote>
+Non sono d'accordo: che <span class="tex">\(\omega\)</span> sia costante va dimostrato e <strong class="text-strong">non </strong>è un'ipotesi. Infatti il testo dice che "non è necessariamente costante"; pur supponendola uguale per le tre masse potrebbe variare nel tempo..Noi abbiamo dimostrato che, dovendosi conservare il momento angolare perchè è nullo il momento delle F.E. rispetto all'asse z, la velocità angolare era costante nel tempo.<br>
+E poi "affinchè le ipotesi siano rispettate......le tre masse devono trovarsi per forza(?) ai vertici...". Qui proprio non ti seguo: il triangolo equilatero viene fuori proprio imponendo l'EQUILIBRIO CENTRIFUGO così come viene fuori il valore di <span class="tex">\(\omega\)</span>. Infatti il senso del problema è proprio questo: affinchè ci sia l'equilibrio centrifugo - che è la vera e unica IPOTESI - come deve essere <span class="tex">\(\omega\)</span> e che valore deve avere, come devono essere le mutue distanze fra le masse e che valore devono avere? La nostra risposta è stata: non può esserci senza che la velocità angolare e le mutue distanze siano così e così...<br>
+
+<blockquote><div><cite>Simone256 ha scritto:</cite> Ma la domanda finale che chiede l'equilibri centrifugo non risulterebbe in tal caso "superflua"?  Quindi l'ipotesi che il sistema sia in equilibrio centrifugo rientra nell'ipotesi che <span class="tex">\(\omega\)</span> è costante! Quindi la domanda finale poteva essere cambiata in:</div></blockquote>
+La domanda finale non chiede affatto l'equilibrio centrifugo ma le condizioni sulla velocità e le mutue distanze che lo assicurano! E l'ipotesi di equilibrio centrifugo non rientra affatto in quella di <span class="tex">\(\omega\)</span> costante giusto perchè <span class="tex">\(\omega\)</span> costante è una delle TESI da dimostrare!<br>
+Quindi secondo me i tuoi dubbi non sono legittimi.</article>
+<article class="post" id="p15987"><div class="who"><b>Simone256</b><span>22 gen 2014, 19:15</span></div><blockquote><div><cite>poor ha scritto:</cite><blockquote><div><cite>Simone256 ha scritto:</cite>Possiamo quindi dire che per risolvere il problema:<br>
+Affermare che <span class="tex">\(\omega\)</span> è costante visto che i raggi delle orbite sono costanti e il momento angolare si conserva;<br>
+Affinché le ipotesi siano rispettate le tre masse devono trovarsi per forza nei vertici di un triangolo equilatero.</div></blockquote>
+Non sono d'accordo: che <span class="tex">\(\omega\)</span> sia costante va dimostrato e <strong class="text-strong">non </strong>è un'ipotesi. Infatti il testo dice che "non è necessariamente costante"; pur supponendola uguale per le tre masse potrebbe variare nel tempo..Noi abbiamo dimostrato che, dovendosi conservare il momento angolare perchè è nullo il momento delle F.E. rispetto all'asse z, la velocità angolare era costante nel tempo.
+</div></blockquote>
+Sì con "affermare" intendevo "dimostrare" visto che basta tirare in ballo la conservazione del momento angolare.<br>
+<br>
+Ora cerca di seguirmi: se <span class="tex">\(\omega\)</span> è costante e pertanto le masse si muovono di moto circolare uniforme attorno il centro di massa non otteniamo direttamente l'equilibrio centrifugo? Il fatto che <span class="tex">\(\omega\)</span> sia costante per ipotesi (e con "per ipotesi" intendo che avendolo dimostrato in una riga sopra ora è una nostra ipotesi) implica la stabilità della geometria del sistema.<br>
+Dopotutto per imporre l'equilibrio centrifugo abbiamo imposto che la risultante delle forze di due generiche masse fosse diretta lungo la congiungente "terza_massa - centro_di_massa". Ma questo rientra nelle ipotesi iniziali, dove questa terza massa deve ruotare attorno al centro di massa con la nostra velocità angolare <span class="tex">\(\omega\)</span>.<br>
+La domanda quindi è: è possibile avere un sistema dove le masse ruotano con velocità angolare <span class="tex">\(\omega\)</span> costante attorno al centro di massa tale che non si abbia l'equilibrio centrifugo?</article>
+<article class="post" id="p15988"><div class="who"><b>poor</b><span>23 gen 2014, 18:35</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>
+La domanda quindi è: è possibile avere un sistema dove le masse ruotano con velocità angolare <span class="tex">\(\omega\)</span> costante attorno al centro di massa tale che non si abbia l'equilibrio centrifugo?</div></blockquote>
+No, non è possibile se LA VELOCITA' ANGOLARE E LE MUTUE DISTANZE FRA LE MASSE NON SODDISFANO CERTE CONDIZIONI che appunto si dovevano trovare e che costituivano il problema. Cioè noi, sapendo che la velocità angolare è costante e che rimangono invariate le mutue distanze, DOBBIAMO TROVARE QUANTO DEVE VALERE LA VELOCITA' E QUANTO DEBBONO VALERE QUESTE DISTANZE per assicurare l'equilibrio centrifugo. Perchè non sarebbe possibile equilibrio centrifugo senza quei valori. Non basta dire che la v.a. è costante così come le mutue distanze perchè ci sia equilibrio centrifugo. Dati valori a caso, seppur COSTANTI per queste grandezze, l'equilibrio non ci sarebbe.<br>
+Io non so come spiegarmi: ho provato anche le lettere maiuscole!<br>
+Comunque, siccome continuiamo a non essere d'accordo sul senso del problema, direi di soprassedere poichè la cosa, a problema risolto correttamente, non ha importanza.</article>
+<article class="post" id="p15990"><div class="who"><b>Simone256</b><span>23 gen 2014, 20:15</span></div>Lo so ma non riesco a trasmetterti il senso della domanda!<br>
+Quello che cerco di dire è che secondo me (potrei essere benissimo nel torto ma in questo caso chiedo una possibile spiegazione) nel momento in cui sappiamo che <span class="tex">\(\omega\)</span> è costante (dopo averlo dimostrato), possiamo dire direttamente equilibrio centrifugo! E' come fare una rotazione del triangolo usando come centro di rotazione il suo centro di massa... Un movimento banalmente rigido! Se questa proposizione logica è corretta: <em class="text-italics"><strong class="text-strong"><span class="tex">\(\omega\)</span> costante <span style="color:#0000BF">implica</span> equilibrio centrifugo</strong></em> allora per ricavare i valori di <span class="tex">\(\omega\)</span> e delle mutue distanze tra le masse non ci resta che utilizzare come ipotesi solamente il fatto che <span class="tex">\(\omega\)</span> sia costante! Nella risoluzione con i vettori abbiamo entrambi posto la somma vettoriale delle forze di ogni singola massa uguale ad una forza diretta verso il centro di massa; da dove deriva questo ragionamento? A parer mio deriva dal fatto che la massa attratta deve subire una forza risultante diretta verso il centro di massa per permetterle il moto circolare attorno ad esso. In nessun passaggio abbiamo utilizzato il fatto che <span class="tex">\(r_{12}\)</span> fosse costante nel tempo. Per questo mi viene il dubbio! Se ci fosse un caso qualsiasi di masse che ruotano a velocità angolare costante attorno al loro centro di massa tali che però il loro sistema non sia in equilibrio centrifugo allora il mio ragionamento (<em class="text-italics"><strong class="text-strong"><span class="tex">\(\omega\)</span> costante <span style="color:#0000BF">implica</span> equilibrio centrifugo</strong></em>) cadrebbe inesorabilmente.<br>
+(Se non vuoi rispondermi per evitare di insultarmi non ti preoccupare  :D ).</article>
+<article class="post" id="p15991"><div class="who"><b>poor</b><span>24 gen 2014, 19:35</span></div>E' assurdo insultare per queste divergenze. Io sono, come probabilmente te, aspirante a una scuola d'eccellenza. Non sono mica un professore..<br>
+Io penso che se noi vogliamo far ruotare il sistema a velocità costante, questa e le mutue distanze debbono soddisfare a certe condizioni e avere valori che vengono appunto chiesti nel problema. Ciò non può accadere con valori arbitrari perchè altrimenti le masse si muovono reciprocamente tanto da cambiare i singoli valori della velocità angolare proprio perchè non può sussistere l'equilibrio centrifugo. Io non riesco a capire altro, tu forse sei più profondo. D'altra parte mi hanno spiegato che i progressi della scienza si sono sempre verificati quando qualcuno ha negato ciò che affermavano tutti.</article>
+<article class="post" id="p15992"><div class="who"><b>Simone256</b><span>24 gen 2014, 23:36</span></div><blockquote><div><cite>poor ha scritto:</cite>Ciò non può accadere con <strong class="text-strong">valori</strong> arbitrari perchè altrimenti le masse si muovono reciprocamente tanto da cambiare i singoli valori della velocità angolare proprio perchè non può sussistere l'equilibrio centrifugo.</div></blockquote>
+Su questo non ci sono dubbi :)<br>
+Mi chiedevo se trovare i <strong class="text-strong">valori</strong> necessari per avere <span class="tex">\(\omega\)</span> costante coincidesse con trovare i valori per ottenere l'equilibrio centrifugo.<br>
+Forse non riesco a spiegarmi :(</article>
+<article class="post" id="p15993"><div class="who"><b>Pigkappa</b><span>25 gen 2014, 0:54</span></div>Il sistema rimane in rotazione rigida con <span class="tex">\(w\)</span> costante &lt;===&gt; c'è equilibrio centrifugo.</article>
+<article class="post" id="p15995"><div class="who"><b>Simone256</b><span>25 gen 2014, 15:20</span></div>Ti ringrazio!  :)</article>
+<nav class="pager"><a class="prev" href="olifis-4801.html"><small>← precedente</small>sns n.1- 2013</a><a class="next" href="olifis-4809.html"><small>successivo →</small>sns n.3 - 2013</a></nav>
+</main></body></html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rilancio parabolico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica anno ?</span></nav>
+<h1>rilancio parabolico</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=3656">OliForum</a></p>
+<article class="post first" id="p39736"><div class="who"><b>ma_go</b><span>15 mag 2005, 14:09</span></div>altro problema carino, sempre di "meccanica celeste", made in sns:<br>
+<br>
+consideriamo una cometa in orbita parabolica intorno al sole, complanare all'orbita terrestre (approssimativamente circolare).<br>
+determinare il massimo tempo che tale cometa può trascorrere all'interno dell'orbita terrestre, e "fare un paio di considerazioni" su questi dati.<br>
+<br>
+[non dico nulla di più, mi pare più carino da scoprire da soli... al limite arriveranno gli hint]</article>
+<article class="post" id="p39751"><div class="who"><b>rargh</b><span>15 mag 2005, 17:44</span></div>Trascuriamo l'interazione della cometa con la terra e con gli altri pianeti e consideriamo solo quella col sole.<br>
+Il campo in cui si muove la cometa è centrale, quindi si conserva il momento angolare e la velocità areolare è costante. <br>
+Per determinare il tempo in cui la cometa sta all'interno dell'orbita terrestre bisogna calcolare l'area della figura figura definita in questo modo: siano A e B i due punti di intersezione della parabola con la circonferenza <br>
+(fra un attimo dimostro che sono al massimo due, e non quattro), <br>
+sia C il centro della circonferenza.<br>
+La figura è formata dai due segmenti AC e BC e l'arco di parabola AB.<br>
+<br>
+Dimostriamo che i punti di intersezione sono al massimo due:<br>
+<br>
+è noto che la parabola è il luogo dei punti equidistanti dal fuoco e da una retta detta direttrice.<br>
+Sia R il raggio della circonferenza:<br>
+Data quindi la direttrice, i punti di intersezione della parabola con la circonferenza si determinano tracciando due parallele alla direttrice stessa, a distanza R da essa.<br>
+Ora, per avere quattro punti di intersezione entrambe le rette dovrebbero intersecare la circonferenza, ma dato che sono a distanza 2R tra loro allora dovrebbero essere tangenti alla circonferenza e la direttrice passerebbe per il fuoco (la parabola diventerebbe una retta ortogonale alla direttrice passante per il centro della circonferenza), e quindi ci sarebbero solo 2 intersezioni.<br>
+Inoltre la distanza massima tra la direttrice e il centro è 2R (se si suppone che ci siano intersezioni), e quindi ci sarebbe solo un punto di tangenza e la parabola sarebbe completamente fuori dalla circonferenza, e quindi l'area da calcolare sarebbe 0.<br>
+<br>
+Vediamo come calcolare l'area della figura:<br>
+usiamo il teorema d'archimede per dimostrare che l'area della figura in esame è:<br>
+se f è la distanza del fuoco dal vertice della parabola:<br>
+<br>
+S=(1/3*R+2/3*f)*sqrt(fR-f^2)<br>
+<br>
+Possiamo determinare f dalla conservazione dell'energia e del momento angolare:<br>
+in una parabola, la velocità a distanza infinita s'annulla quindi l'energia totale è 0.<br>
+Inoltre nel vertice della parabola la velocità ha componente radiale (rispetto al fuoco) nulla.<br>
+Quindi se L è il momento angolare, G la costante di gravitazione universale, m la massa della cometa, Ms la massa del sole:<br>
+f=L^2/(2*G*Ms*m^2)  oppure |L|=m*sqrt(2*G*Ms*f)<br>
+<br>
+La velocità areolare dS/dt è proporzionale al momento angolare:<br>
+<br>
+dS/dt=L/(2*m)=sqrt(G*Ms*f/2)=sqrt(k*f);<br>
+<br>
+il periodo T è quindi:<br>
+<br>
+T=S/(dS/dt)=(1/3*R+2/3*f)*sqrt((R-f)/k)<br>
+<br>
+quindi trovando il massimo di T rispetto a f (ho derivato, scusate se non sono riuscito a trovarlo con metodi elementari), si trova che T è massimo per f=R/4;<br>
+<br>
+Tmax=sqrt((3/8)/(G*Ms))*R^(3/2)<br>
+<br>
+Tmax=sqrt(3/8)*2*pi*Ts<br>
+<br>
+dove Ts è l'anno di 365 giorni.<br>
+<br>
+Boia che fatica....adesso vi aspetto per sputtanare tutto ciò o proporre una soluzione più facile e ovvia.</article>
+<article class="post" id="p39753"><div class="who"><b>rargh</b><span>15 mag 2005, 17:49</span></div>Maledizione, scusate se non ho fatto l'anteprima. Riprendo le ultime formule:<br>
+<br>
+Tmax=sqrt[3*G*Ms/8]*R^(3/2)<br>
+<br>
+Tmax=sqrt[3/8]*2*pi*Ts<br>
+<br>
+dove Ts è l'anno di 365 giorni.</article>
+<article class="post" id="p40107"><div class="who"><b>Huxeley</b><span>19 mag 2005, 19:42</span></div>Ho risolto il problema solo in via cinematica ottenendo gli stessi risultati.<br>
+<br>
+In coordinate polari, col polo nel fuoco della parabola, la sua equazione è<br>
+ 1/ρ=(1/2f)(1+cosθ) mentre quella della circonferenza ρ=R. Le due curve si intersecano per <br>
+cosθ=(2f-R)/R, cioè per  tgθ/2=Sqrt[(R-f)/f] Il moto è centrale, quindi la velocità areolare è costante. L’area spazzata dal raggio vettore in un tempo dt è dS=(1/2) ρdθ allora la velocità areolare è ds/dt=1/2) ρdθ/dt=q=cost. Allora  dθ/dt=2q/ρ o, sostituendo l’equazione della parabola, <br>
+dθ/dt=q/2f(1+cosθ)  . Integrando e ponendo per t=0 θ=0 (cioè studiando il moto a partire dal vertice) si ha <br>
+          t=(2f/3q)(3+tgθ/2) tgθ/2  che è l’equazione del moto <br>
+Per la formula di Binet l’accelerazione centripeta è <br>
+a=-q/ρ[d[(1/ ρ)]dθ+1/ ρ] ; derivando l’equazione della parabola e ponendo con Newton a=-GMs/ρsi ottiene per il doppio della velocità areolare q <br>
+q=sqrt(2fGMs) o ponendo con te k=GMs/2 <br>
+q=2sqrt(fk) Sostituendo nell’equazione di moto <br>
+          t=(1/3)f/√(fk) (3+tgθ/2) tgθ/2  <br>
+ma ,come visto per i punti di intersezione, si ha tgθ/2=Sqrt[(R-f)/f ]  sostituendo si trova la metà del tempo in cui la cometa attraversa l’orbita terrestre. Si ha <br>
+t=[(2/3)f+(1/3)R]sqrt[(R-f)/k] <br>
+uguale alla tua equazione. Derivando e ponendo la derivata uguale a zero si ottiene <br>
+f= R/2<br>
+<br>
+Ciao.</article>
+<article class="post" id="p40124"><div class="who"><b>Huxeley</b><span>19 mag 2005, 22:19</span></div>Non mi sembra che il problema possa essere risolto in via elementare. Credo che comunque si svolga è necessaria qualche integrazione. Io ho usato la formula di Binet che ritengo poco nota ai ragazzi ma che tuttavia si può ricavere facilmente supponendo di volere trovare un'espressione dell'accelerazione dipendente solo dall'equazione polare della curva traiettoria.</article>
+<article class="post" id="p40134"><div class="who"><b>Huxeley</b><span>20 mag 2005, 07:35</span></div>:D</article>
+<nav class="pager"><a class="prev" href="oliforum-9021.html"><small>← precedente</small>SNS 1997-1998</a><a class="next" href="oliforum-3220.html"><small>successivo →</small>Elettromagnetismo</a></nav>
+</main></body></html>

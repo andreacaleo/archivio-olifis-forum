@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revival del famigerato SNS &#x27;94 n.4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1994-1995, problema 4</span></nav>
+<h1>Revival del famigerato SNS '94 n.4</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=4058">OliForum</a></p>
+<article class="post first" id="p43637"><div class="who"><b>info</b><span>08 ago 2005, 16:59</span></div>Questo problema rimase insoluto un anno fa e aveva battuto anche un odierno normalista… c’ho riprovato oggi… in realta le tabelle che vedo non danno ragione a quanto scritto ma magari vale per piccole variazioni di T… boh… Io scrivo, voi vedete… <br>
+<br>
+------<br>
+Descrizione:<br>
+<br>
+Arriva il gas a destra; questo provoca uno spostamento del liquido e quindi una variazione di volume: conseguentemente la temperatura cambia e quindi anche la tensione di vapore che vi e biunivocamente (a seconda del liquido) legata.<br>
+------<br>
+<br>
+<br>
+Considero il gas a destra. Dalla condizioni iniziali si ricava  DV (Stevino), Dn (molecole entranti, trascurando condensazioni e simili), Dp (che per ora si suppone uguale a p, anche se dovrebbe essere : psaturo2 + p - psaturo1). Viene :<br>
+<br>
+DT/T = 1 – [1+DP/P] [1+DV /V] / [1+Dn/n]                  {1}<br>
+<br>
+Ora come leghiamo T e la tensione di vapor saturo? Analisi microscopica : considero due molecole di liquido con i CM distanza a. Anzi ne considero una sola immersa nel campo gravitazionale dell’altra. Considero che se il sistema non e legato allora la condensazione non avviene… Quindi, considerate le formule della teoria cinetica dei gas :<br>
+<br>
+3/2 k T – Gm^2 / a = 0<br>
+<br>
+rappresenta il discrimine… con k costante di Boltzmann…<br>
+<br>
+nella {1} pero piu che la distanza media ci interessa il volume. Semplifico dicendo che preso il volume per molecola, la molecola piu vicina si trovera sulla sfera che tale volume contiene :<br>
+<br>
+V / (No * n) = 4/3 pi a^3<br>
+<br>
+Con No numero di Avogadro…<br>
+<br>
+Mettendo a sistema le ultime due equazioni e eliminando a, trovo che <br>
+<br>
+ro = C1 * T^3  {2}<br>
+<br>
+Con C1 una costante e ro densita…<br>
+<br>
+Ora dalla legge dei gas p = ro*MM*R*T<br>
+<br>
+Con MM massa molare, R constante dei gas e p pressione di vapor saturo… da cui usando la {2} si vede che la pressione e proporzionale alla potenza quarta della temperatura… ovvero, passando alle variazioni percentuali:<br>
+<br>
+Dp/p = 4 * DT/T… <br>
+<br>
+Che con la {1} fornisce un ris… errato? mah! sempre meglio di quando non mi usciva nulla  :D  Cmq mi sono divertito, dai...<br>
+<br>
+ATTENZIONE!<br>
+ps: corretto un errore di calcolo che portava a ris inaccettabili... sembrava che la tensione diminuisse con la temperatura!!! Ora va meglio...</article>
+<article class="post" id="p43645"><div class="who"><b>Paoloca</b><span>09 ago 2005, 09:08</span></div>Non credo abbia senso considerare l'energia potenziale gravitazionale in quelle condizioni: dovrebbe essere vari ordini di grandezza inferiore alle interazioni elettrostatiche..<br>
+<br>
+oh, il risultato cmq "a occhio" ha senso.</article>
+<article class="post" id="p43665"><div class="who"><b>info</b><span>10 ago 2005, 09:38</span></div>grazie per l'attenzione  :D ...<br>
+<br>
+Sto andando a cercare on-line qualche dispensa che tratti di questi argomenti... Spero di trovare qualcosa che smentisca le panzane che mi sono divertito a scrivere... nel caso posto un link!</article>
+<article class="post" id="p43671"><div class="who"><b>Paoloca</b><span>10 ago 2005, 10:41</span></div>Posta posta :D</article>
+<article class="post" id="p43728"><div class="who"><b>info</b><span>11 ago 2005, 09:45</span></div>Non ho trovato nulla di utile per il problema.... Ma ho visto un SNS 1991 (credo) o giu di li praticamente uguale e dice anche quale formula dimostrare, solo che  :cry: ... non so, forse bisogna ragionare sulle bolle di vapore ed imporre il loro collassamento... Pensavo di imporre che una bolla in superficie e in qualche modo investita dalle pressioni sia sopra l'acqua sia sotto e se il vapore dentro alla bolla ha una pressione maggiore della somma delle due, allora la bolla esce dal liquido... ma non mi esce molto... del resto mi sono anche un po inventato la definizione di pressione osmotica.... Aiuto! <br>
+<br>
+Bah... per il resto sul tema ho trovato l'equazione di Clausius-Clapeyron (dimostrabile) e la legge di Raoult (sperimentale?), entrambe reperibili nelle prime pagine di questo trattato<br>
+<br>
+<a href="http://www.soest.hawaii.edu/krubin/GG325/textbook/Chapter03.pdf" class="ext" class="postlink">http://www.soest.hawaii.edu/krubin/GG32 ... pter03.pdf</a><br>
+<br>
+ma e roba chimicosa... non mi piace affatto!!!!! (anche perche vanno contro i ragionamenti tanto belli che facevo nel post d'apertura  :D )</article>
+<article class="post" id="p72705"><div class="who"><b>mitchan88</b><span>21 lug 2007, 20:12</span></div>Qualcuno alla fine lo ha risolto? XD<br>
+Io ci rinuncio visto che non ho idea di come lavorare con tensioni di vapore et similia..  Anzi, so a malapena cosa sono dalle ore di chimica..sull'Halliday non ci sono :p</article>
+<nav class="pager"><a class="prev" href="oliforum-11519.html"><small>← precedente</small>Re-revival del famigerato SNS 1994.4</a><a class="next" href="oliforum-8701.html"><small>successivo →</small>Esplosione satellite (SNS 1994/95 n.5)</a></nav>
+</main></body></html>

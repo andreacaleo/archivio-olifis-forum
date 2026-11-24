@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>di nuovo sns, 2003-2004</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 2</span></nav>
+<h1>di nuovo sns, 2003-2004</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=5713">OliForum</a></p>
+<article class="post first" id="p54080"><div class="who"><b>hydro</b><span>23 giu 2006, 18:34</span></div>per non dimenticare che c'è anche fisica...<br>
+<br>
+la luce è costituita di fotoni, ciascuno dei quali trasporta un'energia $ E=h \cdot \nu $ ed un impulso $ \displaystyle p=\frac{h}{\lambda} $, dove $ \nu $ è la frequenza e $ \lambda $ la lunghezza d'onda della luce in questione. Un granello di polvere stellare che assorbe, senza riflettere, la luce del sole che lo investe, subisce per questo una forza che lo respinge dal sole stesso.<br>
+<br>
+1) Determinare il rapporto dell'intensità di questa forza con quella della gravitazione solare per un granello sferico di raggio $ r $ e densità $ \rho $.<br>
+<br>
+2) Assumendo $ \rho=10^{-1} g/cm^3 $ calcolare l'ordine di grandezza di $ r $ per cui queste due forze si bilanciano</article>
+<article class="post" id="p54093"><div class="who"><b>Bacco</b><span>23 giu 2006, 20:55</span></div>La forza grav. si trova con la legge di grav. universale.<br>
+<br>
+La pressione di radiazione (sup. affacciata = $ \pi r^2 $) vale $ I\over c $.<br>
+<br>
+Ponendo in rapporto, dopo alcuni conti che spero di non aver sbagliato:<br>
+$ \displaystyle\frac{F_{rad}}{F_{grav}}=\frac{3W}{16\pi cGM\rho r} $.<br>
+<br>
+Il rapporto vale 1 quando $ r \sim 5,7 \mu m $.<br>
+<br>
+Ciao<br>
+<br>
+P.S.: nei dati mancavano la luminosità e la massa del Sole, che valgono $ W=3,827 \cdot 10^{26} W  $ e $ M=1,989 \cdot 10^{30} kg  $.</article>
+<nav class="pager"><a class="prev" href="oliforum-11592.html"><small>← precedente</small>SNS 2003-2004 es. 2</a><a class="next" href="olifis-242.html"><small>successivo →</small>SIMULAZIONE: SNS 2003/2004 Problema 2</a></nav>
+</main></body></html>

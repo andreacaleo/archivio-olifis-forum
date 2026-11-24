@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2021-2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2021-2022, problema 2</span></nav>
+<h1>SNS 2021-2</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7106">forum Olifis</a></p>
+<article class="post first" id="p27192"><div class="who"><b>Fede:)</b><span>1 nov 2021, 17:23</span></div>Una barra conduttiva di lunghezza <span class="tex">\(w\)</span>, resistenza <span class="tex">\(R\)</span> e massa <span class="tex">\(m\)</span> può muoversi senza attrito su due conduttori ideali che si chiudono su un induttore <span class="tex">\(L\)</span>, e il sistema è immerso in un campo magnetico <span class="tex">\(B\)</span> uscente perpendicolare al circuito.<br>
+a)Considerando l'induttanza nulla trovare l'evoluzione della corrente <span class="tex">\(i\)</span> nel tempo se la barra inizia a muoversi con velocità iniziale <span class="tex">\(v_0\)</span> diretta verso destra(esterno del circuito).<br>
+b)Che effetto ha l'introduzione dell'induttore L sulla dinamica della corrente nel circuito?<br>
+<br>
+Questo problema mi è sembrato relativamente standard per essere un SNS e ho voluto provarlo, ma non penso di averlo risolto correttamente, soprattutto il punto b.<br>
+<br>
+a) Per la legger Faraday la corrente indotta istantanea a è data da <span class="tex">\(iR=-\frac{\text{d}\Phi(B)}{\text{d}t}\)</span> e circola in verso orario, inoltre si vede facilmente che quando la sbarretta di muove di un tratto <span class="tex">\({d}x\)</span> il flusso del campo magnetico varia come <span class="tex">\({d}\Phi(B)=Bw{d}x\)</span>.<br>
+La barra è soggetta poi alla forza di interazione magnetica diretta verso sinistra(interno del circuito) <span class="tex">\(m\frac{\text{d}v}{\text{d}t}=Biw\)</span>, e unendo queste tre equazioni si ottiene <span class="tex">\(\frac{\text{d}v}{\text{d}t}=-\frac{B^2vw^2}{Rm}\)</span>, da cui integrando e consideranzo che in <span class="tex">\(t=0\)</span> si ha <span class="tex">\(v=v_0\)</span> ottengo <span class="tex">\(v(t)=v_0e^{-\frac{B^2w^2}{Rm}t}\)</span>, da cui <span class="tex">\(i(t)=\frac{Bwv_0}{R}e^{-\frac{B^2w^2}{Rm}t}\)</span>.<br>
+<br>
+b) Qui mi verrebbe da usare direttamente la formula della legge di Faraday con l'induttanza <span class="tex">\(iR=-L\frac{\text{d}i}{\text{d}t}\)</span> da cui integrando e considerando (ma qui penso di sbagliarmi) <span class="tex">\(i_0=\frac{Bv_0w}{R}\)</span> trovo <span class="tex">\(i(t)=\frac{Bv_0w}{R}e^{-\frac{R}{L}t}\)</span>, ma mi sembra troppo scontato per essere giusto.</article>
+<article class="post" id="p27193"><div class="who"><b>Luca Milanese</b><span>1 nov 2021, 19:20</span></div>Corretta la soluzione del punto a), nel punto b) invece non devi dimenticare di considerare comunque anche l'effetto del campo magnetico sulla forza elettromotrice. Le due equazioni di cui tenere conto sono:<br>
+<span class="tex">\(m\frac{\text{d}v}{\text{d}t} = Biw\)</span><br>
+<span class="tex">\(-Bwv-Ri-L\frac{\text{d}i}{\text{d}t}=0\)</span><br>
+Da cui:<br>
+<span class="tex">\(\ddot v +\frac{R}{L}\dot v + \frac{B^2 w^2}{Lm}v=0\)</span><br>
+A questo punto si hanno tre casi.<br>
+<br>
+I) <span class="tex">\(1 &gt; \frac{4B^2 w^2 L}{mR^2}\)</span> <br>
+Si ha:<br>
+<span class="tex">\(v(t)=C_1 e^{\lambda_1 t}+C_2 e^{\lambda_2 t}\)</span><br>
+Dove <span class="tex">\(\lambda_{1,2}\)</span> sono le radici reali e distinte dell'equazione <span class="tex">\(x^2+\frac{R}{L}x+\frac{B^2w^2}{Lm}=0\)</span><br>
+<span class="tex">\(v(t)=e^{-\frac{Rt}{2L}}(C_1e^{\frac{Rt}{2L}\sqrt{1-\frac{4B^2w^2 L}{mR^2}}}+   C_2e^{-\frac{Rt}{2L}\sqrt{1-\frac{4B^2w^2 L}{mR^2}}} )\)</span><br>
+Le costanti <span class="tex">\(C_1\)</span> e <span class="tex">\(C_2\)</span> sono determinate dalle condizioni iniziali <span class="tex">\(v(0)=v_0\)</span> e <span class="tex">\(i(0)=i_0\)</span>, tuttavia non conosciamo <span class="tex">\(i_0\)</span> e quindi resta una costante indeterminata.<br>
+<br>
+II) <span class="tex">\(1 &lt; \frac{4B^2 w^2 L}{mR^2}\)</span><br>
+Si procede come sopra, solo che stavolta le radici <span class="tex">\(\lambda_{1,2}\)</span> sono complesse e al posto degli esponenziali compaiono delle funzioni sinusoidali:<br>
+<span class="tex">\(v(t)=e^{-\frac{Rt}{2L}}\bigg[C_1' \sin \bigg(\frac{Rt}{2L}\sqrt{\frac{4B^2w^2 L}{mR^2}-1}\bigg)+   C_2' \cos \bigg(\frac{Rt}{2L}\sqrt{\frac{4B^2w^2 L}{mR^2}-1} \bigg) \bigg]\)</span><br>
+<br>
+III) <span class="tex">\(1 = \frac{4B^2 w^2 L}{mR^2}\)</span><br>
+In questo caso si ha <span class="tex">\(\lambda_1=\lambda_2=-\frac{R}{2L}\)</span>, e la soluzione ha la forma:<br>
+<span class="tex">\(v(t)=(C_1+C_2 t)e^{-\frac{Rt}{2L}}\)</span><br>
+<br>
+In ciascuno dei casi si può poi trovare <span class="tex">\(i(t)\)</span> dalla relazione <span class="tex">\(i=\frac{m \dot v}{Bw}\)</span>.<br>
+Non penso che nel test fosse richiesta la soluzione esplicita dell'equazione differenziale, probabilmente bastava ottenere l'equazione e discuterla qualitativamente.</article>
+<article class="post" id="p27194"><div class="who"><b>Fede:)</b><span>1 nov 2021, 20:10</span></div>Grazie mille!<br>
+Scusa se rompo ma sono abbastanza alle prime armi, che tipo di discussione qualitativa si potrebbe fare senza risolvere l'equazione differenziale?</article>
+<article class="post" id="p27196"><div class="who"><b>Luca Milanese</b><span>2 nov 2021, 10:10</span></div>Una buona idea potrebbe essere quella di riscrivere l'equazione mostrando che essa esprime un bilancio energetico:<br>
+<span class="tex">\(\ddot v +\frac{R}{L} \dot v +\frac{B^2 w^2}{Lm}v=0 \Rightarrow  \frac{\text{d}}{\text{d}t}\bigg (\frac{Lm^2 \dot v^2}{2B^2 w^2}+\frac{mv^2}{2}\bigg) =-R\bigg (\frac{m\dot v}{Bw}\bigg)^2\)</span>    <br>
+<span class="tex">\(\Rightarrow  \frac{\text{d}}{\text{d}t}\bigg (\frac{Li^2}{2}+\frac{mv^2}{2}\bigg) =-Ri^2   \)</span><br>
+Nella seconda forma, quella tra parentesi assomiglia all'energia di un sistema oscillatorio, mentre il termine al secondo membro è negativo o nullo, quindi si può interpretare il fenomeno come la dissipazione di energia in un oscillatore, proporzionale al quadrato della velocità, il che porta a concludere che l'ampiezza delle "oscillazioni" decresce (e questo è proprio quanto succede nel caso II) di sopra).</article>
+<article class="post" id="p27199"><div class="who"><b>Fede:)</b><span>2 nov 2021, 16:29</span></div>Grazie mille :)</article>
+<article class="post" id="p27465"><div class="who"><b>Aargon</b><span>17 lug 2022, 20:21</span></div>Scusatemi per l'ignoranza, ma davvero non capisco perchè v(t)=v0*e^((-B^2v0w^2)/Rm)t e non semplicemente v(t)=v0-((-B^2v0w^2)/Rm)t.<br>
+Ho cercato di venirne a capo ed ho pensato che la cosa più semplice fosse chiedere</article>
+<nav class="pager"><a class="prev" href="olifis-7110.html"><small>← precedente</small>279 - SNS 2021/1</a><a class="next" href="olifis-7132.html"><small>successivo →</small>290- SNS 2021/4</a></nav>
+</main></body></html>

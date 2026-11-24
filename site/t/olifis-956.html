@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2011 n.2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2011-2012, problema 2</span></nav>
+<h1>sns 2011 n.2</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=956">forum Olifis</a></p>
+<article class="post first" id="p7717"><div class="who"><b>modesto</b><span>17 nov 2011, 18:17</span></div>Lo strato <span class="tex">\(\-a&lt;x&lt;a\)</span> è uniformemente carico con densità di carica elettrica per unità di volume <span class="tex">\(\rho&gt;0\)</span> e lungo l'asse <span class="tex">\(x\)</span> è praticato un foro molto sottile che lo attraversa. Una particella di massa <span class="tex">\(m\)</span> e carica <span class="tex">\(q&gt;0\)</span> si muove lungo l'asse <span class="tex">\(x\)</span>; a un dato istante si trova nel punto <span class="tex">\((a,0,0)\)</span> e si muove con velocità <span class="tex">\(\vec v= (v_0,0,0)\)</span> con <span class="tex">\(v_0&lt;0\)</span>. Si determini il valore minimo di <span class="tex">\(|v_0|\)</span> che consente alla particella di attraversare completamente il foro nello strato.<br>
+<br>
+Il vettore elettrico nei punti interni allo strato non può avere componenti nel piano<span class="tex">\(y,z\)</span>. Consideriamo un cilindro con asse parallelo o coincidente con l'asse <span class="tex">\(x\)</span>, di base <span class="tex">\(S\)</span> e altezza <span class="tex">\(2a\)</span>. Applicando il teorema di Gauss non essendoci flusso laterale è possibile determinare il vettore <span class="tex">\(\vec E\)</span> immediatamente vicino allo strato nei due semispazi, con componente positiva in quello di destra e negativa nell'altro. Sarà<br>
+<span class="tex">\(2SE= \frac{2aS\rho}\epsilon_0\)</span> da cui <span class="tex">\(E(a)=\frac{\rho.a}\epsilon_0\)</span> essendo <span class="tex">\(\epsilon_0\)</span> la costante dielettrica del vuoto. Siccome l'altezza del cilindro poteva essere comunque maggiore di <span class="tex">\(2a\)</span>, si conclude che il vettore elettrico è di modulo costante e diretto in verso opposto nei due semispazi. Analogamente, considerando gli strati <span class="tex">\((-a,x)\)</span> e <span class="tex">\((x,a)\)</span> e applicando due volte il teorema di Guss si determina<br>
+<span class="tex">\(E(x)= \frac{\rho.x}\epsilon_0\)</span>. Essendo <span class="tex">\(E(x) = -\frac{dV}{dx}\)</span>, si ricava il potenziale per ogni <span class="tex">\(-a&lt;x&lt;a\)</span> ponendo <span class="tex">\(V(0)=0\)</span> essendo definito a meno di una costante arbitraria<br>
+<span class="tex">\(V(x)=-\frac{\rho.x^2}{2\epsilon_0}\)</span> con <span class="tex">\(V(a)=-\frac{\rho.a^2}{2\epsilon_0}\)</span>. Per <span class="tex">\(x&gt;a  o   x&lt;-a\)</span> si trova<span class="tex">\(V(x)=-\frac{\rho.ax}\epsilon_0 +\frac {\rho.a^2}{2\epsilon_0}\)</span>.<br>
+L'energia cinetica (e quindi la velocità) minima necessaria a farle attraversare il foro è quella uguale a <span class="tex">\(-V(a)\)</span> da cui si ricava<br>
+<span class="tex">\(|v_0|_m = a\sqrt\frac{q\rho}{m\epsilon_0}\)</span>.<br>
+Dubbi:1) l'assenza di componenti <span class="tex">\(y,z\)</span> del vettore elettrico; 2) il potenziale elettrico che diventa infinito nei due semispazi 3) in realtà quella velocità minima porta la carica nell'origine con velocità nulla dove sarebbe in equilibrio instabile: quella necessaria all'attraversamento sarebbe superiore di <span class="tex">\(|v_0|_m\)</span> per un infinitesimo che è inferiore a qualsiasi errore sperimentale. Allora si può considerare come minima quella trovata?</article>
+<article class="post" id="p7846"><div class="who"><b>Omar93</b><span>14 dic 2011, 16:21</span></div>Chiamo x la distanza  sull'asse delle x dal punto di partenza di m. <br>
+1- non ci sono accelerazioni sull'asse y  e z(basta vedere la particella dall'esterno su un sistema inerziale)(nota che se non fosse sull'asse ci sarebbero)<br>
+2-la particella subisce da <span class="tex">\(a\)</span> a 0 una repulsione che la rallenta,poi che l'accelera.Quindi basta che essa passi il centro ad una velocità maggiore,in modulo,di 0. Tanto poi verrà accelerata.<br>
+Se considero la particella in un qualsiasi istante t compreso tra 0 ed il momento in cui arriva in 0,0,0 vedo che essa divide il foro in due parti: una lunga x e l'altra 2a-x.<br>
+Chiamo s il raggio di un qualsiasi cilindro con asse coincidente con quello del mio foro.<br>
+Considero ora i cilindri di raggio s ed altezza x e 2a-x. <br>
+Allora se applico il teorema di Gauss a queste due superfici ho:<br>
+<span class="tex">\(\phi_1 = E_i \pi s^2 -E\pi s^2 + E'\pi s^2 = (\pi s^2 x \rho)/  \epsilon_0\)</span><br>
+<span class="tex">\(\phi_2 = E_i \pi s^2 + E\pi s^2 - E'\pi s^2 = (\pi s^2 (2a-x) \rho)/  \epsilon_0\)</span><br>
+Sottraggo : <span class="tex">\(2E-2E'=2(E_t)=(2(a-x)\rho) / (\epsilon_0)\)</span><br>
+<span class="tex">\(E_t = ((a-x)\rho) / (\epsilon_0)\)</span><br>
+Dove E_t è il campo totale in fuzione di x.  So che la variazione di energia cinetica di un corpo puntiforme è uguale al lavoro compiuto dalla somma delle forze esterne.<br>
+<span class="tex">\(\Delta K = q \int_0^{a}((a-x)\rho)(\epsilon_0)dx\)</span><br>
+Il coseno dell'angolo minimo tra <span class="tex">\(E_t\)</span> ed il vettore dx è -1.<br>
+Quindi :<span class="tex">\(v=a \sqrt{\frac{q\rho}{m \epsilon_0}}\)</span></article>
+<article class="post" id="p7851"><div class="who"><b>modesto</b><span>15 dic 2011, 11:22</span></div><blockquote><div><cite>Omar93 ha scritto:</cite>2-la particella subisce da <span class="tex">\(a\)</span> a 0 una repulsione che la rallenta,poi che l'accelera.Quindi basta che essa passi il centro ad una velocità maggiore,in modulo,di 0. Tanto poi verrà accelerata.<br>
+<span class="tex">\(\Delta K = q \int_0^{a}((a-x)\rho)(\epsilon_0)dx\)</span><br>
+Il coseno dell'angolo minimo tra <span class="tex">\(E_t\)</span> ed il vettore dx è -1.<br>
+Quindi :<span class="tex">\(v=a \sqrt{\frac{q\rho}{m \epsilon_0}}\)</span></div></blockquote>
+
+Il metodo e il risultato mi pare concordino. Però, anche nel tuo caso, non arriva in O con velocità nulla mentre dichiari che dovrebbe averla "maggiore...di 0"?</article>
+<article class="post" id="p7858"><div class="who"><b>Omar93</b><span>18 dic 2011, 16:47</span></div>Spero di aver capito bene quello che chiedi.<br>
+Io ho pensato così: prendiamo in considerazione i due insiemi di velocità maggiori di quella trovata e minori. Ora supponiamo di voler cercare il minimo ed il massimo per ciascun insieme: non esiste. <br>
+Ma esiste un maggiorante ed un minorante,che è un elemento di separazione per i due insiemi,    <span class="tex">\(v_{min}\)</span>.</article>
+<article class="post" id="p9225"><div class="who"><b>Ariz</b><span>20 ago 2012, 13:27</span></div><blockquote><div><cite>Omar93 ha scritto:</cite>Chiamo x la distanza  sull'asse delle x dal punto di partenza di m. <br>
+1- non ci sono accelerazioni sull'asse y  e z(basta vedere la particella dall'esterno su un sistema inerziale)(nota che se non fosse sull'asse ci sarebbero)<br>
+2-la particella subisce da <span class="tex">\(a\)</span> a 0 una repulsione che la rallenta,poi che l'accelera.Quindi basta che essa passi il centro ad una velocità maggiore,in modulo,di 0. Tanto poi verrà accelerata.<br>
+Se considero la particella in un qualsiasi istante t compreso tra 0 ed il momento in cui arriva in 0,0,0 vedo che essa divide il foro in due parti: una lunga x e l'altra 2a-x.<br>
+Chiamo s il raggio di un qualsiasi cilindro con asse coincidente con quello del mio foro.<br>
+Considero ora i cilindri di raggio s ed altezza x e 2a-x. <br>
+Allora se applico il teorema di Gauss a queste due superfici ho:<br>
+<span class="tex">\(\phi_1 = E_i \pi s^2 -E\pi s^2 + E'\pi s^2 = (\pi s^2 x \rho)/  \epsilon_0\)</span><br>
+<span class="tex">\(\phi_2 = E_i \pi s^2 + E\pi s^2 - E'\pi s^2 = (\pi s^2 (2a-x) \rho)/  \epsilon_0\)</span><br>
+Sottraggo : <span class="tex">\(2E-2E'=2(E_t)=(2(a-x)\rho) / (\epsilon_0)\)</span><br>
+<span class="tex">\(E_t = ((a-x)\rho) / (\epsilon_0)\)</span><br>
+Dove E_t è il campo totale in fuzione di x.  So che la variazione di energia cinetica di un corpo puntiforme è uguale al lavoro compiuto dalla somma delle forze esterne.<br>
+<span class="tex">\(\Delta K = q \int_0^{a}((a-x)\rho)(\epsilon_0)dx\)</span><br>
+Il coseno dell'angolo minimo tra <span class="tex">\(E_t\)</span> ed il vettore dx è -1.<br>
+Quindi :<span class="tex">\(v=a \sqrt{\frac{q\rho}{m \epsilon_0}}\)</span></div></blockquote>
+Ho una domanda omar(o modesto) come avete calcolato le varie intensità di campo in base alla variazione del flusso elettrico?? e perché ci sono 2 flussi??(è per la repulsione e poi l'accelerazione??) inoltre come fate a sapere che prima c'è la repulsione e poi l'accelerazione della particella?</article>
+<nav class="pager"><a class="prev" href="olifis-869.html"><small>← precedente</small>SNS  2011--1</a><a class="next" href="olifis-870.html"><small>successivo →</small>sns 2011 n.3</a></nav>
+</main></body></html>

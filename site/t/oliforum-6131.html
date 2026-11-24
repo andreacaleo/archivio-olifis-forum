@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preparando un cenone... [SNS (2005-2006).1]</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 1</span></nav>
+<h1>Preparando un cenone... [SNS (2005-2006).1]</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6131">OliForum</a></p>
+<article class="post first" id="p56374"><div class="who"><b>Poliwhirl</b><span>23 ago 2006, 16:50</span></div>Un recipiente contenente $ 7 $ litri d'acqua viene posto su un fornello che eroga $ 100 $ Watt. A causa delle perdite, l'acqua non riesce a sorpassare la temperatura di $ \displaystyle T = 91°C $. Si spegne allora il fornello. Quanto tempo occorre perché la temperatura dell'acqua diminuisca di $ \displaystyle 1°C $? ($ \displaystyle 1\ caloria\ =\ 4,1868 J $)<br>
+<br>
+Bye,<br>
+#Poliwhirl#</article>
+<article class="post" id="p56377"><div class="who"><b>David</b><span>23 ago 2006, 17:05</span></div>in questo problema sembrano mancare alcuni dati...<br>
+io l'ho risolto (e ho avuto anche la conferma) immaginando che la potenza dissipata in quel grado rimanga costante.<br>
+percui:<br>
+$ t=\frac{4186.8*7}{100} $<br>
+che con una buona approssimazione è un buon risultato.<br>
+però è piuttosto banale per essere un esame della normale, ma con i dati forniti il max che ci si calcolare è questo.</article>
+<article class="post" id="p56394"><div class="who"><b>Tamaladissa</b><span>23 ago 2006, 18:05</span></div>In generale si ha:<br>
+<br>
+$ P_a_s_s_o_r_b = P_e_n_t_r - P_u_s_c $<br>
+<br>
+Evidentemente la potenza uscente dipende dalla temperatura, o più precisamente dalla differenza di temperatura tra interno ed esterno. Supponiamo che dipenda (a parita degli altri parametri che rimangono immutati) dalla differenza di temperatura tra esterno e interno e da una costante:<br>
+<br>
+$ P(T)_u_s_c = \lambda (T - T_a_m_b) $<br>
+<br>
+A 91° ossia 364 K sappiamo che Pass vale 100W perche la temperatura non si innalza ulteriormente. Possiamo quindi ricavare la costante:<br>
+<br>
+$ \lambda = 1,408 $<br>
+<br>
+Ora possiamo calcolare il valor medio della potenza in uscita tra 363 K e 364 K.<br>
+<br>
+$ P_m_e_d_,_u_s_c = \int \lambda (T - T_a_m_b) dT $<br>
+<br>
+Calcolando l'integrale tra 363 K e 364 K si trova che: $ P_m_e_d_,_u_s_c = 99 W $<br>
+<br>
+Ora sapendo che il calore da cedere vale:<br>
+<br>
+$ Q = m c \Delta T  $ si trova che il tempo necessario è:<br>
+<br>
+$ t = 296 sec $<br>
+<br>
+Non so se c'è da considerare altro però cosi sembra almeno sensato.</article>
+<article class="post" id="p56479"><div class="who"><b>David</b><span>24 ago 2006, 17:26</span></div>solo una cosa non mi convince nella tua dimostrazione:
+<blockquote class="uncited"><div>
+Evidentemente la potenza uscente dipende dalla temperatura, o più precisamente dalla differenza di temperatura tra interno ed esterno. Supponiamo che dipenda (a parita degli altri parametri che rimangono immutati) dalla differenza di temperatura tra esterno e interno e da una costante:<br>
+<br>
+$ P(T)_u_s_c = \lambda (T - T_a_m_b)  $</div></blockquote>
+
+sono d'accordo nel dire che la potenza dipende dalla differenza di temperatura. <br>
+ma noi non conosciamo la temperatura dell'ambiente ciscostante e tantomeno la temperatura iniziale dell'acqua.<br>
+inoltre la bisognerebbe dimostrare la legge che hai proposto, la potenza potrebbe cambiare secondo un'altra legge.</article>
+<article class="post" id="p56483"><div class="who"><b>Tamaladissa</b><span>24 ago 2006, 18:10</span></div>Beh, solitamente se non si specifica altro si lavora a temperatura ambiente. poi è vero che non conosciamo la temperatura iniziale dell'acqua ma infatti non serve nel problema...non so, che temperatura intendi? Per la legge proposta è vero che andrebbe dimostrata ma sinceramente ho optato per una soluzione intuitiva più che formale. Tu come lo hai risolto?<br>
+<br>
+Ciao!! :)</article>
+<article class="post" id="p56489"><div class="who"><b>David</b><span>24 ago 2006, 18:53</span></div>in effetti hai ragione, non serve la temperatura iniziale dell'acqua.<br>
+io ho fatto una brutta soluzione (vedi più in alto), ma secondo me con i dati forniti si può fare solo questo (può darsi pure che mi sbagli... :( ) e cioè considerare la perdità di potenza costante nel tempo. è un'approssimazione, ma visto che si tratta solo di un grado di differenza è accettabile. <br>
+preferisco questo piuttosto che utilizzare una legge non dimostrata  :)</article>
+<article class="post" id="p56502"><div class="who"><b>Tamaladissa</b><span>24 ago 2006, 20:37</span></div>Si però considerando la potenza dissipata costante nel tempo non si giustificherebbe il fatto che la temperatura si asseste ad un ben precisa temperatura che è il punto centrale del problema.</article>
+<article class="post" id="p56503"><div class="who"><b>David</b><span>24 ago 2006, 21:04</span></div>anche questo è vero...<br>
+mah! :?  :?  :?  :?  non so che dire... se qualcuno ha altre idee...</article>
+<article class="post" id="p56507"><div class="who"><b>nnsoxke</b><span>24 ago 2006, 21:20</span></div>Dovrebbe andare bene la soluzione di david ... al variare di un grado la potenza dissipata non dovrebbe calare di tanto ... Io proverei a risolverlo per Tamb = 20°C  visto che il recipiente è posto su un fornello da cucina , con la formula proposta e confronterei i risultati , non dovrebbero essere molto differenti</article>
+<article class="post" id="p56521"><div class="who"><b>Tamaladissa</b><span>24 ago 2006, 23:48</span></div>No ma infatti la differenza è solo di qualche secondo...Come stima è ottima anche quella di david però è impossibile che sia il valore esatto dato il comportamento del sistema.</article>
+<article class="post" id="p56534"><div class="who"><b>David</b><span>25 ago 2006, 09:32</span></div>mi hai convinto. la mia soluzione è peggiore della tua...proprio perchè il sistema ha un comportamento più simile alla legge da te descritta.</article>
+<article class="post" id="p56570"><div class="who"><b>Cmax</b><span>25 ago 2006, 13:16</span></div>Quando la sorgente di calore è attiva si ha<br>
+$ \frac{\partial T}{\partial t} = - \lambda (T-T_e) + q$<br>
+dove $T_e$ è la temperatura ambiente e $q = \frac{100}{4.18 \cdot 10^3 \cdot 7} °C s^{-1} = 3.4 \cdot 10^{-3} °C s^{-1} $  $.<br>
+Si vede che è indifferente usare gradi °C o °K.<br>
+Si ha quindi<br>
+$ T^q(t) = T_\infty^q +(T_0^q-T_\infty^q)e^{-\lambda t}.$  $<br>
+dove l´indice $^q$ indica che questa legge vale nel caso di sorgente attiva <br>
+e $T_\infty^q = T_e + \frac{q}{\lambda} = 91 °C $.<br>
+Quindi $ \lambda = \frac{q}{91-T_e}.$<br>
+Quando la sorgente viene spenta, l´equazione diventa<br>
+$ \frac{\partial T}{\partial t} = - \lambda (T-T_e)$<br>
+la cui soluzione è $T(t) = T_e +(T_0-T_e)e^{-\lambda t}$, dove, ora, $T_0$ = 91°C.<br>
+Risolvendo l´equazione $90 = T_e +(91-T_e)e^{-\lambda t^*}$ si ottiene<br>
+$t^* = \frac{91-T_e}{q} \hspace{2 pt} ln \frac{91-T_e}{90-T_e}$.<br>
+In effetti manca $T_e$, ma si può notare che il valore di $t^*$ varia di poco in un intervallo ragionevolmente ampio di valori, per esempio da 0 °C ($t^*=294.2$ s) a 50°C ($t^*=296.2$ $ s), per cui una stima compresa tra i due valori è accettabile.</article>
+<article class="post" id="p56806"><div class="who"><b>Ani-sama</b><span>27 ago 2006, 17:00</span></div>Uhm, alla fine dunque usare la legge del raffreddamento di Newton non era idea insensata... anche perché, d'altra parte, che cos'altro ci si poteva inventare?  :?</article>
+<article class="post" id="p56839"><div class="who"><b>Tamaladissa</b><span>28 ago 2006, 01:35</span></div>Volendo far le cose per bene si sarebbe docuto usare il postulato di Fourier per la conduzione unita alla formula di Newton per la convezione, ma non penso sia pogramma da liceo...</article>
+<nav class="pager"><a class="prev" href="oliforum-8382.html"><small>← precedente</small>da sns 2000 e qualcosa</a><a class="next" href="oliforum-12744.html"><small>successivo →</small>Gravità, secondo round (SNS 2005-2006)</a></nav>
+</main></body></html>

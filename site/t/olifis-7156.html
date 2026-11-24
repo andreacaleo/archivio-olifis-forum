@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2017/18 n.5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2017-2018, problema 5</span></nav>
+<h1>SNS 2017/18 n.5</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7156">forum Olifis</a></p>
+<article class="post first" id="p27501"><div class="who"><b>Aargon</b><span>22 ago 2022, 13:32</span></div>Ed eccone un altro ancora:<br>
+<br>
+Si vuole costruire una nuova centrale termoelettrica vicino ad un fiume, in modo<br>
+che essa possa utilizzarne l'acqua come fluido di raffreddamento. La centrale produce energia<br>
+bruciando un combustibili alla temperatura di 600°C. II fiume ha una larghezza L = 10 m e<br>
+una profondita media H = 3 m, e l'acqua ha una temperatura di 15°C e scorre alla velocita<br>
+v = 1 m/s.<br>
+<br>
+E' stato determinato da studi approfonditi che la fauna ittica che abita il fiume non puo tollerare<br>
+un aumento di temperatura dell'acqua superiore a 0,5°C senza subire conseguenze negative.<br>
+Si determini la massima potenza elettrica che e teoricamente possibile ricavare dalla centrale,<br>
+rispettando i suddetti limiti imposti dalla protezione ambientale. Dati utili: 0°C= 273 K ; il<br>
+calore specifico dell'acqua vale 4,19 J/(g K).</article>
+<article class="post" id="p27502"><div class="who"><b>Aargon</b><span>22 ago 2022, 14:00</span></div>Propongo anche una soluzione che però sembra davvero essere troppo semplice a mio avviso :roll: :<br>
+Mi pare che il server latex l momento non stia funzionando, dunque mi tocca scrivere tutto normalmente sperando di essere il più chiaro possibile.<br>
+<br>
+Tratto la centrale idroelettrica come una macchina termica ideale dove [Th = 600°C = 873K] è la temperatura della sorgente più calda, [Tl = 15°C = 288K] è la temperatura della sorgente più fredda, [Qh] il calore ricavato dalla sorgente più calda, [Ql] il calore ceduto alla sorgente più fredda e infine [W] l'energia prodotta dalla centrale che è quindi ciò che stiamo cercando.<br>
+<br>
+Una macchina ideale che lavora fra le temperature [Th] e [Tl] in questione è [h = 1-(Tl/Th) = 1-(288/873) = 0.67]<br>
+Sapendo le dimensioni del fiume posso calcolare la sua portata come [P = V/t = A*v = H*L*v = 3*10*1 = 30m^3/s] che equivalgono ad una massa per unità di tempo [M/t = 3*10^4kg/s]<br>
+Con questi dati posso calcolare il calore massimo ceduto alla sorgente più fredda (porzione di fiume) in un secondo: [Ql = McT = 3*10^4*4190*0.5 = 6.3*10^7 J].<br>
+Sapendo che il rendimento è anche uguale a [h = 1-(Ql/Qh)] posso calcolare [Qh = Ql/(1-h) = 6.3*10^7/(1-0.67) = 1.9*10^8 J].<br>
+Infine ancora, essendo [h = W/Qh] posso calcolare [W = h*Qh = 0.67*1.9*10^8 = 1.3*10^8 J]<br>
+<br>
+Come vi sembra?</article>
+<article class="post" id="p28789"><div class="who"><b>Simo_ullio</b><span>17 ago 2025, 0:25</span></div>È la stessa soluzione che avevo pensato io, ti segnalo solo che il discorso è tutto in termini di potenza e non di energia, quindi le unità di misura sono W e non J</article>
+<article class="post" id="p28790"><div class="who"><b>Higgs</b><span>19 ago 2025, 10:48</span></div>Vi consiglierei di acquistare Problemi di Fisica, nuova edizione che arriva fino all'SNS 2023 :D</article>
+<article class="post" id="p28792"><div class="who"><b>Simo_ullio</b><span>20 ago 2025, 16:32</span></div>Temo che ormai non possa più essermi di molto aiuto, ho il conorso il 25</article>
+<nav class="pager"><a class="prev" href="olifis-6550.html"><small>← precedente</small>SNS 2017 n.5</a><a class="next" href="olifis-6706.html"><small>successivo →</small>SNS 2017 n.6</a></nav>
+</main></body></html>

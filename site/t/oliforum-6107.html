@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al centro dell&#x27;attenzione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 5</span></nav>
+<h1>Al centro dell'attenzione</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6107">OliForum</a></p>
+<article class="post first" id="p56195"><div class="who"><b>Bacco</b><span>21 ago 2006, 14:25</span></div>Questo problema mi sembra molto discusso ultimamente... <br>
+<br>
+Si consideri un trenino elettrico composto da una locomotiva di massa m posta su un circuito circolare di raggio R appoggiato su un piano orizzontale fisso. Le dimensioni della locomotiva sono trascurabili rispetto a R, la massa di tutti i binari componenti il circuito è M e il circuito può scorrere sul piano di appoggio senza attrito alcuno. Locomotiva e circuito sono inizialmente fermi, poi la locomotiva si mette in moto fino a raggiungere una velocità di scorrimento relativa ai binari $ v_0 $ costante. Si determini la traiettoria della locomotiva rispetto al piano di appoggio, ed il periodo T del suo moto dopo il transiente iniziale. Si discutano i due limiti M&gt;&gt;m e m&gt;&gt;M. In che senso il secondo di essi può essere irrealistico?</article>
+<article class="post" id="p56212"><div class="who"><b>David</b><span>21 ago 2006, 17:52</span></div>Io l'ho risolto ipotizzando che nella frase: "Si determini la traiettoria della locomotiva rispetto al piano di appoggio, ed il periodo T del suo moto <strong class="text-strong">dopo</strong> il transiente iniziale" il dopo sia riferito sia alla traiettoria che al periodo T. il testo è infatti, secondo me, dubbio.<br>
+comunque io l'ho risolto dicendo che:<br>
+1 - il sistema è isolato perchè non agiscono forze dall'esterno.<br>
+2 - se il sistema è isolato l'unico moto che può fare è quello di ruotere su se stesso.<br>
+3 - la traiettoria della locomotiva sarà dunque circolare, con periodo $ T=\frac {2R\pi} {v_1} $ dove $ \vec{v_1}=\vec{v_0}+\vec{v_r} $ <br>
+$ v_r $ è data dalla legge di conservazione della quantità di moto ($ v_r $ è la velocità dei binari rispetto al piano d'appoggio): $ m\vec{v_0}-M\vec{v_r}=0 $ da cui $ \vec{v_r}=-\frac {m\vec{v_0}} {M}  $ da cui risulta che $ v_r $ è di verso opposto a $ v_0 $.<br>
+<br>
+per quanto riguarda la discussione dei due limiti mi sono limitato a dire che nel primo e <strong class="text-strong">meno realistico</strong> caso $ |\vec{v_r}|&gt;&gt;|\vec{v_0}| $ e nel secondo caso $ v_r \to 0 $<br>
+<br>
+ora che Bacco ha rimesso a posto i due limiti dovrei ricontrollare quello che ho scritto, ma sinceramente ora non è troppa voglia  :P  :P</article>
+<article class="post" id="p56215"><div class="who"><b>mates</b><span>21 ago 2006, 18:08</span></div>Cosa intendi con "ruotare su se stesso". Per risolvere il problema correttamente dovresti descrivere per bene il modo (cosa fa la locomotiva e cosa i binari, che ti ricordo non essere vincolati al piano di appoggio). Inoltre, come hai notato il sistema è isolato e quindi si conserva anche il momento angolare.<br>
+<br>
+Come hai giustamente detto la traiettoria della locomotiva è circolare... ma qual'è il raggio ?<br>
+<br>
+Ultima domanda, cosa intendi per velocità dei binari rispetto al piano ?<br>
+<br>
+Pensaci bene, è un bel problema! (ed è anche divertente)<br>
+<br>
+a presto,<br>
+<br>
+mates</article>
+<article class="post" id="p56221"><div class="who"><b>David</b><span>21 ago 2006, 18:27</span></div>per ruotare su se stesso intendo dire che il sistema ha un moto di tipo circolare intorno al suo centro di massa (che ho fatto, probavilmente sbagliando, coincidere con il centro della circonferenza dei binari). inoltre ho tenuto conto del fatto che i binari non siano vincolati al terreno, infatti hanno velocità $ v_r $ che, per rispondere alla tua domanda, è la velocità tangente alla traiettoria. in effetti serebbe più opportuno dire che i binari hanno $ \omega=\frac {v_r} {R} $<br>
+il raggio della traiettoria è il raggio dei binari (o almeno credo).<br>
+in effetti non sono sicuro al 100% di tutto quello che ho detto anche perchè la soluzione messa così è un po' troppo banale per essere un test della SNS.<br>
+chi ha in mente altre soluzioni le posti, soprattutto per mates che mi sembra la sappia lunga.<br>
+grazie</article>
+<article class="post" id="p56224"><div class="who"><b>mates</b><span>21 ago 2006, 18:41</span></div><blockquote><div><cite>David ha scritto:</cite>Il sistema ha un moto di tipo circolare intorno al suo centro di massa (che ho fatto, probavilmente sbagliando, coincidere con il centro della circonferenza dei binari)</div></blockquote>
+
+Il problema l'hai già individuato tu !!!<br>
+Il centro di massa non è il centro dei binari ! Senza locomotiva lo sarebbe, ma c'è la locomotiva con massa non trascurabile. Il centro di massa si trova quindi lungo la congiungente tra la locomotiva e il centro dei binari a distanza $ MR/(M+m) $ dalla locomotiva stessa.<br>
+<br>
+Ora hai tutti gli elementi per risolvere il problema,<br>
+a presto<br>
+<br>
+mates<br>
+<br>
+PS:<br>
+
+<blockquote><div><cite>David ha scritto:</cite>chi ha in mente altre soluzioni le posti, soprattutto per mates che mi sembra la sappia lunga. </div></blockquote>
+Se nessuno lo risolve la posto con piacere, ma non ne vedo il motivo ora, visto che c'è tanta gente che vuole esercitarsi o vuole tentare l'esame in SNS. Io non lo devo più dare (sono all'uni ormai  :cry:  :cry: ). Soprattutto non mi sembra un problema impossibile, se ci pensi bene lo puoi risolvere !!</article>
+<article class="post" id="p56226"><div class="who"><b>nnsoxke</b><span>21 ago 2006, 18:45</span></div>Il problema non è così semplice... Il sistema isolato è quello composto dal treno più i binari: sia la quantità di moto che il momento angolare si conservano , quindi rimangono nulli (come lo sono all'inizio) , ovvero il centro di massa dell'intero sistema rimane fermo e il momento angolare totale nullo</article>
+<article class="post" id="p56231"><div class="who"><b>mates</b><span>21 ago 2006, 19:06</span></div>@Bacco. Il problema è tutto irrealistico, ma a me sembra più irrealistico il primo caso (massa locomotiva &gt;&gt; massa binari).<br>
+Avresti la locomotiva in rotazione quasi intorno al suo asse, con il suo centro di massa quasi fermo e con il centro dei binari che le ruota intorno.... e inoltre diventa significativo il momento d'inerzia della locomotiva intorno al suo asse !<br>
+L'altro limite è il comportamento normale, no ?<br>
+Fammi sapere cosa ne pensi.<br>
+Ciao</article>
+<article class="post" id="p56232"><div class="who"><b>Gauss_87</b><span>21 ago 2006, 19:08</span></div>cmq si era già parlato di questo problema qui:<br>
+<a href="http://olimpiadi.ing.unipi.it/oliForum/viewtopic.php?t=4833" class="ext" class="postlink">http://olimpiadi.ing.unipi.it/oliForum/ ... php?t=4833</a><br>
+<br>
+BmcKmaS aveva proposto una soluzione..</article>
+<article class="post" id="p56240"><div class="who"><b>Bacco</b><span>21 ago 2006, 20:19</span></div>@mates: sì hai ragione... è che facendo il copia e incolla da acrobat non mi aveva preso i segni di maggiore-minore e così li ho riscritti io, al contrario. :D Ora è corretto. <br>
+<br>
+Effettivamente la soluzione è interessante e presupone una conoscenza completa dei sistemi rotanti. Al lavoro, gente!</article>
+<article class="post" id="p56241"><div class="who"><b>Fabrizio</b><span>21 ago 2006, 21:53</span></div>Ci provo.. non garantisco nulla..<br>
+Per la conservazione del  momento angolare, individuo due moti rotatori differenti, i cui momenti siano uguali e opposti.<br>
+<br>
+Il primo è la rotazione del sistema locomotiva-binari attorno al comune centro di massa, situato sulla congiungente locomotiva-centro dei binari, con velocità angolare <br>
+$ \omega_x $<br>
+<br>
+Il secondo è la rotazione dei binari attorno al loro centro di massa, con velocità angolare $ \omega_0=v_0/R $<br>
+<br>
+Il momento d'inerzia per la prima rotazione si ricava facilmente, meglio ancora il secondo. Eguagliando i momenti angolari dovrebbe uscire tutto quello che serve per descrivere il moto del sistema.</article>
+<article class="post" id="p56291"><div class="who"><b>Fabrizio</b><span>22 ago 2006, 14:50</span></div>Posto anche un po' di conti:<br>
+<br>
+Distanza del centro di massa (del sistema) dalla locomotiva= $ \frac{MR}{m+M} $ e dai binari=$ \frac{mR}{m+M} $<br>
+<br>
+Momento d'inerzia della locomotiva rispetto al c.m.  $ I_l=m(\frac{MR}{m+M})
+^2 $<br>
+<br>
+Mom. d'i. dei binari rispetto al c.m. del sist. $ I_b=M(\frac{mR}{m+M})^2+MR^2 $<br>
+<br>
+Somma: $ I_{tot}=MR^2(\frac{2m+M}{M+m}) $<br>
+<br>
+Momento d'inerzia dei binari rispetto al loro centro di massa $ I_c=MR^2 $<br>
+<br>
+A questo punto eguaglio le espressioni dei due momenti angolari:<br>
+<br>
+$ \omega_xI_{tot}=-\omega_0I_c $<br>
+<br>
+Dove $ \omega_0=\frac{v_0}{R} $<br>
+<br>
+Sostituendo trovo: $ \omega_x=-\frac{m+M}{2m+M}\omega_0 $.<br>
+<br>
+A questo il problema è fatto (sempre se sono giusti i conti), e posso azzardare i due casi limite:<br>
+Se $ M\gg m $ ho il c.m. del sistema che coincide praticamente col c.m. dei binari, e $ \omega_x=-\omega_0 $. Questo significa che l'unico moto è quello della locomotiva che gira sui binari immobili rispetto al sistema inerziale.<br>
+<br>
+Se $ m \gg M $, invece, il c.m. del sistema andrebbe a coincidere col c.m della locomotiva, già supposta punto materiale. Il Sistema girerebbe attorno alla locomotiva immobile, e i binari ruoterebbero sotto di essa. Ma a questo punto per descrivere il moto mi servirebbero altri dati, come il momento d'inerzia della locomotiva rispetto al suo c.m., le sue dimensioni effettive rispetto ai binari.. Insomma, si tratterebbe di un altro problema.</article>
+<article class="post" id="p56318"><div class="who"><b>mates</b><span>22 ago 2006, 18:48</span></div><blockquote><div><cite>Fabrizio ha scritto:</cite> $  \omega_xI_{tot}=-\omega_0I_c  $<br>
+<br>
+Dove $  \omega_0=\frac{v_0}{R} $ </div></blockquote>
+
+Ciao, mi spieghi solo bene come ricavi che $  \omega_0=\frac{v_0}{R} $<br>
+<br>
+grazie e ciao<br>
+<br>
+mates</article>
+<article class="post" id="p56321"><div class="who"><b>Fabrizio</b><span>22 ago 2006, 19:18</span></div>L'avevo scritto nel post prima, comunque se non è chiaro provo a spiegarmi meglio.<br>
+$ \omega_o $è la velocità angolare con cui la locomotiva girerebbe attorno ai binari se fossero fissati al piano. <br>
+In realtà il moto è più complesso, non è la locomotiva a girare attorno ai binari, altrimenti con lei ruoterebbe anche il c.d.m del sistema.<br>
+Se invece sono i binari a ruotare sotto la locomotiva, il c.d.m non si muove, ma violo il principio di conservazione del mom. angolare. <br>
+Il trucco (se il mio ragionamento è giusto) è individuare un altro moto rotatorio da comporre con il secondo, di modo da azzerare la variazione di momento angolare.<br>
+L'unico moto di questo tipo possibile è quello attorno al centro di massa del sistema, e i miei conti non fanno che svolgere quest'idea.</article>
+<article class="post" id="p56322"><div class="who"><b>mates</b><span>22 ago 2006, 19:32</span></div><blockquote><div><cite>Fabrizio ha scritto:</cite>
+$ \omega_o $è la velocità angolare con cui la locomotiva girerebbe attorno ai binari se fossero fissati al piano. 
+</div></blockquote>
+
+Questo è ovvio.<br>
+
+<blockquote><div><cite>Fabrizio ha scritto:</cite>
+Il secondo è la rotazione dei binari attorno al loro centro di massa, con velocità angolare \omega_0=v_0/R </div></blockquote>
+
+E' l'equivalenza tra queste due citazioni che ti chiedevo di dimostrare.<br>
+(cioè velocità angolare con cui la locomotiva girerebbe attorno ai binari se fossero fissati al piano = velocità angolare di rotazione dei binari attorno al loro centro di massa nel caso in cui non sono fissati)<br>
+<br>
+ciao<br>
+mates</article>
+<nav class="pager"><a class="prev" href="oliforum-8864.html"><small>← precedente</small>trenino fastidioso...... sns 2005/2006 n5</a><a class="next" href="oliforum-4833.html"><small>successivo →</small>Locomotiva elettrica e Binari... senza attrito...</a></nav>
+</main></body></html>

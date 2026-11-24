@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2016 n°3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2016-2017, problema 3</span></nav>
+<h1>SNS 2016 n°3</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6730">forum Olifis</a></p>
+<article class="post first" id="p24928"><div class="who"><b>Avancini</b><span>11 lug 2018, 17:47</span></div>xyz</article>
+<article class="post" id="p24962"><div class="who"><b>.Ruben.</b><span>15 lug 2018, 14:01</span></div><a href="https://www.matematicamente.it/forum/viewtopic.php?f=19&amp;t=178069&amp;p=8295006#p8295006" class="ext" class="postlink">https://www.matematicamente.it/forum/vi ... 6#p8295006</a></article>
+<nav class="pager"><a class="prev" href="olifis-6394.html"><small>← precedente</small>SNS fisica 2016 problema 1</a><a class="next" href="olifis-6860.html"><small>successivo →</small>n. 184- SNS 2016</a></nav>
+</main></body></html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2011 n.3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2011-2012, problema 3</span></nav>
+<h1>sns 2011 n.3</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=870">forum Olifis</a></p>
+<article class="post first" id="p7325"><div class="who"><b>domx</b><span>28 ago 2011, 20:02</span></div>Un frigorifero non perfettamente isolato posto in un ambiente a 24°raffredda l'interno a 4° lavorando a potenza W 1/4 del tempo, che temperatura esterna massima può tollerare con la stessa W, lavorando tutto il tempo e mantenendo Tb costante, sapendo che il calore che penetra è uguale ad α(Ta-Tb)?<br>
+<br>
+<br>
+[Edit di Pigkappa: mi è stato detto di inserire qui il testo corretto, che sarebbe:<br>
+<br>
+Un frigorifero porta calore dal suo interno verso l'esterno operando lungo un ciclo <em class="text-italics">reversibile</em> di Carnot fra la temperatura interna <span class="tex">\(\displaystyle~T_b=4^\circ C\)</span>, che mantiene costante, e quella esterna <span class="tex">\(\displaystyle~T_a\)</span>, con <span class="tex">\(\displaystyle~T_a&gt;T_b\)</span>, consumando quando è acceso una potenza <span class="tex">\(\displaystyle~W\)</span>. L'isolamento del frigo non è perfetto; pertanto penetra dall'esterno verso l'interno una quantità di calore per unità di tempo data da <span class="tex">\(\displaystyle~P=\alpha(T_a-T_b)\)</span> con <span class="tex">\(\displaystyle~\alpha\)</span> costante. Sapendo che quando <span class="tex">\(\displaystyle~T_a=24^\circ C\)</span> il frigorifero mantiene la temperatura interna <span class="tex">\(\displaystyle~T_b=4^\circ C\)</span> rimanendo acceso solo per un quarto del tempo, si determini la temperatura esterna massima <span class="tex">\(\displaystyle~T_M\)</span> per cui esso riuscirebbe a mantenere la temperatura interna <span class="tex">\(\displaystyle~T_b=4^\circ C\)</span> rimanendo sempre acceso.<br>
+<br>
+Lascio anche il testo scritto inizialmente da domx per non perdere il senso dei post successivi]</article>
+<article class="post" id="p7424"><div class="who"><b>domx</b><span>4 set 2011, 9:39</span></div>Questo non lo riesce a risolvere nessuno? Non mi serve per gli orali (non essendo stato ammesso), ma vorrei comunque sapere come si fa...</article>
+<article class="post" id="p7426"><div class="who"><b>NabirAlbar</b><span>4 set 2011, 11:10</span></div>Questo era il più scolastico di tutti.. Intanto preciso che era <span class="tex">\(~T_a=24^\circ C\)</span> e <span class="tex">\(~T_b=4^\circ C\)</span>.<br>
+Il fattore di qualità di un frigorifero ideale è <span class="tex">\(~\eta=\frac{Q}{L}=\frac{T_b}{T_a-T_b}\)</span>, dove Q è il calore asportato ad ogni ciclo e L è il lavoro fornito. Essendo <span class="tex">\(~L=Wt\)</span>, il calore asportato normalmente nell'unità di tempo è <span class="tex">\(~\eta W\)</span>. Dalle ipotesi per avere l'equilibrio deve essere<br>
+<span class="tex">\(~\eta\frac{W}{4}=\alpha(T_a-T_b)\)</span><br>
+<span class="tex">\(~\frac{T_b}{T_a-T_b}\frac{W}{4}=\alpha(T_a-T_b)\)</span><br>
+<span class="tex">\(~T_bW=4\alpha(T_a-T_b)^2\)</span><br>
+Nella seconda situazione è <span class="tex">\(~\eta' W=\alpha(T_a'-T_b)\)</span>, da cui analogamente <span class="tex">\(T_bW=\alpha(T_a'-T_b)^2\)</span><br>
+dunque <span class="tex">\(~4\alpha(T_a-T_b)^2=\alpha(T_a'-T_b)^2\)</span><br>
+<span class="tex">\(~2(T_a-T_b)=T_a'-T_b\)</span><br>
+<span class="tex">\(~T_a'=44^\circ C\)</span> (non serve passare ai Kelvin, visto che contano solo le differenze di temperature).</article>
+<article class="post" id="p7427"><div class="who"><b>domx</b><span>4 set 2011, 12:39</span></div><blockquote><div><cite>NabirAlbar ha scritto:</cite>Questo era il più scolastico di tutti.. Intanto preciso che era <span class="tex">\(~T_a=24^\circ C\)</span> e <span class="tex">\(~T_b=4^\circ C\)</span>.<br>
+Il fattore di qualità di un frigorifero ideale è <span class="tex">\(~\eta=\frac{Q}{L}=\frac{T_b}{T_a-T_b}\)</span>, dove Q è il calore asportato ad ogni ciclo e L è il lavoro fornito. Essendo <span class="tex">\(~L=Wt\)</span>, il calore asportato normalmente nell'unità di tempo è <span class="tex">\(~\eta W\)</span>. Dalle ipotesi per avere l'equilibrio deve essere<br>
+<span class="tex">\(~\eta\frac{W}{4}=\alpha(T_a-T_b)\)</span><br>
+<span class="tex">\(~\frac{T_b}{T_a-T_b}\frac{W}{4}=\alpha(T_a-T_b)\)</span><br>
+<span class="tex">\(~T_bW=4\alpha(T_a-T_b)^2\)</span><br>
+Nella seconda situazione è <span class="tex">\(~\eta' W=\alpha(T_a'-T_b)\)</span>, da cui analogamente <span class="tex">\(T_bW=\alpha(T_a'-T_b)^2\)</span><br>
+dunque <span class="tex">\(~4\alpha(T_a-T_b)^2=\alpha(T_a'-T_b)^2\)</span><br>
+<span class="tex">\(~2(T_a-T_b)=T_a'-T_b\)</span><br>
+<span class="tex">\(~T_a'=44^\circ C\)</span> (non serve passare ai Kelvin, visto che contano solo le differenze di temperature).</div></blockquote>
+ecco, mi sto mangiando davvero le mani, sulla brutta ci ero quasi arrivato, ero sicuro centrasse il cfu ma non avevo capito che bisognava moltiplicarlo per la potenza (e mesi fa avevo visto un problema quasi identico, ma non lo ricordavo)...<br>
+va beh pazienza, inutile piangere sul latte versato, ciao e grazie della soluzione ;)</article>
+<article class="post" id="p7428"><div class="who"><b>Incomplete93</b><span>4 set 2011, 17:38</span></div>Mi sbaglierò, ma questa soluzione non mi convince affatto. Andrebbe bene se il condizionatore funzionasse tutto il tempo a un quarto della potenza, non se funziona a massima potenza per un quarto del tempo. In questo caso quando il condizionatore è spento la temperatura dell'ambiente interno cresce, e la questione si complica parecchio. Han dato un problema praticamente identico se non per i numeri qualche anno fa; io ho provato a risolverlo e bisogna fare uso massiccio di calcolo infinitesimale. Beh comunque magari mi sbaglio - tra l'altro l'ultima volta il problema era molto molto più preciso. Comunque secondo me questa soluzione è un po' alla buona...</article>
+<article class="post" id="p7429"><div class="who"><b>NabirAlbar</b><span>4 set 2011, 18:29</span></div>Ovviamente hai ragione  :mrgreen:  però non abbiamo abbastanza informazioni.. Per calcolare le cose per bene non occorre sapere la temperatura che rileva il termostato quando si attiva (o equivalentemente quella che misura quando si disattiva)? Tu come l'hai risolto al concorso?</article>
+<article class="post" id="p7430"><div class="who"><b>AxxMan</b><span>4 set 2011, 19:21</span></div>In realtà se la temperatura è costante non esistono lunghi intervalli di tempo in cui il frigorifero non è spento, altrimenti la temperatura cambierebbe. Allora dobbiamo lavorare in un dt in cui la temperatura rimane costante, per ogni dt il frigorifero lavora un quarto del tempo. Ma qui i parametri del bilancio energetico sono sempre le temperature date, il dt si semplifica. Magari se scrivi come hai fatto e ci accorgiamo di aver sbagliato ci puoi dare una mano per l'orale, o era proprio una tattica di sabotaggio?  :twisted:</article>
+<article class="post" id="p7432"><div class="who"><b>domx</b><span>5 set 2011, 7:47</span></div>Secondo me volevano una cosa simile, altrimenti avrebbero dato più info. Ma se qualcuno ha il libro con le ultime dieci annate può controllare la soluzione, quello col condizionatore del 2008 era praticamente identico...</article>
+<article class="post" id="p7433"><div class="who"><b>Incomplete93</b><span>5 set 2011, 11:42</span></div>Ok, partiamo dal presupposto che non volevo diffondere il panico, ma solo capire se capisco ancora qualcosa di fisica o no XD Premetto anche che io avendo fatto l'ammissione per biotecnologie avevo altri problemi da risolvere, molto più banali. In ogni caso, partendo dall'assunto che sicuramente la soluzione che volevano loro era questa, mi domando come faccia a rimanere la temperatura costante per tutto il tempo se il frigo si apre e si spegne di continuo XD può rimanere circa costante, quello sì, ma sarebbe stato molto più saggio scrivere che lavora per tutto il tempo a potenza <span class="tex">\(\frac{W}{4}\)</span>, caso in cui avete pienamente ragione. Altrimenti le cose si complicano. In ogni caso, poco importa XD<br>
+Una curiosità...dato che avete citato un libro che credo di non avere: nella soluzione del problema di cui parlavo, serve un uso mooolto massiccio di analisi? =D A me venivan fuori equazioni differenziali da integrare che davan logaritmi XD era un impiastricciamento generale di calcoli su calcoli XD<br>
+<br>
+<br>
+P.S: me li aspettavo un po' più accorti comunque XD nella prova di biologia han scritto "melatonina" dove dovevan scrivere "melanina" XD sembrerà poco, ma tra le due cose c'è l'abisso!</article>
+<article class="post" id="p7438"><div class="who"><b>domx</b><span>6 set 2011, 10:12</span></div>quel libro io non ce l'ho, comunque credo che loro volessero semplicemente dire che il motore funziona ad un quarto della potenza (anche se è scritto male), è inutile complicare il problema...</article>
+<article class="post" id="p7564"><div class="who"><b>modesto</b><span>26 set 2011, 10:39</span></div>Ho visto per caso la soluzione di NabirAlbar che secondo me non è corretta: infatti fa intervenire l'efficienza del frigorifero ideale, cioè di una macchina che compie un ciclo REVERSIBILE, mentre il nostro frigorifero con scarso isolamento tutto può fare tranne che compiere una trasformazione reversibile...<br>
+Al contrario il problema del 2008-2009, cui ci si riferisce alludendo al "libro degli ultimi dieci anni", che poi è Problemi di fisica edito recentemente da bibliotecauniversitaria.it e che io comprato per prepararmi per il prossimo anno, è relativo ad un condizionatore in una casa che esegue un CICLO DI CARNOT: quindi non può essere usato come analogo.<br>
+Se il testo postato è quello reale (avevo chiesto se qualcuno poteva postare i testi davvero assegnati quest'anno) si può impostare, indicando con T(t) la temperatura interna al frigorifero che varia da 24 a Tb= 4 nel primo caso e da Tmax a Tb= 4 nel secondo, al seguente modo imponendo che il calore che entra nell'intervallo dt sia rimosso dal motore<br>
+dQ/dt= d[a(Ta - T)]/dT.(dT/dt)= -a dT/dt = W/4<br>
+(è inutile chiedersi se funziona per 1/4 di tempo o se per tutto il tempo a 1/4 di potenza).<br>
+Integrando l'ultima uguaglianza con T che varia fra 24 e 4 e con t che varia fra 0 e il tempo tr impiegato nel raffreddamento, si può ottenere quest'ultimo come tr= 80 a/W, un risultato che poteva direttamente essere dedotto uguagliando il calore totale entrato a(Ta-Tb)all'energia erogata dal motore Wtr/4. Disponendo di tr, con l'impostazione precedente, si deduce Tmax= 84°C. E' verosimile che il raffreddamento sia ora 4 volte quello di prima (ora è di 80, prima era di 20) se si usa un'energia quadrupla? Io penserei di si...</article>
+<article class="post" id="p7578"><div class="who"><b>Omar93</b><span>28 set 2011, 22:26</span></div>Per piacere qualcuno potrebbe postare il verso testo che questo è incomprensibile?</article>
+<article class="post" id="p7582"><div class="who"><b>NabirAlbar</b><span>30 set 2011, 16:27</span></div>A grande richiesta..<br>
+Un frigorifero porta calore dal suo interno verso l'esterno operando lungo un ciclo <em class="text-italics">reversibile</em> di Carnot fra la temperatura interna <span class="tex">\(\displaystyle~T_b=4^\circ C\)</span>, che mantiene costante, e quella esterna <span class="tex">\(\displaystyle~T_a\)</span>, con <span class="tex">\(\displaystyle~T_a&gt;T_b\)</span>, consumando quando è acceso una potenza <span class="tex">\(\displaystyle~W\)</span>. L'isolamento del frigo non è perfetto; pertanto penetra dall'esterno verso l'interno una quantità di calore per unità di tempo data da <span class="tex">\(\displaystyle~P=\alpha(T_a-T_b)\)</span> con <span class="tex">\(\displaystyle~\alpha\)</span> costante. Sapendo che quando <span class="tex">\(\displaystyle~T_a=24^\circ C\)</span> il frigorifero mantiene la temperatura interna <span class="tex">\(\displaystyle~T_b=4^\circ C\)</span> rimanendo acceso solo per un quarto del tempo, si determini la temperatura esterna massima <span class="tex">\(\displaystyle~T_M\)</span> per cui esso riuscirebbe a mantenere la temperatura interna <span class="tex">\(\displaystyle~T_b=4^\circ C\)</span> rimanendo sempre acceso.<br>
+[Un admin che passa di qui può gentilmente sostituire questo al primo post del thread?]</article>
+<article class="post" id="p7583"><div class="who"><b>Pigkappa</b><span>30 set 2011, 17:19</span></div><blockquote><div><cite>NabirAlbar ha scritto:</cite>Un admin che passa di qui può gentilmente sostituire questo al primo post del thread?</div></blockquote>
+
+Non sono un admin, ma ce l'ho messo...</article>
+<article class="post" id="p7584"><div class="who"><b>modesto</b><span>1 ott 2011, 10:20</span></div>Ovviamente cancello idealmente la soluzione da me proposta fondata sul vecchio testo.<br>
+Ribadisco però la richiesta: c'è qualcuno in grado di postare i corretti testi sns 2011, come lo scorso anno pur in assenza di pubblicazione sul sito SNS?</article>
+<article class="post" id="p7587"><div class="who"><b>NabirAlbar</b><span>1 ott 2011, 19:35</span></div>Ci sono sul sito (l'ho copiato da lì)  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-956.html"><small>← precedente</small>sns 2011 n.2</a><a class="next" href="olifis-871.html"><small>successivo →</small>sns 2011 n.4</a></nav>
+</main></body></html>

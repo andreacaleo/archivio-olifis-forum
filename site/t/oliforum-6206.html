@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ammissione SNS (1996-1997).4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1996-1997, problema 4</span></nav>
+<h1>Ammissione SNS (1996-1997).4</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6206">OliForum</a></p>
+<article class="post first" id="p56840"><div class="who"><b>Poliwhirl</b><span>28 ago 2006, 02:27</span></div>Per riscaldare l'aria in una stanza (per esempio con una stufa) si deve in ogni caso consumare energia. Si supponga di voler aumentare la temperatura dell'aria contenuta in un locale di volume $ V=32 m^3 $ da un valore $ T_i = 15°C $ a un valore finale di $ T_f = 25°C $. La pressione dell'aria rimane costantemente uguale alla pressione atmosferica esterrna $ p_0 = 1 atm $ e la temperatura esterna è sempre uguale a $ T_i = 15°C $. Si stimi:<br>
+a) la variazione, fra lo stato iniziale e stato finale, dell'energia interna dell'aria contenuta nella stanza;<br>
+b) l'energia che la stufa deve fornire all'aria, sotto forma di calore o di lavoro (che sarà evidentemente, l'energia minima necessaria da spendere per il processo di scaldamento).<br>
+<br>
+Bye,<br>
+#Poliwhirl#</article>
+<article class="post" id="p56854"><div class="who"><b>Ani-sama</b><span>28 ago 2006, 11:20</span></div>Il punto (a) di questo problema è abbastanza "classico", c'è pressoché identico sull'Halliday.<br>
+<br>
+L'idea è notare che, se pressione e volume non variano, a variare sono solo temperatura e numero di moli di gas, che per evidenti ragioni (il sistema non è isolato) diminuisce. Considerando l'aria un gas perfetto:<br>
+<br>
+Hai che $\Delta E_{\mathrm{int}} = C_V \Delta (nT)$, giacché le uniche quantità variabili sono il numero di moli e la temperatura. Ma dalla legge dei gas ricavi anche che $\Delta (nT) = \frac{\Delta (pV)}{R}=0$, cioè $\Delta E_{\mathrm{int}}=0$.</article>
+<article class="post" id="p57000"><div class="who"><b>Fabrizio</b><span>29 ago 2006, 22:32</span></div>punto (b):<br>
+Ho  $ pV={\mu}RT $ costante, quindi il numero di moli è inversamente prop. alla temperatura. Il calore da fornire per innalzare di un grado la temperatura è quindi funzione del num. di moli, e perciò della temperatura stessa.<br>
+Usando ovviamente $ C_p $ ottengo $ dTC_p\mu_T=dx $, dove $ dx $ è la quantità di calore fornita, e $ \mu_T $è $ \frac{pV}{RT} $. <br>
+Quindi ho $ dx=\frac{pVC_p}{RT}dT $$ [1] $<br>
+Integrando la  $ [1] $ sull'intervallo di temperatura che serve ottengo il risultato.</article>
+<nav class="pager"><a class="prev" href="olifis-237.html"><small>← precedente</small>SNS 1996-1997 (3)</a><a class="next" href="oliforum-11454.html"><small>successivo →</small>Ci son due spire e un generatore... [SNS 1996/1997.6]</a></nav>
+</main></body></html>

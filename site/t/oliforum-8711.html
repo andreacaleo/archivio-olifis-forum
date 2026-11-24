@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centrali elettriche ecologiche (sns 93/94)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1993-1994, problema 4</span></nav>
+<h1>Centrali elettriche ecologiche (sns 93/94)</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8711">OliForum</a></p>
+<article class="post first" id="p72640"><div class="who"><b>mitchan88</b><span>19 lug 2007, 20:50</span></div>Una centrale elettrica posta in riva ad un fiume fornisce energia ad una città vicina.<br>
+<br>
+Del combustibile viene bruciato alla temperatura di 800°C ed il calore viene utilizzato per azionare una macchina termica che, a sua volta, produce energia elettrica. Per il raffreddamento si usa acuqa prelevata dal fiume a monte della centrale e reimmessa nel flusso poco più a valle. Il fiume, a monte della centrale, è largo 30m, profondo 3, la velocita media dell'acqua è 3m/s e la sua temperatura è 14°C.<br>
+<br>
+Per non danneggiare l'ecologia del fiume si richiede che l'innalzamento di temperatura media del fiume a valle sia inferiore di 1°C<br>
+Si calcoli il limite superiore della potenza elettrica che la centrale può fornire alla città.<br>
+<br>
+Enjoy ;)</article>
+<article class="post" id="p72646"><div class="who"><b>zancus</b><span>19 lug 2007, 23:50</span></div>Il rendimento massimo della centrale è $\eta=1-\frac{T_2}{T_1}$ e, convertendo le temperature in gradi kelvin, risulta $\eta=1-\frac{287}{1073}\simeq0.733$<br>
+La potenza massima che la centrale può cedere al fiume $(P_{ceduta})$ è pari all'energia necessaria per innalzare di 1 grado la quantità d'acqua che scorre nel fiume in un secondo:<br>
+$Portata=30\cdot3\cdot3\  m^3/s = 270\cdot 10^3\  kg/s$<br>
+$P_{ceduta}=Cm\Delta T= 4186\cdot 270\cdot 10^3\ J/s\simeq1.13\  GW$<br>
+Quindi $P_{tot}-P_{utile}=P_{ceduta}\leq 1.13\ GW$<br>
+$P_{utile}=P_{tot}\cdot\eta$<br>
+$P_{tot}(1-\eta)\leq1.13\ GW$<br>
+$P_{tot}\leq \frac{1.13}{1-\eta}\ GW \simeq4.23\ GW$<br>
+Mentre la potenza massima che può essere fornita alla città è $P_{utile}=4.23\ GW-1.13\ GW=3.1\ GW$</article>
+<article class="post" id="p72663"><div class="who"><b>mitchan88</b><span>20 lug 2007, 19:07</span></div>Ok come avevo fatto io ^^ L'ho postato perche i risultati numerici mi lasciavano perplesso</article>
+<nav class="pager"><a class="prev" href="olifis-236.html"><small>← precedente</small>SNS 1992-1993 (1)</a><a class="next" href="olifis-215.html"><small>successivo →</small>SNS 1993/1994 n°5 - ottica geometrica</a></nav>
+</main></body></html>

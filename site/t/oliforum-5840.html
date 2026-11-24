@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carnot @ SNS</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2002-2003, problema 2</span></nav>
+<h1>Carnot @ SNS</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=5840">OliForum</a></p>
+<article class="post first" id="p54698"><div class="who"><b>Gauss_87</b><span>14 lug 2006, 13:25</span></div>SNS 2002 - 2<br>
+<br>
+Una macchina termica produce lavoro compiendo una successione di cicli di Carnot. In ciascun ciclo la macchina scambia piccolissime quantità di calore con due corpi aventi inizialmente temperature diverse $ T_1 &gt; T_2 $.<br>
+<br>
+Le capacità termiche devi due corpi sono uguali $ C_1 = C_2 = C $.<br>
+<br>
+Asintoticamente i due corpi raggiungono la stessa temperatura $ T_f $ e la macchina termica non può più funzionare.<br>
+<br>
+Determinare:<br>
+<br>
+a) $ T_f $<br>
+<br>
+b) lavoro $ L $ prodotto.<br>
+<br>
+ :lol:</article>
+<article class="post" id="p54828"><div class="who"><b>Gauss_87</b><span>18 lug 2006, 18:10</span></div>Io ho provato a considerare quanto vale ciascuna temperatura ad ogni ciclo di Carnot, ottenendo 2 relazioni del tipo<br>
+$ T_1^j $ e $ T_2^j $ dove l'indice $ j $ indica solo l'iterazione.<br>
+<br>
+A questo punto ho imposto che all'iterazione finale $ j=f $ le due temperature fossero uguali.<br>
+<br>
+Che ne dite? Vi ho dato un spunto?<br>
+<br>
+ :wink:</article>
+<article class="post" id="p54831"><div class="who"><b>mates</b><span>18 lug 2006, 19:04</span></div>Come fai ad avere un'iterazione finale ? Ovviamente la macchina esegue infiniti cicli prima di arrivare all'equilibrio....<br>
+<br>
+Comunque considerando la variazione di entropia è molto semplice !<br>
+Ciao e fammi sapere cosa ne pensi</article>
+<article class="post" id="p54832"><div class="who"><b>nnsoxke</b><span>18 lug 2006, 19:40</span></div>La temperatura finale per caso è rad(T1*T2) ?</article>
+<article class="post" id="p54835"><div class="who"><b>Bacco</b><span>18 lug 2006, 20:16</span></div>Si la risposta è corretta. Il lavoro dovrebbe essere $ C(\sqrt{T_a}-\sqrt{T_b})^2. $</article>
+<article class="post" id="p54855"><div class="who"><b>Gauss_87</b><span>19 lug 2006, 13:04</span></div><blockquote><div><cite>Bacco ha scritto:</cite>Si la risposta è corretta. Il lavoro dovrebbe essere $ C(\sqrt{T_a}-\sqrt{T_b})^2. $</div></blockquote>
+
+Si avete ragione!!!<br>
+<br>
+Postate la soluzione?</article>
+<article class="post" id="p54867"><div class="who"><b>nnsoxke</b><span>19 lug 2006, 18:13</span></div>Piccolissime quantità l'ho considerato come infinitesime... Ho applicato il primo principio per ogni ciclo sia alla macchina che ai termostati dQ1=-C*dT1, dQ2=C*dT2, dL=dQ1-dQ2... ho sostituito utilizzando anche l'espressione del rendimento di un ciclo di Carnot (r=1-T2/T1=dL/dQ1)e mi viene dT1/T1=-dT2/T2, integrando tra le temperature iniziali e quelle finali (Tf per entrambi i termostati) lnTf - lnT10 = ln T20 - lnTf (lo 0 indica che si tratta della T iniziale), Tf ^2 = T10 * T20 e si ricava Tf<br>
+Per il lavoro si applica il primo principio all'intera trasformazione L=Q1-Q2 e si ricava L= C (radqT10 - radqT20) ^2</article>
+<article class="post" id="p54869"><div class="who"><b>Bacco</b><span>19 lug 2006, 18:53</span></div>E' giusto, ma forse è più facile sapendo che l'entropia è funzione di stato, e dato che carnot è fatto da due isoterme (T costante) e due adiabatiche (Q=0) si ha subito il risultato che hai trovato: dT1/T1=dT2/T2.<br>
+<br>
+Ciao</article>
+<article class="post" id="p54870"><div class="who"><b>nnsoxke</b><span>19 lug 2006, 19:06</span></div>Già non c'avevo pensato</article>
+<article class="post" id="p54872"><div class="who"><b>Gauss_87</b><span>19 lug 2006, 19:52</span></div>sapevo che l'entropia è una funzione di stato e quanto vale, ma neankio avevo pensato a risolverla facilmente con l'entropia; al contrario ankio ho giocato con infinitesimi e integrali...  :cry: <br>
+<br>
+Ottimo Bacco  :wink:</article>
+<article class="post" id="p88003"><div class="who"><b>pi</b><span>21 apr 2008, 20:59</span></div><blockquote><div><cite>nnsoxke ha scritto:</cite>Piccolissime quantità l'ho considerato come infinitesime... Ho applicato il primo principio per ogni ciclo sia alla macchina che ai termostati dQ1=-C*dT1, dQ2=C*dT2, dL=dQ1-dQ2... ho sostituito utilizzando anche l'espressione del rendimento di un ciclo di Carnot (r=1-T2/T1=dL/dQ1)e mi viene dT1/T1=-dT2/T2, integrando tra le temperature iniziali e quelle finali (Tf per entrambi i termostati) lnTf - lnT10 = ln T20 - lnTf (lo 0 indica che si tratta della T iniziale), Tf ^2 = T10 * T20 e si ricava Tf<br>
+Per il lavoro si applica il primo principio all'intera trasformazione L=Q1-Q2 e si ricava L= C (radqT10 - radqT20) ^2</div></blockquote>
+
+Ciao, volevo chiedere una cosa:  ma r=1-T2/T1 non si applica solo per i cicli in cui si considerano le due sorgenti con valori di temperatura fissi (o comunque con variazioni trascurate)? In questo caso la temperatura delle due sorgenti varia....o sbaglio? Poi la soluzione viene giusta comunque ma non capisco sta cosa...<br>
+<br>
+Grazie a chiunque mi risponda..</article>
+<article class="post" id="p88137"><div class="who"><b>Pigkappa</b><span>24 apr 2008, 16:53</span></div><blockquote><div><cite>pi ha scritto:</cite><blockquote><div><cite>nnsoxke ha scritto:</cite>Piccolissime quantità l'ho considerato come infinitesime... Ho applicato il primo principio per ogni ciclo sia alla macchina che ai termostati dQ1=-C*dT1, dQ2=C*dT2, dL=dQ1-dQ2... ho sostituito utilizzando anche l'espressione del rendimento di un ciclo di Carnot (r=1-T2/T1=dL/dQ1)e mi viene dT1/T1=-dT2/T2, integrando tra le temperature iniziali e quelle finali (Tf per entrambi i termostati) lnTf - lnT10 = ln T20 - lnTf (lo 0 indica che si tratta della T iniziale), Tf ^2 = T10 * T20 e si ricava Tf<br>
+Per il lavoro si applica il primo principio all'intera trasformazione L=Q1-Q2 e si ricava L= C (radqT10 - radqT20) ^2</div></blockquote>
+
+Ciao, volevo chiedere una cosa:  ma r=1-T2/T1 non si applica solo per i cicli in cui si considerano le due sorgenti con valori di temperatura fissi (o comunque con variazioni trascurate)? In questo caso la temperatura delle due sorgenti varia....o sbaglio? Poi la soluzione viene giusta comunque ma non capisco sta cosa...<br>
+<br>
+Grazie a chiunque mi risponda..</div></blockquote>
+
+Il rendimento è in ogni istante r=1-T2/T1, e lo scambio infinitesimo di lavoro è in ogni istante dL = r dQ. Passando agli infinitesimi, consideri r costante in quell'istante e tieni conto della sua variazione quando integri.<br>
+<br>
+Comunque questo problema era uscito solo due anni prima alle IPHO... Potrebbero sforzarsi un po' di più per evitare di dare problemi dati recentemente alle gare  :?</article>
+<article class="post" id="p88142"><div class="who"><b>pi</b><span>24 apr 2008, 17:56</span></div>Ah ok..grazie!!<br>
+<br>
+ :D  :D</article>
+<nav class="pager"><a class="prev" href="oliforum-7527.html"><small>← precedente</small>PROBLEMA DI FISICA SNS 2002/2003  AIUTOOO!</a><a class="next" href="oliforum-5918.html"><small>successivo →</small>Sfera di Particelle in espansione @ SNS</a></nav>
+</main></body></html>

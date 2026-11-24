@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1990 n. 3 - Lenti convergenti</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1990-1991, problema 3</span></nav>
+<h1>SNS 1990 n. 3 - Lenti convergenti</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=208">forum Olifis</a></p>
+<article class="post first" id="p1874"><div class="who"><b>Davide90</b><span>6 ago 2009, 18:54</span></div>Si vuole convertire un fascio di luce laser del diametro di 1mm in un altro avente diametro di 1 cm, utilizzando solo lenti convergenti con distanza focale di 20 cm. Qual è il numero minimo di lenti che occorre utilizzare (disponendole tutte ortogonalmente al fascio), e a quali distanze tra loro devono essere disposte?</article>
+<article class="post" id="p1875"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2009, 20:00</span></div>Beh teoricamente me ne basterebbe solo una. Basta che pongo il laser ad una distanza minore del fuoco della lente di tipo convergente e l'immagine reale che si otterrebbe sarebbe dieci volte più ingrandita in tutto lo spazio ma "capovolta". In questo caso il laser è isotropo e non fa alcuna differenza se capovolto o meno. Chiedo conferma</article>
+<article class="post" id="p1878"><div class="who"><b>Alex90</b><span>6 ago 2009, 20:52</span></div>Credo che secondo il testo il raggio provenga dall' "infinito"<br>
+<br>
+ps auguri  :D</article>
+<article class="post" id="p1880"><div class="who"><b>Pairo</b><span>6 ago 2009, 22:28</span></div>Bisogna usare il risultato che n lenti convergenti di distanza focale f formano una lente con distanza focale f/n. Una volta dimostrato questo hai praticamente vinto (ne metti dieci attaccate e posizioni un'undicesima lente in modo che il suo fuoco coincida con quello della lente ottenuta attaccando le altre). Per dimostrare il risultato puoi procedere per "induzione": se ne metti vicine due è facile dimostrarlo, e poi il procedimento è uguale attaccandone ancora. (Scusa la fretta, se non sono stato chiaro dimmi pure)<br>
+<br>
+(P.S. Come stai,tutto bene? Anche tu ti stai preparando  :D?)</article>
+<article class="post" id="p1883"><div class="who"><b>Davide90</b><span>7 ago 2009, 11:15</span></div>Data la mia ottima ignoranza in fatto di lenti, non riesco a capire come disponi le 10 lenti consecutive...<br>
+Se ne disponi due esattamente attaccate, i raggi paralleli vengono rifratti dalla prima lente in un punto a distanza focale f, che funge da oggetto per la seconda lente. Dunque, se la loro distanza è trascurabile, i raggi non dovrebbero essere di nuovo rifratti paralleli dalla seconda lente?<br>
+Ho provato a fare i conti anche disponendo le lenti a distanza f/2, ma mi sembra che non funzioni...<br>
+Grazie mille!  ;)</article>
+<article class="post" id="p1884"><div class="who"><b>CoNVeRGe.</b><span>7 ago 2009, 11:25</span></div>Io dico tre lenti: le prime due per allargare il fascio e la terza per farlo riuscire parallelo.</article>
+<article class="post" id="p1886"><div class="who"><b>String</b><span>7 ago 2009, 12:51</span></div>Ma come fai con tre lenti singole?</article>
+<article class="post" id="p1887"><div class="who"><b>CoNVeRGe.</b><span>7 ago 2009, 13:35</span></div><span class="tex">\(\displaystyle D_{1,2} = 240 cm \qquad D_{2,3} = 42 cm\)</span><br>
+Mettetele a queste distanze e vedete cosa esce..  :roll:</article>
+<article class="post" id="p1888"><div class="who"><b>String</b><span>7 ago 2009, 14:50</span></div>Giusto, non ci avevo pensato...<br>
+Già che ci sono posto anche il procedimento. Sia<br>
+<br>
+<span class="tex">\(p\)</span> la distanza del fuoco della prima lente dalla seconda lente;<br>
+<span class="tex">\(q\)</span> la distanza della seconda lente dall'immagine;<br>
+<span class="tex">\(d'\)</span> il diametro del fascio di luce che incide sulla terza lente;<br>
+<span class="tex">\(d\)</span> il diametro del fascio di luce che incide sulla prima lente;<br>
+<span class="tex">\(x\)</span> il diametro del fascio di luce che incide sulla seconda lente.<br>
+<br>
+Per la similitudine dei triangoli che i raggi formano nella zona compresa fra la seconda e la terza lente si può scrivere:<br>
+<br>
+<span class="tex">\(\displaystyle q:x=f:d'\)</span><br>
+<br>
+Per la similitudine dei triangoli che invece i raggi formano nella zona compresa fra la prima e la seconda lente si ha:<br>
+<br>
+<span class="tex">\(\displaystyle p:x=f:d\)</span><br>
+<br>
+Uguagliando le due espressioni che si ricavano per <span class="tex">\(x\)</span> si ha:<br>
+<br>
+<span class="tex">\(\displaystyle q=p/10\)</span><br>
+<br>
+Per l'equazione dei punti coniugati riferita alla seconda lente abbiamo:<br>
+<br>
+<span class="tex">\(\displaystyle \frac {1}{f}=\frac {1}{p}+\frac {1}{q}\Rightarrow \frac {1}{f}=\frac {11}{p}\Rightarrow p=220\textrm{ cm , } q=22\textrm{ cm}\)</span><br>
+<br>
+Quindi la distanza fra le prime due lenti è pari a <span class="tex">\(f+p=240\textrm { cm}\)</span> mentre la distanza fra la seconda e la terza lente è pari a <span class="tex">\(q+f=42\textrm { cm}\)</span></article>
+<article class="post" id="p1889"><div class="who"><b>CoNVeRGe.</b><span>7 ago 2009, 14:55</span></div>Esattamente  ;) <br>
+Occorre però precisare, per non creare un po' di confusione, che quei diametri non sono necessariamente delle lenti, ma sono del fascio che incide e attraversa le lenti. Forse ti eri semplicemente espresso male..</article>
+<article class="post" id="p1890"><div class="who"><b>String</b><span>7 ago 2009, 15:02</span></div>Si, hai ragione, mi sono espresso male, ora correggo  :)</article>
+<article class="post" id="p1892"><div class="who"><b>Loren Kocillari89</b><span>7 ago 2009, 21:34</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><span class="tex">\(\displaystyle D_{1,2} = 240 cm \qquad D_{2,3} = 42 cm\)</span><br>
+Mettetele a queste distanze e vedete cosa esce..  :roll:</div></blockquote>
+Così hai supposto implicitamente che il problema richiedeva che l'immagine finale fosse diritta. Ma il laser come fai a distinguerlo nello spazio? :? che sia diritto o capovolto è sempre lui. Quindi ci vorrebbe almeno una lente convergente per creare una immagine capovolta e ingrandita. Dove sbaglio?</article>
+<article class="post" id="p1894"><div class="who"><b>CoNVeRGe.</b><span>7 ago 2009, 22:18</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><span class="tex">\(\displaystyle D_{1,2} = 240 cm \qquad D_{2,3} = 42 cm\)</span><br>
+Mettetele a queste distanze e vedete cosa esce..  :roll:</div></blockquote>
+Così hai supposto implicitamente che il problema richiedeva che l'immagine finale fosse diritta. <strong class="text-strong">Ma il laser come fai a distinguerlo nello spazio? :? che sia diritto o capovolto è sempre lui. </strong></div></blockquote>
+Ti sei risposto un po' anche da solo. Qui non si tratta affatto di immagini diritte o capovolte, si chiede semplicemente di portare un raggio laser da una certa sezione ad un'altra. Appare quindi ovvio che dopo l'ultima lente esso debba essere come prima, cioè "all'infinito". Segui la soluzione di String e soprattutto disegnati la situazione. Per fare ciò basta che tu rappresenti soltanto due tratti del raggio, cioè quelli più "estremi" (il più in alto e il più in basso, per dire). In pratica tra le lenti dovresti ottenere disegnati dei triangoli isosceli con i vertici che si toccano, in modo da poter sfruttare la geometria della situazione.</article>
+<article class="post" id="p1896"><div class="who"><b>Loren Kocillari89</b><span>7 ago 2009, 23:25</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Ti sei risposto un po' anche da solo. Qui non si tratta affatto di immagini diritte o capovolte, si chiede semplicemente di portare un raggio laser da una certa sezione ad un'altra. Appare quindi ovvio che dopo l'ultima lente esso debba essere come prima, cioè "all'infinito". Segui la soluzione di String e soprattutto disegnati la situazione. Per fare ciò basta che tu rappresenti soltanto due tratti del raggio, cioè quelli più "estremi" (il più in alto e il più in basso, per dire). In pratica tra le lenti dovresti ottenere disegnati dei triangoli isosceli con i vertici che si toccano, in modo da poter sfruttare la geometria della situazione.</div></blockquote>
+Penso di aver capito dove ho sbagliato, ma nel caso in cui il fascio laser partisse da vicino alla lente, si comporterebbe come una luce distante infinito? o deve essere considerato come un oggetto?</article>
+<article class="post" id="p1898"><div class="who"><b>CoNVeRGe.</b><span>8 ago 2009, 0:06</span></div>Un laser (in genere) emette radiazioni direzionali per cui tutti i raggi arrivano paralleli tra loro e perpendicolari alla lente, indipendentemente dalla distanza.</article>
+<article class="post" id="p1904"><div class="who"><b>Davide90</b><span>8 ago 2009, 10:29</span></div>Grazie a Converge e a String per la soluzione, ora ho capito.  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-209.html"><small>← precedente</small>SNS 1990 n. 1 - Potenza dissipata in un circuito</a><a class="next" href="oliforum-8696.html"><small>successivo →</small>Pianetuncoli (sns 90/91)</a></nav>
+</main></body></html>

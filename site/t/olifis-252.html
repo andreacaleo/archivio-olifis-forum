@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2009/2010 Problema 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2009-2010, problema 4</span></nav>
+<h1>SNS 2009/2010 Problema 4</h1>
+<p class="meta">27 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=252">forum Olifis</a></p>
+<article class="post first" id="p2222"><div class="who"><b>Alex90</b><span>28 ago 2009, 21:00</span></div>Un'astronave di massa <span class="tex">\(m\)</span> è dotata di una vela solare di area <span class="tex">\(A\)</span>, cioè un apparecchio che assorbe la luminosità solare intercettata, accelerando così l'astronave. Inizialmente l'astronave si trova su un'orbita circolare identica a quella terrestre; poi dispiega la vela, e raggiunge una nuova orbita, circolare e complanare a quella della Terra, ma posta a distanza <span class="tex">\(R &gt; R_E\)</span> (ove <span class="tex">\(R_E\)</span> è la distanza della Terra dal Sole). E' possibile scegliere <span class="tex">\(A\)</span> in modo tale che la velocità radiale si annulli quando l'astronave raggiunge il raggio <span class="tex">\(R\)</span>? Chiamate <span class="tex">\(L_{\odot}\)</span> e <span class="tex">\(M_{\odot}\)</span> la luminosità e la massa del Sole, rispettivamente, e mantenete l'orientamento della vela (e dunque anche <span class="tex">\(A\)</span>) fisso.</article>
+<article class="post" id="p2230"><div class="who"><b>Loren Kocillari89</b><span>28 ago 2009, 22:55</span></div>Affascinante. A me veniva che non si poteva fermare in un orbitale con qualsiasi A. SOltanto se A=0 cioè senza vele allora poteva prendere quota da qualche parte. Sarà giusto?? :?</article>
+<article class="post" id="p2241"><div class="who"><b>bacco</b><span>29 ago 2009, 11:13</span></div>Orientamento fisso rispetto a cosa?</article>
+<article class="post" id="p2247"><div class="who"><b>Ippo</b><span>29 ago 2009, 11:44</span></div><blockquote><div><cite>bacco ha scritto:</cite>Orientamento fisso rispetto a cosa?</div></blockquote>
+bella domanda, ce lo siamo chiesto tutti  :| <br>
+mi chiedo se siano così parchi di spiegazioni e precisazioni per risparmiare carta o per puro sadismo. Mah.<br>
+Comunque io ho assunto che la vela sia sempre ortogonale ai raggi solari, non è la cosa più sensata nella realtà ma il problema veniva.</article>
+<article class="post" id="p2248"><div class="who"><b>eli9o</b><span>29 ago 2009, 11:47</span></div>Orientamento fisso rispetto al sole. Ho chiesto e mi è stato detto così.<br>
+<br>
+Comunque all'uscita c'erano due interpretazioni. <br>
+La pressione sulla vela varia inversamente al quadrato della distanza come la forza gravitazionale quindi puoi prendere un <span class="tex">\(G'&lt;G\)</span> come costante gravitazionale e bon. Da qualche parte, un po' più lontano starà in orbita. Poi si può calcolare ecc.<br>
+Secondo me affinché la velocità radiale si annulli deve andare più in là di quell'orbita e poi non riesce a starci e tornerà indietro. Io ho imposto <span class="tex">\(\int_{R_E}^{R_1}F_{rad}dr=-\Delta U\)</span> dato che l'energia cinetica non deve cambiare.</article>
+<article class="post" id="p2251"><div class="who"><b>Ippo</b><span>29 ago 2009, 11:53</span></div><blockquote><div><cite>eli9o ha scritto:</cite> dato che l'energia cinetica non deve cambiare.</div></blockquote>
+questo non è proprio vero. Il momento angolare rispetto al sole si conserva perché la forza è centrale; se la velocità radiale è nulla hai una diminuzione netta di energia cinetica.</article>
+<article class="post" id="p2253"><div class="who"><b>eli9o</b><span>29 ago 2009, 11:57</span></div>Ma se tutte le forze sono radiali come può cambiare la velocità tangenziale?</article>
+<article class="post" id="p2258"><div class="who"><b>CoNVeRGe.</b><span>29 ago 2009, 12:58</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Ma se tutte le forze sono radiali come può cambiare la velocità tangenziale?</div></blockquote>
+Se la forza totale non è uguale a quella centripeta a quella determinata velocità tangenziale, questa cambia perchè nell'attimo successivo l'astronave non è più su un'orbita circolare e la forza non è più soltanto radiale alla traiettoria.</article>
+<article class="post" id="p2284"><div class="who"><b>Loren Kocillari89</b><span>30 ago 2009, 16:38</span></div>Ma quindi si anulla o no la velocità radiale per qualunque <span class="tex">\(A\)</span>?</article>
+<article class="post" id="p2295"><div class="who"><b>Alex90</b><span>30 ago 2009, 20:05</span></div>Certo che no! Devi imporre che la nella nuova orbita la risultante della forza gravitazionale e della forza di radiazione sia uguale alla forza centrifuga, dalla conservazione del momento angolare ti ricavi poi la velocità della nuova orbita in funzione del raggio e risolvi in A</article>
+<article class="post" id="p2303"><div class="who"><b>Loren Kocillari89</b><span>30 ago 2009, 21:45</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Certo che no! Devi imporre che la nella nuova orbita la risultante della forza gravitazionale e della forza di radiazione sia uguale alla forza centrifuga, dalla conservazione del momento angolare ti ricavi poi la velocità della nuova orbita in funzione del raggio e risolvi in A</div></blockquote>
+
+Io ho posto l'uguaglianza tra le tre forze, e verificavo che in qualunque caso se hai le vele, non ci si può fermare, eccetto quando si tolgono le vele..la velocità però non l'ho calcolata.. ma era richiesta??</article>
+<article class="post" id="p2304"><div class="who"><b>Alex90</b><span>30 ago 2009, 21:52</span></div>Scusa ma come l'hai calcolata questa cosa?</article>
+<article class="post" id="p2312"><div class="who"><b>Loren Kocillari89</b><span>30 ago 2009, 22:30</span></div>Ho notato che anche se si stabilizzasse in una certa orbita e le vele ci sn ancora, l'energia del satellite continua ad aumentare data la radiazione del sole, quindi qualcosa deve cambiare, ad esempio l'orbita.</article>
+<article class="post" id="p2313"><div class="who"><b>Alex90</b><span>30 ago 2009, 22:35</span></div>Ma se la forza centrifuga, la forza gravitazionale e la forza di radiazione sono in equilibrio questo non è necessariamente vero</article>
+<article class="post" id="p2317"><div class="who"><b>Loren Kocillari89</b><span>31 ago 2009, 0:23</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Ma se la forza centrifuga, la forza gravitazionale e la forza di radiazione sono in equilibrio questo non è necessariamente vero</div></blockquote>
+
+Quello va bene, ma all'inizio il satellite si trova in un equilibrio soltanto tra forza centrifuga e gravitazionale..poi questo equilibrio si rompe e il satellite accelera verso una nuova orbita. La forza centrifuga e quella gravitazionale intanto aumentano con lo stesso passo, infatti come si può notare anche dalle energie, l'energia totale del satellite all'inizio è solamente <span class="tex">\(1/2\)</span> l'energia potenziale, poi è sempre quella ma con un aumento in + grazie alla radiazione. Quindi non avrai mai uno stato di equilibrio a meno che le vele cessino di accelerare ancora il satellite.</article>
+<article class="post" id="p2321"><div class="who"><b>Ippo</b><span>31 ago 2009, 8:54</span></div>sia la forza di gravità sia quella di radiazione variano con l'inverso del quadrato, perciò la loro somma è <span class="tex">\(F=kR^{-2}\)</span> con <span class="tex">\(k={L_0 A \over 4 \pi c}-GmM_0\)</span> costante;<br>
+ora si può porre, se <span class="tex">\(GmM_0 &gt; {L_0A \over 4 \pi c}\)</span> (questa è una condizione che dipende dalla scelta di A quindi probabilmente si può omettere in quanto stiamo proprio cercando il valore di A che "va bene", e che quindi certamente soddisfa quella condizione)<br>
+<span class="tex">\(k=-GmM_0^{\prime}\)</span> da cui si ricava <span class="tex">\(M_0^{\prime}=M_0-{L_0A \over 4 \pi c G m}&lt;M_0\)</span><br>
+cioè è come se la stella avesse una "massa efficace" minore di quella reale, perciò è possibile raggiungere una nuova orbita circolare stazionaria se A ha un particolare valore che dipende dal raggio che si vuole raggiungere.<br>
+Naturalmente le vele devono restare aperte per tutta la durata della permanenza sulla nuova orbita, altrimenti il satellite scende su un'orbita ellittica più bassa.</article>
+<article class="post" id="p2322"><div class="who"><b>bacco</b><span>31 ago 2009, 9:25</span></div>Mi pare che il problema sia più complesso: se ho capito bene il testo, non si richiede se esiste un <span class="tex">\(A\)</span> tale che l'orbita circolare a raggio R con la vela aperta è stabile; invece, si chiede se tale orbita può essere raggiunta in modo diciamo "smooth", cioè arrivandoci con componente radiale della velocità nulla. Non mi è chiaro se si intende che la vela viene lasciata aperta per sempre, oppure può essere chiusa quando si arriva sulla nuova orbita. Mi sembra un problema più sensato se si intende che la vela viene chiusa quando la velocità radiale si annulla.<br>
+<br>
+@ Loren Kocillari89: la radiazione esercita una forza sul satellite dovuta all'assorbimento dei fotoni, ma non puoi fare un ragionamento mettendo l'energia radiante dentro la conservazione dell'energia meccanica del moto! E' un discorso di impulso la pressione di radiazione, non di energia. Per portarlo in energia bisogna lavorarci.</article>
+<article class="post" id="p2323"><div class="who"><b>pascal</b><span>31 ago 2009, 10:37</span></div>Riflettevo anche io su questo fenomeno.<br>
+Poiché la forza complessiva attrattiva risulta ancora inversamente proporzionale al quadrato della distanza, la massa alla velocità del moto circolare sulla traiettoria inferiore si immetterà su un’ellisse. Quando si chiude la vela si avrà un percorso ellittico differente, che si può adagiare su una circonferenza. L’adattamento alla nuova direzione della velocità potrebbe avvenire durante l’operazione di chiusura. Se invece si tratta soltanto di raggiungere l’orbita circolare di raggio R, con la vela sempre aperta e senza stazionamento, l’ellisse non cambia e il punto di contatto richiesto potrebbe essere l’afelio in cui la velocità radiale è nulla.</article>
+<article class="post" id="p2324"><div class="who"><b>Alex90</b><span>31 ago 2009, 11:15</span></div>Io ho inteso come se la vela rimanesse sempre aperta, e quindi arrivasse in condizioni di equilibrio sulla nuova orbita di raggio <span class="tex">\(R\)</span> (senza badare al come visto che non mi sembrava richiesto) e ho imposto l'equilibrio<br>
+<br>
+<span class="tex">\(m\dfrac{v^2}{R} + \dfrac{L_{\odot}}{4 \pi R^2}\dfrac{A}{c}=\dfrac{GM_{\odot}m}{R^2}\)</span><br>
+<br>
+Imponendo la conservazione del momento angolare si ha<br>
+<br>
+<span class="tex">\(v^2={v_E}^2\dfrac{{R_E}^2}{R^2}\)</span><br>
+<br>
+Dato l'equilibrio sull'orbita di raggio <span class="tex">\(R_E\)</span> con la vela chiusa, si ha<br>
+<br>
+<span class="tex">\(m\dfrac{{v_E}^2}{R_E}=\dfrac{GM_{\odot}m}{{R_E}^2} \Rightarrow {v_E}^2 = \dfrac{GM_{\odot}}{R_E}\)</span><br>
+<br>
+Quindi si ha<br>
+<br>
+<span class="tex">\(v^2= \dfrac{GM_{\odot}}{R_E} \dfrac{{R_E}^2}{R^2}=GM_{\odot} \dfrac{R_E}{R^2}\)</span><br>
+<br>
+Sostituendo nella prima equazione<br>
+<br>
+<span class="tex">\(GM_{\odot}m \dfrac{R_E}{R^3} + \dfrac{L_{\odot}}{4 \pi R^2}\dfrac{A}{c}=\dfrac{GM_{\odot}m}{R^2}\)</span><br>
+<br>
+Da cui<br>
+<br>
+<span class="tex">\(A=GM_{\odot}m \left (1 - \dfrac{R_E}{R} \right ) \cdot \dfrac{4 \pi c}{L_{\odot}}\)</span></article>
+<article class="post" id="p2327"><div class="who"><b>Ippo</b><span>31 ago 2009, 14:07</span></div><blockquote><div><cite>bacco ha scritto:</cite>Mi sembra un problema più sensato se si intende che la vela viene chiusa quando la velocità radiale si annulla.</div></blockquote>
+ok, ma in quel caso l'orbita diventa ellittica mentre nelle ipotesi è circolare.<br>
+perché? perchè tutte le forze in gioco sono centrali quindi il momento angolare rispetto al sole si conserva; ma sappiamo che per un'orbita circolare si ha <span class="tex">\(L=mvr=m\sqrt{MG \over r}r=m \sqrt{MGr}\)</span><br>
+cioè ogni orbita circolare di raggio <span class="tex">\(r_i\)</span> ha il suo momento angolare <span class="tex">\(L_i\)</span> e in particolare due orbite di raggio diverso hanno momenti angolari caratteristici diversi.<br>
+nella tua interpretazione invece troviamo due orbite circolari con identico momento angolare, che non può essere.</article>
+<article class="post" id="p2328"><div class="who"><b>CoNVeRGe.</b><span>31 ago 2009, 14:07</span></div>Il testo originale diceva che l'astronave raggungeva un'orbita circolare di raggio <span class="tex">\(\displaystyle R_1 &gt; R_E\)</span> e chiedeva l'annullamento della velocità radiale per <span class="tex">\(\displaystyle R\)</span> (e non <span class="tex">\(\displaystyle R_1\)</span>).<br>
+<br>
+Poi è passato uno ad avvisarci di qualcosa a riguardo che neanche ho capito. Mi pare abbia detto che <span class="tex">\(\displaystyle R\)</span> era qualsiasi, diverso da <span class="tex">\(\displaystyle R_1\)</span>.<br>
+<br>
+L'incomprensibilità dei testi quest'anno ha raggiunto il top. Spero che si rifaccia il test  :mrgreen:</article>
+<article class="post" id="p2332"><div class="who"><b>Ippo</b><span>31 ago 2009, 14:33</span></div>Comunque, ecco la mia soluzione. Do per scontato il calcolo della forza di radiazione.<br>
+<br>
+Abbiamo che il lavoro svolto dall'azione combinata delle due forze nel portare il satellite da <span class="tex">\(R_E\)</span> a <span class="tex">\(R_1\)</span> è <br>
+<span class="tex">\(W=\int_{R_E}^{R_1}\left( {L_{\odot}A \over 4 \pi c}-GmM_{\odot} \right)R^{-2}dR=\)</span><br>
+<span class="tex">\(=\left( {L_{\odot}A \over 4 \pi c}-GmM_{\odot} \right) \left( {1 \over R_E}-{1 \over R_1}\right)\)</span><br>
+<br>
+La variazione di energia (solo cinetica in quanto l'azione della gravità è inclusa nel calcolo del lavoro) è<br>
+<span class="tex">\(\Delta E ={1 \over 2}m(v_R^2+v_T^2-v_0^2)\)</span><br>
+dove <span class="tex">\(v_0\)</span> è la velocità tangenziale nell'orbita iniziale e le altre due sono le componenti readiale e tangenziale della velocità di arrivo.<br>
+<br>
+Ora poniamo che <span class="tex">\(v_R\)</span> sia nulla e scriviamo <span class="tex">\(v_T=v_0 {R_E \over R_1}\)</span> per la conservazione del momento angolare rispetto al Sole, dove sappiamo che <span class="tex">\(v_0=\sqrt{GM_{\odot} \over R_E}\)</span>, e otteniamo<br>
+<br>
+<span class="tex">\(\Delta E ={1 \over 2}mv_0^2 \left({R_E^2 \over R_1^2}-1\right)={GmM_{\odot} \over 2R_E} \left({R_E^2 \over R_1^2}-1\right)\)</span><br>
+<br>
+Ponendo <span class="tex">\(W= \Delta E\)</span> e smanettando un po' algebricamente ricaviamo <span class="tex">\(A(R_1)\)</span>, il valore di A che ci porta a distanza <span class="tex">\(R_1\)</span> senza velocità radiale.<br>
+<br>
+<span class="tex">\(\left( {L_{\odot}A \over 4 \pi c}-GmM_{\odot} \right) \left( {1 \over R_E R_1}\right)=-{GmM_{\odot} \over 2R_E} \left({R_E+R_1 \over R_1^2}\right)\)</span><br>
+<span class="tex">\({L_{\odot}A \over 4 \pi c}-GmM_{\odot} =-{GmM_{\odot} \over 2} \left({R_E+R_1 \over R_1}\right)\)</span><br>
+<span class="tex">\({L_{\odot}A \over 4 \pi c}=GmM_{\odot}\left(1-{R_E+R_1 \over 2R_1}\right)={GmM_{\odot} \over 2}\left(1-{R_E \over R_1}\right)\)</span><br>
+<span class="tex">\(A(R_1)={2 \pi c GmM_{\odot} \over L_{\odot}}\left(1-{R_E \over R_1}\right)\)</span></article>
+<article class="post" id="p2336"><div class="who"><b>bacco</b><span>31 ago 2009, 17:58</span></div>Non so se questo post sarà molto comprensibile, abbiate la pazienza di seguirmi (come dice Alberto Angela  ;) ):<br>
+<br>
+@ Alex90 e Ippo: entrambi i vostri procedimenti mi sembrano sensati, ma viene un risultato diverso per un fattore 2. Contrariamente a quanto si dice di solito: i fattori 2 contano! Se non mi sbaglio, quel fattore 2 è proprio la soluzione del problema.<br>
+<br>
+Alex90, tu calcoli per quale A l'orbita circolare di raggio R e momento angolare L (uguale a quello di partenza) è stabile;<br>
+Ippo, invece, calcola per quale A la transizione dall'orbita circolare iniziale a una situazione cinematica (non necessariamente un'orbita stabile) in cui la velocità radiale si annulla verifica le conservazioni di energia e momento angolare.<br>
+<br>
+Il fatto che vi vengano due risultati diversi per A(R), e quindi anche per R(A), vuol dire che la risposta al problema è "non si può mai fare per nessun valore di A".<br>
+<br>
+L'approccio con la massa "efficace", sfruttando il fatto che la forza radiante ha lo stesso andamento di quella gravitazionale, mi sembrava promettente e avrebbe potuto risolvere subito il problema: non appena apre la vela, il satellite si trova in un campo gravitazionale efficace indebolito, ma conserva il suo momento angolare. Quindi si mette a percorrere un'orbita ellittica, oscillando radialmente attorno al raggio che (per quel fissato momento angolare L) gli avrebbe dato la stabilità (quello calcolato da Alex90), avendo come perielio il raggio dell'orbita iniziale <span class="tex">\(R_E\)</span> e come afelio il punto cinematicamente permesso in cui la velocità radiale si annulla (quello calcolato da Ippo).<br>
+<br>
+Il problema sarebbe molto adatto a essere trattato con la tecnica del potenziale efficace (<a href="http://it.wikipedia.org/wiki/Potenziale_efficace" class="ext" class="postlink">http://it.wikipedia.org/wiki/Potenziale_efficace</a>). Questa tecnica consente di includere automaticamente la conservazione del momento angolare nella soluzione, e di ridursi allo studio del moto solo nella direzione radiale. La condizione iniziale è, chiaramente, <span class="tex">\(r=R_E; dr/dt=0\)</span>. L'apertura della vela può essere interpretata come l'aggiunta di un termine proporzionale ad <span class="tex">\(A/r\)</span> nel potenziale, che diventa quindi<br>
+<br>
+<span class="tex">\(V_{eff}(r)=\frac{L^2}{2mr^2}-\frac{GMm}{r}+k\frac{A}{r}\)</span><br>
+<br>
+Il raggio calcolato da Ippo soddisfa <span class="tex">\(V_{eff}(R)=V_{eff}(R_E)\)</span>, quello calcolato da Alex90 invece soddisfa <span class="tex">\(\frac{dV_{eff}}{dr}|_{R}=0\)</span>.<br>
+<br>
+In ogni caso, non sarà l'ultima volta che vedete queste cose. Spero di essere stato chiaro e di non aver preso cantonate (cosa che ci sta sempre).<br>
+<br>
+ Best regards<br>
+<br>
+   Marco</article>
+<article class="post" id="p2337"><div class="who"><b>Alex90</b><span>31 ago 2009, 18:22</span></div>Ci è voluto un po' ma il post è stato molto interessante...grazie per esserti preso la briga di scriverlo tutto  :D <br>
+<br>
+In definitiva però mi sorge una domanda...abbiamo scazzato tutti e 2 o c'è speranza di punti per qualcuno dei due? (presumibilmente Ippo ma sperare non costa nulla) :D</article>
+<article class="post" id="p2338"><div class="who"><b>Ippo</b><span>31 ago 2009, 19:56</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>In definitiva però mi sorge una domanda...abbiamo scazzato tutti e 2 o c'è speranza di punti per qualcuno dei due? (presumibilmente Ippo ma sperare non costa nulla) :D</div></blockquote>
+uhm... presumibilmente se daranno 0 a noi daranno 0 anche alla stragrande maggioranza dei candidati, quindi credo che prepareranno un qualche tipo di scala per valutare soluzioni parziali, altrimenti saremmo tutti allo stesso livello e l'ammissione potrebbe essere decisa dallo scandaloso "problema" sull'autostrada xD<br>
+
+<blockquote><div><cite>bacco ha scritto:</cite>tutto</div></blockquote>
+sì, questo dà un senso un po' a tutto il problema. In realtà (come ho scritto nel post sulla gravità efficace) sapevo che la soluzione "cinematica" andava intersecata con la condizione di stabilità dell'orbita, ma per qualche ragione non l'ho fatto  :? credo qualcosa di connesso col fatto che ero convinto (e il testo in effetti un po' lo lascia intendere, come ha scritto anche bacco prima) che la vela andasse poi chiusa, e che quindi l'orbita non avrebbe comunque potuto essere circolare, quindi ho preferito ignorare il confuso problema della stabilità nell'orbita di arrivo.<br>
+Alla luce di questo il problema diventa addirittura "carino"  :mrgreen:  Grazie bacco  ;) <br>
+<br>
+<span style="font-size: 85%; line-height: normal">p.s.: ma allora era proprio <span class="tex">\(R=R_1\)</span>!  :lol: un errore di battitura difficilmente accettabile in un testo comunque brevissimo da ricontrollare e già abbastanza ambiguo di suo. Non sono un fan dello stile IPhO, dei problemi totalmente guiati che ammazzano la creatività della soluzione, ma qui siamo decisamente all'estremo opposto, qui la creatività va impiegata anche nell'interpretazione del testo, mi pare eccessivo   :P   bastavano pochissime parole scelte con cura a rendere univoca l'interpretazione di ogni testo... mah. </span></article>
+<article class="post" id="p2341"><div class="who"><b>Alex90</b><span>31 ago 2009, 20:13</span></div><blockquote><div><cite>Ippo ha scritto:</cite>uhm... presumibilmente se daranno 0 a noi daranno 0 anche alla stragrande maggioranza dei candidati, quindi credo che prepareranno un qualche tipo di scala per valutare soluzioni parziali, altrimenti saremmo tutti allo stesso livello e l'ammissione potrebbe essere decisa dallo scandaloso "problema" sull'autostrada xD</div></blockquote>
+
+Beh allora speriamo bene  :D</article>
+<article class="post" id="p7070"><div class="who"><b>AxxMan</b><span>1 ago 2011, 22:19</span></div>Riprendo il problema, per chi vuole discuterne... Io ho supposto primaria la richiesta: può raggiungere il raggio <span class="tex">\(R_1\)</span> con velocità radiale nulla? Per questo motivo ho immaginato la situazione in cui la vela è disposta in modo che la componente radiale della forza bilanci la forza gravitazionale, e prendendo un certo A si può fare. L'altra componente è sempre tangenziale, quindi l'accelerazione dell'astronave e sempre in senso tangenziale e mai radiale. In questo modo l'astronave va sempre più lontano perchè per un angolo buono l'accelerazione è sempre "diretta nel verso giusto" e attraversa orbite circolari mantenendosi sempre sulla loro traiettoria: arriverà anche ad <span class="tex">\(R_1\)</span> e ci arriverà con velocità radiale nulla. L'orbita però non è stabile perchè la velocità è maggiore di quella iniziale, che a sua volta è maggiore di quella necessaria a rimanere su <span class="tex">\(R_1\)</span>. Che ne dite? La richiesta era quella di trovare un orbita stabile da raggiungere in questo modo, e quindi non ho risposto completamente?</article>
+<nav class="pager"><a class="prev" href="olifis-251.html"><small>← precedente</small>SNS 2009/2010 Problema 3</a><a class="next" href="olifis-253.html"><small>successivo →</small>SNS 2009/2010 Problema 5</a></nav>
+</main></body></html>

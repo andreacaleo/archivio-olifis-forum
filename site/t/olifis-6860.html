@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>n. 184- SNS 2016</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2016-2017, problema 5</span></nav>
+<h1>n. 184- SNS 2016</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6860">forum Olifis</a></p>
+<article class="post first" id="p25675"><div class="who"><b>bosone</b><span>24 feb 2020, 18:16</span></div>Le interazioni forti sono responsabili della stabilità dei nuclei e del confinamento dei "quark" al loro interno. Un semplice modello in grado di cogliere alcuni aspetti del fenomeno si ottiene considerando due "quark", entrambi di massa m, vincolati a muoversi su una retta. Queste due particelle possono essere considerate non interagenti se la loro distanza mutua è <span class="tex">\(r&lt;r_N\)</span>, dove <span class="tex">\(r_N\)</span> è il raggio del nucleo, e soggette ad un potenziale attrattivo lineare se r&gt;<span class="tex">\(r_N\)</span>. <br>
+1) Studiare qualitativamente il loro moto, assumendo che inizialmente si trovino a distanza mutua nulla con velocità iniziali<span class="tex">\(v_0\)</span> e 0<br>
+2) Bonus (ed.) Verificare anche quantitativamente lo studio qualitativo effettuato</article>
+<article class="post" id="p25676"><div class="who"><b>Luca Milanese</b><span>26 feb 2020, 10:07</span></div>Perdona l'ignoranza... cosa vuol dire "potenziale attrattivo lineare"?</article>
+<article class="post" id="p25677"><div class="who"><b>bosone</b><span>26 feb 2020, 18:08</span></div>che dipende linearmente dalla prima potenza della distanza d del tipo k.d</article>
+<article class="post" id="p25678"><div class="who"><b>Luca Milanese</b><span>27 feb 2020, 23:46</span></div>Faccio direttamente il punto 2).<br>
+Consideriamo il centro di massa del sistema: poichè non agiscono forze esterne, esso si muove di moto rettilineo uniforme con velocità <span class="tex">\(\frac{v_0}{2}\)</span> rispetto al sistema di riferimento del laboratorio. Quindi il sistema di riferimento del cdm è inerziale. Inoltre, poichè i due quark hanno la stessa massa, le loro posizioni, velocità e accelerazioni avranno stesso modulo e segno opposto nel sistema del cdm. Dunque per comodità mi metto in quest'ultimo sistema di riferimento.<br>
+Abbiamo <span class="tex">\(x_{01}=x_{02}=0\)</span>, <span class="tex">\(v_{01}=-v_{02}=\frac{v_0}{2}\)</span>, <span class="tex">\(a_{01}=a_{02}=0\)</span>. Inoltre <span class="tex">\(r=|x_1-x_2|=2x_1\)</span>. Dunque finchè <span class="tex">\(x_1&lt;\frac{r_N}{2}\)</span> i quark non interagiscono e si muovono a velocità costante. Per <span class="tex">\(x_1&gt;\frac{x_N}{2}\)</span>, l'energia potenziale <span class="tex">\(U\)</span> del sistema varia secondo la legge <span class="tex">\(U=kx\)</span>,con <span class="tex">\(k\)</span> costante positiva. Essendo <span class="tex">\(F=-\frac{dU}{dx}\)</span>, ottengo che sul quark <span class="tex">\(q_1\)</span> agisce una forza costante <span class="tex">\(F_1=-k\)</span>, sul quark <span class="tex">\(q_2\)</span> una forza <span class="tex">\(F_2=k\)</span>. Dunque, posto <span class="tex">\(t_1=0\)</span> il tempo in cui vale <span class="tex">\(r=r_N\)</span>, le leggi orarie dei due quark sono quelle di un moto uniformemente accelerato:<br>
+<span class="tex">\(x_1(t)=-x_2(t)=\frac{x_N}{2}+\frac{v_0t}{2}-\frac{kt^2}{2m}\)</span>, <span class="tex">\(v_1(t)=-v_2(t)=\frac{v_0}{2}-\frac{kt}{m}\)</span>.<br>
+Da qui si ricava facilmente che i due quark, dopo aver invertito il moto, giungono nelle posizioni iniziali (<span class="tex">\(r=r_N\)</span>) con velocità <span class="tex">\(-v_1=v_2=\frac{v_0}{2}\)</span>. Perciò, finiscono per urtarsi nel centro, suppongo elasticamente, e, avendo la stessa massa, semplicemente reinvertono il moto, cosicchè ci ritroviamo nella situazione di partenza.<br>
+In conclusione, il moto dei due quark è periodico, con periodo e massima distanza mutua <span class="tex">\(r\)</span> raggiungibile determinati dalla velocità iniziale <span class="tex">\(v_0\)</span>.</article>
+<article class="post" id="p25681"><div class="who"><b>bosone</b><span>29 feb 2020, 12:46</span></div>Si, mi pare corretto. La tua versione equivale a dire nel sistema del laboratorio che quello inizialmente fermo dopo che r&gt;<span class="tex">\(r_N\)</span>inizia a muoversi e ferma piano piano l'altro acquisendone piano piano la sua velocità iniziale, lo urta e si ferma al suo posto e il gioco si ripete indefinitamente conservandosi qdm e energia? :?:Mi pare di si ma vorrei la tua conferma.</article>
+<article class="post" id="p25682"><div class="who"><b>Luca Milanese</b><span>29 feb 2020, 14:08</span></div>In realtà non ci avevo fatto caso... ma sì, è proprio così che va nel sistema del laboratorio secondo il mio ragionamento.</article>
+<article class="post" id="p25683"><div class="who"><b>bosone</b><span>1 mar 2020, 11:49</span></div>Si perchè quando dici che si ripristinano le condizioni di partenza questo è vero nel sistema cdm ma nel sistema del laboratorio il cdm a velocità <span class="tex">\(v_0/2\)</span>non è più nello stesso posto e quindi in questo sistema il giochino si ripete ma a partire da un altro posto più avanti...<br>
+Comunque posta pure il 185 anche se personalmente attraverso un periodo incasinato. Spero che si faccia avanti anche qualche altro :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6730.html"><small>← precedente</small>SNS 2016 n°3</a><a class="next" href="olifis-6535.html"><small>successivo →</small>SNS 2017 n.1</a></nav>
+</main></body></html>

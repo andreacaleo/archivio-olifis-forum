@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2014 - 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2014-2015, problema 3</span></nav>
+<h1>SNS 2014 - 3</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6031">forum Olifis</a></p>
+<article class="post first" id="p20222"><div class="who"><b>Simone256</b><span>6 gen 2015, 20:26</span></div>Problema mooooooolto strano  :lol: <br>
+<br>
+Si vuole progettare una scala mobile. Determinare la potenza a massimo regime del motore in termini dei parametri rilevanti che definiscono la scala, trascurando ogni attrito.</article>
+<article class="post" id="p20223"><div class="who"><b>sall96</b><span>6 gen 2015, 21:39</span></div>Il moooolto strano è ironico?  :D</article>
+<article class="post" id="p20224"><div class="who"><b>Simone256</b><span>6 gen 2015, 22:52</span></div>Nono almeno secondo il mio parere è un problema abbastanza oscuro... Cioè i parametri rilevanti quali sarebbero? Angolo, peso sopportato e velocitá della scala? È il fatto che i parametri sono a scelta "libera" che per me rende il problema piuttosto... Bastardo  :twisted:</article>
+<article class="post" id="p20226"><div class="who"><b>sall96</b><span>6 gen 2015, 23:25</span></div>Penso che il problema sia proprio questo :D  <br>
+Avendo trovato i parametri che si ritengono fondamentali è solo questione di usarli.<br>
+Concordo sulla bastardaggine del problema però  :lol:</article>
+<article class="post" id="p20228"><div class="who"><b>andrea96</b><span>7 gen 2015, 0:03</span></div>io più che altro mi chiedo come si faccia a valutare oggettivamente su un problema del genere :o la soluzione è abbastanza soggettiva e dal momento che uno sta partecipando a un concorso di fisica non mi sembra troppo corretto mettere roba del genere... però vabbè, se è uscito quest'anno significa che non uscirà l'anno prossimo  :lol:</article>
+<article class="post" id="p20229"><div class="who"><b>cabe95</b><span>7 gen 2015, 0:57</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>... però vabbè, se è uscito quest'anno significa che non uscirà l'anno prossimo  :lol:</div></blockquote>
+Infatti ne uscirà uno molto ma molto più cattivo  :twisted:  :twisted:  :twisted:<br>
+Ahah scherzo  :mrgreen: (o forse no 8-) )</article>
+<article class="post" id="p20230"><div class="who"><b>andrea96</b><span>7 gen 2015, 1:01</span></div><blockquote><div><cite>cabe95 ha scritto:</cite>
+Infatti ne uscirà uno molto ma molto più cattivo  :twisted:  :twisted:  :twisted:<br>
+Ahah scherzo  :mrgreen: (o forse no 8-) )</div></blockquote>
+ :lol:  :lol:  :lol:</article>
+<article class="post" id="p20231"><div class="who"><b>Simone256</b><span>7 gen 2015, 16:16</span></div>No dai sinceramente quest'anno i problemi erano pessimi dai!! Dov'è un bel problema di meccanica????  :evil:</article>
+<article class="post" id="p20234"><div class="who"><b>andrea96</b><span>7 gen 2015, 16:43</span></div>Sii ottimista: non c era quest anno= ci sarà l anno prossimo , quest anno c erano due problemi di chimica=l anno prossimo non ci saranno problemi di  chimica :lol:  :lol:  :lol:</article>
+<article class="post" id="p20309"><div class="who"><b>Simone256</b><span>7 feb 2015, 13:28</span></div>Boh provo a scrivere un abbozzo di soluzione:<br>
+Sia <span class="tex">\(P\)</span> il massimo peso tollerato da ogni gradino, <span class="tex">\(d\)</span> l'altezza di ogni gradino e <span class="tex">\(h\)</span> l'altezza totale della scala. Sia inoltre <span class="tex">\(t\)</span> il tempo che ci mette una persona a salire.<br>
+A questo punto si può dire che la forza è verticale quindi per calcolare il lavoro (e quindi la potenza) si valuta solo lo spostamento verso l'alto e di conseguenza solo tale componente della velocità. La scala porta verso l'alto i passeggeri con velocità <span class="tex">\(\frac{h}{t}\)</span> e sorregge un peso (a massimo regime) di <span class="tex">\(\frac{hP}{d}\)</span>. La potenza sviluppata sarà pertanto <span class="tex">\(W=\frac{h^2P}{dt}\)</span>.</article>
+<article class="post" id="p20845"><div class="who"><b>sall96</b><span>15 apr 2015, 7:11</span></div>Mi è tornato in mento questo problema ed avrei una domanda: in teoria non bisognerebbe anche considerare la forza che la scala esercita per accelerare i passeggeri a quella velocità?</article>
+<article class="post" id="p20848"><div class="who"><b>Simone256</b><span>15 apr 2015, 23:50</span></div>Credo che sia compensato dal fatto che nel tratto finale la scala esercita una forza minore (dato che l'omino decellera); quindi qualsiasi sia la legge oraria in salita vale la formula perchè dopotutto la variazione di energia riguarda solo l'energia potenziale.</article>
+<article class="post" id="p20849"><div class="who"><b>sall96</b><span>16 apr 2015, 7:08</span></div>Capito grazie  :)</article>
+<article class="post" id="p20850"><div class="who"><b>andrea96</b><span>16 apr 2015, 14:56</span></div>E comunque secondo me c è un altro fatto molto strano in questo problema: dice di trascirare ogni , ma cosi facendo un tizio sulla scala non può spostarsi orizzontalmente a meno che non si getti sulla scala con velocitá orizzonale a quella della scala, che non mi sembra una condizione troppo sensata... boh...</article>
+<article class="post" id="p20855"><div class="who"><b>Simone256</b><span>16 apr 2015, 18:33</span></div>Eh si forse per trascirare la spesa di lavoro per velocitá orizzontali che possono complicare la vita! Se in gara viene un dubbio amletico del genere si rischia di perdere molti punti e molto tempo!</article>
+<article class="post" id="p20857"><div class="who"><b>andrea96</b><span>16 apr 2015, 18:40</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Eh si forse per trascirare la spesa di lavoro per velocitá orizzontali che possono complicare la vita! Se in gara viene un dubbio amletico del genere si rischia di perdere molti punti e molto tempo!</div></blockquote>
+Magari puoi fare una domanda al prof che controlla cosi se non ti risponde per lo meno hai ottenuto l obbiettivo di confondere il tuo vicino di banco. Ahahahahahahahahahahahah</article>
+<article class="post" id="p20865"><div class="who"><b>Simone256</b><span>16 apr 2015, 21:49</span></div>Dai oh mi sento giá abbastanza in colpa! :(<br>
+Ti prometto che agli scritti della sns mi siedo lontanissimo da te  :P</article>
+<article class="post" id="p20866"><div class="who"><b>andrea96</b><span>16 apr 2015, 21:54</span></div>Ahahahahah dai ma lo sai che scherzo!  :lol:  :lol:  :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6021.html"><small>← precedente</small>SNS 2014 problema 2</a><a class="next" href="olifis-6023.html"><small>successivo →</small>SNS 2014 problema 4</a></nav>
+</main></body></html>

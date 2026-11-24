@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2004/2005 Problema 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 5</span></nav>
+<h1>SNS 2004/2005 Problema 5</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=129">forum Olifis</a></p>
+<article class="post first" id="p1234"><div class="who"><b>CoNVeRGe.</b><span>8 giu 2009, 22:08</span></div>Nel 1997 nella stazione spaziale Mir si produsse un piccolo foro con l'esterno, a causa del quale la pressione interna passò dal valore normale di <span class="tex">\(\displaystyle 750 mm\)</span> di mercurio a quello di <span class="tex">\(\displaystyle 675 mm\)</span> in 8 minuti.<br>
+<br>
+(a) Si mostri che durante tale periodo la pressione interna diminuì con legge esponenziale.<br>
+<br>
+(b) Si stimi l'area del foro sapendo che il volume pressurizzato della stazione era di <span class="tex">\(\displaystyle 400 m ^3\)</span> e che la temperatura interna era di <span class="tex">\(\displaystyle 297 K\)</span>.</article>
+<article class="post" id="p1241"><div class="who"><b>Loren Kocillari89</b><span>9 giu 2009, 12:22</span></div>Provo il primo punto<br>
+Quando si fora la navicella, il gas interno considerato come perfetto, comincia a fuoriuscire istantaneamente fino a 8 min quando il buco viene "tappato". Se consideriamo l'esterno come vuoto, cioè che non interagisce in alcun modo con l'interno della navicella, allora il mercurio semplicemente si espanderà in modo adiabatico. Se tale espansione è reversibile allora avremo la formula:<br>
+<span class="tex">\(pV^{_y}=L\)</span><br>
+Il lavoro speso è dato da:<br>
+<span class="tex">\(L= \sum F(i)*s(i)\)</span><br>
+ovvero, se la massa delle particelle è la stessa:<br>
+<span class="tex">\(L= m \sum a(i)*s(i)\)</span><br>
+e quindi<br>
+<span class="tex">\(L= m*v*s \sum t(i)\)</span>  (non so come scrivere la derivata)<br>
+<br>
+che guarda a caso, <span class="tex">\(m v s= L_m= momento-angolare\)</span><br>
+<br>
+cioè<br>
+<br>
+<span class="tex">\(L/L_m= \sum t(i)\)</span><br>
+<br>
+sostituendo quind L, si avrà:<br>
+<span class="tex">\(Tp^{(1-y)_/y}=L_m \sum t(i)\)</span><br>
+ed <span class="tex">\(p^{(1-y)_/y}/\sum t(i)=L_m/T\)</span><br>
+e <span class="tex">\(p^{(1-y)_/y}= k\sum t(i)\)</span><br>
+dove <span class="tex">\(k=L_m/T\)</span><br>
+in questa espressione ricavandosi la pressione in funzione del tempo verrebbe una relazione logaritmica e quindi esponenziale.<br>
+Spero di non aver crocifisso qualche sacra legge della fisica con questa dimostrazione.. :o <br>
+Nel caso in cui questa sia la possibile strada secondo me il problema non è chiarissimo o meglio, bisognava dare per scontato molte cose. :|</article>
+<article class="post" id="p1243"><div class="who"><b>CoNVeRGe.</b><span>9 giu 2009, 14:47</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>
+Se consideriamo l'esterno come vuoto, cioè che non interagisce in alcun modo con l'interno della navicella, allora il mercurio semplicemente si espanderà in modo adiabatico.
+</div></blockquote>
+Sì, l'esterno è vuoto e non interagisce con l'interno. E per questo motivo l'espansione non è adiabatica perchè il gas non compie lavoro su nulla.<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>
+(non so come scrivere la derivata)
+</div></blockquote>
+Se con la freccetta vai su una scritta in latex di qualcuno, ti appare ciò che l'utente ha digitato per ottenere quella roba. <br>
+Per la derivata basta comunque mettere la 'd'.</article>
+<article class="post" id="p1244"><div class="who"><b>Pairo</b><span>9 giu 2009, 15:53</span></div>Notiamo inizialmente che la trasformazione è una libera espansione, e quindi, essendo nulli il calore e il lavoro scambiato con l'esterno, la temperatura rimane costante (vedi halliday-espansione libera). Inoltre il gas è aria, che consideriamo essere ossigeno, e quindi assimilabile ad un gas perfetto. La massa molare dell'ossigeno <span class="tex">\({O_2}\)</span> è nota e vale 16 grammi.<br>
+<br>
+Possiamo impostare allora l'equazione dei gas perfetti, con V e T costanti. Si ha:<br>
+<br>
+<span class="tex">\((P+dP)V = (n+dn)RT\)</span>, da cui, semplificando e integrando dall'istante iniziale a quello finale:<br>
+<br>
+<span class="tex">\(\frac{P}{n} = \frac{{P_0}}{{n_0}}\ (1)\)</span><br>
+<br>
+Per il teorema di Bernoulli, possiamo legare la velocità del gas con la pressione interna, considerando una porzione infinitesima di gas prima e dopo l'uscita dal foro. Si ha:<br>
+<br>
+<span class="tex">\(\frac{1}{2}\rho v^2 = \frac{1}{2}\frac{nm}{V}v^2 = P\ (2)\)</span> dove m è la massa molare del gas.<br>
+<br>
+Per la terza e ultima equazione, possiamo infine considerare il numero di moli che esce dal foro nell'intervallo infinitesimo di tempo, considerando il volume del cilindro avente come base il foro del gas. Si ha:<br>
+<br>
+<span class="tex">\(dn = Avdt\frac{n}{V}\ (3)\)</span> dove A è la superficie del foro<br>
+<br>
+Possiamo allora combinare la (1), la (2) e la (3), ottenendo:<br>
+<br>
+<span class="tex">\(\frac{dn}{n} = \frac{A}{V}\sqrt{\frac{2V{P_0}}{m{n_0}}}dt\)</span><br>
+<br>
+Integrando si ottiene una relazione esponenziale tra n e t, e quindi per la (1) una relazione esponenziale tra P e t. Nota la relazione tra P e t, che è anche in funzione della superficie del foro A, è facile ricavare il risultato del secondo punto.</article>
+<article class="post" id="p1245"><div class="who"><b>CoNVeRGe.</b><span>9 giu 2009, 17:25</span></div>Bernoulli però mi sa che non vale per i fluidi comprimibili. Perlomeno non per quelli che subiscono variazioni di densità..<br>
+<br>
+<br>
+Comunque sono forniti (a parte) la costante di Boltzmann, la costante di Avogadro e il peso atomico medio dell'aria (<span class="tex">\(\displaystyle &lt;A&gt; = 28\)</span>).</article>
+<article class="post" id="p1247"><div class="who"><b>Pairo</b><span>9 giu 2009, 17:36</span></div>L'ho applicato sul fluido prendendo due istanti successivi distanziati da un intervallo di tempo infinitesimale, per cui penso si possano considerare trascurabili tutti gli effetti di compressione. Ovviamente mi piacerebbe sentire a riguardo gli utenti più esperti come Pascal o Pigkappa, ed eventualmente essere corretto  :D</article>
+<article class="post" id="p1249"><div class="who"><b>Rigel</b><span>9 giu 2009, 18:46</span></div>Mi sembra che l'applicazione di Bernoulli (ammesso che si possa fare) porta a risultati paradossali.<br>
+Ad esempio:
+<blockquote><div><cite>Pairo ha scritto:</cite>Per il teorema di Bernoulli, possiamo legare la velocità del gas con la pressione interna, considerando una porzione infinitesima di gas prima e dopo l'uscita dal foro. Si ha:<br>
+<br>
+<span class="tex">\(\frac{1}{2}\rho v^2 = \frac{1}{2}\frac{nm}{V}v^2 = P\ (2)\)</span> dove m è la massa molare del gas.
+</div></blockquote>
+così hai considerato la pressione interna (quella esterna è 0 quindi non ne tieni conto) e la velocità esterna. Però nel tuo calcolo hai considerato la densità interna e non quella esterna e questo non si può fare. Oltretutto essendo la densità esterna nulla verrebbe un risulato impossibile...<br>
+questo mi lascia piuttosto perplesso</article>
+<article class="post" id="p1250"><div class="who"><b>pascal</b><span>9 giu 2009, 20:52</span></div>Ringrazio, ma non merito questi complimenti.<br>
+Forse se includiamo nel bilancio l’energia interna, il risultato potrebbe essere più pertinente.<br>
+Applichiamo la conservazione dell’energia al fluido tra le due sezioni nel cilindro e nel condotto.<br>
+Se le pressioni sono <span class="tex">\(p_1\)</span> e <span class="tex">\(p_2\)</span> e le sezioni regrediscono dei volumi <span class="tex">\(\tau_1\)</span> e <span class="tex">\(\tau 2\)</span>, la conservazione dell’energia fornisce<br>
+ <br>
+<span class="tex">\(P_1 \tau_1+n_2c_vT_1= P_2 \tau_2+n_2c_vT_2+mv_2^2/2\)</span> trascurando la velocità nella sezione 1.<br>
+<br>
+<span class="tex">\(n_2 RT_1+n_2c_vT_1= n_2 RT_2+n_2c_vT_2+ mv_2^2/2\)</span><br>
+<br>
+Per un gas biatomico di massa molare M e per <span class="tex">\(T_2=0\)</span>, si ottiene<br>
+<br>
+<span class="tex">\(v_2^2=7RT_1/M\)</span>.<br>
+<br>
+Questo è soltanto un tentativo per determinare v2. Può darsi che nel forum emergano soluzioni più veritiere della presente.</article>
+<article class="post" id="p1252"><div class="who"><b>Paolo90</b><span>10 giu 2009, 11:15</span></div>Provo a fare una stima: consideriamo la forza esercitata da un pezzo di area A di parete in un tempo dt, essa e' pari alla variazione di quantita' di moto delle particelle del gas:<br>
+<span class="tex">\(Fdt = PAdt = -2NM\langle v \rangle\)</span> dove N e' il numero di particelle che si scontra con la parete e M e' la massa delle singole molecole.<br>
+Se pero' al posto della parete ci fosse un buco, queste N particelle uscirebbero e si avrebbe una variazione di massa del gas <span class="tex">\(dm = NM = -\frac{PAdt}{2\langle v \rangle}\)</span> quindi <span class="tex">\(\frac{dm}{dt} = -\frac{PA}{2\langle v \rangle} = -\frac{ART}{N_aMV\langle v \rangle}m\)</span><br>
+questa equazione differenziale ha come soluzione un esponenziale.<br>
+Ora non mi ricordo la formula per la velocita' media delle particelle di un gas, e penso che in questa formula andrebbe anche divisa per 3 in quanto conta solo la componente perpendicolare alla parete, comunque per una stima dovrebbe andare bene.</article>
+<article class="post" id="p1255"><div class="who"><b>Pairo</b><span>10 giu 2009, 21:25</span></div>Intanto grazie a tutti; adesso ho capito perchè non si può usare il teorema di Bernoulli  :D <br>
+
+<blockquote><div><cite>pascal ha scritto:</cite>
+<br>
+Per un gas biatomico di massa molare M e per <span class="tex">\(T_2=0\)</span>, si ottiene<br>
+<br>
+<span class="tex">\(v_2^2=7RT_1/M\)</span>.</div></blockquote> <br>
+<br>
+Non capisco questo punto. Se non ho frainteso si sta considerando il gas prima e dopo l'uscita dal foro. Ma allora la pressione esterna non dovrebbe essere nulla? Perché si considera nel bilancio energetico? Inoltre la temperatura del gas all'esterno non dovrebbe essere uguale a quella interna?</article>
+<article class="post" id="p1257"><div class="who"><b>pascal</b><span>10 giu 2009, 22:13</span></div>Sempre in termini di ipotesi, ho considerato una sezione nella parte larga del recipiente e un’altra nel foro in prossimità dell’uscita. Se <span class="tex">\(p_2=0\)</span> allora <span class="tex">\(p_2 \ volume_2 =n_2RT_2\)</span> è nullo, a meno che <span class="tex">\(volume_2\)</span> non sia infinito. E’ chiaro che la temperatura non può essere proprio zero per il terzo principio della termodinamica. Bisognerebbe avere maggiori informazioni sulla temperatura esterna.<br>
+Interpreto questo fenomeno pensando al fatto che il lavoro della pressione interna e l’energia interna vengano convertiti in energia cinetica lineare (non caotica) del gas.</article>
+<article class="post" id="p1258"><div class="who"><b>Pairo</b><span>10 giu 2009, 22:25</span></div>Ok, adesso ho capito. Avevo sbagliato anche ad assumere che il gas all'esterno mantenesse la stessa temperatura perché assumendo energia cinetica deve perdere energia interna. Così si potrebbe poi concludere con l'equazione (3) che avevo scritto, che si salva dagli errori che avevo fatto perché è indipendente.<br>
+Grazie mille!<br>
+Per quanto riguarda la soluzione di Paolo 90? A me sembra corretta. Ma in questo caso, per esempio, ammettere giusta una soluzione significa necessariamente considerare sbagliata l'altra? Il problema dice di dare una stima, quindi è possibile che ci siano modi diversi di stimare le grandezze in gioco, anche se si arriva a risultati leggermente diversi?? Evidentemente, comunque, i ragionamenti partono da assunzioni differenti..</article>
+<article class="post" id="p1284"><div class="who"><b>Pairo</b><span>14 giu 2009, 10:00</span></div>Scusate, mi dispiacerebbe abbandonare questo topic, prima di chiarire tutti i dubbi. So che è un periodo impegnativo per tutti, ma quando qualcuno avrà un po' di tempo (a questo punto magari anche dopo l'esame  :D ) sarebbe bello approfondire.<br>
+Come al solito, comunque, grazie a tutti  :D</article>
+<article class="post" id="p15508"><div class="who"><b>Gabry</b><span>5 set 2013, 20:29</span></div>Visto che questo topic è restato senza una conclusione definitiva posto la mia soluzione (solo del primo punto, il secondo è poi banale), con la speranza che qualcuno magari esprima la propria opinione per vedere se ottengo un risultato condiviso.<br>
+Bernoulli si può usare per qualunque fluido, indicando con i pedici i i valori relativi all'interno e con il pedice e quelli relativi all'esterno si ha:<br>
+<span class="tex">\({1 \over 2}\rho_i v_i^2+P_i={1 \over 2}\rho_e v_e^2+P_e\)</span>. Dall'equazione di continuità <span class="tex">\(\rho_i A_i v_i=\rho_e A_e v_e\)</span> essendo il foro piccolo <span class="tex">\(A_e&lt;&lt;A_i\)</span> e sicuramente il gas uscendo si espande quindi <span class="tex">\(\rho_e&lt;=\rho_i\)</span> dunque la velocità interna dell'aria è trascurabile. La velocità di fuoriuscita (cioè quella esterna calcolata in prossimità del foro quando ancora le variazioni di densità sono trascurabili) vale <span class="tex">\(v_f=\sqrt{{2(P_i-P_e) \over \rho_i}}\)</span> dall'equazione dei gas perfetti si ricava facilmente <span class="tex">\(\rho={M_MP \over RT}\)</span> con MM massa molecolare dell'aria. Sostituendo si ottiene <span class="tex">\(v_f=\sqrt{{2(P_i-P_e)RT \over M_MP_i}}\)</span> dato che <span class="tex">\(P_e=0\)</span> <span class="tex">\(v_f=\sqrt{{2RT \over M_M}}\)</span>  che è indipendente dalla pressione interna.<br>
+La quantità infinitesima d'aria che esce vale <span class="tex">\(dm=A\rho v_f dt\)</span> con <span class="tex">\(dm=Vd\rho\)</span> (V maiuscolo è il volume, da non confondere con la velocità) e dall'equazione precedente <span class="tex">\(d\rho={M_MdP \over RT}\)</span> sostituendo si ottiene <span class="tex">\({dP \over P}=A{v_f \over V}dt\)</span> e <span class="tex">\(P_i=P_{i0}e^{A{v_f \over V}\Delta t}\)</span> sostituendo anche la velocità <span class="tex">\(P_i=P_{i0}e^{A{\sqrt{{2RT \over M_M}} \over V}\Delta t}\)</span></article>
+<article class="post" id="p15529"><div class="who"><b>Andg94</b><span>6 set 2013, 22:43</span></div>Si, in effetti credo anche io che Bernoulli si possa utilizzare.. Nel caso di fluidi comprimibili è necessario tener conto della variazione di energia interna potenziale, ma se approssimiamo l'aria come un gas perfetto non dovrebbero esserci problemi... quindi la soluzione mi pare corretta!</article>
+<article class="post" id="p15530"><div class="who"><b>desga</b><span>6 set 2013, 23:39</span></div>Io l'avevo fatto così:<br>
+<br>
+Ogni diminuzione di pressione infinitesima <span class="tex">\(dp\)</span> è dovuta ad una diminuzione infinitesima del numero di moli di gas<span class="tex">\(dn\)</span>;per la legge dei gas ideali <span class="tex">\(dp=-\frac{RT}{V} dn\)</span>. Compiendo una stima abbastanza grossolana posso dire che dopo un tempo <span class="tex">\(dt\)</span> la frazione di gas uscita occupa un volume <span class="tex">\(dV=A v_p dt\)</span> con <span class="tex">\(v_p\)</span> la velocità più probabile delle molecole. Supponendo che,dopo un istante così breve, tale "microvolume" sia ancora a pressione p, <span class="tex">\(dn=\frac{pdV}{RT}\)</span>.Sostituendo si ha <span class="tex">\(\frac{dp}{dt}=-\frac{pA}{V}\sqrt{\frac{2RT}{M}}\)</span> e pertanto <span class="tex">\(P(t)=P_0 e^{-\frac{At}{V}\sqrt{\frac{2RT}{M}}}\)</span>. Proprio come la tua ! Ma perchè ho utilizzato la velocità più probabile invece che quella media o che quella quadratica media! Secondo me queste sono solo stime egualmente valide, e infatti differiscono tutte per un fattore correttivo numerico. Oggi ho presentato questo problema a un fisico teorico bravissimo ( il vicino di casa di mia nonna!!), e mi ha detto che l'unico metodo "esatto" (ci sono sempre approssimazioni, ma ben più fini) è quello di fare l'integrale esteso al volume con la distribuzione delle velocità di Maxwell-Boltzmann per valutare <span class="tex">\(\frac{dn}{dt}\)</span>. Se volete domani riordino gli appunti con calma e posto quel procedimento.<br>
+<br>
+EDIT: Guardate qua <a href="http://forum.olifis.it/olifis/phpBB3/viewtopic.php?f=15&amp;t=850" class="ext" class="postlink">olifis/phpBB3/viewtopic.php?f=15&amp;t=850</a> e</article>
+<article class="post" id="p15533"><div class="who"><b>pascal</b><span>7 set 2013, 9:58</span></div>Penso che non bisogna considerare la velocità di uscita dal foro, bensì quella di entrata. Ogni mole ha un’energia cinetica media traslazionale di 3 R T / 2, che in ciascuna direzione ortogonale diventa R T / 2. Lungo il foro l’energia cinetica vale <span class="tex">\(\frac {1}{2}Mv^2=\frac{1}{2}RT\)</span>, da cui la velocità quadratica media risulta <span class="tex">\(\sqrt{\frac{RT}{M}}\)</span>.<br>
+L’annullamento della pressione esterna indica l’assenza di particelle che dall’esterno rientrano nel recipiente.</article>
+<article class="post" id="p15537"><div class="who"><b>Gabry</b><span>7 set 2013, 19:15</span></div>Desga ovviamente siamo nell'approssimazione in cui consideriamo trascurabile la viscosità del gas, altrimenti l'equazione diventerebbe molto fastidiosa, quindi credo che si possa usare Bernoulli<br>
+
+<blockquote><div><cite>pascal ha scritto:</cite>Penso che non bisogna considerare la velocità di uscita dal foro, bensì quella di entrata. Ogni mole ha un’energia cinetica media traslazionale di 3 R T / 2, che in ciascuna direzione ortogonale diventa R T / 2. Lungo il foro l’energia cinetica vale , da cui la velocità quadratica media risulta .<br>
+L’annullamento della pressione esterna indica l’assenza di particelle che dall’esterno rientrano nel recipiente.</div></blockquote>
+Pascal l'energia cinetica media scritta in quel modo vale anche quando ci sono differenze di pressione? Mi spiego meglio: sono d'accordo sulla legge che lega la velocità delle molecole alla temperatura (in questo senso quella legge vale in tutti i contesti, una variazione di velocità corrisponde ad una variazione di temperatura), ma in questo caso non si tratta della velocità delle singole molecole, si tratta di un flusso d'aria cioè la velocità di spostamento "complessiva" (ad esempio la velocità delle molecole d'aria nella mia stanza è sicuramente non nulla, ma il flusso d'aria è praticamente nullo cioè l'aria è "ferma").<br>
+<br>
+P.S. per andg94 la variazione di energia interna è presente nell'equazione di Bernoulli ed è proprio la pressione (pensa infatti all'equazione di Bernoulli come la conservazione dell'energia per unità di volume)</article>
+<article class="post" id="p15544"><div class="who"><b>pascal</b><span>8 set 2013, 0:00</span></div>Concordo sulla differenza tra la velocità delle molecole e della corrente. Ma in questo caso fuoriescono soltanto le molecole che colpiscono il foro con componenti della velocità media Vx nella direzione della corrente. Tali componenti generano il flusso alla velocità Vx. Non ci sono nel foro molecole che viaggiano in senso inverso come nell'esempio della stanza.</article>
+<article class="post" id="p15551"><div class="who"><b>Gabry</b><span>8 set 2013, 12:01</span></div>Mi hai convinto sul fatto che dato che non ci sono molecole che "rientrano" le molecole che escono lo fanno necessariamente con la loro velocità di agitazione termica, ma non mi è chiaro questo passaggio:
+ <blockquote><div><cite>pascal ha scritto:</cite> Ogni mole ha un’energia cinetica media traslazionale di 3 R T / 2, che in ciascuna direzione ortogonale diventa R T / 2. Lungo il foro l’energia cinetica vale <span class="tex">\(\frac {1}{2}Mv^2=\frac{1}{2}RT\)</span>, da cui la velocità quadratica media risulta <span class="tex">\(\sqrt{\frac{RT}{M}}\)</span>.
+</div></blockquote>
+L'unico vincolo che possiamo dire sulle particelle che escono è che queste non hanno velocità nella direzione con verso opposto al flusso (e non ne sono neanche sicuro), ma nulla vieta che una particella abbia altre componenti di velocità lungo le direzioni ortogonali alla direzione di "fuoriuscita" (il gas fuoriuscito infatti sicuramente non rimarrà di forma cilindrica, segno che ci sono anche componenti ortogonali della velocità). L'unica quindi sarebbe utilizzare come ha detto desga la distribuzione di Maxwell-Boltzmann, ma mi pare che complichi parecchio le cose.</article>
+<article class="post" id="p15557"><div class="who"><b>Andg94</b><span>8 set 2013, 19:53</span></div>Sempre se ho capito quello a cui ti riferisci, penso che Pascal si riferisse alla velocità quadratica media solamente lungo l'asse x, le altre componenti non influenzano il numero di molecole che fuoriescono in un istante, ergo non ci interessano (tant'è vero che <span class="tex">\(p=\rho (\overline {v_x})^2)= \frac{\rho}{3} (\overline{v^2})\)</span>).<br>
+Ad ogni modo nel mio post intendevo energia interna potenziale (dovuta all'attrazione tra molecole) e non quella cinetica.</article>
+<article class="post" id="p15581"><div class="who"><b>desga</b><span>9 set 2013, 12:21</span></div><blockquote><div><cite>Andg94 ha scritto:</cite>Sempre se ho capito quello a cui ti riferisci, penso che Pascal si riferisse alla velocità quadratica media solamente lungo l'asse x, le altre componenti non influenzano il numero di molecole che fuoriescono in un istante, ergo non ci interessano (tant'è vero che <span class="tex">\(p=\rho (\overline {v_x})^2)= \frac{\rho}{3} (\overline{v^2})\)</span>).<br>
+Ad ogni modo nel mio post intendevo energia interna potenziale (dovuta all'attrazione tra molecole) e non quella cinetica.</div></blockquote>
+ <br>
+Sì che ci interessano anche le altre componenti. Una molecola posta al di fuori del prisma retto con base il buco deve avere anche componenti della velocità su altri assi per poter raggiungere il buco. Per questo si deve fare l'integrale sul volume.E' come se dovessi calcolare quante molecole per unità di tempo incidono su una porzione della scatola.</article>
+<nav class="pager"><a class="prev" href="oliforum-5839.html"><small>← precedente</small>Espansione Libera @ SNS</a><a class="next" href="oliforum-8808.html"><small>successivo →</small>SNS 2004-2005 6</a></nav>
+</main></body></html>

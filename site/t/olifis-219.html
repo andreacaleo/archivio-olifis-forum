@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2001/2002</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 4</span></nav>
+<h1>SNS 2001/2002</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=219">forum Olifis</a></p>
+<article class="post first" id="p1954"><div class="who"><b>mrossi</b><span>12 ago 2009, 16:43</span></div>Un recipiente di volume V = 40 litri, termicamente e meccanicamente isolato dall’esterno, è diviso in due parti di volumi <span class="tex">\(V_1 = 10 l\)</span> e <span class="tex">\(V_2 = 30 l\)</span>, contenenti rispettivamente 0.5 moli di <span class="tex">\(0_2\)</span> alla temperatura <span class="tex">\(T_1 = 600 K\)</span> e una mole di <span class="tex">\(N_2\)</span> alla temperatura <span class="tex">\(T_2 = 300 K\)</span>. I due gas vengono considerati come gas ideali, e quindi le capacità termiche a volume costante di una grammolecola sono uguali.<br>
+<br>
+Il setto divisorio, inizialmente bloccato, è permeabile al calore. Sempre a partire da queste condizioni iniziali,<br>
+(a) determinare lo stato finale dei due gas se il setto divisorio viene mantenuto bloccato;<br>
+(b) determinare lo stato finale dei due gas, se il setto divisorio viene lasciato libero di spostarsi;<br>
+(c) determinare lo stato finale dei due gas, se nel setto divisorio, bloccato, viene praticato un foro.<br>
+(d) Senza calcolarla esplicitamente, dire in quale dei tre suddetti casi l’entropia dello stato finale è maggiore e in quale è minore.</article>
+<article class="post" id="p2020"><div class="who"><b>MrTeo</b><span>15 ago 2009, 19:48</span></div>Ecco come l'ho risolto (o almeno suppongo di averlo fatto  :mrgreen: ):<br>
+<br>
+a.<br>
+Dato che il setto è bloccato e permeabile al calore i volumi rimarranno costanti, le pressioni non influenzano l'equilibrio e l'unica cosa che alla fine deve risultare uguale tra i due gas è l'energia interna, quindi [indico con 1 la sezione contenente ossigeno molecolare e con 2 quella contenente azoto]:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ \Delta U_1  = \Delta U_2  \\ 
+ \frac{3}{2}Rn_1 \Delta T = \frac{3}{2}Rn_2 \Delta T \\ 
+ n_1 \left( {T_1  - T_f } \right) = n_2 \left( {T_f  - T_2 } \right) \\ 
+ n_1 T_1  - n_1 T_f  = n_2 T_f  - n_2 T_2  \\ 
+ \left( {n_1  + n_2 } \right)T_f  = n_1 T_1  + n_2 T_2  \\ 
+ T_f  = \frac{{n_1 T_1  + n_2 T_2 }}{{n_1  + n_2 }} = 400 K \\ 
+ \end{array}\)</span><br>
+<br>
+Abbiamo quindi una media pesata (come suggerisce anche la nota relativa alle capacità termiche di una mole). Le pressioni si ottengono con l'equazione di stato:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ p_1  = \frac{{n_1 RT_f }}{{V_1 }} = 166375,65\;{\rm{Pa}} \\ 
+ p_2  = \frac{{n_2 RT_f }}{{V_2 }} = 110917,01\;{\rm{Pa}} \\ 
+ \end{array}\)</span><br>
+<br>
+b.<br>
+In questo caso all'equilibrio sia le energie interne che le pressioni devono essere uguali, quindi possiamo scrivere:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ \frac{{p_f V_1 }}{{n_1 T_f }} = \frac{{p_f V_2 }}{{n_2 T_f }} \\ 
+ \frac{{V_1 }}{{n_1 }} = \frac{{V_2 }}{{n_2 }} \\ 
+ \frac{{V_1 }}{{n_1 }} = \frac{{V_{tot}  - V_1 }}{{n_2 }} \\ 
+ \left( {n_1  + n_2 } \right)V_1  = V_{tot} n_1  \\ 
+ V_1  = \frac{{V_{tot} n_1 }}{{n_1  + n_2 }} = 13,3\;{\rm{L}} \\ 
+ V_2  = V_{tot}  - V_1  = 26,7\;{\rm{L}} \\ 
+ \end{array}\)</span><br>
+<br>
+Per la temperatura valgono le stesse considerazioni fatte al primo punto: entrambi i gas all'equilibrio sono a 400 K. Le pressioni infine si trovano applicando ancora l'equazione di stato (non ho utilizzato i valori approssimati qui perché altrimenti ci sarebbe stata una piccola discrasia nei valori che invece sono uguali):<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ p_1  = \frac{{n_1 RT_f }}{{V_1 }} = 124717,08\;{\rm{Pa}} \\ 
+ p_2  = \frac{{n_2 RT_f }}{{V_2 }} = 124717,08\;{\rm{Pa}} \\ 
+ \end{array}\)</span><br>
+<br>
+c.<br>
+Nell'ultimo caso è chiaro che il foro è abbastanza grande per permettere la diffusione dei due gas senza muovere il setto. La temperatura è, come nei due punti precedenti, 400 K e i gas occupano tutto il volume disponibile, quindi 40 L. La pressione si ottiene dalle equazioni di stato e volendo si può calcolare anche la pressione totale del sistema applicando la legge di Dalton:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ p_1  = \frac{{n_1 RT_f }}{{V_{tot} }} = 41572,36\;{\rm{Pa}} \\ 
+ p_2  = \frac{{n_2 RT_f }}{{V_{tot} }} = 83144,72\;{\rm{Pa}} \\ 
+ p_{tot}  = p_1  + p_2  = 124717,08\;{\rm{Pa}} \\ 
+ \end{array}\)</span><br>
+<br>
+E si vede anche che il valore della pressione totale in questo caso è il medesimo della pressione all'equilibrio.<br>
+<br>
+d.<br>
+Per quanto riguarda la maggiore entropia direi sicuramente il caso <strong class="text-strong">c.</strong>, più per considerazioni qualitative sul disordine della miscela che per altro (negli altri due casi i gas restano comunque separati). Per quanto riguarda lo stato con minore entropia ho diversi dubbi, mi sembra quasi che <strong class="text-strong">a.</strong> e <strong class="text-strong">b.</strong> abbiano la stessa variazione... quindi lascio a qualcun'altro l'ultima parola (magari a qualcuno che ha voglia di stimare le variazioni  :D ). A naso direi <strong class="text-strong">a.</strong>, ma è più una questione di intuito che una vera ragione, forse per il fatto che, se non consideriamo le due espansioni reversibili, comunque la variazione di entropia è positiva, mentre nel primo caso potrebbe essere pari a 0.</article>
+<article class="post" id="p2024"><div class="who"><b>eli9o</b><span>15 ago 2009, 20:19</span></div>Secondo me puoi dire che l'entropia in (a) è minore perché se da quello stato lasci libero di muoversi il setto vai spontaneamente in (b) e l'entropia cresce.</article>
+<article class="post" id="p2036"><div class="who"><b>MrTeo</b><span>17 ago 2009, 13:41</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Secondo me puoi dire che l'entropia in (a) è minore perché se da quello stato lasci libero di muoversi il setto vai spontaneamente in (b) e l'entropia cresce.</div></blockquote>
+
+Mi pare un'ottima soluzione... il sistema in effetti si sposta verso lo stato più probabile  ;)</article>
+<nav class="pager"><a class="prev" href="oliforum-6091.html"><small>← precedente</small>variazioni di entropia</a><a class="next" href="oliforum-8703.html"><small>successivo →</small>Sns 2001-2002.5 (sfera conduttrice in accelerazione)</a></nav>
+</main></body></html>

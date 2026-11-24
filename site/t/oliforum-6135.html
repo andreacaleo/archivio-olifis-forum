@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ammissione SNS (2005-2006).3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 3</span></nav>
+<h1>Ammissione SNS (2005-2006).3</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6135">OliForum</a></p>
+<article class="post first" id="p56390"><div class="who"><b>Poliwhirl</b><span>23 ago 2006, 17:56</span></div>Si può dare una stima del raggio di Bohr dell'atomo di idrogeno assumendo un orbita circolare dell'elettrone e un potenziale puramente coulombiano. Si faccia tale stima facendo uso della condizione fornita dal principio di indeterminazione $ \displaystyle p*r \geq h $, ove $ p $ è la quantità di moto dell'elettrone.<br>
+$ \displaystyle m_e = 9,10 * 10^{-31} kg; e = 1,60 * 10^{-19} C  $<br>
+$ \epsilon_0 = 8,85 * 10^{-12} F m^{-1}; h = 1,05 * 10^{-34} J s $<br>
+<br>
+Bye,<br>
+#Poliwhirl#</article>
+<article class="post" id="p56402"><div class="who"><b>David</b><span>23 ago 2006, 18:50</span></div>la forza centripeta che causa il moto circolare dell'elettrone ha intensità:<br>
+$ F=\frac{e^{2}}{4\pi \epsilon_0 r^2}
+F=m_ea_c $ dove $ a_c=\frac{v^{2}}{r} $ dunque:<br>
+$ \frac{e^{2}}{4\pi \epsilon_0 r^2}=m_e\frac{v^{2}}{r} $ portando $ r^{2} $ al secondo membro e semplificando si ottiene:<br>
+$ m_evr=\frac{e^{2}}{4\pi \epsilon_0v}
+m_evr=pr $<br>
+$ pr\ge h $ da cui:<br>
+$ \frac{e^{2}}{4\pi \epsilon_0v}\ge h $ <br>
+quindi<br>
+$  v\le \frac{e^{2}}{4\pi \epsilon_0h} $<br>
+da questa formula abbiamo ottenuto un approssimato valore di $ v $supponendo questo valore minimo (solo per non portarmi dietro la disuguaglianza) continuo dicendo che:<br>
+$ \frac{F}{m}=\frac{v^{2}}{r} $<br>
+e cioè che:<br>
+$ \frac{e^{2}}{4\pi \epsilon_0 r^2}\frac{1}{m_e}=\frac{e^{4}}{16\pi^{2} \epsilon^{2}_0h^{2}}\frac{1}{r} $<br>
+risolvendo rispetto ad r:<br>
+$ r=\frac {4\pi \epsilon_0h^{2}} {e^{2}m_e} $<br>
+$ r=5.29*10^{-11} $ metri<br>
+va bene secondo voi?</article>
+<article class="post" id="p56405"><div class="who"><b>Tamaladissa</b><span>23 ago 2006, 18:57</span></div>Ho provato 2 metodi: minimizzando l'energia totale rispetto al raggio e un altro semplicemente calcolando l'interazione dell'elettrone col nucleo, quest'ultimo mi dà qualcosa del tipo:<br>
+<br>
+$ r = \frac{h^2 4 \pi \epsilon_0}{m q Q} $<br>
+<br>
+L'ordine di grandezza è quello degli amstrong, il che è un bene però l'altro metodo è più elegante anche se devo metterlo a posto perchè il risultato è un pò assurdo.</article>
+<article class="post" id="p56406"><div class="who"><b>David</b><span>23 ago 2006, 19:21</span></div>considerando che l'atomo in questione è quello dell'idrogeno il tuo $ qQ $ diventa $ e^{2} $.<br>
+quindi i nostri risultati sono identici. inoltre ho controllato e il raggio dell'atomo d'idrogeno è coincidente con il mio fino alla 8-9 cifra dopo la virgola (anche se ho postato solo le prime 2).</article>
+<article class="post" id="p56420"><div class="who"><b>Tamaladissa</b><span>23 ago 2006, 22:13</span></div>Si ok perfetto. Un metodo più elegante era quello di trovare l'energia totale: cinetica più potenziale e trovarne il minimo derivandola: il risultato è identico anche con quel metodo. Molto bene.</article>
+<article class="post" id="p56421"><div class="who"><b>Gauss_87</b><span>23 ago 2006, 22:15</span></div>concordo, ho lo stesso risultato di David</article>
+<nav class="pager"><a class="prev" href="oliforum-5654.html"><small>← precedente</small>Sns 2005-2006</a><a class="next" href="oliforum-6143.html"><small>successivo →</small>Ammissione SNS (2005-2006).4</a></nav>
+</main></body></html>

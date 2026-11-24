@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011 numero 1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011, problema 1</span></nav>
+<h1>SNS 2010/2011 numero 1</h1>
+<p class="meta">21 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=561">forum Olifis</a></p>
+<article class="post first" id="p5044"><div class="who"><b>Luke</b><span>29 ago 2010, 12:02</span></div>Abbiamo una bicicletta che si muove con velocità <span class="tex">\(v_0\)</span>, con massa M e centro di massa ad un'altezza D dal terreno. Le due ruote sono equidistanti dall'ascissa del c.d.m. con i rispettivi centri ad una distanza L dalla stessa. Non è noto il raggio della ruota e il momento d'inerzia è trascurabile. Le ruote possono rotolare senza slittare fintanto che si abbia <span class="tex">\(|F| &lt; |R|\mu\)</span> con F la forza applicata parallela al terreno (nel punto di tangenza), R la reazione normale dello stesso, e <span class="tex">\(\mu\)</span> il coefficente di attrito. Alla bicicletta è impressa una decelerazione a. E' richiesto<br>
+a) Nel caso che si freni solo con la ruota anteriore, calcolare la massima decelerazione imprimibile senza far slittare le ruote<br>
+b) Lo stesso, nel caso che si freni solo con la ruota posteriore.</article>
+<article class="post" id="p5084"><div class="who"><b>Iuppiter</b><span>2 set 2010, 11:01</span></div>Provo a rispondere al punto a):<br>
+<span class="tex">\(F=m\cdot a\)</span> perchè la forza di decellerazione applicata è tutta parallela al terreno.<br>
+<span class="tex">\(R=m\cdot g\)</span> perchè posso supporre che tutto il peso si scarichi sulla ruota anteriore. (dovrei anche supporre che la bicicletta non compia alcuna rotazione attorno alla ruota, oppure dovrei tenerne conto nei calcoli?)<br>
+Quindi: <span class="tex">\(m\cdot a&lt;m\cdot g\cdot \mu\)</span><br>
+<span class="tex">\(a&lt;g \cdot \mu\)</span></article>
+<article class="post" id="p5087"><div class="who"><b>Luke</b><span>3 set 2010, 14:10</span></div>Riguardo alla reazione vincolare sulla ruota davanti (ma anche sulla ruota dietro) io avevo immaginato che si dovesse considerare la massa della bicicletta uniformemente distribuita e quindi <span class="tex">\(R = M/2 g\)</span>. Inoltre quando si frena con la ruota davanti dovrebbe esserci da considerare anche la possibilità che la bici si ribalti dato che il centro di massa è posto più in alto dell'altezza della ruota; per quello avevo imposto una semplice condizione di equilibrio tra la forza di inerzia che spingerebbe la bici a ribaltarsi e la gravità che la tiene fissa al suolo. L'unica cosa è che comunque in questi calcoli alla fine viene che tutto è indipendente dalla massa della bici, che è un dato fornito... oltre al fatto che ci sarebbe ben poca differenza tra il frenare davanti e il frenare dietro apparte che in quest'ultimo caso non c'é il rischio di ribaltamento.</article>
+<article class="post" id="p5090"><div class="who"><b>Gauss91</b><span>3 set 2010, 18:03</span></div>@Luke. Per quanto mi pare di ricordare, era espressamente indicato di considerare la bicicletta con la massa tutta concentrata nel centro di massa, ad altezza H dal terreno e a distanza orizzontale L dal punto di appoggio di ogni ruota. E' chiaro che la forza non può essere applicata "al vuoto" ma bisogna considerare solo le componenti di ogni forza lungo gli elementi della bicicletta (che ho schematizzato come un triangolo isoscele di lati <span class="tex">\(\sqrt{L^2 + H^2}\)</span> e <span class="tex">\(2L\)</span>, con tutta la massa M concentrata nel vertice). Siccome si considerava solo la decelerazione, le considerazioni rotazionali non interessano e lavorando un po' con i bracci mi veniva che la ruota davanti "frena di più" di quella dietro.</article>
+<article class="post" id="p5097"><div class="who"><b>Iuppiter</b><span>4 set 2010, 11:40</span></div>Ho provato con un altra strada:<br>
+a) non ci deve essere alcuna rotazione attorno alla ruota anteriore. Quindi la sommatoria dei momenti calcolati rispetto al centro della ruota deve essere pari a zero.<br>
+<span class="tex">\(F\cdot(H-r) + R_{post}\cdot 2L = P\cdot L\)</span><br>
+<span class="tex">\(\displaystyle R_{post}=\frac{P}{2}-\frac {ma(H-r)}{2L}\)</span><br>
+<span class="tex">\(\displaystyle R_{ant}= P - R_{post}=\frac{P}{2}+\frac {ma(H-r)}{2L}\)</span><br>
+Dai dati abbiamo che <span class="tex">\(F&lt;R_{ant}\cdot\mu\)</span><br>
+<span class="tex">\(\displaystyle ma&lt;\mu\cdot (\frac{P}{2}+\frac {ma(H-r)}{2L})\)</span><br>
+Svolgendo i conti mi viene:<br>
+<span class="tex">\(\displaystyle a&lt;\frac{\mu g L}{2L-\mu(H-r)}\)</span><br>
+<br>
+b) ragionando in modo analogo e imponendo che la somma dei momenti calcolati rispetto alla ruota posteriore fosse zero, ottengo che se si frena con la ruota posteriore:<br>
+<span class="tex">\(\displaystyle a&lt;\frac{\mu g L}{2L+\mu(H-r)}\)</span><br>
+<br>
+Ditemi perfavore se è un ragionamento corretto oppure no. Comunque, come anticipato da Gauss91, risulta che la decellerazione massima quando si frena con la ruota posteriore è minore che quando si frena con la ruota anteriore.</article>
+<article class="post" id="p5099"><div class="who"><b>Gauss91</b><span>4 set 2010, 12:26</span></div>Ho un po' di considerazioni da fare, correggetemi se sbaglio.<br>
+
+<blockquote><div><cite>Iuppiter ha scritto:</cite>Quindi la sommatoria dei momenti calcolati rispetto al centro della ruota deve essere pari a zero</div></blockquote>
+Attenzione che, se si ha rotazione, non si ha attorno al centro della ruota ma semmai attorno al punto d'appoggio della ruota anteriore.<br>
+
+<blockquote><div><cite>Iuppiter ha scritto:</cite><span class="tex">\(ma &lt; \mu(\frac{P}{2} + \frac{ma(H-r)}{2L})\)</span></div></blockquote>
+
+Questo sarebbe vero se la forza fosse applicata al centro di massa della bicicletta, ma non è così. La bicicletta in questo caso non è assolutamente un punto materiale.</article>
+<article class="post" id="p5102"><div class="who"><b>Spammowarrior</b><span>4 set 2010, 15:43</span></div>il punto secondo me è che se la risultante dei momenti rotatori è maggiore di zero, la bici inizia a ruotare intorno al punto di frenata (solo nel caso della ruota davanti, infatti si ruota intorno alla ruota dietro solo se si accelera)<br>
+anche chissenefrega, se non fosse per il fatto che una minima rotazione concentra tutto il peso sulla ruota davanti.</article>
+<article class="post" id="p5168"><div class="who"><b>Iuppiter</b><span>11 set 2010, 15:04</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>
+Attenzione che, se si ha rotazione, non si ha attorno al centro della ruota ma semmai attorno al punto d'appoggio della ruota anteriore.</div></blockquote>
+D'accordo che non ruota attorno al centro della ruota, ma il punto di appoggio non è sempre lo stesso se la routa e tutta la bici gira.
+<blockquote><div><cite>Gauss91 ha scritto:</cite>
+<blockquote><div><cite>Iuppiter ha scritto:</cite><span class="tex">\(ma &lt; \mu(\frac{P}{2} + \frac{ma(H-r)}{2L})\)</span></div></blockquote>
+
+Questo sarebbe vero se la forza fosse applicata al centro di massa della bicicletta, ma non è così. La bicicletta in questo caso non è assolutamente un punto materiale.</div></blockquote>
+E quindi dove è applicata la forza? Scusa ma da solo non ci arrivo.</article>
+<article class="post" id="p5179"><div class="who"><b>Fedecart</b><span>11 set 2010, 19:31</span></div>So che non c'entra molto, ma ho visto questo problema identico a Fisica 1!  :lol:</article>
+<article class="post" id="p7209"><div class="who"><b>NabirAlbar</b><span>16 ago 2011, 18:45</span></div>(Scusatemi se uppo un thread vecchio) qualcuno può mettere la soluzione giusta? Mi rivolgo soprattutto a Gauss91 e a Fedecart  :mrgreen:</article>
+<article class="post" id="p7210"><div class="who"><b>domx</b><span>16 ago 2011, 19:34</span></div>scusate ragazzi, mi sapreste dire dove avete trovato le tracce del 2010-2011? Sul sito della sns non ci sono...<br>
+grazie ;)</article>
+<article class="post" id="p7213"><div class="who"><b>NabirAlbar</b><span>16 ago 2011, 21:12</span></div>Effettivamente è sparito.. cmq lo puoi sempre scaricare dall'allegato di <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=12&amp;t=565" class="ext" class="postlink">questo thread</a>  :idea:</article>
+<article class="post" id="p7216"><div class="who"><b>andreaandrea</b><span>17 ago 2011, 11:44</span></div>Posto la mia soluzione, così mi date un parere: <br>
+<br>
+a)  <br>
+<br>
+impongo quindi che il momento calcolato rispetto al punto di appoggio della ruota anteriore sia 0. <br>
+Sia <span class="tex">\(R_1\)</span> la reazione vincolare applicata alla base della ruota anteriore. <br>
+Sia <span class="tex">\(R_2\)</span> la reazione vincolare applicata alla base della ruota posteriore. <br>
+<br>
+<span class="tex">\(-2LR_2 + MgL = 0\)</span><br>
+<br>
+Poi sappiamo che <br>
+<span class="tex">\(F = \mu R_1\)</span><br>
+<br>
+e che <br>
+<br>
+<span class="tex">\(R_1 + R_2 = Mg\)</span><br>
+<br>
+Da queste tre relazioni ricavo: <br>
+<br>
+<span class="tex">\(F = \dfrac{Mg\mu}{2}\)</span><br>
+<br>
+Dato che sotto queste condizioni il corpo non ruota, anche considerandolo come un corpo esteso, <span class="tex">\(F = ma\)</span><br>
+<br>
+da cui <br>
+<br>
+<span class="tex">\(a &lt; \dfrac{g\mu}{2}\)</span><br>
+<br>
+Inoltre, in tale relazione non deve essere presente il raggio della bici, perchè esso non è tra i valori forniti. <br>
+<br>
+b) per la ruota posteriore impongo il momento attorno alla base di essa uguale a 0. <br>
+<br>
+<span class="tex">\(+2LR_1 - MgL = 0\)</span><br>
+<br>
+<span class="tex">\(F = \mu R_2\)</span><br>
+<br>
+<span class="tex">\(R_1 + R_2 = Mg\)</span><br>
+<br>
+da cui, come nel caso precedente, <br>
+<br>
+<span class="tex">\(a &lt; \dfrac{g\mu}{2}\)</span><br>
+<br>
+<br>
+che ne dite di questo modo di ragionare ?</article>
+<article class="post" id="p7217"><div class="who"><b>floppino81892</b><span>17 ago 2011, 12:36</span></div><blockquote class="uncited"><div> <span class="tex">\(-2 L R_2 + M g L -F H = 0\)</span> </div></blockquote>
+
+mi pare che qui c' è un segno sbagliato : <span class="tex">\(-2 L R_2\)</span>  dovrebbe essere positivo<br>
+<br>
+<br>
+<br>
+edit: sorry avevo capito che era il momento torcente dovuto alla gravità sulla ruota posteriore (il fatto è che non avevo capito che tutta la massa era nel centro di massa e credevo che fosse distribuita sulle due ruote...)</article>
+<article class="post" id="p7219"><div class="who"><b>andreaandrea</b><span>17 ago 2011, 13:39</span></div>No perchè <span class="tex">\(R_2\)</span> tende a far ruotare il corpo in senso orario. quindi il momento è negativo. <br>
+<span class="tex">\(MgL\)</span> positivo perchè la forza di gravità tende a far ruotare il corpo in senso antiorario e <br>
+<span class="tex">\(-FH\)</span> perchè F apparente applicato al centro di massa tende a far ruotare il corpo in senso orario. <br>
+Ti torna?</article>
+<article class="post" id="p7227"><div class="who"><b>andreaandrea</b><span>17 ago 2011, 16:39</span></div>Ho editato il post precedente perchè mi sono reso conto che avevo scritto una cavolata. che cosa c'entrava infatti la forza apparente ? non so perchè me la fossi inventata. <br>
+<br>
+Ho verificato il risultato consultando le soluzioni ai problemi SNS edito da libreriauniversitaria. <br>
+Nonostante così il problema torni, il procedimento da loro adottato è completamente diverso e molto più complicato. <br>
+<br>
+Qualcuno degli esperti, tipo Pigkappa, Rigel o gli altri, potrebbe dirmi se il mio procedimento è corretto ? perchè non vorrei aver azzeccato il risultato e sbagliato il procedimento......</article>
+<article class="post" id="p7229"><div class="who"><b>domx</b><span>17 ago 2011, 17:10</span></div><blockquote><div><cite>NabirAlbar ha scritto:</cite>Effettivamente è sparito.. cmq lo puoi sempre scaricare dall'allegato di <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=12&amp;t=565" class="ext" class="postlink">questo thread</a>  :idea:</div></blockquote>
+grazie mille ;)</article>
+<article class="post" id="p7285"><div class="who"><b>modesto</b><span>22 ago 2011, 10:25</span></div>Il testo che io conosco non chiede di determinare la massima decelerazione ma "la relazione fra la massima decelerazione ottenibile....e i parametri del problema" Per una discussione approfondita vedi Problemi di fisica ed. libereriauniversitaria.it che verte proprio sui problemi assegnati per l'ammissione in Normale dal 2000 al 2010.</article>
+<article class="post" id="p23404"><div class="who"><b>Wilcz</b><span>2 gen 2017, 18:10</span></div>Riporto all'attenzione questo problema. Propongo la mia soluzione e spero che qualcuno possa aiutarmi :D <br>
+<br>
+Per il primo punto la richiesta è di calcolare la relazione esistente tra la massima decelerazione ottenibile frenando solamente con la ruota anteriore e i dati forniti nella traccia. Prendo come sistema di riferimento un piano cartesiano con centro in O (centro di massa), asse x orientato verso destra e asse y orientato verso l'alto. Dunque applico il secondo principio della dinamica sull'asse x e y: sull'asse y vi è equilibrio, mentre sull'asse x agisce una sola forza F che determina l'accelerazione del sistema (negativa). Indico con R<em class="text-italics">p</em> ed R<em class="text-italics">a</em> rispettivamente la reazione vincolare della ruota posteriore e anteriore. Si ha allora:<br>
+<span class="tex">\(F=M\times a\)</span>      dove <span class="tex">\(F=\mu\times Ra\)</span><br>
+<span class="tex">\(P=Rp+Ra\)</span><br>
+Inoltre il sistema è in equilibro rispetto alla rotazione, quindi la somma dei momenti delle forze rispetto al centro di massa O è nullo. Cioè:<br>
+<span class="tex">\(\left(Rp\times L\right)+\left(F\times H\right)-\left(Ra\times L\right)=0\)</span><br>
+Ricavo Rp dalla seconda equazione scritta, lo sostituisco nell'equazione dei momenti e da quest'ultima ricavo Ra. Adesso sostituisco Ra nella prima equazione e ricavo l'accelerazione richiesta:<br>
+<span class="tex">\(a=\frac{\mu PL}{M\left(2L-\mu M\right)}\)</span><br>
+ Per la seconda richiesta del problema ho seguito lo stesso procedimento e ho ottenuto<br>
+ <span class="tex">\(a=\frac{\mu PL}{M\left(2L+\mu M\right)}\)</span><br>
+<br>
+Qualcuno può dirmi se è corretto oppure ho sbagliato?<br>
+Comunque scusate per il modo in cui ho scritto le varie equazioni, ma è la prima volta che scrivo utilizzando Tex e ho cercato di fare del mio meglio :|</article>
+<article class="post" id="p23432"><div class="who"><b>step98</b><span>7 gen 2017, 16:46</span></div>Io l'ho risolto con lo stesso procedimento e mi vengono le stesse espressioni per l'accelerazioni, a meno di un errore di battitura (dovrebbero essere <span class="tex">\(a= \frac{\mu PL}{M(2L-\mu H)}\)</span> per la ruota anteriore e <span class="tex">\(a= \frac{\mu PL}{M(2L+\mu H)}\)</span> per quella posteriore, altrimenti non ti tornano le unità di misura).<br>
+Però secondo me c'è un caso che non hai considerato: mentre per la ruota posteriore al crescere della forza frenante diminuisce la forza d'attrito statico massima possibile, e dunque prima o poi si uguaglieranno, per la ruota anteriore crescono entrambe, quindi non è detto che riescano ad uguagliarsi, perché può darsi che si uguaglino per un valore della reazione normale che non è permesso dal problema. Infatti se dal sistema che hai scritto ricavi, oltre ad <span class="tex">\(a\)</span>, anche <span class="tex">\(R_p\)</span>, ottieni:<br>
+<span class="tex">\(R_p=\frac{P}{2}-\frac{\mu PH}{4L-2\mu H}\)</span>, e questa reazione deve essere per forza maggiore o uguale di zero, altrimenti, se non lo è, vuol dire che la ruota si è staccata dal suolo e la bicicletta sta impennando in avanti. Imponendo questa condizione, si ha:<br>
+<span class="tex">\(\mu \leq \frac{L}{H}\)</span><br>
+Quindi se il coefficiente d'attrito verifica questa condizione la decelerazione massima è data dall'espressione che hai trovato tu, altrimenti se <span class="tex">\(\mu &gt; \frac{L}{H}\)</span>, prima che la forza frenante possa eguagliare il valore massimo che le è permesso, <span class="tex">\(\mu R_a\)</span>, la reazione <span class="tex">\(R_p\)</span> si annulla, e dunque la decelerazione massima possibile sarà proprio quella il cui corrispondente valore della forza frenante farà annullare <span class="tex">\(R_p\)</span>, ovvero renderà <span class="tex">\(R_a\)</span> uguale a <span class="tex">\(P\)</span>. Uguagliando i momenti si ottiene:<br>
+<span class="tex">\(PL=MaH \Rightarrow a= \frac{PL}{MH}\)</span>.<br>
+Comunque secondo me dovendo fare questo problema ad un esame andrebbero spiegate le conseguenze di alcune assunzioni: il problema dice che massa e momento di inerzia delle ruote sono trascurabili, ed è proprio questa assunzione che permette di dire che che la forza frenante (attrito statico) agisce solo sulla ruota con la quale si frena: anche l'altra ruota ha una decelerazione angolare, ma poiché il suo momento di inerzia è nullo, anche il momento delle forze rispetto al suo centro deve essere nullo, motivo per cui l'attrito statico agente sulla ruota è nullo; non sarebbe così per una ruota con momento di inerzia diverso da zero. La ruota con cui non si frena ha anche una decelerazione, ma poiché la sua massa è nulla, la forza agente su di essa è nulla, e dunque l'unica forza frenante sul telaio è quella di contatto con il mozzo della ruota con cui si frena, che, per lo stesso ragionamento della massa nulla, deve essere uguale alla forza d'attrito statico agente su questa ruota.</article>
+<article class="post" id="p27477"><div class="who"><b>Nihilus</b><span>10 ago 2022, 16:47</span></div>Il testo qui pubblicato differisce dall'originale in maniera sostanziale: la richiesta del problema concerne "la massima decelerazione ottenibile", senza mai specificare "senza far slittare le ruote". Sono l'unico fesso ad aver risolto lasciando scivolare le ruote?</article>
+<nav class="pager"><a class="prev" href="olifis-254.html"><small>← precedente</small>SNS 2009/2010 Problema 6</a><a class="next" href="olifis-4675.html"><small>successivo →</small>SNS 2010/2011 problema 3</a></nav>
+</main></body></html>

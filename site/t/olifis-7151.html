@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2019-2020 n.1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2019-2020, problema 1</span></nav>
+<h1>SNS 2019-2020 n.1</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7151">forum Olifis</a></p>
+<article class="post first" id="p27464"><div class="who"><b>Kriscjak</b><span>17 lug 2022, 12:27</span></div>Si consideri un liquido dielettrico non perfettamente isolante, caratterizzato quindi oltre che dalla sua costante dielettrica relativa anche da un'elevata resistività elettrica (si ricorda che all'interno di un conduttore in presenza di un campo elettrico E scorre una corrente per unità di area J=E/rho, ove la direzione della corrente è lungo il campo elettrico è la superficie considerata e adesso perpendicolare). Si supponga di voler determinare sperimentalmente il valore di rho, avendo a disposizione degli elettrodi costituiti da biglie metalliche di raggio a variabile (a=1.0mm, a=3.0cm, a=5.0cm, a=30cm)  collegabili a dei fili elettrici di lunghezza variabile a piacere costituiti da un cavo metallico di diametro d variabile (d=1.0mm, d=5.0mm, d=3cm)  racchiuso in una guaina isolante di gomma. Avete a disposizione una vasca cubica di lato L=1m, quasi piena di liquido, a cui potete accedere dall'alto. L'unico strumento a disposizione è un tester che misura la resistenza equivalente R=V/I  di un circuito applicando una differenza di potenziale V  tra due elettrodi e misurando la corrente I che scorre. Si descriva la procedura seguita e il posizionamento degli elettrodi (anche aiutandosi con un disegno), discutendo tutte le assunzioni ed approssimazioni rilevanti e,  in particolare,  le scelte fatte per il raggio degli elettrodi e il diametro dei fili impiegati.<br>
+<br>
+La mia soluzione si basa sull'esercizio 7.1 del Griffiths, appena riesco la posto.</article>
+<article class="post" id="p27466"><div class="who"><b>Kriscjak</b><span>19 lug 2022, 15:11</span></div>Ok vabbè rinuncio a scriverla in latex che sono impedito.<br>
+Se consideriamo una sfera conduttrice ed un guscio sferico che la circonda, di raggi rispettivamente (a, b) e supponiamo siano separati da un materiale di resisteività rho, possiamo ricavare il valore della resistenza R del mezzo, ma per b&gt;&gt;a R dipende solo da a. Possiamo dunque procedere collegando due biglie metalliche ai capi di un filo, immergerle nel liquido in esame mantenendole a debita distanza l’una dall’altra e dalle pareti della vasca. Colleghiamo dunque il tester alla porzione di filo rimasta fuori dal liquido (assumendo di poter “sbucciare” i cavi) e leggiamo il valore di R. Ribaltiamo la formula trovata all’inizio e abbiamo il valore di rho.<br>
+La scelta del diametro e dei raggi: avrei preso la biglia più piccola e il filo più sottile ma sembra troppo banale. Ho pensato quindi di usare la sfera più grande possibile per cui però la distanza dall’altra e dalle pareti della vasca sia comunque di un’ordine di grandezza maggiore. La distanza ottimale tra ciascuna biglia (posta sulla diagonale del cubo) e le pareti della vasca è r=3.17 * 10^-1 m quindi non possiamo prendere le due biglie più grosse perchè il raggio è dello stesso ordine di r ma a=3cm va bene, il che ci permette di usare un cavo con d=3cm, che offre una resistenza 900 volte minore del cavo che saremmo stati costretti ad usare con la biglia più piccola. (Assumo che non si possano usare cavi con diametro maggiore di quello della biglia). <br>
+<br>
+Spero di non aver scritto stupidaggini, soprattutto sugli ordini di grandezza, può andare?</article>
+<nav class="pager"><a class="prev" href="olifis-6758.html"><small>← precedente</small>SNS Pisa 2018 Problema 6 (Differenza tra pendolo ideale e pendolo reale)</a><a class="next" href="olifis-6884.html"><small>successivo →</small>SNS 2019/20 n. 4</a></nav>
+</main></body></html>

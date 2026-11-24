@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMULAZIONE: SNS 2003/2004 Problema 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 3</span></nav>
+<h1>SIMULAZIONE: SNS 2003/2004 Problema 3</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=243">forum Olifis</a></p>
+<article class="post first" id="p2175"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 21:13</span></div>Avere due occhi e due orecchie, anzich´e uno/una, `e essenziale per percepire<br>
+la distanza di un oggetto e la direzione di provenienza di un suono.<br>
+In talune circostanze, per`o, sapere anche un po’ di fisica non guasta.<br>
+Qual `e la profondit`a apparente di una vasca piena di acqua per un osservatore<br>
+che la guarda dall’esterno? Come si modifica quantitativamente la<br>
+percezione della direzione di provenienza di un suono per un nuotatore<br>
+subacqueo fuori e dentro l’acqua?</article>
+<article class="post" id="p2188"><div class="who"><b>Fedecart</b><span>24 ago 2009, 22:21</span></div>Credo che l'idea di base sia il fatto che la luce viene rifratta all'incontro con l'acqua... E quindi la vasca sembra più profonda di ciò che in realtà è!</article>
+<article class="post" id="p2190"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 23:01</span></div>Per quanto riguarda il suono si deve considerare anche il fatto per cui ci sono due casi: il primo considera il suono propagantesi nell'aria e il secondo in un liquido. L avelocità del suono nell'acqua per esempio è 4 volte più veloce che nell'aria e ciò cambia l'angolo <span class="tex">\(\theta\)</span> con cui il nostro orecchio percepisce il suono</article>
+<article class="post" id="p14603"><div class="who"><b>imagine</b><span>19 lug 2013, 17:57</span></div>E' possibile che il nostro cervello riesca a capire da che direzione proviene il suono analizzando la differenza di tempo che percorre tra la percezione di un suono dall'orecchio sinistro e destro? Ad esempio se viene emesso un suono da un punto esattamente di fronte a noi, il suono arriva contemporaneamente ai due orecchi. Ma se il suono viene emesso da un punto alla nostra destra, il suono arriva prima all'orecchio destro e poi all'orecchio sinistro. Considerando la velocità del suono nell'aria di 343 m/s e la distanza tra i due orecchi di 0,2 m, il tempo che passa dalla percezione di un orecchio alla percezione dell'altro sarebbe di 0,00058 s... troppo poco? Secondo voi?</article>
+<article class="post" id="p17648"><div class="who"><b>BorisM</b><span>2 mag 2014, 2:39</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>Credo che l'idea di base sia il fatto che la luce viene rifratta all'incontro con l'acqua... E quindi la vasca sembra più profonda di ciò che in realtà è!</div></blockquote>
+Io sapevo che la profondità apparente è minore della profondità reale e che addirittura per un osservatore che guarda la vasca dall' alto la profondità apparente <span class="tex">\(P'\)</span>  è uguale al prodotto tra la profondità reale  <span class="tex">\(P\)</span> per <span class="tex">\(n'\)</span> che è l’indice di rifrazione del mezzo in cui viaggiano i raggi incidenti (cioè il mezzo in cui si trova l’oggetto che emette la luce) fratto <span class="tex">\(n''\)</span> che è l’indice di rifrazione del<br>
+mezzo in cui viaggiano i raggi rifratti (cioè il mezzo in cui si trova l’osservatore).<br>
+<span class="tex">\(P'=p n' /n''\)</span><br>
+Nel nostro caso <span class="tex">\(n''=1,333\)</span>, <span class="tex">\(n'=1,000\)</span> quindi <span class="tex">\(P'=P/1,333\)</span><br>
+
+<blockquote><div><cite>imagine ha scritto:</cite>E' possibile che il nostro cervello riesca a capire da che direzione proviene il suono analizzando la differenza di tempo che percorre tra la percezione di un suono dall'orecchio sinistro e destro? Ad esempio se viene emesso un suono da un punto esattamente di fronte a noi, il suono arriva contemporaneamente ai due orecchi. Ma se il suono viene emesso da un punto alla nostra destra, il suono arriva prima all'orecchio destro e poi all'orecchio sinistro. Considerando la velocità del suono nell'aria di 343 m/s e la distanza tra i due orecchi di 0,2 m, il tempo che passa dalla percezione di un orecchio alla percezione dell'altro sarebbe di 0,00058 s... troppo poco? Secondo voi?</div></blockquote>
+Anche a me è l' unica cosa che è venuta in mente....secondo me il problema allude proprio a questo.. però non sono sicuro  :|</article>
+<article class="post" id="p19260"><div class="who"><b>Simone256</b><span>9 lug 2014, 12:38</span></div>Credo che i padiglioni auricolari giochino un ruolo fondamentale! Altrimenti ci sarebbe simmetria tra il davanti e il dietro e non riusciremmo a capire da dove proviene il suono!<br>
+Forse influisce anche la diversa intensità sonora con cui il suono giunge alle singole orecchie! Ricordandoci che ci troviamo in uno spazio tridimensionale i luoghi dei punti aventi stessa differenza di distanza dalle orecchie si trovano su iperboli ruotate attorno all'asse passante per le orecchie e i punti a stessa distanza da noi su delle circonferenze!!! Da dove proviene quindi il suono? Credo che anche qui sia il padiglione auricolare a venirci in aiuto :)</article>
+<article class="post" id="p21323"><div class="who"><b>CapitanFindus</b><span>23 ago 2015, 15:56</span></div>ho trovato questa spiegazione interessantissima! (è in inglese)<br>
+<br>
+<br>
+How Our Ears Judge DIRECTION<br>
+<br>
+The secret to binaural hearing is the location of the ears.<br>
+<br>
+Because they are on opposite sides of the head, the sounds heard by either ear will vary in timing, volume, and frequency balance.  These differences are the clues your brain uses to decode a sound’s location.<br>
+<br>
+Let’s use an example:  Imagine an unidentified sound that originates directly to the left of your head.<br>
+<br>
+Here’s how your brain interprets each clue:<br>
+<br>
+1. Variations in Timing<br>
+<br>
+When a sound comes from the left, the travel distance to your left ear is slightly shorter than the travel distance to your right ear.  So the left hears it milliseconds before the right.<br>
+<br>
+This is your brain’s first clue that the sound might be coming from the left.  But that information alone is not enough.  It still needs more.<br>
+<br>
+The next clue is…<br>
+<br>
+2. Variations in Volume<br>
+<br>
+As we all know, sound gets softer as it moves further away.  Sound also gets softer when there are objects blocking it.<br>
+<br>
+If our unidentified sound is coming from the left…<br>
+<br>
+It will also sound a tiny bit softer to your right ear since it’s further away.  And it will sound softer still, since your head is blocking it.<br>
+<br>
+Now your brain is even more certain it’s got things figured out.<br>
+<br>
+But there’s just one more thing…<br>
+<br>
+3. Variations in Frequency<br>
+<br>
+As we’ve just covered, when a sounds comes from the left, your head blocks a portion of it from reaching your right ear.  What you may not know, is that it DOESN’T block all frequencies EQUALLY.<br>
+<br>
+High frequencies have less energy, are more easily absorbed by obstructions than low frequencies.  So with our unidentified sound, your right ear will get MORE of the low end, and LESS of the high end.<br>
+<br>
+This is the final clue.<br>
+<br>
+When all 3 of these clues match up…your brain is certain of what it hears.  Because in nature, these 3 clues ALWAYS line up.<br>
+<br>
+When they DON’T match up (such as in a mix, where they can manipulated) your brain gets confused and is uncertain of the sound’s location.<br>
+<br>
+Now at this point, you may be asking a question…What happens if the sound is directly in front of you?<br>
+<br>
+Think about it…<br>
+<br>
+The timing would be the same in each ear<br>
+The volume would be the same<br>
+The frequency would be the same<br>
+And the same would also be true if the sound were directly behind you.  Yet somehow when it happens in real life, you can clearly hear the difference, right?  WTF?<br>
+<br>
+Now here’s where it gets SUPER INTERESTING….<br>
+<br>
+Whenever this happens, your brain is momentarily confused.  So it triggers an instinctual response for you to turn your heard to the side ever so slightly.  It’s so fast and subtle, you won’t notice it even if you try.  This slight head turn creates enough of a difference in the sound heard by each ear to allow your brain to figure out where the sound is coming from.<br>
+<br>
+Fascinating, HUH?<br>
+<br>
+So that’s how it works with judging direction.  Now let’s talk about judging distance.<br>
+<br>
+How our ears judge DISTANCE<br>
+<br>
+When your brain judges the distance of a sound, it relies less on binaural hearing, and more on the following 3 clues: the frequency response, the amount of reverb, and the amount of pre-delay.<br>
+<br>
+Let’s looks at these clues in more detail.<br>
+<br>
+1. Amount of Reverb<br>
+<br>
+Most of us already know…the farther the sound, the more reverb it has.  But here’s why:<br>
+<br>
+That “reverby” character of far-off sounds exists because almost none of the sound reaches you directly.  Instead, almost all of it reflects off multiple surfaces before ever reaching your ears.<br>
+<br>
+This your brain’s first clue that a sound is far away.  Here’s the next one:<br>
+<br>
+2. Pre delay<br>
+<br>
+For those of you who aren’t “reverb nerds”, pre-delay is the time gap between the first arrival of direct sound, and the first arrival of reflected sound.<br>
+<br>
+In an environment with lots of reflective surfaces, sounds heard from up close may still have a lot of reverb, but the time gap between the directed sound and reverb will be large.  Far-off sounds have a shorter pre-delay time, because BOTH sounds have to travel a great distance to reach you.<br>
+<br>
+That’s the second clue.  The last, and perhaps most important clue is…<br>
+<br>
+3. Frequency Response<br>
+<br>
+When a sound travels far to reach you, much of it’s high frequency detail dissipates along the way.<br>
+<br>
+Here’s why:<br>
+<br>
+Like we covered earlier, high frequencies carry less energy than low ones, so they are more easily absorbed by objects in the environment.  Over long distances, obstructions such as land masses, buildings, and even air in the atmosphere all contribute to squash those high frequencies.<br>
+<br>
+This is the final clue.  At this point, when all these clues align, your brain is quite certain of what it is hearing.</article>
+<nav class="pager"><a class="prev" href="oliforum-8962.html"><small>← precedente</small>Due SNS in un colpo solo</a><a class="next" href="oliforum-8720.html"><small>successivo →</small>SNS 2003-2004 / 4</a></nav>
+</main></body></html>

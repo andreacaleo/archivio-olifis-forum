@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008/2009 Problema 1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 1</span></nav>
+<h1>SNS 2008/2009 Problema 1</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=88">forum Olifis</a></p>
+<article class="post first" id="p804"><div class="who"><b>CoNVeRGe.</b><span>23 apr 2009, 21:26</span></div>Una particella di massa <span class="tex">\(\displaystyle M\)</span> e velocità iniziale <span class="tex">\(\displaystyle V\)</span> urta un'altra particella ferma di massa <span class="tex">\(\displaystyle m &lt; M\)</span>. Determinate il massimo angolo di deflessione possibile per la prima particella. Si supponga l'urto perfettamente elastico.<br>
+<br>
+<br>
+Come si puo intuire, l'angolo di deflessione è l'angolo tra la traiettoria iniziale e quella dopo l'urto.</article>
+<article class="post" id="p809"><div class="who"><b>Alex90</b><span>25 apr 2009, 14:50</span></div>Facciamo riferimento ad un sistema di assi cartesiani <span class="tex">\(Oxy\)</span> in cui la particella di massa <span class="tex">\(M\)</span> viaggia con velocità parallela all'asse <span class="tex">\(x\)</span><br>
+<br>
+Dato che l'urto è perfettamente elastico sono conservate sia la quantità di moto del sistema che l'energia cinetica totale, quindi si ha:<br>
+<br>
+<span class="tex">\(MV=MV'_{x}+mv_{x}\)</span><br>
+<span class="tex">\(MV'_{y}=mv_{y}\)</span><br>
+<span class="tex">\(\displaystyle \frac{1}{2}MV^2=\frac{1}{2}M\left ({V'_{x}}^2+{V'_{y}}^2 \right )+\frac{1}{2}m\left ({v_{x}}^2+{v_{y}}^2 \right)\)</span><br>
+<br>
+Dove <span class="tex">\(v_{x}\)</span>, <span class="tex">\(v_{y}\)</span>, <span class="tex">\(V'_{x}\)</span> e <span class="tex">\(V'_{y}\)</span> indicano le componenti della velocità rispettivamente di <span class="tex">\(m\)</span> e <span class="tex">\(M\)</span> dopo l'urto.<br>
+<br>
+Da cui sostituendo e indicando con <span class="tex">\(\displaystyle \mu=\frac{m}{M}\)</span> si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle v_x=\frac{V-V'_{x}}{\mu}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle v_y=\frac{V'_{y}}{\mu}\)</span><br>
+<br>
+<span class="tex">\(\displastyle V^2= {V'_{x}}^2+{V'_{y}}^2 + \mu \left( \left (\frac{V-V'_{x}}{\mu} \right )^2 + \left( \frac{V'_{y}}{\mu} \right)^2 \right )\)</span><br>
+<br>
+<span class="tex">\(\displastyle \mu V^2= \mu{V'_{x}}^2+\mu{V'_{y}}^2 + {V'_{x}}^2 - 2V{V'_{x}} + V^2 +{V'_{y}}^2\)</span><br>
+<br>
+Da cui<br>
+<br>
+<span class="tex">\(\displaystyle (\mu + 1){V'_{y}}^2 = V^2(\mu- 1) - {V'_{x}}^2(\mu+1) + 2V{V'_{x}}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle (\mu + 1)V'^2 = V^2(\mu- 1) + 2VV'\cos\theta\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \cos\theta=\frac{(\mu + 1)V'^2 + (1 - \mu)V^2}{2VV'}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \theta=\arccos \frac{(\mu + 1)V'^2 + (1 - \mu)V^2}{2VV'}\)</span><br>
+<br>
+...</article>
+<article class="post" id="p816"><div class="who"><b>CoNVeRGe.</b><span>26 apr 2009, 18:08</span></div>Occhio che puoi semplificare non poco con: <span class="tex">\(\displaystyle \cos^2 \theta + \sin ^2 \theta\)</span>  ;) <br>
+Credo manchi soltanto una relazione tra <span class="tex">\(\displaystyle V'\)</span> e <span class="tex">\(\displaystyle V\)</span> in modo da poter semplificare tutte le velocità...</article>
+<article class="post" id="p817"><div class="who"><b>CoNVeRGe.</b><span>26 apr 2009, 20:23</span></div>Mi correggo: ovviamente sarebbe impossibile semplificare tutte le velocità perchè dopo avremmo <span class="tex">\(\displaystyle \cos \theta\)</span> determinato..<br>
+<br>
+Pensa infatti a quello che devi trovare, non sei lontano dalla soluzione</article>
+<article class="post" id="p842"><div class="who"><b>Falco5x</b><span>29 apr 2009, 17:08</span></div>E questo?<br>
+mica vorremo abbandonarlo no?<br>
+<br>
+Direi<br>
+<br>
+<span class="tex">\(\sin \alpha  = \frac{m}{M}\)</span></article>
+<article class="post" id="p843"><div class="who"><b>CoNVeRGe.</b><span>29 apr 2009, 18:02</span></div>Si, anch'io.<br>
+<br>
+@Alex90: Il problema ti chiede di trovare l'angolo massimo. Sei giunto ad un'equazione da cui ricavi <span class="tex">\(\displaystyle \theta(V')\)</span> e poi trovi il massimo della funzione.</article>
+<article class="post" id="p845"><div class="who"><b>Alex90</b><span>29 apr 2009, 20:49</span></div>eh lo so ma a scriverla un po' ci vuole quindi adesso se ho tempo cerco di texarla per bene  :D</article>
+<article class="post" id="p850"><div class="who"><b>Falco5x</b><span>30 apr 2009, 15:53</span></div>Riguardo a questo problema ho trovato una simpatica caratteristica, che illustro in figura sottostante.<br>
+M e V sono riferite alla massa maggiore; m e v sono riferite alla massa minore urtata dalla precedente.<br>
+Detto P il punto in cui avviene l'urto della massa M lanciata a velocità V0 in senso orizzontale (da sinistra a destra nel disegno), il luogo dei possibili estremi del vettore quantità di moto del corpo più pesante dopo l'urto è una circonferenza di raggio <span class="tex">\(r = \frac{m}{{m + M}}M{V_0}\)</span><br>
+Naturalmente qui si vede anche quale può essere l'angolo massimo di deflessione richiesto dal problema, e per calcolarlo basta fermarsi alla geometria senza ricorrere all'analisi matematica.<br>
+Equazioni del moto:<br>
+<br>
+<span class="tex">\(M{V_0} = M{V_x} + m{v_x}\)</span><br>
+<br>
+<span class="tex">\(m{v_y} =  - M{V_y}\)</span><br>
+<br>
+<span class="tex">\(M{V_0}^2 = M{V_x}^2 + M{V_y}^2 + m{v_x}^2 + m{v_y}^2\)</span><br>
+<br>
+Sviluppando i calcoli e risolvendo per le componenti della quantità di moto della massa minore:<br>
+<br>
+<span class="tex">\(0 = {\left( {m{v_x}} \right)^2} + {\left( {m{v_y}} \right)^2} - 2\frac{{{V_0}mM}}{{m + M}}\left( {m{v_x}} \right)\)</span><br>
+<br>
+Ricordando l'equazione di un cerchio passante per l'origine e con il centro situato lungo l'asse x:<br>
+<br>
+<span class="tex">\({x^2} + {y^2} - 2rx=0\)</span><br>
+<br>
+e confrontando con la precedente equazione si ricava <br>
+<br>
+<span class="tex">\(r = \frac{m}{{m + M}}M{V_0}\)</span><br>
+<br>
+<a class="lost" href="http://img139.imageshack.us/img139/3193/urti1.jpg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p852"><div class="who"><b>pascal</b><span>1 mag 2009, 10:22</span></div><blockquote class="uncited"><div>Falco5x scrive...</div></blockquote>
+Elegante soluzione che fa trasparire la risposta in modo geometrico e intuitivo.<br>
+<br>
+Trascrivo un altro modo per giungere alla stessa conclusione.<br>
+Teorema di Carnot:<br>
+<br>
+<span class="tex">\(p^2 = p_0^2 + q^2 - 2 \ p_0 \ q \ \cos \theta.\)</span><br>
+<br>
+Conservazione energia cinetica:<br>
+<br>
+<span class="tex">\(\frac {q^2}{2m}= \frac {p_0^2 - p^2}{2M}.\)</span><br>
+<br>
+Nelle precedenti <span class="tex">\(p_0\)</span> e p sono le quantità di moto di M prima e dopo l’urto, q è quella di m in seguito all’urto, <span class="tex">\(\theta\)</span> è l’angolo tra i segmenti <span class="tex">\(p_0\)</span> e q. Sostituendo la differenza dei quadrati della seconda nella prima, si ha che il diametro della circonferenza è la quantità costante:<br>
+<br>
+<span class="tex">\(\frac {q}{\cos \theta}= \frac {2 \ m \ p_0}{m+M}.\)</span><br>
+<br>
+In tale circonferenza q è una corda, il diametro si trova su <span class="tex">\(p_0\)</span>, è inscritto il triangolo rettangolo che ha l’ipotenusa come diametro.</article>
+<nav class="pager"><a class="prev" href="oliforum-11676.html"><small>← precedente</small>SNS 2008/2009 problema 1</a><a class="next" href="olifis-143.html"><small>successivo →</small>SNS 2008-2009</a></nav>
+</main></body></html>

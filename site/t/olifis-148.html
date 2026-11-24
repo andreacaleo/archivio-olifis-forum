@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS di Pisa 1960/1961 Problema Numero 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1960-1961, problema 4</span></nav>
+<h1>SNS di Pisa 1960/1961 Problema Numero 4</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=148">forum Olifis</a></p>
+<article class="post first" id="p1351"><div class="who"><b>WiZaRd</b><span>22 giu 2009, 2:49</span></div>Si consideri una barca provvista di una vela girevole attorno all’albero<br>
+maestro. Supponiamo che:<br>
+a) la direzione del vento sia perpendicolare alla direzione del moto della barca;<br>
+b) la forza F esercitata dal vento sulla vela sia proporzionale al seno dell’angolo che la vela forma con la direzione del vento;<br>
+c) la velocità della barca sia proporzionale a F e al seno dell’angolo che la vela forma con la direzione del moto della barca.<br>
+Dire per quale posizione della vela si ottiene la massima velocità della barca.</article>
+<article class="post" id="p1356"><div class="who"><b>spn</b><span>22 giu 2009, 14:16</span></div>Anche se sono nuovo ci provo io  ;) <br>
+<br>
+Si ha:<br>
+<span class="tex">\(F = k \sin\alpha\)</span><br>
+<br>
+<span class="tex">\(v = k_1 F \sin(90-\alpha) = k_1 F \cos\alpha\)</span><br>
+<br>
+Dove <span class="tex">\(k\)</span> e <span class="tex">\(k_1\)</span> sono due costanti di proporzionalità.<br>
+<br>
+Mettendo a sistema:<br>
+<br>
+<span class="tex">\(v = k k_1 \sin\alpha \cos\alpha = \frac{k k_1}{2} \sin2\alpha\)</span><br>
+<br>
+La massima velocità si otterrà quindi quando <br>
+<span class="tex">\(\sin2\alpha = 1 \rightarrow \alpha = 45^\circ\)</span><br>
+<br>
+Ciò sembra abbastanza credibile per chiunque è mai andato in barca a vela  :) <br>
+Bei tempi quando i test della SNS erano di questa portata...</article>
+<article class="post" id="p1357"><div class="who"><b>Timmo</b><span>22 giu 2009, 14:40</span></div>....mhmm al di là del problema in sè, viene fatto un modello molto semplicistico...(per ovvi motivi)<br>
+Non viene considerata la portanza, lo sbandamento, non è specificato se si tratta di vento reale o apparente, se la la velocità massima deve essere lungo l'asse della barca o no, ecc...(tutte cosette che renderebbero più interessante il problema....per chi va in barca a vela...) ;) .....</article>
+<article class="post" id="p1422"><div class="who"><b>WiZaRd</b><span>25 giu 2009, 1:36</span></div>OK. Chiarissimo. Grazie mille.</article>
+<nav class="pager"><a class="prev" href="oliforum-13043.html"><small>← precedente</small>SNS di Pisa 1960/1961 Problema Numero 4</a><a class="next" href="olifis-2074.html"><small>successivo →</small>SNS 1960-61 PROVA DI FISICA</a></nav>
+</main></body></html>

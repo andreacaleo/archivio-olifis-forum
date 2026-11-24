@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROBLEMA DI FISICA SNS 2002/2003  AIUTOOO!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2002-2003, problema 1</span></nav>
+<h1>PROBLEMA DI FISICA SNS 2002/2003  AIUTOOO!</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=7527">OliForum</a></p>
+<article class="post first" id="p64114"><div class="who"><b>dini</b><span>05 feb 2007, 15:05</span></div>Qualcuno mi potrebbe risolvere questo problema sns 2002/2003 (N. 1)? Grazie in anticipo!<br>
+<br>
+Ad un dato istante, da un palo verticale di altezza h vengono fatte cadere N&gt;&gt;1 palline di raggio trascurabile e masse mi (i= 1,2… N),con velocità iniziali <strong class="text-strong">v</strong>i   aventi ugual modulo (|<strong class="text-strong">v</strong>i| = vo) e direzioni distribuite su tutto l’angolo solido. Trascurando l’attrito dell’aria, si dimostri che fino a quando una di esse non tocca il suolo si trovano tutte disposte sulla superficie di una sfera, e si calcolino in funzione del tempo il centro ed il raggio di tale sfera. Si determini la massima distanza l dal piede del palo a cui una pallina può arrivare al suolo nei due casi limite hg&gt;&gt;vo^2 e hg &lt;&lt; vo^2, ove g è l’accelerazione di gravità, e nel caso generale.</article>
+<article class="post" id="p64130"><div class="who"><b>Pigkappa</b><span>05 feb 2007, 19:21</span></div>Parte 1)Considero prima il problema in un piano passante per il punto da cui cadono le palline e perpendicolare al suolo, e dimostro che qua il luogo dei punti è una circonferenza; allora nello spazio sarà ovviamente una sfera. Fisso l'origine degli assi cartesiani nel punto da cui cadono le palline. Sia $ \displaystyle \theta_i $ l'angolo formato con l'asse delle x dalla velocità iniziale. Se fai la figura, vedi che dopo un tempo $ \displaystyle t $ ogni pallina si troverà nel punto di coordinate $ \displaystyle (v_0 cos \theta_i t , v_0 sen \theta_i - \frac{1}{2} g t^2) $; fissato $ \displaystyle t $ questa è una circonferenza di raggio $ \displaystyle v_0 t $ e centro in $ \displaystyle (0, -\frac{1}{2}gt^2) $. Perciò quelle saranno anche il raggio e il centro della sfera su cui si trovano le palline.<br>
+<br>
+Parte 2)Questa parte richiede conti più spiacevoli. Il fatto che le palline siano lasciate "cadere" mi farebbe pensare che significa che nessuna inizialmente ha parte della velocità verso l'alto. Se è così, allora quella che va più lontano ha la velocità che si trova inizialmente solo sull'asse x. Temo tuttavia che sia da intendere che ci sono anche palline con velocità sull'asse y positiva al momento del lancio. Allora, cambiando sistema di riferimento, si fissa l'origine sul suolo e il punto di lancio in $ \displaystyle (0;h) $; non scrivo i calcoli (che non ho neanche fatto del tutto). Scritta l'equazione del moto sull'asse y in funzione del tempo e dell'angolo $ \displaystyle \theta_i $, si impone che la sfera arrivi a terra ($ \displaystyle y=0 $) e si calcola in funzione di $ \displaystyle \theta_i $ a che tempo avviene; si sostituisce questo nell'equazione del moto sull'asse x, si fa una derivata rispetto all'angolo per vedere per che angolo arriva più lontano (e qua, se non ho sbagliato, dovrebbe essere necessario fare A)Una derivata di una roba abbastanza brutta e B)Forse risolvere un'equazione trigonometrica non troppo simpatica) e finalmente si trova la formula della gittata massima. A questo punto analizzare i casi particolari richiesti diventa facile.</article>
+<article class="post" id="p64191"><div class="who"><b>robbieal</b><span>06 feb 2007, 14:55</span></div>Una soluzione alternativa per il punto 2 (per evitare derivate e equazioni trigonometriche spiacevoli), si dovrebbe avere sostituendo nell'equazione del moto sull'asse y il tempo, in funzione della gittata e della velocità sull'asse x. Ne vien fuori, facendo un po' di calcoli (e ricordando che $  \displaystyle \left  1 \over cos^2 \theta  \right = 1+tan^2 \theta  $) un'equazione di secondo grado nella tangente dell'angolo di lancio, che ha il suo massimo quando il discriminante è uguale a 0. Si impone questa condizione e si ricava la gittata massima. Una volta fatto ciò ridurre il tutto ai casi particolari dovrebbe essere banale.<br>
+<br>
+(spero di non aver scritto stupidate...)</article>
+<article class="post" id="p64806"><div class="who"><b>(|Shineon|)</b><span>14 feb 2007, 22:09</span></div>Il primo punto è semplice: basta scriversi le leggi orarie x,y,z in coordinate polari sferiche. Da qui è immediato verificare che r(t) non è altro che l'equazione parametrica di una sfera di centro shiftato della quantità 0.5*g*t^2. Il raggio quindi sarà la radice quadra della somma delle componenti al quadrato. Occhio che si semplificano un bel pò di termini per l'identità trigonometrica. Le palline che cadono più lontano son quelle per le quali l'alzo (cioè l'angolo rispetto alla direzione z) è pi quarti, indipendentemente dall'angolo sul piano xy. Dopotutto essendo le velocità distribuite su 4pi il problema presenta proprio simmetria sferica e ponendosi su un qualsiasi piano passante per z possiamo sempre ridurlo in due dimensioni, come solitamente siamo abituati a risolverlo e per i quali sappiamo vita morte e miracoli!</article>
+<nav class="pager"><a class="prev" href="olifis-6323.html"><small>← precedente</small>SNS 2001-2002, 6.</a><a class="next" href="oliforum-5840.html"><small>successivo →</small>Carnot @ SNS</a></nav>
+</main></body></html>

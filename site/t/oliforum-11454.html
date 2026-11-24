@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ci son due spire e un generatore... [SNS 1996/1997.6]</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1996-1997, problema 4</span></nav>
+<h1>Ci son due spire e un generatore... [SNS 1996/1997.6]</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11454">OliForum</a></p>
+<article class="post first" id="p93398"><div class="who"><b>darkcrystal</b><span>30 lug 2008, 14:09</span></div>Allora... prima il testo:<br>
+<br>
+Una spira conduttrice circolare è fissata sul piano $ xy $ con centro nell’origine ed è collegata ad un generatore di corrente che vi mantiene una corrente I costante. Una seconda spira conduttrice chiusa, identica alla prima, è vincolata a muoversi mantenendosi col centro lungo l’asse z e parallela al piano $ xy $. La spira mobile è inizialmente molto lontana dall’origine, ma vi si sta avvicinando; essa inizialmente non è percorsa da corrente. Se ne descriva il moto qualitativamente e, in particolare, si dica se viene attratta o respinta dalla spira fissa e come tale interazione dipende dalla corrente nella spira fissa e dalla distanza fra le spire, supponendo che tale distanza si mantenga molto grande rispetto alle dimensioni delle spire.<br>
+<br>
+E poi vi espongo il mio dubbio (anche senza i calcoli, che vi lascio il piacere di fare :) ) : ora io mi sono scritto l'intensità di corrente nella spira mobile in funzione di I, del raggio delle spire, della loro distanza e della velocità della spira mobile.<br>
+Il risultato è un orrore che mi risulta $ \displaystyle \frac{3\mu_0 I \pi R^4 z v}{2C \left(R^2+z^2 \right)^{\frac52}} $ dove C è la resistenza della spira mobile, R il raggio comune delle due spire e v la velocità della spira mobile. Ora, l'interazione fra le due spire è dovuta al fatto che il campo magnetico generato da quella fissa induce una f.e.m. (e quindi una corrente) in quella mobile, e che poi questa corrente interagisce con il medesimo campo magnetico (e si respingono - giusto?)<br>
+E ora - se avete avuto la pazienza di leggere fin qui - arriviamo al mio problema: primo, come faccio sparire la velocità per esprimere l'interazione solo in funzione della distanza e della corrente? E secondo, dovrei sapere un po' più precisamente come è fatto il campo magnetico, perchè non posso approssimarlo ad un campo uniforme e parallelo all'asse z, dal momento che un tale campo magnetico in totale eserciterebbe una forza nulla su un filo circolare a lui perpendicolare; d'altra parte, scoprire l'angolo tra il campo magnetico e la spira non sembra banale: quindi?<br>
+<br>
+Ok, non vi annoio ulteriormente, direi che ce ne sia già abbastanza :)</article>
+<article class="post" id="p93434"><div class="who"><b>Bacco</b><span>31 lug 2008, 09:17</span></div>Non è affatto un problema facile per un'ammissione.<br>
+<br>
+Premetto che non ho fatto alcun conto per verificare il tuo risultato, ti dico solo così a occhio.<br>
+<br>
+Innanzitutto è chiaro che la velocità non può sparire nel senso che dici te, perchè la forza verrà sempre proporzionale ad essa, a $ z $ costante; magari puoi provare a farla partire da un certo punto $ z_0 $ e a scrivere la opportuna eq. differenziale (al denominatore butta via l'$ R^2 $, è trascurabile).<br>
+<br>
+Per la questione di calcolare la forza: non so come si possa fare con metodi da liceo.<br>
+Ci sono essenzialmente due strade: o ti fai la derivata rispetto a $ z $ dell'energia di interazione tra il dipolo magnetico equivalente alla spira mobile (occhio: è indotto, la dipendenza da $ z $ va esplicitata sia per $ B $ che per il dipolo prima di fare la derivata) e il campo, oppure usi che $ div B = 0 $ e, per una spira piccola, trovi che:<br>
+$ B_x(r&lt;&lt;1,z)*2\pi r = r^2 * dB_z/dz (z) $<br>
+<br>
+ciao</article>
+<article class="post" id="p93492"><div class="who"><b>Pigkappa</b><span>31 lug 2008, 23:51</span></div>Salve, purtroppo non so esprimere l'energia dovuta al campo creato da un dipolo magnetico nello spazio e con le divergenze ho poco a che fare, ma credo di essere arrivato a qualcosa per altre vie. Intanto, se il risultato di Darkcrystal è un orrore, il mio è molto peggio (penso di non aver approssimato da nessuna parte, tranne nel flusso all'interno della sfera in moto):<br>
+<br>
+$ \displaystyle F = \frac{3 \pi \mu_0^2 r^3 i^2 z^2 v}{8R(r^2 + z^2)^{5/2}} \int_0^{\pi /2} \frac {\cos (2\theta) \cdot d \theta}{(\frac{z}{2r}+\cos \theta)^3}  $<br>
+<br>
+La forza penso sia repulsiva. I calcoli sono abbastanza bruttini. Nell'ordine ho fatto le seguenti cose:<br>
+<br>
+1)Si trova $ B_z(z) $.<br>
+2)Si trova la corrente indotta $ I = \frac{3 \pi \mu_0 r^4 i z v}{2R(r^2+z^2)^{5/2}} $ (approssimata, ma questo è davvero inevitabile).<br>
+3)Ora viene il peggio. Disegno una spira circolare poggiata sul piano orizzontale vista dall'alto. Voglio il campo magnetico "sopra un punto della spira". Per un trattino di lunghezza $ d \vec{s} $ sarà:<br>
+<br>
+$ d\vec{B}= \frac{\mu_0 i d\vec{s}\times \vec{l}}{4 \pi l^3} $<br>
+<br>
+Dove il vettore $ \vec{l} $ va dal trattino al punto. Se scrivo $ \vec{l}=\vec{z}+\vec{d} $ e uso la proprietà distributiva mi trovo il campo magnetico nel piano della spira:<br>
+<br>
+$ d\vec{B_{//}}= \frac{\mu_0 i d\vec{s}\times \vec{z}}{4 \pi l^3} $<br>
+<br>
+La componente tangenziale se ne andrà integrando, quella diretta verso il centro invece rimane. Chiamando con $ \theta $ l'angolo tra il diametro per il punto e la congiungente con il trattino e notando che $ ds = 2rd \theta $ arrivo all'integrale orribile che compare nella formula che ho postato.<br>
+<br>
+<br>
+Chiaramente, non sono affatto sicuro che tutto quanto ho postato sopra sia giusto, anzi... Se qualcuno più esperto mi dice che ne pensa lo ringrazio  :wink:</article>
+<nav class="pager"><a class="prev" href="oliforum-6206.html"><small>← precedente</small>Ammissione SNS (1996-1997).4</a><a class="next" href="olifis-213.html"><small>successivo →</small>SNS 1996/1997 n°5 - superconduttore cilindrico</a></nav>
+</main></body></html>

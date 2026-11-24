@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1988-1989 (2)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1988-1989, problema 2</span></nav>
+<h1>SNS 1988-1989 (2)</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=234">forum Olifis</a></p>
+<article class="post first" id="p2101"><div class="who"><b>Fedecart</b><span>23 ago 2009, 21:44</span></div>Un pallone aereostatico modello AX-4 ad aria calda è costituito da un involucro rigido di volume <span class="tex">\(V=850m^3\)</span> con un apertura all'estremità inferiore. L'aria all'interno viene mantenuta alla temperatura di<span class="tex">\(100° C\)</span>. Il pallone deve sollevare un carico totale (involucro più carico utile) di <span class="tex">\(200kg\)</span>.<br>
+Sapendo che la densità dell'aria decresce con l'altezza secondo la formula <span class="tex">\(\ro=\ro_0(1-\alpha h)\)</span>, con <span class="tex">\(\alpha=0,049km^{-1}\)</span>, e che la temperatura dell'aria esterna decresce come <span class="tex">\(t=t_0(1-\beta h)\)</span> con <span class="tex">\(\beta=0,026km^{-1}\)</span>, calcolare l'altezza massima che il pallone può raggiungere.</article>
+<article class="post" id="p2134"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 12:47</span></div>Nell'attesa che qualcuno risolva questo esercizio, posto una possibile soluzione che però non riesco a trascrivere con l'intera soluzione dato che vado a mangiare  :D . A me viene 54 km.</article>
+<article class="post" id="p2148"><div class="who"><b>MrTeo</b><span>24 ago 2009, 17:12</span></div>Con quell'altezza abbiamo:<br>
+<br>
+<span class="tex">\(\rho  = \rho _0 \left( {1 - \alpha h} \right) =  - 1,65\rho _0\)</span>  :shock: <br>
+<br>
+Com'è che l'hai risolto?</article>
+<article class="post" id="p2149"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 17:39</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>Con quell'altezza abbiamo:<br>
+<br>
+<span class="tex">\(\rho  = \rho _0 \left( {1 - \alpha h} \right) =  - 1,65\rho _0\)</span>  :shock: <br>
+<br>
+Com'è che l'hai risolto?</div></blockquote>
+
+<br>
+uhmmm...già!  :mrgreen:  ecco dove stava il ricontrollo, infatti mi veniva una equazione di secondo grado e ho eliminato 0,9 km a priori senza dire perchè. Il che potrebbe essere la soluzione.<br>
+Allora ho considerato che nel punto più alto vale la seguente uguaglianza:<br>
+ <br>
+<span class="tex">\(F_g = m g = p g V\)</span><br>
+<br>
+Abbiamo tutte variabili ecetto il volume il quale mano a mano che la temperatura cambia all'esterno, sembra cambiare poichè è la densità dell'aria esterna che cambia con la temperatura. Allora usando la legge dei gas perfetti abbiamo:<br>
+<br>
+<span class="tex">\(V_i / V_f = T_i/T_f\)</span><br>
+<br>
+quindi sostituendo nella prima equazione e svolgendo la marea di calcoli si ricava alla fine una soluzione giusta e l'altra impossibile. :)</article>
+<article class="post" id="p2150"><div class="who"><b>Ippo</b><span>24 ago 2009, 17:43</span></div>La spinta di Archimede sul pallone meno il peso dell'aria al suo interno è <span class="tex">\(F=(\rho-\rho_{\rm in})Vg\)</span> dove <span class="tex">\(\rho_{\rm in}\)</span> è la densità dell'aria calda all'interno.<br>
+Ora si ha, in generale, <span class="tex">\(\rho=\mu {n \over V}=\mu {P \over RT}\)</span> dalla legge dei gas perfetti (<span class="tex">\(\mu\)</span> sarebbe la massa molare dell'aria, ma non ci interessa, funge solo da costante di proporzionalità).<br>
+Ma poichè interno ed esterno sono comunicanti la pressione è la stessa e si ha<br>
+<span class="tex">\({\rho \over \rho_{\rm in}}={t_{\rm in} \over t}\)</span> e quindi<br>
+<span class="tex">\(F=(\rho-\rho_{\rm in})Vg=\rho gV \left( 1-{t \over t_{\rm in}}\right)=\)</span><br>
+<span class="tex">\(=\rho_0gV(1-\alpha h)\left( 1-{t_0 (1-\beta h) \over t_{\rm in}}\right)\)</span><br>
+Essendo i coefficienti alfa e beta piccoli eliminiamo il termine in <span class="tex">\(\alpha \beta\)</span>, scriviamo per comodità <span class="tex">\(t_0/t_{\rm in}=\gamma\)</span> e otteniamo<br>
+<span class="tex">\(F=\rho_0 g V(1-\gamma+\gamma \beta h-\alpha h-\gamma \alpha h)\)</span><br>
+Uguagliamo questa espressione alla forza peso del carico e ricaviamo il valore massimo di h:<br>
+<span class="tex">\(mg=F=\rho_0 g V (1-\gamma + (\gamma \beta - \alpha -\gamma \alpha)h)\)</span><br>
+<br>
+<span class="tex">\({m \over \rho_0 V}-1+\gamma=(\gamma \beta - \alpha(\gamma+1))h\)</span><br>
+<br>
+<span class="tex">\(h={( (\gamma+1)\alpha-\gamma \beta)}^{-1} \left( 1-{m \over \rho_0 V}-\gamma \right)\)</span><br>
+<br>
+Ora una rapida stima delle grandezze in gioco: la temperatura a terra diciamo sia <span class="tex">\(t_0 \sim 300{\rm K}\)</span> da cui <span class="tex">\(\gamma \sim 300/373=0.80\)</span>, la densità dell'aria a terra è <span class="tex">\(\rho_0 \sim 1.2 {\rm kg m^{-3}}\)</span><br>
+<br>
+Si ottiene <span class="tex">\(h=0.058 {\rm km}=58 {\rm m}\)</span><br>
+<br>
+decisamente basso, ci dev'essere un errore da qualche parte.<br>
+<br>
+EDIT: boiata, il termine moltiplicato per <span class="tex">\(\alpha \beta\)</span> è grande come gli altri perchè è moltiplicato per <span class="tex">\(h^2\)</span></article>
+<article class="post" id="p2152"><div class="who"><b>Ippo</b><span>24 ago 2009, 17:44</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>
+Abbiamo tutte variabili ecetto il volume il quale mano a mano che la temperatura cambia all'esterno, sembra cambiare poichè è la densità dell'aria esterna che cambia con la temperatura. Allora usando la legge dei gas perfetti abbiamo:<br>
+<br>
+<span class="tex">\(V_i / V_f = T_i/T_f\)</span><br>
+<br>
+quindi sostituendo nella prima equazione e svolgendo la marea di calcoli si ricava alla fine una soluzione giusta e l'altra impossibile. :)</div></blockquote>
+
+dice che l'involucro è rigido, vuol dire che V è costante credo...</article>
+<article class="post" id="p2153"><div class="who"><b>MrTeo</b><span>24 ago 2009, 17:50</span></div>È questo il punto... intanto se dobbiamo stimare noi valori base o se dobbiamo utilizzare solo quelli del problema... (io non riesco a farlo)<br>
+<br>
+E poi non mi è chiaro... la t minuscola indica una temperatura in Celsius o la prendiamo in Kelvin fregandocene della notazione?<br>
+Vi lascio con questi interrogativi profondi in cerca di una risposta...  :geek:</article>
+<article class="post" id="p2156"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 18:00</span></div><blockquote><div><cite>Ippo ha scritto:</cite><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>
+Abbiamo tutte variabili ecetto il volume il quale mano a mano che la temperatura cambia all'esterno, sembra cambiare poichè è la densità dell'aria esterna che cambia con la temperatura. Allora usando la legge dei gas perfetti abbiamo:<br>
+<br>
+<span class="tex">\(V_i / V_f = T_i/T_f\)</span><br>
+<br>
+quindi sostituendo nella prima equazione e svolgendo la marea di calcoli si ricava alla fine una soluzione giusta e l'altra impossibile. :)</div></blockquote>
+
+dice che l'involucro è rigido, vuol dire che V è costante credo...</div></blockquote>
+
+Si infatti anche per me lo deve essere, ma prima avevo scritto che "sembra diverso" il volume, in quanto a parità di massa con densità diversa il volume all'esterno è diverso di quello all'interno. Stessa cosa vale anche per la massa. A parità di volume la massa dentro la mongolfiera è diversa da quella fuori. Alla fine dovrebbe venire lo stesso risultato. :roll: Non so dove ho sbagliato che mi viene 900 metri..</article>
+<article class="post" id="p2157"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 18:02</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>È questo il punto... intanto se dobbiamo stimare noi valori base o se dobbiamo utilizzare solo quelli del problema... (io non riesco a farlo)<br>
+<br>
+E poi non mi è chiaro... la t minuscola indica una temperatura in Celsius o la prendiamo in Kelvin fregandocene della notazione?<br>
+Vi lascio con questi interrogativi profondi in cerca di una risposta...  :geek:</div></blockquote>
+
+Tutto ciò che ha a che fare con temperatura, nel SI va trasformato in Kelvin.</article>
+<article class="post" id="p2159"><div class="who"><b>CoNVeRGe.</b><span>24 ago 2009, 18:27</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>
+<blockquote><div><cite>Mr.Teo ha scritto:</cite>
+E poi non mi è chiaro... la t minuscola indica una temperatura in Celsius o la prendiamo in Kelvin fregandocene della notazione?
+</div></blockquote>
+Tutto ciò che ha a che fare con temperatura, nel SI va trasformato in Kelvin.</div></blockquote>
+Allora provate ad andare a 38 km d'altezza e vediamo se tornate  :lol:</article>
+<article class="post" id="p2162"><div class="who"><b>MrTeo</b><span>24 ago 2009, 18:32</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite><blockquote><div><cite>MrTeo ha scritto:</cite>È questo il punto... intanto se dobbiamo stimare noi valori base o se dobbiamo utilizzare solo quelli del problema... (io non riesco a farlo)<br>
+<br>
+E poi non mi è chiaro... la t minuscola indica una temperatura in Celsius o la prendiamo in Kelvin fregandocene della notazione?<br>
+Vi lascio con questi interrogativi profondi in cerca di una risposta...  :geek:</div></blockquote>
+
+Tutto ciò che ha a che fare con temperatura, nel SI va trasformato in Kelvin.</div></blockquote>
+
+Ho capito... ma il mio problema è il valore di t nella relazione...<br>
+
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Allora provate ad andare a 38 km d'altezza e vediamo se tornate  :lol:</div></blockquote>
+
+Appunto  :mrgreen:</article>
+<article class="post" id="p2163"><div class="who"><b>Ippo</b><span>24 ago 2009, 18:35</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Si infatti anche per me lo deve essere, ma prima avevo scritto che "sembra diverso" il volume, in quanto a parità di massa con densità diversa il volume all'esterno è diverso di quello all'interno. Stessa cosa vale anche per la massa. A parità di volume la massa dentro la mongolfiera è diversa da quella fuori. Alla fine dovrebbe venire lo stesso risultato. :roll: Non so dove ho sbagliato che mi viene 900 metri..</div></blockquote>
+basta considerare n (le moli di aria nel pallone) come variabile, come ho fatto io, che poi non è un'astrazione ma è ciò che accade veramente  :mrgreen:</article>
+<article class="post" id="p2165"><div class="who"><b>Alex90</b><span>24 ago 2009, 18:39</span></div>Partendo dall'equazione di Ippo mi viene fuori 10,8 Km</article>
+<article class="post" id="p2169"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 19:45</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Partendo dall'equazione di Ippo mi viene fuori 10,8 Km</div></blockquote>
+
+Ottimo!! chi offre di più?? :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6385.html"><small>← precedente</small>SNS 1986/7 n. 2 - Lancio di un sasso</a><a class="next" href="oliforum-6128.html"><small>successivo →</small>Conduttori bidimensionali @ SNS</a></nav>
+</main></body></html>

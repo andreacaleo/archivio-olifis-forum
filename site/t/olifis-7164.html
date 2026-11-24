@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>299-SNS 2022/2 Stella nella linea di vista</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2022-2023, problema 2</span></nav>
+<h1>299-SNS 2022/2 Stella nella linea di vista</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7164">forum Olifis</a></p>
+<article class="post first" id="p27545"><div class="who"><b>bosone</b><span>24 nov 2022, 12:01</span></div>Osservando una stella di massa <span class="tex">\(M= 1,1 M_*\)</span> dove <span class="tex">\(M_*\cong 2.10^{30}\)</span> è la massa del Sole, si misura la sua velocità nella direzione della sua linea di vista in funzione del tempo. La velocità varia periodicamente da un minimo di -80 m/s ad un massimo di +80 m/s, con un periodo di 3,6 giorni. La sua luminosità osservata presenta una riduzione periodica dell'1% con lo stesso periodo.<br>
+i)  Descrivere qualitativamente il più semplice sistema che può essere responsabile di questo comportamento<br>
+ii) Determinare in modo quantitativo le caratteristiche del sistema, utilizzando M e i dati forniti.<br>
+(<span class="tex">\(G_N\cong 6,7.10^{-11} N.m^2/kg^2\)</span>)</article>
+<article class="post" id="p27546"><div class="who"><b>Pigkappa</b><span>1 dic 2022, 21:43</span></div>1) Sicuramente vorrei vedere la curva di luce della stella, perche' fa molta differenza sapere se questa e' a forma di scalino, oppure a forma di funzione trigonometrica.<br>
+<br>
+Sapendo solo che c'e' un minimo -V e un massimo +V e niente altro, possiamo immaginare una situazione molto semplice: attorno alla stella orbita un altro corpo (diciamo un pianeta, potrebbe essere una stella poco luminosa). La stella e il pianeta ruotano di moto circolare uniforme l'uno attorno all'altro. Il pianeta e' sulla nostra linea di vista e, quando passa davanti alla stella, ne oscura l'1% della superficie e quindi il sistema ci appare meno luminoso.<br>
+<br>
+2) <br>
+Dato il periodo <span class="tex">\(T=3.6 \text{days}\)</span>, <span class="tex">\(m_s=1.1 M_\odot\)</span>, per la terza legge di Keplero: <span class="tex">\(w^2 a^3 = G(m_s + m_p)\)</span>. Assumiamo che la massa del pianeta <span class="tex">\(m_p\)</span> sia molto minore di <span class="tex">\(m_s\)</span>, allora il raggio dell'orbita del pianeta e' molto grande rispetto a quello della stella, e approssimativamente uguale a <span class="tex">\(a_p \approx \big(\frac{T^2Gm_s}{4\pi^2}\big)^{1/3}=7.1\times 10^9 \text{m} = 0.047 \text{AU}\)</span> dove AU = astronomical unit = distanza Terra - Sole. Il pianeta e' molto vicino alla stella, ma non cosi' tanto che la cosa sembri incredibile o necessariamente all'interno della stella stessa (raggio del Sole = <span class="tex">\(7 \times 10^8 \text{m}\)</span> se ricordo bene).<br>
+<br>
+La velocita' massima della stella permette di stimare il raggio della sua orbita, <span class="tex">\(V = \frac{2 \pi a_s}{T} \Rightarrow a_s = \frac{V*T}{2 \pi} = 4.0 \times 10^6 \text{m} \ll a_p\)</span>. L'accelerazione centripeta deriva dall'attrazione gravitazionale, quindi <span class="tex">\(w^2 a_s \approx \frac{G*m_p}{a_p^2} \Rightarrow m_p = \frac{4 \pi^2 a_s a_p^2}{G*T^2} \approx 1.2 \times 10^{27}\)</span> kg, una massa tipica di un grande pianeta.<br>
+<br>
+Abbiamo quel che serve per calcolare la velocita' orbitale del pianeta, se sapessimo quanto dura il minimo di luminosita' potremmo cosi' stimare il raggio della stella, e allora da questo il raggio del pianeta, e quindi la sua densita', e quindi che tipo di pianeta e'... Ma con i dati che abbiamo non penso si possa fare altro.</article>
+<article class="post" id="p27549"><div class="who"><b>bosone</b><span>2 dic 2022, 12:51</span></div>Ci sono due grafici che io non so traslare.Uno riporta la componente della velocità della stella lungo la linea di vista misurata dalla Terra in funzione del tempo. Apparentemente una sinusoide con massimo 80m/s (allontanamento) e minimo -80m/s (avvicinamento). L'altro grafico riporta la luminosità della stella sempre in funzione del tempo che dal 100% scende al 99% con un tratto a GRADINO. Se vuoi consultare vai al sito SNS, concorso ordinario,prove degli anni precedenti di Scienze. Io avevo immaginato dapprima un sistema binario di due stelle ruotanti attorno ad un fuoco comune dove era il CM. Il valor massimo misurato corrispondeva ad un estremo B dell'asse minore e il valor minimo all'altro estremo. Conservando energia e momento angolare fra B e perielio dove v è massima ma la sua proiezione sulla linea di vista è nulla si otteneva un sistema con due incognite, la velocità nel perielio e la distanza focale c. Infatti il semiasse maggiore a lo avevo dedotto da Keplero dato che si conosce il periodo. B dista a dal fuoco e quindi si possono impostare le due equazioni in quelle incognite. Ebbene il sistema è compatibile se c=0. Allora le ellissi sono una circonferenza di raggio a dove le due stelle si inseguono e l'eclisse avviene ogni periodo quando la seconda stella si interpone fra l'osservatore terrestre e la stella puntata. Sarebbe il sistema più semplice di cui chiede il testo. Dov'è il problema con questo procedimento? Che conoscendo il raggio e il periodo si può trovare la velocità della stella che risulta 2000 volte maggiore degli 80 m/s misurati!!! Stavo per scrivere questa cosa ma mi hai preceduto e ti ringrazio tanto della risposta. Tuttavia non mi è chiaro se con la tua soluzione il pianeta ruota attorno alla stella come dici o se ruotano entrambi attorno al comune centro di massa M+m come hai scritto. Grazie ancora.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <br>
+’</article>
+<article class="post" id="p27550"><div class="who"><b>Pigkappa</b><span>2 dic 2022, 23:17</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7164.html#p27549" data-post-id="27549" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 dic 2022, 12:51</div></cite>
+Tuttavia non mi è chiaro se con la tua soluzione il pianeta ruota attorno alla stella come dici o se ruotano entrambi attorno al comune centro di massa M+m come hai scritto. Grazie ancora.
+</div></blockquote>
+
+Ruotano attorno al centro di massa; ma, dato che il raggio dell'orbita del pianeta e' molto maggiore che quello della stella, non e' cosi' sbagliato neanche dire che il pianeta ruota attorno alla stella. Si dice comunemente che la Terra gira attorno al Sole, anche se ruotano in realta' attorno al centro di massa.<br>
+<br>
+<img src="../img/92ac41a423d15da2.png" class="postimage" alt="Immagine"><br>
+<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7164.html#p27549" data-post-id="27549" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 dic 2022, 12:51</div></cite>un sistema binario di due stelle ruotanti attorno ad un fuoco comune dove era il CM. Il valor massimo misurato corrispondeva ad un estremo B dell'asse minore e il valor minimo all'altro estremo</div></blockquote>
+Come avevo scritto sopra, anche io avevo considerato potesse essere un sistema di due stelle, ma poi i numeri che sono venuti fuori erano piu' adatti a stella + pianeta. Comunque, se ti chiedono il sistema piu' semplice, sicuramente lo devi immaginare in rotazione in moto circolare, non ellittico, e non devi preoccuparti di asse minore e asse maggiore. In particolare se la velocita' ha questo andamento sinusoidale, il moto deve essere circolare, non ellittico.<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7164.html#p27549" data-post-id="27549" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 dic 2022, 12:51</div></cite>
+Allora le ellissi sono una circonferenza di raggio a dove le due stelle si inseguono e l'eclisse avviene ogni periodo quando la seconda stella si interpone fra l'osservatore terrestre e la stella puntata. Sarebbe il sistema più semplice di cui chiede il testo. Dov'è il problema con questo procedimento? Che conoscendo il raggio e il periodo si può trovare la velocità della stella che risulta 2000 volte maggiore degli 80 m/s misurati!!!
+</div></blockquote>
+Beh, questo e' equivalente a quel che viene a me, se fai il conto la velocita' orbitale del pianeta con i numeri sopra e' circa 2000 volte piu' grande di 80 m/s. I due corpi ruotano attorno al centro di massa comune, con lo stesso periodo, ma non con lo stesso raggio e non con la stessa velocita'<br>
+<br>
+Data la descrizione e la curva di luce, comunque, stella+pianeta e' piu' plausibile di stella+stella. Se fosse stella+stella, e se queste fossero perfettamente allineate alla linea di vista, avremmo non uno ma due gradini nella curva di luce (di diversa profondita'), perche' avremmo un'altra eclisse quando la stella grande oscura la stella piccola.<br>
+<br>
+Inoltre, qual e' uno scenario realistico che potrebbe aver generato il problema? Come fanno gli osservatori a sapere che c'e' una stella di massa <span class="tex">\(1.1 M_\odot\)</span>? Probabilmente hanno visto lo spettro, e cosi' facendo la hanno classificata, e la classificazione ti da' la massa. Se c'e' anche un pianeta vicino, questo non cambia lo spettro che vedi (forse a parte casi estremi, ad esempio se il pianeta e' molto vicino alla stella, ed ha una atmosfera densa). Ma se stiamo vedendo una stella doppia, dallo spettro ce ne accorgiamo facilmente.<br>
+<br>
+Questo tipo di problema non e' raro, era a Senigallia 2003 come stella+pianeta, IPHO 2007 come stella+stella.</article>
+<article class="post" id="p27551"><div class="who"><b>bosone</b><span>3 dic 2022, 12:46</span></div>Ti ringrazio tantissimo. Allora quella che hai postato nel post precedente è la soluzione corretta! Grazie davvero. Non conoscevo Senigallia 2003 e non ho mai pensato che potesse trattarsi di un pianeta! Mi pareva di aver fatto tantoa pensare alla stella binaria...Come posso osare la negazione della staffetta a Pigkappa :?:</article>
+<nav class="pager"><a class="prev" href="olifis-7168.html"><small>← precedente</small>SNS 2022/1  tensione superficiale olio-aria</a><a class="next" href="olifis-7157.html"><small>successivo →</small>Esercizio 3 SNS 2022-2023</a></nav>
+</main></body></html>

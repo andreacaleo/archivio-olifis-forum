@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2003-2004 es. 2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 2</span></nav>
+<h1>SNS 2003-2004 es. 2</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11592">OliForum</a></p>
+<article class="post first" id="p94322"><div class="who"><b>gattovince</b><span>18 ago 2008, 19:46</span></div>Credo che questo problema non sia già stato postato.<br>
+<br>
+E' un problema SNS che ho provato a fare ma non sono sicuro della soluzione.<br>
+Magari dite cosa ne pensate!<br>
+<br>
+<em class="text-italics">La luce è costituita da fotoni, ciascuno dei quali trasporta un' energia<br>
+$ E = h\nu $ ed un impulso $ p = h/\lambda $, dove $ \nu $   è la frequenza e $ \lambda $ la lunghezza<br>
+d’onda della luce in questione. Un granello di polvere stellare che assorbe<br>
+(senza riflettere) la luce del sole che lo investe, subisce per questo una<br>
+forza che lo respinge dal sole stesso. Determinare il rapporto dell’intensità di questa forza con quella della gravitazione solare per un granello<br>
+sferico di raggio $ r $  e densità $ \rho $. Assumendo $ \rho = 10^{-1} g/cm^3 $ calcolare<br>
+l’ordine di grandezza di $ r $  per cui queste forze si bilanciano.</em><br>
+<br>
+PS: Sono date la costante di gravitazione universale $ G $, la luminosità\potenza del Sole $ P_s $, la massa del Sole $ M_s $ e la velocità della luce $ c $<br>
+<br>
+PPS: penso che "impulso" significhi "quantità di moto"<br>
+<br>
+$ G = 6.7 \cdot 10^{-11} m^3/(kg \cdot s^2) $<br>
+$ P_s = 4 \cdot 10^{26} W $<br>
+$ M_s = 2 \cdot 10^{30} kg $<br>
+$ c = 3 \cdot 10^8 m/s  $<br>
+<br>
+Grazie!!  :D</article>
+<article class="post" id="p94637"><div class="who"><b>EUCLA</b><span>23 ago 2008, 18:28</span></div>La parte più semplice è calcolare $ F_{G}  $ (attrazione grav. solare): $ F_G=\displaystyle G\cdot \frac{m_Sm_g}{d^2}  $, dove compare $ d  $ come unica incognita.<br>
+Ovviamente poi $ m_g=\displaystyle \frac{4\pi}{3}\rho r^3  $.<br>
+<br>
+Sia $ F  $ la forza che investe il granello. Sia $ I  $ l'intensità della luce, a distanza $ d  $ dal sole si ha $ I=\displaystyle \frac{P_S}{4\pi d^2}  $ (Basta considerare una sfera di raggio $ d  $ centrata nel sole per dimostrarlo).<br>
+La luce dovrebbe esercitare una pressione che è $ p=\displaystyle \frac{I}{c}  $.<br>
+Sostituendo un pò di roba, se $ A  $ è l'area della superficie irraggiata(?) del granello $ F=pA=\displaystyle \frac{IA}{c}=\frac{P_SA}{4\pi cd^2}  $.<br>
+Ora, $ A  $ è metà della superficie totale della sfera del granello, cioè $ \displaystyle A=2\pi r^2 \rightarrow F=\frac{P_Sr^2}{2cd^2}  $.<br>
+<br>
+Quello che cerchiamo è quando $ \displaystyle \frac{F}{F_G}=\frac{P_Sr^2}{2cd^2} \cdot \frac{3d^2}{4\pi \rho r^3Gm_S}=\frac{3P_S}{8c\pi \rho rGm_S}\approx 1  $.<br>
+<br>
+Quindi, $ r  $ dev'esser circa $ 1,19 \times 10^{-9}  $ che forse però è un pò troppo piccolo.<br>
+Com'era la tua soluzione? Almeno si assomigliano un pò?  :oops:<br>
+Sono molto in dubbio per il fatto che quando faccio questi problemi mi avanzano sempre dati, ad esempio che me ne faccio della roba con l'h?</article>
+<article class="post" id="p94641"><div class="who"><b>Fedecart</b><span>23 ago 2008, 18:41</span></div>Spero di non dire l'idiozia delle 18:36... comunque credo che bisogni immaginare una sorta di urto non elastico tra il fotone e il granello di polvere stellare in questione, e lavorare un po su questo. Specialmente dal momento che è stata data la quantità di moto del fotone e l'energia che trasporta, mentre la sua massa è nota. Sulla forza gravitazionale sono d'accordissimo con Eucla e su quello non ci piove.<br>
+
+<blockquote class="uncited"><div>La luce dovrebbe esercitare una pressione che è $ p=\frac{I}{c} $</div></blockquote>
+Questo è il punto dove mi perdo, probabilmente per ignoranza mia, nella tua dimostrazione...</article>
+<article class="post" id="p94643"><div class="who"><b>EUCLA</b><span>23 ago 2008, 19:13</span></div>Ho capito perchè ci sono stati "dati" quei "dati", scusate la ripetizione  :D <br>
+<br>
+In pratica, se uno non conosceva quella formula, se la può ricavare. Dimostriamola!<br>
+<br>
+Per esser chiara: $ P  $ è la potenza, $ p  $ è la quantità di moto.<br>
+<br>
+$ E=h\nu, \ p=\displaystyle \frac{h}{\lambda}\Rightarrow \frac{E}{p}=\nu \lambda  $. Ottengo $ \boxed{\displaystyle \frac{E}{p}=c}  $.<br>
+<br>
+Ora consideriamo che $ F=\displaystyle \frac{\Delta p}{\Delta t}  $.<br>
+Se $ L  $ è il lavoro compiuto sul nostro granello $ \displaystyle P=\frac{L}{\Delta t}=\frac{E}{\Delta t}  $.<br>
+Ora, posso sfruttare il fatto che $ I  $ è sempre la stessa se prendo in considerazione quando la luce arriva sul granello. Dunque vale $ \displaystyle P=IA  $. <br>
+<br>
+Sostituendo ottengo: $ \boxed{E=\displaystyle IA\Delta t}  $.<br>
+<br>
+Riprendo il risultato di prima e viene che $ pc=IA\Delta t \rightarrow F\Delta t c=IA\Delta t $. Da qui ottengo $ \boxed{F=\displaystyle \frac{IA}{c}}  $ da cui si ottiene il risultato su cui avevi dei dubbi.<br>
+<br>
+Ammetto che differenziando verrebbe meglio  :roll: , forse più pulita nei punti in cui ci sono $ E  $ e $ \Delta E  $.<br>
+Se non torna qualcosa comunque, cosa molto probabile, dimmelo  :) .</article>
+<article class="post" id="p94651"><div class="who"><b>Fedecart</b><span>23 ago 2008, 19:41</span></div>Hai un punto del laTex che non funziona... E poi come si fa a fare i riquadri attorno alle formule? Sono bellissime!!</article>
+<article class="post" id="p94663"><div class="who"><b>Desh</b><span>23 ago 2008, 21:09</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>Hai un punto del laTex che non funziona... </div></blockquote>
+:?<br>
+
+<blockquote class="uncited"><div>
+E poi come si fa a fare i riquadri attorno alle formule? Sono bellissime!!</div></blockquote>
+<div class="codebox"><p>Codice: <a href="http://www.oliforum.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>\boxed{a}</code></pre></div>
+$ \boxed{a} $</article>
+<nav class="pager"><a class="prev" href="olifis-241.html"><small>← precedente</small>SIMULAZIONE: SNS 2003/2004 Problema 1</a><a class="next" href="oliforum-5713.html"><small>successivo →</small>di nuovo sns, 2003-2004</a></nav>
+</main></body></html>

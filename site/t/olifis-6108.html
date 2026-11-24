@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>prima parte di sns 2012 n 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2012-2013, problema 5</span></nav>
+<h1>prima parte di sns 2012 n 5</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6108">forum Olifis</a></p>
+<article class="post first" id="p20904"><div class="who"><b>andrea96</b><span>23 apr 2015, 22:45</span></div>Posto questo problema che io ho fatto in un modo che forse è un pochino troppo contoso, diciamo che se mi fossi trovato al test probabilmente non avrei avuto la lucidità di fare tutti questi conti, quindi volevo vedere se qualcuno trova una soluzione più veloce della mia ( sempre a patto che la mia sia giusta ):<br>
+Determinare il massimo rendimento <span class="tex">\(\eta\)</span> ottenibile da una macchina termica che opera a contatto con due bagni termici. Quello freddo si trova a una temperatura <span class="tex">\(T_F\)</span> mentre quello caldo, inizialmente a una temperatura finita <span class="tex">\(T_c\)</span>, ha una capacità termica finita che vale <span class="tex">\(C\)</span>, e dunque durante la trasformazione la sua temperatura cambia. Mostrare che questo rendimento è minore di quello della corrispondente macchina ideale che lavori tra le temperature <span class="tex">\(T_F\)</span> e <span class="tex">\(T_c\)</span>.</article>
+<article class="post" id="p20908"><div class="who"><b>nk1996</b><span>23 apr 2015, 23:07</span></div>Non ho capito. In pratica mi stai dicendo che la sorgente calda emettendo calore diminuisce di temperatura e di conseguenza si modifica il rendimento?</article>
+<article class="post" id="p20910"><div class="who"><b>andrea96</b><span>23 apr 2015, 23:13</span></div><blockquote><div><cite>nk1996 ha scritto:</cite>Non ho capito. In pratica mi stai dicendo che la sorgente calda emettendo calore diminuisce di temperatura e di conseguenza si modifica il rendimento?</div></blockquote>
+Esatto! Quando hai una macchina di Carnot ottieni quel rendimento perchè le sorgenti hanno una capacità approssimabile a infinita quindi possono scambiare calore senza variare la temperatura. Qui invece la capacità della sorgente calda ha un valore finito e quindi trasformando il gas tenendolo a contatto con essa non ottengo più delle isoterme, di conseguenza il rendimento della macchina non è più quello di carnot.</article>
+<article class="post" id="p20912"><div class="who"><b>nk1996</b><span>23 apr 2015, 23:17</span></div>Ok domani provo a buttarci giù qualcosetta se ho tempo...</article>
+<article class="post" id="p20987"><div class="who"><b>sall96</b><span>13 mag 2015, 14:53</span></div>Non capisco una cosa: devo trattare il tutto come se facesse un ciclo? Per esempio:<br>
+Il bagno caldo fornisce un calore <span class="tex">\(Q_1\)</span> e la temperatura scende a <span class="tex">\(T'_C\)</span>. Poi avvengono altre trasformazioni con <span class="tex">\(T_F\)</span>, ma alla fine la macchina deve tornare alla temperatura <span class="tex">\(T'_C\)</span>? Così facendo il bagno caldo pian piano si raffredderà fino ad arrivare (dopo tanto tempo) alla temperatura <span class="tex">\(T_F\)</span>. <br>
+Ho capito bene?</article>
+<article class="post" id="p20989"><div class="who"><b>andrea96</b><span>13 mag 2015, 15:35</span></div>Si ma basta considerare il primo ciclo</article>
+<article class="post" id="p20990"><div class="who"><b>sall96</b><span>13 mag 2015, 16:36</span></div>Un piccolo hint?  :roll:</article>
+<article class="post" id="p20992"><div class="who"><b>andrea96</b><span>13 mag 2015, 19:27</span></div>Chiede "il massimo rendimento" senza darti condizini su moli o volumi, quindi...</article>
+<article class="post" id="p21027"><div class="who"><b>Gimmy</b><span>23 mag 2015, 17:54</span></div>Boh, anche se ne abbiamo già parlato, io continuo a interpretare il problema in modo diverso.<br>
+<br>
+Usiamo la brutta notazione <span class="tex">\(T_C(t)\)</span> per indicare la temperatura del bagno caldo al tempo <span class="tex">\(t\)</span>. Allora <span class="tex">\(T_C(0)=T_C\)</span> e <span class="tex">\(T_C(\infty)=T_F\)</span>.<br>
+Per ottenere il massimo rendimento totale, imponiamo che in ogni singolo istante <span class="tex">\(t\)</span> il rendimento sia il più alto possibile, cioè sia pari a quello di una macchina di Carnot che lavora tra le temperature <span class="tex">\(T_C(t)\)</span> e <span class="tex">\(T_F\)</span>.<br>
+Allora imponiamo, con chiaro significato dei simboli, <span class="tex">\(\dfrac{\text{d}Q_C}{\text{d}Q_F}=\dfrac{T_C(t)}{T_F}\)</span>.<br>
+Ma <span class="tex">\(\text{d}Q_C=-C\text{d}T_C(t)=-CT'_C(t)\text{d}t\)</span>, e <span class="tex">\(Q_F=Q_C-\text{d}L\)</span>, quindi, sostituendo,<br>
+<span class="tex">\(\dfrac{-CT'_C(t)\text{d}t}{-CT'_C(t)\text{d}t-\text{d}L}=\dfrac{T_C(t)}{T_F}\implies\text{d}L=CT_F\dfrac{T'_C(t)}{T_C(t)}\text{d}t-CT'_C(t)\text{d}t,\)</span><br>
+da cui, integrando,<br>
+<span class="tex">\(\displaystyle L=CT_F\int_0^{\infty}\dfrac{T'_C(t)}{T_C(t)}\text{d}t-C\int_0^{\infty}T'_C\text{d}t=C(T_C-T_F)+CT_F\ln\left(\dfrac{T_F}{T_C}\right).\)</span><br>
+D'altra parte, il calore assorbito <span class="tex">\(Q_{\text{ass}}\)</span> è certamente <span class="tex">\(C(T_C-T_F)\)</span> (variazione di temperatura del bagno caldo).<br>
+Quindi <span class="tex">\(\eta=\dfrac{L}{Q_{\text{ass}}}=1-\dfrac{T_F\ln\left(\frac{T_C}{T_F}\right)}{T_C-T_F}\)</span> e con un facile conto si vede che è minore di <span class="tex">\(1-\dfrac{T_F}{T_C}\)</span>.</article>
+<article class="post" id="p21028"><div class="who"><b>andrea96</b><span>23 mag 2015, 18:15</span></div>Quindi la tua interpretazione è che facciamo lavorare la macchina con infiniti cicli di Carnot infinitesimi finche la macchina non è piu utilizzabile perchè le temperature diventano uguali, e interpreti il rendimento richiesto come il rapporto tra il lavoro totale estratto e il calore totale assorbito in tutto il funzionamento della macchina. Ho frainteso?</article>
+<article class="post" id="p21029"><div class="who"><b>Gimmy</b><span>23 mag 2015, 18:39</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Quindi la tua interpretazione è che facciamo lavorare la macchina con infiniti cicli di Carnot infinitesimi finche la macchina non è piu utilizzabile perchè le temperature diventano uguali, e interpreti il rendimento richiesto come il rapporto tra il lavoro totale estratto e il calore totale assorbito in tutto il funzionamento della macchina. Ho frainteso?</div></blockquote>
+Esattamente, l'hai spiegato molto meglio di me! :D<br>
+Che ne dici? Fila tutto?<br>
+<br>
+(prima non ho sostituito l'espressione finale di dQ, lasciando dT senza mettere la derivata, ma ora sono da telefono... Fate finta che l'abbia fatto)</article>
+<article class="post" id="p21030"><div class="who"><b>andrea96</b><span>23 mag 2015, 18:53</span></div>I conti tuoi non li ho guardati seno mi perdo, ma quando ho visto che integravi tra zero e infinito ho intuito che l interpretazione potesse essere quelle e mi sono fatto il problema cosi e mi torna perfettamente.  :D <br>
+sono andato anche a rileggere il testo ufficiale e in effetti è molto ambiguo, non si capisce assolutamente se bisogna considerare tutto il funzionamento fino al deterioramento della macchina o solo il primo ciclo. Il punto è che solitamente con il rendimento costante non c è differenza tra il rendimento parziale e quello totale quindi non c è bisogno di specificarlo, qui forse sarebbe stato il caso, ma forse se lo avessero fatto avrebbero eliminato il loro marchio di fabbrica :lol:</article>
+<article class="post" id="p21031"><div class="who"><b>Gimmy</b><span>23 mag 2015, 18:56</span></div>Leggendo la prima volta il testo non mi ero posto altri problemi, ma ripensandoci, sì, dovrebbe essere più preciso.<br>
+Ho corretto il piccolo refuso. :)</article>
+<article class="post" id="p21034"><div class="who"><b>nk1996</b><span>24 mag 2015, 18:33</span></div>Io pure l'avevo interpretata come Gimmy, poi peró sentendo Andrea lo avevo risolto secondo la sua interpretazione che mi sembrava ugualmente corretta. :D  :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-2144.html"><small>← precedente</small>sns 2012 n.5</a><a class="next" href="olifis-2877.html"><small>successivo →</small>sns 2012 n.6</a></nav>
+</main></body></html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS  2011--1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2011-2012, problema 1</span></nav>
+<h1>SNS  2011--1</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=869">forum Olifis</a></p>
+<article class="post first" id="p7323"><div class="who"><b>floppino81892</b><span>28 ago 2011, 19:55</span></div><span class="tex">\(N\)</span> formiche sono inizialmente poste ai vertici di un poligono regolare di <span class="tex">\(N\)</span> lati di lunghezza <span class="tex">\(L\)</span>.<br>
+Ad un certo istante esse iniziano a muoversi tutte con velocità di modulo <span class="tex">\(v\)</span> costante e puntando istante per istante verso la posizione della formica più vicina in senso antiorario come inseguendola, continuando fino a che non si ritrovano tutte al centro del poligono. In quanto tempo avviene ciò, e quante volte ogni formica ha infine girato intorno al centro?</article>
+<article class="post" id="p7334"><div class="who"><b>domx</b><span>29 ago 2011, 10:26</span></div>pur non avendolo risolto, io ho scritto che il moto assomiglia a quelli di alcuni pianeti che "cadono" in una stella trasformatasi in buco nero perché la forza centripeta non è più bilanciata dal moto circolare uniforme. Ho scritto pure che il tempo deve essere simile al tempo che ci impiegano i pianeti in una rotazione "normale", cioè il suo quadrato sarà proporzionale al cubo della distanza dal centro.<br>
+Chissà se mi daranno qualche punto per questo o se me ne toglieranno proprio :lol:</article>
+<article class="post" id="p7336"><div class="who"><b>floppino81892</b><span>29 ago 2011, 10:57</span></div>io ho detto che la traiettoria di ogni formica era una spirale e che in ogni istante congiungendo le posizioni di ogni formica si riotteneva un poligono simile a quello iniziale...</article>
+<article class="post" id="p7337"><div class="who"><b>dinamitardo</b><span>29 ago 2011, 11:16</span></div>la cosa assurda è che in questo problema veniva un tempo finito ma giri infiniti! O almeno questo è quello che è venuto a me, ma anche a molti altri che ho sentito</article>
+<article class="post" id="p7338"><div class="who"><b>domx</b><span>29 ago 2011, 11:32</span></div>ho scritto anche che veniva una spirale, ma i giri non sono infiniti, anzi, credo che non si completi nemmeno mezzo giro (così, facendo il disegno)...</article>
+<article class="post" id="p7341"><div class="who"><b>lukaseta</b><span>29 ago 2011, 12:10</span></div><a href="http://en.wikipedia.org/wiki/Mice_problem" class="ext" class="postlink">http://en.wikipedia.org/wiki/Mice_problem</a></article>
+<article class="post" id="p7342"><div class="who"><b>dinamitardo</b><span>29 ago 2011, 14:22</span></div><blockquote><div><cite>domx ha scritto:</cite>ho scritto anche che veniva una spirale, ma i giri non sono infiniti, anzi, credo che non si completi nemmeno mezzo giro (così, facendo il disegno)...</div></blockquote>
+
+un disegno non mi sembra però un'argomentazione molto forte, cioè non puoi dire che è falso basandoti solo su un disegno.... comunque il mio risultato per il tempo è lo stesso di wikipedia, il che mi dà fiducia anche sull'altro punto (speriamo  :!: )</article>
+<article class="post" id="p7343"><div class="who"><b>domx</b><span>29 ago 2011, 14:56</span></div><blockquote><div><cite>dinamitardo ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>ho scritto anche che veniva una spirale, ma i giri non sono infiniti, anzi, credo che non si completi nemmeno mezzo giro (così, facendo il disegno)...</div></blockquote>
+
+un disegno non mi sembra però un'argomentazione molto forte, cioè non puoi dire che è falso basandoti solo su un disegno.... comunque il mio risultato per il tempo è lo stesso di wikipedia, il che mi dà fiducia anche sull'altro punto (speriamo  :!: )</div></blockquote>
+sì certo, è solo un'idea ;)...</article>
+<article class="post" id="p7344"><div class="who"><b>majorana73</b><span>29 ago 2011, 16:29</span></div>Vediamo se è giusto...<br>
+<br>
+per simmetria le formiche saranno sempre ai vertici di un N-agono regolare. Pertanto la componente della velocità verso il centro sarà sempre la stessa e cioè <span class="tex">\(v_c=v\sin \frac{\pi}{N}\)</span>. La distanza radiale è <span class="tex">\(R=\frac{L}{2\sin \frac{\pi}{N}}\)</span> pertanto <span class="tex">\(t=\frac{L}{2v\sin ^2 \frac{\pi}{N}}\)</span>. Inoltre <span class="tex">\(\displaystyle \lim_{N\to \infty}t=+\infty\)</span> che è ragionevole.<br>
+In ogni istante la velocità tangenziale è sempre la stessa <span class="tex">\(v_t=v \cos \frac{\pi}{N}\)</span>. La velocità angolare in funzione del tempo è allora <span class="tex">\(\omega (t)=\frac{v\cos \frac{\pi}{N}}{\frac{L}{2\sin \frac{\pi}{N}}-v\sin \frac{\pi}{N}t}\)</span> e per trovare l'angolo spazzato da una formica integro <span class="tex">\(\omega(t)\)</span> in <span class="tex">\(dt\)</span> da 0 al tempo di incontro ricavato prima. L'integrale è infinito, pertanto a me esce che le formiche fanno infiniti giri.</article>
+<article class="post" id="p7345"><div class="who"><b>Pigkappa</b><span>29 ago 2011, 17:05</span></div><blockquote><div><cite>domx ha scritto:</cite>pur non avendolo risolto, io ho scritto che il moto assomiglia a quelli di alcuni pianeti che "cadono" in una stella trasformatasi in buco nero perché la forza centripeta non è più bilanciata dal moto circolare uniforme.</div></blockquote>
+
+Di sicuro non te ne danno neanche uno. Se vogliono essere severi, te ne tolgono qualcuno. Non serve a niente scrivere cose che non c'entrano nulla, e si rischia di scriverle male e perdere punti per quello.<br>
+<br>
+Inoltre, non mi è troppo chiaro cosa significhi che "la forza centripeta non è più bilanciata dal moto circolare uniforme".</article>
+<article class="post" id="p7346"><div class="who"><b>domx</b><span>29 ago 2011, 19:01</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>pur non avendolo risolto, io ho scritto che il moto assomiglia a quelli di alcuni pianeti che "cadono" in una stella trasformatasi in buco nero perché la forza centripeta non è più bilanciata dal moto circolare uniforme.</div></blockquote>
+
+Di sicuro non te ne danno neanche uno. Se vogliono essere severi, te ne tolgono qualcuno. Non serve a niente scrivere cose che non c'entrano nulla, e si rischia di scriverle male e perdere punti per quello.<br>
+<br>
+Inoltre, non mi è troppo chiaro cosa significhi che "la forza centripeta non è più bilanciata dal moto circolare uniforme".</div></blockquote>boh, volevo dire semplicemente che non c'è più l'equilibrio che fa sì che il pianeta rimanga nell'orbita...<br>
+sospettavo che potessero togliere punti per problemi fatti male (a questo punto pure per quello del frigorifero), sperò però non lo facciano...</article>
+<article class="post" id="p7347"><div class="who"><b>Spammowarrior</b><span>29 ago 2011, 19:14</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>pur non avendolo risolto, io ho scritto che il moto assomiglia a quelli di alcuni pianeti che "cadono" in una stella trasformatasi in buco nero perché la forza centripeta non è più bilanciata dal moto circolare uniforme.</div></blockquote>
+
+Di sicuro non te ne danno neanche uno. Se vogliono essere severi, te ne tolgono qualcuno. Non serve a niente scrivere cose che non c'entrano nulla, e si rischia di scriverle male e perdere punti per quello.
+</div></blockquote>
+
+lol, per fortuna che dicono che "l'importante è scrivere qualcosa, viene valutato tutto"<br>
+<br>
+voglio dire, va bene mettere paura alla gente e tutto il resto, ma cose tipo "se scrivi cose che non vanno bene ti mettono punteggi negativi" è un po' eccessivo, non ti pare?</article>
+<article class="post" id="p7348"><div class="who"><b>Pigkappa</b><span>29 ago 2011, 19:37</span></div>Si tratta di un esame in cui si deve valutare la preparazione dello studente. Se lo studente non scrive niente, puoi concludere che non sapeva fare quel problema. Se scrive "non so risolvere questo problema, ma so che 2+2=6", di sicuro non fa una buona impressione.<br>
+<br>
+Ci sono buoni motivi per non dare punteggi negativi, ma io in qualche caso sarei tentato dal farlo, e forse lo sarebbe anche qualche professore che conosco. Alle olimpiadi ovviamente non si può fare, perchè i criteri di valutazione sono regolamentati in modo preciso, ma per il test SNS non c'è scritto da nessuna parte che non possano.</article>
+<article class="post" id="p7349"><div class="who"><b>domx</b><span>29 ago 2011, 19:38</span></div><blockquote><div><cite>Spammowarrior ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>pur non avendolo risolto, io ho scritto che il moto assomiglia a quelli di alcuni pianeti che "cadono" in una stella trasformatasi in buco nero perché la forza centripeta non è più bilanciata dal moto circolare uniforme.</div></blockquote>
+
+Di sicuro non te ne danno neanche uno. Se vogliono essere severi, te ne tolgono qualcuno. Non serve a niente scrivere cose che non c'entrano nulla, e si rischia di scriverle male e perdere punti per quello.
+</div></blockquote>
+
+lol, per fortuna che dicono che "l'importante è scrivere qualcosa, viene valutato tutto"<br>
+<br>
+voglio dire, va bene mettere paura alla gente e tutto il resto, ma cose tipo "se scrivi cose che non vanno bene ti mettono punteggi negativi" è un po' eccessivo, non ti pare?</div></blockquote>
+uhm, secondo me non troppo, in effetti di elettromagnetismo non ho scritto proprio niente per paura che si accorgessero del mio livello di conoscenza di questa branca...<br>
+comunque rimedio subito, fino all'orale, se dovessi arrivarci, spero di riuscire a prepararlo decentemente (l'elettromagnetismo)...</article>
+<article class="post" id="p7350"><div class="who"><b>Spammowarrior</b><span>29 ago 2011, 19:51</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Si tratta di un esame in cui si deve valutare la preparazione dello studente. Se lo studente non scrive niente, puoi concludere che non sapeva fare quel problema. Se scrive "non so risolvere questo problema, ma so che 2+2=6", di sicuro non fa una buona impressione.<br>
+<br>
+Ci sono buoni motivi per non dare punteggi negativi, ma io in qualche caso sarei tentato dal farlo, e forse lo sarebbe anche qualche professore che conosco. Alle olimpiadi ovviamente non si può fare, perchè i criteri di valutazione sono regolamentati in modo preciso, ma per il test SNS non c'è scritto da nessuna parte che non possano.</div></blockquote>
+
+ma allora non direbbero (e lo dicono) "vengono valutati i risultati parziali, quindi scrivete anche delle considerazioni", ma direbbero "rispondete solo se la risposta è quella giusta perchè altrimenti guai a voi"<br>
+poi sappiamo entrambi che se c'è barbieri in commissione il discorso è diverso.</article>
+<article class="post" id="p7354"><div class="who"><b>Pigkappa</b><span>29 ago 2011, 20:49</span></div>Le risposte parziali in qualche caso hanno senso. "Non so risolvere il problema, ma con l'analisi dimensionale posso stimare che la risposta è un coefficiente per L/v" è qualcosa di utile. Un po' di considerazioni per dire che quel coefficiente diventa molto grande per <span class="tex">\(N &gt;&gt; 1\)</span>, ed è piccolo per <span class="tex">\(N\)</span> piccolo (nel caso N=2 si calcola in modo ovvio), sono utili.<br>
+<br>
+Questi sono ragionamenti che, pur non dando la soluzione al problema, permettono di stimare come dipende da alcuni dei parametri e magari farsi un'idea dell'ordine di grandezza. È questo che vogliono quando chiedono soluzioni parziali.<br>
+<br>
+Io avevo fatto una cosa di questo tipo in un problema del mio test di ammissione, che non avevo saputo risolvere per intero, e all'orale la commissione mi ha fatto i complimenti per la soluzione.</article>
+<article class="post" id="p7355"><div class="who"><b>dinamitardo</b><span>29 ago 2011, 21:57</span></div><blockquote><div><cite>majorana73 ha scritto:</cite>Vediamo se è giusto...<br>
+<br>
+per simmetria le formiche saranno sempre ai vertici di un N-agono regolare. Pertanto la componente della velocità verso il centro sarà sempre la stessa e cioè <span class="tex">\(v_c=v\sin \frac{\pi}{N}\)</span>. La distanza radiale è <span class="tex">\(R=\frac{L}{2\sin \frac{\pi}{N}}\)</span> pertanto <span class="tex">\(t=\frac{L}{2v\sin ^2 \frac{\pi}{N}}\)</span>. Inoltre <span class="tex">\(\displaystyle \lim_{N\to \infty}t=+\infty\)</span> che è ragionevole.<br>
+In ogni istante la velocità tangenziale è sempre la stessa <span class="tex">\(v_t=v \cos \frac{\pi}{N}\)</span>. La velocità angolare in funzione del tempo è allora <span class="tex">\(\omega (t)=\frac{v\cos \frac{\pi}{N}}{\frac{L}{2\sin \frac{\pi}{N}}-v\sin \frac{\pi}{N}t}\)</span> e per trovare l'angolo spazzato da una formica integro <span class="tex">\(\omega(t)\)</span> in <span class="tex">\(dt\)</span> da 0 al tempo di incontro ricavato prima. L'integrale è infinito, pertanto a me esce che le formiche fanno infiniti giri.</div></blockquote>
+
+io l'ho fatto allo stesso identico modo  :)</article>
+<article class="post" id="p7425"><div class="who"><b>modesto</b><span>4 set 2011, 10:42</span></div>C'è qualcuno in grado di postare i testi corretti di sns 2011?</article>
+<nav class="pager"><a class="prev" href="olifis-985.html"><small>← precedente</small>sns 2011 n.1</a><a class="next" href="olifis-956.html"><small>successivo →</small>sns 2011 n.2</a></nav>
+</main></body></html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS Pisa 2018 Problema 1 (Tunnel al centro della terra)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2018-2019, problema 1</span></nav>
+<h1>SNS Pisa 2018 Problema 1 (Tunnel al centro della terra)</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6755">forum Olifis</a></p>
+<article class="post first" id="p25129"><div class="who"><b>Schrodingers_Bat</b><span>26 ago 2018, 10:18</span></div>Premetto che la memoria è quella che è, ma il testo più o meno è quello.<br>
+<br>
+a. Dimostrare che, se non si tiene conto della rotazione terrestre, una particella lasciata cadere lungo un tunnel rettilineo e senza attrito che collega due punti sulla superficie terrestre si muove di moto oscillatorio di periodo 84 minuti.<br>
+b. Discutere qualitativamente come cambia la situazione se si tiene conto della rotazione terrestre:<br>
+  1 se i punti iniziale e finale sono alla stesa latitudine<br>
+  2 se i punti iniziale e finale sono alla stessa longitudine<br>
+<br>
+Più che altro, il punto b1, perché la dimostrazione mi sembra abbastanza semplice e (se dico castronerie, pardon in anticipo) nel b2 di fatto la rotazione non influisce</article>
+<article class="post" id="p25133"><div class="who"><b>nicarepo</b><span>26 ago 2018, 10:42</span></div>Il primo punto è abbastanza semplice e si potevano anche trascurare del tutto i dati. Bastava trovare il periodo in funzione delle variabili rilevanti per il buco centrato e poi confrontarlo con quello qualsiasi. L'unica differenza è ch enel caso qualsiasi l'unica forza rilevante è quella lungo la direzione del tubo. Da cui <span class="tex">\(rsen\alpha = x\)</span> veniva un moto armonico identico. <br>
+<br>
+Per il secondo punto è vero quello che hai detto... si potevano fare considerazioni nel sistema non inerziale aggiungendo la forza centrifuga (apparente), che per una componente viene annullata dalla reazione normale. Inoltre dato che sia la forza centrifuga che quella gravitazionale dipendevano linearmente da <span class="tex">\(r\)</span> bisognava distinguere i due casi (una più forte dell'altra o viceversa).</article>
+<article class="post" id="p25137"><div class="who"><b>Schrodingers_Bat</b><span>26 ago 2018, 11:38</span></div>Che tipo di considerazioni? Io ho pensato che (magari stiamo dicendo la stessa cosa, o magari da bravo matematico ne capisco poco di fisica):<br>
+- avvicinandosi al centro della terra, la particella accelera perché si muove da regioni a velocità tangenziale maggiore a minore. Una sorta di forza di coriolis, per intenderci.<br>
+- L'unica forza agente è la gravità, in direzione radiale, quindi il momento angolare si conserva (mi rendo conto ora della stronzata, c'è anche la forza normale del tunnel che ovviamente non è sempre radiale). Dunque vicino al centro ha una velocità tangenziale più alta, e una componente della stessa è lungo la direzione del moto.<br>
+<br>
+Per il resto, il fatto che una componente si annulli è, praticamente, la discussione del b2.</article>
+<article class="post" id="p25141"><div class="who"><b>nicarepo</b><span>26 ago 2018, 12:05</span></div>Allora, la forza centrifuga (quindi apparente) è una forza diretta, in qualsiasi punto si trovi la pallina, radialmente verso l'esterno. Il bello è che dipende dalla velocità angolare secondo la legge <span class="tex">\(F_c= \omega^2 r\)</span> <br>
+Dal primo punto si capiva che anche la forza gravitazionale variava proporzionalmente al raggio: <span class="tex">\(F_g= k r \)</span> dove <span class="tex">\(k\)</span> è la costante appropriata. <br>
+Ora: di entrambe le forze (dato che sono dirette radialmente) l'unica componente significativa, nel caso di latitudine costante, era la componente lungo il tubo, perché quella perpendicolare viene annullata dalla reazione vincolare. <br>
+Quindi bisognava discutere <span class="tex">\(F_g \le Fc\)</span> e viceversa. In un caso la pallina orbita con periodo minore, nell'altro se ne va verso l'infinito e oltre.<br>
+Nel caso di longitudine costante non cambia niente.<br>
+<br>
+Se proprio volevi essere preciso bisognava discutere anche l'effetto della forza di Coriolis, come hai accennato. Ma dato che <span class="tex">\(F=-2m \omega \land v\)</span> nel caso longitudinale è nulla perché il prodotto vettoriale è nullo; nel caso latitudinale la forza è tutta equilibrata dalla normale. <br>
+Quindi la forza di Coriolis era inutile.</article>
+<article class="post" id="p25144"><div class="who"><b>Schrodingers_Bat</b><span>26 ago 2018, 12:33</span></div>ok grazie!<br>
+<br>
+Tra l'altro, ora che me ne parli, devi fare un caso solo, perché il rapporto Fg/Fc è costante e pari a gR/(v^2) dove g è l'accelerazione di gravità, R il raggio della terra, v=2pigrecoR/T la velocità tangenziale sulla superficie. Sostituendo i dati ottieni un rapporto molto maggiore di 1, quindi immagino si avrà solo un periodo più lungo.</article>
+<nav class="pager"><a class="prev" href="olifis-6706.html"><small>← precedente</small>SNS 2017 n.6</a><a class="next" href="olifis-6873.html"><small>successivo →</small>195. SNS, 2018-1</a></nav>
+</main></body></html>

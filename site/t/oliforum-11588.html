@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1997</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1997-1998, problema 2</span></nav>
+<h1>SNS 1997</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11588">OliForum</a></p>
+<article class="post first" id="p94300"><div class="who"><b>Alex90</b><span>17 ago 2008, 20:02</span></div>Un ascensore a pieno carico pesa 10 tonnellate. Esso discende con la velocità di 150 metri al minuto. In quanto tempo ed in quanti metri, al minimo, lo si può fermare se il carico massimo che i cavi possono sopportare corrisponde ad un peso di 15 tonnellate? Si faccia l’ipotesi che, in aggiunta alla forza di gravit`a, l’unica forza agente sull’ascensore sia la tensione dei cavi.<br>
+<br>
+Vediamo se sono riuscito a risolverlo decentemente  :D</article>
+<article class="post" id="p94305"><div class="who"><b>fede90</b><span>17 ago 2008, 21:04</span></div>La massima tensione della fune è $T=15\cdot 10^3 \cdot g$ (verso l'alto) mentre la forza peso è $P=10\cdot 10^3 \cdot g$ (verso il basso). Quindi la risultante è $R=T-P=5\cdot 10^3 \cdot g$ verso l'alto. Detta $m$ la massa dell'ascensore, l'accelerazione è $a=\frac{R}{m}=\frac{5\cdot 10^3 \cdot g}{10\cdot 10^3}=\frac{g}{2}$ verso l'alto. Consideriamo l'accelerazione negativa e la velocità positiva. Abbiamo $v_{fin}=v_{in}+a \Delta t$ cioè $0=\frac{150}{60} -\frac{g}{2}\Delta t$ da cui $\Delta t=\frac{5}{g}=0.51 \ \textrm{s}$. Dalla legge $\Delta x=v_{in}\Delta t+\frac{1}{2}a(\Delta t )^2$ ricaviamo $\Delta x=0.64\ \textrm{m}$.<br>
+<br>
+Non so, mi sembra un po troppo poco, ma forse mi lascio ingannare da quel 150 metri al minuto che in realta non sono altro che 2.5 m/s e cioè 9km/h....</article>
+<article class="post" id="p94306"><div class="who"><b>Alex90</b><span>17 ago 2008, 21:38</span></div>Posto anche la mia soluzione<br>
+<br>
+Siano $ \displaystyle F_p $ la Forza Peso dell'ascensore, $ \displaystyle T $ la massima tensione sopportabile dalla corda e $ \displaystyle F_s $ la massima forza applicabile per fermare l'ascensore senza che la corda si spezzi, la relazione che vige tra queste 3 è la seguente:<br>
+$ \displaystyle F_p + F_s = T \Rightarrow F_s = (15 -10) \cdot 10^3 \cdot g = 5 \cdot 10^3 \cdot g  $<br>
+<br>
+Il lavoro compiuto da questa forza è $ \displaystyle L = F_s \cdot \Delta x = 5 \cdot 10^3 \cdot g \cdot \Delta x $<br>
+Inoltre $ \displaystyle L = \Delta K = \frac{1}{2}m{v_i}^2 - \frac{1}{2}m{v_f}^2 $ ma la velocità finale è 0 in quanto l'ascensore deve fermarsi $ \displaystyle \Rightarrow L = K_i \Rightarrow 5 \cdot 10^3 \cdot g \cdot \Delta x = \frac{1}{2}m{v_i}^2 \Rightarrow \Delta x = \frac{{v_i}^2}{g} = 0,64 m $<br>
+<br>
+Per calcolare il tempo trascorso basta considerare che $ \displaystyle v_m = \frac{v_i}{2} \Rightarrow t = \frac{2\Delta x}{v_i}= 0,51 s $<br>
+<br>
+correzioni?suggerimenti?<br>
+<br>
+ps bravo fede  :D</article>
+<nav class="pager"><a class="prev" href="oliforum-11591.html"><small>← precedente</small>SNS 1997 + Bonus.</a><a class="next" href="olifis-227.html"><small>successivo →</small>SNS 1997-1998 (3)</a></nav>
+</main></body></html>

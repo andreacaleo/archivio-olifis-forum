@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008/2009 problema 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 3</span></nav>
+<h1>SNS 2008/2009 problema 3</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11677">OliForum</a></p>
+<article class="post first" id="p95019"><div class="who"><b>Algebert</b><span>29 ago 2008, 16:37</span></div>Un condizionatore funziona con potenza $ \displaystyle P $ operando tra una temperatura interna $ \displaystyle T_2 $ e una esterna $ \displaystyle T_1 &gt; T_2 $ in modo tale da trasferire calore dall'interno della casa all'esterno. Il calore $ \displaystyle Q $ che entra per unità di tempo si trova con la formula $A(T_1 - T_2)$. Quant'è la temperatura all'interno della casa se il condizionatore rimane sempre acceso? Scopriamo poi che tale condizionatore funziona in modo tale da spegnersi se la temperatura interna è minore di 20 °C, mentre lavora solo per il 30% del totale se la temperatura esterna è di 30 °C. Sulla base di queste ipotesi, qual'è la massima temperatura esterna per cui il condizionatore riesce a mantenere la casa a 20 °C?</article>
+<article class="post" id="p95110"><div class="who"><b>Evelynn</b><span>30 ago 2008, 17:35</span></div>A parte che io mi sono bloccata su quel "per unità di tempo"..<br>
+<br>
+Curiosità: sul testo del problema avevano scritto "..che lo speNGe quando la temperatura interna.." =D<br>
+<br>
+Almeno vuol dire che ci sono dei Pisani alla Normale di Pisa..<br>
+<br>
+W l'accento toscano!  :D</article>
+<article class="post" id="p95162"><div class="who"><b>Desh</b><span>31 ago 2008, 00:54</span></div><blockquote><div><cite>Evelynn ha scritto:</cite>A parte che io mi sono bloccata su quel "per unità di tempo"</div></blockquote>
+
+Anche la notazione (il puntino sopra la Q) suggeriva che sostanzialmente quella era la derivata rispetto al tempo</article>
+<article class="post" id="p95982"><div class="who"><b>gmascellani</b><span>10 set 2008, 13:33</span></div>La condizione di equilibrio è l'uguaglianza tra i valori del calore che entra e che esce per unità di tempo:<br>
+<br>
+$ PCE=A(T_1-T_2) $,<br>
+<br>
+dove $ E $ è l'efficienza del condizionatore e $ C $ la percentuale del tempo che rimane acceso.<br>
+<br>
+$ E=\frac{T_2}{T_1-T_2} $ (si veda, per esempio, l'Halliday), ed è la cosa che mi sarebbe tanto piaciuto ricordarmi durante il test. Ho provato a ricavarla, ma i risultati venivano irrealistici, quindi devo aver sbagliato qualcosa.<br>
+<br>
+A questo punto, dovrebbe bastare risolvere per $ T_2 $ per risolvere la prima parte dell'esercizio e per $ T_1 $ per risolvere la seconda. I risultati non mi vengono molto "belli", ma le prove numeriche che ho fatto mi sembrano realistiche.<br>
+<br>
+Perché certe cose non mi vengono mai in mente al momento giusto?</article>
+<article class="post" id="p95985"><div class="who"><b>Algebert</b><span>10 set 2008, 14:12</span></div>Ti dico solo che io l'ho sbagliato clamorosamente perchè ho confuso l'efficienza col rendimento :x :evil: !!</article>
+<article class="post" id="p95996"><div class="who"><b>mattilgale</b><span>10 set 2008, 16:38</span></div>un'altra precisazione<br>
+speNGere non è "accento pisano", è un termine linguisticamente CORRETTO usato in tutta la Toscana!<br>
+:D</article>
+<article class="post" id="p96128"><div class="who"><b>quicktimeplayers</b><span>13 set 2008, 18:01</span></div><blockquote><div><cite>mattilgale ha scritto:</cite>un'altra precisazione<br>
+speNGere non è "accento pisano", è un termine linguisticamente CORRETTO usato in tutta la Toscana!<br>
+:D</div></blockquote>
+
+Grande Mattilgale... Spengiamoli tutti vanti!!! ahaha</article>
+<article class="post" id="p97677"><div class="who"><b>CoNVeRGe.</b><span>30 ott 2008, 16:47</span></div>beh il primo punto è facile (solo che quella formula l'ho scoperta solo ora  :roll: , avrei messo un banale $ [tex] $ Q<span style="text-decoration:underline"> [/tex] per il calore uscente)<br>
+<br>
+per il secondo punto come si introducono i dati di ''mentre lavora solo per il 30% del totale se la temperatura esterna è di 30 °C'' ?</span></article>
+<nav class="pager"><a class="prev" href="olifis-143.html"><small>← precedente</small>SNS 2008-2009</a><a class="next" href="oliforum-11682.html"><small>successivo →</small>SNS 2008/2009 problema 4</a></nav>
+</main></body></html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1995</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1995-1996, problema 3</span></nav>
+<h1>SNS 1995</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6116">OliForum</a></p>
+<p class="notice">Qui c'è solo la prima pagina della discussione: il seguito è su OliForum, al link qui sopra.</p>
+<article class="post first" id="p56256"><div class="who"><b>sqrt2</b><span>22 ago 2006, 10:48</span></div>Lo scrivo interamente, ma mi interessa sapere solo il punto c), perchè ho trovato un valore di Winfinito assurdo, benchè il ragionamento mi sembri giusto.<br>
+<br>
+Tre stelle di ugual massa, M/3 (M è la massa totale del sistema), in mutua attrazione gravitazionale, ruotano su un’orbita circolare di raggio R intorno al centro di massa del sistema, mantenendo la loro posizione relativa in modo da occupare i vertici di un triangolo equilatero. <br>
+<br>
+a) Determinare la velocità angolare W3 di ciascuna stella intorno al centro di massa. <br>
+<br>
+b) Per orbite circolari di raggio R fissato e sistemi di massa totale M assegnata, come si paragona il valore di W3 con la velocità angolare W2 di un sistema binario e con la velocità angolare W4 di un insieme di 4 stelle disposte ai vertici di un quadrato? <br>
+<br>
+c) Siete in grado di valutare il valore limite Winfinito, quando la massa totale M è distribuita tra un numero sempre più grande di stelle?</article>
+<article class="post" id="p56277"><div class="who"><b>Fabrizio</b><span>22 ago 2006, 13:02</span></div>Nel caso di un sistema con tre stelle, su ognuna agisce una forza di attrazione gravitazionale diretta verso il centro del sistema di modulo:<br>
+$ 2sin60*GM^2/d^2 $, dove $ d $ è la distanza tra due stelle.<br>
+D'altra parte, con semplici considerazioni geometriche, ottengo che $ d=\sqrt3R $. Perciò $ F_g=\sqrt3GM^2/3R^2 $.<br>
+Egugliando questa alla forza centripeta ottengo $ \omega=\sqrt(\sqrt3GM/3R^3) $.<br>
+<br>
+Allo stesso modo trovo:<br>
+$ \omega_2=1/2 \sqrt(GM/R^3) $<br>
+e<br>
+$ \omega_4=\sqrt(5 GM/4R^3) $<br>
+per i sistemi a due e tre stelle.<br>
+<br>
+Noto che, come è logico, aumentando le masse in gioco aumenta anche la velocità angolare del sistema.<br>
+<br>
+Per il caso limite in cui ci sia una distribuzione praticamente continua di masse sulla circonferenza di raggio $ R $, posso trovare la forza che agisce su ognuna dividendo i contributi di ogni elemento infinitesimo, sapendo che dovrò considerare solo le componenti dirette verso il centro (le altre si annullano):<br>
+<br>
+Il contributo di un elemento di massa <br>
+$ M $, situato a distanza $ D $ dal nostro campione, è $ sin(\alpha)GM^2/D^2 $, dove $ sin(\alpha)=D/2R $.<br>
+La forza totale è quindi l'integrale di <br>
+$ 2GM^2/2RD $ con $ D $ che varia da $ 0 $ a $ 2R $.<br>
+Questo integrale dovrebbe valere <br>
+$ +\infty $, e quindi se ne deduce che non esiste un limite superiore per la velocità angolare del sistema.</article>
+<article class="post" id="p56290"><div class="who"><b>David</b><span>22 ago 2006, 14:45</span></div>a) nel 1° caso il campo gravitazionale su una stella è $ g=\frac {2GM} {9R^{2}} $ questo campo causa l' accelerazione centripeta $ a_c=\omega_3^{2}R $ eguagliando il campo e l'accelerazione si ottiene:<br>
+$ \omega_3=\sqrt(\frac {2GM} {9R^{3}}) $<br>
+<br>
+b) nel caso di sistemi binari $ g=\frac {GM} {8R^{2}} $ dunque (sempre eguagliando il campo e l'accelerazione) $ \omega_2=\sqrt(\frac {GM} {8R^{3}}) $<br>
+nel caso di un sistema di 4 stelle si ha (mi permetto di omettere i calcoli...) $ \omega_4=\sqrt(\frac {5GM} {16R^{3}}) $<br>
+da questo si deduce che $ \omega_2&lt;\omega_3&lt;\omega_4 $<br>
+<br>
+c) per calcolare il campo gravitazionale nel caso di un numero molto grande di stelle si ha $ g=\int_0^{1}\frac {GM} {4r^{2}n} \frac {1} {sin^{2}(\pi x)} dx $, il cui risultato (ometto i passaggi) è $ \[\lim_{h \rightarrow 0} \frac {-\pi GM(h^{2}-1)} {8R^{2}}=\frac {\pi GM} {8R^2}}  $<br>
+il che significherebbe che la velocità angolare tende a questo valore max.<br>
+che ve ne pare?<br>
+non sono così sicuro sul 3° punto ma a grandi linee il risultato dovrebbe essere questo.</article>
+<article class="post" id="p56297"><div class="who"><b>Gauss_87</b><span>22 ago 2006, 15:54</span></div>boh ragazzi io ho un risultato diverso, lo propongo e se ne discute...<br>
+<br>
+avrei un'immagine ma non so come caricarla, credo ci voglia un webspace che non ho, se qualcuno è interessato a vederla per chiarimenti sulla mia risoluzione me lo dice..<br>
+<br>
+Intanto con 2 masse $ \frac{M}{2} $ si ha:<br>
+<br>
+$ \displaystyle m \omega_2^2 R = \gamma m \frac{M}{2} \frac{1}{4R^2} $<br>
+<br>
+quindi $ \displaystyle \omega_2 = \frac{1}{2 \sqrt{2}} \sqrt{\frac{\gamma M}{R^3}} $<br>
+<br>
+Con tre masse, Wlog ne considero una qualsiasi sottoposta all'attrazione delle altre 2.<br>
+<br>
+Il CM (di massa $ \frac{2}{3} M  $)delle altre 2 sta sul piede della perpendicolare condotta dalla prima massa, distante $ \frac{3}{2}R $ da essa, quindi:<br>
+<br>
+$ \displaystyle m \omega_3^2 R = \gamma m \frac{2}{3}M \frac{4}{9R^2} $ da cui <br>
+<br>
+$ \displaystyle \omega_3 = \frac{2\sqrt{2}}{3 \sqrt{3}} \sqrt{\frac{\gamma M}{R^3}} $.<br>
+<br>
+Analogamente con 4 masse basta considerare il CM di 3 masse $ \frac{3}{4}M $ a distanza $ R + \frac{R}{3} $ dalla quarta massa, ricavando<br>
+<br>
+$ \displaystyle \omega_4 = \frac{3\sqrt{3}}{4 \sqrt{4}} \sqrt{\frac{\gamma M}{R^3}} $.<br>
+<br>
+Con n masse:<br>
+<br>
+$ \displaystyle \omega_n = \frac{(n-1) \sqrt{n-1}}{n \sqrt{n}} \sqrt{\frac{\gamma M}{R^3}} $ cosicchè<br>
+<br>
+$ \displaystyle \lim_{ n \rightarrow +\infty} \omega_n = \sqrt{\frac{\gamma M}{R^3}} $.<br>
+<br>
+Questo limite sembra il più convincente tra quelli che avete scritto perchè quando n è grandissimo le masse sono su una circonferenza, $ m = \frac{M}{n} $ è trascurabile rispetto ad $ M $ quindi una massetta non influenza il CM che sta al centro della circonferenza e in tal caso si avrebbe:<br>
+<br>
+$ m \omega^2 R = \gamma m \frac{M}{R^2} $ che dà proprio quel limite .</article>
+<article class="post" id="p56300"><div class="who"><b>David</b><span>22 ago 2006, 16:17</span></div>ok, sono convinto di aver toppato alla grande, ma mi puoi far vedere la dimostrazione della formula con cui ti calcoli il CM di n stelle?</article>
+<article class="post" id="p56301"><div class="who"><b>Gauss_87</b><span>22 ago 2006, 16:26</span></div>non l'ho dimostrato, sono andato per congettura avendo già $ \omega_2 $, $ \omega_3 $, $ \omega_4 $ e l'ho verifiacata pensando le n masse su una circonferenza.</article>
+<article class="post" id="p56302"><div class="who"><b>Fabrizio</b><span>22 ago 2006, 16:48</span></div>ok scusate ragazzi.. avevo contato ogni corpo di massa $ M $ invece di $ M/n $... ecco perché i tre calcoli numerici non tornavano con i vostri.<br>
+Ma la mia dimostrazione per la distribuzione continua di massa funziona lo stesso.. puoi cercare di dimostrare la tua formula, magari con una vera induzione?</article>
+<article class="post" id="p56303"><div class="who"><b>Gauss_87</b><span>22 ago 2006, 16:54</span></div><blockquote><div><cite>Fabrizio ha scritto:</cite>ok scusate ragazzi.. avevo contato ogni corpo di massa $ M $ invece di $ M/n $... ecco perché i tre calcoli numerici non tornavano con i vostri.<br>
+Ma la mia dimostrazione per la distribuzione continua di massa funziona lo stesso.. puoi cercare di dimostrare la tua formula, magari con una vera induzione?</div></blockquote>
+
+Credo di poterlo dimostrare con un integrale, niente di speciale..<br>
+<br>
+Edit: forse anche con meno..<br>
+<br>
+se n è pari allora si avrà un poligono regolare inscrivibile in una circonferenza con un numero pari di vertici, quindi ogni vertice ha uno e un solo vertice opposto.<br>
+<br>
+considero una massa:<br>
+<br>
+subisce la forza gravitazione di una massa $ \frac{n-2}{n}M $ posta al centro e di una massa $ \frac{M}{n} $ distante $ 2R $ (la sua opposta).<br>
+<br>
+ora basta trovare il CM di queste 2 masse, quindi ci siamo ricondotti a una massa qualsiasi attratta da un'altra che rappresenta la somma di tutte le altre sul loro CM.<br>
+<br>
+poi è facile..<br>
+<br>
+Per n dispari vengono conti quasi analoghi</article>
+<article class="post" id="p56307"><div class="who"><b>Fabrizio</b><span>22 ago 2006, 17:28</span></div>Scusami gauss ma mi sono accorto solo ora del perché non mi tornavano tutti i tuoi conti.<br>
+Hai fatto un errore: consideri il centro di massa e il baricentro del sistema coincidenti, quando non lo sono affatto.<br>
+Prova a rifarti i conti per n=3 o 4 sommando tutte le forze per ogni massa... vedrai che la tua induzione "empirica" non funziona un granchè...</article>
+<article class="post" id="p56309"><div class="who"><b>Bacco</b><span>22 ago 2006, 17:31</span></div>@gauss87: Forse la stanchezza mi gioca un brutto scherzo.... ma sei sicuro di poter fare quel tipo di soluzione? Non credo che tu possa sostituire le masse col loro c.d.m.<br>
+<br>
+Prova questo: due masse m uguali distanti 4. sull'asse del segmento che le congiunge, a distanza 5 da esso, misuro il campo gravitazionale.<br>
+<br>
+Col tuo metodo: massa equivalente 2m a distanza 5 -&gt; 2Gm/25<br>
+Facendolo direttamente: 2*(Gm/29)*5/sqrt(29)<br>
+<br>
+che sono assai diversi!<br>
+<br>
+@fabrizio: certo che sono coincidenti! Sono esattamente la stessa cosa, per definizione. L'errore sta in quello che ho detto prima...</article>
+<article class="post" id="p56310"><div class="who"><b>Fabrizio</b><span>22 ago 2006, 18:08</span></div>@bacco:Guarda che ti sbagli: baricentro e c.d.m non sono affatto la stessa cosa!<br>
+Il c.d.m è una media pesata, dove sono in gioco solo masse e posizioni reciproche.<br>
+Il baricentro, o centro di gravità, è invece la media pesata dei vettori forza gravitazionale... I due punti coincidono solo in un campo gravitazionale dove $ \overrightarrow{g} $ è ovunque costante in modulo e direzione.<br>
+Il baricentro è il punto su cui agisce la forza peso, e in generale solo nel campo terrestre vicino alla superficie coincide col c.d.m.<br>
+<br>
+Poi diciamo esattamente la stessa cosa, gauss sbaglia nell'usare il "centro di massa" perché lo confonde col baricentro, che è molto diverso..</article>
+<article class="post" id="p56311"><div class="who"><b>David</b><span>22 ago 2006, 18:12</span></div>il metodo di considerare tutti i corpi nel centro di massa è sbagliato perchè non si può applicare il teorema di Gauss visto che non è una superficie sferica.<br>
+provate ad immaginare che il metodo di considerare i corpi nel centro di massa sia corretto, mettendo un corpo di massa m in un punto intermedio tra i due corpi più lontani si avrebbe una forza diretta verso il centro di massa del sistema.<br>
+questo è però falso, in quanto la massa m subisce una forza opposta al centro di massa. se non sono stato chiaro posso anche rispigarlo, è che non mi riesce senza fare un disegno...   :P</article>
+<article class="post" id="p56312"><div class="who"><b>Bacco</b><span>22 ago 2006, 18:12</span></div>Hai ragione, scusa per l'equivoco.</article>
+<article class="post" id="p56319"><div class="who"><b>David</b><span>22 ago 2006, 18:52</span></div>ok, visto che ho tempo e voglia posto sia i calcoli che i risultati (così vediamo tutti meglio se c'è qualche errore...)<br>
+<br>
+sistema binario:<br>
+<br>
+il campo in cui è immersa una stella di massa $ \frac {M}{2} $ è dovuto solo all'altra stella distante 2r. dunque:<br>
+$ g_2=\frac {M} {2}\frac{G} {{2r^{2}}} $<br>
+l'accelerazione centripeta è $ a_c=\omega^{2}r $ eguagliando le formule e risolvendo rispetto a $ \omega_2 $ si ottiene:<br>
+$ \omega_2=\sqrt(\frac {GM} {8r^{2}}) $<br>
+<br>
+sistema a tre stelle:<br>
+stesso ragionamento, $ g_3=\frac {2GM} {3d^{2}} $ e poichè $ d=r\sqrt3 \to \omega_3=\sqrt(\frac{2GM} {9r^{3}}) $<br>
+<br>
+sistema a 4 stelle:<br>
+2 stelle sono a distanza $ d=r\sqrt2 $ l'altra è a distanza $ h=2r $<br>
+dunque:<br>
+$ g_4=2\frac {M} {4}\frac {G} {d^{2}}+\frac {M}{4} \frac {G}{h^{2}} = \sqrt(\frac {5GM} {16r^{5}}) $<br>
+e<br>
+$ \omega_4=\sqrt(\frac{5GM} {16r^{3}}) $<br>
+<br>
+mi sembra tutto corretto...<br>
+per il punto c sto rivedendo tutti i calcoli, perchè (disordinato come) sono mi si sono confusi tutti... :cry:  :cry:</article>
+<article class="post" id="p56324"><div class="who"><b>NEONEO</b><span>22 ago 2006, 19:57</span></div>Per la velocità angolare io ho trovato:<br>
+$ \displaystyle F=\frac{GM^2}{3^2R^2} $  e questa è la forza con cui ogni massa attira una scelta a caso. Quindi per la regola del parallelogramma si sommano vettorialmente le due forza dovute alla due masse ai vertici del triangolo equilatero, e la risultante attira la terza massa verso il centro con la forza di prima moltiplicata per un fattore $ \displaystyle \sqrt{3} $.<br>
+Ora eguaglio questa forza alla forza centripeta e ottengo.<br>
+$ \displaystyle \omega=\sqrt{\frac{\sqrt{3}GM}{3^2R^3}} $.</article>
+<nav class="pager"><a class="prev" href="oliforum-8760.html"><small>← precedente</small>Troppe stelle che girano!</a><a class="next" href="olifis-237.html"><small>successivo →</small>SNS 1996-1997 (3)</a></nav>
+</main></body></html>

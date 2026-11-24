@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sns 2006/07 problema 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2006-2007, problema 5</span></nav>
+<h1>Sns 2006/07 problema 5</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=179">forum Olifis</a></p>
+<article class="post first" id="p1598"><div class="who"><b>Julio14</b><span>15 lug 2009, 17:30</span></div>Si consideri uno specchio che riflette il 98% dell'energia luminosa incidente, ne trasmette l'1% e ne assorbe l'1%. Le due facce dello specchio sono identiche e si comportano nello stesso modo. Un raggio di luce viene fatto passare attraverso due di questi specchi identici e paralleli tra loro, posti alla distanza di un metro l'uno dall'altro.<br>
+Ambedue gli specchi sono perpendicolari alla direzione del raggio di luce. La potenza luminosa del raggio incidente sul primo specchio è di 1 Watt.<br>
+a) Si calcoli la potenza del raggio di luce trasmesso dal secondo specchio.<br>
+b) Si calcoli l'energia luminosa totale contenuta nello spazio compreso tra i due specchi.<br>
+c) Se, ad un certo istante, il raggio incidente sul primo specchio viene spento, si calcoli dopo quanto tempo l'energia luminosa di cui al punto b) si sarà ridotta della metà.</article>
+<article class="post" id="p1601"><div class="who"><b>CoNVeRGe.</b><span>15 lug 2009, 20:56</span></div>SNS-time?  :P<br>
+<br>
+(EDIT: 1000-esimo messaggio della sezione  :!:  :geek: )</article>
+<article class="post" id="p1733"><div class="who"><b>Julio14</b><span>26 lug 2009, 22:44</span></div>Up! Avevo fatto questo thread anche perché a me viene un risultato diverso dalle soluzioni nel b e volevo vedere se qualcuno riesce a trovarmi che errore faccio... Ma mettere un problema e scrivere io la soluzione per primo è un po' triste! Dai, non ditemi che non c'è nessun aspirante normalista che ha voglia di farlo!</article>
+<article class="post" id="p1734"><div class="who"><b>MrTeo</b><span>27 lug 2009, 0:14</span></div>Bè, non sono propriamente un aspirante, ma tento lo stesso  :D<br>
+Tra i due specchi il raggio iniziale viene trasmesso per l'1%, poi riflesso da S2 per il 0,98% e trasmesso per lo 0,01%. La componente riflessa colpendo S1 perde ancora energia, un po' torna indietro al di là del primo specchio (lo 0,098%) e parte viene riflessa all'interno. Si continua così per <span class="tex">\(n \to \infty\)</span>. Ora bisogna (Argh!  :geek: ) formalizzare questo fenomeno (sarò un po' crucco, ma per non perdere la testa con le riflessioni preferisco usare una tabella...):<br>
+<br>
+<span class="tex">\(\begin{array}{*{20}c}
+    \to  &amp; {1\% }  \\
+    \leftarrow  &amp; {0,98\% }  \\
+    \to  &amp; {\left( {0,98^2 } \right)\% }  \\
+    \leftarrow  &amp; {\left( {0,98^3 } \right)\% }  \\
+    \to  &amp;  \ldots   \\
+\end{array}\)</span><br>
+<br>
+Le frecce indicano il senso di percorrenza del raggio nel "gap" tra i due specchi... piuttosto intuitivamente direi che è una progressione geometrica di ragione <span class="tex">\(q=0,98\)</span> e termine iniziale <span class="tex">\(a_1=0,01\)</span>, la somma dei suoi elementi vale dunque:<br>
+<br>
+<span class="tex">\(S_n  = a_1 \frac{{1 - q^n }}{{1 - q}}\)</span><br>
+<br>
+Qui credo che un bel limite per <span class="tex">\(n \to \infty\)</span> potrebbe aiutare... ma non mi azzardo a tentare calcoli a quest'ora perchè i limiti me li sto ancora studiando, quindi per la sperimentazione sul campo attendo una fase di maggior lucidità  :mrgreen: . Facendo le stesse considerazioni per la luce trasmessa dal secondo specchio (con la tabellina ormai di rito...):<br>
+<br>
+<span class="tex">\(\begin{array}{*{20}c}
+    \to  &amp; {0,01\% }  \\
+    \leftarrow  &amp; {\left( {0,98 \cdot 0,01} \right)\% }  \\
+    \to  &amp; {0,98^2  \cdot 0,01\% }  \\
+    \leftarrow  &amp; {\left( {0,98^3  \cdot 0,01} \right)\% }  \\
+    \to  &amp;  \ldots   \\
+\end{array}\)</span><br>
+<br>
+Qui le parentesi indicano le componenti che non si debbono contare perchè vengono trasmesse a sinistra del sistema di due specchi... a questo punto so che la somma andrà moltiplicata per un coefficiente fisso <span class="tex">\(k = 0,01\%\)</span> e mi pare che la potenza proceda sempre con un anadamento geometrico, ma con ragione <span class="tex">\(q=0,98^2\)</span>. Quindi basta proseguire nello stesso modo che per il punto b per trovare il valore definitivo dell'energia trasmessa dopo "infinite" riflessioni. Infine per il punto c direi che basta risolvere l'equazione:<br>
+<br>
+<span class="tex">\(0,98^n  = 0,5\)</span><br>
+<br>
+per trovare la riflessione in concomitanza della quale si ottiene il dimezzamento della potenza e poi calcolare il tempo considerando la distanza tra gli specchi e il MRU della luce a velocità <span class="tex">\(c_0\)</span>. La parola agli altri, anche per colmare le mie lacune (matematiche e probabilmente non solo  ;) )</article>
+<article class="post" id="p1738"><div class="who"><b>spn</b><span>27 lug 2009, 1:49</span></div>Va bè, se nessun aspirante normalista vuole farlo provo a dare la mia soluzione ( io c'ho ancora un anno per diventarlo :mrgreen: ).<br>
+<br>
+1)<br>
+      All'equilibrio la potenza entrante è uguale a quella uscente o dissipata, inoltre già il 99% della luce entrante viene riflettuto o assorbito entrando, percui:<br>
+<br>
+      <span class="tex">\(W_0 = 2 W_1 + 2 W_2 + 0,99 W_0\)</span><br>
+<br>
+Dove <span class="tex">\(W_1\)</span> e <span class="tex">\(W_2\)</span>sono le potenze dei raggi uscenti nel primo e nel secondo specchio, moltiplicate per 2 perchè la quantità di luce assorbità dallo specchio è uguale a quella che lascia passare.<br>
+Inoltre si ha che: <br>
+<br>
+ <span class="tex">\(W_1 = 0,98 W_2\)</span><br>
+<br>
+Sostituendo si ha:<br>
+<br>
+<span class="tex">\(W_2 = \frac{0,01}{3,96}W_0 = 2,52 * 10^{-3} W\)</span><br>
+<br>
+2) <br>
+    Chiamando <span class="tex">\(I_1\)</span> e <span class="tex">\(I_2\)</span> l'intensità dei raggi di luce che vanno rispettivamente dal primo specchio al secondo, e dal secondo specchio al primo, si ha:<br>
+<br>
+<span class="tex">\(E = (I_1 * t ) + (I_2 * t) = t(I_1 + I_2)\)</span><br>
+<br>
+dove t è il tempo che la luce ci mette da andare da uno specchio all'altro, quindi <span class="tex">\(t = \frac{s}{c}\)</span><br>
+<br>
+Inoltre: <br>
+<br>
+        <span class="tex">\(I_1 = 0,01 W_0 + 0,98 I_2\)</span><br>
+        <span class="tex">\(I_2 = 0, 98 I_1\)</span><br>
+<br>
+mettendo a sistema<br>
+<br>
+           <span class="tex">\(I_1 = \frac{0,01}{1 - 0.98^2} W_0\)</span><br>
+<br>
+           <span class="tex">\(I_2 =  \frac{0,01 * 0,98}{1 - 0.98^2} W_0\)</span><br>
+<br>
+Ora:<br>
+          <span class="tex">\(E = (I_1 * I_2) \frac{s}{c} = \frac{0,01 * 1,98}{1 - 0.98^2} W_0 \frac{s}{c}=1,67 * 10^{-9} J\)</span><br>
+<br>
+3) <br>
+   Dopo ogni viaggio da specchio a specchio l'intensità del raggio luminoso divento lo 0,98 del valore precedente, e siccome abbiamo visto che l'energia luminosa compresa tra gli specchi dipende dall'intensità del raggio allora essa diventerà la metà quando l'intensità sarà la metà, quindi valgono:<br>
+<br>
+  <span class="tex">\(0,98^n = 0,5 \Rightarrow n=\log_{0,98} 0,5\)</span><br>
+  <span class="tex">\(T=n*t=n*\frac{s}{c}= 1,14 * 10^{-7}s\)</span><br>
+<br>
+Diciamo che, a parte per il terzo punto, non ho usato gli stessi metodi di MrTeo, ma fare quel calcolo con i limiti non mi convince tanto. Bhò ditemi voi che ne pensate. Ora tocca a te Julio14 farci vedere come l'hai fatto  :D</article>
+<article class="post" id="p1739"><div class="who"><b>MrTeo</b><span>27 lug 2009, 9:01</span></div>Partiamo dalle cose che funzionano  :mrgreen: <br>
+Per il primo punto (che ho fatto per secondo...) il limite mi dà un valore come il tuo (qualcosa che non potesse convincerti c'era: avevo scritto 0,1 per indicare la percentuale trasmessa quando era lo 0,01 (1%)... cmq ho già editato per evitare altra onta alla mia persona  :roll: )<br>
+<br>
+<span class="tex">\(k = 0,01\)</span><br>
+<span class="tex">\(q = \left( {0,98^2 } \right)\%\)</span><br>
+<br>
+<span class="tex">\(\mathop {\lim }\limits_{n \to \infty } ka_1 \frac{{1 - q^n }}{{1 - q}} = 2,52 \cdot 10^{ - 3} W\)</span><br>
+<br>
+Detto ciò, escludendo il terzo punto, su cui le nostre risoluzioni coincidono, resta il secondo punto, e in effetti nella mia risposta si spiegava solo come trovare l'intensità luminosa per <span class="tex">\(n \to \infty\)</span> iterazioni, quando invece mi sono accorto solo dopo che il problema chiedeva l'energia, quindi che il valore in Watt andava moltiplicato per il tempo necessario a percorrere lo spazio tra gli specchi... Cmq passando al limite la mia espressione per l'intensità troviamo:<br>
+<br>
+<span class="tex">\(q = 0,98\)</span><br>
+<span class="tex">\(\mathop {\lim }\limits_{n \to \infty } a_1 \frac{{1 - q^n }}{{1 - q}} = 0,5W\)</span><br>
+<br>
+Ora per trovare l'energia dobbiamo considerare che ogni componente di questi <span class="tex">\(0,5W\)</span> ha messo <span class="tex">\(3,335\cdot10^{-9}s\)</span> per percorrere la distanza tra gli specchi e che questo risulta come un valore k (chi si rivede...) per cui viene moltiplicata la mia espressione. Ergo, per i teoremi sui limiti:<br>
+<br>
+<span class="tex">\(\mathop {\lim }\limits_{x \to c} \left[ {kf\left( x \right)} \right] = k\mathop {\lim }\limits_{x \to c} \left[ {f\left( x \right)} \right] = kl\)</span><br>
+<br>
+E facendo i conti otteniamo appunto <span class="tex">\(E=1,67\cdot10^{-9}J\)</span> che corrisponde al valore trovato da te  :D</article>
+<nav class="pager"><a class="prev" href="olifis-835.html"><small>← precedente</small>SNS 2006/2007 n 4</a><a class="next" href="oliforum-8730.html"><small>successivo →</small>Fisica sns o geometria da senior?</a></nav>
+</main></body></html>

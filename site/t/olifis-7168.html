@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2022/1  tensione superficiale olio-aria</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2022-2023, problema 1</span></nav>
+<h1>SNS 2022/1  tensione superficiale olio-aria</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7168">forum Olifis</a></p>
+<article class="post first" id="p27594"><div class="who"><b>bosone</b><span>4 gen 2023, 18:18</span></div>Assumendo di conoscere con grande precisione il valore della tensione superficiale tra l'acqua e l'aria <span class="tex">\(\sigma_{acqua}=72 .10^{-3} N/m\)</span>, si vuole misurare la tensione superficiale di un olio vegetale con l'aria attraverso il metodo della goccia pendente da un piccolo tubo. A tal fine vengono effettuate tre prove (A), (B) e (C) con l'acqua di gocce con differenti diametri del tubo che si trovano in condizione di equilibrio meccanico molto vicino alla situazione di distacco dal tubo, mentre la prova (D) riguarda un olio di cui la tensione superficiale con l'aria è ignota allo sperimentatore. Per favorire le estrazioni delle misure da associare, vengono riportate in tabella le lunghezze di due segmenti che indicano rispettivamente il massimo diametro equatoriale della goccia sferica <span class="tex">\((d_E)\)</span> e il diametro della goccia misurato su un piano parallelo al piano equatoriale e posizionato ad una distanza <span class="tex">\(d_E\)</span> dal piano equatoriale <span class="tex">\((d_S)\)</span> nell'ordine    (A)acqua                 (B)acqua                         (C)acqua       (D) olio<br>
+<br>
+  <span class="tex">\(d_E \text{(mm)}\)</span>:  <span class="tex">\(\text{A}: 3,27 \pm 0,11\)</span>;  <span class="tex">\(\text{B}: 3,59 \pm 0,18\)</span>;  <span class="tex">\(\text{C}: 4,65 \pm 0,28\)</span>;  <span class="tex">\(\text{D}: 2,54 \pm 0,11\)</span><br>
+  <span class="tex">\(d_S \text{(mm)}\)</span>:  <span class="tex">\(\text{A}: 2,54 \pm 0,11\)</span>;  <span class="tex">\(\text{B}: 2,97 \pm 0,18\)</span>;  <span class="tex">\(\text{C}: 4,65 \pm 0,28\)</span>;  <span class="tex">\(\text{D}: 2,16 \pm 0,11\)</span><br>
+<br>
+Le densità dell'acqua e dell'olio a temperatura ambiente sono rispettivamente <span class="tex">\(\rho_{acqua}= 998 kg/m^3\)</span> e <span class="tex">\(\rho_{olio}= 930 kg/m^3\)</span>. La densità dell'aria vale <span class="tex">\(1,2kg/m^3\)</span> e l'accelerazione di gravità vale <span class="tex">\(9,81 m/s^2\)</span>. La forza di gravità e la tensione superficiale sono gli unici elementi che contribuiscono a determinare l'equilibrio e la forma delle gocce.<br>
+Determinare il valore della tensione superficiale dell'olio rispetto all'aria fornendo anche una misura dell'incertezza della misura effettuata.<br>
+<br>
+<img src="../img/a33d4dba5f806959.png" class="postimage" alt="Immagine"></article>
+<article class="post" id="p27596"><div class="who"><b>bosone</b><span>5 gen 2023, 11:06</span></div>Grazie Pigkappa!</article>
+<article class="post" id="p27606"><div class="who"><b>bosone</b><span>27 gen 2023, 11:50</span></div>Visto che attualmente nessuno ha raccolto la sfida, provo a postare due hint. La tensione superficiale <span class="tex">\(\sigma\)</span> può riguardarsi o come lavoro necessario ad incrementare dell'unità di area la superficie della goccia o come forza per unità di lunghezza applicata alla circonferenza di raggio <span class="tex">\(d_S\)</span>al punto di rottura della goccia sollecitato dal peso mg. In questo caso, visti i dati del testo sarà <span class="tex">\(\sigma= \frac{mg}{2\pi d_S}\)</span>che, introdotte la densità dell'acqua (a) (b) (c) o dell'olio (d) e g, risulta per (a) <span class="tex">\(\sigma=\frac{6,52 \times10^3 d_E^3}{d_S}\)</span>. Ora per calcolare l'incertezza di <span class="tex">\(\sigma\)</span> occorre calcolare l'incertezza di <span class="tex">\(d_E^3\)</span>che è la somma delle incertezze di <span class="tex">\(d_E\)</span>ottenibile dalla tabella. Quindi per partire basta fare i conti per i tre casi dell'acqua e per il caso dell'olio..... :D</article>
+<article class="post" id="p27607"><div class="who"><b>Pigkappa</b><span>1 feb 2023, 2:29</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7168.html#p27606" data-post-id="27606" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">27 gen 2023, 11:50</div></cite>
+forza per unità di lunghezza applicata alla circonferenza di raggio <span class="tex">\(d_S\)</span>al punto di rottura della goccia sollecitato dal peso mg
+</div></blockquote>
+Ti posso chiedere da dove viene questo fatto..? E' un fatto noto? Io della tensione superficiale ricordo poco.<br>
+<br>
+Come individuo che ricorda zero formule della tensione superficiale a parte i concetti base, qui e' quel che avrei iniziato a fare nel test.<br>
+<br>
+Per ora approssimiamo una goccia come una semisfera attaccata ad un tronco di cono attaccato ad un cilindro. La sfera ha diametro <span class="tex">\(d_E\)</span>. Ad una altezza <span class="tex">\(d_E/2\)</span> sopra al centro della sfera, se sfera fosse intera senza tronco di cono e senza cilindro, dovrebbe avere sezione orizzontale zero. Ma invece a quel punto il cilindro e' cominciato e la sezione ha diametro <span class="tex">\(d_S\)</span>.<br>
+<br>
+Se consideriamo la circonferenza di diametro <span class="tex">\(d_S\)</span>, li' direi che agisce una forza di tensione superficiale. Purtroppo si vede da alcune figure che non e' diretta verso l'alto ma inclinata. La componente verso l'alto direi che la stimiamo come <span class="tex">\(F = \sigma 2 \pi d_S \sin \varphi\)</span> dove <span class="tex">\(\varphi\)</span> e' l'angolo con l'orizzontale. E qui o si fa una approssimazione brutale <span class="tex">\(\sin \varphi = 1\)</span> (non troppo giusto nelle figure 1 e 2), oppure si stima <span class="tex">\(\varphi\)</span> dalle figure. Comunque qua secondo me mi sto inventando una formula ispirata alla tua! Ma in realta' la tensione superficiale agisce distribuita su tutta la superficie, e anche se e' vero che ha le dimensioni di forza/lunghezza, non e' cosi' semplice da poter davvero dire che <span class="tex">\(F = \sigma L\)</span>. Per questo qua piu' in basso introduco un coefficiente <span class="tex">\(f\)</span> che vuole incorporare l'errore che sto facendo. In realta' la cosa corretta, secondo me, sarebbe quella di immaginare di perturbare la goccia, quindi se ne abbassa il baricentro (= la gravita' da' energia) e se ne altera la superficie (=la tensione superficiale assorbe energia) e dall'equilibrio tra queste cose si puo' trovare una condizione... Questo sarebbe complicato ma in realtà forse fattibile, per ora però continuo con questo approccio usando forze e non energie.<br>
+<br>
+Verso il basso agisce la forza di gravita' <span class="tex">\(\rho V g\)</span> dove V e' il volume di liquido sotto quella altezza. Questo volume non e' facile da calcolare, se la goccia fosse una sfera sarebbe <span class="tex">\(V = \frac{1}{6} \pi d_E^3\)</span>, se la si considera una semisfera piu' tronco di cono mi verrebbe (mi sono cercato la formula del volume del tronco di cono ma si puo' anche approssimare in modi piu' facili se serve) <span class="tex">\(V = \frac{1}{12} \pi d_E^3 + (\frac{\pi}{12}(d_S^2+d_E^2+d_S*d_E)) \times d_E/2\)</span>. Forse farei una stima grossolana ma specifica per ogni goccia, perche' le forme sono abbastanza diverse.<br>
+<br>
+Adesso, dalle formule <span class="tex">\( \sigma 2 \pi d_S \sigma \sin \varphi = \rho V g\)</span>, stimerei <span class="tex">\(\sigma = \frac{\rho V g}{2 \pi d_S \sin{\varphi}}\)</span> per l'acqua. Verra' che sbaglio di sicuro perche' in questi problemi un fattore geometrico si sbaglia spesso, ma il testo mi ha dato il valore vero di <span class="tex">\(\sigma_{acqua}\)</span>, quindi mi calcolo il fattore di conversione <span class="tex">\(f\)</span>. Quindi correggo la formula sopra: <span class="tex">\(\sigma = f \times \frac{\rho V g}{2 \pi d_S \sin \varphi}\)</span>. <br>
+<br>
+Se dalle 3 gocce d'acqua trovo valori simili di f mi convinco che l'approccio ha senso, altrimenti bisogna ricominciare in modo diverso. <br>
+<br>
+E poi calcolo <span class="tex">\(\sigma\)</span> usando questa formula per l'olio. Le incertezze vengono sia da <span class="tex">\(f\)</span> (ci metterei una bella incertezza sopra, che deriva in parte dalle incertezze delle grandezze misurate per le gocce d'acqua) che da <span class="tex">\(d_S\)</span>, <span class="tex">\(d_E\)</span> per l'olio.</article>
+<article class="post" id="p27608"><div class="who"><b>Pigkappa</b><span>1 feb 2023, 2:42</span></div>Allora, adesso che ho scritto quel che avrei provato a fare qua sopra senza aver cercato questo problema su internet... L'ho cercato su internet. Viene fuori che c'e' un metodo usato per davvero per calcolare la tensione superficiale, chiamato "pendant drop method" in inglese, che per l'appunto usa la forma della goccia.<br>
+<br>
+Da quel che trovo online, non e' che ci sia davvero una formula univoca <span class="tex">\(\sigma = f(d_S,d_E)\)</span> in funzione di quei diametri messi in evidenza nel testo.<br>
+<br>
+Pero', usando i due parametri <span class="tex">\(d_S, d_E\)</span>, si parametrizza abbastanza bene la forma di una goccia e quindi si possono costruire formule approssimate e abbastanza precise. Una presentazione che ho trovato e' <a href="https://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=0CAMQw7AJahcKEwiIrvz6ifP8AhUAAAAAHQAAAAAQAw&amp;url=https%3A%2F%2Faugusta.openrepository.com%2Fbitstream%2Fhandle%2F10675.2%2F552630%2FBolden_Jaleel_2015.pdf%3Fsequence%3D1%26isAllowed%3Dy&amp;psig=AOvVaw3Vz8dhGDKIoPP_TiDvOpbA&amp;ust=1675298107349738" class="ext" class="postlink">questa</a>. <br>
+<br>
+Sicuramente non e' un problema in cui si deve fare qualcosa di perfetto, ma un problema in cui ci si deve arrangiare e trovare un risultato ragionevole in qualche modo arrabattato.</article>
+<article class="post" id="p27609"><div class="who"><b>bosone</b><span>1 feb 2023, 18:44</span></div>Io avevo avuto l'idea di calcolare il valor medio di a)b)c) acqua confrontandolo con il valore esatto della tensione dell'acqua e trovare il valore dell'oli confrontandolo con il dato :?:</article>
+<article class="post" id="p27610"><div class="who"><b>Pigkappa</b><span>5 feb 2023, 1:43</span></div>Sono bloccato, su questo. Usando sia il mio che il tuo metodo si ottengono valori nei casi A, B e C parecchio diversi tra loro. Mi sono inventato un metodo completamente diverso ma anche con quello vengono numeri sbagliati.<br>
+<br>
+Con il mio metodo, ho stimato i volumi stile semisfera piu' tronco di cono; ho stimato dalle figure <span class="tex">\(\sin \varphi\)</span> di 0.90, 0.95, 1.0 nei tre casi A, B e C; ho calcolato <span class="tex">\(\sigma = \frac{\rho \times g \times V}{\pi d_S \sin \varphi}\)</span> e trovo per le tre bolle in N/m i valori 0.027, 0.030, 0.044. Sto sottostimando di un fattore 2 o 3 e soprattutto ottengo valori parecchio diversi tra le tre bolle.<br>
+<br>
+Con il tuo metodo, ottengo 0.090, 0.102, 0.141 che in questo caso sono sovrastimati, un po' meglio dei miei, ma comunque sono parecchio diversi tra loro. Le nostre formule non scalano nel modo corretto in <span class="tex">\(d_E, d_S\)</span> secondo me.<br>
+<br>
+Terzo metodo: per le tre bolle, un po' ad occhio ma neanche troppo, stimo la superficie <span class="tex">\(S\)</span> di tutta la parte che e' sospesa in aria, e il suo volume <span class="tex">\(V\)</span>, e l'altezza del baricentro <span class="tex">\(h\)</span> rispetto all'imboccatura del tubo, e il raggio <span class="tex">\(r\)</span> della sezione del tubo. Mentre si forma la bolla, l'area passa da <span class="tex">\(\pi r^2\)</span> ad <span class="tex">\(A\)</span>, quindi dall'acqua nella bolla la tensione superficiale assorbe energia <span class="tex">\(\sigma(A - \pi r^2)\)</span>. La gravita' fornisce energia <span class="tex">\(\rho V g h\)</span>. Uguagliando, <span class="tex">\(\sigma = \frac{\rho V g h}{A - \pi r^2}\)</span>. Ottengo i tre valori 0.019, 0.014, 0.038 che sono di nuovo sbagliati e parecchio diversi tra loro. Forse sto sbagliando a interpretare il lavoro fatto dalla tensione superficiale.</article>
+<article class="post" id="p27611"><div class="who"><b>bosone</b><span>11 feb 2023, 13:11</span></div>Non ho potuto rispondere prima mettendo i risultati del metodo usato descritto nel post. Lo farò quanto prima. Anticipo che la risposta alla domanda è per me<span class="tex">\(\sigma(olio) = 31,58\pm 3,05\times 10^-3 N/m\)</span>. Osservo che la tensione olio aria è ufficialmente 0,0319 N/m</article>
+<article class="post" id="p27613"><div class="who"><b>bosone</b><span>13 feb 2023, 12:14</span></div>La formula della tensione della goccia al punto di rottura con l'aria risulta <span class="tex">\(\sigma=\frac{mg}{2\pi d_S}= 6,52\times 10^3 \frac{d_E^3}{d_S}\)</span>. L'incertezza x di <span class="tex">\(d_E^3\)</span>è la somma delle incertezze di <span class="tex">\(d_E\)</span> che per esempio nel caso della goccia di acqua a) risulta <span class="tex">\(\frac{x}{d_E^3}=3,52\)</span>Fatti i conti risulta in definitiva nel caso a) dell'acqua <span class="tex">\(\sigma_a=(85,73\pm14,66)\times10^{-3} \frac{N}{m}\)</span>Con lo stesso procedimento si possono ricavare per le altre due goccie d'acqua b) e c) rispettivamente<span class="tex">\(\sigma_b= (110,55\pm11,51)\times10^{-3}\frac{N}{m}\)</span> e <span class="tex">\(\sigma_c=(116,40\pm19,02)\times 10^{-3}{\frac{N}{m}}\)</span>. Pertanto è possibile calcolare il valor medio delle tre goccie d'acqua. Esso risulta da a) b) c)<span class="tex">\(\sigma_{H_2O}=105,22\times 10^{-3}\frac{N}{m}\)</span><br>
+Allora essendo il dato certo <span class="tex">\(\sigma_{acqua}\sim72\times 10^{-3}\frac{N}{m}\)</span>viene naturale impostare la seguente relazione <span class="tex">\(\sigma_{acqua}: \sigma_{H_2O}= x: \sigma_{olio}\)</span>essendo x la tensione superficiale richiesta e <span class="tex">\(\sigma_{olio}\)</span>il dato sperimentale del testo pari a<span class="tex">\((46,16\pm4,47)\times 10^{-3}\frac{N}{m}\)</span><br>
+Fatti i conti risulta in definitiva <span class="tex">\(x= (31,58\pm3,05)\times 10^{-3}\frac{N}{m}\)</span><br>
+(da notare che<span class="tex">\(\sigma_{olio di oliva}= 0,0319\frac{N}{m}\)</span>)</article>
+<article class="post" id="p27614"><div class="who"><b>Pigkappa</b><span>14 feb 2023, 2:32</span></div>Ok capisco il procedimento, ma il fatto che il valor medio delle 3 misure per l'acqua ti viene fuori dal primo degli intervalli di incertezza è un brutto segno, vuol dire o che il procedimento è sbagliato, o perlomeno che le incertezze sono sottostimate.<br>
+<br>
+Il fatto che bisogna inventarsi questo coefficiente x, che sono d'accordo sia una idea ragionevole e lo avevo menzionato anche io chiamandolo f nel mio post sopra, è però indice del fatto che c'è un'altra fonte di incertezza, cioè il fatto che il nostro metodo non funziona davvero.<br>
+<br>
+Quindi io metterei una incertezza significativamente più alta sul risultato finale.<br>
+<br>
+Comunque ho chiesto a Luca che ha fatto la prova quest'anno e nessuno aveva una soluzione soddisfacente per questo problema. Quel che hai fatto tu sarebbe andato bene.</article>
+<article class="post" id="p27615"><div class="who"><b>bosone</b><span>14 feb 2023, 12:40</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7168.html#p27614" data-post-id="27614" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">14 feb 2023, 2:32</div></cite>
+<br>
+Quindi io metterei una incertezza significativamente più alta sul risultato finale.<br>
+Comunque ho chiesto a Luca che ha fatto la prova quest'anno e nessuno aveva una soluzione soddisfacente per questo problema. Quel che hai fatto tu sarebbe andato bene.
+</div></blockquote>
+Grazie per la descrizione dei dati all'esame e complimenti a Luca. Io raccolgo l'idea di mettere un'incertezza più alta nel risultato finale :D</article>
+<nav class="pager"><a class="prev" href="olifis-7132.html"><small>← precedente</small>290- SNS 2021/4</a><a class="next" href="olifis-7164.html"><small>successivo →</small>299-SNS 2022/2 Stella nella linea di vista</a></nav>
+</main></body></html>

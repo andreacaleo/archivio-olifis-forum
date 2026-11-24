@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spostato: Tappeto</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica anno ?</span></nav>
+<h1>Spostato: Tappeto</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=3264">OliForum</a></p>
+<article class="post first" id="p36242"><div class="who"><b>aursic</b><span>01 mar 2005, 00:24</span></div>Un tappeto sottile di lunghezza L e massa M viene preso per un estremo e tirato all'indietro, scorrendo (senza attrito) su se stesso con velocità costante v.<br>
+Che forza bisogna esercitare per tirarlo e qual è il lavoro finale fatto dalla forza per mettere in moto tutto il tappeto :?:  Come si conserva l'energia :?:  <br>
+<br>
+Buon lavoro!</article>
+<article class="post" id="p36262"><div class="who"><b>EvaristeG</b><span>01 mar 2005, 15:11</span></div>Bimbi, siate ordinati su, che sennò poi mamma Mind deve far fatica a rimettere in ordine...<br>
+Se volete proporre un nuovo esercizio, aprite un altro thread ... a meno che non sia moolto legato con l'esercizio o il tema di un thread già esistente.<br>
+Detto questo non sembra il caso di spostare un messaggio per così poco, ma la prossima volta prestate attenzione anche a queste cose.</article>
+<article class="post" id="p36266"><div class="who"><b>Barsanti</b><span>01 mar 2005, 15:32</span></div>No, no.... si sposta, si sposta!!!<br>
+Senno' fra sei mesi non ci si capisce piu' nulla!</article>
+<article class="post" id="p36330"><div class="who"><b>aursic</b><span>01 mar 2005, 22:29</span></div>[avevo aggiunto il problema nello stesso thread perchè c'era una certa attinenza con quello precedente]</article>
+<article class="post" id="p36446"><div class="who"><b>info</b><span>03 mar 2005, 14:36</span></div>Ieri sera, dopo avere fatto gli es dimostrativi della gara di Febbraio (molto facili!), ho provato a vedere questo problema, ma nn sò se il mio approccio è corretto.<br>
+<br>
+Ammettiamo che il tappeto sia tornato indietro di una lunghezza x e questa parte x abbia una velocità v. Dopo un tempo dt si sarà aggiunta una massa ro*dx (essendo ro la densità lineare di massa)e, per la conservazione della quantità di moto si raggiunge una  v1= x*v/(x+dx)<br>
+La forza applicata dovrebbe aggiungere la Ecin necessaria per tornare a velocità v, cioè, svolti i calcoli, questa Ec risulta = ro*v^2/2 [(x+dx)-x^2/(x+dx)].<br>
+<br>
+Pongo quella quantità = F*2*dx (infatti se il tappeto si sposta di dx la forza si sposta del doppo), eseguo il mcd delle due frazioni e ricavo F.<br>
+F = ro*v^2/4*[(dx+2x)/(x+dx)]. Se faccio tendere dx a 0, risulta<br>
+<br>
+F= ro*v^2/2= M/2L*v^2<br>
+<br>
+il lavoro sembra essere pari al doppio dell'Ecin fornita... questo però è dovuto forse al fatto che quando la massa si aggiunge esegue un'urto anelastico che degrada parte dell'energia macroscopica in calore...<br>
+<br>
+[Edit: modificato dx con 2*dx]</article>
+<article class="post" id="p36484"><div class="who"><b>AleX_ZeTa</b><span>03 mar 2005, 23:36</span></div>ehm no, non c'è nessun urto anelastico... stai tirando un tappeto... che se non è proprio uguale ad un corpo rigido non è nemmeno troppo diverso... quindi nessun urto, solo qualcosa di deformabile ma non troppo<br>
+<br>
+e ovviamente Lavoro e Energia devono coincidere ;)</article>
+<article class="post" id="p36501"><div class="who"><b>info</b><span>04 mar 2005, 12:18</span></div>grazie per la risposta... a questo punto devo dedurre che il mio procedimento per trovare F ed il suo valore è cannato? [l'energia è un punto secondario, per ora..., a meno che nn debba fare il procedimento "al contrario"]</article>
+<article class="post" id="p36546"><div class="who"><b>info</b><span>05 mar 2005, 20:05</span></div>ma l'autore si limita a proporre l'esercizio... o sta aspettando che anche qualcun altro provi a rispondere?___ voglio dire: se c'è un errore nel mio ragionamento per trovare F sopra, dove stà?</article>
+<article class="post" id="p36552"><div class="who"><b>AleX_ZeTa</b><span>05 mar 2005, 23:17</span></div>rispondo io, tanto è made in sns ;)<br>
+<br>
+mi sembra un po' macchinoso il procedimento per trovare la forza... non basterebbe una cosa più semplice del tipo:<br>
+<br>
+$ \displaystyle F = {dp \over dt} = {dm \cdot v \over dt} = {dm \over dt} \cdot v = {{\rho \cdot L} \over {2L \over v}} \cdot v $<br>
+<br>
+(in realtà la forza è costante... quindi si può farlo con le differenze finite e viene ancora più semplice)</article>
+<article class="post" id="p36555"><div class="who"><b>aursic</b><span>05 mar 2005, 23:38</span></div>Eccomi!<br>
+<br>
+Alex dice che la forza è ½Mv²/L, ma lo spostamento è 2L e quindi il lavoro sembrerebbe essere Mv²/L ma l'energia cinetica è ½Mv²/L.<br>
+A questo punto non sono sicuro se bisogna considerare lo spostamento del centro di massa del tappeto (che è metà di quello dell'estremo del tappeto) perchè i conti tornino... Quando si definisce il lavoro L=Fs, s è o non è lo spostamento del punto di applicazione della forza? (non è una domanda retorica)<br>
+In ogni caso considerando che la parte inferiore del tappeto sta ferma, dev'esserci qualche forza che le impedisca di muoversi, e a questa corrisponde una forza che "sposta" la terra, un po' come nel problema della benzina... <br>
+Così i conti mi tornavano. <br>
+(ma: 1. non ne sono sicuro e ho avuto poco tempo per rivederli; 2. non so ancora scrivere in $ \LaTeX $; 3. AleX può fare tutto questo e molto meglio di me :D )<br>
+<br>
+<br>
+---------<br>
+Il problema di questo problema è che non abbiamo ancora una "soluzione ufficiale" e (almeno io) non mi sento di dare una risposta e pretendere che sia quella giusta.</article>
+<article class="post" id="p36556"><div class="who"><b>AleX_ZeTa</b><span>05 mar 2005, 23:43</span></div>uh vero non l'abbiamo ancora corretto O_o<br>
+Credevo di sì...<br>
+<br>
+cmq al Timpano ne avevamo parlato a lungo... ma effettivamente tu non stai lì :p<br>
+boh, una "versione" abbastanza condivisa l'avevamo tirata fuori, ora vedremo se è giusta...<br>
+<br>
+cmq la forza è corretta (nel testo diceva di prendere tutti i dati = 1 con le dovute u.m.)... e la forza deve venire 1/2 come in effetti risulta dai miei conti.<br>
+<br>
+Che poi non tornino le energie... eheh... è lì il "bello" del problema :D<br>
+perchè? Come giustifichiamo (se poi veramente c'è) questa differenza?</article>
+<article class="post" id="p36566"><div class="who"><b>info</b><span>06 mar 2005, 12:19</span></div>Ragazzi, siate un pò gentili... La mia sol può essere macchinosa ma il risultato è corretto, no? Dato che vado avanti "a punti", se sapete il ris fate qualche cenno  :wink: ... Cmq anch'io stavo pensando alla terra... se infatti immaginiamo il moto del tappeto senza forze e senza contatto con il terrno, il suo movimento risultarebbe simile a quello di uno "snake"  Nokia...<br>
+----------------------------------<br>
+<br>
+aggiunta successiva che volevo scrivere prima ma solo ora ho avuto la possibilità:<br>
+<br>
+la mia intuizione fisica mi indicava il movimento tipo Snake... ma la cons della quantità di moto direbbe (nn ho svolto i calcoli, ma si vede da quelli che ho già fatto per il primo punto) che lo snake rallenta... Insomma, la perdita di energia vi è a prescindere dalla forza (per questo avevo ipotizzato l'urto anelastico). Questo credo sia il vero fenomeno da spiegare... ed in effetti in questo caso (come dice Alex dopo) la terra c'entra poco...<br>
+<br>
+fine aggiunta<br>
+<br>
+-----------------------------------</article>
+<article class="post" id="p36569"><div class="who"><b>AleX_ZeTa</b><span>06 mar 2005, 13:50</span></div>:D :D<br>
+<br>
+ok, il tuo procedimento dovrebbe essere corretto... il risultato numerico è 1/2 quindi giusto. Ora però bisogna pensare all'energia.<br>
+<br>
+Il contatto con la terra lo possiamo anche supporre... ma influisce? Nell'altro problema contava perchè si consideravano due diversi sistemi di riferimento. Qui no...<br>
+e allora? :)</article>
+<nav class="pager"><a class="prev" href="oliforum-3220.html"><small>← precedente</small>Elettromagnetismo</a><a class="next" href="oliforum-13043.html"><small>successivo →</small>SNS di Pisa 1960/1961 Problema Numero 4</a></nav>
+</main></body></html>

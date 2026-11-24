@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns n. 4 -2013</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2013-2014, problema 4</span></nav>
+<h1>sns n. 4 -2013</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4870">forum Olifis</a></p>
+<article class="post first" id="p16231"><div class="who"><b>poor</b><span>15 feb 2014, 18:07</span></div>Si consideri un recipiente ermetico diviso in tre scomparti <span class="tex">\(S_1, S_2,S_3\)</span> aventi uguale volume V e disposti a L (a partire dal basso a destra e ruotando in senso orario il primo scomparto rettangolo <span class="tex">\(S_1\)</span> è ABGH - in senso orario a partire dal basso a destra - con alla sua sinistra lo scomparto <span class="tex">\(S_2\)</span> che è BCDG -sempre in senso orario - e che porta sopra lo scomparto identico <span class="tex">\(S_3\)</span> che è - sempre in senso orario- GDEF). Gli scomparti <span class="tex">\(S_2 , S_3\)</span> sono inizialmente vuoti, mentre nello scomparto <span class="tex">\(S_1\)</span> si trovano n moli di gas perfetto in equilibrio termico alla temperatura T. Le pareti divisorie interne BG e DG del contenitore sono dotate di porte a scorrimento azionate esternamente. La parete esterna AH può viceversa essere spostata rigidamente e senza attrito tramite un pistone in direzione orizzontale fino (e non oltre) a sovrapporsi alla parete BG. Analogamente la parete esterna CB può essere spostata da un secondo pistone in verticale fino a toccare la parete interna DG.<br>
+Assumendo che l'apertura e la chiusura delle porte a scorrimento di BG e DG possa essere eseguita solo quando l'intero recipiente è posto in condizioni di isolamento termico rispetto all'esterno e che l'attivazione dei pistoni agenti su AH e CB sia possibile soltanto quando il recipiente è posto in equilibrio con un bagno termico a temperatura T, si determini con quale sequenza di trasformazioni si realizza il valor minimo <span class="tex">\(\Delta Q_{(diss)}^{(min)}\)</span> del calore che il sistema deve dissipare verso l'esterno per spostare il gas dallo scomparto<span class="tex">\(S_1\)</span> allo scomparto <span class="tex">\(S_3\)</span> e si calcoli il valore di <span class="tex">\(\Delta Q_{(diss)}^{(min)}\)</span>.</article>
+<article class="post" id="p16308"><div class="who"><b>Simone256</b><span>8 mar 2014, 17:31</span></div>Ho aspettato tanto a postare una soluzione... Daltronde la mia è certamente sbagliata quindi la metto solo per sbloccare il topic da troppo tempo fermo.<br>
+Poichè il sistema è caratterizzato da espansioni libere (<span class="tex">\(Q=0\)</span> e <span class="tex">\(L=0\)</span>) e da compressioni isoterme (<span class="tex">\(Q=-L\)</span> ossia il lavoro svolto sul gas è uguale al calore dissipato) dovremo minimizzare il lavoro svolto sul gas.<br>
+Il procedimento di certo si concluderà con la chiusura totale del pistone <span class="tex">\(BC\)</span> che porterà tutto il gas nello scompartimento <span class="tex">\(S_3\)</span>. Ma per essere il passo finale tutto il gas deve trovarsi nel macro-scomparto <span class="tex">\(S_{2-3}\)</span>.<br>
+Quindi il lavoro svolto sul gas diventa:<br>
+<span class="tex">\(L_2=nRT \mbox{ ln} (\frac{2V}{V})\)</span><br>
+<br>
+Mentre per portare tutto il gas in <span class="tex">\(S_{2-3}\)</span> dallo scomparto iniziale svolgendo il minor lavoro possibile si potrebbe espandere totalmente il gas aprendo entrambe le porte scorrevoli e poi spingere il pistone <span class="tex">\(AH\)</span>; quindi:<br>
+<span class="tex">\(L_1=nRT \mbox{ ln} (\frac{3V}{2V})\)</span><br>
+<br>
+Da cui <span class="tex">\(L = nRT \mbox{ ln } 3\)</span><br>
+Quindi <span class="tex">\(\Delta Q_{(diss)}^{(min)}= nRT \mbox{ ln } 3\)</span></article>
+<article class="post" id="p16310"><div class="who"><b>poor</b><span>10 mar 2014, 18:47</span></div>Si, avevo anch'io risolto così in maniera ancor più diretta: con l'adiabatica da V a 3V aprendo le porte scorrevoli (come nei due palloni lavoro, calore e variazione d'energia interna sono nulli) e con l'isoterma spingendo in sequenza prima la parete a destra e poi quella in basso. E' facile mostrare che se si passa 2 volte da V a 2V il lavoro è 2 log2&gt; log3.<br>
+Ho aspettato un paio di giorni a rispondere per vedere se interveniva qualche altro dimostrando che avevamo sbagliato.</article>
+<article class="post" id="p16311"><div class="who"><b>Simone256</b><span>10 mar 2014, 22:49</span></div>Bene :)</article>
+<article class="post" id="p23971"><div class="who"><b>lance00</b><span>8 nov 2017, 12:55</span></div>Secondo me si può fare di meglio: <span class="tex">\(Q= nRT ln 2 (\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + ... ) = nRT ln 2 \)</span> : apro la porta scorrevole n.1 =&gt; <span class="tex">\(\frac{n}{2}\)</span> moli passano da <span class="tex">\(S_1\)</span> a <span class="tex">\(S_2\)</span> per espansione libera. Chiudo la porta scorrevole 1, apro la 2 e comprimo <span class="tex">\( S_2\)</span> portando le <span class="tex">\(\frac{n}{2}\)</span> moli in <span class="tex">\(S_3\)</span> facendo un lavoro pari a <span class="tex">\(L = \frac{n}{2}RTln2\)</span>. Chiudo la porta scorrevole n.2 e ripeto il procedimento (<span class="tex">\( \frac{n}{4} \)</span> vanno in S_2 per espansione libera, poi le porto in S_3 facendo un lavoro <span class="tex">\(L = \frac{n}{4}RTln2\)</span> ecc)</article>
+<article class="post" id="p23972"><div class="who"><b>lance00</b><span>8 nov 2017, 13:17</span></div>Edit : ho scritto delle cavolate :oops:</article>
+<nav class="pager"><a class="prev" href="olifis-4809.html"><small>← precedente</small>sns n.3 - 2013</a><a class="next" href="olifis-4893.html"><small>successivo →</small>sns n.5 - 2013</a></nav>
+</main></body></html>

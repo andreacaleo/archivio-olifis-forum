@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>192- SNS 2019-2020</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2019-2020, problema 6</span></nav>
+<h1>192- SNS 2019-2020</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6868">forum Olifis</a></p>
+<article class="post first" id="p25763"><div class="who"><b>bosone</b><span>17 mar 2020, 12:33</span></div>La tensione superficiale si misura in energia per unità di area e determina la dimensione delle gocce di pioggia. Si stimi la dimensione massima di una goccia assumendo come dati: la distanza caratteristica fra due molecole di acqua <span class="tex">\(a_0= 3.10^{-10} m\)</span>, l'energia tipica per rompere un legame fra molecole <span class="tex">\(E_{legame}= 10^{-20} J\)</span>, la densità dell'acqua <span class="tex">\(\rho = 1000  kg/m^3 \)</span>  e <span class="tex">\(g = 10 m/s^2\)</span>.</article>
+<article class="post" id="p25764"><div class="who"><b>east_beast</b><span>17 mar 2020, 22:29</span></div>Sapendo meno di zero sulla fisica nucleare e <span class="tex">\({\approx} \)</span> 0 sulla tensione superficiale, faccio delle ipotesi inguardabili nel tentativo di trovare un abbozzo di soluzione. (non è quello che si consiglia di solito per il test sns d'altronde :D )?<br>
+Ci sono delle grandi forzature, perdonatemi ma sono del quarto ahahah<br>
+So che la forza dovuta alla tensione superficiale deve bilanciare le forze di pressione (la gravità credo sia gia inclusa nella variazione di pressione secondo stevino, giusto?).<br>
+So anche che la variazione di pressione interna segue la legge di stevino lungo l'altezza della goccia (<span class="tex">\({\Delta}P ={\rho}gh\)</span> ), che la forza dovuta alla tensione superficiale <span class="tex">\({\gamma}\)</span>  é  <span class="tex">\( T = {\gamma}dx\)</span> e deve essere uguale a <span class="tex">\(\Delta}PdS\)</span>, e il volume lo posso calcolare dividendo la "goccia" in dischetti infinitesimi di volume <span class="tex">\(dV = {\pi}r^2(h)dh\)</span> e integrando, con r che è la distanza della superficie dall'asse di simmetria, funzione dell'altezza.<br>
+La superficie esterna dei dischetti infinitesimi è <span class="tex">\(dS = 2{\pi}r(h)dh\)</span>, dalla 2 legge di Newton imponendo l'equilibrio ricavo che <span class="tex">\(dS = {\frac{{\gamma}dx}{{\rho}gh}  }\)</span>, se considero la direzione radiale (data la simmetria della goccia, che immagino essere un solido di rotazione) ottengo che <span class="tex">\(dS = {\frac{{\gamma}dr}{{\rho}gh}  }= 2{\pi}r(h)dh\)</span> un equazione differenziale a variabili separabili.<br>
+Ricavando r(h) e sostituendo viene un integrale per il volume nella sola variabile h, la costante <span class="tex">\( {\gamma}\)</span> penso di poterla trovare ignorando la forza di gravità e considerando che in tal caso la goccia avrebbe forma sferica. Sembra ragionevole come soluzione? Già che è un SNS di quest'anno, quanto avrebbero potuto valutarmi delle considerazioni del genere, non essendo questa una soluzione completa?</article>
+<article class="post" id="p25765"><div class="who"><b>east_beast</b><span>17 mar 2020, 22:37</span></div>Ah giustamente poi dovrei cercare di collegare le informazioni microscopiche (energia di legame, distanza caratteristica dell'acqua) in qualche modo per trovare <span class="tex">\({\gamma}\)</span> e la pressione nel punto più alto (<span class="tex">\(p_0\)</span>), ma evito di fare ulteriori figuracce</article>
+<article class="post" id="p25767"><div class="who"><b>bosone</b><span>18 mar 2020, 12:09</span></div>Nessuno di noi fa cattiva figura. Scagli la prima pietra.....Mi permetto allora di darti qualche hint. Considera una goccia alla rottura che avviene quando la forza di tensione superficiale uguaglia il peso della goccia. La tensione superficiale è l'energia di legame per unità di area. Si consideri una molecola sulla superficie della goccia. Qual è l'area occupata dalle molecole della goccia ad essa più vicine? Con questa impostazione non "avanzano" dati del problema ma sono tutti necessari..   :roll:</article>
+<article class="post" id="p25769"><div class="who"><b>east_beast</b><span>19 mar 2020, 20:30</span></div>Ok ci riprovo dopo i vari hint. Le molecole vicine ad una molecola posta sulla superficie occupano una semisfera di area <span class="tex">\(2{\pi}a_0^2\)</span>, per definizione la tensione <span class="tex">\({\gamma} = {\frac{E_legame}{A}} =  {\frac{E_legame}{2{\pi}a_0^2}}\)</span>. Al momento della rottura della goccia la forza associata alla tensione superficiale eguaglia il peso della goccia, quindi <br>
+<span class="tex">\({\gamma}r = mg  {\Rightarrow}   {\frac{E_legame}{2{\pi}a_0^2}}r ={\frac{4{\pi}{\rho}r^3g}  {3 }  }\)</span> da cui <span class="tex">\(r^2 = {\frac {3E_legame }    {8{\pi}^2{\rho}ga_0^2     }   }\)</span>   e   <span class="tex">\(V = 4{\pi}r^3/3\)</span>  da  cui <span class="tex">\(V = ({\frac{E_legame}   {2{\rho}g}  })^{\frac{3}{2}} {\frac{ {\sqrt{3}}} {2{\pi}^2a_0^3 } } = 1.15 {\cdot} 10^{-9}m^3 = 1.15mm^3\)</span></article>
+<article class="post" id="p25770"><div class="who"><b>bosone</b><span>20 mar 2020, 11:40</span></div>Va quasi bene salvo un errore. La tensione superficiale è energia per unità di superficie e forza per unità di lunghezza. Allora immagina una circonferenza massima della goccia alla rottura. La forza di tensione superficiale non sarà semplicemente tensione per raggio....correggi e per me puoi andare con il 193 :D  :D</article>
+<article class="post" id="p25772"><div class="who"><b>east_beast</b><span>20 mar 2020, 12:15</span></div><blockquote><div><cite>east_beast ha scritto: <a href="olifis-6868.html#p25769" data-post-id="25769" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">19 mar 2020, 20:30</div></cite>
+Ok ci riprovo dopo i vari hint. Le molecole vicine ad una molecola posta sulla superficie occupano una semisfera di area <span class="tex">\(2{\pi}a_0^2\)</span>, per definizione la tensione <span class="tex">\({\gamma} = {\frac{E_legame}{A}} =  {\frac{E_legame}{2{\pi}a_0^2}}\)</span>. Al momento della rottura della goccia la forza associata alla tensione superficiale eguaglia il peso della goccia, quindi <br>
+<span class="tex">\({\gamma}r = mg  {\Rightarrow}   {\frac{E_legame}{2{\pi}a_0^2}}r ={\frac{4{\pi}{\rho}r^3g}  {3 }  }\)</span> da cui <span class="tex">\(r^2 = {\frac {3E_legame }    {8{\pi}^2{\rho}ga_0^2     }   }\)</span>   e   <span class="tex">\(V = 4{\pi}r^3/3\)</span>  da  cui <span class="tex">\(V = ({\frac{E_legame}   {2{\rho}g}  })^{\frac{3}{2}} {\frac{ {\sqrt{3}}} {2{\pi}^2a_0^3 } } = 1.15 {\cdot} 10^{-9}m^3 = 1.15mm^3\)</span>
+</div></blockquote>
+Devo considerare che la tensione agisce su tutta la circonferenza, quindi la forza che esercita sulla goccia è <span class="tex">\(F = 2{\pi}{\gamma}r\)</span><br>
+Quindi <span class="tex">\(V = ({\frac{E_legame}   {{\pi}{\rho}g}  })^{\frac{3}{2}} {\frac{ {\sqrt{3}}} {8a_0^3 } } = 1.44mm^3\)</span> Spero di non aver fatto orrori algebrici :roll:</article>
+<article class="post" id="p25774"><div class="who"><b>bosone</b><span>21 mar 2020, 11:56</span></div>ok vai :D  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6869.html"><small>← precedente</small>193. SNS 2019-2020 Problema 5</a><a class="next" href="olifis-7110.html"><small>successivo →</small>279 - SNS 2021/1</a></nav>
+</main></body></html>

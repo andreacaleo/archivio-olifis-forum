@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pallina che rimbalza (sns 2001/02)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 2</span></nav>
+<h1>Pallina che rimbalza (sns 2001/02)</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8816">OliForum</a></p>
+<article class="post first" id="p73416"><div class="who"><b>mitchan88</b><span>04 ago 2007, 12:12</span></div>Una pallina sferica di raggio R e momento d'inerzia I=2MR²/5 può rimbalzare elasticamente su un piano con sufficiente attrito statico perchè nell'urto non ci sia strisciamento. Determinare la relazione tra velocità angolare (di rotazione attorno al baricentro) e la velocità orizzontale del baricentro prima dell'urto perchè, subito dopo l'urto, la pallina abbia velocità opposta.<br>
+<br>
+ :P</article>
+<article class="post" id="p73434"><div class="who"><b>pi_greco_quadro</b><span>04 ago 2007, 17:39</span></div>uhm.. prima di postare troppi conti magari inutili domando... può essere<br>
+<br>
+$ \displaystyle \frac{v_{cdm,x}}{\omega}=-\frac{2R}{5}  $?</article>
+<article class="post" id="p73444"><div class="who"><b>Bacco</b><span>04 ago 2007, 21:07</span></div><blockquote><div><cite>mitchan88 ha scritto:</cite>... rimbalzare elasticamente su un piano con sufficiente attrito statico perchè nell'urto non ci sia strisciamento.</div></blockquote>
+
+Questo mi convince molto poco. Secondo me, per studiare un fenomeno del genere, che è assai interessante, ci vuole una modellizzazione notevolmente più raffinata, a cui sto lavorando (avrete mie notizie :) ). Ciò, ovviamente, al di là di quanto serve per fare l'esercizio, che però temo sia mal posto.</article>
+<article class="post" id="p73450"><div class="who"><b>mitchan88</b><span>04 ago 2007, 22:41</span></div><blockquote><div><cite>pi_greco_quadro ha scritto:</cite>uhm.. prima di postare troppi conti magari inutili domando... può essere<br>
+<br>
+$ \displaystyle \frac{v_{cdm,x}}{\omega}=-\frac{2R}{5}  $?</div></blockquote>
+
+Beh postali, io ho proposto il problema perchè non avevo idea di come affrontarlo  :P <br>
+
+<blockquote><div><cite>Bacco ha scritto:</cite>Questo mi convince molto poco. Secondo me, per studiare un fenomeno del genere, che è assai interessante, ci vuole una modellizzazione notevolmente più raffinata, a cui sto lavorando (avrete mie notizie Smile ). Ciò, ovviamente, al di là di quanto serve per fare l'esercizio, che però temo sia mal posto.</div></blockquote>
+ :D <br>
+Nel libro delle olifis è riportato un problema delle Ipho del 91 simile a questo e dicono di studiare i casi in cui la sfera strisci durante tutta l'interazione con il pavimento o che tale interazione finisca prima... Ma noi aspiranti normalisti ci accontentiamo di molto meno XD</article>
+<article class="post" id="p73455"><div class="who"><b>Bacco</b><span>05 ago 2007, 12:26</span></div>Butto lì solo la mia idea per modellizzare una situazione del genere; questo metodo è assai generale e consente di studiare, in caso di dubbi, ogni tipo di urto.<br>
+<br>
+Procediamo così:<br>
+il pavimento è un piano senza massa sostenuto da una molla di costante k, e il coeff. d'attrito dinamico tra palla e piano è noto.<br>
+<br>
+E' facile osservare che:<br>
+<br>
+lungo la direzione perpendicolare al piano si ha un moto armonico facilmente studiabile. Il periodo di tale moto (che è, a meno di un fattore numerico, la durata dell'interazione col pavimento) va come $ 1/\sqrt{k} $. L'interazione, ovviamente, cessa quando la reazione normale esercitata dal pavimento sulla palla si annulla; poichè il piano è senza massa, ciò si verifica esattamente nello stesso punto (alla stessa profondità, diciamo) in cui la palla tocca il piano per la prima volta. Chiaramente la velocità d'uscita, in questa direzione, è uguale a quella d'entrata.<br>
+<br>
+Durante l'interazione, studiamo il moto lungo la parallela al piano. Questo è esattamente il problema del <em class="text-italics">bowling</em>, che dovrebbe essere noto :). Diamolo per noto: è chiaro che non è detto che la palla raggiunga il rotolamento puro; questo dipende da quanto è grande il coeff. d'attrito. Tuttavia, per un certo periodo di tempo (che va come $ 1/\sqrt{k} $) la reazione del piano è maggiore di un certo valore arbitrario; quindi, fissato k, esiste $ M $ tale che se il coeff. d'attrito è maggiore di $ M $ si arriva al rotolamento puro. (questo può essere difficile da capire, ma basta pensare al bowling, riferendosi al centro di massa della palla, e scrivere le forze; oppure, per i libidinosi del bowling :lol: , osservare che, lungo la direzione orizzontale, il problema è uguale al bowling con piano fermo e coefficiente d'attrito che varia in modo ignoto, a condizione di mettersi nel sistema non inerziale solidale al piano, introducendo le forze apparenti; in pratica, scarichiamo il fatto che la reazione normale varia su un coefficiente d'attrito "efficace" che è diverso da quello reale, ma sempre maggiore di esso per un certo periodo di tempo, e quindi non ci sono problemi per le nostre stime sui tempi)<br>
+<br>
+Chiaramente k misura l' elasticità del pavimento.<br>
+<br>
+Allora abbiamo concluso che, per qualsiasi valore di elasticità del pavimento, esiste un coeff. d'attrito limite (dipendente dall'elasticità del pavimento) tale che, se il coeff. d'attrito è maggiore di tale limite, la palla esce dal rimbalzo con rotolamento puro lungo la direzione parallela al pavimento. Dunque, dopo l'urto, $ v_x=\omega R $ se il coeff. d'attrito è abbastanza grande.<br>
+<br>
+Inoltre osserviamo che: il coeff. d'attrito statico è del tutto ininfluente per la trattazione; l'energia non si conserva affatto, e anzi se il coeff. d'attrito è grande la quantità di energia persa è un valore fissato (non: tende a un valore fissato! E' proprio un valore fissato); a k fissato, se il coeff. d'attrito tende a infinito il tempo per cui si ha strisciamento tende a zero, e quindi anche la distanza orizzontale tra il punto d'entrata e quello d'uscita; è il caso malamente definito "nessun strisciamento".<br>
+<br>
+Saluti<br>
+<br>
+   Bacco</article>
+<article class="post" id="p73500"><div class="who"><b>pi_greco_quadro</b><span>06 ago 2007, 17:35</span></div>Ok ok io non avrò mai le pretese di Bacco di modellizzare il tutto, mi schiero con Mitchan e mi accontento del nostro problemino modesto modesto  :shock: ...<br>
+<br>
+Cmq si anche io avevo tenuto conto di qualcosa riguardante il bowling...<br>
+<br>
+Per esempio consideriamo il punto P che poi sarà il punto di contatto tra la nostra pallina ed il piano..<br>
+<br>
+Beh, se vogliamo che la velocità si inverta, allora lungo l'asse X dovremmo avere una variazione della quantità di moto pari a $  -2mv_x=F_{media}*\Delta t  $, Ma avremo anche una variazione di momento angolare.. non so in base a che criterio onestamente ma mi è parso ragionevole supporre che la pallina invertisse la propria velocità angolare al termine del contatto.. diciamo $  I(\omega_i-\omega_f)=2I(\omega_i)=F_{media}*R*\Delta t=-2mv_x*R  $ Qui ho considerato il momento rispetto al centro di massa e visto che il braccio era costante allora ho potuto semplificare il tutto... Ripeto non mi convince solo il passaggio in cui ho supposto che la velocità angolare finale in P fosse l'opposto della velocità angolare prima del contatto.. però a naso mi sembra possa funzionare..<br>
+<br>
+Da cui poi segue il mio conto.. che dite?</article>
+<article class="post" id="p73502"><div class="who"><b>Deerber</b><span>06 ago 2007, 18:00</span></div>Io dico che concordo in tutto e per tutto, compresa l'insicurezza sull'inversione della velocità angolare, nonostante "a naso" funzioni. Qualcuno potrebbe forse darci la sicurezza che sia così??  :)</article>
+<article class="post" id="p73511"><div class="who"><b>Bacco</b><span>06 ago 2007, 20:11</span></div><blockquote><div><cite>Bacco ha scritto:</cite>Dunque, dopo l'urto, $ v_x=\omega R $ se il coeff. d'attrito è abbastanza grande.</div></blockquote>
+
+Se l'attrito è grande, la palla esce dall'urto con la condizione di rotolamento puro orizzontale. Pertanto la velocità angolare <em class="text-italics">non</em> si inverte, secondo me, bensì soddisfa la relazione che ho scritto sopra. Tuttavia, ciò non è compatibile con il fatto che l'urto è definito elastico nel testo dell'esercizio... è lì il problema: non si può cambiare la direzione senza dissipare energia, e con questo prima o poi bisogna fare i conti. Non vedo via d'uscita da questa situazione. Per il resto, il ragionamento di pi_greco_quadro mi sembra corretto.<br>
+<br>
+Ciao</article>
+<article class="post" id="p73528"><div class="who"><b>Bolzo88</b><span>06 ago 2007, 23:16</span></div><blockquote><div><cite>Deerber ha scritto:</cite>Io dico che concordo in tutto e per tutto, compresa l'insicurezza sull'inversione della velocità angolare, nonostante "a naso" funzioni. Qualcuno potrebbe forse darci la sicurezza che sia così??  :)</div></blockquote>
+In base alle ipotesi del problema (urto perfettamente elastico e niente strisciamento) possiamo imporre la conservazione dell'energia.<br>
+$ \frac{1}{2}mv²_i+\frac{1}{2}I\omega²_i=\frac{1}{2}mv²_f+\frac{1}{2}I\omega²_f $<br>
+Sapendo che $ v_i=v_f $, ricaviamo facilmente che $ \omega_i $ e $ \omega_f $ sono uguali in modulo.<br>
+<br>
+<br>
+<br>
+Veniamo ora al discorso di Bacco sul modello per studiare questo problema.<br>
+Utilizzando il modello di Bacco ci sono poche storie, l'energia non si conserva.<br>
+<br>
+Ho osservato però che quel modello considera la superficie di appoggio puntiforme.<br>
+Forse si potrebbe in qualche modo "salvare" il testo del problema considerando che la pallina sia deformabile elasticamente e che quindi, subito dopo il contatto, potrebbe compiere un piccolo spostamento in avanti senza uno strisciamento, ma semplicemente deformandosi e aumentando le dimensioni della superficie di appoggio al terreno. Durante questo piccolo spostamento in avanti la famigerata forza di attrito statico "sufficientemente grande perchè non ci sia strisciamento" potrebbe quindi invertire la velocità della pallina senza perdita di energia.<br>
+<br>
+PROBLEMA: Bacco mi diceva poco fa che anche nella mia proposta di modello deve essere presente una perdita di energia: infatti il punto della pallina che per primo tocca terra arriva con una certa velocità diversa da zero e non può fermarsi istantaneamente ma deve compiere per forza uno strisciamento. La perdita di energia dovrebbe essere comunque minore di quella teorizzata nel modello di Bacco.</article>
+<article class="post" id="p73534"><div class="who"><b>Bacco</b><span>07 ago 2007, 08:32</span></div>Sì, può essere molto molto piccola se consideriamo la pallina deformabile. Infatti possiamo modellizzare così: lasciamo perdere la sfera, che è un po' complicata da modellizzare come ho in mente; prendiamo un cilindro (che cambia solo per il momento d'inerzia).<br>
+Lo schematizziamo così: un cilindro, diciamo, "interno" molto massivo, legato, con molle messe a raggiera, ad un guscio cilindrico esterno di massa molto minore. Questo sistema reagisce elasticamente sia a forze di compressione, sia a forze di torsione.<br>
+<br>
+L'idea è che il cilindro interno rappresenta l'interno della sfera, e il guscio esterno lo strato di molecole esterno. In questo modo si osserva che può non esserci dispersione solo se il guscio esterno ha massa nulla. Ma, dato che è fatto di materia (e le molecole non possono rompersi) un po' di dispersione c'è comunque, anche se, come diceva il Bolzo, in misura assai minore di quanto ricavato dal precedente modello. In altre parole, più che su un aumento della superficie d'appoggio, possiamo contare sull'energia torsionale del cilindro.<br>
+<br>
+Per un modello più accurato, potremmo anche considerare deformabile il guscio, nonchè aumentare il numero di gusci: in questo modo schematizzeremmo il corpo come particelle legate da molle, che sono proprio i legami chimici! Raffinando il modello, arriviamo alla struttura intima della materia :P <br>
+<br>
+Riguardo alla soluzione del problema, come dato nel testo, d'accordissimo col Bolzo: nella mente di chi ha scritto l'esercizio, la soluzione era di certo conservazione di energia e momento angolare al punto di contatto.<br>
+<br>
+Ciao</article>
+<article class="post" id="p74495"><div class="who"><b>Jordano</b><span>21 ago 2007, 16:01</span></div>perchè non imporre che al contatto tutta l'energia cinetica rotazionale venga trasformata in energia cinetica traslazionale?<br>
+<br>
+in questo caso $ \omega = \sqrt{5} v_o / R $</article>
+<nav class="pager"><a class="prev" href="olifis-217.html"><small>← precedente</small>SNS 2001/2002 n 1</a><a class="next" href="olifis-374.html"><small>successivo →</small>sns 2001/2002</a></nav>
+</main></body></html>

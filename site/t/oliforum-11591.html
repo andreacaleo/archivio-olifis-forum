@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1997 + Bonus.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1997-1998, problema 1</span></nav>
+<h1>SNS 1997 + Bonus.</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11591">OliForum</a></p>
+<p class="notice">Qui c'è solo la prima pagina della discussione: il seguito è su OliForum, al link qui sopra.</p>
+<article class="post first" id="p94311"><div class="who"><b>Pigkappa</b><span>18 ago 2008, 16:24</span></div>Un conduttore che chiamiamo $ \displaystyle A $ è caricato mediante una serie di contatti con una piastra metallica che, dopo ciascun contatto, è ricaricata in modo da avere una carica $ \displaystyle Q $. Si supponga che $ \displaystyle q_1 $ sia la carica di A dopo la prima operazione.<br>
+<br>
+Domanda.) Quale sarà approssimativamente la carica $ \displaystyle q_{\infty} $ di A dopo un numero molto grande di contatti?<br>
+<br>
+Domanda Bonus.) Quale sarà la carica $ \displaystyle q_n $ di A dopo $ \displaystyle n $ contatti?<br>
+<br>
+<br>
+[In realtà, la domanda un po' interessante è solo la seconda.]</article>
+<article class="post" id="p94325"><div class="who"><b>Fedecart</b><span>18 ago 2008, 20:49</span></div>Se ho ben capito la domanda, e non ne sono sicurissimo, dopo infinite operazioni sia il conduttore che la piastra avranno entrambe carica $ Q $ però mi sembra impossibile che un SNS sia così semplice. Secondo me non ho capito la domanda!<br>
+Per la seconda non so, ci penserò...</article>
+<article class="post" id="p94331"><div class="who"><b>EUCLA</b><span>18 ago 2008, 21:49</span></div>Chiedo una cosa, causa ignoranza.<br>
+E' possibile che la quantità di carica che passa a ogni contatto sia proporzionale alla differenza tra le cariche su i due conduttori (oltre che al tempo di contatto di cui però non ce ne frega niente)?</article>
+<article class="post" id="p94332"><div class="who"><b>Pigkappa</b><span>18 ago 2008, 21:50</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>Se ho ben capito la domanda, e non ne sono sicurissimo, dopo infinite operazioni sia il conduttore che la piastra avranno entrambe carica $ Q $ però mi sembra impossibile che un SNS sia così semplice. Secondo me non ho capito la domanda!<br>
+Per la seconda non so, ci penserò...</div></blockquote>
+
+La domanda l'hai capita, ma non sai cosa succede quando due conduttori si toccano... Non viene necessariamente $ \displaystyle Q $.</article>
+<article class="post" id="p94334"><div class="who"><b>SkZ</b><span>18 ago 2008, 23:44</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>Se ho ben capito la domanda, e non ne sono sicurissimo, dopo infinite operazioni sia il conduttore che la piastra avranno entrambe carica $ Q $ però mi sembra impossibile che un SNS sia così semplice. Secondo me non ho capito la domanda!<br>
+Per la seconda non so, ci penserò...</div></blockquote>
+Pensa alla messa a terra: non potrai avere tante cariche quante quelle che riesci a distribuire sulla Terra. E' un altro valore che si equivale e che comporta l'interruzione dello spostamento. ;)</article>
+<article class="post" id="p94335"><div class="who"><b>Fedecart</b><span>19 ago 2008, 00:03</span></div>Non ho capito... Evidentemente è un problema che non so fare. Io credevo che quando 2 conduttori si toccano chi ha più carica ne trasmette un certo tot all'altro in modo che entrambi ne abbiano lo stesso tanto. Perchè si divide ugualmente. Quindi la prima volta che si toccano avranno entrambi $ \frac{1}{2}Q $ poi dopo uno si ricarica e si ritoccano ed entrambi avranno $ \frac{3}{4}Q $ poi nuovamente si ricarica e così via finchè dopo innumerevoli passaggi hanno entrambi Q.<br>
+Però se non è così, oppure questo ragionamento non funziona in questo caso, è un problema che non saprei fare!<br>
+Attendo allora molto curiosamente la soluzione =)</article>
+<article class="post" id="p94336"><div class="who"><b>SkZ</b><span>19 ago 2008, 00:09</span></div>se fosse come dici tu la messa a terra di un oggetto comporterebbe l'aspirazione di molte cariche (la terra e' un condensatore molto capiente), ma non e' cosi'. E' L'inverso: metti a terra cosi' le cariche si scaricano a terra (appunto).<br>
+Quando prendi la scossa con qualcosa perche' succede? Perche avete un diverso numero di cariche (ma allora dovremmo prendere scosse in continuo dalla Terra)? O perche' e' diverso qualcos'altro?<br>
+<br>
+Rifletti: all'equilibrio le forze sono uguali e nulla si sposta, quindi le cariche non si spostano. ergo ...</article>
+<article class="post" id="p94349"><div class="who"><b>Fedecart</b><span>19 ago 2008, 10:40</span></div>Ergo, forse le cariche si spostano per tornare ad una situazione di iniziale equilibrio? di carica neutra?</article>
+<article class="post" id="p94377"><div class="who"><b>Pigkappa</b><span>19 ago 2008, 16:35</span></div>Cerchiamo di arrivarci in qualche modo...<br>
+<br>
+- Se c'è passaggio di cariche tra i due conduttori, c'è una corrente.<br>
+<br>
+- In un circuito, quando è che scorre corrente tra due punti?<br>
+<br>
+- Se non scorre corrente, cosa si può concludere?</article>
+<article class="post" id="p94382"><div class="who"><b>EUCLA</b><span>19 ago 2008, 17:14</span></div>Stravolgo un attimo le notazioni per indicare con $ q_i  $ la carica che passa all'i-esimo contatto.<br>
+<br>
+Dopo che Pig mi ci ha fatto ragionare, mi son ripresa dallo sfondone di prima per arrivare a dire che è il potenziale che ci interessa nei contatti tra i due conduttori. <br>
+In particolare, tra i due conduttori messi a contatto fluisce carica finchè non raggiungono l'equilibrio dei potenziali. <br>
+<br>
+$ C, C_A  $ sono le capacità rispettivamente della piastra e del conduttore $ A $. <br>
+Dopo il primo contatto: $ \displaystyle \frac{q_1}{C_A}=\frac{Q-q_1}{C}\rightarrow \frac{q_1}{Q-q_1}=\frac{C_A}{C}  $.<br>
+<br>
+Dopo un tempo $ t=\displaystyle \infty  $ si ha $ \displaystyle \frac{q_1+q_2+\cdots +q_\infty}{C_A}=\frac{Q-q_\infty}{C}  $.<br>
+<br>
+Quello che ci chiede il testo di trovare è $ x=q_1+q_2+\cdots +q_\infty  $. Dall'equilibrio ricavo che $ \displaystyle \frac{C_A}{C}=\frac{x}{Q-q_\infty}  $.<br>
+<br>
+Ponendo uguali le due quantità $ \displaystyle \frac{C_A}{C}  $ otteniamo $ x=\displaystyle \frac{(Q-q_\infty)q_1}{Q-q_1}  $.<br>
+<br>
+Però notiamo che la quantità di carica che passa ad ogni contatto decresce col passare del tempo. <br>
+Essendo $ \displaystyle \frac{q_1+q_2+\cdots +q_i}{Q-q_i}=\frac{q_1}{Q-q_1}  $ e quindi $ q_1+q_2+\cdots q_i &gt;q_1  $ dovrà essere $ Q-q_i&gt;Q-q_1  $ cioè $ q_i&lt;q_1  $. Allora $ q_\infty \rightarrow 0  $ ergo $ x=\displaystyle \frac{Qq_1}{Q-q_1}  $.<br>
+<br>
+-----------------------------------------------------------------<br>
+Parte 2)<br>
+<br>
+Ammettiamo di conoscere $ \displaystyle \sum{q_{i-1}}  $. Vogliamo ricavare $ q_i  $.<br>
+<br>
+Per l'equilibrio $ \displaystyle \frac{\sum{q_{i-1}}+q_i}{Q-q_i}=\frac{q_1}{Q-q_1}  $.<br>
+<br>
+Svolgendo i conti: $ q_i\displaystyle =q_1+\frac{q_1}{Q}\sum{q_{i-1}}-\sum{q_{i-1}}  $. Pongo $ k=\displaystyle \frac{q_1}{Q}  $.<br>
+<br>
+Per intuire come funziona ricavo $ \displaystyle \sum{q_{i-1}}=\sum{q_{i-2}}+q_{i-1}=q_1+k\sum{q_{i-2}}  $.<br>
+<br>
+$ \displaystyle q_i=q_1+(k-1)\big(q_1+k\sum{q_{i-2}\big)  $.<br>
+<br>
+A questo punto si dimostra (io non l'ho fatto ma si può fare) o si accetta per induzione fisica, dopo aver visto un altro pò come funziona che <br>
+<br>
+$ q_n=q_1+q_1(k-1)\displaystyle \sum _{i=2}^{n}{k^{n-i}}  $<br>
+<br>
+Da cui ricavo quel che interessa a noi $ \displaystyle \sum q_n=nq_1+q_1(k-1)\sum _{i=2}^{n}{(i-1)k^{n-i}}  $ cioè le cariche dopo $ n  $ contatti.<br>
+<br>
+C'era un modo meno contoso per farlo? (Sempre che non abbia sbagliato qualcosa eh, che ormai c'ho preso l'abitudine..)</article>
+<article class="post" id="p94384"><div class="who"><b>Pigkappa</b><span>19 ago 2008, 17:30</span></div><blockquote><div><cite>EUCLA ha scritto:</cite>C'era un modo meno contoso per farlo?</div></blockquote>
+
+Il mio è diverso ma la quantità di conti più o meno è quella. Però l'ho postato con questa notazione perchè la formula di $ \displaystyle q_n  $ che viene fuori si può scrivere in un modo abbastanza bello, provaci...<br>
+<br>
+Inoltre il tuo risultato finale mi lascia perplesso, il RHS per n grande tende ad infinito.</article>
+<article class="post" id="p94386"><div class="who"><b>EUCLA</b><span>19 ago 2008, 17:36</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Inoltre il tuo risultato finale mi lascia perplesso, il RHS per n grande tende ad infinito.</div></blockquote>
+
+Mh, non credo. Hai tenuto conto anche che $ k-1  $ è negativo?</article>
+<article class="post" id="p94390"><div class="who"><b>SkZ</b><span>19 ago 2008, 17:48</span></div><blockquote><div><cite>EUCLA ha scritto:</cite>Dopo che Pig mi ci ha fatto ragionare, mi son ripresa dallo sfondone di prima per arrivare a dire che è il potenziale che ci interessa nei contatti tra i due conduttori. <br>
+In particolare, tra i due conduttori messi a contatto fluisce carica finchè non raggiungono l'equilibrio dei potenziali. </div></blockquote>
+
+esatto! infatti $F\propto \nabla \phi$: la forza si annulla quando il potenziale e' costante (localmente). Infatti e' lo stesso ragionamento di 2 condensatori carichi in parallelo</article>
+<article class="post" id="p94393"><div class="who"><b>Pigkappa</b><span>19 ago 2008, 19:08</span></div><blockquote><div><cite>EUCLA ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Inoltre il tuo risultato finale mi lascia perplesso, il RHS per n grande tende ad infinito.</div></blockquote>
+
+Mh, non credo. Hai tenuto conto anche che $ k-1  $ è negativo?</div></blockquote>
+
+Mh, no, non me ne ero accorto. Ma quel risultato è bruttissimo: uno dovrebbe calcolarsi ogni volta la sommatoria. C'è una formula diretta molto più semplice...</article>
+<article class="post" id="p94398"><div class="who"><b>EUCLA</b><span>19 ago 2008, 20:14</span></div>Ok, posto anche l'altra soluzione che effettivamente è molto più semplice.<br>
+<br>
+Con un pò di conti, si vede che $ \displaystyle q_2=\frac{q_1^2}{Q}, \ q_3=\frac{q_1^3}{Q^2}  $. Viene da supporre che sia $ \displaystyle q_n=\frac{q_1^n}{Q^{n-1}}  $. Dimostriamolo.<br>
+<br>
+Supponiamo di aver trovato a mano fino all'i-esimo contatto che ciascun $ \displaystyle q_i  $ ha la caratteristica sopra scritta. Voglio dimostrare che anche $ \displaystyle q_{i+1}  $ è di quella forma.<br>
+<br>
+$ \displaystyle \frac{q_1+q_2+\cdots +q_{i+1}}{Q-q_{i+1}}=\frac{q_1+q_2+\cdots +q_{i}}{Q-q_{i}}  $<br>
+<br>
+Semplificando: $ Qq_{i+1}-q_i(q_1+q_2+\cdots +q_{i})-q_iq_{i+1}+q_{i+1}(q_1+q_2+\cdots +q_i)=0  $<br>
+<br>
+Riscrivo $ q_{i+1}(Q+q_1+q_2+\cdots +q_{i-1})=q_i(q_1+q_2+\cdots +q_{i})  $<br>
+<br>
+Per le ipotesi fatte su $ \{q_1,q_2, \dots q_{i}\}  $ si ha che $ (Q+q_1+q_2+\cdots +q_{i-1})\displaystyle \frac{q_1}{Q}=q_1+q_2+\cdots +q_i  $<br>
+<br>
+Quindi posso semplificare come $ q_{i+1}=q_i \displaystyle \frac{q_1}{Q}=\frac{q_1^i}{Q^{i-1}}\frac{q_1}{Q}=\frac{q_1^{i+1}}{Q^i}  $ che era quello che volevo dimostrare. <br>
+<br>
+<br>
+A questo punto, calcoliamo $ \displaystyle \sum{q_n}=q_1+\frac{q_1^2}{Q}+\frac{q_1^3}{Q^2}+\cdots \frac{q_1^n}{Q^{n-1}}=q_1\bigg(\frac{1-\frac{q_1^n}{Q^n}}{1-\frac{q_1}{Q}}\bigg)  $ che spero si capisca.</article>
+<nav class="pager"><a class="prev" href="olifis-554.html"><small>← precedente</small>SNS 1996/1997 n.6</a><a class="next" href="oliforum-11588.html"><small>successivo →</small>SNS 1997</a></nav>
+</main></body></html>

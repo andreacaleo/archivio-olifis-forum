@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1986 n.2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1986-1987, problema 2</span></nav>
+<h1>SNS 1986 n.2</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=1329">forum Olifis</a></p>
+<article class="post first" id="p8968"><div class="who"><b>Epimenide</b><span>4 ago 2012, 14:07</span></div>In presenza di un campo magnetico uniforme <span class="tex">\(B_0\)</span>, un filo elettrico di resistenza <span class="tex">\(R\)</span>, inizialmente avvolto a cappio come in figura, viene tirato agli estremi a velocità costante <span class="tex">\(v_0\)</span>. Si assuma che la forma del cappio sia e rimanga circolare e che il campo magnetico sia perpendicolare al piano dove giace il cappio.<br>
+<br>
+<a class="lost" href="http://i49.tinypic.com/6zx9fm.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+<br>
+(i) Qual è la quantità totale di carica <span class="tex">\(Q\)</span> che ha percorso il cappio fino a quando esso è scomparso?<br>
+(ii) Qual è l'andamento temporale della corrente <span class="tex">\(I(t)\)</span> durante il processo?<br>
+<br>
+La carica totale mi viene (trascina per leggere) <span style="color:#e6f0e7">S*B/R dove S è la superficie iniziale del cappio, risultato abbastanza interessante, in quanto indipendente dalla velocità con la quale si stende il filo.</span><br>
+<br>
+Mentre <span class="tex">\(I(t)\)</span> ha un'espressione un po' più lunga, ma niente di straordinario, solo che dovrei scriverla in Tex per renderla comprensibile, e non potrei "occultarla".<br>
+<br>
+Ho scritto qualche castroneria? :D Voi come procedereste?</article>
+<article class="post" id="p8969"><div class="who"><b>Omar93</b><span>4 ago 2012, 17:17</span></div>posta il procedimento per piacere. Secondo me non dipende da v per la conservazione dell'energia.</article>
+<article class="post" id="p8980"><div class="who"><b>Epimenide</b><span>5 ago 2012, 11:26</span></div>Sinceramente non avevo pensato di risolverlo ricorrendo alla conservazione dell'energia.<br>
+<br>
+Io sono partito definendo <span class="tex">\(r_0\)</span> il raggio del cappio all'istante iniziale. Alla circonferenza <span class="tex">\(\Gamma_0\)</span> di raggio <span class="tex">\(r_0\)</span> viene sottratta dal perimetro una lunghezza funzione del tempo pari a <span class="tex">\(2v_0t\)</span>, da cui <span class="tex">\(\textstyle r(t)=r_0-\frac{v_0}{\pi}t\)</span>.<br>
+<br>
+Ora si ricava facilmente la superficie <span class="tex">\(S\)</span> delimitata dalla circonferenza <span class="tex">\(\Gamma\)</span> in funzione del tempo <span class="tex">\(\textstyle S(t)=\pi r^2=\pi r_0 ^2 - 2v_0r_0t + \frac {v_0 ^2}{\pi} t^2\)</span>.<br>
+<br>
+Il flusso attraverso <span class="tex">\(S\)</span> risulta essere <span class="tex">\(\textstyle \Phi_{\vec B}=\int_S \vec B \cdot d\vec S = B \int_S dS\)</span> perciò <span class="tex">\(d\Phi_{\vec B}=BdS\)</span>.<br>
+<br>
+Dunque <span class="tex">\(\mathcal E(t) = - \frac {d\Phi_{\vec B}}{dt} = - B \frac {dS}{dt}\)</span>.<br>
+<br>
+Possiamo già rispondere al secondo quesito (questo mi fa supporre che ci fosse un altro modo per rispondere al primo), svolgendo i calcoli abbiamo <span class="tex">\(I(t)=- 2v_0 \frac {B}{R}(\frac{v_0}{\pi}t-r_0)\)</span>.<br>
+<br>
+Per rispondere al primo calcoliamo il valore <span class="tex">\(t_0\)</span> per cui <span class="tex">\(S(t_0)=0\)</span>, ovvero <span class="tex">\(t_0 = \frac {\pi r_0}{v_0}\)</span>, e dalla legge di Ohm vediamo subito che <span class="tex">\(Q = \frac {1}{R} \int_{0}^{t_0} \mathcal E(t) dt\)</span>, svolgendo i calcoli risulta appunto <span class="tex">\(Q=\frac{B}{R} \pi r_0^2 = \frac{B}{R} S_0\)</span>.<br>
+<br>
+Qualche idea per un approccio alternativo?</article>
+<article class="post" id="p8985"><div class="who"><b>Omar93</b><span>8 ago 2012, 0:31</span></div>Più o meno il procedimento è quello..</article>
+<article class="post" id="p8987"><div class="who"><b>Epimenide</b><span>8 ago 2012, 1:51</span></div><blockquote><div><cite>Omar93 ha scritto:</cite>Più o meno il procedimento è quello..</div></blockquote>
+
+In cosa differisce il tuo?</article>
+<article class="post" id="p8988"><div class="who"><b>modesto</b><span>8 ago 2012, 10:34</span></div>Io trovo che procedimento e soluzioni siano giusti ma che il testo sia, come purtroppo spesso succede, infelice. Infatti il risultato dei quesiti è espresso con dati <em class="text-italics">non </em>forniti dal testo come la superficie iniziale del cappio. Un buon testo deve consentire di esprimere i risultati <em class="text-italics">solo </em>in funzione dei dati che fornisce e non di quelli ipotizzabili.</article>
+<article class="post" id="p8989"><div class="who"><b>Epimenide</b><span>8 ago 2012, 13:06</span></div><blockquote><div><cite>modesto ha scritto:</cite>Io trovo che procedimento e soluzioni siano giusti ma che il testo sia, come purtroppo spesso succede, infelice. Infatti il risultato dei quesiti è espresso con dati <em class="text-italics">non </em>forniti dal testo come la superficie iniziale del cappio. Un buon testo deve consentire di esprimere i risultati <em class="text-italics">solo </em>in funzione dei dati che fornisce e non di quelli ipotizzabili.</div></blockquote>
+
+Sì, sono d'accordo. Mi sono preso la libertà di insistere su raggio e superficie in virtù del "Si assuma che la forma del cappio sia e rimanga circolare" del testo, ma effettivamente non dà alcun dato riguardante la circonferenza, il raggio o la superficie.</article>
+<article class="post" id="p8991"><div class="who"><b>modesto</b><span>8 ago 2012, 17:42</span></div>Ho ripensato al mio messaggio e credo di aver detto una bischerata affermando che il tuo procedimento è giusto. Infatti la resistenza R è quella del cappio iniziale secondo il testo. Via via che la sua lunghezza diminuisce, diminuisce anche la sua resistenza fino ad annullarsi. Se le cose stanno così abbiamo <span class="tex">\(R = k.2\pi r_0\)</span> e la resistenza istantanea  <span class="tex">\(R(t)= k.2\pi r(t)\)</span> essendo r(t) il raggio istantaneo pari a <span class="tex">\(R/(2\pi k) - v_0t/\pi\)</span>.<br>
+Purtroppo facendo i conti anche così ci rimane il k ( rapporto fra la resistività e la sezione del filo?) che non figura fra i dati iniziali. Che ne pensi?</article>
+<article class="post" id="p8992"><div class="who"><b>Epimenide</b><span>8 ago 2012, 18:13</span></div><blockquote><div><cite>modesto ha scritto:</cite>Ho ripensato al mio messaggio e credo di aver detto una bischerata affermando che il tuo procedimento è giusto. Infatti la resistenza R è quella del cappio iniziale secondo il testo. Via via che la sua lunghezza diminuisce, diminuisce anche la sua resistenza fino ad annullarsi. Se le cose stanno così abbiamo <span class="tex">\(R = k.2\pi r_0\)</span> e la resistenza istantanea  <span class="tex">\(R(t)= k.2\pi r(t)\)</span> essendo r(t) il raggio istantaneo pari a <span class="tex">\(R/(2\pi k) - v_0t/\pi\)</span>.<br>
+Purtroppo facendo i conti anche così ci rimane il k ( rapporto fra la resistività e la sezione del filo?) che non figura fra i dati iniziali. Che ne pensi?</div></blockquote>
+
+L'unica spiegazione che mi viene in mente è che il "filo di resistenza R" possa essere schematizzato come un filo di resistenza trascurabile, con una resistenza R messa in serie, in uno dei due lati "rettilinei", in fondo la corrente che attraversa il cappio scorre in seguito anche attraverso le parti rettilinee del filo. Interpretandola così restano corretti i primi risultati. Altrimenti bisogna fare come hai detto tu, e abbiamo un ulteriore dato non fornito. Il fatto che ci sia da interpretare è già un problema, comunque.</article>
+<article class="post" id="p9020"><div class="who"><b>modesto</b><span>10 ago 2012, 17:54</span></div>Non credo che la tua ultima spiegazione sia corretta. La corrente può scorrere SOLO in una spira CHIUSA (come dice la legge dell'induzione), cioè nel cappio con il nodo. La riprova è che il testo chiede la carica che è passata nel CAPPIO durante il processo(con la sua lunghezza e resistenza istantanea, quindi). La corrente non può circolare nei tratti rettilinei svolti oltre il nodo del cappio, a destra e sinistra: si tratta di conduttori che hanno lo stesso potenziale dell'estremo del cappio cui sono collegati e quindi senza corrente (e poi dove andrebbe se ci fosse...Gli elettroni che partono dal polo negativo e arrivano al positivo debbono poter tornare lì da dove sono partiti, come nella resistenza chiusa sulla pila o nella nostra spira chiusa).<br>
+Pertanto, ribadito che il raggio iniziale è <span class="tex">\(r_0= \frac{R}{2\pi k}\)</span> che si annulla nel tempo <span class="tex">\(t_0= \frac {R}{2kv_0}\)</span>, si può dire che si induce fra gli estremi del cappio a contatto fra loro una f.e.m.<span class="tex">\(\epsilon\)</span> che è, come hai visto anche tu, proporzionale alla circonferenza del cappio e a <span class="tex">\(\frac{dr}{dt}= \frac {-v_0}{\pi}\)</span>. Ma anche la resistenza del cappio è proporzionale alla lunghezza del cappio, cioè a questa circonferenza. Pertanto la corrente istantanea nel cappio non dipende dal tempo, è COSTANTE e risulta a conti fatti<br>
+<span class="tex">\(i= \frac{v_0. B_0}{\pi k}\)</span><br>
+che, moltiplicata per <span class="tex">\(t_0\)</span>, fornisce la carica<br>
+<span class="tex">\(Q= \frac{B.R}{2\pi k^{2}}\)</span>.<br>
+Rispondendo allora al secondo quesito si può affermare che l'andamento della corrente è quello dell'"onda quadra": all'istate iniziale si porta da 0 a i per poi ricadere a 0 all'istante <span class="tex">\(t_0\)</span>.</article>
+<article class="post" id="p25443"><div class="who"><b>Pollo3</b><span>18 mag 2019, 20:04</span></div>per quanto riguarda la questione di se la resistenza va considerata variabile o no credo che sia il testo ad essere un po ambiguo , se  la corrente scorre solo nella spira , allora ci deve comunicare che il cappio tocca in un punto ( cosa non scontata ) e che inoltre la resistenza del cappio rimane proporzionale al filo ( cosa non vera nella realta , il punto di contatto creerebbe una resistenza aggiuntiva fissa ) se invece la corrente scorre in tutto il filo ( cosa assolutamente possibile se per esempio i due capi sono messi a terra ) si puo effettivamente considerare costante . Il mio problema però é un altro . Quando inizia a scorrete corrente nel filo questo genera un campo magnetico , la derivata del flusso quindi non é l espressione che avete riportato ma una diversa ( a cui io non sono riuscito a giungere ) che tiene conto sia della derivata della corrente sia della derivata della superficie ( insomma un casino , anche perche capire anche solo quanto vale il flusso magnetico attraverso una spira circolare in cui circola una corrente I Non é facile , è facile solo conoscere quanto vale il campo magnetico nel centro applicando bion savart . Siete d accordo ? Inoltre questo é l esercizio 3 , non due ,!</article>
+<nav class="pager"><a class="prev" href="oliforum-5777.html"><small>← precedente</small>universo snsoso</a><a class="next" href="olifis-6385.html"><small>successivo →</small>SNS 1986/7 n. 2 - Lancio di un sasso</a></nav>
+</main></body></html>

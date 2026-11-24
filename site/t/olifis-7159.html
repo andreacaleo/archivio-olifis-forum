@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2022/4 - Corpo nero</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2022-2023, problema 4</span></nav>
+<h1>SNS 2022/4 - Corpo nero</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7159">forum Olifis</a></p>
+<article class="post first" id="p27509"><div class="who"><b>bosone</b><span>5 ott 2022, 17:34</span></div>Un corpo nero assorbe senza riflettere tutta la radiazione incidente sulla sua superficie e contemporaneamente irradia una potenza pari a <span class="tex">\(W=\sigma AT^4 \)</span>, dove A è l'area, T è la temperatura in Kelvin e <span class="tex">\(\sigma\)</span>è la costante di Stefan-Boltzmann.<br>
+Una lastra circolare con spessore trascurabile rispetto al raggio si comporta come un corpo nero ed ha una delle due facce costantemente illuminata in modo tale da assorbire sulla sua area A una potenza per unità di superficie P. In condizioni di equilibrio la faccia illuminata e la faccia non illuminata hanno temperature rispettivamente <span class="tex">\(T_1\)</span>e <span class="tex">\(T_2\)</span> e c'è un flusso costante di calore dalla faccia illuminata alla faccia non illuminata.<br>
+Si determinino <span class="tex">\(T_1\)</span>e <span class="tex">\(T_2\)</span> in funzione degli altri parametri nell'approssimazione <span class="tex">\([(T_1 - T_2)/T_2] &lt;&lt; 1\)</span> usando un modello semplice e ragionevole con un coefficiente opportuno per la conduzione del calore nella lastra.<br>
+<br>
+(C'è qualche concorrente che nell'agosto scorso ha risolto questo esercizio?)</article>
+<article class="post" id="p27511"><div class="who"><b>Torros</b><span>5 ott 2022, 20:38</span></div>Premettendo che non ho partecipato alla prova, volevo approfittare dell'apertura dell'argomento per qualche domanda sul problema.<br>
+1) Per la determinazione di T1 e T2 bisogna uguagliare a zero la potenza netta della prima faccia e la potenza netta della seconda faccia? Se sì, a cosa serve l'approssimazione fornita dal testo?<br>
+2) Cosa vuol dire "con un coefficiente opportuno per la conduzione del calore nella lastra"? Bisogna forse fornire un possibile valore del coefficiente del materiale? E a che scopo, visto che, anche conoscendo il materiale, non siamo in possesso degli altri dati numerici (la potenza P, l'area A,...) per fornire un valore a T1 e T2? Bah :cry:</article>
+<article class="post" id="p27512"><div class="who"><b>Pigkappa</b><span>6 ott 2022, 1:19</span></div>Il testo dice "si determinino ... in funzione degli altri parametri". Non si stanno cercando valori numerici, si stanno cercando solo formule.<br>
+<br>
+Quando il testo dice "con un coefficiente opportuno per la conduzione del calore nella lastra", sta praticamente indicando che le variabili definite nel testo, ovvero potenza ed area <span class="tex">\(P, A\)</span>, non bastano; nelle formule deve comparire un altro coefficiente. Gli autori del problema non vogliono dirti esattamente che variabile fisica e', si aspettano tu sia in grado di definire un parametro sensato, e ti danno l'indizio che c'entra con la "conduzione del calore nella lastra".<br>
+<br>
+In pratica, devi definire un coefficiente di diffusione <span class="tex">\(\lambda\)</span> nel materiale, che collega la variazione di temperatura con il flusso di calore:<br>
+<span class="tex">\(\displaystyle F(x) = - \lambda \frac{dT}{dx}\)</span><br>
+<br>
+E l'intuito mi dice che il risultato dipendera' anche dallo spessore <span class="tex">\(L\)</span> della lastra, per cui inizialmente introdurrei anche questo parametro. Alla fine, se proprio vogliamo dire che abbiamo introdotto una sola variabile aggiuntiva come richiesto dal testo, penso troveremo che il risultato dipende solo dal rapporto <span class="tex">\(\lambda/L\)</span> e non dalle due variabili singolarmente, quindi potremmo chiamare <span class="tex">\(\alpha = \lambda / L\)</span> e dire che questa e' la variabile che abbiamo introdotto.<br>
+<br>
+Il testo ti da' anche un'altra approssimazione: "spessore trascurabile rispetto al raggio" serve a trascurare effetti di bordo e considerare il problema unidimensionale.</article>
+<article class="post" id="p27514"><div class="who"><b>bosone</b><span>6 ott 2022, 11:47</span></div>Ma la potenza trasmessa per conduzione alla piastra non illuminata viene irraggiata alla temperatura <span class="tex">\(T_2\)</span> mentre la potenza acquisita dalla fasia illuminata meno quella trasmessa per conduzione viene irraggiata alla temperatura <span class="tex">\(T_1\)</span>o no?</article>
+<article class="post" id="p27515"><div class="who"><b>Torros</b><span>6 ott 2022, 12:40</span></div>Grazie Pigkappa, mi sembra chiaro. In pratica suggerisci di usare la formula di Fourier per il caso di staticità e rinominare "<span class="tex">\(\alpha\)</span>" il rapporto tra <span class="tex">\(\lambda\)</span> e <span class="tex">\(L\)</span>. "<span class="tex">\(\alpha\)</span>" sarebbe dunque "l'opportuno coefficiente". <br>
+Per quanto riguarda la tua domanda Bosone credo proprio che funzioni come hai detto. Avevo anche pensato ad un "irradiamento medio" (passami la brutta espressione) dato dalla temperatura media del corpo nero, ma temo non sia molto funzionale per determinare le <span class="tex">\(T\)</span> delle due facce.</article>
+<article class="post" id="p27518"><div class="who"><b>bosone</b><span>7 ott 2022, 17:32</span></div>Se condividi l'impostazione devo sottoporti un tipo di soluzione che potrebbe essere in contraddizione con l'intuito di Pigkappa e quindi non corretta. Seguendo il suggerimento di Pigkappa su Fourier si avrebbero le seguenti equazioni<br>
+per la faccia illuminata:     PA - <span class="tex">\(\frac{A.\lambda.(T_1-T_2)}{L}\)</span>=<span class="tex">\(\sigma.A.T_1^4\)</span> con <span class="tex">\(A=\pi.R^2\)</span>inessenziale esprime il fatto che la faccia illuminata irradia la potenza assorbita meno quella trasmessa per conduzione alla faccia non illuminata<br>
+per la faccia non illuminata:      <span class="tex">\(\frac{A.\lambda.(T_1-T_2)}{L}\)</span>= <span class="tex">\(\sigma.A.T_2^4\)</span> esprime il fatto che la faccia non illuminata irradia tutta la potenza assorbita per conduzione dalla faccia illuminata. Partendo da quest'ultima, eliminando A e dividendo ambo i membri per <span class="tex">\(T_2\)</span> essa assume la forma<br>
+<span class="tex">\(\frac{\lambda}{L}.\frac{T_1-T_2}{T_2}= \sigma.T_2^3\)</span><br>
+Ora L è sicuramente &lt;&lt;1 m ovvero numericamente equivalente, come dice il testo, alla frazione delle temperature: quindi pensavo che il loro rapporto numerico può porsi uguale a 1 e si può ricavare <span class="tex">\(T_2\)</span>come<br>
+<span class="tex">\(T_2=(\frac{\lambda}{\sigma})^{\frac{1}{3}}\)</span>. Cozza questa conclusione con il suggerimento di Pigkappa? Penserei di si perchè le soluzioni vengono a dipendere da <span class="tex">\(\lambda\)</span> e non da <span class="tex">\(\alpha\)</span>.<br>
+Sostituendo infatti nella equazione della faccia illuminata, con lo stesso procedimento, si ricaverebbe <br>
+<span class="tex">\(T_1=(\frac{P-\lambda T_2}{\sigma})^{\frac{1}{4}}\)</span><br>
+Che ne pensate? Non è corretto uguagliare numericamente la frazione delle temperature con lo spessore della lastra? :?:</article>
+<article class="post" id="p27519"><div class="who"><b>Torros</b><span>7 ott 2022, 20:20</span></div>L'impostazione del problema credo sia giusta, ma la semplificazione credo non sia corretta.
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7159.html#p27518" data-post-id="27518" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">7 ott 2022, 17:32</div></cite>
+Ora L è sicuramente &lt;&lt;1 m ovvero numericamente equivalente, come dice il testo, alla frazione delle temperature: quindi pensavo che il loro rapporto numerico può porsi uguale a 1 e si può ricavare 
+</div></blockquote>
+
+<span class="tex">\(L\)</span> non è sicuramente minore di un metro. Il testo dice "Una lastra con spessore trascurabile rispetto al raggio". Non abbiamo alcuna idea della lunghezza del raggio della lastra (per quel che ne sappiamo potrebbe essere dell'ordine delle decine di migliaia di chilometri e perciò uno spessore che si possa definire "trascurabile" rispetto a tale raggio potrebbe essere di 100 m). In più non sarebbe possibile semplificare lo spessore con il rapporto tra le temperature perchè quest'ultimo è un valore adimensionale, il primo no.<br>
+Ciò che sappiamo, invece, forzando un po' meno il testo, è che il rapporto tra il valore dello spessore della lastra e quello del raggio deve essere minore di 1. Ma anche utilizzando tale rapporto la semplificazione che hai proposto non va bene. Provo a spiegarmi:<br>
+<span class="tex">\(\displaystyle \frac{A \lambda (T_{1} -T_{2})}{L T_{2}} = \sigma A T_{2}^3\)</span><br>
+Ora possiamo scrivere <span class="tex">\(A\)</span> come <span class="tex">\(\pi R^2\)</span> e riscrivere l'equazione precedente così:<br>
+<span class="tex">\(\displaystyle \frac{\pi R \lambda (T_{1} -T_{2})}{(L/R) T_{2}} = \sigma A T_{2}^3\)</span><br>
+In questo modo siamo ritornati ad una situazione simile a quella che avevi proposto, ma sta volta il rapporto <span class="tex">\(L/R\)</span> è veramente inferiore ad 1 ed è adimensionale, proprio come il rapporto tra le temperature. Ma il fatto che entrambi i rapporti siano minori di 1 non permette di semplificarli (un rapporto potrebbe essere mille volte l'altro, pur essendo entrambi molto piccoli).<br>
+La strada da percorrere è dunque un'altra.<br>
+L'unica possibilità mi sembra dividere la prima equazione che hai scritto, quella che analizza la potenza netta della faccia illuminata, per <span class="tex">\(T_{2}\)</span>:<br>
+<span class="tex">\(\displaystyle \frac{PA}{T_{2}}-\frac{A \lambda (T_{1} -T_{2})}{L T_{2}} = \frac{\sigma A T_{1}^4}{T_{2}}\)</span><br>
+Ora il famoso rapporto tra le temperature viene sottratto a <span class="tex">\(PA/T_{2}\)</span> e perciò possiamo mandarlo a zero, in quanto non influisce su <span class="tex">\(PA/T_{2}\)</span>. Da qua ci si può ricavare <span class="tex">\(T_{1}\)</span>.<br>
+Se trovi qualcos'altro bosone fammi sapere, grazie. :mrgreen:</article>
+<article class="post" id="p27520"><div class="who"><b>bosone</b><span>8 ott 2022, 17:26</span></div>Avevo già provato questa strada per trovare <span class="tex">\(T_1\)</span> ma poi sostituendo nell'altra equazione della non illuminata e riapplicando la condizione verrebbe assurdamente <span class="tex">\(T_2 =0\)</span>. Pertanto resto convinto del mio procedimento: infatti non c'è contraddizione con Pigkappa perchè quello che io scrivo <span class="tex">\(\lambda\)</span>in realta è un coefficiente di diffusione fratto metri cioè quello che Pigkappa ha indicato con <span class="tex">\(\alpha\)</span>! Il ragionamento che poi fai sul valore in migliaia del raggio non è condivisibile. Il testo parla di una comune piastra circolara con spessore appunto trascurabile rispetto al raggio che può essere minore di un metro....</article>
+<article class="post" id="p27521"><div class="who"><b>Pigkappa</b><span>9 ott 2022, 1:58</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7159.html#p27518" data-post-id="27518" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">7 ott 2022, 17:32</div></cite>
+L è sicuramente &lt;&lt;1 m ovvero numericamente equivalente, come dice il testo, alla frazione delle temperature: quindi pensavo che il loro rapporto numerico può porsi uguale a 1
+</div></blockquote>
+Questa frase mi confonde molto, non so cosa vuoi dire ma ti porta a conclusioni errate. Non c'e' nessun valore numerico nel testo quindi non possiamo confrontare nulla con quantita' come "un metro" o "un kelvin" o simili.<br>
+<br>
+Le tue equazioni di partenza erano giuste, dato che mi sembri un po' confuso sul come si puo' approssimare nel seguito, scrivo la mia soluzione e dimmi se riesci a seguirla. Spero di non aver sbagliato i conti.<br>
+<br>
+Chiamo <span class="tex">\(F_1\)</span> il flusso di calore emesso per irraggiamento dalla prima superficie, <span class="tex">\(F_2\)</span> dalla seconda, <span class="tex">\(F_{12}\)</span> flusso di calore che fluisce dalla superficie 1 verso la 2. Quando le temperature hanno raggiunto l'equilibrio, <span class="tex">\(P - F_1 - F_{12} = 0\)</span> e <span class="tex">\(F_{12} - F_2 = 0\)</span>.<br>
+Usiamo:<br>
+<span class="tex">\(F_1 = \sigma T_1^4\)</span><br>
+<span class="tex">\(F_2 = \sigma T_2^4\)</span><br>
+<span class="tex">\(F_{12} = - \lambda (T_1 - T_2) / L = - \alpha (T_1 - T_2)\)</span><br>
+Otteniamo:<br>
+<span class="tex">\(P = \sigma T_1^4 + \alpha (T_1 - T_2)\)</span><br>
+<span class="tex">\(0 = \alpha (T_1 - T_2) - \sigma T_2^4\)</span><br>
+Facendo la differenza:<br>
+<span class="tex">\(P = \sigma T_1^4 + \sigma T_2^4\)</span><br>
+Per usare l'approssimazione data per cui <span class="tex">\(\delta T = T_1 - T_2 &lt;&lt; T_2\)</span>, chiamiamo la temperatura media <span class="tex">\(T = (T_1 + T_2)/2 \approx T_1 \approx T_2\)</span>. Notiamo che nell'espansione di <span class="tex">\(T_1^4 + T_2^4\)</span> il termine in <span class="tex">\(\delta T\)</span> si annulla, quindi dovremmo andare al secondo ordine, quindi e' un'ottima approssimazione quella di fermarci qua all'ordine zero e sostituire <span class="tex">\(T\)</span> per entrambe le temperature.<br>
+<br>
+E' chiaro quel che sto dicendo qua? L'espansione di <span class="tex">\(T_1^4\)</span> sarebbe:<br>
+<span class="tex">\(\displaystyle T_1^4 = (T + \delta T / 2)^4 = (T^4 + 2 T_1 \delta T + 3/4 T^2 \delta T^2 + 1/2 T \delta T^3 + 1/16 \delta T^4)\)</span><br>
+E quella della somma:<br>
+<span class="tex">\(\displaystyle T_1^4 + T_2^4 = (2*T^4 + 3/2 T^2 \delta T^2 + 1/8 \delta T^4)\)</span><br>
+Come vedi il termine in <span class="tex">\(\delta T\)</span> e' scomparso, quindi se approssiamo con <span class="tex">\(T_1^4 + T_2^4 \approx 2T^4\)</span> facciamo un errore di dimensioni <span class="tex">\((\delta T / T)^2\)</span> e se <span class="tex">\(\delta T / T\)</span> e' piccolo, il suo quadrato sara' microscopico. In questo problema non possiamo sempre trascurare <span class="tex">\(\delta T / T\)</span> perche' se lo facessimo troveremmo che le due temperature <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2\)</span> sono uguali, ma possiamo trascurare <span class="tex">\((\delta T /T)^2\)</span>.<br>
+<br>
+Continuando:<br>
+<span class="tex">\(T \approx (\frac{P}{2\sigma})^{1/4}\)</span><br>
+<span class="tex">\(T_1-T_2 = T_2^4 \sigma/\alpha = (T - \delta T/2)^4 \sigma / \alpha \approx (T^4 - 2T^3 \delta T) \sigma/\alpha \)</span><br>
+<span class="tex">\(\delta T (1 + 2T^3 \sigma/\alpha) \approx T^4 \sigma / \alpha\)</span><br>
+<span class="tex">\(\delta T \approx \frac{T^4}{\alpha/\sigma + 2T^3} = \frac{P/2\sigma}{\alpha/\sigma + 2(P/2\sigma)^{3/4}}\)</span><br>
+Quindi<br>
+<span class="tex">\(T_1 = T + \delta T / 2 \approx (\frac{P}{2\sigma})^{1/4} + \frac{1}{2} \frac{(\frac{P}{2\sigma})}{\alpha/\sigma + 2(\frac{P}{2\sigma})^{3/4}}\)</span><br>
+<span class="tex">\(T_2 = T - \delta T / 2 \approx (\frac{P}{2\sigma})^{1/4} -  \frac{1}{2} \frac{(\frac{P}{2\sigma})}{\alpha/\sigma + 2(\frac{P}{2\sigma})^{3/4}}\)</span></article>
+<article class="post" id="p27522"><div class="who"><b>bosone</b><span>9 ott 2022, 11:34</span></div>Capisco il senso generale ma poi ci sono dei dettagli nei conti che non mi tornano. Le equazioni vanno bene a parte i simboli confermano le mie. Le approssimazioni mi generano problemi. Cominciamo da alcuni e via via nei prossimi giorni vedrò di seguirti. Quando dici che nella somma delle quarte potenze il termine <span class="tex">\(\delta T\)</span>scompare è perche la somma vale <span class="tex">\(2T^4\)</span>scegliendo di porle uguali a T? E quando sviluppi  <span class="tex">\((T+\delta T/2)^4\)</span> che è il quadrato del quadrato a me verrebbe anche il termine <span class="tex">\(2T^3.\delta  T\)</span> che poi dovrebbe permanere nella somma delle quarte potenze dove tu dici che <span class="tex">\(\delta T\)</span>scompare. Scusami ma può darsi che faccia errori e ti ringrazio se puoi correggermeli fino a qui per ora :)</article>
+<article class="post" id="p27523"><div class="who"><b>Pigkappa</b><span>9 ott 2022, 15:17</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7159.html#p27522" data-post-id="27522" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">9 ott 2022, 11:34</div></cite>
+E quando sviluppi  <span class="tex">\((T+\delta T/2)^4\)</span> che è il quadrato del quadrato a me verrebbe anche il termine <span class="tex">\(2T^3.\delta  T\)</span> che poi dovrebbe permanere nella somma delle quarte potenze
+</div></blockquote>
+Il termine <span class="tex">\(\delta T\)</span> compare con segni opposti in <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2\)</span> e quando li sommi, scompare:<br>
+<span class="tex">\(\displaystyle T_1^4 = (T + \delta T / 2)^4 = (T^4 + 2 T^3 \delta T + 3/4 T^2 \delta T^2 + 1/2 T \delta T^3 + 1/16 \delta T^4)\)</span><br>
+<span class="tex">\(\displaystyle T_2^4 = (T - \delta T / 2)^4 = (T^4 - 2 T^3 \delta T + 3/4 T^2 \delta T^2 - 1/2 T \delta T^3 + 1/16 \delta T^4)\)</span><br>
+<span class="tex">\(\displaystyle T_1^4 + T_2^4 = (2T^4 + 3/2 T^2 \delta T^2 + 1/8 \delta T^4) \approx 2 T^4\)</span><br>
+<br>
+Qua sto svolgendo questi conti per esteso per farti vedere come funzionano, ma con piu' esperienza, questi si possono semplificare enormemente. Per uno che ha usato approssimazioni simili in passato, o uno che sa espandere variabili in serie di Taylor, viene velocemente di dire che <span class="tex">\(T_1^4 = T^4 + a \delta T + O((\delta T)^2)\)</span>, dove <span class="tex">\(a\)</span> e' un coefficiente che come vediamo tra un attimo non serve neanche calcolare, e <span class="tex">\(O((\delta T)^2)\)</span> e' notazione di analisi per dire che gli altri termini vanno a zero almeno con la stessa velocita' di <span class="tex">\((\delta T)^2\)</span>. E anche che <span class="tex">\(T_2^4 = T^4 - a \delta T + O((\delta T)^2)\)</span>: data la simmetria del modo in cui <span class="tex">\(\delta T\)</span> compare nelle formule per <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2\)</span>, cioe' <span class="tex">\(T_1\)</span> diventa <span class="tex">\(T_2\)</span> se inverti il segno di <span class="tex">\(\delta T\)</span>, l'espansione dovra' funzionare allo stesso modo scambiando <span class="tex">\(\delta T\)</span> con <span class="tex">\(-\delta T\)</span> e quindi quel coefficiente <span class="tex">\(a\)</span> sara' lo stesso per l'espansione di <span class="tex">\(T_1\)</span> e quella di <span class="tex">\(T_2\)</span>. E quindi la somma sara' <span class="tex">\(T_1^4 + T_2^4 = 2T^4 + O((\delta T)^2)\)</span> e non abbiamo neanche dovuto calcolare <span class="tex">\(a\)</span>.</article>
+<article class="post" id="p27525"><div class="who"><b>bosone</b><span>10 ott 2022, 11:39</span></div>si ho capito l'errore. Siccome avevi scritto <span class="tex">\(T_1=T_2=T\)</span> e non avevi sviluppato <span class="tex">\(T_2\)</span>io ho posto anche quest'utima uguale a <span class="tex">\(T_1= T+\delta T\)</span>. Ora ho capito tutte le approssimazioni il procedimento e i risultati. Grazie davvero per il tuo intervento. Ma sarei curioso di sapere quanti concorrenti lo scorso agosto furono altrettanto abili  :?: ....</article>
+<article class="post" id="p27526"><div class="who"><b>Pigkappa</b><span>10 ott 2022, 17:49</span></div>A mio giudizio questo, come problema di ingresso SNS era abbastanza semplice e standard (stesso discorso per quello sul betatrone). Non mi sorprenderei se lo avessero fatto in tanti.</article>
+<article class="post" id="p27527"><div class="who"><b>bosone</b><span>11 ott 2022, 11:19</span></div>Sono d'accordo sul betatrone e anche su questo come impostazione e procedimento. Ma sull'approssimazione da utilizzare suggerita dal testo dubito invece che ci sia questo tipo di dimestichezza nelle quasi totalità dei licei. Sicuramente è difficile che ci sia sugli sviluppi in serie di Taylor e Mac Laurin. Comunque ho visto che gli ammessi all'orale di Fisica sono stati tanti decine e decine bisogna vedere se si sono cimentati e con quale successo sul quarto problema...Tuttavia si fa per discutere solo la commissione potrebbe aver valutato la questione...</article>
+<nav class="pager"><a class="prev" href="olifis-7157.html"><small>← precedente</small>Esercizio 3 SNS 2022-2023</a><a class="next" href="olifis-7160.html"><small>successivo →</small>SNS 2022/5 Ciclo reversibile adiabatiche e isobare</a></nav>
+</main></body></html>

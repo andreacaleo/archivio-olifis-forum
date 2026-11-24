@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2009/2010 Problema 6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2009-2010, problema 6</span></nav>
+<h1>SNS 2009/2010 Problema 6</h1>
+<p class="meta">20 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=254">forum Olifis</a></p>
+<article class="post first" id="p2225"><div class="who"><b>Alex90</b><span>28 ago 2009, 21:13</span></div>Un semplice termostato è costituito da due strisce di due materiali diversi, di diverso coefficiente di espansione termico <span class="tex">\(\alpha\)</span>, sovrapposte e incollare in maniera tale che, ad una certa temperatura di riferimento <span class="tex">\(T_0\)</span> le due lunghezze siano uguali. Quando però <span class="tex">\(T \not= T_0\)</span> il termostato si incurva a causa dei diversi valori di <span class="tex">\(\alpha\)</span> per i due metalli. Se il termostato è fatto di ferro (<span class="tex">\(\alpha = 12 \cdot 10^{-6} K^{-1}\)</span>) e zinco (<span class="tex">\(\alpha = 31 \cdot 10^{-6} K^{-1}\)</span>), è lungo <span class="tex">\(100 \, mm\)</span>, e spesso <span class="tex">\(1 \, mm\)</span>, di quanto si incurverà per ogni variazione di <span class="tex">\(T-T_0 = 1 \, K\)</span>? Come potreste pensare di migliorare il disegno del termostato, con un trucco geometrico?</article>
+<article class="post" id="p2233"><div class="who"><b>SARLANGA</b><span>29 ago 2009, 0:12</span></div>questo era bellino davvero ehh :) <br>
+come ve la siete cavata col trucco geometrico???<br>
+Un aumento di spessore è accettabile?</article>
+<article class="post" id="p2261"><div class="who"><b>didudo</b><span>29 ago 2009, 13:27</span></div>beh,non direi tanto bellino vecchio...anzi,direi proprio che la scimmia fumatrice addetta alla stesura dei testi di fisica (si,abbiamoteorizzato che utilizzino quelle scimmie ammestrate tipo krusty)ha proprio dato il peggio di se' quest'anno,credo che di problemi in cui capivi cosa volevano da te ce ne fossero a dir tanto 3...</article>
+<article class="post" id="p2262"><div class="who"><b>CoNVeRGe.</b><span>29 ago 2009, 13:33</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Come potreste pensare di <strong class="text-strong">migliorare il disegno</strong> del termostato, con un trucco geometrico?</div></blockquote>
+Già non sapevo di che termostato si trattasse, vabè, ma a voi sembra chiara la domanda ?</article>
+<article class="post" id="p2263"><div class="who"><b>Alex90</b><span>29 ago 2009, 13:35</span></div>Alla fine credo di aver tirato fuori una soluzione decente...il disegno non capisco cosa vogliano dire con "migliorarlo con un trucco geometrico"...qualche idea?</article>
+<article class="post" id="p2264"><div class="who"><b>MrTeo</b><span>29 ago 2009, 14:00</span></div>Forse provare, modificandone la struttura ma non la sostanza (sempre due strisce metalliche), a renderlo più efficente, preciso o più semplicemente chiaro...<br>
+<br>
+Mi verrebbe in mente di allacciare le fasce in modo da formare una circonferenza... con l'aumento di temperatura mi pare si formi un'ellisse e sembra un tantino più chiaro che considerare la curvatura di un elemento metallico vincolato agli estremi (anche se approssimabile ad un arco circonferenza credo...)</article>
+<article class="post" id="p2265"><div class="who"><b>Davide90</b><span>29 ago 2009, 14:05</span></div>Usare il compasso?  :? <br>
+Perchè in ogni punto il rapporto tra l'allungamento del ferro e l'allungamento dello zinco è costante e vale <span class="tex">\({\alpha_{ferro}\over{\alpha_{zinco}\)</span>, prorpio come il rapporto tra lunghezza di un arco sotteso da un certo angolo e raggio di curvatura...<br>
+<br>
+Poi cosa intendono per "si determini l'incurvamento"? Io gli ho scritto che trovavo l'innalzamento di un'estremità rispetto all'altra, e che poi se volevano potevano considerare il raggio oppure l'angolo di curvatura... (della serie fate quello che vi pare, tanto dal testo non si capisce)</article>
+<article class="post" id="p2266"><div class="who"><b>Alex90</b><span>29 ago 2009, 14:13</span></div>Io il compasso l'ho utilizzato sin dall'inizio...comunque io ho calcolato <span class="tex">\(\Delta \theta\)</span> in funzione di <span class="tex">\(\Delta T\)</span></article>
+<article class="post" id="p2267"><div class="who"><b>SARLANGA</b><span>29 ago 2009, 16:43</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>trovavo l'innalzamento di un'estremità rispetto all'altra</div></blockquote>
+Le due strisce erano incollate, quindi non può esserci innalzamento di una sull'altra, no?<blockquote><div><cite>Alex90 ha scritto:</cite>io ho calcolato <span class="tex">\(\Delta \theta\)</span> in funzione di <span class="tex">\(\Delta T\)</span></div></blockquote>
+Tanto di cappello, ma non era richiesto dato che l'aumento era specificatamente di 1°K...spero per te cmq che lo considerino come un punto in più!<br>
+Per quanto riguarda l'artificio geometrico l'aumento di spessore è efficacissimo e non cambia la struttura del termostato...</article>
+<article class="post" id="p2271"><div class="who"><b>Julio14</b><span>29 ago 2009, 18:26</span></div>Io, come altri che ho sentito, ho trovato il raggio di curvatura della sbarretta... l'unico problema è: come applicare bene l'allungamento delle due lamine? Le due facce centrali hanno la stessa lunghezza, mentre le due esterne no. In generale, ho sentito dopo il test che a seconda dello spessore considerato i risultati erano r=26 (il mio) o r=52. Qualcuno sa come trattare il fatto che le lamine sono vincolate fra loro?</article>
+<article class="post" id="p2272"><div class="who"><b>MrTeo</b><span>29 ago 2009, 18:29</span></div><blockquote><div><cite>SARLANGA ha scritto:</cite>Per quanto riguarda l'artificio geometrico l'aumento di spessore è efficacissimo e non cambia la struttura del termostato...</div></blockquote>
+
+Non è che aumentando lo spessore diventa rilevante la dilatazione volumica e questo ci crea un po' di problemi? Nella versione originale mi sembra si ragioni sempre in termini di variazione lineare con la temperatura...  :roll:</article>
+<article class="post" id="p2277"><div class="who"><b>SARLANGA</b><span>30 ago 2009, 11:24</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>Non è che aumentando lo spessore diventa rilevante la dilatazione volumica e questo ci crea un po' di problemi? Nella versione originale mi sembra si ragioni sempre in termini di variazione lineare con la temperatura... :roll:</div></blockquote>
+In effetti proprio questo mi dava qualche dubbio...tuttavia il testo parla cmq di spessore (=0.5 mm), non vedo perché non potremmo far variare questa grandezza...mah :?  si starà a vedere<br>
+chiunque abbia trovato un trucchetto, per favore lo posti, così ci possiamo confrontare</article>
+<article class="post" id="p2298"><div class="who"><b>Rigel</b><span>30 ago 2009, 20:37</span></div>Con riferimento al disegno chiamo <span class="tex">\(\theta\)</span> l'angolo al centro dell'arco di raggio R, considerato fino alla giunzione tra le due lamine e sia s lo spessore totale delle due lamine. l'effetto della giunzione è di allungare la lamina di ferro all'estremità superiore e di accorciare quell di zinco all'estremintà inferiore. dunque la lamina di ferro sarà più corta internamente e quella di zinco più lunga esternamente. mi pare sensato considerare come lunghezza propria di ogni quella media e trascurare l'allungamento di s. dunque <span class="tex">\(l_{Fe}=l_0(1+\alpha_{Fe}\Delta T)\)</span> e <span class="tex">\(l_{Zn}=l_0(1+\alpha_{Zn}\Delta T)\)</span><br>
+D'altra parte <span class="tex">\(l_{Fe}=(R-s/4)\theta\)</span> e<span class="tex">\(l_{Zn}=(R+s/4)\theta\)</span> e quindi<br>
+<span class="tex">\(\frac{1+\alpha_{Fe}\Delta T}{1+\alpha_{Zn}\Delta }=\frac{R-s/4}{R+s/4}\)</span><br>
+<span class="tex">\(R+R\alpha_{Zn}\Delta T-s/4(1+\alpha_{Zn}\Delta T)=\)</span><br>
+<span class="tex">\(=R+R\alpha_{Fe}\Delta T+s/4(1-\alpha_{Fe}\Delta T)\)</span><br>
+<span class="tex">\(R(\alpha_{Zn}-\alpha_{Fe})\Delta T\approx s/2\)</span><br>
+<span class="tex">\(R=\frac{s}{2(\alpha_{Zn}-\alpha_{Fe})\Delta T}=26 m\)</span><br>
+Per il secondo punto
+<blockquote><div><cite>SNS ha scritto:</cite>Come potreste pensare di migliorare il disegno del termostato, con un trucco geometrico?</div></blockquote>
+Non capisco che intende per migliorare il disegno: vuole che non ci sia deformazione, o che sia apprezzabile oppure che sia misurabile con sufficiente precisione? Mah  :?</article>
+<article class="post" id="p2299"><div class="who"><b>MrTeo</b><span>30 ago 2009, 21:22</span></div>Curioso però... in un primo momento avevo pensato che si trattasse di due lamine incollate agli estremi e che allungandosi l'una più dell'altra questa si flettesse...  :roll:<br>
+
+<blockquote><div><cite>Rigel ha scritto:</cite>Non capisco che intende per migliorare il disegno: vuole che non ci sia deformazione, o che sia apprezzabile oppure che sia misurabile con sufficiente precisione? Mah</div></blockquote>
+
+Bè... se non c'è deformazione mi pare un po' ermetico come termostato... penso che si tratti di renderla maggiore o di evidenziarla in modo da misurarne l'entità con maggior precisione...</article>
+<article class="post" id="p2300"><div class="who"><b>Alex90</b><span>30 ago 2009, 21:27</span></div>L'ho fatto identico a te...anzichè trovare il raggio però io ho trovato l'angolo...più che altro perchè il raggio varia a seconda di quale scegli...ad esempio io ho scelto <span class="tex">\(R\)</span> a metà del Ferro e ho preso il raggio di metà Zinco come <span class="tex">\(R + d/2\)</span></article>
+<article class="post" id="p2302"><div class="who"><b>Rigel</b><span>30 ago 2009, 21:36</span></div>Sì finchè <span class="tex">\(\Delta T\)</span> è piccolo il raggio è molto più grande dello spessore, quindi non varia apprezzabilmente a seconda da dove si misura.<br>
+Un'idea per la seconda domanda sarebbe che una quantità facilmente misurabile è il nuovo spessore della lamina, aumentato a causa dell'incurvamento, e quindi cercare una configurazione iniziale per cui esso è massimo.<br>
+Oppure si potrebbe provare a vincolare un estremo della lamina e trovare la distanza dell'altro estremo dalla tangente per l'estremità vincolata, ma non mi pare un trucchetto geometrico.</article>
+<article class="post" id="p2329"><div class="who"><b>CoNVeRGe.</b><span>31 ago 2009, 14:10</span></div><blockquote><div><cite>Rigel ha scritto:</cite>
+Non capisco che intende per migliorare il disegno: vuole che non ci sia deformazione, o che sia apprezzabile oppure che sia misurabile con sufficiente precisione? Mah  :?</div></blockquote></article>
+<article class="post" id="p2403"><div class="who"><b>pascal</b><span>5 set 2009, 13:41</span></div>Nel fenomeno intervengono la dilatazione termica e la deformazione elastica perché le lamine sono saldate, ma le fibre mediane sono sottoposte soltanto a dilatazione.<br>
+Applicando il primo teorema di Euclide si ottiene l’innalzamento di un estremo della lamina rispetto alla posizione iniziale:<br>
+<br>
+<span class="tex">\(y=\frac{a^2}{2R}\)</span>  <br>
+<br>
+dove a = lunghezza della corda sottesa dall’arco, confondibile con quella della lamina <span class="tex">\(l_0\)</span>. Quindi<br>
+<br>
+<span class="tex">\(y=\frac{l_0^2}{2R}=\frac{l_0^2(\alpha_{Zn}-\alpha_{Fe}) \Delta T}{s}\)</span><br>
+<br>
+cresce per sbarrette più lunghe e sottili ed è proporzionale alla variazione di temperatura. Nei termometri bimetallici per aumentare la lunghezza in volumi circoscritti, le lamine vengono avvolte ad elica o a spirale.<br>
+Per incrementare le indicazioni strumentali si potrebbe utilizzare un indice; oppure si potrebbe sistemare all’estremo della lamina un laserino ed effettuare le misure amplificate su una parete; eventualmente si potrebbe applicare uno specchietto e con un laser utilizzare il principio della leva ottica.<br>
+Sul trucco esprimo delle considerazioni che forse non sono in linea con la domanda.<br>
+La richiesta di migliorare il disegno, mi fa pensare che non c’entra niente trovare perfezionamenti tecnici per aumentare la sensibilità strumentale. Se il disegno occorre migliorarlo, significa che per qualche motivo le rappresentazioni grafiche sono imprecise. Su un foglio in scala 1:1 si può disegnare una lamina di 10 cm, ma non si può tracciare col compasso un arco col raggio di curvatura di 26 m. La lamina che s’innalza soltanto di 0,19 mm, si deve rappresentare manualmente. <br>
+Forse conviene partire da una lamina che a temperatura ambiente è stata già foggiata a forma di arco circolare con un raggio di curvatura di una quindicina di cm rappresentabile graficamente con un compasso. Col riscaldamento cambia il raggio di curvatura ancora rappresentabile e lo spostamento dell’estremo libero deve condurre alla variazione di temperatura.</article>
+<article class="post" id="p2582"><div class="who"><b>Paolone</b><span>17 set 2009, 16:40</span></div><blockquote class="uncited"><div>Non capisco che intende per migliorare il disegno: vuole che non ci sia deformazione, o che sia apprezzabile oppure che sia misurabile con sufficiente precisione? Mah</div></blockquote>
+
+Migliorare il disegno mi sembra voglia dire migliorare il progetto. E mi sembra anche che questo<br>
+si ottenga considerando un termostato fatto NON come una barretta, ma come una spirale <br>
+densamente avvoltolata. Per unità di temperatura, aumenta l'allungamento, e dunque la <br>
+precisione, la leggibilità, un po' tutto insomma. <br>
+<br>
+A me non è sembrato un problema così oscuro.</article>
+<article class="post" id="p3056"><div class="who"><b>Gauss91</b><span>16 dic 2009, 1:02</span></div>Scusate se mi intrometto, ma vorrei sapere se questo procedimento per calcolare l'angolo <span class="tex">\(\vartheta\)</span> di curvatura è giusto, dato che essendo diverso da quelli postati finora il dubbio mi viene  :oops: <br>
+Siano <span class="tex">\(\alpha_1\)</span> e <span class="tex">\(\alpha_2\)</span> i coeff di dilatazione termica di due barre di lunghezza L e spessore d appiccicate tra loro (come nel problema).<br>
+La prima avrà, dopo una variazione di temperatura <span class="tex">\(\Delta T\)</span>, una lunghezza <span class="tex">\(L(1+\alpha_1 \Delta T)\)</span>, la seconda <span class="tex">\(L(1+\alpha_2 \Delta T)\)</span>. Chiamando <span class="tex">\(r\)</span> il raggio della circonferenza passante per la "bisettrice" della sbarra interna alla circonferenza (è solo per questione di approssimazione che utilizzo questa configurazione), dovrà essere <span class="tex">\(\vartheta = \displaystyle\frac{L(1+\alpha_1 \Delta T)}{r} = \displaystyle\frac{L(1+\alpha_2 \Delta T)}{r+d}\)</span>, che dà <span class="tex">\(r = d\displaystyle\frac{1+\alpha_2 \Delta T}{\alpha_1 \Delta T - \alpha_2 \Delta T}\)</span> da cui <span class="tex">\(\vartheta = \displaystyle\frac{L(\alpha_1 - \alpha_2)\Delta T}{d}\)</span>, che nel caso di <span class="tex">\(\Delta T = 1K\)</span> si riduce a <span class="tex">\(\vartheta_{1K} = \displaystyle\frac{L(\alpha_1 - \alpha_2)}{d}\)</span>.<br>
+Una volta calcolati <span class="tex">\(\vartheta\)</span> e <span class="tex">\(r\)</span> il problema è tutto risolto. Per esempio, notando che <span class="tex">\(r\)</span> non dipende da <span class="tex">\(L\)</span> mentre <span class="tex">\(\vartheta\)</span> aumenta all'aumentare di <span class="tex">\(L\)</span>, l'utilità del termostato viene migliorata se si aumenta <span class="tex">\(L\)</span>, così da avere un'apertura angolare maggiore per unità di variazione di Kelvin.<br>
+Se i mie calcoli sono esatti, infatti, imponendo che l'apertura <span class="tex">\(\vartheta\)</span> sia <span class="tex">\(2\pi\)</span>, ossia (per non incasinarsi con <span class="tex">\(r\)</span> lo spessore<span class="tex">\(d\)</span> lasciamolo così com'è) <span class="tex">\(L = \displaystyle\frac{2\pi d}{\alpha_1 - \alpha_2}\)</span>, innalzandosi la temperatura di 1K, il termostato da dritto diventa circolare (cosa molto buffa  :P ). <br>
+Benché questo può essere difficile da realizzare (se i miei calcoli sono esatti, dai dati del problema, ci vorrebbe un filo bimetallico spesso 1mm come nel problema ma lungo 165m) vari vantaggi possono essere ottenuti dal ripiegare il termostato (come nella soluzione proposta, "a spirale") in spire varie. Sarebbe interessante fare una doppia trattazione. Siccome questo problema (sempre che la soluzione sia giusta) mi ha portato via poco tempo, magari se ce la faccio, nel test, farei una trattazione combinata variando sia L sia d, come "appendice" alla prima soluzione, o calcolando per ogni avvolgimento l'angolo risultante al fine di impostare, se spunta fuori, un problema di massimo.<br>
+Voi che ne pensate? Dove ho sbagliato? (Perché l'avrò fatto sicuramente..  :lol: )</article>
+<nav class="pager"><a class="prev" href="olifis-253.html"><small>← precedente</small>SNS 2009/2010 Problema 5</a><a class="next" href="olifis-561.html"><small>successivo →</small>SNS 2010/2011 numero 1</a></nav>
+</main></body></html>

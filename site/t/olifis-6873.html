@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>195. SNS, 2018-1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2018-2019, problema 1</span></nav>
+<h1>195. SNS, 2018-1</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6873">forum Olifis</a></p>
+<article class="post first" id="p25818"><div class="who"><b>bosone</b><span>30 mar 2020, 17:41</span></div>La legge di Gauss per la gravità implica che, se la Terra fosse una sfera solida di densità uniforme, un oggetto puntiforme lanciato dal polo nord in un tunnel privo di attrito coincidente con il proprio asse di rotazione, completerebbe un'oscillazione armonica in 84 minuti. <br>
+a) Mostrare che, trascurando la rotazione, lo stesso risultato si otterrebbe per un qualunque tunnel sotterraneo e privo di attrito fra due suoi punti<br>
+b) Discutere l'effetto della rotazione della Terra sul moto nel tunnel nei due seguenti casi: <span class="tex">\(b_1)\)</span>le due estremità hanno la stessa latitudine; <span class="tex">\(b_2)\)</span> le due estremità hanno la stessa longitudine</article>
+<article class="post" id="p25822"><div class="who"><b>Luca Milanese</b><span>31 mar 2020, 16:29</span></div>a) Siano <span class="tex">\(M\)</span> ed <span class="tex">\(R\)</span> la massa e il raggio della Terra ed <span class="tex">\(r\)</span> la distanza (variabile) dell'oggetto dal centro della Terra. Fissiamo poi un sistema di riferimento cartesiano tale che il tunnel giaccia sull'asse <span class="tex">\(x\)</span> e che i suoi due estremi si trovino alle ascisse <span class="tex">\(x_0\)</span> e <span class="tex">\(-x_0\)</span>. Per il Teorema di Gauss per la gravità (o per il secondo Teorema del guscio) sull'oggetto agisce un campo gravitazionale dato da <span class="tex">\(g=-\frac{G}{r^2} \bigg( M\frac{r^3}{R^3}\bigg)=-\frac{GMr}{R^3}\)</span>, perchè la massa della Terra esterna al guscio di raggio <span class="tex">\(r\)</span> non esercita alcuna forza netta al suo interno. Dato che trascuriamo attrito e rotazione, ci interessa solo la componente di <span class="tex">\(\vec g\)</span> parallela al tunnel, cioè la sua componente <span class="tex">\(x\)</span>, che vale <span class="tex">\(g\frac{x}{r}=-\frac{GMx}{R^3}\)</span>. Da qui concludiamo che vale <span class="tex">\(\ddot{x}=-\frac{GMx}{R^3}\)</span>, equazione di un moto armonico semplice di periodo <span class="tex">\(2\pi \sqrt{\frac{R^3}{GM}} \simeq 84 min\)</span>.<br>
+b1) come prima, <span class="tex">\(g_x=-\frac{GMx}{R^3}\)</span>. Osserviamo però che, avendo gli estremi del tunnel la stessa latitudine, il tunnel è perpendicolare all'asse di rotazione della Terra, e ruota con essa (e con l'oggetto) attorno al proprio centro con velocità angolare <span class="tex">\(\omega\)</span> data dalla rotazione terrestre. L'accelerazione netta subita dall'oggetto lungo <span class="tex">\(x\)</span> vale allora <span class="tex">\(\ddot{x}=g_x + \omega^2 x\)</span>, dove l'ultimo termine è dovuto alla forza centrifuga apparente (si ottiene la stessa espressione di <span class="tex">\(\ddot{x}\)</span> andando in coordinate polari). Ma eseguendo il conto viene, con ottima approssiamazione, <span class="tex">\(\ddot{x}=0\)</span>. Ciò significa che tutta la forza gravi1tazionale fornita dalla Terra serve a mantenere il corpo in rotazione, così che esso, lasciato andare nel tunnel, non vi cade dentro, ma rimane in rotazione attorno all'asse terrestre al livello del terreno.<br>
+b2) in questo caso, il tunnel è parallelo all'asse di rotazione della Terra, e come prima la forza centripeta necessaria è fornita completamente dalla componente di <span class="tex">\(g\)</span> diretta verso l'asse di rotazione (cioè quella perpendicolare al tunnel), avente modulo <span class="tex">\(\frac{GM}{R^3}\sqrt{R^2-x_0^2}\)</span>. Di conseguenza, la rotazione non influisce sul moto lungo il tunnel, e si ottiene la stessa equazione del punto a).<br>
+<br>
+La risposta che mi è venuta al punto b1) mi sembra abbastanza strana, per cui probabilente ho cannato almeno quel punto...</article>
+<article class="post" id="p25823"><div class="who"><b>east_beast</b><span>31 mar 2020, 16:46</span></div>Bhe stavo scrivendo in latex ma mi hai preceduto :lol:  :D  Complimenti, anche a me viene identico e credo sia corretto! Volevo chiederti, come ricavi l'espressione di <span class="tex">\({\ddot{x}}\)</span> in coordinate polari? Non è più veloce in cartesiane (come hai fatto nella soluzione)?</article>
+<article class="post" id="p25824"><div class="who"><b>Luca Milanese</b><span>31 mar 2020, 16:52</span></div>Mi stavo riferendo al caso generale in polari, dove, definito il vettore posizione come <span class="tex">\(\vec r = r \hat r\)</span>, derivandolo due volte rispetto al tempo si ottiene <span class="tex">\(\vec a= (\ddot{r}-r\dot{\theta}^2) \hat r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat \theta\)</span>. Se, in questo problema, scegli come piano quello individuato dalla rotazione del tunnel come in b1, puoi ricorrere direttamente al primo termine dell'espressione qui sopra.<br>
+P. S. Pensa che ho dovuto scrivere due volte la soluzione perchè la prima volta non avevo salvato il testo :lol: .</article>
+<article class="post" id="p25825"><div class="who"><b>east_beast</b><span>31 mar 2020, 17:01</span></div>Credo di aver capito, il termine di Coriolis è nullo poiché sempre perpendicolare al tunnel giusto?</article>
+<article class="post" id="p25826"><div class="who"><b>Luca Milanese</b><span>31 mar 2020, 17:03</span></div>Sì, non l'ho considerato anche prerchè sarebbe fornito dalla forza normale delle pareti del tunnel.</article>
+<article class="post" id="p25827"><div class="who"><b>bosone</b><span>31 mar 2020, 17:26</span></div>Tutto perfetto Luca. Vai con il 196 :D  :D</article>
+<article class="post" id="p25828"><div class="who"><b>Luca Milanese</b><span>31 mar 2020, 18:45</span></div>Come mi faceva notare bosone in privato, in realtà c'è un errore nel punto b1 della mia soluzione. Infatti, benchè l'ordine di <span class="tex">\(\ddot{x}\)</span> sia <span class="tex">\(10^{-7}\)</span>, quel termine non è trascurabile, perchè anche <span class="tex">\(g_x\)</span> è di quell'ordine. Quindi succede che <span class="tex">\( \ddot{x} = - \bigg( \frac{GM}{R^3} - \omega^2 \bigg )x \)</span>, da cui un moto armonico con un periodo leggermente maggiore di quello del punto a). Chiedo scusa per l'erroraccio  :? .</article>
+<nav class="pager"><a class="prev" href="olifis-6755.html"><small>← precedente</small>SNS Pisa 2018 Problema 1 (Tunnel al centro della terra)</a><a class="next" href="olifis-6756.html"><small>successivo →</small>SNS Pisa 2018 Problema 2 (Disquisizione Instabilità campo elettrico)</a></nav>
+</main></body></html>

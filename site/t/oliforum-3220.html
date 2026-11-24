@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elettromagnetismo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica anno ?</span></nav>
+<h1>Elettromagnetismo</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=3220">OliForum</a></p>
+<p class="notice">Qui c'è solo la prima pagina della discussione: il seguito è su OliForum, al link qui sopra.</p>
+<article class="post first" id="p35843"><div class="who"><b>Shoma85</b><span>24 feb 2005, 23:48</span></div>Ciao!<br>
+Un problema di elettromagnetismo sempre made in sns...<br>
+<br>
+Abbiamo un campo elettrico $  \overrightarrow {E}  $ e un campo magnetico $  \overrightarrow {B}  $ uniformi e ortogonali tra loro.<br>
+Descrivere il moto di una particella di massa &lt;b&gt;m&lt;/b&gt; e carica &lt;b&gt;q&lt;/b&gt; che parte da ferma...<br>
+<br>
+Ps Alex bastardo... mi hai battuto sul tempo!  :evil:</article>
+<article class="post" id="p35878"><div class="who"><b>bh3u4m</b><span>25 feb 2005, 13:49</span></div>Beh... provo a rispondere io, anche se penso di scrivere stupidate dato che ho 40° di febbre...<br>
+<br>
+Innanzi tutto considero l'eq. della forza agente sulla carica...<br>
+<br>
+$ \overrightarrow {F} $ = q( $ \overrightarrow {E} $ + $  \overrightarrow {v}  $ prodotto croce $ \overrightarrow{B} $<br>
+<br>
+equivalente a:<br>
+<br>
+m d $  \overrightarrow {v}  $/dt = q E <strong class="text-strong">i</strong> + v B <strong class="text-strong">k</strong><br>
+<br>
+risolvendo questa equazione differenziale si dovrebbe (se non erro) trovare la velocità in funzione del tempo...</article>
+<article class="post" id="p36232"><div class="who"><b>EvaristeG</b><span>28 feb 2005, 22:19</span></div>Beh, risolvetela questa equazione differenziale, no?</article>
+<article class="post" id="p36298"><div class="who"><b>info</b><span>01 mar 2005, 19:45</span></div>Ehm... nn ci ho pensato molto (il tempo fuori rete per questo sito l'ho dedicato solo alla benza, con scarsi risultati), ma spero che Shoma85 volesse solo una descrizione sommaria... In tal caso, il campo E accellera il componente parallelo alle linee del campo elettrico in modo costante. Il campo B, provoca una deviazione della traiettoria. Il risultato sembra essere una spirale che si allarga sempre di più (sembra che nn voglia proprio mettermi a fare calcoli ultimamente!)...</article>
+<article class="post" id="p36325"><div class="who"><b>Shoma85</b><span>01 mar 2005, 22:11</span></div>No, la traiettoria non è una spirale... e non volevo una descrizione sommaria.<br>
+L'equazione del moto si può trovare anche senza risolvere l'equazione differenziale (che non è difficile!).<br>
+<br>
+Ciao!  :wink:</article>
+<article class="post" id="p36344"><div class="who"><b>info</b><span>01 mar 2005, 23:42</span></div>Ma dove tiro fuori queste cavolate? Forse è meglio che prima di rispondere la prox volta penso un attimo mi faccio un disegnino: magari mi accoregerei che la traiettoria giace su un piano, come ben bh3u4h ha fatto notare!</article>
+<article class="post" id="p36347"><div class="who"><b>info</b><span>02 mar 2005, 00:00</span></div>Per farmi perdonare provo ad impostare i calcoli. Imposto le equazioni sull'asse x ed y in un generico istante tx.<br>
+<br>
+m*d(vy)/dt = vx*B*q<br>
+<br>
+m*d(vx)/dt = q*E - vy*B*q<br>
+<br>
+domani controllo se è corretto e provo a risolverlo, tempo permettendo!</article>
+<article class="post" id="p36361"><div class="who"><b>bh3u4m</b><span>02 mar 2005, 12:11</span></div>Dovrebbe essere così:<br>
+<br>
+$ m \frac {d(v_y)}{ v_x} =  q B  dt \newline
+m v_y = x_x q B \newline \newline
+m d(v_x) = q (E - v_y B) dt \newline
+m v_x = q (E t - x_y B) \newline \newline  $<br>
+<br>
+L'equazione del moto è allora:<br>
+$  \vec v = \frac 1 m (x_x q B) \vec j + \frac {q}{m} (t E - x_y B) \vec i  $</article>
+<article class="post" id="p36364"><div class="who"><b>info</b><span>02 mar 2005, 13:59</span></div>Nn capisco cosa vuol dire Xx.. posizione x al tempo x? E perchè è nell'equazione del moto?<br>
+<br>
+Ho provato sul pullman a risolvere il sistema sopra e mi viene qualcosa del tipo (nn ho mai risolto un'equazione differenziale ed ero senza testo, ho notato solo analogie con il moto armonico) [lo riporto anche se bh3u4m ha già dato una risposta...nn importa se è cannato]:<br>
+<br>
+vy= -cos(qB/m*t)*vo+E/B<br>
+vx= sen(qB/M*t)*vo<br>
+<br>
+vy(0)=0---&gt;vo=E/B---vx(0)=0---&gt;già fatto? meglio così! Forse bisognava aggiungere un sfasamento angolare...<br>
+<br>
+da quà si trova posizione e tutto il resto. Credo venga un ellisse...risultato alquanto strano... sto sbagliando ancora? <br>
+<br>
+<br>
+PS: cmq la spirale allargata credo venga con una diversa disposizione di E e B (quella immaginata da me inizialmente)...</article>
+<article class="post" id="p36370"><div class="who"><b>bh3u4m</b><span>02 mar 2005, 14:15</span></div>come fanno a comparirti le funzioni trigonometriche? puoi mettere i passaggi del calcolo?</article>
+<article class="post" id="p36377"><div class="who"><b>AleX_ZeTa</b><span>02 mar 2005, 15:53</span></div>info dovrebbe essere giusta (non mi ricordo la sol. esatta di quelle eq. diff.), ma non è un ellisse...<br>
+<br>
+prova a disegnartela e vedi cosa viene...</article>
+<article class="post" id="p36378"><div class="who"><b>Shoma85</b><span>02 mar 2005, 16:00</span></div>bh3u4m ma che hai fatto?<br>
+<br>
+non si maltrattano così le eq. differenziali!<br>
+Se provi a fare i conti giusti capirai "come fanno a comparirti le funzioni trigonometriche"...   :twisted: <br>
+<br>
+Cmq se si prende un sistema di riferimento furbo i conti sono più facili...</article>
+<article class="post" id="p36379"><div class="who"><b>bh3u4m</b><span>02 mar 2005, 16:23</span></div>Ma come la risolvete quell'equazione? Non riesco proprio a capire come saltano fuori le funzioni trigonometriche.</article>
+<article class="post" id="p36391"><div class="who"><b>info</b><span>02 mar 2005, 19:06</span></div>Si hai ragione AleX_ZeTa... A mente nn avevo calcolato che il termine E/B integrando per trovare la funzione spazio rimane e quindi il moto sull'asse y nn è armonico (avevo detto ellisse pensando all'unione di due moti armonici)...<br>
+<br>
+Cmq per far uscire quella roba ho ricavato vy dalla prima integrando entrambi i membri, ho sostituito nella seconda e derivato una volta, trovando una relazione per vx simile a quella del moto armonico..il resto è meccanico...ma la correttezza di questa roba è solo una scommessa..<br>
+<br>
+Ora provo a fare il disegnino! Così magari mi viene in mente il metodo "furbo"..<br>
+<br>
+Sempre che la funzione sopra sia corretta, il disegnino della traiettoria diviene una specie di collinetta (con evidenti richiami sessuali) ripetuta all'infinito...</article>
+<article class="post" id="p36402"><div class="who"><b>aursic</b><span>02 mar 2005, 21:14</span></div>...suggerimento...<br>
+per capire il tipo di traiettoria provate ad analizzare il moto dal punto di vista di un sistema di riferimento in moto con Vy=E/B e Vx=0</article>
+<nav class="pager"><a class="prev" href="oliforum-3656.html"><small>← precedente</small>rilancio parabolico</a><a class="next" href="oliforum-3264.html"><small>successivo →</small>Spostato: Tappeto</a></nav>
+</main></body></html>

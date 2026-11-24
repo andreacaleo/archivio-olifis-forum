@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2017 n.5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2017-2018, problema 5</span></nav>
+<h1>SNS 2017 n.5</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6550">forum Olifis</a></p>
+<article class="post first" id="p23861"><div class="who"><b>.Ruben.</b><span>4 ott 2017, 12:30</span></div>Una formica puntiforme si muove sul piano cartesiano, partendo dal punto A = (1, 0), e vuole raggiungere il punto B = (2, 0).<br>
+E' però vincolata a muoversi su una pedana della forma di un anello centrato in (0, 0) di raggi 1 e 2 e, relativamente ad essa, si può muovere con velocità unitaria in direzione qualsiasi.<br>
+La pedana ruota in senso antiorario con velocità uniforme in modo da compiere ω giri in un tempo unitario, con 0≤ω≤1. Qual è il tempo minimo T(ω), in funzione di ω, che serve per raggiungere B?<br>
+Nota: il cammino più breve sull'anello che congiunge due punti che si trovano sul bordo interno dell'anello è l'arco di cerchio di lunghezza minima che li congiunge.</article>
+<article class="post" id="p23864"><div class="who"><b>lance00</b><span>4 ott 2017, 21:35</span></div>t = x/w   <br>
+dove w = velocità angolare e x soddista l'equazione sqrt(5+4cosx) = (x^2)/w ?   :?</article>
+<article class="post" id="p23865"><div class="who"><b>.Ruben.</b><span>5 ott 2017, 8:00</span></div>Come ci sei arrivato?</article>
+<article class="post" id="p23869"><div class="who"><b>lance00</b><span>5 ott 2017, 13:49</span></div>Noto che il problema è equivalente se tolgo la pedana e faccio muovere il punto B in senso orario. Impongo poi che la formica incontri B quando le sue cordinate sono (2cosx,2sinx). Eguaglio i tempi di percorrenza e dopo un po' di conti arrivo a quell'equazione  :D</article>
+<article class="post" id="p23984"><div class="who"><b>lance00</b><span>11 nov 2017, 14:47</span></div>Mi sono reso conto di un errore  :oops:  nella mia soluzione facevo passare la formica anche per il cerchio di centro (0,0) e raggio 1 e quindi è chiaramente sbagliata. Provo a rimediare  :) <br>
+<br>
+Suppongo che la pedana non ruoti (tanto sia la formica che B si muovono su questo sdr e quindi per loro è come se non esistesse) e che la formica incontri B quando si trova in P: <span class="tex">\((2cos\theta; 2sin\theta)\)</span> Chiaramente se <span class="tex">\(-\frac{\pi}{3} \leq \theta \leq \frac{\pi}{3} \)</span> (ce ne possiamo accorgere disegnando la tangente al cerchio di raggio 1 in (1;0)) esiste un percorso rettilineo che congiunge A (posizione iniziale della formica) e P  di lunghezza <span class="tex">\(l = \sqrt{5-4cos\theta}\)</span> e poiché la velocità della formica è unitaria <span class="tex">\(t = \sqrt{5-4cos\theta}\)</span>. Se invece <span class="tex">\(\frac{\pi}{3} \leq \theta \leq \frac{5\pi}{3}\)</span> la formica deve muoversi lungo il cerchio di raggio 1 fino a che non incontra la retta tangente al cerchio di raggio 1 e passante per P nel punto Q. Applicando il teorema della secante, si ottiene <span class="tex">\(BQ = \sqrt{3}\)</span> e siccome <span class="tex">\(\angle BOA = \frac{\pi}{3}\)</span> (il triangolo <span class="tex">\(QOM\)</span> con M punto medio di BO è equilatero in quanto QO e CO raggi e QC = OC per una nota proprietà dei triangoli rettangoli) la formica percorre un arco che sottende un angolo al centro pari a <span class="tex">\(\theta -\frac{\pi}{3}\)</span> (se <span class="tex">\(\theta \leq \pi\)</span>). Dunque in questo caso <span class="tex">\(t =
+ \theta - \frac{\pi}{3}+\sqrt{3}\)</span>. Se invece <span class="tex">\(\theta &gt; \pi\)</span> alla formica conviene girare in senso orario di un angolo <span class="tex">\(2\pi-\frac{\pi}{3}-\theta = \frac{5\pi}{3}-\theta\)</span> e quindi <span class="tex">\(t = \frac{5\pi}{3}-\theta+\sqrt{3}\)</span>. In ogni caso bisogna che B sia effettivamente in P dopo un tempo t. Bisogna quindi mettere a sistema le equazioni trovate per t con <span class="tex">\(\theta = 2 \pi \omega t\)</span>.</article>
+<article class="post" id="p23988"><div class="who"><b>carol</b><span>13 nov 2017, 11:34</span></div>Non ho approfondito e quindi posso dire cavolate ma <span class="tex">\(\theta=2\pi.\omega.t\)</span>non mi torna perchè avrebbe le dimensioni di un angolo al quadrato :?:  :?:<br>
+Sono subissato da verifiche e non mi posso concentrare su questo bellissimo problemino. Comunque esprimo l'opinione che è importante la Nota e sono importanti i venti alisei che si studiano a geografia?! :?:  :!:</article>
+<article class="post" id="p23989"><div class="who"><b>lance00</b><span>13 nov 2017, 14:56</span></div>w in questo problema non è la velocità angolare ma la frequenza  :)</article>
+<article class="post" id="p23990"><div class="who"><b>carol</b><span>13 nov 2017, 17:59</span></div>ok. Ma credo che la mia opinione sul problema rimanga :roll:</article>
+<article class="post" id="p23991"><div class="who"><b>lance00</b><span>13 nov 2017, 19:55</span></div>ho tenuto conto della nota ... e direi che coriolis possiamo trascurarlo  :D</article>
+<article class="post" id="p23995"><div class="who"><b>carol</b><span>15 nov 2017, 11:55</span></div>Avendo capito che si trattava di un quesito di matematica (ho visto nel sito SNS) provo allora da scuola la mia soluzione. La formica deve andare nel tempo t dalle sue coordinate assolute (1,0) al punto B che è passato dalle coordinate assolute (2,0) alle coordinate assolute <span class="tex">\((2 cos(2\pi \omega.t); 2sen(2\pi \omega.t))\)</span>. Per impiegare il tempo t minimo alla formica conviene seguire il bordo interno all'anello di lunghezza <span class="tex">\(2\pi.\omega.t.1\)</span>poichè addiziona la propria velocità relativa (1m/s) alla velocità di trascinamento <span class="tex">\(2\pi.\omega.1\)</span>. Poi deve attraversare la piattaforma che è 1 m alla velocità di 1 m/s (in questo caso la velocità di trascinamento è perpendicolare al raggio e dunque inefficace all'attraversamento). Allora ricapitolando deve essere<br>
+<span class="tex">\(t= \frac{(2\pi.\omega.t.1)}{1+2\pi \omega .1}+ 1\)</span>  da cui risulta ricavando t in funzione di <span class="tex">\(\omega\)</span><br>
+<span class="tex">\(T(\omega)= 1+2\pi \omega\)</span>. Chiaramente se <span class="tex">\(\omega=0\)</span> il tempo è minimo dei minimi perchè basta attraversi la piattaforma impiegando T=1s. Se <span class="tex">\(\omega=1\)</span> il tempo minimo è il massimo dei minimi  ovvero<span class="tex">\((1+2\pi)\)</span>s :?:  :?:</article>
+<nav class="pager"><a class="prev" href="olifis-7155.html"><small>← precedente</small>SNS 2017/18 n.3</a><a class="next" href="olifis-7156.html"><small>successivo →</small>SNS 2017/18 n.5</a></nav>
+</main></body></html>

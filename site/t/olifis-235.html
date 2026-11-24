@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1970 SNS-Pompe</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1970-1971, problema II</span></nav>
+<h1>1970 SNS-Pompe</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=235">forum Olifis</a></p>
+<article class="post first" id="p2102"><div class="who"><b>Loren Kocillari89</b><span>23 ago 2009, 22:22</span></div><strong class="text-strong">ATTENZIONE:</strong><br>
+Il livello di questo problema è stato annotato dagli stessi professori della Normale come complesso e non banale. Spero che abbiate la voglia e le capacità per buttare giù un abbozzo se non la soluzione.<br>
+<br>
+"Il principio su cui funzionano certe pompe è il seguente. Un condensatore piano è costituito da due armature rettangolari verticali di lati <span class="tex">\(a\)</span> e <span class="tex">\(b\)</span> collegate a un generatore di differenza di potenziale <span class="tex">\(V\)</span>. Esse sono applicate alle pareti interne di un tubo rettangolare di materiale isolante immerso in un campo magnetico <span class="tex">\(B\)</span>, parallelo al lato <span class="tex">\(a\)</span> e uniforme. Nel tubo c'è liquido di densità <span class="tex">\(d\)</span> e resistività <span class="tex">\(r\)</span>. Il dispositivo viene fatto funzionare come pompa per sollevare il liquido tra due recipienti grandi tra i quali c'è dislivello <span class="tex">\(h\)</span> costante.<br>
+Trovare il valore minimo <span class="tex">\(B_o\)</span> di <span class="tex">\(B\)</span> perchè la pompa funzioni. Trovare la velocità di regime per <span class="tex">\(B&gt;B_o\)</span>. Cosa succede per <span class="tex">\(B&lt;B_o\)</span>??"<br>
+<br>
+Buon Divertimento!</article>
+<article class="post" id="p2105"><div class="who"><b>MrTeo</b><span>23 ago 2009, 22:48</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite><strong class="text-strong">ATTENZIONE:</strong><br>
+Il livello di questo problema è stato annotato dagli stessi professori della Normale come complesso e non banale.</div></blockquote>
+
+Stai cercando di spaventare qualcuno?  :mrgreen:</article>
+<article class="post" id="p2110"><div class="who"><b>Ippo</b><span>24 ago 2009, 0:29</span></div>(Il testo è incompleto, hai saltato una riga)<br>
+<br>
+Allora abbiamo tra le piastre una resistenza <span class="tex">\(R={rc \over ab}\)</span> dove chiamiamo c il terzo spigolo del tubo-parallelepipedo. Quindi tra le piastre scorre una corrente <span class="tex">\(i={V \over R}={abV \over rc}\)</span><br>
+La forza magnetica agente sulla massa di liquido tra le piastre del condensatore è <span class="tex">\(F=icB={abBV \over r}\)</span> <br>
+Questa forza deve "pompare" in alto la colonna di liquido, cioè deve fornire una pressione maggiore di quella causata dal peso della colonna di liquido, che è alta h; per Stevino abbiamo quindi <span class="tex">\({F \over ac}={bBV \over cr} \geq dgh\)</span> da cui il valore minimo <span class="tex">\(B_0={crdgh \over bV}\)</span><br>
+Strano che dipenda da una quantità non nominata nel testo, ma in effetti è anche logico che più largo è il tubo più intenso debba essere il campo (una volta dimostrato che la forza magnetia invece è indipendente dalla larghezza del tubo).<br>
+<br>
+Per la conservazione dell'energia a regime la potenza elettrica dissipata per effetto Joule eguaglia la derivata della variazione di energia potenziale gravitazionale; si ottiene quindi<br>
+<span class="tex">\(iV=mg{dh \over dt}=mgv=dachgv\)</span><br>
+<span class="tex">\({abV^2 \over rc}=dachgv\)</span> da cui la velocità di regime<br>
+<span class="tex">\(v={bV^2 \over rc^2dhg}\)</span></article>
+<article class="post" id="p2117"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 10:30</span></div>Io non riesco a capire che cosa si intende per "due recipienti grandi"..Non ne basta solo uno in cui ci sia un dislivello h?</article>
+<article class="post" id="p2132"><div class="who"><b>Davide90</b><span>24 ago 2009, 12:23</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Io non riesco a capire che cosa si intende per "due recipienti grandi"..Non ne basta solo uno in cui ci sia un dislivello h?</div></blockquote>
+Credo che sia superfluo alla fine, quello che conta è che il liquido salga di un livello h... che poi rimanga nello stesso recipiente, o passi da uno ad un altro più in alto, non cambia nulla (secondo me).</article>
+<article class="post" id="p2135"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 12:51</span></div><blockquote><div><cite>Davide90 ha scritto:</cite><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Io non riesco a capire che cosa si intende per "due recipienti grandi"..Non ne basta solo uno in cui ci sia un dislivello h?</div></blockquote>
+Credo che sia superfluo alla fine, quello che conta è che il liquido salga di un livello h... che poi rimanga nello stesso recipiente, o passi da uno ad un altro più in alto, non cambia nulla (secondo me).</div></blockquote>
+
+Ho abbandonato questo esercizio solo per questo dettaglio e vengo a sapere che è superfluo?? :evil:   :lol:</article>
+<article class="post" id="p7163"><div class="who"><b>AxxMan</b><span>11 ago 2011, 14:02</span></div>La soluzione di Ippo non è completa, ho fatto oggi questo problema e il libro della SNS mi dà ragione, quindi visto che è davvero interessante scrivo come si fa. Per il primo punto va bene come ha scritto Ippo, per il secondo bisogna considerare che se il fluido si muove, verso l'alto o verso il basso, il campo magnetico esercita anche una forza orizzontale sul fluido, che fa diminuire o aumentare la fem efficace e quindi la corrente. La situazione va verso la stabilità energetica quando la potenza che serve per innalzare il liquido più quella dissipata per effetto joule sono uguali al lavoro per unità di tempo svolto dai condensatori sulle cariche, che è uguale alla corrente per la differenza di potenziale tra le armature, nonostante questa non sia la fem efficace. Dobbiamo ricordarci infatti che la forza magnetica non compie lavoro. Diciamo che è un po' difficile configurarsi questa situazione, ma pensandoci un po' tutto torna. Magari tra un po' scrivo i conti</article>
+<nav class="pager"><a class="prev" href="olifis-4401.html"><small>← precedente</small>SNS 1968/69 esercizio n°3</a><a class="next" href="oliforum-4103.html"><small>successivo →</small>Sembra semplice...(da un sns 72)</a></nav>
+</main></body></html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011 numero 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011, problema 4</span></nav>
+<h1>SNS 2010/2011 numero 4</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=560">forum Olifis</a></p>
+<article class="post first" id="p5034"><div class="who"><b>Luke</b><span>28 ago 2010, 14:59</span></div>Un po' di termodinamica...<br>
+<br>
+Un gas monoatomico di <span class="tex">\(N\)</span> moli compie un ciclo termodinamico, composto da: un espansione isobara alla pressione <span class="tex">\(p_2\)</span> da <span class="tex">\(V_1\)</span> a <span class="tex">\(V_2\)</span>, un'isocora su <span class="tex">\(V_2\)</span> da <span class="tex">\(p_2\)</span> a <span class="tex">\(p_1\)</span>, una compressione isobara su <span class="tex">\(p_1\)</span> da <span class="tex">\(V_2\)</span> a <span class="tex">\(V_1\)</span>. (In pratica ti davano il piano cartesiano col rettangolino che rappresentava la trasformazione). Si chiede a) di calcolare il rendimento del ciclo e di confrontarlo con quello di una macchina di Carnot che lavora tra le stesse temperature, e b) di verificare direttamente che il rendimento di un ciclo di carnot è sempre maggiore di questo per <span class="tex">\(V_1/V_1 = 2\)</span><br>
+<br>
+Facile quanto brutto secondo me, c'era solo da ricordarsi la formula del rendimento e fare i calcoli (piuttosto noiosi).</article>
+<article class="post" id="p27907"><div class="who"><b>Tarapìa Tapioco</b><span>20 ago 2023, 13:20</span></div>Riapro, dopo quasi 13 anni, la trattazione di un argomento (un problema proposto alla prova di ammissione del 2010/11 alla SNS) allo scopo di offrirne una risoluzione che, sebbene facile, può essere utilmente presa in considerazione da chiunque visiti il Forum.<br>
+<br>
+Si consideri, sul piano di Clapeyron <span class="tex">\(p-V\)</span>, un ciclo rettangolare <span class="tex">\(A\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(B\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(C\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(D\)</span>: la trasformazione <span class="tex">\(A\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(B \)</span> è un'espansione isobara su <span class="tex">\(p_2\)</span> da <span class="tex">\(V_1\)</span> a <span class="tex">\(V_2\)</span>; la trasformazione <span class="tex">\(B \)</span><span class="tex">\(\to\)</span> <span class="tex">\(C\)</span> è un'isocora su <span class="tex">\(V_2\)</span> da <span class="tex">\(p_2\)</span> a <span class="tex">\(p_1\)</span>; la trasformazione <span class="tex">\(C\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(D \)</span> è una compressione isobara su <span class="tex">\(p_1\)</span> da <span class="tex">\(V_2\)</span> a <span class="tex">\(V_1\)</span>; la trasformazione <span class="tex">\(D\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(A\)</span> è un'isocora su <span class="tex">\(V_1\)</span> da <span class="tex">\(p_1\)</span> a <span class="tex">\(p_2\)</span>. Pertanto, applicando l'equazione dei gas perfetti ai quattro stati <span class="tex">\(A\)</span> (stato iniziale dell'espansione isobara da <span class="tex">\(V_1\)</span> a <span class="tex">\(V_2\)</span> e finale dell'isocora da <span class="tex">\(p_1\)</span> a <span class="tex">\(p_2\)</span>), <span class="tex">\(B\)</span> (stato finale dell'espansione isobara da <span class="tex">\(V_1\)</span> a <span class="tex">\(V_2\)</span> e iniziale dell'isocora da <span class="tex">\(p_2\)</span> a <span class="tex">\(p_1\)</span>), <span class="tex">\(C\)</span> (stato finale dell''isocora da <span class="tex">\(p_2\)</span> a <span class="tex">\(p_1\)</span> e iniziale della compressione isobara da <span class="tex">\(V_2\)</span> a <span class="tex">\(V_1\)</span>), <span class="tex">\(D\)</span> (stato finale della compressione isobara da <span class="tex">\(V_2 \)</span> a <span class="tex">\(V_1 \)</span> e iniziale dell'isocora su <span class="tex">\(V_1 \)</span> da <span class="tex">\(p_1 \)</span> a <span class="tex">\( p_2\)</span>):<br>
+<br>
+<span class="tex">\(1)\)</span> <span class="tex">\(A: p_2 V_1 = NRT_{2,1}\)</span>                                                                                     <br>
+<span class="tex">\(2)\)</span> <span class="tex">\(B: p_2 V_2 = NRT_2\)</span>      <br>
+<span class="tex">\(3)\)</span> <span class="tex">\(C: p_1 V_2 = NRT_{1,2} \)</span>      <br>
+<span class="tex">\(4)\)</span> <span class="tex">\(D: p_1 V_1 = NRT_1\)</span><br>
+<br>
+Dalla <span class="tex">\(2)\)</span>, è possibile ottenere <span class="tex">\(p_2\)</span>:   <span class="tex">\(p_2 = \frac{N R T_2}{V_2}\)</span>       <br>
+<br>
+Dalla <span class="tex">\(4)\)</span>, è possibile ottenere <span class="tex">\(p_1\)</span>:  <span class="tex">\(p_1 =\frac{N R T_1}{V_1}\)</span><br>
+<br>
+Inoltre, si possono ricavare le temperature intermedie <span class="tex">\(T_{2,1}\)</span> e <span class="tex">\(T_{1,2}\)</span>, dividendo rispettivamente la <span class="tex">\(2)\)</span> dalla <span class="tex">\(1)\)</span>, e la <span class="tex">\(4)\)</span> dalla <span class="tex">\(3)\)</span>. Dunque:<br>
+<br>
+<span class="tex">\(\frac{p_2 V_1}{p_2 V_2} = \frac{NRT_{2,1}}{NRT_2} \Rightarrow   T_{2,1} = \frac{V_1}{V_2}T_2\)</span><br>
+<br>
+<span class="tex">\(\frac{p_1 V_2}{p_1 V_1} = \frac{NRT_{1,2}}{NRT_1} \Rightarrow T_{1,2} = \frac{V_2}{V_1}T_1\)</span><br>
+<br>
+<br>
+<span class="tex">\(a)\)</span>  Per definizione, il rendimento <span class="tex">\(\eta\)</span> del ciclo termodinamico rettangolare <span class="tex">\(A\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(B\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(C\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(D\)</span>, che avviene tra la temperatura minima <span class="tex">\(T_1 \)</span> (dello stato D) e quella massima <span class="tex">\(T_2 \)</span> (dello stato B), si calcola come:<br>
+<br>
+<span class="tex">\(\eta = \frac{L}{Q_A}\)</span>, dove <span class="tex">\(L\)</span> è il lavoro compiuto e <span class="tex">\(Q_A \)</span> è il calore assorbito durante il ciclo. <br>
+<br>
+Poiché il ciclo <span class="tex">\(A \)</span> <span class="tex">\(\to\)</span> <span class="tex">\(B \)</span><span class="tex">\(\to\)</span> <span class="tex">\(C \)</span><span class="tex">\(\to\)</span> <span class="tex">\(D \)</span> è rettangolare e percorso in senso orario, il lavoro <span class="tex">\(L \)</span> è - per convenzione - positivo; esso può essere calcolato come area del rettangolo <span class="tex">\(ABCD\)</span> deducibile dal diagramma <span class="tex">\((V, p)\)</span>, le cui base e altezza sono pari, rispettivamente, a <span class="tex">\(AB = DC = \Delta V\)</span> e <span class="tex">\(AD = BC = \Delta p\)</span>, ove <span class="tex">\(\Delta V = V_2 - V_1\)</span> e <span class="tex">\(\Delta p = p_2 - p_1\)</span>. Si ottiene, dunque:<br>
+<br>
+<span class="tex">\(L = \Delta p \cdot \Delta V\)</span>  <span class="tex">\(\Rightarrow\)</span>  <span class="tex">\(L = (p_2 - p_1) (V_2 - V_1)\)</span><br>
+<br>
+Sostituendo <span class="tex">\(p_1 \)</span> e <span class="tex">\(p_2 \)</span> nell'espressione di <span class="tex">\(L\)</span>, è possibile esprimere il lavoro in funzione delle temperature <span class="tex">\(T_1 \)</span> e <span class="tex">\(T_2\)</span>:<br>
+<br>
+<span class="tex">\(L = \bigg(\frac{NRT_2}{V_2} - \frac{NRT_1}{V_1}\bigg) \bigg(V_2 - V_1\bigg)\)</span> <span class="tex">\(=\)</span> <span class="tex">\(NRT_2 - NRT_2\frac{V_1}{V_2} - NRT_1\frac{V_2}{V_1} + NRT_1\)</span> <span class="tex">\(=\)</span> <span class="tex">\(NRT_2 \bigg(1-\frac{V_1}{V_2}\bigg) - NRT_1 \bigg(\frac{V_2}{V_1} - 1\bigg)\)</span> <span class="tex">\(\Rightarrow\)</span> <br>
+<br>
+<span class="tex">\(L = NR \bigg[\bigg(1-\frac{V_1}{V_2}\bigg)T_2 -\bigg(\frac{V_2}{V_1}-1\bigg)T_1\bigg]\)</span>, espressione nella quale si è introdotto il rapporto tra i volumi anziché quello tra le pressioni.<br>
+<br>
+Il calore <span class="tex">\(Q_A\)</span> assorbito durante le trasformazioni <span class="tex">\(D\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(A\)</span> (isocora, cioè a volume costante) e <span class="tex">\(A\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(B \)</span> (isobara, cioè a pressione costante), è dato da:<br>
+<br>
+<span class="tex">\(Q_A = Q_V + Q_p\)</span> , dove <span class="tex">\(Q_V = Q_{D \to A}\)</span> è il calore assorbito durante l'isocora e <span class="tex">\(Q_p = Q_{A \to B}\)</span> il calore assorbito durante l'isobara. I calori <span class="tex">\(Q_V \)</span> e <span class="tex">\(Q_p \)</span> possono essere calcolati come: <span class="tex">\(Q_V = N c_V \Delta T_{D \to A}\)</span> e <span class="tex">\(Q_p = N c_p \Delta T_{A \to B}\)</span>, dove <span class="tex">\(c_V = \frac{3}{2} R\)</span> e <span class="tex">\(c_p =  \frac{5}{2} R\)</span> rappresentano, rispettivamente, i calori molari a volume e pressione costanti per un gas monoatomico, con:                                <br>
+<span class="tex">\(\Delta T_{D \to A} = T_{2,1} - T_1\)</span> e <span class="tex">\(\Delta T_{A \to B} = T_2 - T_{2,1}\)</span>. Dunque:<br>
+<br>
+<span class="tex">\(Q_A = \frac{3}{2} NR \bigg(T_{2,1} - T_1\bigg) + \frac{5}{2} NR \bigg(T_2 - T_{2,1}\bigg)\)</span>.<br>
+<br>
+Sostituendo i valori delle temperature intermedie <span class="tex">\(T_{2,1}\)</span> e <span class="tex">\(T_{1,2}\)</span> trovate in precedenza, si ottiene:<br>
+<br>
+<span class="tex">\(Q_A = \frac{3}{2}NR \bigg(\frac{V_1}{V_2} T_2 -T_1\bigg) + \frac{5}{2} NR \bigg(T_2-\frac{V_1}{V_2}T_2\bigg)\)</span> <span class="tex">\(= \)</span> <span class="tex">\(NR \bigg(\frac{3}{2}\frac{V_1}{V_2} T_2 -\frac{3}{2}T_1 + \frac{5}{2}T_2-\frac{5}{2}\frac{V_1}{V_2}T_2\bigg)\)</span> <span class="tex">\(= \)</span> <span class="tex">\(NR \bigg (\frac{5}{2}T_2 -\frac{V_1}{V_2}T_2 -\frac{3}{2} T_1\bigg)\)</span> <span class="tex">\(\Rightarrow\)</span> <br>
+<br>
+<span class="tex">\(\Rightarrow\)</span>  <span class="tex">\(Q_A = NR \bigg[\bigg(\frac{5}{2}-\frac{V_1}{V_2}\bigg) T_2 -\frac{3}{2} T_1\bigg]\)</span><br>
+<br>
+<br>
+Il rendimento del ciclo sarà, dunque:<br>
+<br>
+<span class="tex">\(\eta = \frac{L}{Q_A}\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\frac{NR \bigg[\bigg(1-\frac{V_1}{V_2}\bigg)T_2 -\bigg(\frac{V_2}{V_1}-1\bigg)T_1\bigg]}{NR \bigg[\bigg(\frac{5}{2}-\frac{V_1}{V_2}\bigg) T_2 -\frac{3}{2} T_1\bigg]}\)</span> <span class="tex">\(\Rightarrow\)</span>  <span class="tex">\(\eta =\frac{\bigg[\bigg(1-\frac{V_1}{V_2}\bigg)T_2 -\bigg(\frac{V_2}{V_1}-1\bigg)T_1\bigg]}{ \bigg[\bigg(\frac{5}{2}-\frac{V_1}{V_2}\bigg) T_2 -\frac{3}{2} T_1\bigg]}\)</span><br>
+<br>
+Dividendo, per ragioni dimostrative, numeratore e denominatore per il coefficiente di <span class="tex">\(T_2\)</span> al numeratore, ovvero <span class="tex">\(\bigg(1-\frac{V_1}{V_2}\bigg)\)</span>, il rendimento presenterà un'espressione analitica uguale alla seguente:<br>
+<br>
+<span class="tex">\(\eta = \frac{\frac{\bigg[\bigg(1-\frac{V_1}{V_2}\bigg)T_2 -\bigg(\frac{V_2}{V_1}-1\bigg)T_1\bigg]}{\bigg(1-\frac{V_1}{V_2}\bigg)}}{\frac{\bigg[\bigg(\frac{5}{2}-\frac{V_1}{V_2}\bigg) T_2 -\frac{3}{2} T_1\bigg]}{\bigg(1-\frac{V_1}{V_2}\bigg)}}\)</span> <span class="tex">\(= \)</span> <span class="tex">\(\frac{{T_2-\frac{\bigg(\frac{V_2}{V_1}-1\bigg)T_1}{\bigg(1-\frac{V_1}{V_2}\bigg)}}}{\frac{\bigg(\frac{5V_2 -2V_1}{2V_2}\bigg)T_2}{\frac{V_2-V_1}{V_2}}-\frac{3T_1}{2\bigg(\frac{V_2-V_1}{V_2}\bigg)}} = \frac{T_2-\bigg(\frac{\frac{V_2-V_1}{V_1}}{\frac{V_2-V_1}{V_2}}\bigg)T_1}{\bigg[\frac{5V_2-2V_1}{2 (V_2 - V_1)}\bigg]T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\color{Red} \boxed{\color{Black} \eta = \frac{T_2 -\frac{V_2}{V_1}T_1}{\bigg[\frac{5V_2 - 2V_1}{2 (V_2 - V_1)}\bigg]T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1}}\)</span><br>
+<br>
+Dal confronto tra il rendimento termodinamico del ciclo reversibile rettangolare in esame e quello di un ciclo di Carnot operante tra le stesse temperature estreme <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2\)</span>, ci si aspetta che il primo sia strettamente inferiore al secondo, dal momento che il rendimento del ciclo di Carnot è superiore a quello di qualsiasi macchina termica reale. <br>
+In tali condizioni termiche, un ciclo di Carnot ha rendimento:<br>
+<br>
+<span class="tex">\(\eta_C = \frac{T_2-T_1}{T_2}\)</span>, <br>
+<br>
+perciò, prevedendo che <span class="tex">\(\eta &lt; \eta_C\)</span> (cioè, che il rendimento del ciclo di Carnot è sempre strettamente maggiore di quello del ciclo <span class="tex">\(A\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(B\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(C\)</span> <span class="tex">\(\to\)</span> <span class="tex">\(D\)</span>), dovrà auspicabilmente valere che: I) il numeratore di <span class="tex">\(\eta\)</span>, <span class="tex">\(\bigg(T_2 -\frac{V_2}{V_1}T_1 \bigg)\)</span> sia strettamente minore di quello di <span class="tex">\(\eta_C\)</span>, <span class="tex">\(\bigg(T_2 - T_1 \bigg)\)</span>; II) che il denominatore di <span class="tex">\(\eta\)</span>, <span class="tex">\(\bigg\{{\bigg[\frac{5V_2 - 2V_1}{2 (V_2 - V_1)}\bigg]T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1} \bigg\}\)</span>, sia strettamente maggiore di quello di <span class="tex">\(\eta_C\)</span>, <span class="tex">\(T_2\)</span>: riguardo quest'ultima condizione, in caso contrario, si otterrebbe il cambiamento di verso della disuguaglianza che si vuole ottenere (e ciò destituirebbe la ragionevole ipotesi iniziale di ogni fondamento). <br>
+Si giunga alle asserzioni I) e II) attraverso una serie di osservazioni a monte, che prevedono catene di disuguaglianze:<br>
+<br>
+I) <span class="tex">\(V_2 &gt; V_1\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\frac{V_2}{V_1} &gt; 1\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\frac{V_2}{V_1} T_1 &gt; T_1\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(-\frac{V_2}{V_1} T_1 &lt; - T_1\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\boxed {T_2 -\frac{V_2}{V_1} T_1 &lt; T_2- T_1}\)</span>. Dunque, il numeratore di <span class="tex">\(\eta\)</span> è minore di <span class="tex">\(\bigg(T_2 - T_1 \bigg)\)</span>, numeratore di <span class="tex">\(\eta_C\)</span>, in quanto si toglie a <span class="tex">\(T_2\)</span> una quantità maggiore di <span class="tex">\(T_1\)</span>.<br>
+<br>
+II) <span class="tex">\(\bigg[\frac{5V_2-2V_1}{2 (V_2 - V_1)}\bigg]T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1 - T_2\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\bigg[\frac{5V_2-2V_1}{2 (V_2 - V_1)}-1 \bigg] T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\bigg[\frac{5V_2-2V_1 - 2V_2+2V_1}{2 (V_2 - V_1)} \bigg] T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\bigg[\frac{3V_2}{2 (V_2 - V_1)} \bigg] T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\bigg[\frac{3}{2}\frac{V_2}{ (V_2 - V_1)} \bigg] \bigg(T_2-T_1 \bigg) &gt; 0\)</span>, poiché <span class="tex">\(\bigg[\frac{3}{2}\frac{V_2}{ (V_2 - V_1)} \bigg] &gt; 0\)</span> in quanto rapporto di valori sempre positivi e <span class="tex">\(T_2 - T_1 &gt; 0\)</span> in quanto <span class="tex">\(T_{max} = T_2 &gt; T_1 = T_{min}\)</span>. <br>
+Per cui, essendo <span class="tex">\(\bigg[\frac{5V_2-2V_1}{2 (V_2 - V_1)}\bigg]T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1 - T_2\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\bigg[\frac{3}{2}\frac{V_2}{ (V_2 - V_1)} \bigg] \bigg(T_2-T_1 \bigg)\)</span>, allora:<br>
+<br>
+<span class="tex">\(\bigg[\frac{5V_2-2V_1}{2 (V_2 - V_1)}\bigg]T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1 - T_2 &gt; 0\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\boxed{\bigg[\frac{5V_2-2V_1}{2 (V_2 - V_1)}\bigg]T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1 &gt; T_2}\)</span>.<br>
+<br>
+Quindi, in virtù delle considerazioni precedenti, si ha - come ci si aspettava - che:<br>
+<br>
+<span class="tex">\(\boxed {\eta &lt; \eta_C}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\color{Red} \boxed {\color{Black} \eta_C &gt; \eta}\)</span><br>
+<br>
+<br>
+<span class="tex">\(b)\)</span> Si dimostri esplicitamente la relazione precedente (per la quale il rendimento <span class="tex">\(\eta_C\)</span> del ciclo di Carnot operante tra <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2 \)</span> è maggiore di quello <span class="tex">\(\eta\)</span> del ciclo reversibile) nel caso particolare <span class="tex">\(\frac{V_2}{V_1} = 2\)</span>. Avendo espresso <span class="tex">\(\eta\)</span> in funzione del quoziente dei volumi, agevole risulta l'esplicita attestazione dell'asserto del punto <span class="tex">\(a)\)</span> nel caso particolare poc'anzi riportato. Infatti, ponendo <span class="tex">\(\frac{V_2}{V_1} = 2\)</span>, ovvero <span class="tex">\(V_2 = 2 V_1\)</span>, nell'espressione di <span class="tex">\(\eta\)</span>, si ottiene:<br>
+<br>
+<span class="tex">\(\eta = \frac{T_2 -\frac{V_2}{V_1}T_1}{\bigg[\frac{5V_2 - 2V_1}{2 (V_2 - V_1)}\bigg]T_2 - \bigg [\frac{3V_2}{2(V_2 -V_1)}\bigg]T_1}\)</span> <span class="tex">\(\longrightarrow\)</span> <span class="tex">\(\bigg(V_2 = 2V_1 \bigg)\)</span> <span class="tex">\(\longrightarrow\)</span> <span class="tex">\(\eta (V_2 = 2 V_1) = \frac{T_2 -\frac{2V_1}{V_1}T_1}{\bigg[\frac{10V_1 - 2V_1}{2 (2V_1 - V_1)}\bigg]T_2 - \bigg [\frac{6V_1}{2(2V_1 -V_1)}\bigg]T_1}\)</span> <span class="tex">\(=\)</span> <span class="tex">\(\frac{T_2 - 2 T_1}{\bigg[\frac{8V_1}{2V_1}\bigg]T_2 - \bigg [\frac{6V_1}{2V_1}\bigg]T_1}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\eta (V_2 = 2V_1) = \frac{T_2 -2 T_1}{ 4T_2 - 3 T_1}\)</span>.<br>
+<br>
+Ancora una volta, si può dimostrare che il numeratore di <span class="tex">\(\eta (V_2 = 2 V_1)\)</span>, ovvero <span class="tex">\((T_2 -2 T_1)\)</span>, è minore di quello di <span class="tex">\(\eta_C\)</span>, cioè <span class="tex">\((T_2 - T_1)\)</span>; e, parimenti, che il denominatore di <span class="tex">\(\eta (V_2 = 2 V_1)\)</span>, ovvero <span class="tex">\((4T_2 - 3 T_1)\)</span>, è maggiore di quello di <span class="tex">\(\eta_C\)</span>, cioè <span class="tex">\(T_2\)</span>. <br>
+<br>
+I) <span class="tex">\(2T_1 &gt; T_1\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(- 2T_1 &lt; -T_1\)</span> <span class="tex">\(\Rightarrow\)</span><span class="tex">\( \boxed{(T_2 - 2T_1) &lt; (T_2 - T_1)}\)</span><br>
+<br>
+II) <span class="tex">\(4 T_2 - 3 T_1 -T_2\)</span> <span class="tex">\(=\)</span> <span class="tex">\(3T_2 - 3T_1\)</span> <span class="tex">\(=\)</span> <span class="tex">\(3 (T_2 - T_1) &gt; 0\)</span>, dunque: <span class="tex">\(4 T_2 - 3 T_1 -T_2 &gt; 0\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\boxed {(4 T_2 - 3 T_1) &gt; T_2}\)</span>.<br>
+<br>
+Dunque, si può concludere che:<br>
+<br>
+<span class="tex">\(\boxed {\eta (V_2 = 2V_1) &lt; \eta_C}\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(\color{Red} \boxed {\color{Black} \eta_C &gt; \eta (V_2 = 2V_1)}\)</span></article>
+<article class="post" id="p27909"><div class="who"><b>Judy Poole</b><span>23 ago 2023, 9:27</span></div>molto dettagliato grazie</article>
+<nav class="pager"><a class="prev" href="olifis-4675.html"><small>← precedente</small>SNS 2010/2011 problema 3</a><a class="next" href="olifis-4674.html"><small>successivo →</small>SNS 2010/2011 problema 5</a></nav>
+</main></body></html>

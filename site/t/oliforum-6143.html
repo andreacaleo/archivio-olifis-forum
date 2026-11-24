@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ammissione SNS (2005-2006).4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 4</span></nav>
+<h1>Ammissione SNS (2005-2006).4</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6143">OliForum</a></p>
+<article class="post first" id="p56435"><div class="who"><b>Poliwhirl</b><span>23 ago 2006, 23:21</span></div>Chissà perchè in questo periodo il forum è bombardato da problemi provenienti dai test d'ammissione in SNS...  :o <br>
+<br>
+Una scatola è dotata di due morsetti e un commutatore con il quale si può selezionare la resistenza elettrica presente tra i due morsetti, scegliendola tra un valore noto $ R_0 $ e un altro valore ignoto (ma costante) $ R $. Avendo a disposizione una pila, di resistenza interna ignota $ R_{int} $ e un voltometro (ideale), come è possibile misurare il valore della resistenza ignota $ R $?<br>
+<br>
+Bye,<br>
+#Poliwhirl#</article>
+<article class="post" id="p56473"><div class="who"><b>BMcKmas</b><span>24 ago 2006, 15:22</span></div>Vi sono tre quantità incognite: la ddp della pila U, la sua resistenza interna e la resistenza ignota: servono quindi tre misure indipendenti:<br>
+1) misuro con il voltmetro la U della pila a circuito aperto,<br>
+poi collego il voltmetro ai morsetti e<br>
+2) misuro la tensione con la resistenza nota<br>
+3) misuro la tensione con la resistenza incognita<br>
+<br>
+<br>
+3 equazioni in 3 incognite... vi lascio i conti  :wink: <br>
+<br>
+<br>
+ciao</article>
+<article class="post" id="p56478"><div class="who"><b>David</b><span>24 ago 2006, 16:32</span></div>io ho fatto in questo modo:<br>
+1 - misuro la $ \Delta V $ ai capi della pila. essendo il voltmetro ideale ho la differenza di potenziale che ha la pila senza la [R_int] .<br>
+2 - la corrente che passa nella resistenza nota (indicata con $ R_0 $) è: $ i_0=\frac{\Delta V}{R_0+R_int} $ (1) con il voltmetro posso /texmisurare la $ \Delta V-i_0R_int $ quindi riordinando la (1) si ottiene: $ i_0=\frac{\Delta V-i_0R_int}{R_0} $ da questa ottengo il valore della resistenza interna $ R_int=\frac{\Delta V-R_0i_0}{i_0} $<br>
+3 - per trovare la resistenza ignota faccio:<br>
+$ \Delta V=i_R(R+R_int) $ (2) in questo caso è misurabile $ \Delta V_mis=\Delta V-i_RR_int $ da cui $ i_r=\frac{\Delta V-\Delta V_mis}{R_int} $ ora risolvendo rispetto a $ R $ la (2) so ottiene:<br>
+$ R=\frac{\Delta V-i_RR_int}{i_R} $<br>
+mi sembra tutto corretto...</article>
+<nav class="pager"><a class="prev" href="oliforum-6135.html"><small>← precedente</small>Ammissione SNS (2005-2006).3</a><a class="next" href="oliforum-8864.html"><small>successivo →</small>trenino fastidioso...... sns 2005/2006 n5</a></nav>
+</main></body></html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fluido dinamica sns 2001</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 3</span></nav>
+<h1>fluido dinamica sns 2001</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=4057">OliForum</a></p>
+<article class="post first" id="p43628"><div class="who"><b>mark86</b><span>08 ago 2005, 13:24</span></div>Si consideri un treno che entra in una galleria e si stimi la variazione di pressione che si produce nel tratto di galleria in cui `e presente il treno, rispetto alla pressione in assenza del treno. Mostrare come essa dipenda dal rapporto tra la velocit`a del treno vt , e la velocit`a del suono vs, dalla sezione del treno St , e della sezione della galleria S0. (Si ricordi che la velocità del suono è legata alla temperatura dalla relazione vs = (g RT/µ)1/2, dove µ `e la massa della grammomolecola di aria e l’indice adiabatico per l’aria `e g =1.41; si consideri l’aria come fluido perfetto).<br>
+<br>
+Io ho risolto il problema senza considerare (e senza riuscire a inserire la velocità del suono come parametro…. Non capisco il perché)<br>
+Allora… possiamo considerare il sistema dal punto di vista del treno, in tal caso il treno è fermo e l’aria presente nella galleria si muove incontro al treno con velocità $ v_t $. Possiamo applicare Bernoulli al fluido (considerato come ideale) e pertanto possiamo scrivere<br>
+$ p_1+\frac{1}{2}\rho v_t^2 = p_2 +\frac{1}{2}\rho v_2^2   $ otteniamo così<br>
+$ p_1-p_2 = \Delta p = \frac {1}{2}\rho (v_2^2-v_t^2) $. $ v_2 $ indica la velocità relativa dell’aria quando il treno si trova nella galleria (l’aria in questione è naturalmente quella che occupa lo spazio fra il treno e la parete della galleria).<br>
+Sappiamo anche che per un fluido perfetto la quantità $ Sv $ è costante ($ S $ indica la sezione del condotto e $ v $ la velocità) così possiamo scrivere che <br>
+$ v_2 = \frac {S_0}{S_0-S_t} v_t $ sostituendo ricaviamo la variazione di pressione<br>
+<br>
+$ \Delta p = \frac{1}{2}\rho v_t^2 (\frac{S_0^2}{(S_0-S_t)^2}-1) $<br>
+<br>
+A questo punto come si può vedere nell’equazione trovata manca la velocità del suono.... ma non capisco come bisogna inserirla, c’entra niente il modulo di compressibilità $ \beta = - \frac {\Delta p}{\Delta V / V} $?</article>
+<article class="post" id="p43658"><div class="who"><b>mark86</b><span>09 ago 2005, 18:59</span></div>nessuno mi sa dire niente?</article>
+<article class="post" id="p43680"><div class="who"><b>info</b><span>10 ago 2005, 13:39</span></div>Non so... a me pare tutto corretto... <br>
+<br>
+Prova ad utilizzare<br>
+<br>
+pV=nRT --&gt; p = RT/MM * ro<br>
+<br>
+dove MM e la massa molare, che immagino sia quella di una grammomolecola (mi sfugge questo termine  :oops: )<br>
+<br>
+e la formula sulla velocita per eliminare ro dalla tua equazione... rimane il rapporto dalle velocita e la pressione atmosferica...<br>
+<br>
+MA NON SO!<br>
+<br>
+-------------------------------<br>
+<br>
+cmq ottima l'idea di cambiare il SR  :D ... Il punto e che Bernoulli credo si possa applicare se nulla a parte la forza peso e la pressione(ovviamente) compie lavoro... [vi siete mai chiesti perche le forze sui tubi non vengono considerati da Mr. Beroulli? Io si e mi sono risposto perche non compiono lavoro... (ma sono mie congetture)].<br>
+<br>
+Mettendosi nel SR del treno il treno e fermo, non compie lavoro sull'aria e quindi andiamo lisci... in altri SR il problema verrebbe complesso)... Ottimo! <br>
+<br>
+<br>
+ps: prendi quanto sopra col beneficio del babbo, ok?</article>
+<article class="post" id="p43821"><div class="who"><b>mark86</b><span>13 ago 2005, 01:27</span></div>Forse ho trovato il modo di concludere la dimostrazione (solo che non uso la formula indicata nel testo del problema) usando il modulo di compressibilità che citavo sopra<br>
+La velocità di un’onda in un mezzo dipende da due parametri, uno elastico e uno inerziale, pertanto per il suono è<br>
+$ \displaystyle v_s=\sqrt{\frac{\beta}{\rho}} $ dove $ \displaystyle \beta=\frac{\Delta p}{\Delta V/V} $. (Possiamo scrivere inoltre $ \displaystyle \frac{\Delta V}{V}=\frac{\Delta S}{S} $) Poiché il fluido è considerato ideale allora possiamo considerare $ \rho $ costante (mentre $ \beta $ non dovrebbe variare apprezzabilmente).<br>
+In tal caso otteniamo per $ \rho $ la relazione $ \displaystyle \rho=\frac{\Delta p}{\Delta S/S}\frac{1}{v_s^2} $ e sostituendo otteniamo la relazione cercata<br>
+$ \displaystyle \Delta p = \sqrt{\frac{1}{2}\frac{S_0}{S_0- S_t} \frac{v_t^2 }{v_s^2}(\frac{S_0^2}{(S_0-S_t)^2}-1)} $….<br>
+<br>
+Che ne pensate? Info?</article>
+<article class="post" id="p43840"><div class="who"><b>EvaristeG</b><span>13 ago 2005, 15:42</span></div>Penso che si possa ricavare $ \rho $ come hai fatto tu, solo partendo dalla formula data nel testo ... non chiedermi come ... ho fatto questo problema 3 anni fa!</article>
+<article class="post" id="p43841"><div class="who"><b>mark86</b><span>13 ago 2005, 17:02</span></div>è errato il risultato che ho trovato?Se dovessi utilizzare la legge data nel testo allora mi dovrei servire della relazione sul gas perfetto (pV=nRT) per esprimere la temperatura... non so...</article>
+<article class="post" id="p43853"><div class="who"><b>info</b><span>13 ago 2005, 20:24</span></div>Allora, come al solito mark86 sai bene che ne so quanto te, quindi non dare peso a cio che scrivo, ascolta piuttosto EvaristeG  :D .... Suppongo che quanto tu abbia scritto finora (ovvero la formula sopra) sia corretto... <br>
+<br>
+Vogliamo eliminare ro, aggiungendo un vs... Ora:<br>
+<br>
+* ro dipende dalla temperatura T e dalla pressione p;<br>
+<br>
+* vs dipende dalla temperatura T et basta, almeno secondo la formula del testo;<br>
+<br>
+Ora non pare un po strano sostituire un termina che dipende da p e da T con uno che dipende solo da T??? secondo me la pressione atmosferica deve rimanere nella formula, o no???<br>
+<br>
+Per quanto riguarda cio che scrivi, non mi e chiaro questo passasggio:<br>
+<br>
+* DV/V=DS/S<br>
+<br>
+cioe se ben ricordo quel DV/V e l'aumento percentuale di volume dopo una variazione di pressione DP... Tu dici insomma che vale V=S*x (da cui la formula sopra) come se la quantita d'aria in esame si dovesse per forza posizionare in un solido di base S (variabile) e altezza x costante (fuori dall'influena e dentro l'influena del treno)... perche? insomma, non capisco  :cry:</article>
+<article class="post" id="p94616"><div class="who"><b>mattilgale</b><span>23 ago 2008, 17:39</span></div>dopo tanto tempo tiro fuori questo vecchissimo post e mi rifaccio vivo sul forum, per il semplice motivo che le olimpiadi volgono al termine quindi devo usare in qualche modo il tempo in cui non studio, e quindi scelgo di chiedere ai fisici se la mia soluzione è corretta...<br>
+<br>
+innanzitutto chiamiamo <br>
+$ \delta_1 $ e $ \delta_2 $ la densità dell'aria e la densità nel tratto dove c'è il treno<br>
+e anche $ p_1 $ e $ p_2 $ la pressione nei due casi<br>
+idem $ v_1=0 $ e $ v_2 $ le due velocità, con senso positivo opposto al verso di moto del treno<br>
+<br>
+come già detto in questo post<br>
+$ p_1+\frac{1}{2}\delta_1v_1^2=p_1=p_2+\frac{1}{2}\delta_2v_2^2 $ per Bernoulli<br>
+e anche<br>
+$ \displaystyle\delta_2=\frac{n\cdot M_M}{V}=\frac{p_2 \cdot M_M}{RT} $ per la legge dei gas perfetti<br>
+<br>
+adesso troviamo un'altra espressione per $ v_2 $<br>
+ci mettiamo nel sistema del treno e poiché il flusso deve essere costante<br>
+$ S_g\cdot v_t=(S_g-S_t)\cdot v_2' $ dove $ v_2' $ è la velocità dell'aria in questo sistema di riferimento e quindi<br>
+$ v_2=v_2'-v_t $ adesso abbiamo tutto e sostituendo $ RT $ con $ \displaystyle\frac{v_s^2 \cdot M_M}{\gamma} $ e definendo $ \displaystyle\lambda=\frac{v_t}{v_s} $<br>
+arriviamo a<br>
+$ \displaystyle\Delta p=-\frac{p_1\gamma S_t^2}{\gamma S_t^2+\lambda ^2{\left( S_g-S_t\right)}^2} $<br>
+<br>
+che ne dite?</article>
+<article class="post" id="p94621"><div class="who"><b>EUCLA</b><span>23 ago 2008, 17:59</span></div>Ehilà Mattia, si vede che non hai letto il forum per un pò  :D .<br>
+No, non sono qui per darti una risposta certa, dato che ne sai evidentemente più di me. Però ti diranno molto probabilmente che Bernoulli non va..<br>
+<br>
+<a href="http://olimpiadi.ing.unipi.it/oliForum/viewtopic.php?t=10280" class="ext" class="postlink">Leggi qua (post di iactor, il mio te lo puoi anche risparmiare)</a></article>
+<article class="post" id="p94650"><div class="who"><b>mattilgale</b><span>23 ago 2008, 19:31</span></div>eh ma infatti io non ho usato Bernoulli, ho scritto male, infatti nel mio la densità non è costante ed in questo modo evito il ptoblema dell'incomprimibilità.<br>
+<br>
+<br>
+scusate se ho ripetuto il post ma quello non l'avevo proprio trovato!  :oops:</article>
+<article class="post" id="p94658"><div class="who"><b>Pigkappa</b><span>23 ago 2008, 20:08</span></div>Ti avevo scritto delle cose su MSN ma evidentemente non ti sono arrivate...<br>
+<br>
+Secondo me il Bernoulli che hai usato tu è sbagliato, perchè Bernoulli rappresenta la conservazione dell'energia e, nel sistema di riferimento in cui lo usi tu, tra gli scambi energetici compare anche il lavoro fatto dal treno che spinge l'aria. Si può usare invece Bernoulli in un sistema di riferimento in cui il treno è fermo.<br>
+<br>
+Inoltre, si può notare che tu hai scambiato nel risultato finale $ p_2 $ con $ p_1 $; il chè normalmente andrebbe bene, perchè un risultato in funzione della pressione che c'era normalmente nella galleria è accettabile, in funzione della pressione sopra il treno invece no (quella è una incognita). Tuttavia, se provi a fare i conti con valori ragionevoli con la tua formula finale, ti viene una variazione percentuale del 40% che è parecchio. Tra l'altro, con una variazione così, credo che l'uomo ci resti secco quasi istantaneamente.<br>
+<br>
+Se invece usi Bernoulli nel sistema in cui il treno è fermo e consideri le due densità approssimativamente uguali arrivi ad una formula che dà una variazione di pochi punti percentuali, e credo sia più realistico.</article>
+<nav class="pager"><a class="prev" href="olifis-374.html"><small>← precedente</small>sns 2001/2002</a><a class="next" href="olifis-174.html"><small>successivo →</small>SNS 2001/2002 - 3</a></nav>
+</main></body></html>

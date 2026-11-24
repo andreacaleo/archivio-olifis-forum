@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conduttori bidimensionali @ SNS</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1988-1989, problema 3</span></nav>
+<h1>Conduttori bidimensionali @ SNS</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6128">OliForum</a></p>
+<article class="post first" id="p56354"><div class="who"><b>sqrt2</b><span>23 ago 2006, 11:42</span></div>Si considerino dei conduttori bidimensionali, quali delle sottili lamine di rame, a forma di quadrati di diversa grandezza. <br>
+Se si applica la stessa differenza di potenziale ai lati opposti di questi conduttori, come dipende la corrente dal valore L del lato?</article>
+<article class="post" id="p56359"><div class="who"><b>Bacco</b><span>23 ago 2006, 12:30</span></div>Mmh... forse non ho capito bene il testo, mi sembra troppo facile per un SNS....<br>
+<br>
+$ R=\rho l / A = \rho L /(Lt) = \rho /t $ quindi la resistenza è indipendente dal lato, e così la corrente.</article>
+<article class="post" id="p56360"><div class="who"><b>David</b><span>23 ago 2006, 13:11</span></div>scusa ma non ho capito bene cos'è t...</article>
+<article class="post" id="p56366"><div class="who"><b>Gauss_87</b><span>23 ago 2006, 15:51</span></div>premetto di ignorare la soluzione di questo esercizio..<br>
+<br>
+chiedo: ci aspettiamo che lato L maggiore implichi maggiore Resistenza ???</article>
+<article class="post" id="p56380"><div class="who"><b>David</b><span>23 ago 2006, 17:08</span></div>non so se la resistenza aumenti o meno, però aumentando la lunghezza si ha una $ R $ maggiore, aumentando la sezione una minore. qui che aumentano contemporanemente dello stesso valore non so che dire...</article>
+<article class="post" id="p56422"><div class="who"><b>Gauss_87</b><span>23 ago 2006, 22:19</span></div><blockquote><div><cite>Bacco ha scritto:</cite>Mmh... forse non ho capito bene il testo, mi sembra troppo facile per un SNS....<br>
+<br>
+$ R=\rho l / A = \rho L /(Lt) = \rho /t $ quindi la resistenza è indipendente dal lato, e così la corrente.</div></blockquote>
+
+già, cos'è t  :?:</article>
+<article class="post" id="p56446"><div class="who"><b>sqrt2</b><span>24 ago 2006, 00:10</span></div>Penso sia lo spessore della lastra, che è infinitamente piccolo in questo caso.</article>
+<article class="post" id="p56476"><div class="who"><b>BMcKmas</b><span>24 ago 2006, 15:33</span></div><blockquote><div><cite>sqrt2 ha scritto:</cite>Penso sia lo spessore della lastra, che è infinitamente piccolo in questo caso.</div></blockquote>
+
+Perchè infinitamente piccolo?! <br>
+Lo spessore t semplicemente deve essere lo stesso per tutti i quadrati (indipendentemente dal suo valore) per avere una resistenza indipendente dalla dimensione.<br>
+Credo che il quesito non implichi considerazioni sull'effetto 'pelle'.<br>
+<br>
+ciao</article>
+<article class="post" id="p56508"><div class="who"><b>sqrt2</b><span>24 ago 2006, 21:23</span></div>Che c'entra, una considerazione superflua non è mica sbagliata :wink:</article>
+<article class="post" id="p56568"><div class="who"><b>Gauss_87</b><span>25 ago 2006, 12:50</span></div>quindi l'unica soluzione plausibile è che non dipende dal lato L?</article>
+<article class="post" id="p56808"><div class="who"><b>BMcKmas</b><span>27 ago 2006, 17:47</span></div><blockquote><div><cite>sqrt2 ha scritto:</cite>Che c'entra, una considerazione superflua non è mica sbagliata :wink:</div></blockquote>
+
+Beh, sarebbe superflua se conduttori di spessore infinitesimo esistessero!</article>
+<article class="post" id="p56861"><div class="who"><b>BMcKmas</b><span>28 ago 2006, 12:05</span></div><blockquote><div><cite>Gauss_87 ha scritto:</cite>quindi l'unica soluzione plausibile è che non dipende dal lato L?</div></blockquote>
+
+Nelle ipotesi fatte direi proprio di si</article>
+<article class="post" id="p57301"><div class="who"><b>Phoenix87</b><span>03 set 2006, 22:57</span></div>$ R_{eq} = \displaystyle\frac{R}{N} $ con $ N = \displaystyle\frac{L}{\lambda} $ e $ R = \rho \displaystyle\frac{L}{A} $<br>
+<br>
+da cui<br>
+<br>
+$ i = \displaystyle\frac{\mathcal{E}}{R_{eq}} = \displaystyle\frac{\mathcal{E}t}{\rho} $<br>
+<br>
+con $ t $ spessore della lamina (bidimensionale...). In definitiva $ i $ nn dipende da $ L $...<br>
+In effetti, anche se aumenta la lunghezza della lamina, tutte le resistenze in parallelo danno una resistenza equivalente sempre minore...<br>
+<br>
+bha...</article>
+<nav class="pager"><a class="prev" href="olifis-234.html"><small>← precedente</small>SNS 1988-1989 (2)</a><a class="next" href="oliforum-6138.html"><small>successivo →</small>Ammissione SNS 88/89.6</a></nav>
+</main></body></html>

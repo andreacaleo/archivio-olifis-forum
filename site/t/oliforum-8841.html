@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astronauti russi un pò sfigati (sns 2004/2005)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 5</span></nav>
+<h1>Astronauti russi un pò sfigati (sns 2004/2005)</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8841">OliForum</a></p>
+<article class="post first" id="p73545"><div class="who"><b>mitchan88</b><span>07 ago 2007, 14:42</span></div>Nel 1997 nella stazione spaziale Mir si produsse un piccolo foro con l'esterno, a causa del quale la pressione interna passò dal valore iniziale di 750 mmHg a quello di 675 mmHg in 8 minuti.<br>
+a) si mostri che durante tale periodo la pressione interna diminuì con legge esponenziale.<br>
+b)Si stimi l'area del foro sapendo che il volume pressurizzato della stazione era 400m^3 e che la temperatura interna era di 24°C.<br>
+<br>
+;)</article>
+<article class="post" id="p73547"><div class="who"><b>memedesimo</b><span>07 ago 2007, 16:01</span></div>Supponiamo il foro circolare, piccolo e di area A. Supponiamo inoltre che la temperatura non cambi, il che sembra ragionevole. Consideriamo un piccolo intervallino di tempo dt. In questo intervallino di tempo usciranno un piccolo numero di moli dn attraverso il foro della nave. Questo numero sarà pari a quello contenuto nel cilindro di area A e altezza Vx*dt dove Vx è la velocità orizzontale media delle particelle.<br>
+<br>
+<br>
+Il numero di moli per unità di volume è P/RT e dunque abbiamo che dn=-Vx*A*dt*P/RT. [1]<br>
+<br>
+La velocità quadratica media è (3RT/Massamolare)^(1/2). La velocità orizzontale media è dunque (RT/Massamolare)^(1/2), perchè supponiamo che le componenti x,y e z della velocità siano uguali e dunque 3*Vx^2=(Vel.quad.media)^2.<br>
+<br>
+differenziando PV=nRT abbiamo che dPV=dnRT [2]<br>
+<br>
+sostituendo dn dalla [2] alla [1] e mettendoci anche Vx si ottiene che dP=-Costante*P*dt. Questa è un'equazione differenziale, che riscriviamo dP/P=-Costante*dt, e integrando da entrambe le parti ed elevando si ottiene che P=Po*e^(-Costante*t) dove Po è la pressione iniziale.<br>
+<br>
+Scusate se non so usare il Latex...<br>
+<br>
+ciao</article>
+<article class="post" id="p73553"><div class="who"><b>lorenzik2</b><span>07 ago 2007, 17:53</span></div>e per stimare l'area?</article>
+<article class="post" id="p73556"><div class="who"><b>luiz</b><span>07 ago 2007, 18:50</span></div>mm...non sono daccordissimo su come calcoli Vx...non dovrebbe entrare in gioco la legge di bernoulli?</article>
+<article class="post" id="p73565"><div class="who"><b>memedesimo</b><span>07 ago 2007, 20:22</span></div>per stimare l'area, hai la formula in funzione dell'area, basta che ricavi A e sostituisci</article>
+<article class="post" id="p73566"><div class="who"><b>memedesimo</b><span>07 ago 2007, 20:27</span></div>ah e bernoulli si può usare solo per i fluidi incomprimibili</article>
+<article class="post" id="p73568"><div class="who"><b>Deerber</b><span>07 ago 2007, 21:25</span></div>Allora... posto la mia soluzione, che peraltro è molto simile se non uguale a quella di memedesimo, ma forse con il $ LA\TeX $ si capisce un pò meglio...<br>
+Cominciamo col dire che, se consideriamo la temperatura costante (il che è ragionevolissimo dal momento che la stazione è praticamente circondata da vuoto, nonostante al punto b del problema si dica che " la temperatura interna $ \textsl{era} $ di 24 C"), allora possiamo scrivere $dP=dn\frac{RT}{V}[1]$. Per calcolare $dn$, consideriamo il foro di area $A$, e il numero di moli che vi passano attraverso in un intervallo temporale infinitamente piccolo: esso sarà $dn=\frac{AV_{qm}Pdt}{3RT}[2]$. Infatti ci accorgiamo che il numero di molecole che passerà sarà il numero di molecole presenti nel cilindretto di volume $AV_{qm}dt$, ovvero $AV_{qm}dt\mu$, dove $\mu$ rappresenta il numero di moli per unità di volume, che possiamo esprimere come $\mu=\frac{P}{RT}$ grazie alla legge dei gas perfetti. Dividendo il risultato per $3$ (visto che, come al solito, consideriamo semplicisticamente le $V_{qm}$ dirette con uguale probabilità lungo i $3$ assi dello spazio), otteniamo appunto la formula già esposta. Combinando la $[1]$ con la $[2]$ e risistemando un pò otteniamo $\frac{dP}{P}=-\frac{V_{qm}A}{3V}dt[3]$. Integrando a sinistra in $dP$ e a destra in $dt$, otteniamo $ln(\frac{P_f}{P_0})=-\frac{V_{qm}At}{3V}[4]$, da cui $P_f=P_0e^{-\frac{V_{qm}At}{3V}}[5]$, dove $P_f$ è la pressione finale, e $P_0$ la pressione a $t=0$. Il punto a è quindi risolto. Per il calcolo dell'area partiamo dalla $[4]$ e, ricordandoci che $V_{qm}=\sqrt{\frac{3RT}{N_am}}$, scriviamo $A=\frac{V}{t}\sqrt{\frac{&lt;A&gt;}{RT}}ln(\frac{P_f}{P_0})[6]$, dove $&lt;A&gt;$ è il peso atomico dell'aria, che è uno dei dati dell'esercizio (non postati da mitchan  :P ), e gli altri sono tutti elementi noti.<br>
+Dovrebbe essere fatto tutto bene, se non sbaglio... correggetemi se c'è qualche errore :)<br>
+<br>
+Editato per dei meno mancanti</article>
+<article class="post" id="p73586"><div class="who"><b>TADW_Elessar</b><span>07 ago 2007, 23:11</span></div>Dice che la temperatura <em class="text-italics">era</em> perché al momento del test la stazione era già bella che disintegrata in seguito al rientro programmato sulla Terra.  :wink:</article>
+<article class="post" id="p73588"><div class="who"><b>Deerber</b><span>07 ago 2007, 23:23</span></div>Uhm... hai ragione anche tu  :lol:  :P <br>
+Il solito sbadato ^^</article>
+<article class="post" id="p74125"><div class="who"><b>Pigkappa</b><span>15 ago 2007, 04:10</span></div><blockquote><div><cite>memedesimo ha scritto:</cite>Supponiamo il foro circolare, piccolo e di area A. Supponiamo inoltre che la temperatura non cambi, il che sembra ragionevole. Consideriamo un piccolo intervallino di tempo dt. In questo intervallino di tempo usciranno un piccolo numero di moli dn attraverso il foro della nave. Questo numero sarà pari a quello contenuto nel cilindro di area A e altezza Vx*dt dove Vx è la velocità orizzontale media delle particelle.<br>
+<br>
+<br>
+Il numero di moli per unità di volume è P/RT e dunque abbiamo che dn=-Vx*A*dt*P/RT. [1]<br>
+<br>
+La velocità quadratica media è (3RT/Massamolare)^(1/2). La velocità orizzontale media è dunque (RT/Massamolare)^(1/2), perchè supponiamo che le componenti x,y e z della velocità siano uguali e dunque 3*Vx^2=(Vel.quad.media)^2.<br>
+<br>
+differenziando PV=nRT abbiamo che dPV=dnRT [2]<br>
+<br>
+sostituendo dn dalla [2] alla [1] e mettendoci anche Vx si ottiene che dP=-Costante*P*dt. Questa è un'equazione differenziale, che riscriviamo dP/P=-Costante*dt, e integrando da entrambe le parti ed elevando si ottiene che P=Po*e^(-Costante*t) dove Po è la pressione iniziale.<br>
+<br>
+Scusate se non so usare il Latex...<br>
+<br>
+ciao</div></blockquote>
+
+Esattamente uguale a me, solo che secondo me bisogna aggiungere un fattore (1/2) alla velocità Vx. Questo perchè il Vx che abbiamo calcolato è la velocità media sull'asse x delle molecole, e a noi interessa solo la metà delle molecole che si muovono verso il buco, e non quelle che si allontanano dal buco. Oppure, volendo, il fattore 1/2 lo metti dopo...</article>
+<article class="post" id="p74136"><div class="who"><b>memedesimo</b><span>15 ago 2007, 09:36</span></div>C'hai anche ragione...ok allora mettiamoci un fattore $ 1/2 $!</article>
+<article class="post" id="p124289"><div class="who"><b>rargh</b><span>26 apr 2010, 01:45</span></div>Grande ho provato senza guardare la soluzione e l'ho azzeccato al 100%, fattore 1/2 compreso!<br>
+<br>
+Tra parentesi, in teoria il concorso sns dovrebbe essere aperto anche a studenti del classico e, per quanto semplice come problema di equazioni differenziali, che ne sanno loro poveretti? Credevo si potessero risolvere tutti con nozioni minime di analisi.<br>
+<br>
+Vabbè avrebbero potuto integrare l'equazione facendo il limite di una sommatoria di una progressione geometrica, ma quanta fatica per un povero ragazzo a digiuno di analisi...</article>
+<nav class="pager"><a class="prev" href="oliforum-11608.html"><small>← precedente</small>SNS 2004-2005 termodinamica</a><a class="next" href="oliforum-5839.html"><small>successivo →</small>Espansione Libera @ SNS</a></nav>
+</main></body></html>

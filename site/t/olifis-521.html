@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[SNS 2000/2001, n°1]</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2000-2001, problema 1</span></nav>
+<h1>[SNS 2000/2001, n°1]</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=521">forum Olifis</a></p>
+<article class="post first" id="p4724"><div class="who"><b>Luke</b><span>29 lug 2010, 17:16</span></div>Questo nell'elenco dei problemi sns del topic manca... il link di inserimento non funziona quindi ho inserito qui, sperando di far bene =). <br>
+<br>
+<br>
+Un blocco di massa M si sta muovendo senza attrito su un supporto orizzontale<br>
+solidale alla terra ( sistema di riferimento X;Y) con velocità uniforme<br>
+<span class="tex">\(V_0\)</span>. Su di esso è posato un blocchetto di massa m, immobile rispetto<br>
+ad M.<br>
+Improvvisamente viene applicata alla massa M una forza orizzontale F<br>
+di frenamento antiparallela a <span class="tex">\(V_0\)</span>.<br>
+(a) In assenza di ogni attrito si studi il moto relativo di m rispetto ad<br>
+M ( sistema di riferimento x;y). Si determini l’istante in cui M si<br>
+arresta e la velocità relativa di m rispetto ad M prima e dopo tale<br>
+istante.<br>
+(b) Assumendo un coefficiente di attrito f tra m ed M, si trovi il tempo<br>
+<span class="tex">\(t_1\)</span> in cui M si arresta ed il tempo <span class="tex">\(t_2\)</span> in cui si arresta anche m rispetto<br>
+al sistema X;Y.<br>
+<br>
+EDIT: aggiunto il numero del problema nel titolo. Per favore ricordatevi di scriverlo, aiuta nella ricerca  ;) (Ippo)</article>
+<article class="post" id="p4729"><div class="who"><b>Luke</b><span>30 lug 2010, 16:48</span></div>giusto... sorry per la dimenticanza! comunque posto il mio tentativo di approccio o aspetto che qualcuno faccia il suo tentativo?</article>
+<article class="post" id="p4745"><div class="who"><b>Ippo</b><span>1 ago 2010, 13:49</span></div>come vuoi! se nessuno si cimenta puoi cominciare tu...</article>
+<article class="post" id="p4747"><div class="who"><b>Mirko93</b><span>1 ago 2010, 21:27</span></div>Spero di non scrivere troppe stupidaggini  :lol: <br>
+<br>
+a) Mettendoci in un sistema non inerziale solidale con M, su m, che, nel sistema di riferimento del laboratorio, continua il suo moto rettilineo uniforme, sembrerà agire una forza inerziale apparente pari a <span class="tex">\(F_m=F\dfrac{m}{M}\)</span>.<br>
+Il tempo in cui M si ferma è:<br>
+<span class="tex">\(t={V_0  M \over F}\)</span><br>
+e la velocità di m rispetto ad M è:<br>
+<span class="tex">\(\displaystyle V_m={F_m \over m} \cdot t=V_0\)</span><br>
+Dopo tale istante m continuerà a muoversi di moto uniformemente accelerato rispetto a M.<br>
+<br>
+b) La forza d'attrito tra m e M è data da <span class="tex">\(F_a = \mu mg\)</span>.<br>
+Se il sistema non si comporta come un corpo rigido, allora, nel sistema non inerziale solidale con M, si ha che la forza apparente agente su m è<br>
+<span class="tex">\(\displaystyle F_m = { F - \mu mg \over M} m - \mu mg\)</span>. <br>
+Deve però valere la condizione <span class="tex">\(F_m &gt; 0\)</span>, ossia <span class="tex">\(\displaystyle \mu &lt; {F \over g (m + M)}\)</span>, dove si sta considerando positivo il verso iniziale di <span class="tex">\(V_0\)</span>.<br>
+Se vale questa condizione allora i due tempi sono:<br>
+<span class="tex">\(\displaystyle t_1= {V_0 M \over F - \mu mg}\)</span><br>
+<span class="tex">\(\displaystyle t_2 = {V_0 \over \mu g}\)</span><br>
+<br>
+Se invece <span class="tex">\(\displaystyle \mu &gt; {F \over g (m + M)}\)</span> m e M si comportano come un unico corpo solido, percui<br>
+<span class="tex">\(\displaystyle t_1 = t_2 ={V_0 (m + M) \over F}\)</span></article>
+<article class="post" id="p4762"><div class="who"><b>Stardust</b><span>5 ago 2010, 15:34</span></div><blockquote><div><cite>Mirko93 ha scritto:</cite>Il tempo in cui M si ferma è:<br>
+<span class="tex">\(t={V_0 M \over F}\)</span><br>
+e la velocità di m rispetto ad M è:<br>
+<span class="tex">\(\displaystyle V_m={F_m \over m} \cdot t=V_0\)</span><br>
+Dopo tale istante m continuerà a muoversi di moto uniformemente accelerato rispetto a M.</div></blockquote>
+Onestamente non capisco bene cosa chieda il testo in merito alla velocità del corpo m nel momento in cui M si ferma. <br>
+Se in tale istante la forza frenante smette di agire, il corpo M diventa in quiete, dunque il sistema di riferimento dovrebbe passare dallo stato non inerziale a quello inerziale. Se così non fosse e la forza frenante continuasse ad agire, essa non sarebbe semplicemente "frenante" ma finirebbe con l'essere "di spinta" in senso opposto al verso iniziale di <span class="tex">\(V_0\)</span>. <br>
+A mio parere quindi il corpo posto sopra dovrebbe poi continuare a muoversi di moto rettilineo uniforme, non uniformemente accelerato, sia rispetto ad M, sia rispetto ad un osservatore fermo all'esterno del sistema.<br>
+Ma forse è solo un problema di interpretazione della traccia.</article>
+<article class="post" id="p15068"><div class="who"><b>xXStephXx</b><span>11 ago 2013, 23:42</span></div>Mi è venuto un dubbio...<br>
+(non si arrabbia nessuno se rispondo dopo 3 anni vero?  :D  :D )<br>
+<br>
+Come mai <span class="tex">\(F_m = F\frac{m}{M}\)</span> e non <span class="tex">\(F_m=F \frac{m}{M+m}\)</span>?</article>
+<article class="post" id="p15071"><div class="who"><b>Andg94</b><span>12 ago 2013, 15:08</span></div><blockquote><div><cite>xXStephXx ha scritto:</cite>Come mai <span class="tex">\(F_m = F\frac{m}{M}\)</span> e non <span class="tex">\(F_m=F \frac{m}{M+m}\)</span>?</div></blockquote>
+I due corpi non sono tenuti tra di loro e la forza <span class="tex">\(F\)</span> di conseguenza si applica solo al corpo <span class="tex">\(M\)</span>, che sentirà un'accelerazione pari a <span class="tex">\(a=\frac{F}{M}=\frac{F_m}{m}\)</span>.</article>
+<nav class="pager"><a class="prev" href="oliforum-4032.html"><small>← precedente</small>idrodinamica sns 1999</a><a class="next" href="oliforum-8948.html"><small>successivo →</small>sns 2000/2001 #2</a></nav>
+</main></body></html>

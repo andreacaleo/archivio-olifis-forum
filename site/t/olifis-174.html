@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2001/2002 - 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 3</span></nav>
+<h1>SNS 2001/2002 - 3</h1>
+<p class="meta">20 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=174">forum Olifis</a></p>
+<article class="post first" id="p1569"><div class="who"><b>eli9o</b><span>13 lug 2009, 18:16</span></div>Si consideri un treno che entra in una galleria e si stimi la variazione di pressione che si produce nel tratto di galleria in cui è presente il treno, rispetto alla pressione in assenza del treno. Mostrare come essa dipenda dal rapporto tra la velocità del treno <span class="tex">\(v_t\)</span>, e la velocità del suono <span class="tex">\(v_s\)</span>, dalla sezione del treno <span class="tex">\(S_t\)</span>, e dalla sezione della galleria <span class="tex">\(S_0\)</span>. (Si ricordi che la velocità del suono è legata alla temperatura dalla relazione <span class="tex">\(v_s=(\gamma RT/ \mu)^{1/2}\)</span>, dove <span class="tex">\(\mu\)</span> è la massa della grammomolecola di aria e l'indice adiabatico per l'aria è <span class="tex">\(\gamma=1,41\)</span>; si consideri l'aria come un fluido perfetto).</article>
+<article class="post" id="p1575"><div class="who"><b>CoNVeRGe.</b><span>14 lug 2009, 21:47</span></div>Come si può mettere in relazione la velocità del treno con la pressione?</article>
+<article class="post" id="p1578"><div class="who"><b>eli9o</b><span>14 lug 2009, 23:23</span></div>Non leggete se volete fare da soli <span style="font-size: 20%; line-height: normal">Bernoulli, però occhio al sistema di riferimento</span><br>
+<br>
+L'ho postato perché la soluzione a cui sono arrivato io non utilizza tutti i dati e di solito non è un buon segno  :roll:</article>
+<article class="post" id="p1605"><div class="who"><b>CoNVeRGe.</b><span>16 lug 2009, 12:01</span></div>Secondo voi la pressione dell'aria attorno al treno è maggiore o minore? E perchè?</article>
+<article class="post" id="p1606"><div class="who"><b>Pairo</b><span>16 lug 2009, 17:09</span></div>Io avevo già affrontato questo problema, quindi magari prima lascio parlare prima gli altri; c'è una cosa importante però, che autorizza a trattare questo problema in un certo modo: i gas si comportano come fluidi incomprimibili quando si ha a che fare con velocità molto minori di quella del suono (citando l'halliday, per un aereo che vola a velocità subsonica l'aria che fluisce sulle ali è praticamente incomprimibile).. E sembra ragionevole assumere che il treno non superi i 340 metri al secondo  :D. Era una cosa che non sapevo, e che avevo cercato quando  mi ero imbattuto in questo problema, e che probabilmente serve sapere..</article>
+<article class="post" id="p1607"><div class="who"><b>pascal</b><span>17 lug 2009, 14:20</span></div>Se vogliamo considerare la densità <span class="tex">\(\rho\)</span> costante nella conservazione dell’energia, al diminuire della pressione deve decrescere anche la temperatura  <span class="tex">\((pM=\rho RT)\)</span> e l’energia interna. Questa a sua volta deve defluire verso l’esterno dell’aria come calore e ciò è concepibile per modiche variazioni di temperatura. In tal caso diventa facile applicare Bernoulli.</article>
+<article class="post" id="p1614"><div class="who"><b>String</b><span>18 lug 2009, 20:02</span></div>Perchè <span class="tex">\(\rho\)</span> si può considerare costante? Per il motivo detto da Pairo?
+<blockquote><div><cite>Pairo ha scritto:</cite> i gas si comportano come fluidi incomprimibili quando si ha a che fare con velocità molto minori di quella del suono</div></blockquote> <br>
+In ogni caso come si spiega questo fatto?</article>
+<article class="post" id="p1615"><div class="who"><b>eli9o</b><span>19 lug 2009, 0:12</span></div>Il motivo è quello. La spiegazione io non l'ho trovata da nessuna parte comunque mi son fatto un'idea (non troppo convinta)<br>
+<br>
+Il gas che il treno sposta si allontana da esso alla velocità del suono quindi se la velocità del treno è minore possiamo dire che nelle immediate vicinanze del treno c'è posto per il gas che sta per essere lì spostato. Invece, se la velocità del treno è maggiore, il gas non ha il tempo per spostarsi dal treno che altro gas viene spinto in quella posizione e così si comprime. <br>
+<br>
+Non so quanto si capisca da come mi sono espresso ma in realtà non so nemmeno se la spiegazione è valida. Se qualcuno più esperto può intervenire... :D <br>
+In attesa di migliori spiegazioni si può tuttavia dare per buono questo fatto per la risoluzione del problema</article>
+<article class="post" id="p1621"><div class="who"><b>pascal</b><span>19 lug 2009, 12:24</span></div>In effetti la questione sollevata rientra nella categoria degli interrogativi le cui risposte non si riescono a reperire nei testi. Oltre a quanto già affermato in precedenza sulle trasformazioni di un fluido incomprimibile, vediamo se è possibile ottenere il risultato come approssimazione, partendo dalla conservazione dell’energia per il moto stazionario di un gas perfetto che non scambia calore con l’esterno. A supporto di questa ipotesi si può ricordare che in meteorologia le trasformazioni delle masse d’aria in spazi e tempi circoscritti vengono considerate adiabatiche.<br>
+<br>
+<span class="tex">\(\Delta (p/\rho+u+w^2/2+gz)=0\)</span><br>
+<br>
+Dove p = pressione, <span class="tex">\(\rho\)</span>= densità, u = energia interna per unità di massa, w = velocità, g = accelerazione di gravità, z = quota.<br>
+<br>
+<span class="tex">\(\Delta (p/ \rho+u)= \Delta (RT/M+nc_v T/m)=\)</span><br>
+<br>
+<span class="tex">\(=\Delta (RT/M+c_v T/M)= c_p \Delta T/M\)</span><br>
+<br>
+in cui R = costante dei gas, T = temperatura assoluta, M = massa molare, <span class="tex">\(c_v\)</span> = calore specifico molare a volume costante, <span class="tex">\(c_p\)</span> = calore specifico molare a pressione costante, n = numero di moli, m = massa.<br>
+Nell’ipotesi di una trasformazione adiabatica reversibile si ha l’equazione:<br>
+<br>
+<span class="tex">\(p_1^{\frac{1}{\gamma}-1}T_1= p_2^{\frac{1}{\gamma}-1}T_2\)</span> dove <span class="tex">\(\gamma = c_p/c_v\)</span>.<br>
+<br>
+Si ottiene<br>
+<br>
+<span class="tex">\(\frac {c_p \Delta T}{M}=\frac {c_p T_1}{M}(T_2/T_1-1)= \frac {c_p T_1}{M} \left [(p_2/p_1)^{1-1/\gamma}-1 \right]=\)</span><br>
+<br>
+<span class="tex">\(=\frac {c_p T_1}{M} \left [(1+x)^{1-1/\gamma}-1 \right]\)</span><br>
+<br>
+con <span class="tex">\(x = \Delta p/p_1\)</span>.<br>
+<br>
+Sviluppando la quantità in parentesi quadre in serie di potenze fino al primo ordine, essendo <span class="tex">\(\Delta p/p_1&lt;&lt;1\)</span>, si ricava:<br>
+<br>
+<span class="tex">\(\frac {c_p \Delta T}{M}=\frac {c_p  T_1}{M}(1-1/\gamma)x=\Delta p/\rho_1\)</span>.<br>
+<br>
+Perciò l’equazione del bilancio energetico per <span class="tex">\(\Delta p&lt;&lt;p_1\)</span> diventa quella di Bernoulli in cui la densità del gas si può reputare costante:<br>
+<br>
+<span class="tex">\(\Delta p/\rho_1+\Delta (w^2/2+gz)=0\)</span>.</article>
+<article class="post" id="p1628"><div class="who"><b>CoNVeRGe.</b><span>20 lug 2009, 17:12</span></div>Dopo i vari hints mi viene:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta p = \frac{ \gamma p_0 }{2} \left( \frac{v_t}{v_s} \cdot \frac{S_0}{S_0 - S_t} \right)^2\)</span></article>
+<article class="post" id="p1630"><div class="who"><b>eli9o</b><span>20 lug 2009, 18:50</span></div>Mi sembra che ormai ci siamo anche se la mia è un pelo diversa.<br>
+<br>
+La mia è <span class="tex">\(\displaystyle \Delta p= \frac {\gamma p_0}{2} \frac{v_t^2}{v_s^2} \left(\frac{S_0^2}{(S_0-S_t)^2}-1 \right)\)</span><br>
+<br>
+Secondo me hai solo messo <span class="tex">\(\displaystyle \Delta p= \frac{1}{2}\rho v_f^2\)</span> invece di <span class="tex">\(\displaystyle \Delta p= \frac{1}{2}\rho (v_f^2-v_0^2)\)</span><br>
+<br>
+Comunque metti pure la soluzione. Ci si può fare qualche considerazione.</article>
+<article class="post" id="p1631"><div class="who"><b>CoNVeRGe.</b><span>20 lug 2009, 19:20</span></div><blockquote><div><cite>eli9o ha scritto:</cite>
+Secondo me hai solo messo <span class="tex">\(\displaystyle \Delta p= \frac{1}{2}\rho v_f^2\)</span> invece di <span class="tex">\(\displaystyle \Delta p= \frac{1}{2}\rho (v_f^2-v_0^2)\)</span><br>
+<br>
+Comunque metti pure la soluzione. Ci si può fare qualche considerazione.</div></blockquote>
+
+ :oops:  Inizialmente no, ma quando sono andato a sostituire mi son saltato l'altra velocità   :evil: <br>
+<br>
+<br>
+<strong class="text-strong">Soluzione:</strong><br>
+<br>
+Ci mettiamo nel sistema di riferimento del treno, in modo da poter sfruttare l'equazione di continuità:<br>
+<br>
+<span class="tex">\(\displaystyle \rho_0 S_0 v_t = \rho_1 (S_0 - S_t) v\)</span><br>
+<br>
+Bernoulli nello stesso sistema di riferimento:<br>
+<br>
+<span class="tex">\(\displaystyle p_0 + \rho_0 g h_0 + \rho_0 v_t^2 /2 = p +  \rho_1 g h_0 + \rho_1 v^2 /2\)</span><br>
+<br>
+Da queste, trascurando l'energia potenziale e assumendo <span class="tex">\(\displaystyle \rho_0 = \rho_1 = \rho\)</span>, si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta p = p - p_0 = \frac{\rho}{2} v_t^2 \left(1-\frac{S_0^2}{(S_0-S_t)^2} \right)\)</span><br>
+<br>
+Per trovare la densità in funzione della velocità del suono si sfruttano l'equazione che ci fornisce il testo e quella dei gas perfetti:<br>
+<br>
+<span class="tex">\(\displaystyle p_0 \mu = \rho  RT \qquad v_s^2 = \frac{\gamma R T}{\mu}\)</span><br>
+<br>
+Dunque:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta p =  \frac{\gamma p_0}{2} \frac{v_t^2}{v_s^2} \left(1-\frac{S_0^2}{(S_0-S_t)^2} \right)\)</span></article>
+<article class="post" id="p1632"><div class="who"><b>eli9o</b><span>20 lug 2009, 20:08</span></div>Ok  ;) <br>
+<br>
+Secondo me è utile considerare che solo dopo il cambio di sistema di riferimento si può applicare Bernoulli (che alla fine esprime la conservazione dell'energia) perché altrimenti occorrerebbe conoscere il lavoro che il treno compie nello spostare l'aria. Ovvio che se il treno è fermo il lavoro è nullo.<br>
+<br>
+Era questa, credo, l'idea più importante. Non so, ci sono soluzioni alternative?</article>
+<article class="post" id="p1635"><div class="who"><b>CoNVeRGe.</b><span>20 lug 2009, 21:27</span></div>Dopo il cambio di sistema di riferimento abbiamo una situazione equivalente ad un qualsiasi condotto immobile percorso da un fluido (le pareti della galleria si muovono ma questo è ininfluente credo).<br>
+Nel sistema solidale con la galleria neanche l'equazione di continuità è più valida ma non saprei spiegarmi il motivo; Bernoulli credo anch'io che vada corretto con un'altra energia..</article>
+<article class="post" id="p1640"><div class="who"><b>eli9o</b><span>21 lug 2009, 0:25</span></div>L'equazione di continuità non vale perché il moto dell'aria, nel sistema di riferimento della galleria, non è stazionario. <br>
+Che le pareti si muovano con l'aria è anche meglio Così (se vanno alla stessa velocità) non danno sforzi di taglio. In generale è quando vi è scorrimento che è utile considerare il fluido non viscoso in modo da eliminare gli sforzi di taglio tra fluido e pareti.</article>
+<article class="post" id="p1845"><div class="who"><b>Loren Kocillari89</b><span>3 ago 2009, 10:44</span></div>Inoltre l'aria si comprime. Quindi Bernoulli non risulta efficace in questo caso, volendo questa equazione solo fluidi incomprimibili.</article>
+<article class="post" id="p1847"><div class="who"><b>eli9o</b><span>3 ago 2009, 11:32</span></div>È il testo del problema che ti consiglia di considerare l'aria come un fluido perfetto. La nostra soluzione si basa su Bernoulli. Se ne può fare a meno senza complicarsi troppo la vita?</article>
+<article class="post" id="p1848"><div class="who"><b>Loren Kocillari89</b><span>3 ago 2009, 12:06</span></div>Un idea. Potremo considerare l'aria compressa come onde sonore che si comprimono considerando il "modulo di compressibilità B" dell'elemento. In questo caso Bernoulli non compare.  :?</article>
+<article class="post" id="p1864"><div class="who"><b>eli9o</b><span>3 ago 2009, 20:07</span></div>Se hai una soluzione postala pure. Il problema è già qua da un po' e sarebbe interessante.<br>
+Io partendo da B e dalla velocità del suono <span class="tex">\(v_s=\sqrt {\frac{B}{\rho}}\)</span> riesco solo ad arrivare alla formula indicata in fondo al testo ma non riesco comunque ad evitare Bernoulli.</article>
+<article class="post" id="p7174"><div class="who"><b>andreaandrea</b><span>12 ago 2011, 12:28</span></div>La soluzione di CoNVeRGe. mi convince. Soltanto ho un dubbio: ammesso che si possa usare bernoulli, perchè si può usare anche la relazione dei gas perfetti ? una vale per fluidi incomprimibili, l'altra per fluidi comprimibili. una esclude l'altra o mi sbaglio ?</article>
+<nav class="pager"><a class="prev" href="oliforum-4057.html"><small>← precedente</small>fluido dinamica sns 2001</a><a class="next" href="oliforum-10280.html"><small>successivo →</small>Problema sns</a></nav>
+</main></body></html>

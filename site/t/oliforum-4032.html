@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>idrodinamica sns 1999</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1999-2000, problema 6</span></nav>
+<h1>idrodinamica sns 1999</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=4032">OliForum</a></p>
+<article class="post first" id="p43506"><div class="who"><b>mark86</b><span>03 ago 2005, 15:27</span></div>Un fluido incompressibile di densità $ \rho $ si muove in un tubo di sezione S con velocità v. Il tubo ha un gomito che costringe il fluido a cambiare direzione di un angolo$ \theta $ Calcolare le componenti x e y della forza esercitata sul tubo e il modulo della forza stessa.<br>
+<br>
+posto la mia soluzione in attesa di confrontarla con le vostre<br>
+<br>
+Dopo l’urto con la parete nel gomito il fluido cambia direzione ma il modulo della sua velocità resta invariato. Cambiano però i valori delle componenti delle velocità e quindi si ha una variazione della quantità di moto che possiamo scomporre lungo due componenti x, y. Pertanto, per il teorema dell’impulso si avrà<br>
+$ (dp)_x = F_x dt $<br>
+$ (dp)_y = F_y dt $<br>
+<br>
+Sappiamo anche che $ dp = m dv $ e così avremo<br>
+$ (dp)_x = m (dv)_x = \rho dV (v- v cos\theta) = \rho S dl (v- v cos\theta) $<br>
+$ (dp)_y = m (dv)_y = \rho dV v sin\theta = \rho S dl v sin\theta $<br>
+<br>
+Dove $ dl $ indica lo spessore di un elemento di fluido infinitesimo.<br>
+<br>
+Nel momento in cui inizia l’urto fra il fluido e il gomito non tutta la sezione di fluido del condotto è a contatto con il gomito, quella più lontana dovrà percorrere un tratto $ dL = S cot\theta = v dt $. Pertanto $ dt = \frac{S cot\theta}{v} $. Così otteniamo<br>
+$ F_x = \frac{\rho dl v}{cot\theta} (v- v cos\theta) $<br>
+$ F_y = \frac{\rho dl v}{cot\theta}v sin\theta $<br>
+<br>
+Poiché $ F = \sqrt{F_x^2+F_y^2} $ otteniamo<br>
+<br>
+$ F = \frac{\rho dl v^2}{cot\theta}sin\theta \sqrt{2} $.<br>
+<br>
+Non sono molto sicuro di questa risoluzione, in particolare su due elementi la presenza di $ dl $ che penso vada sostituito con qualcosa di noto e il calcolo del tratto $ dL $…. Vedete un po’</article>
+<article class="post" id="p43522"><div class="who"><b>info</b><span>03 ago 2005, 19:16</span></div>Potresti sistemare le notazioni? Mi pare tu abbia utilizzato S prima come superficie e dopo come lunghezza lineare... <br>
+<br>
+In ogni caso le forze in gioco sul liquido sono anche la pressione e la forza peso (diverse!) e queste o si trascurano oppure hanno un loro impulso oppure non hanno impulso e nn c'entrano nulla, ma cmq sono da considerare...<br>
+<br>
+Io stavo considerando in questo modo tutti gli impulsi su un tubo 'circolare' sfruttando Bernoulli ma mi sa che mi sono complicato la vita... escono calcoli bruttissimi anche se alla portata liceale...<br>
+<br>
+Probabilmente e meglio trascurare l'impulso della pressione e della forza peso e fare i calcoli esattamente come te, solo che non ho capito come hai calcolato il dt (c'e quell'S da cambiare)... Io lo darei approssimativamente come<br>
+<br>
+dt = dl / v<br>
+<br>
+considerando il tempo di uscita del liquido considerato e supponendo che l'urto avvenga solo una volta giunti all'inizio della salita. In tal modo si dovrebbe semplificare anche il dl... tu cosa avevi pensato?<br>
+<br>
+ma non so se quanto sia approssimativo... non mi piace: l'altra via pareva piu esatta anche se calcolosa... Mah! Se ho tempo (ce l'ho!) ci do un'altra occhiata... in particolare vorrei capire se l'impulso dal tubo dipende dalla geometria del tubo (il che pone come conseguenza credo che in caso di risposta affermativa anche l'impulso della pressione dipende dalla forma del tubo)</article>
+<article class="post" id="p43525"><div class="who"><b>mark86</b><span>03 ago 2005, 22:36</span></div>beh io intanto credo che il disegno vada inteso come una vista dall'alto... in questo caso la forza peso può essere trascurata... poi per quanto riguarda dt io consideravo il tempo che occorre affinchè tutta la massa d'acqua vada a collidere con il tubo... l'idea tua dt = dl / v è comunque molto interessante perchè credo faccia semplificare dl ma a questo punto occorre capire che cosa si intende per urto perchè non sono equivalenti queste due interpretazioni ma entrambe lasciano un po' perplessi... vediamo cosa mi viene in mente</article>
+<article class="post" id="p43532"><div class="who"><b>mark86</b><span>04 ago 2005, 11:51</span></div>Forse ho trovato la soluzione….<br>
+Premessa<br>
+Sia S una superfice e sia P un piano inclinato di un angolo $ \alpha $ rispetto alla perpendicolare alla superfice. La proiezione lungo tale perpendicolare sul piano vale $ S sin\alpha $. (E’ un po’ come lavorare con i triangoli rettangoli, infatti possiamo scomporre S in tanti segmenti tali che con le loro proiezioni costituiscano dei triangoli rettangoli…. Spero che sia corretto e almeno chiaro)<br>
+<br>
+Per l’urto consideriamo un elemento di fluido $ dl $ parallelo alla parete del gomito (sarà pertanto inclinato di un angolo $ \theta $) che stia urtando la parete. Per quanto detto prima il Volume di questo elemento di fluido sarà $ V = \frac{dl S}{sin\theta} $. Consideriamo adesso il tempo dell’urto. Il cammino che il fluido deve percorrere è $ dx = \frac{dl}{sin\theta}= v dt  $ così abbiamo $ dt = \frac{dl}{v sin\theta} $. Torniamo alle forze<br>
+$ F_x = \frac{\rho dV}{dt}(v- v cos\theta) = \rho S v^2 (1- cos\theta) $<br>
+$ F_y = \frac{\rho dV}{dt} v sin\theta = \rho S v^2 sin\theta $<br>
+<br>
+Per il modulo complessivo della forza troviamo<br>
+<br>
+$ F = \sqrt{F_x^2 + F_y^2} = \rho S v^2 \sqrt{2- 2 cos\theta} $<br>
+<br>
+Va meglio ora? Speriamo di sì… il rammarico è l’impossibilità di mostrare un disegno… comunque potete vederlo nel file .pdf in cui sono raccolti i problemi della Normale…</article>
+<article class="post" id="p43537"><div class="who"><b>info</b><span>04 ago 2005, 13:01</span></div>Hai ragione... il disegno e una vista verticale... e io che consideravo anche la forza peso... (in ogni caso considerando anche la forza peso e la pressione in un tubo particolare mi e venuto un ris simile a quello la solo con ulteriori addendi: se ho tempo posto le mie elucubrazioni da malato)...<br>
+<br>
+In ogni caso noto che i risultati che ti vengono (piu sensati dei precedenti  :D )sono esattamente uguali a quelli che verrebbero con i tuoi calcoli precedenti solo sostituendo dt come dl/v... e un caso? [non e una domanda retorica]<br>
+<br>
+Comunque non ho capito cosa vuoi fare con il nuovo metodo ( che non dubito sia corretto, eh! solo che sono un po lento  :?  :D )... Cosa e quel nuovo volume che tiri fuori? Forse una proiezione del volume effettivo lungo un certo asse?</article>
+<article class="post" id="p43539"><div class="who"><b>info</b><span>04 ago 2005, 13:06</span></div><blockquote><div><cite>mark86 ha scritto:</cite>poi per quanto riguarda dt io consideravo il tempo che occorre affinchè tutta la massa d'acqua vada a collidere con il tubo... </div></blockquote>
+
+ :?  non capisco cosa intendi per tubo. A parte poi le incongruenze dimensionali [dL=S*ctg(teta)-&gt;lunghezza=superficie: ho dedotto che S e una superficie dai tuoi calcoli precedenti] come e che questo tempo ti veniva indipendente dalla quantita di acqua considerata?</article>
+<article class="post" id="p43542"><div class="who"><b>info</b><span>04 ago 2005, 13:52</span></div>Ehm… sicuramente scrivero un mucchio di cazzate grosse come una casa… se mai studiero idrodinamica credo che rinneghero il tutto. Posto solo perche cosi mi abituo a scrivere… anche perche questo e un altro esercizio, non quello di mark86 (qua l'acqua sale ed il tubo ha un'altra forma. Secondo me nel problema originale il tubo ha quella forma di modo che l'urto sia abbastanza veloce da potere trascurare la forza di pressione)…<br>
+<br>
+quindi invito a non leggere quanto segue ed a focalizzarsi sul problema originale...<br>
+Cmq...<br>
+<br>
+Allora, immaginiamo quel tubo come vista di fronte (quindi l’acqua sale contro la forza peso) e supponiamo la zona d’urto circolare o quasi (vista di fronte). <br>
+Chiamo :<br>
+S = l’altezza del tubo;<br>
+A =  l’area della sezione del tubo;<br>
+M+S/2 = il raggio della circonferenza che approssimativamente percorre il CM del volume di acqua molto piccolo che considereremo;<br>
+<br>
+Come detto considero un piccolo volume di acqua il cui volume e dl*A.<br>
+<br>
+Consideriamo innanzitutto l’impulso della pressione. Bernoulli con considerazioni energetiche arriva a dire che :<br>
+<br>
+F(h) = (ro*v^2) /2 + ro*gh + p<br>
+<br>
+e costante. Considerando che il fluido e incomprimibile la costanza della portata e della sezione afferma che :<br>
+<br>
+G(h) = F(h) -  (ro*v^2) /2 =  ro*gh + p<br>
+<br>
+E costante. Da cui p = K - ro*gh con K costante. Quindi il liquido e sottoposto ad una forza di pressione (D sta per delta) derivante dalla differenza delle forza agente ai lati:<br>
+<br>
+F_p = - A * ro*g D(h) = - A * ro* g dl sen (gamma) <br>
+<br>
+Ora gamma dipende dalla posizione del volume d’acqua. E uguale a 0 prima dell’urto, varia da O a teta nella parte dell’urto, mentre e uguale a teta dopo l ‘urto. Mi concentro sulla forza verticale per ora e quindi <br>
+<br>
+F_p_y = - A * ro* g dl sen^2 (gamma) <br>
+<br>
+La forza peso agisce sempre con modulo\<br>
+<br>
+F_g_y = - ro * dl * A * g<br>
+<br>
+Rimane la forza verticale del tubo che pero consideriamo possa variare all’interno della parte circolare. La esprimo quindi come rF(gamma). Gamma infatti indica anche l’angolo  che la tangente alla circonferenza forma con l’asse y. Ad ogni valore di gamma (che varia da 0 a teta esclusi) associo un punto della traiettoria del Dm del liquido infiniteimo. L’ho chiamata rF(gamma) perche non esprime la forza in un punto, ma la densita di forza in un tratto infinitesimo di modo che dF = rF(gamma)*dl. Dove a sinistra F e una forza infinitesima. Il tempo dell’urto e dt = dgamma(M+S/2)/v… Ora abbiamo tutti i dati per applicare il teorema dell’impulso (per ora lungo l’asse y):<br>
+<br>
+Int[Fdt] = A * dl * ro * v * sen(teta) <br>
+<br>
+Int[ {- A * ro* g dl sen^2 (gamma) + rF(gamma)*dl - ro * dl * A * g} * (M+S/2)*dgamma / v] = <br>
+= A * dl * ro * v * sen(teta) <br>
+<br>
+l’integrale e inteso da o a teta. <br>
+<br>
+si semplifica il dl, si divide l’integrale in somma di integrali di cui due su tre calcolabili e si ricava Int[rF(gamma)dgamma] = X <br>
+<br>
+ora X / gamma * [ (M+S/2)*gamma] = X * (M+S/2)<br>
+<br>
+rappresenta proprio la nostra F_y totale. (in sostanza ho preso il valor medio ed ho moltiplicato per la lunghezza dell’acqua a cui la forza in ogni istante e applicata). Il risultato mi viene qualcosa come<br>
+<br>
+F_y = v^2 * A * ro * sen(teta) + ro * g [  (M+S/2) * (3/2*teta-1/4 sen(2teta)) ]<br>
+<br>
+La forzq F_x dovrebbe essere piu facile…<br>
+<br>
+Se avete letto fin qui AT YOUR OWN RISK, cosa ne pensate???????  :shock:  :shock:  :shock:</article>
+<article class="post" id="p43549"><div class="who"><b>mark86</b><span>04 ago 2005, 15:19</span></div>Please info.... usa $ LaTeX $ !!!!!!!!!!!<br>
+Per il nuovo volume ti spiego. Considera la nostra superfice S e proiettala sulla retta passante per l'origine degli assi di angolo $ \theta $ (nota: la proiezione deve essere fatta con rette parallele all'asse x). Il legame fra la superfice iniziale S e quella nuova S' è $ S = S' sin\theta $ (credo). Per calcolare il volume di quell'elemento di fluido di cui dicevo sopra si ottiene $ dV = S' dl = S sin\theta dl $</article>
+<article class="post" id="p43552"><div class="who"><b>info</b><span>04 ago 2005, 16:24</span></div>ghgh... hai ragione mark ma ora non posso stare molto sul pc per imparare.. vedremo! <br>
+<br>
+Cmq forse ORA ho capito. In sostanza tu analizzi cosa succede ad un elemento di fluido posto 'obliquo', giusto (era il concetto di 'gomito' che non mi era chiaro)? Cmq mi pare che concettualmente non vi sia molto di diverso dal primo metodo... Lo stesso dt lo ricavi in modo analogo... <br>
+<br>
+Cosi l'urto pero avviene in modo intuitivamente piu chiaro... Non risulta (almeno ai miei occhi) altrettanto chiaro il calcolo della variazione della quantita di moto del liquido analizzato ma non si puo avere tutto...<br>
+<br>
+Beh... per me il ris e quello la cmq!</article>
+<article class="post" id="p43557"><div class="who"><b>mark86</b><span>04 ago 2005, 17:21</span></div>Beh non so cosa inverntarmi d'altro per la conservazione della quantità di moto.... non mi pare però che sia scorretto... ti spiego... considera questo elemento dl "obliquo", il tempo dell'urto è quello impiegato dala faccia posteriore a raggiungeere la parete del gomito (o no?)...</article>
+<article class="post" id="p43566"><div class="who"><b>info</b><span>04 ago 2005, 18:58</span></div>si si... io invece considerando liquido verticale avevo indicato il tempo dell'urto come quello usato dal liquido per attraversare proprio lo spigolo! <br>
+<br>
+Il tuo metodo ha il pregio di essere evidente nel calcolare dt... Cio che non mi pare palese (esattamente come non e palese il mio calcolo del dt) e come calcoli la variazione della quantita di moto prima e dopo l'urto, che invece con il metodo dal liquido verticale sembrava piu evidente... tutto qui... <br>
+<br>
+per il poco che posso dire mi pare tutto abb corretto cmq! Manca solo la prova sperimentale che confermi!  :D (o il libro di testo con sol allegate)</article>
+<nav class="pager"><a class="prev" href="oliforum-8975.html"><small>← precedente</small>SNS &#x27;99-&#x27;00 numero 6</a><a class="next" href="olifis-521.html"><small>successivo →</small>[SNS 2000/2001, n°1]</a></nav>
+</main></body></html>

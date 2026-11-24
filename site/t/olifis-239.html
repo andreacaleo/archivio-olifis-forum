@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2007/2008 n 1. Energia orbita ellittica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2007-2008, problema 1</span></nav>
+<h1>SNS 2007/2008 n 1. Energia orbita ellittica</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=239">forum Olifis</a></p>
+<article class="post first" id="p2145"><div class="who"><b>mrossi</b><span>24 ago 2009, 15:05</span></div>Un'astronave di massa m orbita attorno a un pianeta di massa <span class="tex">\(M \gg m\)</span>. L'orbita è ellittica con semiasse maggiore a e minore b.<br>
+<br>
+(a) Si mostri che l'energia totale dell'astronave è data da<br>
+<br>
+<span class="tex">\(E= -\frac{GMm}{2a}\)</span><br>
+<br>
+Mi trovo in difficolta su questo punto, perché non so bene da cosa bisognerebbe partire.<br>
+<br>
+(b) Usando questa formula si trovi il punto dell'orbita in cui conviene accendere i motori dell'astronve per sfuggire all'attrazione gravitazionale del pianeta. Si supponga che i motori producano sullo scafo una forza costante F e che possano essere accesi per un tempo massimo t molto minore del periodo T dell'orbita.</article>
+<article class="post" id="p2146"><div class="who"><b>Fedecart</b><span>24 ago 2009, 16:05</span></div>Premetto che non ne sono certo... Ci provo...<br>
+<br>
+<span class="tex">\(E=U+K\)</span><br>
+Dove U è la potenziale e K la cinetica.<br>
+<span class="tex">\(U=\frac{-GMm}{a}\)</span><br>
+<span class="tex">\(K=\frac{1}{2}mv^2\)</span><br>
+E v la trovo eguagliando la forza gravitazionale alla centripeta.<br>
+<span class="tex">\(\frac{GMm}{a^2}=m\frac{v^2}{a}\)</span><br>
+<span class="tex">\(v^2=\frac{GM}{a}\)</span><br>
+Quindi <span class="tex">\(K=\frac{GMm}{2a}\)</span><br>
+e dalla somma con U trovo ciò che il testo chiedeva di trovare.<br>
+Tutto questo tenendo conto che le orbite ellittiche si trattano (per un motivo a me ignoto) come orbite circolari, sostituendo semplicemente al raggio il semiasse maggiore.<br>
+Esiste poi anche il Teorema del Viriale per le energie delle cose in orbita, che sveltisce molto tutti i calcoli ma meglio non usarlo per l'ammissione alla SNS sennò potrebbero chiederti di dimostrarlo all'orale, come sempre quando uno usa il cannone!</article>
+<article class="post" id="p2147"><div class="who"><b>mrossi</b><span>24 ago 2009, 17:09</span></div><blockquote class="uncited"><div>Tutto questo tenendo conto che le orbite ellittiche si trattano (per un motivo a me ignoto) come orbite circolari, sostituendo semplicemente al raggio il semiasse maggiore.</div></blockquote>
+
+Appunto, io avevo pensato come te, però non sapevo come e se è necessario motivare questa cosa.</article>
+<article class="post" id="p2151"><div class="who"><b>eli9o</b><span>24 ago 2009, 17:43</span></div>Non so quanto sia bello se all'orale ti chiedono come mai nelle orbite ellittiche basta mettere a al posto di r e trattarle come circonferenze  :roll: <br>
+<br>
+Un metodo alternativo potrebbe essere applicare la conservazione dell'energia e del momento angolare in 2 punti comodi: afelio e perielio, sapendo che il pianeta è in uno dei due fuochi e una proprietà dell'ellisse: ogni fuoco dista dal centro <span class="tex">\(ea\)</span> dove e è l'eccentricità e a è il semiasse maggiore. I conti sembrano diventare brutti ma alla fine si fanno.<br>
+<br>
+Per il punto (b) dobbiamo fornire un' energia cinetica fissa (cioè che non dipende dalla posizione in cui accendiamo i motori). La posizione conveniente è quella che minimizza <span class="tex">\(F\Delta t=m\Delta v\)</span> quindi che minimizza <span class="tex">\(\Delta v\)</span>. Con <span class="tex">\(\Delta (v^2)\)</span> costante <span class="tex">\(\Delta v\)</span> è minimo quando <span class="tex">\(v\)</span> è massima quindi al perielio. Là si potrebbe giustificare un po' meglio ma è veloce. Si può fare considerando il grafico della parabola <span class="tex">\(y=x^2\)</span>. Allora <span class="tex">\(\Delta (v^2)= \Delta y\)</span> e <span class="tex">\(\Delta v= \Delta x\)</span>.</article>
+<article class="post" id="p2154"><div class="who"><b>Fedecart</b><span>24 ago 2009, 17:56</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Non so quanto sia bello se all'orale ti chiedono come mai nelle orbite ellittiche basta mettere a al posto di r e trattarle come circonferenze  :roll: 
+</div></blockquote>
+
+Già arrivarci all'orale è improbabile per me...!  :roll:  :roll:  E comunque in quel caso avrei un pochino di tempo in più dopo, per scoprire perchè funziona ugualmente usando a e trattandole come circonferenze!</article>
+<article class="post" id="p2158"><div class="who"><b>CoNVeRGe.</b><span>24 ago 2009, 18:20</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>
+E v la trovo eguagliando la forza gravitazionale alla centripeta.<br>
+<span class="tex">\(\frac{GMm}{a^2}=m\frac{v^2}{a}\)</span>
+ </div></blockquote>
+Questo credo sia sbagliato perchè praticamente scrivi che la forza gravitazionale ha la stessa direzione della forza centripeta. Ma questo vale solo quando il punto che si prende in considerazione è il perielio o l'afelio (come si chiamano questi punti per una massa che non sia il sole ?), ma tuttavia in questi punti l'equazione sarebbe comunque sbagliata perchè non ci troviamo a studiare un'orbita circolare.<br>
+<br>
+Il procedimento da fare è sfruttare qualche proprietà dell'ellisse, come ad esempio il procedimento di eli90.</article>
+<article class="post" id="p2160"><div class="who"><b>Davide90</b><span>24 ago 2009, 18:30</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Per il punto (b) dobbiamo fornire un' energia cinetica fissa (cioè che non dipende dalla posizione in cui accendiamo i motori). La posizione conveniente è quella che minimizza <span class="tex">\(F\Delta t=m\Delta v\)</span> quindi che minimizza <span class="tex">\(\Delta v\)</span>. Con <span class="tex">\(\Delta (v^2)\)</span> costante <span class="tex">\(\Delta v\)</span> è minimo quando <span class="tex">\(v\)</span> è massima quindi al perielio. Là si potrebbe giustificare un po' meglio ma è veloce. Si può fare considerando il grafico della parabola <span class="tex">\(y=x^2\)</span>. Allora <span class="tex">\(\Delta (v^2)= \Delta y\)</span> e <span class="tex">\(\Delta v= \Delta x\)</span>.</div></blockquote>
+Si può dire che dopo la dimostrazione con afelio e perielio corretta, possiamo assimilare il moto a uno circolare con raggio <span class="tex">\(a\)</span> ?<br>
+Dunque per la conservazione dell'energia cinetica <span class="tex">\(dv^2=2vdv\)</span> è costante, quindi <span class="tex">\(dv\)</span> è minimo se <span class="tex">\(v\)</span> è massimo.<br>
+Altrimenti Elio come fai a dire che <span class="tex">\(\Delta (v^2)\)</span> è costante?</article>
+<article class="post" id="p2170"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 20:18</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Non so quanto sia bello se all'orale ti chiedono come mai nelle orbite ellittiche basta mettere a al posto di r e trattarle come circonferenze  :roll: <br>
+<br>
+Un metodo alternativo potrebbe essere applicare la conservazione dell'energia e del momento angolare in 2 punti comodi: afelio e perielio, sapendo che il pianeta è in uno dei due fuochi e una proprietà dell'ellisse: ogni fuoco dista dal centro <span class="tex">\(ea\)</span> dove e è l'eccentricità e a è il semiasse maggiore. I conti sembrano diventare brutti ma alla fine si fanno.<br>
+<br>
+Per il punto (b) dobbiamo fornire un' energia cinetica fissa (cioè che non dipende dalla posizione in cui accendiamo i motori). La posizione conveniente è quella che minimizza <span class="tex">\(F\Delta t=m\Delta v\)</span> quindi che minimizza <span class="tex">\(\Delta v\)</span>. Con <span class="tex">\(\Delta (v^2)\)</span> costante <span class="tex">\(\Delta v\)</span> è minimo quando <span class="tex">\(v\)</span> è massima quindi al perielio. Là si potrebbe giustificare un po' meglio ma è veloce. Si può fare considerando il grafico della parabola <span class="tex">\(y=x^2\)</span>. Allora <span class="tex">\(\Delta (v^2)= \Delta y\)</span> e <span class="tex">\(\Delta v= \Delta x\)</span>.</div></blockquote>
+
+Più semplicemente. Se vai in afelio poni che l'energia potenziale in quel punto dipende da a, l'energia cinetica la si può trovare considerando l'afelio come un punto in cui è tangente una circonferenza di raggio a, e questo lo si può considerare per semplicità. Dopodichè, per generalizzare è facile, basta usufruire della conservazione dell'energia. Se in altri punti la distanza fosse diversa l'energia totale non si conserverebbe e allora addio campo conservativo! Il che è assurdo  :P</article>
+<article class="post" id="p2171"><div class="who"><b>mrossi</b><span>24 ago 2009, 20:24</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Un metodo alternativo potrebbe essere applicare la conservazione dell'energia e del momento angolare in 2 punti comodi: afelio e perielio, sapendo che il pianeta è in uno dei due fuochi e una proprietà dell'ellisse: ogni fuoco dista dal centro <span class="tex">\(ea\)</span> dove e è l'eccentricità e a è il semiasse maggiore. I conti sembrano diventare brutti ma alla fine si fanno.</div></blockquote>
+
+Come vanno impostati? Scusate l'ignoranza..  :(</article>
+<article class="post" id="p2179"><div class="who"><b>eli9o</b><span>24 ago 2009, 21:20</span></div>@ davide: costante nel senso che è la stessa in ogni punto dell'orbita. L'energia da fornire (sotto forma di energia cinetica) non dipende da dove accendi i motori , è quella che manca al sistema per raggiungere 0. La scriviamo come <span class="tex">\(\Delta E=\frac {1}{2}mv_f^2-\frac{1}{2}mv_0^2=\frac{1}{2}m\Delta(v^2)\)</span> quindi <span class="tex">\(\Delta(v^2)\)</span> non dipende da dove accendi i motori.<br>
+<br>
+@ mrossi: conservazione del momento angolare (ovvero Keplero II) ti dice <span class="tex">\(v_{a}r_{a}=v_p r_p\)</span> (i pedici a e p stanno per afelio e per perielio). <br>
+Per le proprietà dell'ellisse <span class="tex">\(r_a=a(1+e)\)</span> mentre <span class="tex">\(r_p=a(1-e)\)</span>. <br>
+Poi imponi <span class="tex">\(U_p+K_p=U_a+K_a\)</span> che, con le opportune sostituzioni, dovrebbe essere<br>
+<span class="tex">\(\frac{1}{2}mv_p^2-\frac{GMm}{a(1-e)}=\frac{1}{2}mv_p^2\frac{(1-e)^2}{(1+e)^2}-\frac{GMm}{a(1+e)}\)</span><br>
+Ti ricavi <span class="tex">\(v_p\)</span> poi scrivi <span class="tex">\(E=U_p+K_p\)</span> e con "alcuni" passaggi algebrici ottieni la tesi.<br>
+<br>
+Non ho ritrovato il foglio dove ho fatto l'esercizio e stavolta non ho portato in fondo i conti, può darsi che abbia messo qualche segno sbagliato ma il procedimento credo fosse quello.</article>
+<article class="post" id="p2186"><div class="who"><b>Davide90</b><span>24 ago 2009, 22:11</span></div>@Elio: Ok, avevo capito male... Ora quadra tutto.  ;) <br>
+@Elio+mrossi: Sì, i conti funzionano così, solo che io ho imposto <span class="tex">\(r_a =a-c\)</span> e <span class="tex">\(r_a=a+c\)</span>, dove c è la distanza tra il fuoco e il centro dell'ellisse e vale <span class="tex">\(c=\sqrt{a^2-b^2}\)</span> .<br>
+P.S.: per caso sei Matteo di Parma?</article>
+<article class="post" id="p2194"><div class="who"><b>pascal</b><span>25 ago 2009, 7:50</span></div>Si può seguire un ulteriore procedimento.<br>
+Dal teorema dell’energia cinetica e dalla conservazione del momento angolare si ha:<br>
+<br>
+<span class="tex">\(GM(-1/r_a+1/r_p)=(v_p^2-v_a^2)/2=v_p^2(1-r_p^2/r_a^2)/2\)</span><br>
+<br>
+Dividendo per il fattore comune diverso da zero per l’ellisse, si ottiene:<br>
+<br>
+<span class="tex">\(GM/r_p=v_p^2(r_a+r_p)/(2r_a)=v_p^2a/r_a\)</span><br>
+<br>
+Quindi <span class="tex">\(v_p^2=GMr_a/(ar_p)\)</span><br>
+<br>
+L’energia vale:<br>
+<br>
+<span class="tex">\(-GMm/r_p+ mv_p^2/2=GMm/r_p[-1+r_a/(2a)]=-GMm/(2a).\)</span></article>
+<article class="post" id="p2200"><div class="who"><b>mrossi</b><span>25 ago 2009, 11:29</span></div>Ok grazie mille della pazienza. Adesso ci sono.<br>
+<br>
+@Davide: Si sono io! Tutto bene? Ormai ci siamo...</article>
+<article class="post" id="p15092"><div class="who"><b>gilgamesh</b><span>13 ago 2013, 17:54</span></div>Sarebbe carino ricavare la legge oraria di questo moto, per risolvere il primo punto potrebbe risultare utile. Per farlo ho pensato di scrivere l'ellisse il forma cartesiana e di procedere al calcolo delle aree spaziate nei vari intervalli di tempo: il risultato è stato un mare di calcoli ...  è possibile ricavare la legge oraria in modo più semplice? So che non è strettamente utile, tuttavia anche per curiosità sarebbe interessante risolvere questo quesito. (scusate se riprendo un vecchio post)</article>
+<article class="post" id="p15095"><div class="who"><b>Pigkappa</b><span>13 ago 2013, 18:17</span></div>Se vuoi <span class="tex">\(x(t)\)</span>, <span class="tex">\(y(t)\)</span>, penso che tu sia sfortunato: non si possono scrivere in una forma esplicita che non coinvolga integrali infattibili. <br>
+<br>
+Puoi provare a leggere questo: <a href="http://en.wikipedia.org/wiki/Kepler_problem" class="ext" class="postlink">http://en.wikipedia.org/wiki/Kepler_problem</a></article>
+<article class="post" id="p17069"><div class="who"><b>Simone256</b><span>4 apr 2014, 16:12</span></div>A quale formula esatta ti riferisci?  :)</article>
+<nav class="pager"><a class="prev" href="oliforum-12743.html"><small>← precedente</small>Gravità, primo round (SNS 2007-2008)</a><a class="next" href="oliforum-11384.html"><small>successivo →</small>Catapultiamoci in Normale!</a></nav>
+</main></body></html>

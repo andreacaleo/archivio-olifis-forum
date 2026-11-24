@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008/2009 Problema 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 5</span></nav>
+<h1>SNS 2008/2009 Problema 5</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=221">forum Olifis</a></p>
+<article class="post first" id="p1962"><div class="who"><b>Loren Kocillari89</b><span>13 ago 2009, 12:33</span></div>Un blocco di massa <span class="tex">\(M\)</span> e velocità iniziale <span class="tex">\(V_0\)</span> urta una particella ferma di massa <span class="tex">\(m \ll M\)</span>. Questa, messa in moto, urta contro un muro, torna indietro, urta di nuovo col blocco, cambia di nuovo direzione, poi urta di nuovo contro il muro e così via. Supponendo che tutti gli urti che avvengono siano perfettamente elastici e avvengano sempre sulla stessa retta, dimostrare che il numero di urti che intercorrono tra la particella e il blocco prima dell'arresto di quest'ultimo sono <span class="tex">\($n \approx \frac{\pi}{4}\sqrt{\frac{M}{m}}$\)</span><br>
+<br>
+Non riesco proprio a capire come lo si possa iniziare a svolgere..</article>
+<article class="post" id="p1967"><div class="who"><b>Alex90</b><span>13 ago 2009, 14:51</span></div>Credo che sia il problema più difficile dell'anno scorso...se qualcuno ha una soluzione reativamente semplice (senza derivate discrete &amp; simili) sarei contento di vederlo  :D</article>
+<article class="post" id="p1968"><div class="who"><b>Pigkappa</b><span>13 ago 2009, 14:58</span></div>Qualcosa lo trovate qua: <a href="olifis-87.html" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=87</a></article>
+<article class="post" id="p1969"><div class="who"><b>Loren Kocillari89</b><span>13 ago 2009, 15:56</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Qualcosa lo trovate qua: <a href="olifis-87.html" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=87</a></div></blockquote>
+
+Grazie per avermelo fatto notare! :) ora ci guardo..<blockquote><div><cite>Alex90 ha scritto:</cite>Credo che sia il problema più difficile dell'anno scorso...se qualcuno ha una soluzione reativamente semplice (senza derivate discrete &amp; simili) sarei contento di vederlo  :D</div></blockquote>
+
+Già! è quello il fatto che complica il problema. non tanto il concetto fisico purtroppo  :(</article>
+<article class="post" id="p1986"><div class="who"><b>Loren Kocillari89</b><span>13 ago 2009, 20:25</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Credo che sia il problema più difficile dell'anno scorso...se qualcuno ha una soluzione reativamente semplice (senza derivate discrete &amp; simili) sarei contento di vederlo  :D</div></blockquote>
+
+Mi associo ad Alex90! Il fatto è che non c'è niente di particolarmente difficile nel linguaggio matematico, semplicemente che risolto così non mi sarebbe MAI venuto in mente, nemmeno su 12 ore  :D é fattibile in maniera più semplice?</article>
+<article class="post" id="p1994"><div class="who"><b>Pigkappa</b><span>13 ago 2009, 22:38</span></div>L'ho scritto già in quel topic:<br>
+
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Ci sono vari modi di risolverlo, nessuno dei quali è banale.</div></blockquote>
+
+<br>
+Io non lo avevo risolto, ma con un modello mooolto semplificato (qualcosa come considerare l'energia persa in un urto sempre uguale a metà di quella persa nel primo urto) avevo dimostrato che la risposta cresceva come <span class="tex">\(\sqrt{M/m}\)</span> e che il coefficiente che ci andava davanti non era troppo diverso da quello che indicavano loro. Ovviamente non lo avevo risolto completamente, ma all'orale il prof. Vietri mi ha detto che la mia soluzione era piaciuta molto alla commissione, e penso che buona parte dei punti me li abbiano dati. Perciò, se proprio un problema non vi riesce, potete anche provare a fare un modello semplificato e cavarci qualcosa. Ovviamente se scrivete cavolate è giusto che vi puniscano.</article>
+<article class="post" id="p1999"><div class="who"><b>Alex90</b><span>14 ago 2009, 9:35</span></div>Sarebbe possibile vedere questo modello semplificato? sempre che hai tempo e voglia  :D</article>
+<article class="post" id="p2003"><div class="who"><b>Pigkappa</b><span>14 ago 2009, 12:32</span></div>L'ho già spiegato. Calcoli quanta energia cinetica perde il blocco al primo urto, e ovviamente all'ultimo urto ne perderà circa 0. Allora l'energia cinetica persa man mano che viene colpita sarà, "in media", circa la metà di quella persa al primo urto. Quindi fai il conto di quanti urti vengono e ti viene un risultato abbastanza simile al loro.<br>
+<br>
+Per dimostrare che il risultato è proporzionale a <span class="tex">\(\sqrt{M/m}\)</span> va bene.</article>
+<nav class="pager"><a class="prev" href="oliforum-11678.html"><small>← precedente</small>SNS 2008/2009 problema 5</a><a class="next" href="olifis-6018.html"><small>successivo →</small>32: Quantitá di Moto 2.0 [SNS 2008 n.5]</a></nav>
+</main></body></html>

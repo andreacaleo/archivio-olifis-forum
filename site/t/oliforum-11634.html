@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2007.3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2007-2008, problema 3</span></nav>
+<h1>SNS 2007.3</h1>
+<p class="meta">1 messaggio · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11634">OliForum</a></p>
+<article class="post first" id="p94709"><div class="who"><b>Desh</b><span>24 ago 2008, 18:50</span></div>3. Un interferometro di Michelson è composto da una sorgente di luce coerente C,<br>
+da uno specchio semiriflettente R, da due specchi piani S1, S2, e da uno schermo<br>
+P, come in figura.<br>
+<br>
+<img src="../img/db322b01eab4e110.gif" class="postimage" alt="Immagine"><br>
+<em class="text-italics">la figura non è la stessa, ma è sostanzialmente identica</em><br>
+<br>
+La luce, di lunghezza d’onda $ \lambda=500 nm $, si propaga verso lo specchio R, dove si divide in due fasci; il primo percorre la distanza $ L_1 = 1.01m $ verso lo specchio S2, e il secondo la distanza $ L_2 = 0.99m $ verso lo specchio S2.<br>
+<br>
+Tornando sullo specchio R, parte dei due fasci si riuniscono e si sovrappongono sullo schermo P, formando una figura di interferenza circolare. Le distanze CR e RP sono ambedue pari a 1 m. <br>
+<br>
+(a) A quali distanze dal centro della figura sullo schermo si dispongono i massimi e i minimi di interferenza? Si usi la formula $ \cos(\theta)=1-\frac{\theta^2}{2} $ valida per piccoli angoli $  \theta $.<br>
+<br>
+(b) Sia $ d = L_1 - L_2 $. Come si muovono i massimi di interferenza variando d? In particolare cosa succede per $ d&lt;&lt;\lambda $?<br>
+<br>
+(c) Si vogliono verificare due ipotesi alternative. (1) La velocità della luce c è la stessa in tutti i sistemi di riferimento. (2) La velocità della luce è c nel sistema dell’etere e si compone additivamente nel passaggio ad altri sistemi di riferimento. Assumendo che la Terra si muova rispetto all’etere ad una velocità $ v = 30\frac{km}{s} $ nella direzione di $ L_1 $, si calcoli la differenza fra la posizione del primo e del secondo massimo circolare nelle due ipotesi. Si usino le formule $ $ \sqrt{1-x}=1-\frac{x}{2}, \frac{1}{1-x}=1+x $, valide per piccoli x. Velocità della luce $ [tex] $$ c = 3 \cdot 10^8\frac{m}{s}.<br>
+<br>
+<br>
+già postato, ma senza soluzione e scritto maluccio: <a href="http://www.oliforum.it/viewtopic.php?t=9147" class="ext" class="postlink">viewtopic.php?t=9147</a></article>
+<nav class="pager"><a class="prev" href="oliforum-11384.html"><small>← precedente</small>Catapultiamoci in Normale!</a><a class="next" href="olifis-197.html"><small>successivo →</small>SNS 2007/2008 Problema 3</a></nav>
+</main></body></html>

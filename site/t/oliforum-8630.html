@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quanto lavoro per una piramide!!!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 4</span></nav>
+<h1>Quanto lavoro per una piramide!!!</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8630">OliForum</a></p>
+<article class="post first" id="p72130"><div class="who"><b>Boll</b><span>04 lug 2007, 19:02</span></div>Sempre per rendervi partecipi del mio ripassone di Fisica!<br>
+<br>
+Calcolare l'energia potenziale gravitazione di una piramide a base quadrata di altezza $ h $, lato di base $ b $ e massa $ m $.</article>
+<article class="post" id="p72138"><div class="who"><b>luiz</b><span>04 lug 2007, 22:49</span></div>a me viene:<br>
+<br>
+E=mgh/4<br>
+<br>
+possibile?<br>
+<br>
+ciao</article>
+<article class="post" id="p72151"><div class="who"><b>Zok</b><span>05 lug 2007, 11:41</span></div>Confermo il risultato di luiz. <br>
+<br>
+$ $E=\frac{mgh}{4} $<br>
+<br>
+Perdonatemi ma non ho voglia di postare tutti i conti, ma per chi volesse avere un'idea di come si arriva a questo risultato, guardate questo problema sns 2004 molto simile, discusso qua <a href="oliforum-6216.html" class="postlink">viewtopic.php?t=6216</a></article>
+<article class="post" id="p72155"><div class="who"><b>Unkown</b><span>05 lug 2007, 13:39</span></div><blockquote class="uncited"><div><a href="oliforum-6216.html" class="postlink">viewtopic.php?t=6216</a></div></blockquote>
+nel link  c è il calcolo della superficie della base del prisma che non ho capito potreste spiegarlo?$ b=\frac{B(H_t-H)^2}{H_t^2} $</article>
+<article class="post" id="p72157"><div class="who"><b>Zok</b><span>05 lug 2007, 14:19</span></div>Beh allora l'energia potenziale richiesta è data da<br>
+<br>
+$ \displaystyle E=\int_0^{H} {\rho h g\ } dV $ dove $\rho $ è la densità del materiale e $H $ l'altezza della piramide. <br>
+<br>
+Ora vogliamo esprimere $dV $ (cioè il volume di una sezione sottilissima posta a una distanza $h $ dal vertice) in funzione di $h $ e $dh $<br>
+<br>
+Esiste un teorema che dice che la sezione di una piramide con un piano parallelo alla sua base e che dista meno da essa meno dell'altezza è un poligono simile a quello della base; quindi il rapporto tra le loro aree è uguale al quadrato del rapporto delle distanze dal vertice della piramide dai loro piani.<br>
+<br>
+Se $B $ è l'area di base, $b $ è l'area della sezione, $H_t $ l'altezza della piramide e $H $ la distanza della sezione dalla base (e quindi $H_t-H $ è la distanza della sezione dal vertice) abbiamo che: $ \displaystyle \frac{b}{B}=\frac{(H_t-H)^2}{H_t^2} $<br>
+<br>
+Inoltre, siccome stiamo considerando una sezione sottilissima (il suo spessore $dh \rightarrow 0 $), il suo volume è approssimabile a quello di un prisma e quindi $ \displaystyle dV=b\cdot dh=\frac {B (H_t-H)^2}{H_t^2} dh $<br>
+<br>
+Spero di essere stato chiaro...</article>
+<article class="post" id="p72159"><div class="who"><b>Unkown</b><span>05 lug 2007, 14:32</span></div>si, grazie mille , mi mancava il teorema.. oppure non ci avevo pensato</article>
+<article class="post" id="p72163"><div class="who"><b>Boll</b><span>05 lug 2007, 15:48</span></div>Confermo pure io il risultato, che avevo ottenuto in modo un po' arzigogolato :P:P e confermo anche la provenienza, non mi andava di scrivere tutto quel problema in cui alla fine il succo è ciò che ho postato io ;)</article>
+<article class="post" id="p72182"><div class="who"><b>BMcKmas</b><span>05 lug 2007, 21:52</span></div>Ehm .... forse bastava ricordare la posizione del baricentro di una piramide?</article>
+<article class="post" id="p72186"><div class="who"><b>luiz</b><span>05 lug 2007, 23:03</span></div><blockquote><div><cite>BMcKmas ha scritto:</cite>Ehm .... forse bastava ricordare la posizione del baricentro di una piramide?</div></blockquote>
+...quoto...</article>
+<nav class="pager"><a class="prev" href="oliforum-11599.html"><small>← precedente</small>SNS 2004-2005 es. 4 (Piramide di Erodoto)</a><a class="next" href="oliforum-6216.html"><small>successivo →</small>Ammissione SNS (2004-2005).4</a></nav>
+</main></body></html>

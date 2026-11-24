@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sfera di Particelle in espansione @ SNS</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2002-2003, problema 3</span></nav>
+<h1>Sfera di Particelle in espansione @ SNS</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=5918">OliForum</a></p>
+<article class="post first" id="p55198"><div class="who"><b>Gauss_87</b><span>31 lug 2006, 17:52</span></div>Ancora un SNS, <strong class="text-strong">2002 - 3</strong><br>
+<br>
+Dentro una sfera di raggio $ R_0 $ sono distribuite un gran numero di particelle, ciascuna di massa $ m $ e carica $ q $, con densità omogenea.<br>
+All'istante 0 le particelle sono lasciate libere di muoversi sotto la reciproca interazione elettrostatica.<br>
+<br>
+a) Si mostri che la distribuzione rimane omogenea nel tempo.<br>
+<br>
+b) calcolare la velocità asintotica di allontanamento.  :wink:</article>
+<article class="post" id="p55576"><div class="who"><b>tuvok</b><span>08 ago 2006, 21:26</span></div>Ok, io provo: <br>
+a) Poichè la distribuzione iniziale è omogenea, la quantità di moto iniziale del sistema è nulla. Le uniche forze che agiscono sul sistema delle particelle sono quelle di interazione elettrostatica tra le particelle stesse; poichè queste sono tutte forze interne al sistema, allora in ogni istante il vettore quantità di moto del sistema si conserverà e rimarrà nullo. Da ciò discende il fatto che la distribuzione rimane omogenea; in caso contrario infatti, si avrebbe un vettore quantità di moto risultante non nullo (poichè la situazione non sarebbe simmetrica). <br>
+b) Considerando la velocità di allontanamento come la velocità con cui si muovono le particelle più esterne, allora si ha che, quando la sfera si è estesa all'infinito, tutta l'energia potenziale elettrostatica delle particelle esterne si è trasformata in energia cinetica: $ \frac{kNq^2}{R_0}=\frac{1}{2}mv^2 $, dove N è il numero di particelle presenti nel sistema. Si ricava la velocità di allontanamento all'infinito delle particelle più esterne: $ v=\sqrt{\frac{2kNq^2}{mR_0}} $</article>
+<article class="post" id="p55594"><div class="who"><b>Gauss_87</b><span>09 ago 2006, 13:09</span></div>Perfetto, non era poi così difficile</article>
+<article class="post" id="p55651"><div class="who"><b>edelion</b><span>10 ago 2006, 17:58</span></div>Concordo con voi nella soluzione del problema, tuttavia non mi convince a fondo la sua accettabilità. Cioè, a livello intuitivo è corretta, però figuratevi questa situazione...<br>
+<br>
+Nello stato iniziale le particelle sono distribuite uniformemente.<br>
+Quando la sfera inizia ad espandersi, si potrebbe però SUPPORRE che le particelle che si possono considerare sul "guscio" più esterno fuggono molto più velocemente di quelle interne, tuttavia sempre in modo simmetrico. (Ad esempio, banalizzando molto e considerando come linea di demarcazione una sfera di raggio Ro/2, le particelle esterne ad essa aquistano un tasso di espansione più rapido di quelle interne). Cioè quello che intendo dire è che si potrebbe IMMAGINARE una situazione in cui viene mantenuta la simmetria sferica, il centro di massa rimane fermo, la quantità di moto totale rimane nulla, ma la densità varia diminuendo man mano che si va verso l'esterno (un paragone rozzo potrebbe essere fatto con l'interno della terra). Altro esempio banale, le particelle superficiali (solo quelle) si espandono sulla superficie di un'altra sfera concentrica alla prima ma di raggio sempre maggiore. Certo non ritengo che questo sia il comportamento reale del sistema, però non mi pare escluso dal ragionamento di Tuvok.<br>
+<br>
+Per cui azzardarei che sia richiesta una dimostrazione un po' più formale del fatto che la distribuzione rimane omogenea.<br>
+<br>
+Io ci sto ancora lavorando e per ora ho postato solo tante belle parole, però non vorrei che in un ipotetico esame, anche il discorso di Tuvok (che reputo giusto e che vorrei però dimostrare) sia preso solo come un abbozzo.<br>
+<br>
+Voi che cosa ne dite?</article>
+<article class="post" id="p55653"><div class="who"><b>nnsoxke</b><span>10 ago 2006, 18:38</span></div>Si concordo con edelion ... affinchè la quantità di moto totale sia nulla basta la simmetria centrale , ma simmetrico(nelle velocità) non è uguale ad omogeneo(nelle posizioni) ... Forse conviene trovare l'andamento del campo elettrico di una sfera uniformemente carica e da qui calcolarsi la forza che agisce su ogni particella in funzione della sua posizione (nell'ipotesi che le particelle siano talmente tante che la particella in questione non turbi in modo significativo il campo elettrico nel punto in cui si trova)</article>
+<article class="post" id="p55706"><div class="who"><b>Gauss_87</b><span>11 ago 2006, 20:27</span></div><blockquote><div><cite>edelion ha scritto:</cite>Concordo con voi nella soluzione del problema, tuttavia non mi convince a fondo la sua accettabilità. Cioè, a livello intuitivo è corretta, però figuratevi questa situazione...<br>
+<br>
+Nello stato iniziale le particelle sono distribuite uniformemente.<br>
+Quando la sfera inizia ad espandersi, si potrebbe però SUPPORRE che le particelle che si possono considerare sul "guscio" più esterno fuggono molto più velocemente di quelle interne, tuttavia sempre in modo simmetrico. <br>
+<br>
+(...)<br>
+<br>
+Cioè quello che intendo dire è che si potrebbe IMMAGINARE una situazione in cui viene mantenuta la simmetria sferica, il centro di massa rimane fermo, la quantità di moto totale rimane nulla, ma la densità varia diminuendo man mano che si va verso l'esterno (un paragone rozzo potrebbe essere fatto con l'interno della terra). <br>
+<br>
+(...)<br>
+<br>
+Voi che cosa ne dite?</div></blockquote>
+
+Scusami ma non serve SUPPORRE perchè basta utilizzare il Teorema di Gauss<br>
+<br>
+$ \displaystyle \oint_{\Sigma} \vec{E} \cdot d\vec{\Sigma} = \frac{Q_{int}}{\epsilon_0} $<br>
+<br>
+(Se volete anche una dimostrazione del Th. di Gauss dovreste pensare al concetto di angolo solido...)<br>
+<br>
+quindi il campo elettrico, e pertanto l'accelerazione delle particelle, cresce linearmente con la distanza dal centro, cioè non serve IMMAGINARE perchè effettivamente la densità diminuisce col tempo.</article>
+<article class="post" id="p55755"><div class="who"><b>edelion</b><span>12 ago 2006, 14:39</span></div>provo a spiegarmi meglio, quello che voglio dire è che bisognerebbe forse dimostrare che la densità rimane omogenea,omogenea non vuol dire uguale a quella iniziale, nel tempo e non darlo semplicemente per scontato. cioè dimostrare che durante l'espansione non si verifica una situazione tipo interno della terra (nucleo molto più denso della superficie)</article>
+<article class="post" id="p55765"><div class="who"><b>tuvok</b><span>12 ago 2006, 18:15</span></div>Io avevo ragionato così: quando la densità è omogenea in tutta la sfera, ciascuna particella "vede" intorno a sè la stessa configurazione di tutte le altre, quindi viene accelerata tanto quanto tutte le altre, da cui il fatto che la quantità di moto rimane nulla. Se la densità dovesse diventare non uniforme, la quantità di moto totale non sarebbe più nulla, in quanto alcune particelle verrebbero accelerate più di altre, a seconda della loro posizione all'interno della sfera. Se la quantità di moto si conserva e rimane nulla, quindi, la densità deve rimanere omogenea.</article>
+<article class="post" id="p55766"><div class="who"><b>edelion</b><span>12 ago 2006, 19:09</span></div>evidentemente non mi sono spiegato bene<br>
+<br>
+provo a far capire quello che intendo in un modello a 1 dimensione: cinque punti materiali su una retta<br>
+<br>
+o-o-o-o-o <br>
+<br>
+possibili espansioni dopo un tempo t<br>
+<br>
+caso a) <br>
+o---o---o---o---o (distribuzione ancora omogenea, conservazione del centro di massa e della quantità di moto)<br>
+<br>
+caso b)<br>
+o-----o--o--o-----o (distribuzione non più omogenea, conservazione del centro di massa e della quantità di moto)<br>
+<br>
+in entrambi i casi c'è simmetria rispetto al centro di massa che rimane fermo, e le velocità e le accelerazioni dei punti simmetrici rispetto al centro sono eguali in modulo. il problema chiederebbe di dimostrare che l'espansione segue il caso a)<br>
+<br>
+riportando in 3d il problema ciò equivale a dimostrare che l'accelerazione e lo spostamento di ogni carica sono in ogni momento linearmente proporzionali rispetto al raggio.<br>
+<br>
+la soluzione che avevi proposto Tuvok è sicuramente giusta, solo che magari in normale non avrebbero accettato solo parole</article>
+<article class="post" id="p55933"><div class="who"><b>tuvok</b><span>16 ago 2006, 10:48</span></div>Forse ho trovato: consideriamo una sfera di raggio $ R_1 $ contenuta nella sfera di raggio $ R_0 $ e indichiamo con $ N\,  $ il numero di particelle di cui il sistema è composto. Siano inoltre $ R'_1 $ e $ R'_0 $ le evoluzioni temporali dei raggi delle sfere di raggio $ R_1 $ e $ R_0 $. Se la distribuzione deve rimanere uniforme, allora in ogni istante deve essere $ \frac{N}{R'_0^3}=\frac{N(R_1/R_0)^3}{R'_1^3} $ ossia $ \frac{R'_1}{R'_0}=\frac{R_1}{R_0} $. Moltiplicando ambo i membri per R'0 e derivando due volte rispetto al tempo si ottiene $ a_1=\frac{R_1}{R_0}a_0 $ [1], dove a indica l'accelerazione delle sfere in espansione. Se questa condizione è verificata, e la distribuzione iniziale è uniforme, allora quest'ultima si mantiene uniforme. <br>
+Ma se la distribuzione è uniforme, allora la [1] è sicuramente verificata, in quanto l'accelerazione in un punto è proporzionale al campo elettrico in quel punto, che per il teorema di Gauss è proporzionale alla distanza di quel punto dal centro della sfera (cioè al raggio). Ricapitolando: se la distribuzione è omogenea in un istante di tempo, allora la [1] è verificata, allora la distribuzione si mantiene uniforme nell'istante successivo. Per garantire che la distribuzione sia uniforme in ogni istante di tempo, quindi, è sufficiente imporre che essa sia uniforme nell'istante iniziale, il che è vero per ipotesi.</article>
+<nav class="pager"><a class="prev" href="oliforum-5840.html"><small>← precedente</small>Carnot @ SNS</a><a class="next" href="oliforum-4170.html"><small>successivo →</small>Cariche in fuga</a></nav>
+</main></body></html>

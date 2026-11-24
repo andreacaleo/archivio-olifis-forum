@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>279 - SNS 2021/1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2021-2022, problema 1</span></nav>
+<h1>279 - SNS 2021/1</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7110">forum Olifis</a></p>
+<article class="post first" id="p27206"><div class="who"><b>roncu</b><span>16 nov 2021, 12:58</span></div>Scusate mi sono appena iscritto perché avevo intenzione di partecipare al concorso di ammissione SNS ma ho trovato subito il primo problema di questo anno che mi ha spaventato.<br>
+<br>
+Un corpo rigido può essere approssimato con una superficie cilindrica di raggio r composta da due superfici semicilindriche (simmetriche rispetto ad un piano passante per l'asse del cilidro) omogenee ma di densità diversa di masse M e m&lt;M. Questo cilindro è posto inizialmente su un piano inclinato di un angolo <span class="tex">\(\alpha\)</span> con la parte più pesante verso l'alto (in modo che tutti i punti della superficie di massa M si trovino ad una quota superiore a quelli della superficie di massa m) e l'asse geometrico parallelo alle linee di ugual quota; il cilindro è soggetto ad un campo gravitazionale di modulo g diretto verso il basso. Il piano inclinato si raccorda dolcemente con un piano orizzontale e l'asse geometrico del cilindro si trova ad una quota h+r rispetto alla quota di tale piano. Sotto l'ipotesi di attrito volvente trascurabile e di puro rotolamento, descrivere la velocità dell'asse geometrico del cilindro in funzione della distanza da un punto arbitrario del piano orizzontale. Integrale potenzialmente utile <span class="tex">\(\int_{-1}^1\sqrt{1+\frac{x^2}{1-x^2}} dx= \pi\)</span><br>
+<br>
+Ho determinato il CM del sistema e ho provato a impostare l'eq. di Newton <span class="tex">\(I_P.\alpha = M_P \)</span> rispetto a P asse istantaneo di rotazione ma non so risolverla. Troverei forse una soluzione applicando la conservazione dell'energia ma non ci rientra l'integrale suggerito!</article>
+<article class="post" id="p27219"><div class="who"><b>Luca Milanese</b><span>27 nov 2021, 17:26</span></div>Considererò il moto dell'oggetto quando questo è già sceso dal piano inclinato e si muove sul piano orizzontale. Cerco anzitutto la posizione del centro di massa del cilindro, che indico con <span class="tex">\(C\)</span>, mentre <span class="tex">\(O\)</span> è il suo centro geometrico. La distanza del centro di massa di una semicirconferenza omogenea di massa <span class="tex">\(m\)</span> e raggio <span class="tex">\(r\)</span> dal suo centro geometrico è data da:<br>
+<span class="tex">\(y_{cm}=\frac{\int y \text{d}m}{m}=\frac{\int_{0}^{\pi} r \sin \phi \text{d}\phi}{\pi} =\frac{2r}{\pi}\)</span><br>
+Pertanto la distanza <span class="tex">\(\overline{OC}\)</span> nel cilindro risulta <span class="tex">\(\overline{OC}=x_{cm}=\frac{2r}{\pi}\frac{M-m}{M+m}\)</span><br>
+Quando l'angolo <span class="tex">\(\angle{COP}\)</span>, detto <span class="tex">\(P\)</span> il punto di contatto fra cilindro e terreno, vale <span class="tex">\(\pi-\theta\)</span>, l'energia potenziale del cilindro è:<br>
+<span class="tex">\(U(\theta)=(M+m)g(r+x_{cm} \cos\theta)=gr\bigg[(M+m)+\frac{2\cos\theta (M-m)}{\pi}\bigg]\)</span><br>
+Ora fisso un sistema di riferimento tale che l'asse delle <span class="tex">\(x\)</span> è orizzontale, l'asse delle <span class="tex">\(y\)</span> è verticale e l'origine è situata nel punto di raccordo fra il piano orizzontale e la rampa. Le velocità <span class="tex">\(\dot x\)</span> e <span class="tex">\(\dot \theta\)</span> sono legate dalla condizione di rotolamento puro:<br>
+<span class="tex">\(\dot x = r \dot \theta\)</span><br>
+La posizione di un punto <span class="tex">\(Q\)</span> della superficie cilindrica tale che l'angolo <span class="tex">\(\angle QOC\)</span> vale <span class="tex">\(\varphi\)</span> è data da:<br>
+<span class="tex">\(\vec r=(x+r\sin (\varphi+\theta), r+r \cos (\varphi+\theta))\)</span><br>
+Perciò la sua velocità è:<br>
+<span class="tex">\(\vec v=\dot{\vec r}= (\dot x +\dot x \cos(\varphi+\theta), -\dot x \sin (\varphi+\theta)) \Rightarrow v^2=2\dot x^2 [1+\cos (\varphi+\theta)]\)</span><br>
+Da cui l'energia cinetica è:<br>
+<span class="tex">\(K=\frac{1}{2}\int v^2 \text{d}m =\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\dot x^2 [1+\cos (\varphi+\theta)] \frac{M \text{d}\varphi}{\pi}+\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}}\dot x^2 [1+\cos (\varphi+\theta)] \frac{m \text{d}\varphi}{\pi}  \)</span><br>
+<span class="tex">\(=\dot x^2 \bigg((M+m)+\frac{2}{\pi}(M-m)\cos \theta \bigg)\)</span><br>
+Per le ipotesi del problema, l'energia si conserva, e quella iniziale vale:<br>
+<span class="tex">\(E=U_i=(h+r+x_{cm})g(m+M)\)</span><br>
+Dunque:<br>
+<span class="tex">\(E=U(\theta)+K \Rightarrow\)</span> <br>
+<span class="tex">\(gh(M+m)+\frac{2gr(1-\cos \theta)(M-m)}{\pi}=\dot x^2 \bigg((M+m)+\frac{2}{\pi}(M-m)\cos \theta \bigg)\)</span><br>
+<span class="tex">\(\Rightarrow \dot x = v_{asse}=\sqrt{\frac{   gh(M+m)+\frac{2gr(1-\cos \theta)(M-m)}{\pi}}{ (M+m)+\frac{2}{\pi}(M-m)\cos \theta }}  \)</span><br>
+Resta da esprimere <span class="tex">\(\theta\)</span> in funzione di <span class="tex">\(x\)</span>. La distanza complessiva percorsa dal punto di contatto del cilindro è:<br>
+<span class="tex">\(d=x+\frac{h}{\sin\alpha}\)</span><br>
+Che corrisponde a un angolo di rotazione:<br>
+<span class="tex">\(\theta=\frac{ x+\frac{h}{\sin\alpha}}{r}  \)</span><br>
+Sostiuendolo nell'espressione di sopra si ottiene il risultato cercato.</article>
+<article class="post" id="p27220"><div class="who"><b>roncu</b><span>28 nov 2021, 12:42</span></div>Grazie Luca. Credo di aver capito tutto anche se forse era opportuno usare un simbolo diverso da r per la posizione di Q per non confonderla con il raggio del cilindro. Anche se ovviamente il testimone è tuo devo riflettere per un paio di giorni perchè il procedimento che hai usato non poteva secondo me essere alla portata di un liceale per di più all'esame. A meno che non ci si contentasse di meno dato che il testo parla di "descrivere" la velocità in funzione di...Dopo la riflessione posterò la soluzione che avevo pensato con il moto del CM rotatorio attorno ad O e traslatorio con O. Ho pensato che si dovesse dare la velocità in un punto qualsiasi del PIANO INCLINATO in funzione della distanza dal piano orizzontale :D  :D</article>
+<article class="post" id="p27221"><div class="who"><b>Luca Milanese</b><span>29 nov 2021, 19:03</span></div>In effetti il testo non è chiarissimo, però alcuni ragazzi che hanno passato il test mi hanno detto di aver trattato il caso in cui il cilindro è già sceso a terra. Per quanto riguarda il procedimento, alcuni integrali potevano essere evitati, per esempio l'espressione dell'energia cinetica si può ottenere anche con il Teorema degli assi paralleli e col Teorema di Koenig.</article>
+<article class="post" id="p27223"><div class="who"><b>roncu</b><span>30 nov 2021, 12:38</span></div>Non ho tempo domani penso di fare la soluzione cui ho pensato e che seguendo il testo non parte dal piano orizzontale <img alt="😄" class="emoji smilies" draggable="false" src="../img/49e5d4e15b0f6e6c.svg"></article>
+<article class="post" id="p27224"><div class="who"><b>roncu</b><span>3 dic 2021, 12:34</span></div>Una risposta qualitativa al quesito consistente nel descrivere la velocità dell'asse geometrico del cilindro in funzione della distanza da un punto arbitrario del piano può essere che l'asse geometrico effettua un moto roto-traslatorio: 1) nel sistema di riferimento relativo con origine nel centro O del cilindro che è fermo in questo sistema, l'asse geometrico ruota attorno all'asse del cilindro per O 2) nel sistema di riferimento fisso diciamo inerziale si sposta verso il basso con la stessa velocità del centro O. Quantitativamente<br>
+1)Siamo d'accordo che il CM del cilindro dista da O della quantità <span class="tex">\(r_{CM}= \frac{2r}{\pi}.\frac{M-m}{M+m}\)</span>. Inizialmente <span class="tex">\(r_{CM}\)</span> è perpendicolare all'asse geometrico e tale rimane nella rotazione che è determinata dalla legge di Newton <span class="tex">\(I_O.\alpha=(M+m)g.r_{CM}sen\theta\)</span> se <span class="tex">\(I_O\)</span>è il momento di inerzia e <span class="tex">\(\theta\)</span> è l'angolo di cui è ruotato rispetto alla posizione iniziale che era verso l'alto. Ovvero <span class="tex">\((M+m)r^2_{CM}.\frac{d^2\theta}{dt^2}=(M+m)g r_{CM} sen\theta\)</span>. Moltiplicando ambo i membri per<span class="tex">\(2\frac{d\theta}{dt}\)</span> e semplificando si ottiene <span class="tex">\(d(\frac{d\theta}{dt})^2= \frac{2g}{r_{CM}}sen\theta.d\theta\)</span>ovvero integrando<span class="tex">\(\omega^2=(\frac{d\theta}{dt})^2=\frac{2g}{r_{CM}}(1-cos\theta)\)</span>ovvero <span class="tex">\(\omega=\sqrt{\frac{2g(1-cos\theta)}{r_{CM}}}\)</span>.  <br>
+<span class="tex">\(\omega\)</span>è la velocità angolare di rotazione dell'asse geometrico attorno al suo centro O, è diretta lungo l'asse del cilindro ed è  una funzione periodica così come l'energia cinetica che si trasforma in potenziale e viceversa in questo sistema. Il suo modulo aumenta mentre il cilindro rotola senza strisciare sul piano inclinato. Infatti<br>
+2) Il momento del peso (M+m)g rispetto all'asse istantaneo di rotazione per il punto di contatto cilindro-piano inclinato è sempre positivo in senso orario anche se varia in intensità fra un miinimo ed un massimo. Ciò significa che l'accelerazione angolare del moto del cilindro lungo il piano è sempre positiva e quindi la velocità di O e del CM lungo il piano <span class="tex">\(v=r\omega\)</span>è crescente come <span class="tex">\(\omega\)</span>. Il tratto percorso lungo il piano da O e dal CM sarà <span class="tex">\(r.\theta\)</span>. Se la quota di O all'inizio era h+r dopo questo tratto sarà h'+r con h-h'= <span class="tex">\(r\theta sen\alpha\)</span>. E' possibile allora esprimere v in funzione di h' come chiede il quesito dato che h' rappresenta la distanza da un punto arbitrario del piano:quella fra O centro dell'asse geometrico e il piede della perpendicolare(arbitrario, dipendente da <span class="tex">\(\theta\)</span>) da esso condotta al piano orizzontale.<br>
+Si può applicare il principio di conservazione dell'energia, dato che il testo evidenzia che l'attrito volvente è trascurabile, fra l'inizio a quota h+r+<span class="tex">\(r_{CM}\)</span> e la quota h'+r+<span class="tex">\(r_{CM}(1-cos\theta)\)</span>. <br>
+Dovrà essere <span class="tex">\(\Delta K=-\Delta U\)</span> dove<br>
+<span class="tex">\(\Delta K=K(h') = (1/2)(M+m)v^2+(1/2)I_O \omega^2\)</span>per le parti traslatoria e ruotante e<br>
+<span class="tex">\(\Delta U= (M+m)g [h-h'+r_{CM} (1-cos\theta)]\)</span>sempre per le parti traslatoria e ruotante.<br>
+Ricavando dalle due relazioni prima <span class="tex">\(v^2\)</span>e poi v mi risulta<br>
+<span class="tex">\(v=\sqrt{\frac{(M+m)g[h-h'+\frac{2r(M-m)(1-cos\theta)}{\pi.(M+m)}]}{(1/2)(M+m)+\frac{2(M-m)^2}{\pi^2(M+m)}}}\)</span><br>
+Questa mi pare la relazione che esprime la velocità traslatoria dell'asse geometrico in funzione di h' o se si volesse, vista la relazione di h' con h e <span class="tex">\(\theta\)</span>, in funzione di  <span class="tex">\(\theta \)</span> medesimo. Questaè  la mia interpretazione del complicato e oscuro testo. :?:  :?:  :?: <br>
+<br>
+P.S. Quanto tempo ho impiegato con il latex non digerito!</article>
+<nav class="pager"><a class="prev" href="olifis-6868.html"><small>← precedente</small>192- SNS 2019-2020</a><a class="next" href="olifis-7106.html"><small>successivo →</small>SNS 2021-2</a></nav>
+</main></body></html>

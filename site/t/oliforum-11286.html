@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sabbia che cade dentro la clessidra</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2006-2007, problema 2</span></nav>
+<h1>Sabbia che cade dentro la clessidra</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11286">OliForum</a></p>
+<article class="post first" id="p92101"><div class="who"><b>EUCLA</b><span>07 lug 2008, 21:48</span></div>Una clessidra di altezza totale  $ 2h  $ e massa a vuoto $ M  $ con dentro una massa $ m  $ di sabbia viene messa su una bilancia.<br>
+Inizialmente la sabbia è a riposo nella parte superiore e al tempo $ t=0  $ comincia a cadere.<br>
+<br>
+Si calcoli cosa segna la bilancia del tempo $ t=0  $ al momento in cui l'ultimo granello è sceso alla base della clessidra e se ne disegni un grafico. <br>
+<br>
+Si supponga che ogni granello di sabbia faccia un salto di altezza $ h  $ e si fermi istantaneamente alla base della clessidra e che la massa di sabbia che cade per unità di tempo sia costante e pari a $ \displaystyle \lambda =\frac{dm}{dt}  $.<br>
+<br>
+<span style="font-size:92%;line-height:116%"><em class="text-italics">SNS 2006-2007</em></span></article>
+<article class="post" id="p92136"><div class="who"><b>AndBand89</b><span>08 lug 2008, 19:18</span></div>...scusa la totale ignoranza...non è simile a quello delle biglie di ferro fatto cadere da un'altezza h di cui si discuteva un mesetto fa sul forum?</article>
+<article class="post" id="p92140"><div class="who"><b>EUCLA</b><span>08 lug 2008, 21:01</span></div>E che io non ho visto. Me lo vado a cercare  :P<br>
+<br>
+edit: io ho cercato ma non lo trovo. Puoi postare un link?  :oops:</article>
+<article class="post" id="p92145"><div class="who"><b>Rigel</b><span>08 lug 2008, 22:13</span></div>Se non ho preso un abbaglio il link è questo<br>
+<a href="http://www.oliforum.it/viewtopic.php?t=11016" class="ext" class="postlink">viewtopic.php?t=11016</a></article>
+<article class="post" id="p92149"><div class="who"><b>SkZ</b><span>08 lug 2008, 22:43</span></div>se non sbaglio, sull'halliday c'era anche la versione mitra contro superman.</article>
+<article class="post" id="p92164"><div class="who"><b>EUCLA</b><span>09 lug 2008, 10:04</span></div>Grazie del link, in effetti non me n'ero proprio accorta :|</article>
+<article class="post" id="p92180"><div class="who"><b>edriv</b><span>09 lug 2008, 14:26</span></div>Dite che un approcio del tipo:<br>
+- calcolo dov'è il baricentro della clessidra e quindi la sua accelerazione<br>
+- pongo la sua accelerazione = g - (accelerazione data dalla bilancia)<br>
+potrebbe funzionare?</article>
+<article class="post" id="p92191"><div class="who"><b>Zoidberg</b><span>09 lug 2008, 16:08</span></div><blockquote><div><cite>edriv ha scritto:</cite>Dite che un approcio del tipo:<br>
+- calcolo dov'è il baricentro della clessidra e quindi la sua accelerazione<br>
+- pongo la sua accelerazione = g - (accelerazione data dalla bilancia)<br>
+potrebbe funzionare?</div></blockquote>
+che fai tu qui?! pussa via! :D</article>
+<article class="post" id="p92205"><div class="who"><b>edriv</b><span>09 lug 2008, 18:32</span></div>Ooops scusate mi son perso... sapete... non sono di qui<br>
+<br>
+ciau  :D</article>
+<article class="post" id="p92259"><div class="who"><b>AndBand89</b><span>10 lug 2008, 16:26</span></div><blockquote><div><cite>edriv ha scritto:</cite>Dite che un approcio del tipo:<br>
+- calcolo dov'è il baricentro della clessidra e quindi la sua accelerazione<br>
+- pongo la sua accelerazione = g - (accelerazione data dalla bilancia)<br>
+potrebbe funzionare?</div></blockquote>
+
+Boh, parlo dall'alto della mia incapacità, ma penso che calcolare il baricentro della clessidra al variare della distribuzione dei granelli mi pare un po' cervellotico...usando il metodo dell'impulso stai un attimo...</article>
+<article class="post" id="p92261"><div class="who"><b>TBPL</b><span>10 lug 2008, 17:49</span></div><blockquote><div><cite>edriv ha scritto:</cite>Dite che un approcio del tipo:<br>
+- calcolo dov'è il baricentro della clessidra e quindi la sua accelerazione<br>
+- pongo la sua accelerazione = g - (accelerazione data dalla bilancia)<br>
+potrebbe funzionare?</div></blockquote>
+
+Be', tanto per far contento edriv, facciamo i conti con la sua idea  :P <br>
+Be', intanto direi che fare con le forze quello che lui voleva fare con le accelarazioni semplifica notevolmente, quindi andrò così. Chiamo $ m_t $ la massa di sabbia caduta fino all'istante $ t $, avrò che $ m_t=\lambda t $. La risultante delle forze agenti sulla clessidra, ossia la forza $ F_G $ che posso assumere agente sul centro di massa, sarà data da<br>
+$ \displaystyle F_G=(m-m_t)g=(m-\lambda t)g $<br>
+Quindi, avrò che la forza $ P $ segnata dalla bilancia sarà:<br>
+$ \displaystyle P=(M+m)g-(m - \lambda t)g=(M+ \lambda t)g $<br>
+No, non funziona  :P   :P</article>
+<nav class="pager"><a class="prev" href="oliforum-6265.html"><small>← precedente</small>sns 2006-2007, es. 1</a><a class="next" href="oliforum-6266.html"><small>successivo →</small>sns 2006-2007, es. 2</a></nav>
+</main></body></html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011 problema 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011, problema 5</span></nav>
+<h1>SNS 2010/2011 problema 5</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4674">forum Olifis</a></p>
+<article class="post first" id="p15377"><div class="who"><b>bozzio</b><span>29 ago 2013, 10:42</span></div>Un condensatore a facce piane e parallele costituito da due armature quadrate di lato L, poste a distanza d, viene caricato ad un potenziale V e poi disconnesso dalla batteria. Lo stesso viene in seguito immerso in un fluido dielettrico di costante relativa ε e densità ρ fino a quando il liquido all’ interno delle armature riempie per metà il condensatore, se le facce del condensatore sono perpendicolari alla superficie del liquido.<br>
+Qual è la differenza di altezza h tra il liquido all’ interno ed all’ esterno del condensatore? (Nella risoluzione del problema si possono trascurare gli effetti di bordo nel calcolo della capacità).</article>
+<article class="post" id="p15381"><div class="who"><b>gilgamesh</b><span>29 ago 2013, 12:31</span></div>Inserendo il dielettrico tra le armature del condensatore  si ottengono due condensatori in parallelo aventi capacità differenti:<br>
+<br>
+<span class="tex">\(\left \{
+\begin{array}{l}
+C_1=\frac {\varepsilon _0 L (L-x)}{d}\\
+C_2= {\varepsilon _0 \varepsilon _r L x}{d}\\
+
+\end{array}
+\right.\)</span><br>
+<br>
+Dove x corrisponde alla penetrazione del dielettrico nel condensatore.<br>
+<br>
+La capacità equivalente sarà:<br>
+<br>
+<span class="tex">\(C=C_1+C_2= \frac { \varepsilon _0 L^2}{d}+ \frac { (\varepsilon _0 \varepsilon _r L - \epsilon _0 L)x}{d}\)</span><br>
+<br>
+a questo punto si dovrebbe procedere per via differenziale, ma (non so se siete d'accordo) considerando la conservazione dell'energia si può anche lavorare con le differenze finite in questo caso.<br>
+<br>
+Per cui facciamo variare la x (aumentandola) , la capacità del condensatore aumenterà di conseguenza:<br>
+<br>
+<span class="tex">\(\Delta C= \frac { (\varepsilon _0 \varepsilon _r L - \epsilon _0 L) \Delta x}{d}\)</span><br>
+<br>
+Ciò farà diminuire l'energia immagazzinata nel consendatore per cui:<br>
+<br>
+<span class="tex">\(\Delta W= \frac {1}{2} \frac {Q_0}{\Delta C}\)</span><br>
+<br>
+tale variazione energetica corrisponderà all'aumento dell'energia potenziale del dielettrico:<br>
+<br>
+<span class="tex">\(\Delta U= \rho g d L \Delta x\)</span><br>
+<br>
+per cui infine per la conservazione dell'energia:<br>
+<br>
+<span class="tex">\(\Delta U= \Delta W\)</span> e quindi <span class="tex">\(\Delta x= h= \sqrt[3]{\frac {Q^2_0}{2 \varepsilon _0 L^2 (\varepsilon _r -1) \rho g }}\)</span><br>
+<br>
+Ho trascurato solamente il calcolo di <span class="tex">\(Q_0\)</span> , ma non dovrebbe essere problematico. Naturalmente ho considerato che la carica sulle armature rimane sempre la stessa. <br>
+Credo che in linea di massima l'idea risolutiva sia questa, poi per quanto riguarda l'applicazione spero di non aver commesso errori !</article>
+<article class="post" id="p15384"><div class="who"><b>bozzio</b><span>29 ago 2013, 13:05</span></div>Io avevo pensato così:<br>
+Il campo elettrico tra le armature attrae il liquido verso l'alto fin quando non c'è l'equilibrio tra forza peso e forza elettrica. Chiamo <span class="tex">\(l\)</span> il levello che il liquido raggiunge dopo aver immerso il condensato e x l'altezza del liquido nel dielettrico. Calcolo la capacità equivalente e mi viene <span class="tex">\(C=C_0(\epsilon x+L
+ -x)/L\)</span>. A questo punto mi calcolo l'energia immagazinata dal condensatore <span class="tex">\(U(x)=Q^2/(2C)\)</span>  e l'energia potenziale gravitazionale del liquido <span class="tex">\(H(x)=Ldg\rho (x-l)^2/2\)</span> . Dato che <span class="tex">\(E(x)=U(x)+H(x)\)</span> la condizione di equilibrio impone <span class="tex">\(dU/dx+dH/dx=0\)</span> (equilibrio delle forze). A questo punto faccio la derivata prima di E(x) e la impongo uguale a 0. In questo modo trovo <span class="tex">\(h=L/2-l\)</span> che vale <span class="tex">\(h=2\epsilon_0 V^2(\epsilon -1)/(\rho g d^2 (\epsilon +1)^2)\)</span>.<br>
+Che ne dici?</article>
+<article class="post" id="p15385"><div class="who"><b>Andg94</b><span>29 ago 2013, 14:05</span></div>Bozzio se rileggi il testo ti accorgi che il condensatore non è disposto verticalmente, come hai fatto te, ma orizzontalmente  :) <br>
+Ad ogni modo io inizialmente avevo interpretato che 
+<blockquote><div><cite>bozzio ha scritto:</cite>fino a quando il liquido all’ interno delle armature riempie per metà il condensatore</div></blockquote>
+Indicasse la situazione di equilibrio finale e non la situazione iniziale, anche se col senno di poi mi pare sia più sensata la seconda ipotesi. I conti sono un po' più agevoli nel primo caso, ma il procedimento utilizzato è quello già esposto da gilgamesh. Concordo con la soluzione trovata comunque  :)</article>
+<article class="post" id="p15387"><div class="who"><b>bozzio</b><span>29 ago 2013, 14:23</span></div>Questa è l'immagine che sta sul sito, ed è verticale come pure il testo dice (perpendicolari alla superficie dice).</article>
+<article class="post" id="p15392"><div class="who"><b>desga</b><span>29 ago 2013, 19:29</span></div>La conservazione dell'energia non si può applicare perchè durante l'inserimento viene svolto lavoro sul condensatore; bisogna minimizzare l'energia potenziale. Quindi la soluzione di bozzio è quella corretta!</article>
+<article class="post" id="p15398"><div class="who"><b>Andg94</b><span>30 ago 2013, 13:25</span></div>Sì hai ragione bozzio, ho sbagliato a scrivere, intendevo dire il contrario! Leggendo la tua soluzione infatti non riesco a spiegarmi una cosa, che mi ero spiegato pensando tu avessi supposto le piastre disposte orizzontalmente: per quale motivo la forza peso deve essere pari a quella elettrica? Il campo elettrico tra le due piastre è orizzontale no?</article>
+<article class="post" id="p15406"><div class="who"><b>bozzio</b><span>30 ago 2013, 16:36</span></div>Penso perché quando inserisci il conduttore si crea un campo elettrico verticale, altrimenti il liquido non potrebbe salire.</article>
+<nav class="pager"><a class="prev" href="olifis-560.html"><small>← precedente</small>SNS 2010/2011 numero 4</a><a class="next" href="olifis-985.html"><small>successivo →</small>sns 2011 n.1</a></nav>
+</main></body></html>

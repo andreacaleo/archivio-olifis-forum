@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>34: SNS 1980 - 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1980-1981, problema 5</span></nav>
+<h1>34: SNS 1980 - 5</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6030">forum Olifis</a></p>
+<article class="post first" id="p20220"><div class="who"><b>Simone256</b><span>6 gen 2015, 18:05</span></div>Come giá detto il problema è più semplice dei precedenti, quindi largo a tutti coloro che vogliono provarci :)<br>
+<br>
+Un disco di rame di raggio <span class="tex">\(l\)</span> ruota con una velocitá angolare <span class="tex">\(\omega\)</span> (il rame è un conduttore dove una parte degli elettroni è libera di muoversi nel reticolo cristallino rigido).<br>
+<br>
+<span class="tex">\((1)\)</span> Calcolare la differenza di potenziale <span class="tex">\(\Delta V\)</span> che si instaura tra il centro e il bordo del disco;<br>
+<br>
+<span class="tex">\((2)\)</span> Calcolare il verso e l'intensitá del campo magnetico <span class="tex">\(B_0\)</span> uniforme e perpendicolare al piano del disco tale che <span class="tex">\(\Delta V=0\)</span>;<br>
+<br>
+<span class="tex">\((3)\)</span> Ponendo ora il disco in un generico campo magnetico <span class="tex">\(B\)</span> sempre perpendicolare al suo piano e collegando il centro del disco alla periferia con un filo conduttore di resistenza <span class="tex">\(R\)</span> che non partecipa alla rotazione, determinare la potenza necessaria per mantenere in rotazione il disco alla velocitá <span class="tex">\(\omega\)</span>;<br>
+<br>
+<span class="tex">\((4)\)</span> Analizzare a livello microscopico la perdita di energia.<br>
+<br>
+Il punto <span class="tex">\((4)\)</span> non c'è nel testo originale, è un bonus facoltativo. :)</article>
+<article class="post" id="p20239"><div class="who"><b>Simone256</b><span>8 gen 2015, 0:35</span></div><blockquote><div><cite>Simone256 ha scritto:</cite><span class="tex">\((4)\)</span> Analizzare a livello microscopico la perdita di energia.</div></blockquote>
+Per essere più chiari, analizzarla in termini di forze agenti sugli elettroni e della loro energia cinetica.</article>
+<article class="post" id="p20269"><div class="who"><b>andrea96</b><span>19 gen 2015, 20:50</span></div>Anche il tentativo di aprire la staffetta e tutti con un problema molto più facile degli altri pare essere fallito, quindi per non bloccare definitivamente la staffetta pubblico la soluzione.<br>
+1) Nel riferimento del disco la forza centrifuga sugli elettroni deve essere bilanciata da una forza elettrica: <span class="tex">\(-e\vec E(r)=-m_e\omega^2\vec r\)</span> quindi la differenza di potenziale si ottiene integrando il campo elettrico tra il centro e il bordo: <span class="tex">\(\Delta V=\frac{1}{2}\frac{m_e}{e}\omega^2l^2\)</span>.<br>
+2) Possiamo eliminare il campo elettrico ( e quindi la differenza di potenziale ) bilanciando la forza centrifuga con una forza magnetica: <span class="tex">\(m_e\omega\vec\omega r=e\omega r \vec B_0\)</span> cioè <span class="tex">\(\vec B_0=\frac{m_e}{e}\omega\)</span><br>
+3) Con un campo magnetico diverso all'equilibrio ci sarà anche campo elettrico: <span class="tex">\(m_e\omega^2\vec r=e\omega\vec r  B-e\vec E(r)\)</span> quindi <span class="tex">\(\vec E(r)=(B\omega-\frac{m_e}{e}\omega^2)\vec r\)</span> e integrando si ottiene <span class="tex">\(\Delta V=\frac{1}{2}(B\omega-\frac{m_e}{e}\omega^2)l^2\)</span>. Collegando quindi i due punti a quella differenza di potenziale con una resistenza, scorre corrente e viene dissipata una potenza che è necessario fornire per mantenere il disco in rotazione: <span class="tex">\(P=\frac{V^2}{R}=\frac{(B\omega-\frac{m_e}{e}\omega^2)^2l^4}{4R}\)</span><br>
+4) il modello microscopico più elementare che si fa di una resistenza è quello in cui gli elettroni vengono accelerati da un campo per un tempo molto breve e poi frenati dall'urto con il reticolo della resistenza, ma su tempi "lunghi" si approssima il moto degli elettroni come un moto a velocità costante, quindi gli elettroni che entrano nella resistenza non perdono la loro energia cinetica dovuta alla rotazione, perdono invece la loro energia potenziale poichè dopo aver passato la resistenza vanno nel centro del disco dove il potenziale è inferiore di <span class="tex">\(\Delta V\)</span>. Sia <span class="tex">\(n\)</span> il numero di elettroni che va nella resistenza nell'unità di tempo, allora dalla definizione di corrente <span class="tex">\(n=\frac{\Delta V}{eR}\)</span>. Chiaramente la perdita di energia per unità di tempo (cioè la potenza) è data dalla perdita di energia di un elettrone che esce dal disco per il numero di elettroni che escono nell'unità di tempo:<span class="tex">\(P=ne\Delta V=\frac{(\Delta V)^2}{R}\)</span></article>
+<article class="post" id="p20271"><div class="who"><b>Simone256</b><span>20 gen 2015, 17:00</span></div>Oooook vai pure col prossimo  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6043.html"><small>← precedente</small>36: SNS 1980 - 3</a><a class="next" href="olifis-1036.html"><small>successivo →</small>Problema sns 1981-82</a></nav>
+</main></body></html>

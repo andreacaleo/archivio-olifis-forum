@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2003/2004 Problema 6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 6</span></nav>
+<h1>SNS 2003/2004 Problema 6</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=198">forum Olifis</a></p>
+<article class="post first" id="p1784"><div class="who"><b>CoNVeRGe.</b><span>30 lug 2009, 0:38</span></div>Il forum è un po' a secco di problemi quindi apro due SNS  :P  :D <br>
+<br>
+Siano date due orbite circolari intorno alla Terra, complanari, di raggi <span class="tex">\(\displaystyle R_1\)</span> e <span class="tex">\(\displaystyle R_2\)</span>, con <span class="tex">\(\displaystyle R_2 &gt; R_1\)</span>. Si vuole portare un satellite artificiale da <span class="tex">\(\displaystyle R_1\)</span> a <span class="tex">\(\displaystyle R_2\)</span>, accendendo i suoi razzi. Si assuma che il cambiamento di velocità causato dall'accensione dei razzi sia istantaneo e avvenga quando il satellite lascia l'orbita iniziale e quando raggiunge la distanza <span class="tex">\(\displaystyle R_2\)</span>.<br>
+Si assuma inoltre che il consumo di carburante sia proporzionale al quadrato della velocità impartita dai razzi. Qual è l'orbita intermedia fra <span class="tex">\(\displaystyle R_1\)</span> e <span class="tex">\(\displaystyle R_2\)</span> che consente il minor consumo di carburante?</article>
+<article class="post" id="p1796"><div class="who"><b>Falco5x</b><span>31 lug 2009, 9:16</span></div>Mi trovo in grossa difficoltà nell'interpretare questo problema.<br>
+Prima considerazione: per uscire dall'orbita più stretta basterebbe un breve impulso dei motori, e un secondo impulso servirebbe poi per frenare una volta raggiunta l'orbita più larga. I motori generano dunque accelerazione; cosa c'entra la velocità? come può essere che il consumo dipenda dal quadrato della velocità, visto che questa può rimanere anche costante (vedi orbita circolare) senza alcuna spinta?<br>
+Questo problema mi sfugge dalle mani, peggio di un'anguilla bagnata.<br>
+Oppure sarò io che sto passando una fase di stanchezza e non ragiono lucidamente? :roll:</article>
+<article class="post" id="p1799"><div class="who"><b>CoNVeRGe.</b><span>31 lug 2009, 13:10</span></div>Si, il testo purtroppo non è molto chiaro e questo infastidisce tutti... Anche per questo l'ho messo qua (non per infastidirvi  :mrgreen:  ma perchè può avere più interpretazioni).<br>
+<br>
+La mia interpretazione è questa: il satellite percorre l'orbita di raggio <span class="tex">\(\displaystyle  R_1\)</span> con velocità iniziale <span class="tex">\(\displaystyle  \vec{v}_{R_1}\)</span>. <br>
+I razzi gli impartiscono istantaneamente un'altra velocità <span class="tex">\(\displaystyle \vec{V}_r\)</span>  che sommata vettorialmente alla precedente ci da la velocità iniziale <span class="tex">\(\displaystyle \vec{v}_1\)</span>  della nuova orbita intermedia (ellittica ovviamente).<br>
+Quindi:<br>
+<br>
+<span class="tex">\(\displaystyle \vec{v}_1 = \vec{v}_{R_1} + \vec{V}_r\)</span> <br>
+<br>
+Quando il satellite arriva ad una distanza <span class="tex">\(\displaystyle  R_2\)</span> avrà velocità <span class="tex">\(\displaystyle \vec{v}_2\)</span> .<br>
+A questo punto i razzi impartiscono una nuova velocità <span class="tex">\(\displaystyle  \vec{U}_r\)</span>  che sommata alla precedente ci da la velocità <span class="tex">\(\displaystyle \vec{v}_{R_2}\)</span> necessaria per compiere l'orbita circolare di raggio <span class="tex">\(\displaystyle  R_2\)</span>.<br>
+Dunque:<br>
+<br>
+<span class="tex">\(\displaystyle \vec{v}_{R_2} = \vec{v}_2 + \vec{U}_r\)</span><br>
+<br>
+Il carburante speso per l'operazione sarebbe <span class="tex">\(\displaystyle C=k ( |\vec{V}_r|^2+ |\vec{U}_r|^2 )\)</span><br>
+<br>
+Che dite? Ragionevole?</article>
+<article class="post" id="p1812"><div class="who"><b>Falco5x</b><span>1 ago 2009, 8:56</span></div>Non ho proprio il tempo di fare calcoli, per cui farò solo qualche considerazione spannometrica.<br>
+Il consumo di carburante mi sembra possa essere messo in relazione con l'energia cinetica acquistata dal satellite artificiale a seguito dell'accensione dei motori. A parità di energia acquistata, però, il consumo è minimo solo se la variazione di velocità avviene nella stessa direzione e verso della velocità precedente (altrimentimenti si spreca carburante per cambiare direzione o peggio per frenare).<br>
+Siccome le due orbite hanno energia totale diversa, il satellite per passare dall'una all'altra deve acquisire questa energia. In particolare quando si trova sull'orbita a raggio minore deve acquisire energia cinetica che gli permetta di passare a un'energia totale uguale a quella dell'orbita di raccordo cercata, che deve dunque possedere un'energia totale intermedia tra quelle delle due orbite circolari, mentre quando quest'orbita di raccordo tocca l'orbita maggiore il satellite deve acquisire l'energia cinetica mancante per "salirvi sopra" (notare che parlo solo di energia cinetica poiché nel punto di incrocio con ciascuna delle due orbite l'orbita di raccordo possiede la loro stessa energia potenziale).<br>
+Le due variazioni di velocità (quella alla partenza e quella all'arrivo) devono dunque avvenire, per quanto detto in premessa, in direzione e verso concordi con le velocità delle due orbite circolari nel punto di incrocio tra esse e l'orbita di raccordo.<br>
+L'unica orbita che possieda queste caratteristiche mi pare sia quell'orbita ellittica che ha la distanza di perigeo uguale a R1 e la distanza di apogeo uguale a R2. Il satellite deve distaccarsi dall'orbita minore acquisendo (istantaneamente) velocità uguale a quella di perigeo dell'orbita ellittica di raccordo, e deve raccordarsi con l'orbita maggiore assumendo la sua velocità caratteristica quando si trova esattamente all'apogeo dell'orbita di raccordo.<br>
+Avrò detto delle cavolate?   :roll:</article>
+<article class="post" id="p1814"><div class="who"><b>MrTeo</b><span>1 ago 2009, 11:40</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>L'unica orbita che possieda queste caratteristiche mi pare sia quell'orbita ellittica che ha la distanza di perigeo uguale a R1 e la distanza di apogeo uguale a R2. Il satellite deve distaccarsi dall'orbita minore acquisendo (istantaneamente) velocità uguale a quella di perigeo dell'orbita ellittica di raccordo, e deve raccordarsi con l'orbita maggiore assumendo la sua velocità caratteristica quando si trova esattamente all'apogeo dell'orbita di raccordo.<br>
+Avrò detto delle cavolate?   :roll:</div></blockquote>
+
+Si può fare, ma mi pare che quest'orbita non abbia la Terra in uno dei suoi due fuochi, quindi mi riesce difficilmente realizzabile una situazione come questa... inoltre avendo due orbite circolari (o approssimate come tali) secondo il problema non credo che l'orbita intermedia da trovare sia ellittica ma circolare anch'essa...<br>
+
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Il carburante speso per l'operazione sarebbe <span class="tex">\(\displaystyle C=k ( |\vec{V}_r|^2+ |\vec{U}_r|^2 )\)</span><br>
+<br>
+Che dite? Ragionevole?</div></blockquote>
+
+Non ho controllato tutti i passaggi, ma in generale mi sembra corretto... il problema però, con questa notazione vettoriale, è che non sappiamo in che direzione vanno azionati i motori e quindi non possiamo ricavare (a meno di precisazioni...) l'orbita intermedia che ci interessa...<br>
+A mio parere il punto migliore per passare da un'orbita all'altra è irrilevante, dato che abbiamo orbite circolari... intuitivamente direi che, per la condizione di consumo del carburante impostata questo si minimizza per l'orbita circolare a metà strada tra <span class="tex">\(R_1\)</span> e <span class="tex">\(R_2\)</span>... ma mi mancano i calcoli per dimostrarlo  :D</article>
+<article class="post" id="p1818"><div class="who"><b>Falco5x</b><span>1 ago 2009, 12:53</span></div><blockquote><div><cite>MrTeo ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>L'unica orbita che possieda queste caratteristiche mi pare sia quell'orbita ellittica che ha la distanza di perigeo uguale a R1 e la distanza di apogeo uguale a R2. Il satellite deve distaccarsi dall'orbita minore acquisendo (istantaneamente) velocità uguale a quella di perigeo dell'orbita ellittica di raccordo, e deve raccordarsi con l'orbita maggiore assumendo la sua velocità caratteristica quando si trova esattamente all'apogeo dell'orbita di raccordo.<br>
+Avrò detto delle cavolate?   :roll:</div></blockquote>
+
+Si può fare, ma mi pare che quest'orbita non abbia la Terra in uno dei suoi due fuochi, quindi mi riesce difficilmente realizzabile una situazione come questa... inoltre avendo due orbite circolari (o approssimate come tali) secondo il problema non credo che l'orbita intermedia da trovare sia ellittica ma circolare anch'essa...
+</div></blockquote>
+Vai tranquillo!<br>
+Se fai i calcoli vedi che una ellisse che raccorda i due cerchi esiste, e possiede i seguenti parametri:<br>
+<br>
+<span class="tex">\(a = \frac{{{R_1} + {R_2}}}{2}\)</span><br>
+<br>
+<span class="tex">\(b = \sqrt {{R_1}{R_2}}\)</span><br>
+<br>
+<span class="tex">\(f = \frac{{{R_2} - {R_1}}}{2}\)</span><br>
+<br>
+dove f è la distanza tra il centro dell'ellisse e il fuoco dove si trova la terra, mentre a e b sono i semiassi dell'ellisse stessa.</article>
+<article class="post" id="p1819"><div class="who"><b>Ratio</b><span>1 ago 2009, 13:09</span></div>Posto quello che ho ricavato finora da dubbi calcoli...<br>
+<br>
+Per raggiungere un'orbita superiore dobbiamo aggiungere energia cinetica al satellite (attivando i razzi in verso e direzione concordi alla velocità tangenziale, come già spiegato da Falco5x), ovvero <span class="tex">\(-\frac{GMm}{2R_1}+\frac{1}{2}mv^2=-\frac{GMm}{R_i}\)</span>, in cui <span class="tex">\(R_i\)</span> è il semiasse maggiore dell'orbita ellittica intermedia. E' da notare che l'acquisizione istantanea di velocità non può che fornirci un'orbita ellittica (bisognerebbe poter dimostrare in qualche modo che infatti mettersi su un'orbita circolare di raggio pari a <span class="tex">\(R_i\)</span> richiede maggiori consumi, ma al momento non so ancora come fare...). Da ciò ricaviamo che <span class="tex">\(v^2=GM(\frac{1}{R_1}-\frac{1}{R_i})\)</span>. <br>
+Per mettersi sull'orbita <span class="tex">\(R_2\)</span> bisogna accendere i motori nell'intersezione tra quest'ultima e l'orbita che stiamo attualmente percorrendo, cosa che richiederebbe un'ulteriore velocità <span class="tex">\(v_2\)</span>, data sempre da <span class="tex">\({v_2}^2=GM(\frac{1}{R_i}-\frac{1}{R_2})\)</span>. <br>
+Sommando le due velocità così calcolate otteniamo <span class="tex">\(v^2+{v_2}^2 = GM(\frac{1}{R_1}-\frac{1}{R_2})\)</span> che dimostra come il consumo è indipendente dal raggio (o semiasse maggiore) dell'orbita intermedia, a patto che i razzi si accendino due sole volte, ovvero a patto che esista una sola orbita intermedia, che quindi deve avere necessariamente <span class="tex">\(R_i=\frac{R_1+R_2}{2}\)</span>. In altre parole: l'orbita intermedia che richiede meno consumo è insomma quella che richiede meno orbite intermedie.<br>
+E adesso scusate ma devo proprio andare a prenotarmi una seduta dallo psichiatra. :D<br>
+<br>
+Edit: Ho visto adesso il tuo messaggio, Falco5x, ed è esattamente di quell'orbita che sto parlando. Quindi anche secondo te è la più economica perché richiede meno cambiamenti di orbite, o c'è qualche altra ragione?</article>
+<article class="post" id="p1820"><div class="who"><b>Falco5x</b><span>1 ago 2009, 13:19</span></div><blockquote><div><cite>Ratio ha scritto:</cite>Edit: Ho visto adesso il tuo messaggio, Falco5x, ed è esattamente di quell'orbita che sto parlando. Quindi anche secondo te è la più economica perché richiede meno cambiamenti di orbite, o c'è qualche altra ragione?</div></blockquote>
+Le ragioni per cui l'ho scelta stanno tutte scritte nel mio precedente post: è l'unica che soddisfa la condizione di essere tangente a entrambe le orbite circolari mantenendo il fuoco sulla terra.<br>
+Già che ci sono metto anche una figura<br>
+<br>
+<a class="lost" href="http://img81.imageshack.us/img81/1568/orbite.jpg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+L'orbita verde è abbandonata nel punto P accendendo i razzi in direzione tangenziale all'orbita in modo da assumere l'orbita rossa di raccordo. Giunti nel punto Q si fornisce un'ulteriore spinta tangenziale per inserirsi nell'orbita blu.</article>
+<article class="post" id="p1821"><div class="who"><b>MrTeo</b><span>1 ago 2009, 13:43</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>
+Vai tranquillo!<br>
+Se fai i calcoli vedi che una ellisse che raccorda i due cerchi esiste, e possiede i seguenti parametri:<br>
+<br>
+<span class="tex">\(a = \frac{{{R_1} + {R_2}}}{2}\)</span><br>
+<br>
+<span class="tex">\(b = \sqrt {{R_1}{R_2}}\)</span><br>
+<br>
+<span class="tex">\(f = \frac{{{R_2} - {R_1}}}{2}\)</span><br>
+<br>
+dove f è la distanza tra il centro dell'ellisse e il fuoco dove si trova la terra, mentre a e b sono i semiassi dell'ellisse stessa.</div></blockquote>
+
+Vado tranquillo allora  :mrgreen: <br>
+Vedendo com'è posta l'orbita devo dire che a questo punto (fuori da ogni dubbio) la soluzione mi sembra molto ragionevole...</article>
+<article class="post" id="p1827"><div class="who"><b>Ratio</b><span>1 ago 2009, 17:54</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>Le ragioni per cui l'ho scelta stanno tutte scritte nel mio precedente post: è l'unica che soddisfa la condizione di essere tangente a entrambe le orbite circolari mantenendo il fuoco sulla terra.</div></blockquote>
+
+E quindi l'unica orbita che permette il cambio tra <span class="tex">\(R_1\)</span> e <span class="tex">\(R_2\)</span> con il minor numero di accensioni.  ;)</article>
+<article class="post" id="p1828"><div class="who"><b>Falco5x</b><span>1 ago 2009, 20:40</span></div>Ripeto il mio procedimento logico.<br>
+1) La proporzionalità tra consumo e velocità al quadrato fa pensare che il consumo sia proporzionale alla variazione di energia cinetica, questo però a patto che l'accensione dei razzi avvenga in modo da aumentare il modulo della velocità, e il carburante non venga invece sprecato per variare la direzione. Pertanto il massimo di efficienza si ottiene quando la variazione di velocità è parallela alla velocità e concorde con essa.<br>
+2) La minima variazione di energia necessaria al modulo deve essere pari alla differenza tra l'energia totale dell'orbita finale meno l'energia totale dell'orbita iniziale.<br>
+3) Questa variazione di energia può essere conseguita in quante tranches si vuole.<br>
+4) L'orbita ellittica di raccordo determinata permette di arrivare al risultato con due accensioni entrambe a massima efficienza, poiché l'energia totale della suddetta orbita è intermedia tra quella iniziale e quella finale.<br>
+5) non esistono altre orbite aventi le caratteristiche richieste.</article>
+<article class="post" id="p9222"><div class="who"><b>Ariz</b><span>19 ago 2012, 19:55</span></div>So che questo topic è vecchio ma spero qualcuno mi risponda:<br>
+<br>
+Io ho Pensato a velocità costante fino alla v di fuga ed al fatto che la g diminuisca uscendo per orbite sempre più esterne mi esce fuori:<br>
+<br>
+<span class="tex">\(V=\frac{1}{d} \sqrt {2MG(R_2-R_1}\)</span><br>
+<br>
+in questo caso quando la v ha un minimo allora l'accelerazione è 0 e viene:<br>
+<br>
+<span class="tex">\(a= \frac{1}{V} \sqrt {2MG(R_2-R_1}\)</span> e eguagliando a 0 viene R2-R1=0 e quindi ad equidistanza tra i due e quindi il punto medio.</article>
+<nav class="pager"><a class="prev" href="olifis-245.html"><small>← precedente</small>SIMULAZIONE: SNS 2003/2004 Problema 5</a><a class="next" href="olifis-225.html"><small>successivo →</small>SNS 2004/2005 n 1 facile facile...</a></nav>
+</main></body></html>

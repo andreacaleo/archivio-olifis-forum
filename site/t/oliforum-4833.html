@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locomotiva elettrica e Binari... senza attrito...</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006, problema 5</span></nav>
+<h1>Locomotiva elettrica e Binari... senza attrito...</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=4833">OliForum</a></p>
+<p class="notice">Qui c'è solo la prima pagina della discussione: il seguito è su OliForum, al link qui sopra.</p>
+<article class="post first" id="p48186"><div class="who"><b>Gauss_87</b><span>24 gen 2006, 12:09</span></div>Si consideri un trenino elettrico composto da una locomotiva di massa $ m $ posta su un circuito circolare di raggio $ R $ appoggiato su un piano orizzontale fisso.<br>
+Le dimensioni della locomotiva sono trascurabili rispetto a $ R $, la massa di tutti i binari componenti il circuito è $ M $ e il circuito può scorrere sul piano di appoggio senza attrito alcuno.<br>
+Locomotiva e circuito sono inizialmente fermi, poi la locomotiva si mette in moto fino a raggiungere una velocità di scorrimento relativa ai binari $ v0 $ costante.<br>
+Si determini la traiettoria della locomotiva rispetto al piano di appoggio, ed il periodo $ T $ del suo moto dopo il transiente iniziale.<br>
+Si discutano i due limiti $ M&gt;&gt;m $ e $ m&gt;&gt;M $.<br>
+In che senso il secondo di essi può essere irrealistico?<br>
+<br>
+<br>
+Io comincerei pensando che il centro di massa dei due corpi, locomotiva e binari resta sempre fermo...</article>
+<article class="post" id="p48195"><div class="who"><b>__Cu_Jo__</b><span>24 gen 2006, 22:06</span></div>La quantità di moto orizonatale si conserva quindi:<br>
+$ m\vec v_L  + M\vec v_B  = 0 $<br>
+dove $ \vec v_L  $ e $ \vec v_B  $ son rispettivamente le velocità della locomotiva e del binario rispetto alla Terra.<br>
+Ma per la legge di composizione delle velocità:<br>
+$ \vec v_0  = \vec v_L  - \vec v_B  $<br>
+Da cui:<br>
+$ 
+\vec v_L  = \vec v_0 \frac{1}{{1 - \frac{m}{M}}}
+ $<br>
+Se $ \frac{m}{M} \approx 0 $ allora $ \vec v_L  = \vec v_0  $ e $ \vec v_B  = 0 $.<br>
+Se $ \frac{m}{M} \to \infty  $ allora $ \vec v_L  = 0 $ e nn è possibile visto che la locomotiva si mette in moto.<br>
+La traiettoria è una circonferenza e il suo periodo é:<br>
+$ 
+T = \frac{{2\pi R}}{{v_L }} = \left( {1 - \frac{m}{M}} \right)\frac{{2\pi R}}{{v_0 }}
+ $</article>
+<article class="post" id="p48201"><div class="who"><b>Gauss_87</b><span>25 gen 2006, 10:28</span></div>Anchio avevo ottenuto una soluzione del genere, ma in tal modo è come se i binari ruotassero e basta, invece credo che traslino anche...</article>
+<article class="post" id="p48419"><div class="who"><b>__Cu_Jo__</b><span>02 feb 2006, 19:43</span></div>Mi hai fatto venire il dubbio :?  :? !!!</article>
+<article class="post" id="p48428"><div class="who"><b>NEONEO</b><span>02 feb 2006, 21:55</span></div>Ciao, io ho provato a farlo e in effetti non credo sia giusta la soluzione di Cu Jo (a proposito mi spieghi cosa vuol dire il tuo nick?) poichè se fosse come dice lui allora il centro di massa totale del sistema ruoterebbe insieme alla locomotive il che va contro al principio di conservazione della quantità di moto, perciò a mio parere bisogna ragionare su come far star fermo il centro di massa che si trova naturalmente sul raggio vettore centro circonferenza-locomativa.</article>
+<article class="post" id="p48440"><div class="who"><b>__Cu_Jo__</b><span>03 feb 2006, 18:28</span></div>Beh,se il centro del circuito circolare rimane fisso(cosa che nel testo nn è affatto specificato) allora il problema si risolve con la conservazione del momento angolare.</article>
+<article class="post" id="p48441"><div class="who"><b>Gauss_87</b><span>03 feb 2006, 18:33</span></div>Nel testo non è specificato perchè si vuole che ci si arrivi.<br>
+Si potrebbe considerare la forza elettrica come una forza interna al sistema perchè agisce tra locomotiva e binari..</article>
+<article class="post" id="p48472"><div class="who"><b>NEONEO</b><span>05 feb 2006, 11:03</span></div>A questo punto rimane una sola soluzione:<br>
+In quanto l’attrito tra binari e piano d’appoggio è nullo, e il centro di massa non può traslare né ruotare, allora l’unico effetto della forza elettrica che fa muovere le ruote è quello di far muovere i binari e farli ruotare attorno al loro centro senza che il treno si muova rispetto al piano. <br>
+Che ne pensate?</article>
+<article class="post" id="p48482"><div class="who"><b>Gauss_87</b><span>05 feb 2006, 21:47</span></div>Secondo me il centro di massa resta fermo, la locomotiva e i binari si muovono rispetto al piano</article>
+<article class="post" id="p50030"><div class="who"><b>Gauss_87</b><span>08 mar 2006, 17:44</span></div>Allora io ho pensato a una soluzione "alla portata di molti" perchè avendo provato anche con una dimostrazione rigorosa a partire dalle leggi di composizione delle velocità mi salta fuori qualcosa di poco attendibile... Cmq posto a breve, gli impegni mi sovrastano al momento...</article>
+<article class="post" id="p50060"><div class="who"><b>Offidani</b><span>09 mar 2006, 08:38</span></div>E' un problema del test di fisica della SNS dell'anno scorso. Io (che sono una sega) lo ho risolto imponendo che il treno ed i binari (o meglio, il baricentro del treno e quello dei binari) ruotassero attorno al centro di massa del sistema. Inoltro (sempre senza morivarlo) ho affermato che, poichè sappiamo la differenza tra Vt e Vb (rispettivamente velocità del treno e dei binari rispetto al piano d'appoggio), tra tutte le configurazioni possibili si assumesse automaticamente quella che richiene minore energia cinetica. Quindi ho risolto il sistema:<br>
+<br>
+|Vt-Vb|= Vo<br>
+e<br>
+0.5*Mt*(Vt)^2+0.5*Mb*(Vb)^2= minimo (che ho risolto cercando i minimi relativi facendo le due derivate rispetto a Vt e Vb ecc)<br>
+<br>
+E da li si trova tutto il resto<br>
+<br>
+Sono fermamente convinto di avere sbagliato, sarei grato se quelcuno mi correggesse.</article>
+<article class="post" id="p50182"><div class="who"><b>Gauss_87</b><span>13 mar 2006, 09:50</span></div>So che è il SNS 2005...<br>
+<br>
+Non prendete sul serio quello che sta scritto di sotto, è solo un tentativo di risoluzione:<br>
+<br>
+<br>
+Calcolo la posizione del centro di massa CM a distanza $ x $ dalla locomotiva:<br>
+<br>
+$ \displaystyle mx = M(R-x) \Rightarrow x = \frac{M}{M+m} \cdot R $<br>
+<br>
+Rispetto al CM la locomotiva compie un moto circolare uniforme di raggio $ x $:<br>
+<br>
+$ \displaystyle v_L = \omega \cdot \frac{M}{M+m} \cdot R $<br>
+<br>
+Il centro geometrico (e anche di massa) dei binari compie un circolare uniforme di raggio $ R-x $,<br>
+(considero i come una tavoletta mobile (vedi problemi eserciziario del Picasso)):<br>
+<br>
+$ \displaystyle v_B = \omega \cdot (R - \frac{M}{M+m} \cdot R) = \omega \cdot \frac{m}{M+m} \cdot R $<br>
+<br>
+dove $ \omega $ è uguale perche' locomotiva e centro dei binari stanno sempre sulla stessa retta d'azione; mettendo a sistema le due equazioni, eliminando $ \omega $ si ottiene $ m v_L = M v_B $,  la quale dimostra che i due punti materiali hanno la stessa quantita' di moto (si poteva anche dedurre dall'inizio considerando la forza elettrica tra locomotiva e binari come una forza interna, per cui si conserva la quantita' di moto).<br>
+<br>
+Ora, si sa' che la locomotiva raggiunge una velocita' $ v_0 $ rispetto ai binari:<br>
+<br>
+(la legge di composizione delle velocità è giusta così?) <br>
+$  \displaystyle v_L - v_0 = v_B \Rightarrow  $<br>
+$  \displaystyle v_L = v_0 + \frac{m}{M} \cdot v_L \Rightarrow  $ <br>
+$  \displaystyle (1 - \frac{m}{M}) \cdot v_L = v_0 \Rightarrow  $<br>
+$  \displaystyle v_L = \frac{M}{M-m} \cdot v_0 $.<br>
+<br>
+Pertanto il periodo richiesto $ T $ si ottiene come il tempo impiegato dalla locomotiva a percorrere una circonferenza di raggio $ x $ alla velocita' tangenziale costante $ v_L $:<br>
+<br>
+$ \displaystyle T=\frac{2 \pi x}{v_L} = 2 \pi \frac{M \cdot R}{M+m} \cdot \frac{M-m}{M \cdot v_0} = \frac{2 \pi R}{v_0} \cdot (\frac{M-m}{M+m}) $<br>
+<br>
+Bella domanda: la traiettoria?<br>
+<br>
+Se intuitivamente e' un epicicloide attorno a una circonferenza, dimostrarlo non sembra immediato, si dovrebbero (penso, eh!) scrivere per benino le traiettorie in coordinate cartesiane dei due moti, comporle, eliminare il parametro del tempo quadrando le espressioni in modo da eliminare la parti $ cos^2(y) + sin^2(y) $, ricavare l'espressione quadratica finale.<br>
+<br>
+Discutendo i limiti:<br>
+<br>
+$ M&gt;&gt;m \Rightarrow T = T_0 $ per come ci si aspettava,<br>
+<br>
+$ M&lt;&lt;m \Rightarrow T = -T_0 $, abbastanza irreale!<br>
+<br>
+Che ne pensate??</article>
+<article class="post" id="p50234"><div class="who"><b>__Cu_Jo__</b><span>14 mar 2006, 19:55</span></div>Ho un po' di dubbi sulla legge di composizioni delle velocità...Chi ti garantisce che le 2 velocità(quella del treno e quella dei binari) siano sulla stessa direzione?</article>
+<article class="post" id="p50263"><div class="who"><b>BMcKmas</b><span>15 mar 2006, 17:47</span></div>Non mi sembra che la vostra soluzione sia corretta.<br>
+Avete considerato il binario come un punto materiale, in realtà è un corpo rigido. Dopo il raggiungimento della velocità di regime, il binario oltre a un moto traslatorio circolare del suo baricentro attorno al CM del sistema (che rimane fisso) ha anche un moto rotatorio uniforme attorno al suo baricentro. Questo comporta un errore nell'equazione che definisce la velocità relativa.<br>
+Provate a calcolare anche tale velocità angolare e a considerarne gli effetti sulla soluzione.<br>
+<br>
+ciao</article>
+<article class="post" id="p50302"><div class="who"><b>Offidani</b><span>16 mar 2006, 20:00</span></div>mmm, non ci avevo pensato... uno dei motivi per cui non sono alla Normale :D</article>
+<nav class="pager"><a class="prev" href="oliforum-6107.html"><small>← precedente</small>Al centro dell&#x27;attenzione</a><a class="next" href="olifis-147.html"><small>successivo →</small>SNS 2005/2006 Problema 5</a></nav>
+</main></body></html>

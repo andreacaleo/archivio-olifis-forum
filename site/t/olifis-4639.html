@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1999/2000 Problema 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1999-2000, problema 3</span></nav>
+<h1>SNS 1999/2000 Problema 5</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4639">forum Olifis</a></p>
+<article class="post first" id="p15276"><div class="who"><b>Dalamar</b><span>25 ago 2013, 15:50</span></div>Mi sembra che di questo problema non si sia mai parlato, quindi...<br>
+<br>
+Un disco metallico di materiale non ferromagnetico di raggio <span class="tex">\(R\)</span> ruota nel piano verticale a velocità angolare costante <span class="tex">\(\omega\)</span> in un campo magnetico <span class="tex">\(B\)</span> parallelo all'asse del disco. <br>
+<br>
+(a) Calcolare la differenza di potenziale che si viene a creare tra il centro e la periferia del disco. <br>
+<br>
+(b) Si ponga il disco in accelerazione per mezzo di un peso di massa <span class="tex">\(m\)</span> legato ad un filo flessibile avvolto alla periferia del disco e si pongano due contatti striscianti privi di attrito, uno al centro e l'altro alla periferia del disco, connessi tra loro da una resistenza <span class="tex">\(A\)</span>. Si scriva l'equazione che descrive il bilancio energetico. <br>
+<br>
+(c) Spiegare perché il moto raggiunge una velocità di regime costante e trovarne il valore per <span class="tex">\(R=50\)</span> cm, <span class="tex">\(B=1\)</span> kGauss, <span class="tex">\(A=1\Omega\)</span>, <span class="tex">\(m=0.1\)</span> kg.</article>
+<article class="post" id="p15279"><div class="who"><b>bozzio</b><span>25 ago 2013, 17:17</span></div>a) si ha che <span class="tex">\(dV/dr=-E(r)\)</span> e che <span class="tex">\(E(r)=vB=\omega r B\)</span> (la direzione di E giace sul piano del disco e il verso è radiale). A questo punto ho <span class="tex">\(\Delta V=\int_{0}^R dV=-\int_{0}^R \omega B r dr=-1/2\omega BR^2\)</span>.<br>
+<br>
+Per il punto b) non ho capito bene la situazione. Il disco si muove verso il basso con accelerazione g (penso questo significhi la massa m :roll: ) e poi cosa sono i contatti striscianti privi di attrito?</article>
+<article class="post" id="p15288"><div class="who"><b>Dalamar</b><span>26 ago 2013, 9:15</span></div>Il disco non si muove verso il basso, ruota attorno al suo asse a causa della massa appesa al filo... almeno credo  :)</article>
+<article class="post" id="p15293"><div class="who"><b>bozzio</b><span>26 ago 2013, 11:22</span></div>Ok il filo è avvolto al disco e, mentre il peso cade verso il basso (suppongo con accelerazione g)g, al disco viene conferita un'accelerazione angolare (giusto?). Il fatto che è flessibile cosa implica ?</article>
+<article class="post" id="p15410"><div class="who"><b>bozzio</b><span>30 ago 2013, 16:52</span></div>Premetto di non aver capito bene la situazione. Scendendo il corpo di massa <span class="tex">\(m\)</span> diminuisce la sua energia potenziale per acquisire energia cinetica e per dare energia al disco, che verrà usata in parte per aumentare la sua velocità e in parte verrà dissipata dalla resistenza. Dato che <span class="tex">\(P=\Delta V^2 /A=w(t)^2 B^2 R^4 / A\)</span> si ha che <span class="tex">\(mgdh=1/2 m (dv)^2 +1/2 I (dw)^2 +(dw)^2 B^2 R^4 / (Adt)\)</span>. Ma noi abbiamo che <span class="tex">\(mgR=I\alpha\)</span> (non so se la flessibilità va contro questa legge...) e <span class="tex">\(\alpha =dw/dt\)</span> , dunque il bilancio energetico diventa <span class="tex">\(mgdh=R^2m(dw)^2/2 + mgR dw dt /2 + (dw)^2 B^2 R^4 /( Adt)\)</span>.</article>
+<article class="post" id="p15441"><div class="who"><b>desga</b><span>31 ago 2013, 20:13</span></div>Allora il bilancio energetico è il seguente:<br>
+<br>
+<span class="tex">\(P_d=-\frac{B^2 \omega^2 r^4}{4R}\)</span> è la potenza dissipata per effetto Joule.<br>
+ <br>
+Se E è l'energia meccanica del sistema,<br>
+<span class="tex">\(dE=d(\frac{M r^2 \omega^2}{2}+\frac{m v^2}{2}-mgh)=
+(\frac{M r^2 2\omega d\omega}{2}+\frac{m r^2 2\omega d\omega}{2}-mgr\omega dt)\)</span>. <br>
+<br>
+Pertanto <span class="tex">\(dE/dt=r^2\omega\frac{d\omega}{dt}(M+m)-m\omega r g\)</span><br>
+<br>
+Infine si ha che <span class="tex">\(P_d+dE/dt=0\)</span>,quindi<br>
+<br>
+<span class="tex">\(P_d=-\frac{B^2 \omega^2 r^3}{4R}=r\omega\frac{d\omega}{dt}(M+m)-m\omega  g\)</span>. Ponendo <span class="tex">\(\frac{d\omega}{dt}=0\)</span> si ricava che la velocità angolare limite è <span class="tex">\(\omega'=\frac{4Rmg}{B^2 r^3 }\)</span><br>
+<br>
+EDIT: ho notato ora che ho usato R per la resistenza e r per il raggio. Sono di fretta quindi correggetemi eventuali errori stupidi  :D</article>
+<nav class="pager"><a class="prev" href="olifis-6137.html"><small>← precedente</small>Onda su cavo a due densità</a><a class="next" href="oliforum-8975.html"><small>successivo →</small>SNS &#x27;99-&#x27;00 numero 6</a></nav>
+</main></body></html>

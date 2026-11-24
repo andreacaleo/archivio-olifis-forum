@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volare oh oh..</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1981-1982, problema 2</span></nav>
+<h1>Volare oh oh..</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11407">OliForum</a></p>
+<article class="post first" id="p93121"><div class="who"><b>EUCLA</b><span>23 lug 2008, 22:12</span></div>Un elicottero del peso di $ 20  $ quintali sta sospeso nell'aria per la rotazione delle pale di lunghezza $ 2  $ metri. <br>
+Senza tener conto della forma specifica delle pale, si dia una valutazione approssimata della velocità dell'aria spinta in basso e dalla potenza fornita dal motore dell'elicottero. <br>
+(Densità dell'aria : $ 1,3 \ kg/m^3  $)<br>
+<br>
+<em class="text-italics">SNS 1981-1982</em><br>
+<br>
+<span style="font-size:84%;line-height:116%"><br>
+Lo posto perchè mi è parso interessante, anche se io sto ancora pensando alla soluzione  :) </span></article>
+<article class="post" id="p93124"><div class="who"><b>TBPL</b><span>23 lug 2008, 23:33</span></div>Fisso la notazione: chiamo $ \rho_a $ la densità dell'aria, $ m $ la massa dell'elicottero, $ l $ la lunghezza delle pale, $ \Delta h $ l'altezza della colonna d'aria che le pale spingono verso il basso in un tempo $ t $. Dovrò avere che la forza media esercitata dalla pale sull'aria (e quindi quella esercitata dall'aria sull'elicottero) dev'essere uguale al peso dell'elicottero stesso. Tradotto in equazione, per il teorema dell'impulso:<br>
+$ \displaystyle \frac{\rho_a\pi(\frac{l}{2})^2\Delta h v}{t} = mg $<br>
+Supponendo che la quantità di aria spinta dalle pale sia costante, ho che la quantità di aria che viene spinta è uguale a quella che arriva alle pale, quindi $ \frac{\Delta h}{t}=v $. Andando a sostituire nell'equazione precedente:<br>
+$ \displaystyle \rho_a\pi({\frac{l}{2}})^2v^2=mg \Rightarrow v=\sqrt{\frac{4mg}{\rho_a\pi l^2}}=69,31 m/s $<br>
+Per la potenza, utilizzo la classica formula $ P=Fv $; dove $ v $ è la velocità dell'aria e $ F $ è la forza media esercitata sull'aria, come già detto pari al peso dell'elicottero. Quindi $ P=mgv=1,36 MW $<br>
+<br>
+(Ho la netta impressione di avere barato da qualche parte  :lol: , quindi una conferma/smentita è gradita  :oops: )</article>
+<article class="post" id="p93129"><div class="who"><b>Goldrake</b><span>24 lug 2008, 01:45</span></div>Allora, per la velocità va bene concettualmente.<br>
+In realtà lui considera la lunghezza della pala come il raggio, e non il diametro, quindi la soluzione "ufficiale" è doppia rispetto alla tua, ma poco male, non è chiaro il testo.<br>
+<br>
+La potenza non è giusta.<br>
+Infatti ciò che devi fare è il rapporto tra energia cinetica e intervallo di tempo.<br>
+Alla fine giungi a <br>
+$W=\frac{1}{2}\rho\cdot Sv^{3}$<br>
+<br>
+Penso che non puoi applicare la tua formula perché la forza è di tipo impulsivo.<br>
+Infatti le pale battono le molecole.<br>
+Non ci giurerei, ma al momento non vedo altre alternative.</article>
+<nav class="pager"><a class="prev" href="olifis-1036.html"><small>← precedente</small>Problema sns 1981-82</a><a class="next" href="olifis-446.html"><small>successivo →</small>SNS 1982: Pallina rotante</a></nav>
+</main></body></html>

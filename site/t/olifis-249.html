@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2009/2010 Problema 2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2009-2010, problema 2</span></nav>
+<h1>SNS 2009/2010 Problema 2</h1>
+<p class="meta">20 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=249">forum Olifis</a></p>
+<article class="post first" id="p2219"><div class="who"><b>Alex90</b><span>28 ago 2009, 19:09</span></div>Due particelle puntiformi, ciascuna di massa <span class="tex">\(m\)</span>, sono vincolate a scorrere senza attrito su un anello circolare di raggio <span class="tex">\(R\)</span> e massa <span class="tex">\(M\)</span> porto verticalmente rispetto al terreno. Le particelle incominciano a scivolare da ferme e simultaneamente dal punto più alto dell'anello, sui lati opposti dello stesso. Determinare il minimo valore di <span class="tex">\(m/M\)</span> per cui l'anello può, ad un certo momento, muoversi verso l'alto nel campo gravitazionale terrestre.</article>
+<article class="post" id="p2231"><div class="who"><b>SARLANGA</b><span>29 ago 2009, 0:05</span></div>Qualcuno ha capito se c'era urto tra le due particelle? Il testo non diceva niente... :? <br>
+Secondo me no, e in questo caso la forza che bilanciava la <span class="tex">\(F_{p}=(m+M)g\)</span> era la forza centripeta delle 2 particelle nel punto diametralmente opposto a quello di partenza?<br>
+Rix please :P</article>
+<article class="post" id="p2238"><div class="who"><b>MrTeo</b><span>29 ago 2009, 9:09</span></div>A occhio direi che se siamo nel campo gravitazionale terrestre l'accelerazione del centro di massa del nostro sistema deve essere per forza <span class="tex">\(g\)</span>. Quindi per semplificare le cose credo ci possiamo spostare nel sistema di riferimento dell'anello e trovare la condizione per cui, in corrispondenza della discesa delle due masse lungo la rotaia, esso risale con accelerazione maggiore di g (questo poi nel sistema di riferimento ufficiale equivale ad una risalita con accelerazione pari alla differenza tra il valore poc'anzi ( :mrgreen: ) trovato e g).<br>
+<br>
+Nel nostro nuovo riferimento il centro di massa deve restare fermo, ergo:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ \vec a_{CM\left( y \right)}  = \frac{{2m\vec a_{my}  + M\vec a_M }}{{2m + M}} \\ 
+ \vec 0 = \frac{{2m\vec a_{my}  + M\vec a_M }}{{2m + M}} \\ 
+ 0 = 2ma_{my}  - Ma_M  \\ 
+ a_M  = \frac{{2m}}{M}a_{my}  \\ 
+ \end{array}\)</span><br>
+<br>
+Come vedete ho già escluso le componenti orizzontali delle accelerazioni che si annullano per la simmetria delle masse. A questo punto dobbiamo considerare che <span class="tex">\(a_{my}\)</span> è massima a π/2 e vale esattamente <span class="tex">\(g\)</span>. Perciò:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ a_M  = \frac{{2m}}{M}g &gt; g \\ 
+ \frac{{2m}}{M} &gt; 1 \\ 
+ \end{array}\)</span><br>
+<br>
+Chiunque passi in questa pagina e legga le mie farneticazioni è ovviamente pregato di lasciare un suo pietoso commento  :D</article>
+<article class="post" id="p2239"><div class="who"><b>Ippo</b><span>29 ago 2009, 10:34</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>A occhio direi che se siamo nel campo gravitazionale terrestre l'accelerazione del centro di massa del nostro sistema deve essere per forza <span class="tex">\(g\)</span>. </div></blockquote>
+altrettanto a occhio credo che tu stia trascurando la reazione normale che tiene fermo l'anello. L'accelerazione del c.d.m. verrebbe <span class="tex">\(a_{\rm CM }={2m \over 2m+M}g\)</span><br>
+
+<blockquote><div><cite>MrTeo ha scritto:</cite>Come vedete ho già escluso le componenti orizzontali delle accelerazioni che si annullano per la simmetria delle masse. A questo punto dobbiamo considerare che <span class="tex">\(a_{my}\)</span> è massima a π/2 e vale esattamente <span class="tex">\(g\)</span></div></blockquote>
+cioé (forse ho capito male) dici che l'anello potrebbe saltare quando le masse sono sul diametro orizzontale? In quel punto però le masse esercitano reazioni orizzontali sull'anello, non potrebbero mai sollevarlo.</article>
+<article class="post" id="p2244"><div class="who"><b>eli9o</b><span>29 ago 2009, 11:39</span></div>NO!!! Sono un pirla. Ma perché l'anello dovrebbe essere attaccato da qualche parte?</article>
+<article class="post" id="p2245"><div class="who"><b>Davide90</b><span>29 ago 2009, 11:39</span></div><blockquote><div><cite>Testo non esattamente chiarissimo di ammissione per la SNS ha scritto:</cite>Due particelle sono <em class="text-italics">vincolate </em> a scorrere senza attrito su un anello circolare </div></blockquote>
+A quanto pare sono stato l'unico a non avere capito esattamente cosa intendessero per <em class="text-italics">vincolate</em>, e ad avere risolto un altro problema... Bastava aggiungere "per l'intero giro" o qualcosa di simile e sarebbe stato molto più chiaro!  :(  :( <br>
+Comunque è entusiasmante riuscire a risolverlo in neanche due minuti la mattina dopo!  :evil: <br>
+Vabbè, lo posto così magari mi aggiungono qualche punto, se qualche correttore frequenta il forum... <br>
+<br>
+Dal momento che le particelle sono <em class="text-italics">vincolate</em> a percorrere la traiettoria circolare dell'anello, quest'ultimo fornisce una reazione vincolare N che, insieme alla componente radiale della forza peso, fornisce l'accelerazione centripeta necessaria a mantenere le particelle nel loro moto circolare intorno all'anello.<br>
+Quindi <br>
+<span class="tex">\(N+mg\cos\theta=\dfrac{mv^2}{R}\)</span><br>
+dove <span class="tex">\(\theta\)</span> è l'angolo tra la verticale e il raggio mandato sulla particella.<br>
+Ma la velocità v della particella è anch'essa vincolata dalla conservazione dell'energia all'angolo <span class="tex">\(\theta\)</span>:<br>
+<span class="tex">\({1\over 2}mv^2=mgR(1-\cos\theta)\)</span><br>
+Da queste due belle relazioni ricaviamo<br>
+<span class="tex">\(N=mg(2-3\cos\theta)\)</span><br>
+Ora notiamo che per il terzo principio di Newton (quello di azione e reazione) anche le particelle esercitano sull'anello una forza uguale in modulo e contraria in verso a N: questa forza avrà una componente verso l'alto, <span class="tex">\(N\cos\theta\)</span>, che ad un certo momento supererà la forza peso dell'anello:<br>
+<span class="tex">\(2N\cos\theta&gt;Mg\)</span><br>
+(il 2 indica che le particelle esercitanti questa forza sono 2).<br>
+Ricavando <span class="tex">\(\cos\theta\)</span> otteniamo un trinomio di secondo grado che ha soluzioni se il <span class="tex">\(\Delta\)</span> è <span class="tex">\(\geq 0\)</span>: come per magia, rimane alla fine<br>
+<span class="tex">\({m\over M}\geq {3\over 2}\)</span><br>
+<br>
+Che frustrazione...  :x<br>
+A sto punto rilancio con il <strong class="text-strong">bonus</strong> :<br>
+Due particelle puntiformi, ciascuna di massa <span class="tex">\(m\)</span>, scorrono senza attrito su un anello circolare di raggio <span class="tex">\(R\)</span> e massa <span class="tex">\(M\)</span> posto verticalmente rispetto al terreno. Le particelle incominciano a scivolare da ferme e simultaneamente dal punto più alto dell'anello, sui lati opposti dello stesso. Determinare (se esiste) il minimo valore di m/M per cui l'anello può, ad un certo momento, muoversi verso l'alto nel campo gravitazionale terrestre.</article>
+<article class="post" id="p2249"><div class="who"><b>Ippo</b><span>29 ago 2009, 11:49</span></div><blockquote><div><cite>eli9o ha scritto:</cite>NO!!! Sono un pirla. Ma perché l'anello dovrebbe essere attaccato da qualche parte?</div></blockquote>
+non è attaccato, è appoggiato a terra! altrimenti tutto l'affare cadrebbe insieme e le masse rimarrebbero sulla cima  :) <br>
+e finchè è appoggiato a terra il c.d.m. ha quell'accelerazione lì. Che poi la soluzione di Davide (che è anche la mia) non usa l'accelerazione del c.d.m., quindi il problema non si pone molto.</article>
+<article class="post" id="p2252"><div class="who"><b>eli9o</b><span>29 ago 2009, 11:56</span></div>Vabè, a questo punto se è appeso o appoggiato non cambia molto. Che nervoso!  :evil:  :evil:  <br>
+Comunque la forza l'ho trovata. Mancava da imporla uguale al peso, spero conti qualcosa.</article>
+<article class="post" id="p2255"><div class="who"><b>MrTeo</b><span>29 ago 2009, 12:21</span></div><blockquote><div><cite>Ippo ha scritto:</cite><blockquote><div><cite>eli9o ha scritto:</cite>NO!!! Sono un pirla. Ma perché l'anello dovrebbe essere attaccato da qualche parte?</div></blockquote>
+non è attaccato, è appoggiato a terra! altrimenti tutto l'affare cadrebbe insieme e le masse rimarrebbero sulla cima  :) <br>
+e finchè è appoggiato a terra il c.d.m. ha quell'accelerazione lì. Che poi la soluzione di Davide (che è anche la mia) non usa l'accelerazione del c.d.m., quindi il problema non si pone molto.</div></blockquote>
+
+Proprio di farneticazioni si trattava... avevo pensato ad un anello libero in movimento sotto l'azione del campo... dimenticando che in tal caso le masse come ha detto Ippo non sarebbero scivolate (ecco spiegato anche il significato della massima accelerazione a metà "altezza")  :roll:</article>
+<article class="post" id="p2256"><div class="who"><b>Davide90</b><span>29 ago 2009, 12:54</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Vabè, a questo punto se è appeso o appoggiato non cambia molto. Che nervoso!  :evil:  :evil:  <br>
+Comunque la forza l'ho trovata. Mancava da imporla uguale al peso, spero conti qualcosa.</div></blockquote>
+Comunque sarai d'accordo con me che quel testo era veramente lasciato alla libera interpretazione del pubblico.<br>
+Già secondo me in gara è difficile avere la concentrazione e la calma necessarie per vedere ogni problema nel modo giusto, però se ci si mettono anche loro con testi così....  :x<br>
+<br>
+Anche il problema sull'astronave era scritto in maniera incomprensibile, si poteva capire in almeno un paio di modi... Quello della pressione di radiazione è il più corretto e sono d'accordo, ma bastava porre la frase in modo diverso, tipo "la vela solare accelera in direzione radiale l'astronave": così il problema era comunque ancora da risolvere, però era un po' più univoca l'interpretazione!</article>
+<article class="post" id="p2280"><div class="who"><b>Jacopo</b><span>30 ago 2009, 15:44</span></div><blockquote><div><cite>Davide90 ha scritto:</cite><blockquote><div><cite>Testo non esattamente chiarissimo di ammissione per la SNS ha scritto:</cite>Due particelle sono <em class="text-italics">vincolate </em> a scorrere senza attrito su un anello circolare </div></blockquote>
+A quanto pare sono stato l'unico a non avere capito esattamente cosa intendessero per <em class="text-italics">vincolate</em>, e ad avere risolto un altro problema... Bastava aggiungere "per l'intero giro" o qualcosa di simile e sarebbe stato molto più chiaro!  :(  :( <br>
+Comunque è entusiasmante riuscire a risolverlo in neanche due minuti la mattina dopo!  :evil: <br>
+Vabbè, lo posto così magari mi aggiungono qualche punto, se qualche correttore frequenta il forum... <br>
+<br>
+Dal momento che le particelle sono <em class="text-italics">vincolate</em> a percorrere la traiettoria circolare dell'anello, quest'ultimo fornisce una reazione vincolare N che, insieme alla componente radiale della forza peso, fornisce l'accelerazione centripeta necessaria a mantenere le particelle nel loro moto circolare intorno all'anello.<br>
+Quindi <br>
+<span class="tex">\(N+mg\cos\theta=\dfrac{mv^2}{R}\)</span><br>
+dove <span class="tex">\(\theta\)</span> è l'angolo tra la verticale e il raggio mandato sulla particella.<br>
+Ma la velocità v della particella è anch'essa vincolata dalla conservazione dell'energia all'angolo <span class="tex">\(\theta\)</span>:<br>
+<span class="tex">\({1\over 2}mv^2=mg(1-\cos\theta)\)</span><br>
+Da queste due belle relazioni ricaviamo<br>
+<span class="tex">\(N=mg(2-3\cos\theta)\)</span><br>
+Ora notiamo che per il terzo principio di Newton (quello di azione e reazione) anche le particelle esercitano sull'anello una forza uguale in modulo e contraria in verso a N: questa forza avrà una componente verso l'alto, <span class="tex">\(N\cos\theta\)</span>, che ad un certo momento supererà la forza peso dell'anello:<br>
+<span class="tex">\(2N\cos\theta&gt;Mg\)</span><br>
+(il 2 indica che le particelle esercitanti questa forza sono 2).<br>
+Ricavando <span class="tex">\(\cos\theta\)</span> otteniamo un trinomio di secondo grado che ha soluzioni se il <span class="tex">\(\Delta\)</span> è <span class="tex">\(\geq 0\)</span>: come per magia, rimane alla fine<br>
+<span class="tex">\({m\over M}\geq {3\over 2}\)</span><br>
+<br>
+Che frustrazione...  :x<br>
+A sto punto rilancio con il <strong class="text-strong">bonus</strong> :<br>
+Due particelle puntiformi, ciascuna di massa <span class="tex">\(m\)</span>, scorrono senza attrito su un anello circolare di raggio <span class="tex">\(R\)</span> e massa <span class="tex">\(M\)</span> posto verticalmente rispetto al terreno. Le particelle incominciano a scivolare da ferme e simultaneamente dal punto più alto dell'anello, sui lati opposti dello stesso. Determinare (se esiste) il minimo valore di m/M per cui l'anello può, ad un certo momento, muoversi verso l'alto nel campo gravitazionale terrestre.</div></blockquote>
+
+Perdonami passavo di qui mi è venuto un dubbio probabilmente stupido, che cos'è mg(1-\cos\theta)[/tex]<br>
+l'energia potenziale calcolata come?. grazie</article>
+<article class="post" id="p2283"><div class="who"><b>Loren Kocillari89</b><span>30 ago 2009, 16:36</span></div><blockquote><div><cite>Davide90 ha scritto:</cite> Ma la velocità v della particella è anch'essa vincolata dalla conservazione dell'energia all'angolo <span class="tex">\(\theta\)</span>:<br>
+<span class="tex">\({1\over 2}mv^2=mg(1-\cos\theta)\)</span>
+</div></blockquote>
+
+Io ho argomentato che per avere il minimo rapporto tra <span class="tex">\(m\)</span>ed <span class="tex">\(M\)</span>si deve avere la <span class="tex">\(m\)</span>più piccola. Se <span class="tex">\(m\)</span>è la minima infatti le due palline scivoleranno in fondo all'anello senza alzare un tubo, poi nell'estrenità più bassa riusciranno ad eguagliare il peso dell'anello e a fornirli un impulso. Quindi da ciò si deduce che <span class="tex">\(\theta = 90\)</span>, quindi alla fine l'angolo non era necessario porlo.<br>
+Questa mancanza mi costerà molto? :cry:</article>
+<article class="post" id="p2286"><div class="who"><b>Davide90</b><span>30 ago 2009, 17:22</span></div><blockquote><div><cite>Jacopo ha scritto:</cite>Perdonami passavo di qui mi è venuto un dubbio probabilmente stupido, che cos'è <span class="tex">\(mg(1-\cos\theta)\)</span><br>
+l'energia potenziale calcolata come?. grazie</div></blockquote>
+Scusa, ho dimenticato il raggio R della ruota, deve essere <span class="tex">\(mgR(1-\cos\theta)\)</span>.<br>
+Ho imposto che <span class="tex">\(K_i+U_i=K_f+U_f\)</span>, dove i ed f si riferiscono alla posizione iniziale delle palline e a quella finale, dove il raggio congiungente con la pallina forma un angolo <span class="tex">\(\theta\)</span> con la verticale.<br>
+Sostituendo, ottieni (ponendo come <span class="tex">\(U=0\)</span> il centro dell'anello)<br>
+<span class="tex">\(0+mgR=\dfrac12mv^2+mgR\cos\theta\)</span><br>
+da cui ottieni<br>
+<span class="tex">\(\dfrac12mv^2=mgR(1-\cos\theta)\)</span><br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Io ho argomentato che per avere il minimo rapporto tra <span class="tex">\(m\)</span> ed <span class="tex">\(M\)</span>si deve avere la <span class="tex">\(m\)</span>più piccola. Se <span class="tex">\(m\)</span>è la minima infatti le due palline scivoleranno in fondo all'anello senza alzare un tubo, poi nell'estrenità più bassa riusciranno ad eguagliare il peso dell'anello e a fornirli un impulso. Quindi da ciò si deduce che <span class="tex">\(\theta = 90\)</span>, quindi alla fine l'angolo non era necessario porlo.<br>
+Questa mancanza mi costerà molto? :cry:</div></blockquote>
+Non ho capito che ragionamento hai fatto... quando le palline sono nel punto più basso la reazione vincolare N dell'anello sulle palline è verso il centro, e vale <span class="tex">\(5mg\)</span>, dunque la reazione della pallina sull'anello risulta verso il basso, e anzi spinge l'anello verso il terreno.</article>
+<article class="post" id="p2287"><div class="who"><b>Jacopo</b><span>30 ago 2009, 17:31</span></div><blockquote><div><cite>Davide90 ha scritto:</cite><blockquote><div><cite>Jacopo ha scritto:</cite>Perdonami passavo di qui mi è venuto un dubbio probabilmente stupido, che cos'è <span class="tex">\(mg(1-\cos\theta)\)</span><br>
+l'energia potenziale calcolata come?. grazie</div></blockquote></div></blockquote>
+Scusa, ho dimenticato il raggio R della ruota, deve essere <span class="tex">\(mgR(1-\cos\theta)\)</span>.<br>
+<br>
+ecco cosa mi mancava.. grazie mille, mettere U=0 nel punto piu basso dell'anello (il terreno) era sbagliato?</article>
+<article class="post" id="p2288"><div class="who"><b>Davide90</b><span>30 ago 2009, 17:39</span></div>No, è identico, semplicemente aggiungi membro a membro un <span class="tex">\(mgR\)</span>: da un punto di vista matematico ovviamente non cambia nulla; da un punto di vista fisico, non si può mai parlare di un potenziale gravitazionale assoluto, ma si parla sempre e solo di differenze di energia potenziale (<span class="tex">\(\text{Halliday} \ U_{grav},\ 8.4\)</span>)</article>
+<article class="post" id="p2289"><div class="who"><b>Jacopo</b><span>30 ago 2009, 17:48</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>No, è identico, semplicemente aggiungi membro a membro un <span class="tex">\(mgR\)</span>: da un punto di vista matematico ovviamente non cambia nulla; da un punto di vista fisico, non si può mai parlare di un potenziale gravitazionale assoluto, ma si parla sempre e solo di differenze di energia potenziale (<span class="tex">\(\text{Halliday} \ U_{grav},\ 8.4\)</span>)</div></blockquote>
+
+si certo giustissimo</article>
+<article class="post" id="p2305"><div class="who"><b>Loren Kocillari89</b><span>30 ago 2009, 21:56</span></div><blockquote><div><cite>Davide90 ha scritto:</cite><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Io ho argomentato che per avere il minimo rapporto tra <span class="tex">\(m\)</span> ed <span class="tex">\(M\)</span>si deve avere la <span class="tex">\(m\)</span>più piccola. Se <span class="tex">\(m\)</span>è la minima infatti le due palline scivoleranno in fondo all'anello senza alzare un tubo, poi nell'estrenità più bassa riusciranno ad eguagliare il peso dell'anello e a fornirli un impulso. Quindi da ciò si deduce che <span class="tex">\(\theta = 90\)</span>, quindi alla fine l'angolo non era necessario porlo.<br>
+Questa mancanza mi costerà molto? :cry:</div></blockquote>
+Non ho capito che ragionamento hai fatto... quando le palline sono nel punto più basso la reazione vincolare N dell'anello sulle palline è verso il centro, e vale <span class="tex">\(5mg\)</span>, dunque la reazione della pallina sull'anello risulta verso il basso, e anzi spinge l'anello verso il terreno.</div></blockquote>
+
+Allora, dato che le due palline sono vincolate al centro, nel punto + basso dell'anello ci sarà una forza centrifuga e quella peso che cercheranno di spingere le palline via dall'anello, ma dato che sono vincolate ciò non succederà. Per la 3 legge di Newton, le due palline imprimono una forza uguale ed opposta all'anello stesso, che è sì diretto verso il centro, ma essendo nell'estremo basso, sono dirette verso l'alto. A questo punto l'anello salta. Io l'ho calcolato nel punto +basso xkè è lì che il peso delle palline è massimo, mentre la forza centrifuga è sempre la stessa, ed è proprio qui che la forza normale che spinge l'anello è massima. Quindi posso imporre la massa della pallina con il valore minimo</article>
+<article class="post" id="p2307"><div class="who"><b>MrTeo</b><span>30 ago 2009, 22:05</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Io l'ho calcolato nel punto +basso xkè è lì che il peso delle palline è massimo, mentre la forza centrifuga è sempre la stessa</div></blockquote>
+
+C'è qualcosa che mi sfugge in questa affermazione... come fa il peso ad essere massimo e la forza centrifuga sempre uguale?  :roll:</article>
+<article class="post" id="p2308"><div class="who"><b>Rigel</b><span>30 ago 2009, 22:06</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Allora, dato che le due palline sono vincolate al centro, nel punto + basso dell'anello ci sarà una forza centrifuga e quella peso che cercheranno di spingere le palline via dall'anello, ma dato che sono vincolate ciò non succederà. Per la 3 legge di Newton, le due palline imprimono una forza uguale ed opposta all'anello stesso, che è sì diretto verso il centro, ma essendo nell'estremo basso, sono dirette verso l'alto. A questo punto l'anello salta. Io l'ho calcolato nel punto +basso xkè è lì che il peso delle palline è massimo, mentre la forza centrifuga è sempre la stessa, ed è proprio qui che la forza normale che spinge l'anello è massima. Quindi posso imporre la massa della pallina con il valore minimo</div></blockquote>
+Forza peso e centrifuga sono dirette verso il basso, nel punto più basso, quindi la reazione va verso l'alto e quindi l'anello è spinto verso il basso. Inoltre la forza centrifuga cambia a seconda della velocità che aumenta man mano che queste scendono verso il basso</article>
+<article class="post" id="p2311"><div class="who"><b>Loren Kocillari89</b><span>30 ago 2009, 22:27</span></div><blockquote><div><cite>Rigel ha scritto:</cite><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Allora, dato che le due palline sono vincolate al centro, nel punto + basso dell'anello ci sarà una forza centrifuga e quella peso che cercheranno di spingere le palline via dall'anello, ma dato che sono vincolate ciò non succederà. Per la 3 legge di Newton, le due palline imprimono una forza uguale ed opposta all'anello stesso, che è sì diretto verso il centro, ma essendo nell'estremo basso, sono dirette verso l'alto. A questo punto l'anello salta. Io l'ho calcolato nel punto +basso xkè è lì che il peso delle palline è massimo, mentre la forza centrifuga è sempre la stessa, ed è proprio qui che la forza normale che spinge l'anello è massima. Quindi posso imporre la massa della pallina con il valore minimo</div></blockquote>
+Forza peso e centrifuga sono dirette verso il basso, nel punto più basso, quindi la reazione va verso l'alto e quindi l'anello è spinto verso il basso. Inoltre la forza centrifuga cambia a seconda della velocità che aumenta man mano che queste scendono verso il basso</div></blockquote>
+
+ :evil:  :evil:  :evil: porca puttana è vero.. è andata alla grande:mrgreen:sono in pensiero per la salute di quel fisico che leggerà queste affermazioni..</article>
+<nav class="pager"><a class="prev" href="olifis-982.html"><small>← precedente</small>Sns 2009</a><a class="next" href="olifis-251.html"><small>successivo →</small>SNS 2009/2010 Problema 3</a></nav>
+</main></body></html>

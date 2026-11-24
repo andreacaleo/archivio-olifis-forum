@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2007/2008 Problema 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2007-2008, problema 3</span></nav>
+<h1>SNS 2007/2008 Problema 3</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=197">forum Olifis</a></p>
+<article class="post first" id="p1783"><div class="who"><b>CoNVeRGe.</b><span>30 lug 2009, 0:30</span></div>Un interferometro di Michelson è composto da una sorgente di luce coerente <span class="tex">\(\displaystyle C\)</span>, da uno specchio semiriflettente <span class="tex">\(\displaystyle R\)</span>, da due specchi piani <span class="tex">\(\displaystyle S_1\)</span>, <span class="tex">\(\displaystyle S_2\)</span>, e da uno schermo <span class="tex">\(\displaystyle P\)</span>, come in figura.<br>
+<br>
+La luce, di lunghezza d'onda <span class="tex">\(\displaystyle \lambda = 500 nm\)</span>, si propaga verso lo specchio <span class="tex">\(\displaystyle R\)</span>, dove si divide in due fasci; il primo percorre la distanza <span class="tex">\(\displaystyle L_1 = 1,01 m\)</span> verso lo specchio <span class="tex">\(\displaystyle S_1\)</span>, e il secondo la distanza <span class="tex">\(\displaystyle L_2\)</span> verso lo specchio <span class="tex">\(\displaystyle S_2\)</span>. <br>
+Tornando sullo specchio <span class="tex">\(\displaystyle R\)</span>, parte dei due fasci si riuniscono e si sovrappongono sullo schermo <span class="tex">\(\displaystyle P\)</span>, formando una figura di interferenza circolare. Le distanze <span class="tex">\(\displaystyle CR\)</span> e <span class="tex">\(\displaystyle RP\)</span> sono ambedue pari a <span class="tex">\(\displaystyle 1m\)</span>.<br>
+<br>
+(a) A quali distanze dal centro della figura sullo schermo si dispongono i massimi e i minimi di interferenza? Si usi la formula <span class="tex">\(\displaystyle \cos \theta \approx 1 - \theta^2 / 2\)</span> valida per piccoli angoli <span class="tex">\(\displaystyle \theta\)</span>.<br>
+<br>
+(b) Sia <span class="tex">\(\displaystyle d = L_1 - L_2\)</span>. Come si muovono i massimi di interferenza variando <span class="tex">\(\displaystyle d\)</span>? In particolare cosa succede per <span class="tex">\(\displaystyle d &lt;&lt; \lambda\)</span>?<br>
+<br>
+(c) Si vogliono verificare due ipotesi alternative. (1) La velocità della luce <span class="tex">\(\displaystyle c\)</span> è la stessa in tutti i sistemi di riferimento. (2) La velocità della luce è <span class="tex">\(\displaystyle c\)</span> nel sistema dell'etere e si compone additivamente nel passaggio ad altri sistemi di riferimento. Assumendo che la Terra si muova rispetto all'etere ad una velocità <span class="tex">\(\displaystyle v=30 km/s\)</span> nella direzione di <span class="tex">\(\displaystyle L_1\)</span>, si calcoli la differenza fra la posizione del primo e del secondo massimo circolare nelle due ipotesi.<br>
+<br>
+Si usino le formule <span class="tex">\(\displaystyle \sqrt{1-x} \approx 1 - x/2\)</span> e <span class="tex">\(\displaystyle 1/(1-x) \approx 1 + x\)</span>, valide per piccoli <span class="tex">\(\displaystyle x\)</span>. Velocità della luce <span class="tex">\(\displaystyle c = 3 \cdot 10^8 m/s\)</span>.</article>
+<article class="post" id="p1788"><div class="who"><b>Ippo</b><span>30 lug 2009, 11:49</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>(a) A quali distanze dal centro della figura sullo schermo si dispongono i massimi e i minimi di interferenza? Si usi la formula <span class="tex">\(\displaystyle \cos ^2 \theta \approx 1 - \theta^2 / 2\)</span> valida per piccoli angoli <span class="tex">\(\displaystyle \theta\)</span>.</div></blockquote>
+c'è un quadrato di troppo, è <span class="tex">\(\cos \theta \approx 1- \theta^2/2\)</span></article>
+<article class="post" id="p1793"><div class="who"><b>Paolo90</b><span>30 lug 2009, 13:16</span></div>c'e' qualcosa che non capisco riguardo alla domanda a): i vari raggi luminosi del fascio di luce, se si trascura lo spessore dello specchio R, percorrono tutti la stessa lunghezza indipendentemente da dove si trovino all'interno del fascio, quindi non capisco come si possano formare dei massimi e dei minimi. Magari diro' anche una stupidaggine, pero' l'interferometro ha una simmetria rispetto all'asse uscente dallo schermo, quindi non puo' esservi solo una simmetria circolare nella figura che si genera nella schermo!<br>
+Praticamente le onde arriveranno sullo schermo sfasate:<br>
+<span class="tex">\(E_1 = E_0cos(\frac{2\pi}{\lambda}(ct-D1))\)</span><br>
+<span class="tex">\(E_2 = E_0cos(\frac{2\pi}{\lambda}(ct-D2))\)</span><br>
+<span class="tex">\(E_{ris} = 2E_0cos(\frac{2\pi}{\lambda}(ct -(D1+D2)/2)cos(\frac{2\pi}{\lambda}(d))\)</span><br>
+Dove E_0 non e' il campo elettrico iniziale, ma e' il campo elettrico dopo l'ultima riflessione/rifrazione.<br>
+Non ho idea di dove sia l'errore... :roll:</article>
+<article class="post" id="p1801"><div class="who"><b>CoNVeRGe.</b><span>31 lug 2009, 14:53</span></div>Il risultato dell'esperimento e i riferimenti agli angoli fanno pensare che il fascio non sia rettilineo (cilindrico) ma a forma di cono.</article>
+<article class="post" id="p1872"><div class="who"><b>Loren Kocillari89</b><span>6 ago 2009, 13:19</span></div>La figura di interferenze circolare è da considerarsi come diffrazione? :?</article>
+<article class="post" id="p1879"><div class="who"><b>MrTeo</b><span>6 ago 2009, 21:33</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>La figura di interferenze circolare è da considerarsi come diffrazione? :?</div></blockquote>
+
+Hmm... non mi sembra, credo proprio che si parli di interferenza (qualitativamente un po' simile agli anelli di Newton..,)<br>
+Anche perchè non credo dove si dovrebbe originare la diffrazione...</article>
+<article class="post" id="p1929"><div class="who"><b>Loren Kocillari89</b><span>10 ago 2009, 0:00</span></div>Chi riesce a dare un inizio alla soluzione di questo problema? è da un po' di tempo che è qui e non si è finora trovato niente..help!</article>
+<article class="post" id="p1936"><div class="who"><b>CoNVeRGe.</b><span>10 ago 2009, 14:47</span></div>Io ho considerato due sorgenti uguali a distanze <span class="tex">\(\displaystyle d_1 = CR + 2L_1 + RP\)</span> e <span class="tex">\(\displaystyle d_2 = CR + 2L_2 + RP\)</span> dallo schermo, allineate rispetto ad un asse dello schermo.<br>
+<br>
+La condizione sugli angoli affinchè due raggi si incontrino ad un certo punto dello schermo è:<br>
+<br>
+<span class="tex">\(\displaystyle d_1 \tan \omega = d_2 \tan \theta \approx d_1 \omega = d_2 \theta\)</span><br>
+<br>
+La condizione per l'interferenza costruttiva è:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{d_1}{\cos \omega} - \frac{d_2}{\cos \theta} = n\lambda\)</span><br>
+<br>
+Ma grazie alle approssimazioni che suggerisce il testo, per valori piccoli:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{1}{\cos \omega} \approx \frac{1}{1 - \frac{\omega^2}{2}} \approx 1 + \frac{\omega^2}{2}\)</span><br>
+<br>
+Quindi con un po' di calcoli, usando la relazione tra gli angoli e imponendo <span class="tex">\(\displaystyle \omega \approx \frac{y}{d_1}\)</span> si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle y = \sqrt{ 2d_1 d_2 \left( \frac{n \lambda}{d_1 - d_2} -1  \right) } = \sqrt{ d_1(d_1 - 2 d) \left( \frac{n \lambda}{2d} -1  \right) }\)</span><br>
+<br>
+L'ultima grazie ad approssimazioni si può scrivere anche cosi:<br>
+<br>
+<span class="tex">\(\displaystyle y = (d_1-d) \sqrt{ \left( \frac{n \lambda}{2d} -1  \right) }\)</span><br>
+<br>
+Se <span class="tex">\(\displaystyle d &lt;&lt; \lambda\)</span> si approssima nuovamente fino a:<br>
+<br>
+<span class="tex">\(\displaystyle y = \frac{ (d_1 -d) (n \lambda - d)}{ \sqrt{2d} } \approx \frac{d_1 n \lambda}{ \sqrt{2d} }\)</span><br>
+<br>
+Non saprei che conclusioni trarre sui massimi. In quest'ultimo caso direi che essi tendono all'infinito perchè le "due" sorgenti tendono ad unificarsi. Più in generale al variare di <span class="tex">\(\displaystyle d\)</span> direi che se aumenta, allora i massimi si avvicinano, se diminuisce si allontaneranno. Questo per il primo termine <span class="tex">\(\displaystyle  (d_1-d)\)</span> dell'equazione.<br>
+<br>
+Voi che dite?</article>
+<nav class="pager"><a class="prev" href="oliforum-11634.html"><small>← precedente</small>SNS 2007.3</a><a class="next" href="oliforum-11416.html"><small>successivo →</small>sns 2007/2008 n4</a></nav>
+</main></body></html>

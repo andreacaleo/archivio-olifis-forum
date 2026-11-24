@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008/2009 Problema 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 4</span></nav>
+<h1>SNS 2008/2009 Problema 4</h1>
+<p class="meta">25 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=114">forum Olifis</a></p>
+<article class="post first" id="p1075"><div class="who"><b>Alex90</b><span>24 mag 2009, 17:01</span></div>Sono date 4 aste di lunghezza <span class="tex">\(L\)</span> e massa uniformemente distribuita <span class="tex">\(m\)</span>. Esse sono collegate l'una di seguito all'altra tramite dei giunti flessibili di peso e dimensioni trascurabili in modo da formare una catena, le cui estremità sono a loro volta attaccate, tramite gli stessi giunti, al soffitto di una stanza a una distanza <span class="tex">\(D = (1 + \sqrt{3})L\)</span> tra di loro. Quale deve essere la minima altezza del soffitto della stanza per cui la catena, nella sua posizione di equilibrio, non tocca il pavimento?</article>
+<article class="post" id="p1085"><div class="who"><b>Pairo</b><span>25 mag 2009, 20:22</span></div>Notiamo innanzitutto che la configurazione è simmetrica rispetto al punto di giuntura delle due aste centrali. Chiamiamo le quattro aste, da destra a sinistra, <span class="tex">\(a,b,c,d\)</span>. Chiamiamo inoltre <span class="tex">\(\alpha\)</span> l'angolo che le due aste esterne formano con il soffitto e <span class="tex">\(\beta\)</span> l'angolo che le due aste centrali formano con il piano parallelo al soffitto passante per i punti di giuntura con quelle esterne. Si denota, per esempio, con <span class="tex">\({T_{ab}}\)</span> la forza reciproca che agisce sulle aste <span class="tex">\(a\)</span> e <span class="tex">\(b\)</span>, mentre con <span class="tex">\(T\)</span> la forza esercitata dal soffitto sulle aste esterne. Consideriamo l'asta <span class="tex">\(b\)</span> ( una di quelle centrali). La forza <span class="tex">\({T_{bc}}\)</span> è diretta orizzontalmente, per cui non influisce sulle componenti verticali. Si ha:<br>
+<br>
+<span class="tex">\(mg = {T_{ab}}\sin\alpha\)</span><br>
+<br>
+Per l'asta <span class="tex">\(a\)</span>, si ha invece:<br>
+<br>
+<span class="tex">\(T\sin\alpha = mg + {T_{ba}}\sen\beta\)</span>.<br>
+<br>
+Poiché il sistema è in equilibrio, si ha inoltre che:<br>
+<br>
+<span class="tex">\(T\sin\alpha = 2mg\)</span><br>
+<br>
+Combinando le tre equazioni precedenti, otteniamo:<br>
+<br>
+<span class="tex">\(\sin\alpha = \sin\beta\)</span> e poiché gli angoli devono essere minori di <span class="tex">\(\frac{\pi}{2}\)</span> si ha:<br>
+<br>
+<span class="tex">\(\alpha = \beta\)</span>.<br>
+<br>
+Sappiamo inoltre, dalla geometria del problema, che:<br>
+<br>
+<span class="tex">\(L(\cos\alpha + \cos\beta) = \frac{D}{2}\)</span> Per le relazioni trovate prima, e svolgendo i calcoli, si ottinene:<br>
+<br>
+<span class="tex">\(\sin\alpha = \frac{\sqrt{12+2\sqrt3}}{4}\)</span>, da cui finalmente:<br>
+<br>
+<span class="tex">\(H = 2L\sin\alpha = L\frac{\sqrt{12+2\sqrt3}}{2}\)</span><br>
+<br>
+Spero di non aver fatto qualche cavolata  :D</article>
+<article class="post" id="p1086"><div class="who"><b>CoNVeRGe.</b><span>25 mag 2009, 22:13</span></div>Attento ai momenti, nessuno ti assicura che ci sia equilibrio in quel modo.<br>
+<br>
+Son curioso di sapere se questo problema si risolve ragionevolmente studiandone le forze e i momenti..  :roll:</article>
+<article class="post" id="p1087"><div class="who"><b>Pairo</b><span>25 mag 2009, 22:24</span></div>Non ho tirato in ballo i momenti perché il sistema veniva determinato già dall'equilibrio alla traslazione. Se c'è equilibrio, le forze devono soddisfare quelle equazioni, quindi le uniche soluzioni possibili per le forze sono quelle che soddisfano il sistema di equazioni per la traslazione. Quindi se c'è un errore l'errore è in una delle equazioni che danno l'equilibrio alla traslazione.<br>
+Dove sbaglio?<br>
+Sarebbe apprezzatissimo anche qualche aiuto dall'alto  :D</article>
+<article class="post" id="p1088"><div class="who"><b>CoNVeRGe.</b><span>25 mag 2009, 22:48</span></div><blockquote><div><cite>Pairo ha scritto:</cite>
+<span class="tex">\(mg = {T_{ab}}\sin\alpha\)</span><br>
+<span class="tex">\(T\sin\alpha = mg + {T_{ab}}\sin\beta\)</span>.
+</div></blockquote>
+Come hai orientato <span class="tex">\(\displaystyle  \vec{T}_{ab}\)</span> rispetto alle aste?</article>
+<article class="post" id="p1092"><div class="who"><b>Pairo</b><span>26 mag 2009, 14:37</span></div>No, ok, avevo sbagliato tutto. Non so perché ma avevo considerato le forze tra le aste parallele alle aste stesse, cosa che in generale non è vera. Scusatemi, bisognerebbe rifletterci un po' di più prima di postare una soluzione. Ho sfruttato l'ora di filosofia per rifare il problema, e questa volta la soluzione dovrebbe essere corretta.<br>
+<br>
+Con la notazione di prima, osserviamo che il sistema è simmetrico rispetto al punto di contatto tra <span class="tex">\(b\)</span> e <span class="tex">\(c\)</span> che chiamiamo <span class="tex">\(O\)</span>, e dunque la forza esercitata tra le due aste centrali ha solo componente orizzontale; questa componente orizzontale è la stessa per la forza esercitata su tutte le aste. Consideriamo l'asta <span class="tex">\(b\)</span> e scriviamo le equazioni dell'equilibrio alla rotazione rispetto ad O:<br>
+<br>
+<span class="tex">\(mg\cos\beta\frac{L}{2} = (mg\cos\beta-{F_{bc}}\sin\beta)L\)</span> che diventa<br>
+<br>
+<span class="tex">\({F_{bc}} =\frac{1}{2}mg\frac{\cos\beta}{\sin\beta}  (1)\)</span><br>
+<br>
+dove si è tenuto conto che la componente verticale della forza esercitata da <span class="tex">\(a\)</span> su <span class="tex">\(b\)</span> è uguale alla sua forza peso. Consideriamo adesso l'asta <span class="tex">\(a\)</span>, e scriviamo l'equazione del momento rispetto al punto di contatto con <span class="tex">\(b\)</span>:<br>
+<br>
+<span class="tex">\(mg\cos\alpha\frac{L}{2} = (2mg\cos\alpha-{F_{bc}}\sin\alpha)L\)</span> cioè:<br>
+<br>
+<span class="tex">\({F_{bc}} =\frac{3}{2}mg\frac{\cos\alpha}{\sin\alpha} (2)\)</span><br>
+<br>
+<br>
+dove si è tenuto conto che la componente verticale della forza esercitata dal soffitto su <span class="tex">\(a\)</span> è uguale a <span class="tex">\(2mg\)</span>. Combinando la <span class="tex">\((1)\)</span> e la <span class="tex">\((2)\)</span> si ha:<br>
+<br>
+<span class="tex">\(\tan\beta = \frac{1}{3}\tan\alpha (3)\)</span><br>
+<br>
+Dalla geometria del problema abbiamo inoltre:<br>
+<br>
+<span class="tex">\(\cos\alpha + \cos\beta = \frac{\sqrt{3}+1}{2} (4)\)</span>.<br>
+<br>
+ Si dimostra che il sistema delle equazioni <span class="tex">\((3)\)</span> e <span class="tex">\((4)\)</span> ha solo una soluzione (si scrive tutto in funzione di una variabile, e si vede che la derivata prima è sempre minore di zero, quindi la funzione è biunivoca: il conto è breve ma diventa impegnativo da scrivere con latex). Notiamo inoltre che la coppia <span class="tex">\(\alpha = \frac{\pi}{3}, \beta = \frac{\pi}{6}\)</span> è soluzione di entrambe, e per quanto detto prima è anche l'unica. Possiamo ora esprimere allora l'altezza richiesta:<br>
+<br>
+<span class="tex">\(H = L(\sin\alpha + \sin\beta) = L(\frac{\sqrt{3}+1}{2})\)</span></article>
+<article class="post" id="p1094"><div class="who"><b>CoNVeRGe.</b><span>26 mag 2009, 16:23</span></div>Complimenti, soluzione ordinata e precisa!<br>
+<br>
+Solo che non capisco dalle due formule trigonometriche come si trovano le soluzioni..<br>
+<br>
+Sono arrivato a qualcosa con soli <span class="tex">\(\cos \alpha\)</span> ma mi viene di quarto grado.</article>
+<article class="post" id="p1095"><div class="who"><b>Pigkappa</b><span>26 mag 2009, 16:29</span></div>Le soluzioni si trovano ad occhio! Fin dall'inizio, facendo la figura e leggendo che:<br>
+<br>
+<span class="tex">\(\frac{D}{2} = (\frac{1}{2} + \frac{\sqrt{3}}{2}) L\)</span><br>
+<br>
+Si capisce subito che gli angoli sono 60° e 30°.</article>
+<article class="post" id="p1096"><div class="who"><b>CoNVeRGe.</b><span>26 mag 2009, 16:43</span></div>Non capisco... supponendo ad esempio gli angoli uguali si ha:<br>
+<br>
+<span class="tex">\(\displaystyle  \frac{D}{2} = \frac{1 + \sqrt{3}}{2} L = 2 \cos \alpha L\)</span><br>
+<br>
+<span class="tex">\(\displaystyle  \alpha \approx  46,92 °\)</span><br>
+<br>
+<span class="tex">\(\displaystyle  H \approx 1,46 L\)</span><br>
+<br>
+Cos'altro si dovrebbe capire dalla figura?</article>
+<article class="post" id="p1097"><div class="who"><b>Pigkappa</b><span>26 mag 2009, 17:10</span></div><span class="tex">\(1/2\)</span> e <span class="tex">\(\sqrt{3}/2\)</span> sono i coseni di 60° e 30°... Era evidente che quella lunghezza non era scelta a caso, ma per far venire quel risultato.</article>
+<article class="post" id="p1098"><div class="who"><b>CoNVeRGe.</b><span>26 mag 2009, 17:43</span></div>Certo, ma è ovvio che si deve pur dimostrare partendo dal trovare un'altra equazione che restringe le possibili coppie risolutive <span class="tex">\(\displaystyle \alpha , \beta\)</span> ad una soltanto.<br>
+<br>
+Il fatto che siano quei numeri potrebbe anche esser fatto apposta per ingannarti...   :)<br>
+<br>
+Credevo invece che tu volessi dire che c'era una soluzione puramente geometrica e teorica (senza calcoli).</article>
+<article class="post" id="p1101"><div class="who"><b>Alex90</b><span>26 mag 2009, 19:37</span></div>Siano <span class="tex">\(\alpha\)</span> e <span class="tex">\(\beta\)</span> come in figura, dalle condizioni del problema si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \sin\alpha + \cos\beta =\frac{\sqrt3 + 1}{2}\)</span><br>
+<br>
+Dato che le aste sono in equilibrio queste si disporanno nella configurazione con la minore energia potenziale gravitazionale possibile, poichè inoltre la situazione descritta è simmetrica rispetto all'asse del segmento <span class="tex">\(AB\)</span>  sarà sufficiente analizzare la situazione a sinistra di questo per trovare gli angoli <span class="tex">\(\alpha\)</span> e <span class="tex">\(\beta\)</span>.<br>
+<br>
+<span class="tex">\(\displaystyle U=mg\frac{L}{2}(3\sin\beta+\cos\alpha)\)</span><br>
+<br>
+Il minimo di questa funzione si avrà quando <span class="tex">\(U'=0\)</span><br>
+<br>
+Si verifica facilmente (per via intuitiva!) che ciò avviene quando <span class="tex">\(\displaystyle \alpha=\beta=\frac{\pi}{6}\)</span>, da ciò segue che la minima altezza a cui dovranno essere posti i giunti <span class="tex">\(A\)</span> e <span class="tex">\(B\)</span> è <br>
+<br>
+<span class="tex">\(h=L(\cos\alpha +\sin\beta)=\frac{\sqrt3 + 1}{2}L\)</span><br>
+<br>
+Ora mi (e soprattutto vi!) chiedo, esiste un metodo per evitare "l'intuizione", arrivandoci quindi per via "contosa"?</article>
+<article class="post" id="p1103"><div class="who"><b>Pairo</b><span>26 mag 2009, 20:41</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Complimenti, soluzione ordinata e precisa!</div></blockquote>
+Grazie mille!  :D <br>
+<br>
+Comunque si può dimostrare come ho spiegato brevemente nella mia soluzione, che la soluzione del sistema formato dalla equazione che hai scritto e da quella data dalla geometria del problema è unica. Una volta fatto questo però per il caso generale penso che l'equazione risultante non si possa risolvere esattamente, ma solo per via numerica.<br>
+Comunque complimenti per la tua soluzione!</article>
+<article class="post" id="p1106"><div class="who"><b>Falco5x</b><span>26 mag 2009, 21:29</span></div>Scusate ragazzi, ma quali sistemi, ma quali derivate!<br>
+Stasera mi va di rispondere di getto senza nemmeno verificare, ho voglia di dire una grossa cavolata e forse ci riesco.<br>
+<br>
+Una volta che si giunge all'equazione che lega geometricamente le grandezze, e cioè<br>
+<br>
+ <span class="tex">\(\sin \alpha  + \cos \beta  = \frac{{\sqrt 3  + 1}}{2}\)</span><br>
+<br>
+che bisogno c'è di andare oltre?<br>
+<br>
+E' evidente dalla simmetria geometrica della figura che si ha sempre e in ogni caso <span class="tex">\(\alpha=\beta\)</span>, e allora da una semplice equazione di secondo grado (o anche a vista) si vede che <span class="tex">\(\alpha=\beta=\pi/6\)</span> <br>
+<br>
+E adesso lapidatemi, su!</article>
+<article class="post" id="p1107"><div class="who"><b>Pigkappa</b><span>26 mag 2009, 21:46</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>
+E' evidente dalla simmetria geometrica della figura che si ha sempre e in ogni caso <span class="tex">\(\alpha=\beta\)</span></div></blockquote>
+
+Perchè è evidente?<br>
+<br>
+[Edit: ops, chiedo scusa, non avevo capito l'ironia  :oops: ]<br>
+<br>
+<br>
+Comunque i modi contosi di risolvere il problema sono 2. Per ora ne avete trovato solo uno  ;) .</article>
+<article class="post" id="p1108"><div class="who"><b>Falco5x</b><span>26 mag 2009, 21:56</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>
+E' evidente dalla simmetria geometrica della figura che si ha sempre e in ogni caso <span class="tex">\(\alpha=\beta\)</span></div></blockquote>
+
+Perchè è evidente?</div></blockquote>
+Avevo voglia di dire una cavolata, su!<br>
+tutti quei calcoli mi invogliavano a fare una battuta a effetto.<br>
+<br>
+Io non sono mica sempre serio... :mrgreen: <br>
+<br>
+Vabbè chiedo scusa... :oops:</article>
+<article class="post" id="p1109"><div class="who"><b>Pairo</b><span>26 mag 2009, 22:08</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>
+E' evidente dalla simmetria geometrica della figura che si ha sempre e in ogni caso <span class="tex">\(\alpha=\beta\)</span>, e allora da una semplice equazione di secondo grado (o anche a vista) si vede che <span class="tex">\(\alpha=\beta=\pi/6\)</span> </div></blockquote>
+
+Hi hi, ci sono rimasto malissimo quando l'ho letto  :D</article>
+<article class="post" id="p1110"><div class="who"><b>Falco5x</b><span>26 mag 2009, 22:58</span></div><blockquote><div><cite>Pairo ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>
+E' evidente dalla simmetria geometrica della figura che si ha sempre e in ogni caso <span class="tex">\(\alpha=\beta\)</span>, e allora da una semplice equazione di secondo grado (o anche a vista) si vede che <span class="tex">\(\alpha=\beta=\pi/6\)</span> </div></blockquote>
+
+Hi hi, ci sono rimasto malissimo quando l'ho letto  :D</div></blockquote>
+ :twisted: <br>
+Sì, lo scopo era proprio quello  :lol:  :lol:  :lol:</article>
+<article class="post" id="p1135"><div class="who"><b>CoNVeRGe.</b><span>28 mag 2009, 18:57</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Comunque i modi contosi di risolvere il problema sono 2. Per ora ne avete trovato solo uno  ;) .</div></blockquote>
+Un aiuto/idea ?</article>
+<article class="post" id="p1140"><div class="who"><b>Pigkappa</b><span>28 mag 2009, 21:43</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Comunque i modi contosi di risolvere il problema sono 2. Per ora ne avete trovato solo uno  ;) .</div></blockquote>
+Un aiuto/idea ?</div></blockquote>
+
+Leggete solo se volete l'aiuto...<br>
+
+<blockquote class="uncited"><div><span style="color:#FFFFFF">Scrivere l'energia e minimizzare...</span></div></blockquote></article>
+<article class="post" id="p1141"><div class="who"><b>CoNVeRGe.</b><span>28 mag 2009, 21:46</span></div>Aspetta, ma è quel che ha fatto Alex90 qui: <a href="olifis-114.html#p1101" class="postlink">olifis/phpBB3/viewtopic.php?p=1101#p1101</a><br>
+<br>
+Ad ogni modo ci sono metodi non contosi?</article>
+<article class="post" id="p1142"><div class="who"><b>Pigkappa</b><span>29 mag 2009, 0:12</span></div>!<br>
+Chiedo scusa, non mi ero accorto.<br>
+<br>
+<br>
+Comunque no, penso che non ci siano metodi che evitano ogni tipo di conto. D'altra parte la prova dura 6 ore, cioè in media si ha un'ora per ogni problema, e gli altri non avevano poi conti troppo brutti. Ogni tanto ci si può anche sporcare le mani  :D .</article>
+<article class="post" id="p15075"><div class="who"><b>bob2</b><span>12 ago 2013, 18:46</span></div>[necrofilia]<br>
+<br>
+Su <a href="http://www.kilibro.com/en/book/preview/1084969/problemi-di-fisica" class="ext" class="postlink">questo</a> libro (che non potete vedere interamente perché è solo un'anteprima) in pratica si dice che la distanza massima tra soffitto e punto più basso della catena non si ha quando l'energia potenziale è minima (equilibrio stabile), ma può anche verificarsi una situazione di equilibrio instabile e quindi dimostra (tra l'altro in modo un po' bovino) che questa distanza massima si ha quando le aste formano un triangolo.<br>
+<br>
+Questa cosa mi ha confuso un bel po' le idee. Qualcuno può chiarirmele? (Magari Pigkappa che vedo che è ancora qui sul forum!)<br>
+<br>
+[/necrofilia]</article>
+<article class="post" id="p15098"><div class="who"><b>Pigkappa</b><span>14 ago 2013, 2:24</span></div>Allora, ho dato un po' un'occhiata a cosa dice quel libro nella parte che si può leggere nell'anteprima. Si è posto una domanda che nelle soluzioni che ho visto finora (compresa quella che ho scritto io durante la prova, il 2008 era il mio anno) nessuno si è posto: la soluzione di equilibrio che si trova è unica, ed è stabile?<br>
+<br>
+La risposta è apparentemente che quella non è l'unica posizione di equilibrio, ma che è l'unica stabile. Allora lui considera anche le posizioni di equilibrio instabile e sceglie quella che produce una lunghezza della catena massima.<br>
+<br>
+Dato che nel testo si diceva "<em class="text-italics">la</em> posizione di equilibrio", come se ce ne fosse una sola, la cosa più naturale è considerare quella di equilibrio stabile, perciò sono convinto che le soluzioni che trattavano questo caso siano state considerate giuste. Se qualcuno avesse proposto la soluzione di quel libro, dando un risultato diverso dagli altri ma spiegato bene, penso che avrebbe avuto punteggio pieno lo stesso.<br>
+<br>
+Quel libro non è scritto da uno dei professori che redigono i testi e quindi non bisogna aspettarsi che possa l'autore possa saperne più di altri fisici bravi. Leggendo un po', mi pare che la maggior parte delle cose che dice siano condivisibili ma non proprio tutte (e.g. all'inizio della soluzione del problema 1 del 2008).</article>
+<article class="post" id="p15102"><div class="who"><b>bob2</b><span>14 ago 2013, 8:50</span></div>Ok chiaro, grazie mille  :P  :)</article>
+<nav class="pager"><a class="prev" href="oliforum-11682.html"><small>← precedente</small>SNS 2008/2009 problema 4</a><a class="next" href="olifis-87.html"><small>successivo →</small>SNS 2008/2009 Problema 5</a></nav>
+</main></body></html>

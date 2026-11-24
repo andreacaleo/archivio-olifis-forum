@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2012 n.2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2012-2013, problema 2</span></nav>
+<h1>sns 2012 n.2</h1>
+<p class="meta">44 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=1900">forum Olifis</a></p>
+<article class="post first" id="p10412"><div class="who"><b>modesto</b><span>12 dic 2012, 12:34</span></div>Un' asta rigida di massa m scorre senza attrito su un piano inclinato di massa M avente sezione triangolare caratterizzata da angolo di inclinazione <span class="tex">\(\alpha\)</span> rispetto al piano orizzontale di appoggio (suolo). L'asta (di sezione trascurabile) è mantenuta in posizione verticale da due anelli A e B rigidamente ancorati al suolo. Il piano inclinato invece può scorrere liberamente sul piano orizzontale tuttavia, causa due cerniere C e D poste alla sua base, ogni altro movimento gli è impedito. Nessun attrito agisce sul sistema.<br>
+1. Assumendo che inizialmente la base dell'asta poggi sul piano e che entrambi siano a riposo, si determinino le loro velocità al momento in cui l'asta sia scesa di una quantità h rispetto alla sua posizione iniziale. Si ricavino quindi le leggi orarie di entrambi gli oggetti.<br>
+2. Assumendo che gli unici punti di contatto tra il piano inclinato ed il suolo siano le cerniere C e D si identifichino tutte le forze agenti sull'asta e sul piano inclinato. Inoltre assumendo che tutte le grandezze tipiche del problema siano state assegnate [ad esempio: distanze AB e CD, posizione iniziale del centro di massa del piano inclinato ecc.], si scrivano le equazioni necessarie per la determinazione di tali forze.<br>
+N.B. nel risolvere il problema si assuma che il sistema sia effettivamente bidimensionale ovvero che la direzione ortogonale al piano della figura possa essere trascurata.</article>
+<article class="post" id="p10446"><div class="who"><b>t4ilgr4b</b><span>13 dic 2012, 17:13</span></div>E' sbagliato studiare il sistema nel sistema di riferimento del cuneo e poi considerare la velocità orizzontale dell'asta (nel sistema di riferimento del cuneo) uguale alla velocità del cuneo nel laboratorio e la velocità verticale dell'asta uguale alla velocità dell'asta nel laboratorio?</article>
+<article class="post" id="p10447"><div class="who"><b>Gabry</b><span>13 dic 2012, 17:19</span></div>Non ho capito bene cosa vuoi intendere ma non credo ci sia bisogno di cambiare sistema di riferimento.<br>
+ Per risolvere il primo punto conviene considerare la relazione che c'è tra la quantità h di cui l'asta scende e il tratto d di cui il cuneo si sposta (ricorda che le velocità sono proporzionali allo spostamento) ,dopodichè basta usare la conservazione dell'energia.</article>
+<article class="post" id="p10448"><div class="who"><b>Bolzo88</b><span>13 dic 2012, 17:28</span></div><blockquote><div><cite>t4ilgr4b ha scritto:</cite>E' sbagliato studiare il sistema nel sistema di riferimento del cuneo e poi considerare la velocità orizzontale dell'asta (nel sistema di riferimento del cuneo) uguale alla velocità del cuneo nel laboratorio e la velocità verticale dell'asta uguale alla velocità dell'asta nel laboratorio?</div></blockquote>
+Non e' sbagliato, ma te lo sconsiglio: mettendosi in un sistema di riferimento non inerziale e' facile fare errori, di solito se si puo' evitare e' meglio  ;)</article>
+<article class="post" id="p10449"><div class="who"><b>t4ilgr4b</b><span>13 dic 2012, 17:30</span></div>Io intendo utilizzare l'equazione <span class="tex">\(mg\Delta h =(1/2)m (V_mc)^2\)</span> dove Vmc è la velocità dell'asta nel sistema di riferimento solidale col cuneo. Quindi <span class="tex">\(V_mc=\sqrt{2g\Delta h}\)</span> e poi considerare la Vm uguale alla componente verticale di Vmc e VM come la componente orizzontale. Se è giusto mi sembra si semplifichino un pò i conti. E sempre se è giusto è molto più facile ricavare le leggi orarie!<br>
+<br>
+EDIT--<br>
+<br>
+@Bolzo88 mmm ok, mi sembrava una via comoda in questo caso, però in effetti in casi più compicati potrebbe non essere così intuitivo...<br>
+<br>
+(non mi ricodo come si scrive la radice in latex :/)<br>
+<br>
+EDIT: l'ho sistemata io<br>
+Bolzo88<br>
+<br>
+EDIT: grazie :) ahah</article>
+<article class="post" id="p10450"><div class="who"><b>Gabry</b><span>13 dic 2012, 20:40</span></div>Non credo che l'energia cinetica che tu hai scritto nel sistema solidale con il cuneo sia uguale all'energia del cuneo e dell'asta nel sistema di riferimento del laboratorio (stai attento al sistema di riferimento in movimento)... Pensaci ancora su nel sistema di riferimento del laboratorio, cerca come ti ho detto di trovare una relazione (dovuta semplicemente ai vincoli geometrici) tra lo spostamento dell'asta e quello del cuneo.</article>
+<article class="post" id="p10451"><div class="who"><b>Andg94</b><span>13 dic 2012, 22:32</span></div>Io una soluzione per il primo punto l'avrei trovata, tenendo conto però che la velocità orizzontale del cuneo e dell'asta siano uguali... ho sbagliato?</article>
+<article class="post" id="p10452"><div class="who"><b>Gabry</b><span>13 dic 2012, 22:45</span></div>L'asta è ancorata (dalla figura nei problemi ufficiali si vede bene) quindi non ha velocità orizzontale ma solo verticale</article>
+<article class="post" id="p10453"><div class="who"><b>t4ilgr4b</b><span>14 dic 2012, 0:14</span></div>Gabry io ho capito il procedimento che proponi tu, volevo capire se il mio era corretto. Io non dico che l'energia sia uguale, ma la velocità sì, o meglio, se nel sistema di riferimento del cuneo l'asta a una velocità orizzontale, ed essendo vincolata, questa velocità non può che essere totalmente del cuneo, nel sistema del laboratorio. Mi sono spiegato meglio?</article>
+<article class="post" id="p10454"><div class="who"><b>Andg94</b><span>14 dic 2012, 0:16</span></div>Perfetto, grazie per il chiarimento! Non mi era molto chiara la funzione degli anelli... Comunque appena ho tempo scriverò la mia soluzione anche se chiedo anticipatamente scusa se ci sarà qualche errore, purtroppo non ho iniziato da molto ad affrontare i problemi che postate qua e il mio livello non è ancora così buono come il vostro :? Spero comunque di non darvi fastidio :)</article>
+<article class="post" id="p10455"><div class="who"><b>Gabry</b><span>14 dic 2012, 11:13</span></div><blockquote><div><cite>t4ilgr4b ha scritto:</cite>Gabry io ho capito il procedimento che proponi tu, volevo capire se il mio era corretto. Io non dico che l'energia sia uguale, ma la velocità sì, o meglio, se nel sistema di riferimento del cuneo l'asta a una velocità orizzontale, ed essendo vincolata, questa velocità non può che essere totalmente del cuneo, nel sistema del laboratorio. Mi sono spiegato meglio?</div></blockquote>
+
+Il problema credo che sia il fatto che calcoli la velocità attraverso la conservazione dell'energia. Non sono molto esperto in fatto di energia su sistemi di riferimento in movimento ma mi pare che bisognasse aggiungere dei termini (non so sinceramente quali) in modo che l'energia sia uguale indipendentemente dal sistema di riferimento. Se guardi la tua equazione ti accorgi subito che qualcosa non va perchè non figura la massa M (mi pare che con m ti stavi riferendo alla massa dell'asta e non a quella del centro di massa giusto?) quindi l'asta avrebbe la stessa velocità dopo essere scesa di un tratto h sia che debba spostare un cuneo di 1g sia che sposti un cuneo da 10000Kg.</article>
+<article class="post" id="p10468"><div class="who"><b>Andg94</b><span>14 dic 2012, 17:40</span></div>Allora... Io ho considerato il peso scomposto in semplici vettori  P// e P⊥ rispetto il piano obliquo del cuneo... il P// non avrà influenza sul moto del cuneo ma solo su quello dell'asta (a cui è impedito comunque il movimento orizzontale). Il vettore P⊥ invece influisce sul cuneo (al quale è reso possibile solo il movimento orizzontale). Da qui con un po' di geometria e calcoli semplici arrivo a scrivere le leggi di moto dei due corpi e le loro velocità finali... Ho sbagliato qualcosa? Non mi sembra nullo di complesso, non vorrei aver trascurato qualcosa...</article>
+<article class="post" id="p10469"><div class="who"><b>Bolzo88</b><span>14 dic 2012, 17:50</span></div><blockquote><div><cite>t4ilgr4b ha scritto:</cite>Gabry io ho capito il procedimento che proponi tu, volevo capire se il mio era corretto. Io non dico che l'energia sia uguale, ma la velocità sì, o meglio, se nel sistema di riferimento del cuneo l'asta a una velocità orizzontale, ed essendo vincolata, questa velocità non può che essere totalmente del cuneo, nel sistema del laboratorio. Mi sono spiegato meglio?</div></blockquote>
+Giusto quello che dici sulle velocita' orizzontali nei due sistemi di riferimento.<br>
+C'e' invece un problema sulla velocita' verticale: tu l'hai calcolata usando la conservazione dell'energia nel sistema di riferimento solidale al cuneo. Ma in un sistema di riferimento non inerziale l'energia non si conserva, quindi il tuo procedimento non va bene.<br>
+<br>
+p.s.: molto bella l'osservazione di Gabry sull'indipendenza dalla massa M :D <br>
+<br>
+p.p.s.: forza, avanti con proposte di soluzione!</article>
+<article class="post" id="p10470"><div class="who"><b>Bolzo88</b><span>14 dic 2012, 17:51</span></div><blockquote><div><cite>Andg94 ha scritto:</cite>Allora... Io ho considerato il peso scomposto in semplici vettori  P// e P⊥ rispetto il piano obliquo del cuneo... il P// non avrà influenza sul moto del cuneo ma solo su quello dell'asta (a cui è impedito comunque il movimento orizzontale). Il vettore P⊥ invece influisce sul cuneo (al quale è reso possibile solo il movimento orizzontale). Da qui con un po' di geometria e calcoli semplici arrivo a scrivere le leggi di moto dei due corpi e le loro velocità finali... Ho sbagliato qualcosa? Non mi sembra nullo di complesso, non vorrei aver trascurato qualcosa...</div></blockquote>
+Posta la soluzione completa, cosi' se ne puo' discutere ;)</article>
+<article class="post" id="p10471"><div class="who"><b>t4ilgr4b</b><span>14 dic 2012, 19:01</span></div>Bhe allora non mi resta che tornare alla prima soluzione che mi era venuta in mente (che poi se ben ho capito è quella di Gabry):<br>
+<br>
+metto a sistema <span class="tex">\(V_M=V_m cotg(\alpha)\)</span> e <span class="tex">\(mg\Delta h=\frac{1}{2}(m V_m^2+MV_M^2)\)</span><br>
+ricavo <span class="tex">\(V_m=\sqrt{\frac{2mg\Delta h}{m+Mcotg^2(\alpha)}}\)</span> e <span class="tex">\(V_M=V_m cotg(\alpha)\)</span><br>
+<br>
+Per le leggi orarie ricavo <span class="tex">\(\Delta h = \frac{V_m^2(m+Mcotg^2(\alpha))}{2mg}=\frac{\Delta h^2(m+Mcotg^2(\alpha))}{\Delta t^2 2mg}\)</span> e quindi <span class="tex">\(\Delta h = \frac{2mg}{m+Mcotg^2(\alpha)}\Delta t^2\)</span> e per il cuneo moltiplico <span class="tex">\(\Delta h\)</span> per la cotg di alpha.<br>
+<br>
+Questo procedimento fila, giusto?</article>
+<article class="post" id="p10472"><div class="who"><b>Gabry</b><span>14 dic 2012, 19:48</span></div>Stai attento nel ricavarti le leggi orarie <span class="tex">\(Vm={d \Delta h \over dt}\)</span> non puoi semplificare il delta h al primo membro e quello al secondo membro, sono due cose diverse: una è lo spazio percorso e l'altra il differenziale dello spazio percorso. Se non hai ancora trattato le equazioni differenziali ti consiglio di trovarti l'accelerazione, anche se così allunghi di un bel pò.</article>
+<article class="post" id="p10473"><div class="who"><b>t4ilgr4b</b><span>14 dic 2012, 19:56</span></div>Già, vero, Vm è una velocità istantanea... Ora vedo di correggere.</article>
+<article class="post" id="p10474"><div class="who"><b>Andg94</b><span>14 dic 2012, 20:15</span></div>Allora... ho <span class="tex">\(P_\perp = P_m \cos x\)</span> e <span class="tex">\(P_\|\ = P_m \sin x\)</span>. Da qui mi trovo i rispettivi valori rispetto l'asse orizzontale e verticale, secondo cui  <span class="tex">\(P_\perp oriz  = P_\perp \sin x\)</span> e <span class="tex">\(P_\| vert = P_\|\ \sin^2 x\)</span>. Avrò poi <span class="tex">\(P_\perp oriz = Ma_M\)</span> da cui <span class="tex">\(V_M = \frac {\sin x \ cos x\  mgt}{M}\)</span>. Allo stesso modo pongo <span class="tex">\(\sin^2 x\ mg = ma_m\)</span>. Scrivendo le leggi del moto della massa <span class="tex">\(m\)</span> avrò <span class="tex">\(t = \frac {1}{\sin x} \sqrt{\frac{2h}{g}}\)</span> e di conseguenza concludo che <span class="tex">\(V_m = \sin x \sqrt{2gh}\)</span>. Sostituendo poi <span class="tex">\(t\)</span> nell'equazione di <span class="tex">\(V_M\)</span> avrò <span class="tex">\(V_M = \frac {\ cos x\  mgt \sqrt{2gh} }{M}\)</span>. Ho sbagliato qualcosa? Le considerazioni iniziali son giuste? Spero di non aver detto scemenze...</article>
+<article class="post" id="p10475"><div class="who"><b>Gabry</b><span>14 dic 2012, 20:33</span></div>Le soluzioni di t4ilgr4b per le velocità erano giuste, non ho capito molto della tua soluzione (ad esempio il tempo come l'hai calcolato?) ma difficilmente considerando le forze e l'accelerazione puoi trovarti la velocità (potresti farlo ma ti troveresti calcoli enormi e dovresti conoscere le equazioni differenziali forse anche del secondo ordine). <br>
+Ti do un consiglio invece per problemi di meccanica in cui si deve usare la seconda legge di Newton: non scomporti il peso in mille direzioni, considera invece le reazioni vincolari al contatto tra le superfici, te lo dico per esperienza personale perchè all'inizio anche io facevo come te e mi ritrovavo a sbagliare (o a trovarmi bloccato) su quasi tutti i problemi.</article>
+<article class="post" id="p10476"><div class="who"><b>Andg94</b><span>14 dic 2012, 21:11</span></div>Beh ad esempio il tempo me l'ero ricavato sapendo <span class="tex">\(a_m = \sin^2 x\ g\)</span> e <span class="tex">\(h = \frac{1}{2} a_m t^2\)</span>.. Comunque grazie, prenderò al volo questo consiglio!  (Se non chiedo troppo potreste spiegarmi da dove t4ilgr4b ha determinato <span class="tex">\(V_M = V_m ctg(x)\)</span>?  :| )</article>
+<article class="post" id="p10477"><div class="who"><b>t4ilgr4b</b><span>14 dic 2012, 21:15</span></div><span class="tex">\(\Delta s = \Delta h cotg(\alpha)\)</span> (con s posizione del cuneo e h dell'asta)<br>
+<br>
+Dividi per il tempo e la trovi.</article>
+<article class="post" id="p10478"><div class="who"><b>Gabry</b><span>14 dic 2012, 21:24</span></div><blockquote class="uncited"><div> <span class="tex">\(h = \frac{1}{2} a_m t^2\)</span></div></blockquote>
+Effettivamente potevi farlo, ma avevi comunque sbagliato a trovarti l'accelerazione.<br>
+Considera il punto di appoggio dell'asta sul cuneo nel sistema di riferimento del cuneo, questo si muove lungo la superficie inclinata del cuneo stesso. Diventa facile quindi trovare la relazione tra lo spostamento verticale del punto di appoggio (ossia lo spostamento dell'asta) e quello orizzontale (ossia lo spostamento del cuneo) cioè <span class="tex">\(h=tg\alpha d\)</span>. Essendo le velocità la derivata dello spazio per la proprietà del semplice prodotto di una funzione per una costante abbiamo anche <span class="tex">\(v_a=v_c tg\alpha\)</span> e continuando con l'accelerazione <span class="tex">\(a_a=a_c tg\alpha\)</span> (questa relazione serve per trovare l'accelerazione di uno dei due mettendo a sistema con le altre relazioni derivate della seconda legge di Newton).</article>
+<article class="post" id="p10479"><div class="who"><b>Andg94</b><span>14 dic 2012, 22:26</span></div>Ok, grazie mille, tutto chiaro! :)</article>
+<article class="post" id="p10505"><div class="who"><b>Gabry</b><span>17 dic 2012, 15:37</span></div>Concludo il punto 1 dato che non ci sono proposte così passiamo alla soluzione del punto due. Perndendo la relazione di t4ilgr4b (chiamo <span class="tex">\(\Delta h\)</span> h per comodità), anche se la cotangente mi sta un pò antipatica, perchè mi secco a riscrivere tutto in latex  :lol: :<br>
+<span class="tex">\(V_m=\sqrt{\frac{2mgh}{m+Mcotg^2(\alpha)}}\)</span><br>
+<span class="tex">\({dh \over dt}=\sqrt{\frac{2mgh}{m+Mcotg^2(\alpha)}}\)</span><br>
+<span class="tex">\({1\over \sqrt{h}}dh=\sqrt{\frac{2mg}{m+Mcotg^2(\alpha)}}dt\)</span><br>
+Integrando entrambi i membri:<br>
+<span class="tex">\(2\sqrt{h}=\sqrt{\frac{2mg}{m+Mcotg^2(\alpha)}}t\)</span><br>
+da cui <span class="tex">\(h=\frac{2mg}{4[m+Mcotg^2(\alpha)]}t^2\)</span> che, come atteso, è la funzione di un moto uniformemente accelerato.<br>
+Analogamente (dalle relazioni precedentemente trovate su spazio e velocità):<br>
+<span class="tex">\(V_M=\sqrt{\frac{2mgs cotg^2\alpha}{m+Mcotg^2(\alpha)}}\)</span> da cui  <span class="tex">\(s=\frac{2mgcotg^2\alpha}{4[m+Mcotg^2(\alpha)]}t^2\)</span><br>
+<br>
+Iniziate, se già non l'avete fatto, a pensare qualcosa per il punto 2.</article>
+<article class="post" id="p10520"><div class="who"><b>t4ilgr4b</b><span>18 dic 2012, 11:51</span></div>Ah! Mi son dimenticato di postare! Ecco la mia soluzione:<br>
+<br>
+Poichè c'è una forza, data dalla massa dell'asta per l'accelerazione (che non conosco) che, compiendo lavoro (forza per spostamento), aumenta l'energia cinetica dell'asta posso scrivere l'energia cinetica in questa forma <span class="tex">\(K=(ma)h\)</span><br>
+e quindi sfruttando la velocità in funzione di h calcolata prima scrivere che <span class="tex">\(\frac{1}{2} m V_m^2 = mah\)</span><br>
+sostituendo diventa <span class="tex">\(\frac{m 2mgh}{2 (m+Mcotg^2(\alpha))}=mah\)</span> --&gt; <span class="tex">\(a = \frac{mg}{m+Mcotg^2(\alpha)}\)</span><br>
+quindi <span class="tex">\(h=\frac{mg}{2(m+Mcotg^2\alpha)}t^2\)</span><br>
+<br>
+Mi sembra corretto. Ho usato questo procedimento perchè mi stavo andando ad incasinare nella scomposizione delle forze, ma non riuscivo a venirne a capo :S Non ho ancora trovato l'errore ma non risultava il risultato corretto!<br>
+<br>
+PS: forse dovrei anticipare un pò lo il calcolo degli integrali nel programma scolastico...</article>
+<article class="post" id="p10536"><div class="who"><b>t4ilgr4b</b><span>18 dic 2012, 23:13</span></div>Per il secondo punto, identificare le forze vuol dire calcolarle?</article>
+<article class="post" id="p10546"><div class="who"><b>Gabry</b><span>19 dic 2012, 15:45</span></div>Non credo, ma sicuramente servono per calcolare le reazioni vincolari richieste.</article>
+<article class="post" id="p10548"><div class="who"><b>Gabry</b><span>19 dic 2012, 18:23</span></div>Non avendo nulla da fare (o meglio non avendo voglia di fare altro  :lol: ) ho risolto il secondo punto, non è specificato se la forza deve essere trovata nel momento iniziale o durante il percorso quindi per ora l'ho trovata nell'istante iniziale, se la soluzione vi sembra andare bene la sistemo subito in modo da avere le reazioni in funzione del tempo (basterebbe scrivere d in funzione del tempo).<br>
+<br>
+Prima di tutto ricaviamoci la reazione vincolare tra l'asta e il cuneo:<br>
+<span class="tex">\(\left\{
+\begin{array}{l}
+mg-Ncos\alpha=ma_m\\
+Nsen\alpha=Ma_M\\
+a_m=a_Mtg\alpha
+\end{array}
+\right.\)</span><br>
+<br>
+Da cui se non ho sbagliato i calcoli <span class="tex">\(N={mgcos\alpha \over Mcos^2\alpha+msen^2\alpha}\)</span>. <br>
+<br>
+Per l'equilibrio rotazionale il momento risultante sul cuneo deve essere nullo quindi (calcolandolo rispetto al supporto C):<br>
+<span class="tex">\(N_Dl=Mgx+Nd\)</span> dove x è la distanza orizzontale dal punto C del centro di massa e d è la distanza tra il punto C e il punto di contatto asta-cuneo. Sostituendo si ha <span class="tex">\(N_D={g \over l} (Mx+{mdcos\alpha \over Mcos^2\alpha+msen^2\alpha})\)</span><br>
+<br>
+Per l'equilibrio lungo la direzione verticale abbiamo:<br>
+<span class="tex">\(N_C+N_D=Mg+Ncos\alpha\)</span><br>
+<br>
+Sostituendo troviamo (a meno di errori di calcolo) <span class="tex">\(N_C=Mg{l-x \over l}+{mgcos\alpha(lcos\alpha-d) \over l(Mcos^2\alpha+msen^2\alpha)}\)</span><br>
+<br>
+Aggiundo anche le equazioni per trovare reazioni vincolari in A e B che mi ero dimenticato. Per l'equilibrio rotazionale (calcolato nel punto più alto che qui chiamo A, non so se corrisponda con la figura del problema ufficiale)<br>
+<span class="tex">\(N_By=Nsen\alpha s\)</span> dove con y ho indicato la distanza AB e con s la lunghezza dell'asta.<br>
+Per l'equilibrio lungo la direzione orizzontale abbiamo:<br>
+<span class="tex">\(N_B+N_A=Nsen\alpha\)</span><br>
+<br>
+<a href="http://imageshack.us/photo/my-images/4/nuovaimmaginebitmapa.png/" class="ext" class="postlink"><a class="lost" href="http://img4.imageshack.us/img4/307/nuovaimmaginebitmapa.png" class="ext">[immagine non più disponibile]</a></a><br>
+<br>
+Nella figura mi sono dimenticato le reazioni vincolari dei punti di supporto dell'asta.</article>
+<article class="post" id="p10604"><div class="who"><b>modesto</b><span>21 dic 2012, 19:21</span></div>Ti volevo chiedere se le reazioni in A e B, orizzontali presumo stante l'assenza di attrito, sono state dimenticate solo in figura o anche nelle equazioni.</article>
+<article class="post" id="p10610"><div class="who"><b>Gabry</b><span>21 dic 2012, 20:56</span></div>Sono state dimenticate solo in figura perchè per trovare le reazioni vincolari C e D non servono (ho infatti scritto la seconda legge di Newton per il blocco, mentre quelle reazioni agiscono sull'asta)</article>
+<article class="post" id="p10627"><div class="who"><b>modesto</b><span>22 dic 2012, 12:08</span></div><blockquote><div><cite>Gabry ha scritto:</cite>Sono state dimenticate solo in figura perchè per trovare le reazioni vincolari C e D non servono (ho infatti scritto la seconda legge di Newton per il blocco, mentre quelle reazioni agiscono sull'asta)</div></blockquote>
+
+Ma le reazioni in A e B sono incognite da trovare? Perchè dice di identificare <span style="text-decoration:underline">tutte</span> le forze agenti sull'asta e sul piano inclinato e suggerisce anche che è nota la distanza AB. Allora le incognite secondo me sarebbero 4 e bisognerebbe far intervenire anche l'equazione del momento rispetto all'asta. Perchè in tal caso non mi pare corretta la determinazione di <span class="tex">\(N_C, N_D\)</span> indipendentemente da <span class="tex">\(N_A, N_B\)</span>. Ovvero: non si deve considerare il momento asta+cuneo e anche la condizione di equilibrio dinamico orizzontale visto che l'interazione N ha componenti verticale e orizzontale?</article>
+<article class="post" id="p10632"><div class="who"><b>Gabry</b><span>22 dic 2012, 20:16</span></div>Se per identificare tutte le forze intende trovarne il valore allora bisogna trovarle, ma queste sono indipendenti da Nc e Nd (bisognerebbe che la loro somma equilibri l'unica forza orizzontale sull'asta cioè <span class="tex">\(Ncos\alpha\)</span> e che  il momento rispetto ad un polo,possibilmente uno dei due punti di vincolo per semplicità,sia nullo). Per scrivere la seconda legge di Newton per un corpo bisogna scrivere tutte e solo le forze agenti sul corpo stesso (comprese le reazioni vincolari con altri corpi), nel nostro caso Nc e Nd agiscono solo sul cuneo mentre le reazioni vincolari A e B agiscono sull'asta. Nota che l'effetto della presenza delle reazioni vincolari dell'asta si nota sul cuneo (le forze lungo l'asse orizzontale si scriverebbero in modo diverso se l'asta non fosse vincolata o avesse un'altra forza applicata), infatti la reazione vincolare tra asta e cuneo si scrive in quel modo proprio perchè l'asta è vincolata (cioè sono presenti le due reazioni vincolari).</article>
+<article class="post" id="p10640"><div class="who"><b>Andg94</b><span>23 dic 2012, 2:37</span></div>Ma io non capisco una semplice cosa... se <span class="tex">\(\alpha\)</span> è l'angolo tra orizzontale e piano verticale allora non dovrebbe essere <span class="tex">\(N \sin \alpha\)</span> la forza agente orizzontalmente e <span class="tex">\(N \cos \alpha\)</span> quella verticale??</article>
+<article class="post" id="p10641"><div class="who"><b>modesto</b><span>23 dic 2012, 11:49</span></div><blockquote><div><cite>Gabry ha scritto:</cite>Se per identificare tutte le forze intende trovarne il valore allora bisogna trovarle, ma queste sono indipendenti da Nc e Nd (bisognerebbe che la loro somma equilibri l'unica forza orizzontale sull'asta cioè <span class="tex">\(Ncos\alpha\)</span> e che  il momento rispetto ad un polo,possibilmente uno dei due punti di vincolo per semplicità,sia nullo). Per scrivere la seconda legge di Newton per un corpo bisogna scrivere tutte e solo le forze agenti sul corpo stesso (comprese le reazioni vincolari con altri corpi), nel nostro caso Nc e Nd agiscono solo sul cuneo mentre le reazioni vincolari A e B agiscono sull'asta. Nota che l'effetto della presenza delle reazioni vincolari dell'asta si nota sul cuneo (le forze lungo l'asse orizzontale si scriverebbero in modo diverso se l'asta non fosse vincolata o avesse un'altra forza applicata), infatti la reazione vincolare tra asta e cuneo si scrive in quel modo proprio perchè l'asta è vincolata (cioè sono presenti le due reazioni vincolari).</div></blockquote>
+
+Mi pare di essere d'accordo grosso modo. Allora però, siccome dice di scrivere le equazioni necessarie per la loro determinazione  (quindi a rigore non chiede neppure di determinarle), la tua soluzione andrebbe completata. Essendo quattro incognite il sistema è di quattro equazioni. Oltre alle tue mi pare di capire, e sono d'accordo, che si potrebbe imporre a) la risultante delle forze orizzontali sull'asta uguale a 0, b) il loro momento uguale a 0 perchè sono impedite da loro rotazioni dell'asta attorno ad un asse perpendicolare al piano. Sono d'accordo nel prendere come polo A o B.</article>
+<article class="post" id="p10642"><div class="who"><b>modesto</b><span>23 dic 2012, 11:56</span></div><blockquote><div><cite>Andg94 ha scritto:</cite>Ma io non capisco una semplice cosa... se <span class="tex">\(\alpha\)</span> è l'angolo tra orizzontale e piano verticale allora non dovrebbe essere <span class="tex">\(N \sin \alpha\)</span> la forza agente orizzontalmente e <span class="tex">\(N \cos \alpha\)</span> quella verticale??</div></blockquote>
+
+<span class="tex">\(\alpha\)</span> è l'angolo fra l'orizzontale e il piano inclinato (non verticale). Ed è lo stesso formato da N con la verticale. Quindi mi sembra che tu abbia ragione: la componente di N sulla verticale è Ncos<span class="tex">\(\alpha\)</span>.</article>
+<article class="post" id="p10655"><div class="who"><b>Gabry</b><span>23 dic 2012, 12:54</span></div><blockquote><div><cite>Andg94 ha scritto:</cite>Ma io non capisco una semplice cosa... se \alpha è l'angolo tra orizzontale e piano verticale allora non dovrebbe essere N \sin \alpha la forza agente orizzontalmente e N \cos \alpha quella verticale??</div></blockquote>
+Si, mi sono confuso, ora correggo.
+<blockquote><div><cite>modesto ha scritto:</cite>Allora però, siccome dice di scrivere le equazioni necessarie per la loro determinazione (quindi a rigore non chiede neppure di determinarle), la tua soluzione andrebbe completata.</div></blockquote>
+Concordo che non era necessario risolvere le equazioni, mi sono anche accorto che con "tali forze" si riferiva a tutte le forze e non solo alle reazioni in C e D effettivamente non avevo letto bene il testo (o meglio avendolo già letto prima che fosse stato postato sono andato un pò a memoria), aggiungo anche questo alle correzioni del post precedente.</article>
+<article class="post" id="p10660"><div class="who"><b>Bolzo88</b><span>24 dic 2012, 19:30</span></div>Ho provato a fare il problema.<br>
+<br>
+Il punto (1) mi viene come Gabry (<a href="olifis-1900.html#p10505" class="postlink">olifis/phpBB3/viewtopic.php?p=10505#p10505</a>), a parte una cosa: in<span class="tex">\(V_M(t)\)</span> a me al numeratore viene una <span class="tex">\(cotg^2\alpha\)</span>: puoi controllare se hai sbagliato un conto?<br>
+<br>
+Ho visto anche il procedimento "alternativo" di t4ilgr4b (<a href="olifis-1900.html#p10520" class="postlink">olifis/phpBB3/viewtopic.php?p=10520#p10520</a>): bella idea per evitare un integrale che non sapeva risolvere, concettualmente mi torna e funziona. Complimenti!<br>
+<br>
+Per il punto 2, invece, concordo con la versione completa della soluzione di Gabry: <a href="olifis-1900.html#p10548" class="postlink">olifis/phpBB3/viewtopic.php?p=10548#p10548</a></article>
+<article class="post" id="p10661"><div class="who"><b>t4ilgr4b</b><span>24 dic 2012, 19:34</span></div><blockquote><div><cite>Bolzo88 ha scritto:</cite>a me al numeratore viene una <span class="tex">\(cotg^2\alpha\)</span>: puoi controllare se hai sbagliato un conto?</div></blockquote>
+
+in realtà dovrebbe essere giusto di primo grado la cotg perchè il rapporto fra le accelerazioni del cuneo e nell'asta è cotg(\alpha) e quindi sostituendo anche all'equazione trovata da me si ha lo stesso risultato!</article>
+<article class="post" id="p10662"><div class="who"><b>Bolzo88</b><span>24 dic 2012, 19:49</span></div><blockquote><div><cite>t4ilgr4b ha scritto:</cite><blockquote><div><cite>Bolzo88 ha scritto:</cite>a me al numeratore viene una <span class="tex">\(cotg^2\alpha\)</span>: puoi controllare se hai sbagliato un conto?</div></blockquote>
+
+in realtà dovrebbe essere giusto di primo grado la cotg perchè il rapporto fra le accelerazioni del cuneo e nell'asta è cotg(\alpha) e quindi sostituendo anche all'equazione trovata da me si ha lo stesso risultato!</div></blockquote>
+Scusate... intendevo in <span class="tex">\(V_M(h)\)</span> e sono convinto che ci vada il quadrato: infatti c'è sì una <span class="tex">\(cotg(\alpha)\)</span>semplice nel rapporto tra le accelerazioni, ma quando la porti sotto radice diventa al quadrato.</article>
+<article class="post" id="p10663"><div class="who"><b>t4ilgr4b</b><span>24 dic 2012, 19:56</span></div><blockquote><div><cite>Bolzo88 ha scritto:</cite>Scusate... intendevo in <span class="tex">\(V_M(h)\)</span> e sono convinto che ci vada il quadrato: infatti c'è sì una <span class="tex">\(cotg(\alpha)\)</span>semplice nel rapporto tra le accelerazioni, ma quando la porti sotto radice diventa al quadrato.</div></blockquote>
+
+Ah si hai ragione, io avevo risolto scrivendo <span class="tex">\(V_M=V_m cotg\alpha\)</span> che poi sarebbe <span class="tex">\(V_M=\sqrt{\frac{2mg\Delta hcotg^2\alpha}{m+Mcotg^2(\alpha)}}\)</span></article>
+<article class="post" id="p10674"><div class="who"><b>Gabry</b><span>25 dic 2012, 18:53</span></div><blockquote><div><cite>Bolzo88 ha scritto:</cite>
+Il punto (1) mi viene come Gabry (<a href="olifis-1900.html#p10505" class="postlink">olifis/phpBB3/viewtopic.php?p=10505#p10505</a>), a parte una cosa: in<span class="tex">\(V_M(t)\)</span> a me al numeratore viene una <span class="tex">\(cotg^2\alpha\)</span>: puoi controllare se hai sbagliato un conto?
+</div></blockquote>
+In latex ho sbagliato a scrivere e ho messo la cotangente dentro la radice invece che fuori, errore che poi ho riportato nel passaggio successivo, dovrei aver sistemato ora. Ti torna?</article>
+<article class="post" id="p10684"><div class="who"><b>Bolzo88</b><span>26 dic 2012, 4:21</span></div><blockquote><div><cite>Gabry ha scritto:</cite><blockquote><div><cite>Bolzo88 ha scritto:</cite>
+Il punto (1) mi viene come Gabry (<a href="olifis-1900.html#p10505" class="postlink">olifis/phpBB3/viewtopic.php?p=10505#p10505</a>), a parte una cosa: in<span class="tex">\(V_M(t)\)</span> a me al numeratore viene una <span class="tex">\(cotg^2\alpha\)</span>: puoi controllare se hai sbagliato un conto?
+</div></blockquote>
+In latex ho sbagliato a scrivere e ho messo la cotangente dentro la radice invece che fuori, errore che poi ho riportato nel passaggio successivo, dovrei aver sistemato ora. Ti torna?</div></blockquote>
+Mi torna.</article>
+<article class="post" id="p22560"><div class="who"><b>luca_speciale</b><span>18 lug 2016, 19:02</span></div>scusate se riesumo questo post, ho letto le varie soluzioni proposte e vorrei capire come mai la mia non va bene(il risultato esce diverso), probabilmente non to tenendo conto di qualche forza, ho sto sbagliando l'interpretazione.<br>
+Io ho pensato all'azione del peso dell'asta come unica forza che agisce sul cuneo, in particolare ho considerato come responsabile del moto solo <span class="tex">\(P_{\bot}\)</span>, che ho ulteriormente scomposto calcolandone la componente orizzontale: <span class="tex">\(P_{\bot orizzontale}= mg \cdot cos(\alpha) \cdot sin(\alpha)\)</span>.<br>
+Questa forza quindi provoca per il secondo principio della dinamica una accelerazione <span class="tex">\(a= \displaystyle \frac {m} {M} \cdot g \cdot cos(\alpha) \cdot sin(\alpha)\)</span><br>
+Ora conoscendo l'accelerazione con le equazioni del moto uniformemente accelerato ricavo la velocità:<br>
+ricavando il tempo da: <span class="tex">\(\Delta s= h \cdot cotg(\alpha)\)</span>  e <span class="tex">\(h \cdot cotg(\alpha) = \displaystyle \frac {1} {2} \cdot \displaystyle \frac {m} {M} \cdot g \cdot cos(\alpha) \cdot sin(\alpha) \cdot t^2\)</span><br>
+Esce quindi <span class="tex">\(t= \displaystyle \frac {1} {sin(\alpha)} \cdot \sqrt{ \frac {2Mh} {mg} }\)</span><br>
+e poi sostituendo nell'equazione per la velocità<br>
+<span class="tex">\(v(h)=a \cdot t(h)=\displaystyle \frac {m} {M} \cdot g \cdot cos(\alpha) \cdot sin(\alpha) \cdot \displaystyle \frac {1} {sin(\alpha)} \cdot \sqrt{ \frac {2Mh} {mg} }= \displaystyle \sqrt{ \frac{2mg} {M} \cdot h } \cdot cos(\alpha)\)</span></article>
+<article class="post" id="p22564"><div class="who"><b>luca_speciale</b><span>19 lug 2016, 9:17</span></div>forse è sbagliato considerare la forza costante?</article>
+<nav class="pager"><a class="prev" href="olifis-4546.html"><small>← precedente</small>SNS 2012/2013 Prob. 1: satellite e campo elettrostatico</a><a class="next" href="olifis-1991.html"><small>successivo →</small>sns 2012 n.3</a></nav>
+</main></body></html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS FISICA 2015/2016</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2015-2016, problema 4 e 6</span></nav>
+<h1>SNS FISICA 2015/2016</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6337">forum Olifis</a></p>
+<article class="post first" id="p22404"><div class="who"><b>Francesco Mele</b><span>13 giu 2016, 18:51</span></div>Qualcuno ha fatto i problemi che hanno assegnato l'anno scorso al test d'ammissione SNS di fisica? Potreste postare la vostra soluzione?  :D <br>
+(Mi interessano soprattutto il 4 e il 6)<br>
+<a href="http://www.sns.it/sites/default/files/documenti/07-09-2015/prove_di_ammissione_al_i_anno_di_scienze_a.a._2015-16.pdf" class="ext" class="postlink">http://www.sns.it/sites/default/files/d ... 015-16.pdf</a></article>
+<article class="post" id="p22410"><div class="who"><b>rocco</b><span>15 giu 2016, 9:37</span></div>Per quanto riguarda il n.6 evidentemente fai la quarta perchè nel programma di Scienze geografia astronomica di quinta si spiegano con la forza di Coriolis gli effetti sui venti, sui fiumi, sulla deviazione verso oriente dei gravi lasciati cadere dalla cima di una torre ecc. Quindi aiutandoti con Internet credo che risolverai. Stesso discorso per il n.4: siccome una forza è <span class="tex">\(kg.m/sec^2\)</span> e <span class="tex">\(\omega\)</span>è 1/sec, nella proporzionalità deve esserci una massa e una velocità...prova a proseguire aiutandoti con palla curva su Internet.<br>
+<br>
+P.S. Secondo me non dobbiamo chiedere al forum di postare la soluzione come spesso fai tu. Ci serve a poco e credo di avere sbagliato nel recente passato a postartela per due sns di matematica e un sns di fisica. Quello che ci serve è, magari attraverso un hint, di risolvere DA SOLI. Ti consiglio di comprare <em class="text-italics">Bianciardi, Problemi di fisica ed.Libreriauniversitaria.it</em> sugli sns di fisica assegnati dal 2000 al 2012: ci sono preziosi consigli su quando e come chiedere suggerimenti per imparare a risolvere problemi. Personalmente mi sono iscritto di recente a questo forum perchè l'autore lo cita nel libro a proposito di questo argomento.</article>
+<article class="post" id="p22412"><div class="who"><b>Francesco Mele</b><span>16 giu 2016, 9:36</span></div>Cercherò di seguire il tuo consiglio. Il libro che mi hai consigliato già lo ho e ho letto anche la fantastica introduzione. Quando non so fare un problema, però, ci penso e ci ripenso non riuscendo, purtroppo, a contenere la tentazione per più di qualche ora di vedere la soluzione (so che è un atteggiamento sbagliato e non molto produttivo :| ). C'è da dire anche che il Forum serve proprio per il 'confronto': se mi sono torturato a cercare di risolvere un problema che non mi esce, non dovrebbe essere proprio sbagliato chiedere la soluzione.<br>
+Comunque faccio il quinto, ma Coriolis non l'abbiamo fatto.<br>
+Grazie per la risposta! :D</article>
+<article class="post" id="p22414"><div class="who"><b>rocco</b><span>16 giu 2016, 17:58</span></div>Per il 4 vai a vedere palla curva su google: c'è una figura straordinaria che mostra come si determina una differenza di pressione fra due parti diametralmente opposte della palla che determina la deviazione... bernouilli..</article>
+<article class="post" id="p22415"><div class="who"><b>FedericoC.</b><span>16 giu 2016, 18:04</span></div>Sempre per il quattro prova a guardare il problema 55 della staffetta "Una palla che gira e cade", non è proprio identico, ma è sullo stesso fenomeno ed è simile, può essere di chiarimento  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6373.html"><small>← precedente</small>problema 5 sns 2015</a><a class="next" href="olifis-6394.html"><small>successivo →</small>SNS fisica 2016 problema 1</a></nav>
+</main></body></html>

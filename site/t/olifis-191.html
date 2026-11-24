@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2000/2001 Problema 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2000-2001, problema 4</span></nav>
+<h1>SNS 2000/2001 Problema 4</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=191">forum Olifis</a></p>
+<article class="post first" id="p1707"><div class="who"><b>CoNVeRGe.</b><span>25 lug 2009, 14:03</span></div>Un fabbricante di diapason vuole controllare la qualità dei suoi prodotti. <br>
+Nominalmente un certo tipo dovrebbe produrre un suono di frequenza <span class="tex">\(\displaystyle \nu = 2000 Hz\)</span>. La precisione <span class="tex">\(\displaystyle \Delta \nu / \nu\)</span> con cui gli strumenti escono dalla linea di fabbricazione è comunque migliore della risoluzione dell'orecchio umano, che è <span class="tex">\(\displaystyle \Delta \nu / \nu = 3,0 \cdot 10^{-3}\)</span>.<br>
+Si progetti un metodo di misura in cui, sempre usando l'orecchio, si possono discriminare tra loro due diapason, uno con <span class="tex">\(\displaystyle  \nu_1 = 2000Hz\)</span> e l'altro con <span class="tex">\(\displaystyle \nu_2 = 2001 Hz\)</span>, individuando anche quale dei due è caratterizzato dalla frequenza più alta.<br>
+<br>
+<br>
+Questo problema mi sa tanto di una probabile 'Oral Question', vista la particolare richiesta del testo.</article>
+<article class="post" id="p1709"><div class="who"><b>Paolo90</b><span>25 lug 2009, 16:46</span></div>sicuramente non e' accettabile come risposta, pero' per accorgersi che hanno due frequenze diverse si dovrebbero sentire i battimenti con frequenza 1Hz, mentre per discriminare quello piu' basso si potrebbe tendere molto lentamente una corda di violino e osservare con quale diapason entra in risonanza per prima, anche se in effetti non si sta usando l'orecchio.<br>
+Si potrebbe anche utilizzare l'effetto doppler (mettendo in moto un solo diapason) e osservare a che velocita' il battimento sparisce, anche se non e' molto pratico... :mrgreen:<br>
+Penso che problemi del genere siano terribili perche' e' molto difficile capire cos'aveva in testa chi ha proposto il problema...</article>
+<article class="post" id="p1710"><div class="who"><b>Ratio</b><span>25 lug 2009, 18:08</span></div>Sfruttando l'effetto Doppler si potrebbe costruire uno strumento utile al caso: una molla fissata ad un muro che oscilla su un piano con il diapason da testare all'estremo libero. Si tira la molla, si mette in risonanza il diapason e si lascia la molla. Quando la molla passa per il punto di equilibrio, cioè quando tutta l'energia potenziale elastica si è trasformata in cinetica, allora si confrontano ad orecchio le due frequenze, quella di un diapason standard a 2000 Hz e quella del diapason in oscillazione. In questo modo per l'effetto Doppler abbassiamo la frequenza del diapason da testare (ovviamente questo avviene solo quando attraversa il punto di oscillazione <span style="text-decoration:underline">allontanandosi</span> da noi) e quindi alziamo la loro differenza udibile. <br>
+Ho calcolato che per far sì che <span class="tex">\(\frac{f'}{f_0}-1 &gt; 3 \cdot 10^{-3}\)</span>, che è il limite dell'orecchio umano, basterebbe che la molla avesse una velocità di <span class="tex">\(0,82 m/s\)</span>, che mi sembra fattibile con un oscillatore meccanico (oppure no?! :roll:).<br>
+Questo metodo ci farebbe capire qual'è la differenza di frequenza che un diapason tarato bene dovrebbe avere se posto in oscillazione, bastarebbe confrontare poi questo valore con i diapason ancora da tarare: se la differenza è più piccola, allora il diapason ha una frequenza maggiore di 2000 Hz e viceversa se più grande.</article>
+<article class="post" id="p1711"><div class="who"><b>MrTeo</b><span>25 lug 2009, 18:19</span></div>Anche io avevo pensato al Doppler... ma per aumentare il "gap" presente tra le due frequenze emesse e renderlo udibile, ad esempio, mettendo in moto le sorgenti in avvicinamento rispetto all'operatore aumentano le frequenze.<br>
+<br>
+Chiaramente entrambi i diapason devono procedere alla stessa velocità, altrimenti si falsa la misurazione...  così aumenta anche la differenza tra le frequenze (dello stesso fattore) e quindi si può raggiungere facilmente la soglia di percezione (anche se in questo caso dovremmo parlare di "distinzione") accelerandole in modo opportuno...</article>
+<article class="post" id="p1712"><div class="who"><b>Ratio</b><span>25 lug 2009, 18:29</span></div>Se metti in moto entrambi i diapason è chiaro che la differenza percepibile rimane identica, non aumenta, perchè entrambe le frequenze aumentano o diminuiscono di un fattore comune (per convincertene sostituisci nel calcolo per le differenza di frequenza le frequenze ottenute con l'effetto Doppler e otterrai che <span class="tex">\(\frac {f_2}{f_1} - 1 = \frac {f'_2}{f'_1}-1\)</span>, in cui le frequenze con apici sono le frequenze influenzate dal Doppler). L'unica soluzione è misurare la differenza tra la frequenza di un diapason alla volta (abbassata alla velocità giusta grazie all'effetto Doppler per rendercela udibile) e quella di un diapason già calibrato sui 2000 Hz. Questa differenza è udibile e se amplificata al punto giusto può dirci effettivamente quale diapason sia più o meno alto.</article>
+<article class="post" id="p1714"><div class="who"><b>MrTeo</b><span>25 lug 2009, 18:55</span></div><blockquote><div><cite>Ratio ha scritto:</cite>Se metti in moto entrambi i diapason è chiaro che la differenza percepibile rimane identica, non aumenta, perchè entrambe le frequenze aumentano o diminuiscono di un fattore comune (per convincertene sostituisci nel calcolo per le differenza di frequenza le frequenze ottenute con l'effetto Doppler e otterrai che <span class="tex">\(\frac {f_2}{f_1} - 1 = \frac {f'_2}{f'_1}-1\)</span>, in cui le frequenze con apici sono le frequenze influenzate dal Doppler). L'unica soluzione è misurare la differenza tra la frequenza di un diapason alla volta (abbassata alla velocità giusta grazie all'effetto Doppler per rendercela udibile) e quella di un diapason già calibrato sui 2000 Hz. Questa differenza è udibile e se amplificata al punto giusto può dirci effettivamente quale diapason sia più o meno alto.</div></blockquote>
+
+Hmm... se consideriamo un fattore <span class="tex">\(k=\frac{v}{v-v_{avv}}\)</span> costante per entrambi i diapason otteniamo:<br>
+<br>
+<span class="tex">\(f'_1  = kf_1\)</span><br>
+<span class="tex">\(f'_2  = kf_2\)</span><br>
+<br>
+Quindi:<br>
+<br>
+<span class="tex">\(\Delta f' = f'_2  - f'_1  = kf_2  - kf_1  = k\Delta f\)</span><br>
+<br>
+Se l'errore c'è io non riesco a trovarlo... quindi ogni aiuto è molto ( :mrgreen: ) gradito... però mi sembra che se vado a sostituire nelle tue formule le frequenze modificate dal Doppler so soltanto che in rapporto alle frequenze (una sorta di variazione relativa) il valore è lo stesso, me non che il valore della differenza rimane costante...</article>
+<article class="post" id="p1718"><div class="who"><b>Paolo90</b><span>25 lug 2009, 19:12</span></div>ma per la percezione dell'orecchio conta solo <span class="tex">\(\Delta f'/f_1' = \Delta f/f_1\)</span>, quindi l'effetto doppler applicato come dici tu non credo aiuti.</article>
+<article class="post" id="p1719"><div class="who"><b>MrTeo</b><span>25 lug 2009, 19:14</span></div><blockquote><div><cite>Paolo90 ha scritto:</cite>ma per la percezione dell'orecchio conta solo <span class="tex">\(\Delta f'/f_1' = \Delta f/f_1\)</span>, quindi l'effetto doppler applicato come dici tu non credo aiuti.</div></blockquote>
+
+Molto giusto... bisognerà pensare a qualcos'altro  :D</article>
+<article class="post" id="p1728"><div class="who"><b>MrTeo</b><span>26 lug 2009, 16:40</span></div>Ritento...  :mrgreen: <br>
+<br>
+Sempre usando il Doppler si potrebbero accelerare i diapason in moto (sempre alla stessa <span class="tex">\(v\)</span>) verso l'ascoltatore finchè la velocità non raggiunge quella limite per l'udibilità, tale che (non sto a riscrivere il valore di <span class="tex">\(k\)</span>, altrimenti rischio di diventare davvero noioso  :D ):<br>
+<br>
+<span class="tex">\(f' = kf_0  \approx 20000\,Hz\)</span><br>
+<br>
+Il primo diapason ad uscire dal valore soglia è quello da <span class="tex">\(2001\,Hz\)</span>, mentre quello ancora udibile alla <span class="tex">\(v_{critica}\)</span> (per così dire) è l'altro...<br>
+Ovviamente si può fare lo stesso per la soglia inferiore di udibilità (<span class="tex">\(\approx 20\,Hz\)</span>), allontanando la sorgente dall'ascoltatore nello stesso modo... in questo caso il primo ad uscire dalla fascia udibile è il diapason da <span class="tex">\(2000\,Hz\)</span>...</article>
+<article class="post" id="p1729"><div class="who"><b>Ratio</b><span>26 lug 2009, 17:51</span></div><blockquote><div><cite>Paolo90 ha scritto:</cite>ma per la percezione dell'orecchio conta solo <span class="tex">\(\Delta f'/f_1' = \Delta f/f_1\)</span>, quindi l'effetto doppler applicato come dici tu non credo aiuti.</div></blockquote>
+
+Esattamente quello che intedevo  ;) <br>
+<br>
+In ogni caso direi di lasciar perdere l'effetto Doppler che evidentemente è impraticabile... anche seguendo l'idea dell'ultimo post dovremmo far giungere il diapason alla velocità di <span class="tex">\(v = \frac{v_s \cdot |(f_i - f_f)|}{f_f}\)</span>, in cui <br>
+<span class="tex">\(f_i\)</span> è la frequenza del diapason (2000 o 2001 Hz che sia),<br>
+<span class="tex">\(f_f\)</span> è la frequenza da raggiungere (20000 o 20 Hz che sia),<br>
+e <span class="tex">\(v_s\)</span> è la velocità del suono nel mezzo in cui avviene il tutto.<br>
+Se il mezzo fosse l'aria a 0°C avremmo <span class="tex">\(v = 297,9 m/s\)</span> per raggiungere i 20000 Hz.<br>
+L'unico modo per rendere il tutto più "ragionevole" sarebbe quello di abbassare la velocità del suono nel mezzo che è data da <span class="tex">\(\sqrt{\frac{B}{\rho}}\)</span>, in cui <span class="tex">\(B\)</span>, essendo il modulo di compressibilità, dipende dalla pressione e quindi per l'equazione dei gas ideali dalla temperatura del gas. Per farla breve, dovremmo abbassare la temperatura dell'aria in cui si effettua la misurazione... che è anch'esso problematico  :roll:</article>
+<article class="post" id="p1730"><div class="who"><b>MrTeo</b><span>26 lug 2009, 18:17</span></div><blockquote><div><cite>Ratio ha scritto:</cite><blockquote><div><cite>Paolo90 ha scritto:</cite>ma per la percezione dell'orecchio conta solo <span class="tex">\(\Delta f'/f_1' = \Delta f/f_1\)</span>, quindi l'effetto doppler applicato come dici tu non credo aiuti.</div></blockquote>
+
+Esattamente quello che intedevo  ;) <br>
+<br>
+In ogni caso direi di lasciar perdere l'effetto Doppler che evidentemente è impraticabile... anche seguendo l'idea dell'ultimo post dovremmo far giungere il diapason alla velocità di <span class="tex">\(v = \frac{v_s \cdot |(f_i - f_f)|}{f_f}\)</span>, in cui <br>
+<span class="tex">\(f_i\)</span> è la frequenza del diapason (2000 o 2001 Hz che sia),<br>
+<span class="tex">\(f_f\)</span> è la frequenza da raggiungere (20000 o 20 Hz che sia),<br>
+e <span class="tex">\(v_s\)</span> è la velocità del suono nel mezzo in cui avviene il tutto.<br>
+Se il mezzo fosse l'aria a 0°C avremmo <span class="tex">\(v = 297,9 m/s\)</span> per raggiungere i 20000 Hz.<br>
+L'unico modo per rendere il tutto più "ragionevole" sarebbe quello di abbassare la velocità del suono nel mezzo che è data da <span class="tex">\(\sqrt{\frac{B}{\rho}}\)</span>, in cui <span class="tex">\(B\)</span>, essendo il modulo di compressibilità, dipende dalla pressione e quindi per l'equazione dei gas ideali dalla temperatura del gas. Per farla breve, dovremmo abbassare la temperatura dell'aria in cui si effettua la misurazione... che è anch'esso problematico  :roll:</div></blockquote>
+
+Bè, ovviamente nessuno pensa davvero a praticare queste vie, si tratta soltanto di risposte teoriche ad una domanda... (credo che quella che vogliono tastare in commissione sia più la capacità di analisi scientifica che la nostra (Falco5x non se ne abbia a male  :D ) abilità "ingegneristica") anche perchè la stessa asserzione della sensibilità percettiva dell'orecchio umano con un valore numerico non ha senso... (dipende dalle condizioni dell'uditore e non è assoluta per ogni frequenza).<br>
+Anche nella mia ultima considerazione, pur tralasciando l'idea angosciante di due rotaie a cuscino d'aria su cui vengono sparati carrellini muniti di diapason a quasi 300 m/s contro un ascoltatore ( :mrgreen: ), il momento della scomparsa di un suono rispetto all'altro, considerando quanto questo già sarà difficilmente udibile per l'alta frequenza, è inconcepibile che venga colto con la precisione tale da discernere tra i due strumenti...</article>
+<article class="post" id="p1732"><div class="who"><b>Julio14</b><span>26 lug 2009, 22:35</span></div>Un modo potrebbe essere questo: inizialmente si contano i battimenti a 1 Hz, dopodiché si applica un piccolo pezzo di gomma (altro che carrellini a 300 m/s! big babol!) al diapason A, contiamo i battimenti, diciamo x Hz (se x&lt;1 aggiungiamo gomma). Poi togliamo la gomma e la applichiamo al diapason B, e misuriamo battimenti a y Hz. Ora, se x&gt;y allora A ha frequenza 2000, altrimenti 2001. La differenza fra x e y dovrebbe essere circa 2 (non so se è il valore preciso, dipende dal modo in cui la gomma diminuisce la frequenza, ma gli è sicuramente vicino, in quanto la stessa quantità di gomma agisce su diapason estremamente simili), e calibrando la quantità di gomma si possono tranquillamente ottenere valori comodi da contare con precisione di x e y, quindi non dovrebbero esserci problemi di rilevazione.</article>
+<article class="post" id="p1751"><div class="who"><b>CoNVeRGe.</b><span>27 lug 2009, 14:07</span></div>Non male  :) <br>
+Ma quest'uso della gomma da dove salta fuori? E' noto?</article>
+<article class="post" id="p1753"><div class="who"><b>Julio14</b><span>27 lug 2009, 17:38</span></div>Non ricordo di preciso, ma è possibile che abbia visto una cosa simile su un problema dell'halliday. Quando ho letto questo, m'è venuto in mente</article>
+<nav class="pager"><a class="prev" href="olifis-1361.html"><small>← precedente</small>Sns 2000-2001 #3</a><a class="next" href="oliforum-3911.html"><small>successivo →</small>Spira rotante nel campo magnetico</a></nav>
+</main></body></html>

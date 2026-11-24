@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008-2009</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 2</span></nav>
+<h1>SNS 2008-2009</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=143">forum Olifis</a></p>
+<article class="post first" id="p1317"><div class="who"><b>natalino</b><span>17 giu 2009, 13:08</span></div>Facendo riferimento alla figura, calcolate la resistenza totale fra i punti A e B,<br>
+sapendo che ciascuna resistenza in figura vale 1 ohm, e le linee continue indicano<br>
+fili senza resistenza apprezzabile. (Scusate ma non riesco a postare la figura. Il problema comunque si trova al link del bando di concorso di quest'anno.)<br>
+<br>
+Mi è stato detto che il problema è molto facile e standard; io l'ho risolto ma non sono affatto convinto. Qualcuno potrebbe spiegarmi come si risolve, anche brevemente? Grazie mille..</article>
+<article class="post" id="p1319"><div class="who"><b>dl.censi</b><span>17 giu 2009, 15:52</span></div>ok, che non riesci a postare la figura, ma il link alla stessa credo non sia difficile scriverlo, senza obbligare tutti a fare una ricerca in rete.</article>
+<article class="post" id="p1320"><div class="who"><b>CoNVeRGe.</b><span>17 giu 2009, 16:25</span></div><blockquote><div><cite>natalino ha scritto:</cite>Mi è stato detto che il problema è molto facile e standard.</div></blockquote>
+Eh, si, è proprio così. Magari anche quest'anno uno simile!<br>
+<br>
+Io credo che sia solo questione di 'occhio', infatti se scrivi le lettere come nell'immagine che allego, l'esercizio è fatto.</article>
+<article class="post" id="p1321"><div class="who"><b>Pairo</b><span>17 giu 2009, 16:31</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>natalino ha scritto:</cite>Mi è stato detto che il problema è molto facile e standard.</div></blockquote>
+Eh, si, è proprio così. Magari anche quest'anno uno simile!</div></blockquote>
+
+Condivido in pieno :D .<br>
+Comunque sì,in generale si tratta di trovare i punti del circuito allo stesso potenziale per costruire sistemi di resistenze in serie e in parallelo equivalenti. In questo caso, anche se la configurazione iniziale può spaventare basta una piccola analisi per rendersi conto di quanto detto da Converge.</article>
+<article class="post" id="p1322"><div class="who"><b>natalino</b><span>17 giu 2009, 16:33</span></div>Sì, scusate. Avevo cercato di allegare l'immagine ma mi veniva detto che il formato non era consentito. Scusate ancora.<br>
+<br>
+Grazie mille per le risposte comunque, siete stati chiarissimi!</article>
+<article class="post" id="p1326"><div class="who"><b>Ippo</b><span>17 giu 2009, 22:28</span></div>Tra parentesi, è tratto dalle IPhO del '96 in Norvegia. C'era un problema costituito da 5 "problemini" di cui questo era uno. Valeva un punto (...magari anche quest'anno uno simile, a Merida... :lol: )<br>
+Anche gli altri quattro sono carini, dateci un'occhiata se vi capita (non si sa mai che decidano di riciclarli di nuovo per l'esame SNS  :P )</article>
+<article class="post" id="p1327"><div class="who"><b>CoNVeRGe.</b><span>17 giu 2009, 22:51</span></div><blockquote><div><cite>Ippo ha scritto:</cite>C'era un problema costituito da 5 "problemini" di cui questo era uno. <br>
+Anche gli altri quattro sono carini...</div></blockquote>
+Quello dello sciatore mi ha un po' sconvolto  :lol: <br>
+
+<blockquote><div><cite>Ippo ha scritto:</cite>..magari anche quest'anno uno simile, a Merida... </div></blockquote>
+Sicuramente.  :)</article>
+<article class="post" id="p1361"><div class="who"><b>Davide90</b><span>22 giu 2009, 15:56</span></div>Quindi poichè i punti A e B scritti in rosso nella figura sopra sono allo stesso potenziale dei punti A e B del problema, la resistenza equivalente tra i due punti è <span class="tex">\(1 \Omega\)</span> ?<br>
+Non male una oneline-answer per un sns...   :)</article>
+<article class="post" id="p1363"><div class="who"><b>Alex90</b><span>22 giu 2009, 16:03</span></div>Veramente non è <span class="tex">\(1\Omega\)</span>  ;)</article>
+<article class="post" id="p1366"><div class="who"><b>Davide90</b><span>22 giu 2009, 16:20</span></div>Si, ho scritto una fesseria. La configurazione mi sembra che sia equivalente a tre resistori in parallelo, due costituiti da due resistenze in serie e uno da una sola resistenza. Dunque si troverebbe che <span class="tex">\(R_{eq}=\left(\dfrac11+\dfrac{1}{1+1}+ \dfrac{1}{1+1}\right)^{-1}=0,5 \Omega\)</span>. Giusto?</article>
+<article class="post" id="p1368"><div class="who"><b>Alex90</b><span>22 giu 2009, 16:37</span></div>Si  :D</article>
+<article class="post" id="p2095"><div class="who"><b>didudo</b><span>23 ago 2009, 15:10</span></div>questo anche se 2 delle tre in parallelo centralmente sono collegate...perchè?perchè ci scorre la stessa corrente e perciò il collegamento può essere rimosso creando un circuito equivalente?</article>
+<article class="post" id="p25021"><div class="who"><b>Salvador</b><span>4 ago 2018, 22:33</span></div>Mi spiegate meglio come si fa a passare alla configurazione equivalente?</article>
+<article class="post" id="p25023"><div class="who"><b>lance00</b><span>5 ago 2018, 13:48</span></div>Chiama A,B,C,D,E,F gli estremi dei segmenti contenenti una resistenza. Hai che A e C sono equipotenziali in quanto puoi andare da A a C passando per un filo di resistenza 0 quindi V = iR = 0. Quindi puoi considerare A e C come un unico punto (diciamo AC) che è connesso tramite due resistenze in parallelo (perchè?) a B. Puoi fare lo stesso ragionamento con D,E ed F: D ed F equivalgono a un unico punto DF connesso tramite due resistenze in parallelo ad E. Infine nota che AC e DF sono connessi tra loro anche da un'altra resistenza (quella nel mezzo). Se hai capito il concetto prova a fare questo problema, disegnandoti i circuiti equivalenti:<br>
+Hai un cubo in cui ogni spigolo è costituito da una resistenza <span class="tex">\(R\)</span>. Calcola la resistenza equivalente:<br>
+(i) tra due vertici non appartenenti alla stessa faccia <br>
+(ii) tra due vertici adiacenti<br>
+(iii) tra due vertici appartenenti alla diagonale di una faccia <br>
+<br>
+inoltre puoi provare a capire cosa succede se togli una o più resistenze alla configurazione iniziale (mi pare che il punto (ii) senza le resistenza tra i vertici adiacenti sia un SNS recente)  :D</article>
+<nav class="pager"><a class="prev" href="olifis-88.html"><small>← precedente</small>SNS 2008/2009 Problema 1</a><a class="next" href="oliforum-11677.html"><small>successivo →</small>SNS 2008/2009 problema 3</a></nav>
+</main></body></html>

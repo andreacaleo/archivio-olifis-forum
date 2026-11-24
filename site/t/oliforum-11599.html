@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2004-2005 es. 4 (Piramide di Erodoto)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 4</span></nav>
+<h1>SNS 2004-2005 es. 4 (Piramide di Erodoto)</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11599">OliForum</a></p>
+<article class="post first" id="p94378"><div class="who"><b>gattovince</b><span>19 ago 2008, 16:35</span></div>Posto un altro problema della SNS. <br>
+(Poi provo anche a scrivere la soluzione ma mi ci vorrà parecchio perche sono lentissimo con LateX).<br>
+<br>
+<em class="text-italics">Secondo Erodoto l’erezione della piramide di Kufu a Giza richiese<br>
+100.000 uomini. Possiamo a nostra volta cercare di stimare questo numero<br>
+presumendo che gli uomini usassero solo la loro forza muscolare e<br>
+considerando che un uomo può svolgere circa 2.5 · 105 J di lavoro utile<br>
+al giorno. In questa ipotesi quanti uomini sono necessari in un anno solo<br>
+per sollevare alloro posto le pietre della piramide alta 147 m e con una<br>
+base quadrata di 230 m di lato? Le pietre hanno densità di 2.7 g/cm3.</em><br>
+<br>
+Ciao!!</article>
+<article class="post" id="p94399"><div class="who"><b>Riccardo_ct</b><span>19 ago 2008, 20:37</span></div>Ho provato ad inquadrare il problema ma non so se è giusto...<br>
+per calcolare il numero di persone necessarie per erigere la piramide si dovrebbe trovare l'energia potenziale totale della piramide rispetto al terreno sul quale è posta. Se non ricordo male il centro il massa della piramide è posto ad un quarto dell'altezza perciò da qui ricavi il lavoro totale da compiere, sennò si dovrebbe calcolare il lavoro per portare ad una certa altezza un quadratino infinitesimo di piramide, di quella determinata densità, e poi integrare da 0 ad h.</article>
+<article class="post" id="p94401"><div class="who"><b>Alex90</b><span>19 ago 2008, 21:18</span></div>Ci avevo pensato su ma purtroppo la parte in cui si dovrebbe integrare va oltre le mie attualità abilità  :lol: comunque se l'idea di Riccardo è giusta allora lo svolgo così:<br>
+<br>
+$ \displaystyle L = F \cdot s = P \cdot \frac{1}{4}h $<br>
+$ \displaystyle m = V \cdot \rho = \frac{1}{3} l^2 \cdot h \cdot \rho $<br>
+<br>
+Siano $ E $ l'energia che può sviluppare un uomo in un giorno e $ n_{giorni} $ i giorni in un anno allora:<br>
+<br>
+$ \displaystyle n_{uomini} = \frac{\frac{1}{3} l^2 \cdot h \cdot \rho \cdot g \cdot \frac{1}{4}h}{E \cdot n_{giorni}}=\frac{\frac{1}{3} 230^2 \cdot 147 \cdot 2700 \cdot 9.81 \cdot \frac{1}{4}147}{2.5 \cdot 10^5 \cdot 365} $$ \approx 27651 $</article>
+<article class="post" id="p94406"><div class="who"><b>oli89</b><span>19 ago 2008, 22:10</span></div>il risultato è corretto. Ovviamente ci sarebbe da dimostrare l'affermazione di Riccardo sull'altezza del baricentro della piramide, che è proprio h/4 con un semplice integrale... :) <br>
+<br>
+ciao :D</article>
+<article class="post" id="p94419"><div class="who"><b>Riccardo_ct</b><span>20 ago 2008, 00:30</span></div>Posizione del centro di massa sulla verticale: $ y_{CM}=\frac{\displaystyle\int y dm}{\displaystyle \int dm} $<br>
+dove l'elemento di massa $ dm $ al numeratore vale: $ dm=\rho S(y) dy $<br>
+inoltre $  S(y)=4b^2(1-\frac{y}{h})^2 $, sostituendo tutto si integra da 0 ad h,<br>
+penso si dovrebbe fare così</article>
+<nav class="pager"><a class="prev" href="oliforum-8747.html"><small>← precedente</small>sns 2004/2005 #3</a><a class="next" href="oliforum-8630.html"><small>successivo →</small>Quanto lavoro per una piramide!!!</a></nav>
+</main></body></html>

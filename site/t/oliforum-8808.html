@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2004-2005 6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 6</span></nav>
+<h1>SNS 2004-2005 6</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=8808">OliForum</a></p>
+<article class="post first" id="p73332"><div class="who"><b>Deerber</b><span>03 ago 2007, 11:05</span></div>Salve a tutti, questo è il mio primo post sul forum, quindi evitate di commentare i miei disastri con il latex, thanks ^^<br>
+Vorrei proporvi un problema di fisica della normale, che non riesco a risolvere:<br>
+<br>
+La possibile esistenza di una costante cosmologica $\Lambda$ è uno dei risultati più sorprendenti della fisica degli ultimi anni. In presenza di una costante cosmologica, la forza radiale su un pianeta di massa $m$ in orbita attorno al sole ad una distanza $r$ vale:<br>
+<br>
+$F_{\Lambda}=-\frac{GmM_{s}}{r^{2}}+\frac{mr\Lambda}{3}$<br>
+<br>
+A) Per $\Lambda$ positivo, il termine correttivo dovuto alla costante cosmologica è equivalente alla presenza di una densità di massa uniforme e negativa (cioè che agisce respingendo il pianeta). Densità di quale valore?<br>
+Il punto B è banale e non lo posterò neanche.<br>
+Ora, per quanto riguarda il punto A, il problema principale è chiarire dove devo supporre che sia presente questa densità di massa uniforme. Chiaramente non può essere in tutto lo spazio, altrimenti per ragioni di simmetria non si manifesterebbe forza alcuna sul pianeta. Devo allora supporre che la densità di massa sia distribuita nel cerchio orbitale? O nell'intera sfera orbitale? O nel semipiano contenente il sole?<br>
+E poi, una volta deciso dove devo distribuire la densità di massa, in che modo posso operare l'integrazione che mi serve per calcolarla? Perchè mi serve un'integrazione giusto?<br>
+<br>
+Spero solo che qualcuno di voi sappia darmi qualche dritta, o meglio risolvere il problema  :D</article>
+<article class="post" id="p73333"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 11:17</span></div>Solo un appunto sul LaTeX, mi perdonerai. La lettera non era un Delta ma un Lambda maiuscolo ;)<br>
+<br>
+$ \displaystyle \Lambda $<br>
+
+<blockquote class="uncited"><div>altrimenti per ragioni di simmetria non si manifesterebbe forza alcuna sul pianeta. </div></blockquote>
+
+Non sono d'accordo. Direi che vale comunque il "guscio sferico".</article>
+<article class="post" id="p73334"><div class="who"><b>Deerber</b><span>03 ago 2007, 11:25</span></div>Hai ragione scusa, ho editato il delta con il lambda. Mi potresti spiegare però cosa intendi nella seconda parte del post? Grazie :)</article>
+<article class="post" id="p73337"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 11:32</span></div>Se consideri la "massa negativa" distribuita uniformemente nello spazio, avrà influenza sull'attrazione tra sole e terra, per esempio, tutta quella racchiusa nella sfera di raggio 1 UA.</article>
+<article class="post" id="p73338"><div class="who"><b>Deerber</b><span>03 ago 2007, 11:35</span></div>Ah ok, ci siamo, è quello che ho pensato anche io. Mi pare la cosa più sensata. Il problema è che non so come procedere a calcolarla  :oops: <br>
+Penso proprio che si debba integrare in qualche modo, ma non so come :lol:  :roll:</article>
+<article class="post" id="p73341"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 11:39</span></div>La bellezza del guscio sferico è proprio che è come se fosse tutta al centro ;)</article>
+<article class="post" id="p73342"><div class="who"><b>Deerber</b><span>03 ago 2007, 11:43</span></div>Ah cioè, dici che anche una densità di massa si comporta come una densità di carica? Perchè io questo fatto del guscio sferico sapevo si applicasse all'elettromagnetismo, ma non avevo mai sentito dire che si potesse applicare anche alla gravitazione universale  :o</article>
+<article class="post" id="p73344"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 11:44</span></div>Il guscio sferico <em class="text-italics">nasce</em> con la gravitazione universale. Lo dimostrarono per primi in tale ambito Leibniz e Newton.</article>
+<article class="post" id="p73345"><div class="who"><b>Deerber</b><span>03 ago 2007, 11:47</span></div>Uhuu... fico. Grazie mille, sei stato gentilissimo TADW. Magari sapresti anche dirmi dove posso trovare una di queste dimostrazioni? E' una cosa interessante, merita uno sguardo almeno... Grazie ancora, ciao :D</article>
+<article class="post" id="p73347"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 11:55</span></div>Ho trovato qualcosa sulla Wikipedia inglese:<br>
+<br>
+<a href="http://en.wikipedia.org/wiki/Shell_theorem" class="ext" class="postlink">Shell Theorem</a></article>
+<article class="post" id="p73350"><div class="who"><b>Deerber</b><span>03 ago 2007, 12:17</span></div>Grazie mille TADW, quella spiegazione va benissimo. E dire che per risolvere il problema avevo impostato le stesse equazioni differenziali che usa lui per dimostrare il teorema. Mi mancava solo un modo per esprimere il dA, cavolo... devo ancora prendere un pò di confidenza co 'sti differenziali del cavolo hehe ^^<br>
+Usando il guscio sferico il problema è davvero una cavolata, viene $\rho=\frac{\Lambda}{4G\pi}$<br>
+A presto, e grazie ancora</article>
+<article class="post" id="p73351"><div class="who"><b>TADW_Elessar</b><span>03 ago 2007, 12:19</span></div>Di niente. Se ho capito bene, "a presto" sarà "a presto" davvero. A pisa ;)</article>
+<article class="post" id="p73352"><div class="who"><b>Deerber</b><span>03 ago 2007, 12:25</span></div>Eh già, anche tu provi? Come il 90% delle persone dell'88 di questo forum, e un buon 20% di quelle dell'89, credo...</article>
+<nav class="pager"><a class="prev" href="olifis-129.html"><small>← precedente</small>SNS 2004/2005 Problema 5</a><a class="next" href="oliforum-6214.html"><small>successivo →</small>Costante cosmologica [Ammissione SNS (2004-2005).6]</a></nav>
+</main></body></html>

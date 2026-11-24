@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esercizio 3 SNS 2022-2023</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2022-2023, problema 3</span></nav>
+<h1>Esercizio 3 SNS 2022-2023</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7157">forum Olifis</a></p>
+<article class="post first" id="p27505"><div class="who"><b>Torros</b><span>25 set 2022, 21:35</span></div>Non avendo ancora trovato le soluzioni degli esercizi dell'ultimo test, chiedo qui sul forum se qualcuno è riuscito a risolvere l'esercizio sul betatrone. Propongo il risultato che sono riuscito ad ottenere che mi ha soddisfatto di più, ma vi prego di segnalarmi errori (anche perché mi sembra una soluzione troppo semplice :? ):<br>
+<br>
+Considero la legge di Lenz:<br>
+<span class="tex">\(\displaystyle fem = \frac{df}{dt}\)</span><br>
+dove f è il flusso del campo magnetico che attraversa la superfice delimitata dall'orbita della particella, generato dall'elettromagnete. La fem è chiaramente pari all'integrale sul ciclo del campo elettrico per <span class="tex">\(dl\)</span> e risulta essere uguale al prodotto del campo elettrico per la lunghezza della circonferenza.<br>
+Divido ora entrambi i membri per <span class="tex">\(\pi R^2\)</span>. Per quanto riguarda il secondo membro posso portare <span class="tex">\(\pi R^2\)</span> all'interno della derivata, in quanto <span class="tex">\(R\)</span> non dipende da <span class="tex">\(t\)</span>. la funzione da derivare rappresenta ora il valor medio del campo magnetico all'interno della superficie delimitata dalla traiettoria e chiamo tale valore <span class="tex">\(Bm\)</span>.<br>
+Sostituisco ora al primo membro <span class="tex">\(E=\frac{ma}{q} \)</span> e porto <span class="tex">\(dt\)</span> dal secondo al primo membro per ottenere:<br>
+<span class="tex">\(\displaystyle dBm = \frac{2ma}{qr} dt\)</span><br>
+Sostituisco <span class="tex">\(a dt = dv\)</span> per ottenere:<br>
+<span class="tex">\(\displaystyle dBm = \frac{2m}{qr} dv\)</span><br>
+Nulla dipende da v e dunque:<br>
+<span class="tex">\(\displaystyle Bm = \frac{2m}{qr} v\)</span><br>
+Sostituisco ora <span class="tex">\(r=\frac{vm}{qB}\)</span> ed ottengo che il valor medio del campo magnetico <br>
+all'interno della circonferenza vale il doppio del campo magnetico sulla circonferenza.<br>
+Che ne pensate? Grazie :D</article>
+<article class="post" id="p27508"><div class="who"><b>bosone</b><span>1 ott 2022, 17:41</span></div>Mi pare corretta nel procedimento però si trascura nel conto il - della legge di Faraday per cui i due campi dovrebbero essere opposti (?)</article>
+<article class="post" id="p27510"><div class="who"><b>Torros</b><span>5 ott 2022, 20:23</span></div>Hai ragione, non lo avevo proprio considerato. Rileggendo la richiesta del testo, tuttavia, mi sono accorto che si chiede di trovare la relazione tra le intensità dei due campi. Con il termine "intensità" dici che si intende il modulo del valore del campo? Grazie ancora.</article>
+<article class="post" id="p27513"><div class="who"><b>bosone</b><span>6 ott 2022, 11:17</span></div>In effetti per intensità dovrebbe intendersi il valore assoluto del modulo ma in questo caso mi pareva significativo che dovevano risultare opposti. Indaghiamo ancora facendo magari pronunciare Pigkappa....</article>
+<article class="post" id="p27516"><div class="who"><b>Pigkappa</b><span>6 ott 2022, 18:18</span></div>Vabbè ma almeno postate il testo  :lol: come fanno gli altri utenti a rispondere?</article>
+<article class="post" id="p27517"><div class="who"><b>bosone</b><span>7 ott 2022, 10:54</span></div>Si è giusto. Il fatto è che io riporto il testo scritto ma c'è anche lo schema -come una foto- della sezione verticale dell'acceleratore che almeno io non so riportare (rimando per questo al sito SNS).<br>
+<br>
+SNS 2022/3<br>
+Un betatrone è un acceleratore in cui particelle di carica q e massa m, che circolano in un tubo a vuoto a forma toroidale, sono mantenute in orbita circolare di raggio fissato R sul piano mediano di un elettromagnete a simmetria cilindrica (ossia con la geometria di un solido di rotazione) e vengono accelerate aumentando nel tempo l'intensità della corrente che genera il campo magnetico e dunque l'intensità del campo stesso. Si assuma che il moto delle particelle sia non relativistico.<br>
+Determinare la relazione che ad ogni dato istante deve sussistere tra il valor medio del campo sulla superficie del cerchio racchiuso dall'orbita e l'intensità del campo lungo l'orbita stessa, affinchè sia possibile accelerare le particelle mantenendo costante il raggio dell'orbita.</article>
+<article class="post" id="p27524"><div class="who"><b>Pigkappa</b><span>9 ott 2022, 18:12</span></div>Scrivo la mia soluzione, e' equivalente a quella di Torros ma provo a fare attenzione ai segni.<br>
+<br>
+Coordinate cilindriche: <span class="tex">\(\hat \theta\)</span> diretto lungo l'orbita della particella positivo se antiorario, <span class="tex">\(\hat z\)</span> verso l'alto, <span class="tex">\(\hat r\)</span> radiale positivo verso il fuori. Quando indico una variabile e' sempre intesa nel punto dell'orbita, a meno che non ci metta una overline sopra come <span class="tex">\(\overline{B_z}\)</span> nel qual caso intendo la media della variabile nel cerchio racchiuso dall'orbita.<br>
+<br>
+<span class="tex">\(\displaystyle m\frac{dv_\theta}{dt} = \text{(forza del campo elettrico)} =q E_\theta = (\text{manipolazione}) = \frac{q (2 \pi R E_\theta)}{2 \pi R} = \text{(legge di Faraday)} = -\frac{q}{2 \pi R} \frac{\pi R^2 d \overline{B_z}}{dt} = -\frac{qR}{2} \frac{d \overline{B_z}}{dt}\)</span><br>
+<br>
+E poi:<br>
+<span class="tex">\(\displaystyle \text{(forza dell'accelerazione centripeta)} = - (m v_\theta^2 / R) \hat{r} = \text{(forza di Lorentz)} = q (v_\theta \hat \theta \times B_z \hat z ) = q v_\theta B_z \hat r\)</span><br>
+<br>
+Quindi:<br>
+ <br>
+<span class="tex">\(m v_\theta = -q R B_z\)</span> e derivando <span class="tex">\(m \frac{d v_\theta}{dt} = -q R \frac{dB_z}{dt}\)</span>.<br>
+<br>
+Mettendo insieme all'equazione trovata sopra, <span class="tex">\(\displaystyle \frac{d \overline{B_z}}{dt} = 2 \frac{d B_z}{dt} \)</span> e se entrambi partono da 0, <span class="tex">\(\overline{B_z} = 2 B_z\)</span>, e quindi secondo me non e' vero che i campi sono opposti, ma hanno la stessa direzione.</article>
+<article class="post" id="p27528"><div class="who"><b>Torros</b><span>11 ott 2022, 17:19</span></div>Perfetto, mi torna tutto. Ripensandoci è insensato che i due vettori abbiano verso opposto, visto che, in ogni punto appartenente al cerchio che ha per contorno la circonferenza del tubo a vuoto (e in ogni punto appartenente alla circonferenza stessa), il verso del campo è rivolto nello stesso verso del versore <span class="tex">\(\hat z\)</span>. Il campo medio non può dunque che essere rivolto nello stesso verso di <span class="tex">\(\hat z\)</span>, così come il campo sulla circonferenza. Grazie mille Pigkappa per la dimostrazione formale.</article>
+<article class="post" id="p27529"><div class="who"><b>Pigkappa</b><span>11 ott 2022, 19:51</span></div>Il campo medio sulla superficie del cerchio potrebbe essere di segno opposto al campo sulla linea della circonferenza... La figura che hanno messo nel problema suggerisce che probabilmente non è così, ma si può sicuramente costruire un setup in cui accade.</article>
+<article class="post" id="p27530"><div class="who"><b>bosone</b><span>12 ott 2022, 11:23</span></div>Credo tuttavia (Torros)che per quanto riguarda la soluzione si possa bypassare questa duplice possibilità dal momento che il testo chiede la relazione fra le INTENSITA' dei campi ovvero fra i valori assoluti dei campi a prescindere appunto dal loro orientamento. Comunque mi fa piacere che la possibilità segnalata da Pigkappa esista.</article>
+<article class="post" id="p27531"><div class="who"><b>Torros</b><span>14 ott 2022, 14:16</span></div>Certamente Pigkappa, la mia osservazione prendeva le mosse dalla figura che accompagnava la domanda.<br>
+Sono d'accordo con tutto ciò che hai detto, Bosone. Grazie ad entrambi.</article>
+<nav class="pager"><a class="prev" href="olifis-7164.html"><small>← precedente</small>299-SNS 2022/2 Stella nella linea di vista</a><a class="next" href="olifis-7159.html"><small>successivo →</small>SNS 2022/4 - Corpo nero</a></nav>
+</main></body></html>

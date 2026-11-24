@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1996/1997 n°5 - superconduttore cilindrico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1996-1997, problema 5</span></nav>
+<h1>SNS 1996/1997 n°5 - superconduttore cilindrico</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=213">forum Olifis</a></p>
+<article class="post first" id="p1913"><div class="who"><b>Ippo</b><span>9 ago 2009, 15:39</span></div>Un campo magnetico uniforme <span class="tex">\(\vec{B}_0\)</span>, generato e mantenuto costante da un magnete esterno, è presente in una regione dello spazio vuoto. Se si introduce in questa regione un cilindro di materiale superconduttore (con permeabilità magnetica uguale a quella del vuoto) di lunghezza molto grande rispetto al suo diametro, con l'asse parallelo al campo <span class="tex">\(\vec{B}_0\)</span>, si osserva sperimentalmente che la distribuzione del campo si modifica nel modo seguente: <span class="tex">\(\vec{B}=\vec{B}_0\)</span> all'esterno del cilindro, <span class="tex">\(\vec{B}=0\)</span> all'interno.<br>
+a) si dimostri che in questa situazione a regime non possono essere presenti correnti elettriche all'interno del cilindro e che, al contrario, sulla superficie laterale del cilindro devono stabilirsi delle correnti stazionarie.<br>
+b) si determini intensità e verso di queste correnti stazionarie<br>
+c) quali forze esercita il campo esterno sulla superficie del superconduttore?</article>
+<article class="post" id="p1991"><div class="who"><b>Rigel</b><span>13 ago 2009, 20:54</span></div>Bel problema, originale  :D <br>
+a)Innanzi tutto si vede che le correnti circolano lungo percorsi chiusi, un pò come le correnti parassite.<br>
+Per il teorema di Ampere qualsiasi corrente coassiale o radiale presente nel cilindro genererebbe un campo magnetico non parallelo a <span class="tex">\(B_0\)</span> e dunque possono esistere solo correnti tangenziali che scorrono lungo un cerchio centrato sull'asse del cilindro.<br>
+Affinchè il campo magnetico generato sia uniforme all'interno del cilindro le correnti devono essere solo superficiali e qui immagino la superficie del cilindro come un solenoide con infinite spire di larghezza infinitesima in cui scorre una corrente di valore infinitesimo. (questa frase non è proprio una dimostrazione dell'unicità della soluzione)<br>
+b) A me interessa la corrente totale che scorre sulla superficie, cioè <span class="tex">\(I=Ni\)</span>, dove N è il numero (grandissimo) di spire e i l'intensità (piccolissima) della corrente in ogni spira. Usando la formula del campo magnetico in un solenoide<br>
+<span class="tex">\(B_0L=\mu_0I\)</span>, cioè<br>
+<span class="tex">\(I=\frac{B_0\cdot L}{\mu_0}\)</span><br>
+Dove ho supposto L=lunghezza del solenoide come dato noto.<br>
+il verso è tale che se il campo <span class="tex">\(B_0\)</span> punta verso il basso, le correnti hanno verso antiorario e viceversa<br>
+c) La forza su una "striscia" di corrente lunga quanto tutto il cilindro e larghezza <span class="tex">\(ds\)</span> è <span class="tex">\(dF=B_0Ids=\frac{B_0^2\cdot L}{\mu_0}ds\)</span>, diretta radialmente verso l'interno del cilindro.<br>
+Dunque la forza totale sul cilindro è nulla, ma esso viene compresso dalla forza magnetica.</article>
+<article class="post" id="p2000"><div class="who"><b>Ippo</b><span>14 ago 2009, 11:22</span></div>Bell'idea quella di approssimarlo ad un solenoide (Vittorio ci avrebbe messo anche un condensatore comunque...sai, per rettificare  :mrgreen: )<br>
+io l'avevo fatto in modo un po' diverso (del tutto equivalente comunque).<br>
+a) Correnti radiali e assiali non possono stabilirsi a regime perché creerebbero un accumulo di carica e quindi una d.d.p. sempre più grande tra centro e periferia o tra alto e basso(*) (infatti per la simmetria cilindrica del sistema le correnti radiali sarebbero o tutte entranti o tutte uscenti, e quelle assiali o tutte verso l'alto o tutte verso il basso). Quindi possono (e devono, per modificare B all'interno) stabilirsi correnti in superficie, dove i percorsi sono chiusi e non c'è il problema dell'accumulo di carica.<br>
+b) applicando la legge di Ampere ad un rettangolo con due lati "radiali" di lunghezza arbitraria e due "assiali" di lunghezza <span class="tex">\(\ell\)</span> di cui uno interno e l'altro esterno al cilindro, si ottiene <span class="tex">\(B_0 \ell=\mu_0 \lambda \ell\)</span>, dove <span class="tex">\(\lambda\)</span> è la corrente per unità di altezza della superficie cilindrica (<span class="tex">\(\lambda dz=di\)</span>). Si ottiene <span class="tex">\(\lambda=B_0/\mu_0\)</span>. Il verso è quello che dici tu.<br>
+c) la forza magnetica ha verso radiale e punta verso l'interno; il modulo della forza su una piccola regione di superficie è <span class="tex">\(\delta F=\delta i \delta \tau B_0=(\lambda \delta z) \delta \tau B_0\)</span> (z direzione della quota, <span class="tex">\(\tau\)</span> direzione tangenziale); si ottiene una pressione uniforme sulla superficie del cilindro uguale a <span class="tex">\(P={\delta F \over \delta z \delta \tau}=\lambda B_0={B_0^2 \over \mu_0}\)</span></article>
+<article class="post" id="p2002"><div class="who"><b>Rigel</b><span>14 ago 2009, 11:57</span></div>E aggiungendo un ponte di diodi potremmo alimentare un cannone di Gauss superconduttore a milioni di Ampere  :lol:</article>
+<article class="post" id="p2006"><div class="who"><b>Davide90</b><span>14 ago 2009, 21:08</span></div><blockquote><div><cite>Rigel ha scritto:</cite>E aggiungendo un ponte di diodi potremmo alimentare un cannone di Gauss superconduttore a milioni di Ampere  :lol:</div></blockquote>
+Eh, i buoni vecchi viaggioni mentali di Batman... che spettacolo!! :)</article>
+<nav class="pager"><a class="prev" href="oliforum-11454.html"><small>← precedente</small>Ci son due spire e un generatore... [SNS 1996/1997.6]</a><a class="next" href="olifis-554.html"><small>successivo →</small>SNS 1996/1997 n.6</a></nav>
+</main></body></html>

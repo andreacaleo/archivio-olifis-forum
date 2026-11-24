@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1996-1997 (3)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1996-1997, problema 3</span></nav>
+<h1>SNS 1996-1997 (3)</h1>
+<p class="meta">24 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=237">forum Olifis</a></p>
+<article class="post first" id="p2109"><div class="who"><b>Fedecart</b><span>23 ago 2009, 23:35</span></div>Una pistola spara proiettili di <span class="tex">\(20g\)</span> di massa. Nell'esplosione <span class="tex">\(6x10^{-3}\)</span> moli di un gas ideale vengono rilasciate in un volume di <span class="tex">\(0,2 cm^3\)</span> ad una temperatura di <span class="tex">\(1000 K\)</span>. La canna della pistola ha un volume di circa <span class="tex">\(20 cm^3\)</span>. Si assuma assenza di attrito ed una esplosione adiabatica del gas. Si assuma che il rapporto tra calore specifico a pressione costante e calore specifico a volume costante valga per questo gas ideale 1,5.<br>
+Qual'è la velocità di uscita del proiettile? (Si ricordi che il valore della costante dei gas perfetti è <span class="tex">\(R=8,314 x 10^7 \frac{erg}{K}\)</span>)</article>
+<article class="post" id="p2111"><div class="who"><b>spn</b><span>24 ago 2009, 1:01</span></div>Questo mi sembra un'altro dei soliti problemi sns dove la difficoltà stà nell'interpretazione  :| <br>
+Secondo me, siccome ci dà il valore del rapporto fra i calori specifici, cioè <span class="tex">\(\gamma\)</span>, la trasformazione adiabatica è da considerarsi reversibile. Percui:<br>
+<br>
+<span class="tex">\(T_0 V_0^{\gamma - 1}=T_1 V_1^{\gamma - 1}\)</span><br>
+<br>
+<span class="tex">\(T_1= T_0\left(\frac{V_0}{V_1}\right)^{\gamma - 1}\)</span><br>
+<br>
+Inoltre, essendo la trasformazione adiabatica <span class="tex">\(Q=0\)</span>, da cui:<br>
+<br>
+<span class="tex">\(-\Delta U = L\)</span><br>
+<br>
+<span class="tex">\({3 \over 2}n R (T_0 - T_1) = {1 \over 2} m v^2\)</span><br>
+<br>
+<span class="tex">\(v =\sqrt{3 {n \over m }R T_0 \left(1 -   \left(\frac{V_0}{V_1}\right)^{\gamma - 1}\right)}= 82 m/s= 295 km/h\)</span></article>
+<article class="post" id="p2112"><div class="who"><b>Alex90</b><span>24 ago 2009, 1:22</span></div>Due cose non hai considerato nella soluzione:<br>
+<br>
+1. Nessuno ti dice che <span class="tex">\(C_V\)</span> sia <span class="tex">\(\displaystyle 3 /2\)</span>, anzi, dato che <span class="tex">\(\gamma = 3/2\)</span> è anche abbastanza intuibile che non può essere<br>
+<br>
+2. Il lavoro, per quanto molto minore di questo, ma non per questo trascurabile, fatto contro la pressione atmosferica<br>
+<br>
+ ;)</article>
+<article class="post" id="p2113"><div class="who"><b>spn</b><span>24 ago 2009, 2:45</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>1. Nessuno ti dice che <span class="tex">\(C_V\)</span> sia <span class="tex">\(\displaystyle 3 /2\)</span>, anzi, dato che <span class="tex">\(\gamma = 3/2\)</span> è anche abbastanza intuibile che non può essere</div></blockquote>
+
+Infatti è chiaro che <span class="tex">\(C_V\)</span> non può essere come <span class="tex">\(\gamma\)</span>, ma non mi pare di averlo usato da qualche parte... :| Per il lavoro sulla pressione atmosferica ci penso domani, alle 3 sono leggermente stanco  ;)</article>
+<article class="post" id="p2114"><div class="who"><b>Alex90</b><span>24 ago 2009, 3:03</span></div><blockquote><div><cite>spn ha scritto:</cite>Infatti è chiaro che <span class="tex">\(C_V\)</span> non può essere come <span class="tex">\(\gamma\)</span>, ma non mi pare di averlo usato da qualche parte... :|</div></blockquote>
+
+Quando dici che <span class="tex">\(\Delta E = \frac{3}{2}nR \Delta T\)</span> usi implicitamente questo.</article>
+<article class="post" id="p2115"><div class="who"><b>MrTeo</b><span>24 ago 2009, 7:29</span></div>Anche io avevo preso una strada simile a quella di spn, ma lavorando con le variazioni di energia collegate alla variazione del prodotto PV (e al lavoro compiuto nell'espansione contro l'atmosfera). Ho impostato così:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ P_1  = \frac{{nRT_1 }}{{V_1 }} = 2,49 \cdot 10^8 \;Pa \\ 
+ P_1 V_1^\gamma   = P_2 V_2^\gamma   \\ 
+ P_2  = P_1 \left( {\frac{{V_1 }}{{V_2 }}} \right)^\gamma   = 2,49 \cdot 10^5 \;Pa \\ 
+ \end{array}\)</span><br>
+<br>
+A questo punto ho applicato la teoria cinetica:<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ PV = \frac{1}{3}Nmv_m^2  \\ 
+ \frac{3}{2}PV = \frac{1}{2}Nmv_m^2  \\ 
+ \end{array}\)</span><br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ \frac{3}{2}\left( {P_1 V_1  - P_2 V_2 } \right) + P_{atm} \Delta V = \Delta E_c  \\ 
+ 3\left( {P_1 V_1  - P_2 V_2 } \right) + P_{atm} \Delta V = m_p v_p^2  \\ 
+ v_p  = \sqrt {\frac{{3\left( {P_1 V_1  - P_2 V_2 } \right) + P_{atm} \Delta V}}{{m_p }}}  = 82,67\;\frac{m}{s} \\ 
+ \end{array}\)</span><br>
+<br>
+Quindi i risultati sono pressochè concordi (a parte la piccola variazione dovuta al lavoro compiuto a <span class="tex">\(P_{atm}\)</span>). Come ha detto Alex90 il gas non credo possa essere monoatomico, quindi si dovrebbe forse sostituire il 3 con un 5, ma ricordando come viene ricavata la teoria cinetica direi che si possono anche tralasciare componenti vibrazionali e rotazionali che, anche se siamo ad alta temperatura, mi sembrano trascurabili rispetto a quelle traslazionali che determinano in gran parte il valore della pressione.<br>
+<br>
+Che ne pensate?</article>
+<article class="post" id="p2118"><div class="who"><b>Alex90</b><span>24 ago 2009, 10:30</span></div>Altre due cose:<br>
+<br>
+1) Il lavoro fatto contro la pressione atmosferica è "negativo", quindi va sottratto a quello fatto dal gas, messo così vorrebbe dire facendo espandere il gas contro un qualche agente esterno, ne guadagna ulteriore velocità.<br>
+<br>
+2) Il calcolo che fai è indipendente dalla "strada seguita" dal gas per passare dallo stato 1 allo stato 2, e questo generalmente non è vero.<br>
+<br>
+ :)</article>
+<article class="post" id="p2120"><div class="who"><b>Ippo</b><span>24 ago 2009, 10:46</span></div>La cosa che mi ha turbato abbastanza quando ho fatto questo problema è stata la temperatura del gas dopo l'espansione:<br>
+
+<blockquote><div><cite>spn ha scritto:</cite><span class="tex">\(T_0 V_0^{\gamma - 1}=T_1 V_1^{\gamma - 1}\)</span><br>
+<br>
+<span class="tex">\(T_1= T_0\left(\frac{V_0}{V_1}\right)^{\gamma - 1}\)</span>
+</div></blockquote>
+
+Ma <span class="tex">\({\left( {V_0 \over V_1} \right)}^{\gamma-1}=\sqrt{1 \over 100}={1 \over 10}\)</span> da cui <span class="tex">\(T_1={T_0 \over 10}=100{\rm K}\)</span> <br>
+...freddino  :mrgreen:</article>
+<article class="post" id="p2122"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 10:53</span></div><blockquote><div><cite>spn ha scritto:</cite>
+<span class="tex">\({3 \over 2}n R (T_0 - T_1) = {1 \over 2} m v^2\)</span>
+</div></blockquote>
+
+Io ho fatto uguale ma senza quel <span class="tex">\(3/2\)</span>, infatti nel testo non sta scritto che sia una trasformazione isocora da poter usare <span class="tex">\(C_v\)</span>. Per me il lavoro è il semplice <span class="tex">\(n R (T_0 - T_1)\)</span></article>
+<article class="post" id="p2123"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 10:55</span></div><blockquote><div><cite>Ippo ha scritto:</cite>La cosa che mi ha turbato abbastanza quando ho fatto questo problema è stata la temperatura del gas dopo l'espansione:<br>
+
+<blockquote><div><cite>spn ha scritto:</cite><span class="tex">\(T_0 V_0^{\gamma - 1}=T_1 V_1^{\gamma - 1}\)</span><br>
+<br>
+<span class="tex">\(T_1= T_0\left(\frac{V_0}{V_1}\right)^{\gamma - 1}\)</span>
+</div></blockquote>
+
+Ma <span class="tex">\({\left( {V_0 \over V_1} \right)}^{\gamma-1}=\sqrt{1 \over 100}={1 \over 10}\)</span> da cui <span class="tex">\(T_1={T_0 \over 10}=100{\rm K}\)</span> <br>
+...freddino  :mrgreen:</div></blockquote>
+
+Già! da 1000 a 100 deve essere un bel saltino di temperatura! chissà cosa succederebbe in espansioni galattiche! :lol:</article>
+<article class="post" id="p2124"><div class="who"><b>Alex90</b><span>24 ago 2009, 10:56</span></div><blockquote><div><cite>Ippo ha scritto:</cite>...freddino  :mrgreen:</div></blockquote>
+
+L'ultima cosa di cui mi preoccuperei se mi arrivasse un proiettile di 20 g a quelle velocità  :lol: <br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Io ho fatto uguale ma senza quel <span class="tex">\(3/2\)</span>, infatti nel testo non sta scritto che sia una trasformazione isocora da poter usare <span class="tex">\(C_v\)</span>. Per me il lavoro è il semplice <span class="tex">\(n R (T_0 - T_1)\)</span></div></blockquote>
+
+Veramente dice che è adiabatica  ;)</article>
+<article class="post" id="p2127"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 11:01</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Io ho fatto uguale ma senza quel <span class="tex">\(3/2\)</span>, infatti nel testo non sta scritto che sia una trasformazione isocora da poter usare <span class="tex">\(C_v\)</span>. Per me il lavoro è il semplice <span class="tex">\(n R (T_0 - T_1)\)</span></div></blockquote>
+
+Veramente dice che è adiabatica  ;)</div></blockquote>
+
+Infatti una volta trovato le temperature in modo adiabatico hai le moli e il coefficiente R e così puoi applicare la legge dei gas perfetti.</article>
+<article class="post" id="p2129"><div class="who"><b>Alex90</b><span>24 ago 2009, 11:06</span></div>Il concetto è giusto...ma se non integri non puoi calcolare esattamente il lavoro compiuto solo a partire dallo stato iniziale e finale! (A meno di casi particolare e formule note etc etc...ma non è questo il caso)</article>
+<article class="post" id="p2130"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 11:24</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Il concetto è giusto...ma se non integri non puoi calcolare esattamente il lavoro compiuto solo a partire dallo stato iniziale e finale! (A meno di casi particolare e formule note etc etc...ma non è questo il caso)</div></blockquote>
+
+Si ho capito dove ho sbagliato,  ;)  e Spn ha fatto giusto. Quel <span class="tex">\(3/2\)</span> va bene..</article>
+<article class="post" id="p2131"><div class="who"><b>Alex90</b><span>24 ago 2009, 11:48</span></div>Anche spn ha sbagliato...<br>
+<br>
+<span class="tex">\(L=L_A + K\)</span><br>
+<br>
+<span class="tex">\(v=\sqrt{\frac{2(L-L_A)}{m}}\)</span><br>
+<br>
+<span class="tex">\(L_A=P \cdot \Delta V\)</span><br>
+<br>
+<span class="tex">\(L=\int_{V_0}^{V_f} p dV=nr\int_{V_0}^{V_f} \frac{T}{V} dV\)</span><br>
+<br>
+Dato che la trasformazione è adiabatica si ha<br>
+<br>
+<span class="tex">\(T_0 \cdot V_0^{\gamma-1}=T \cdot V^{\gamma -1} \cdot T=\frac{T_0 \cdot V_0^{\gamma-1}}{V^{\gamma-1}}\)</span><br>
+<br>
+Quindi<br>
+<span class="tex">\(L=nR T_0 \cdot V_0^{\gamma-1} \int_{V_0}^{V_f} \frac{dV}{V^{\gamma}}\)</span><br>
+<br>
+<span class="tex">\(L=nR T_0 \cdot V_0^{\gamma-1} \frac{1}{1-\gamma} \left (V_f^{1-\gamma}-V_0^{1-\gamma} \right )\)</span><br>
+<br>
+Da questo si conclude...avendo un po' di voglia di fare i conti  :D</article>
+<article class="post" id="p2133"><div class="who"><b>spn</b><span>24 ago 2009, 12:41</span></div><blockquote><div><cite>Alex90 ha scritto:</cite><span class="tex">\(L=nR T_0 \cdot V_0^{\gamma-1} \frac{1}{1-\gamma} \left (V_f^{1-\gamma}-V_0^{1-\gamma} \right )\)</span></div></blockquote>
+
+Io ne so veramente poco di integrali, ma è normale che qua non  tornino le unità di misura?</article>
+<article class="post" id="p2136"><div class="who"><b>Alex90</b><span>24 ago 2009, 13:17</span></div>Scusa ma dov'è che non tornerebbero?</article>
+<article class="post" id="p2137"><div class="who"><b>MrTeo</b><span>24 ago 2009, 13:20</span></div><blockquote><div><cite>spn ha scritto:</cite><blockquote><div><cite>Alex90 ha scritto:</cite><span class="tex">\(L=nR T_0 \cdot V_0^{\gamma-1} \frac{1}{1-\gamma} \left (V_f^{1-\gamma}-V_0^{1-\gamma} \right )\)</span></div></blockquote>
+
+Io ne so veramente poco di integrali, ma è normale che qua non  tornino le unità di misura?</div></blockquote>
+
+Considera che <span class="tex">\(\gamma-1\)</span> è negativo...<br>
+<br>
+Per chi cmq non amasse gli integrali credo che ci sia anche questo modo per procedere, che mi pare funzioni piuttosto bene... l'unico dubbio è il fatto che io porto avanti un - a capo dell'espressione che non vedo nei calcoli di Alex90, per questo l'ordine dei volumi all'interno delle parentesi è invertito. Si accettano suggerimenti  :D <br>
+<br>
+<span class="tex">\(\begin{array}{l}
+\gamma  = \frac{{c_P }}{{c_V }} = \frac{{c_V  + R}}{{c_V }} \\ 
+c_V  = \frac{R}{{\gamma  - 1}} \\ 
+\end{array}\)</span><br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ L =  - \Delta U =  - c_V n\Delta T \\ 
+ L =  - n\frac{R}{{\gamma  - 1}}\left( {T_1  - T_0 } \right) \\ 
+ L =  - n\frac{R}{{\gamma  - 1}}\left( {T_0 \frac{{V_0^{\gamma  - 1} }}{{V_1^{\gamma  - 1} }} - T_0 } \right) \\ 
+ \end{array}\)</span><br>
+<br>
+Portando avanti i calcoli si ottiene:<br>
+<br>
+<span class="tex">\(L =  - n\frac{R}{{\gamma  - 1}}T_0 V_0^{\gamma  - 1} \left( {V_1^{1 - \gamma }  - V_0^{1 - \gamma } } \right)\)</span></article>
+<article class="post" id="p2138"><div class="who"><b>spn</b><span>24 ago 2009, 13:37</span></div>scusate avete ragione, avevo visto quel <span class="tex">\(1-\gamma\)</span> all'esponente come <span class="tex">\(\gamma - 1\)</span>  :roll:</article>
+<article class="post" id="p2139"><div class="who"><b>Alex90</b><span>24 ago 2009, 13:50</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>... l'unico dubbio è il fatto che io porto avanti un - a capo dell'espressione che non vedo nei calcoli di Alex90</div></blockquote>
+
+Tu semplicemente hai <span class="tex">\(\displaystyle -\frac{1}{\gamma -1}\)</span> mentre io <span class="tex">\(\displaystyle \frac{1}{1-\gamma}\)</span>  :D</article>
+<article class="post" id="p2140"><div class="who"><b>MrTeo</b><span>24 ago 2009, 14:09</span></div><blockquote><div><cite>Alex90 ha scritto:</cite><blockquote><div><cite>MrTeo ha scritto:</cite>... l'unico dubbio è il fatto che io porto avanti un - a capo dell'espressione che non vedo nei calcoli di Alex90</div></blockquote>
+
+Tu semplicemente hai <span class="tex">\(\displaystyle -\frac{1}{\gamma -1}\)</span> mentre io <span class="tex">\(\displaystyle \frac{1}{1-\gamma}\)</span>  :D</div></blockquote>
+
+Niente di preoccupante direi quindi  :mrgreen: <br>
+E non me n'ero mica accorto...</article>
+<article class="post" id="p2144"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 14:44</span></div>AHa! Era <span class="tex">\(C_v\)</span> quindi che non andava bene! Ottimo questo può servire per il 28  :D</article>
+<article class="post" id="p2192"><div class="who"><b>pascal</b><span>25 ago 2009, 7:11</span></div>Scusate perché non impostare il bilancio energetico in questo modo che conduce allo stesso risultato:<br>
+energia cinetica del proiettile + lavoro contro la forza esterna = - variazione di energia interna.<br>
+Poi sono perplesso ad applicare l’adiabatica reversibile ad un’esplosione.<br>
+Ma per l’irreversibile manca la temperatura finale nella canna, a meno che non si consideri la pressione finale uguale e non maggiore di quella atmosferica.</article>
+<article class="post" id="p2193"><div class="who"><b>MrTeo</b><span>25 ago 2009, 7:40</span></div><blockquote><div><cite>pascal ha scritto:</cite>Scusate perché non impostare il bilancio energetico in questo modo che conduce allo stesso risultato:<br>
+energia cinetica del proiettile + lavoro contro la forza esterna = - variazione di energia interna.
+</div></blockquote>
+
+Mi pare che Alex90 avesse fatto proprio così... e anche io riprendevo le considerazioni lavorando senza integrali a partire dalla stessa relazione...  :roll: <br>
+
+<blockquote><div><cite>pascal ha scritto:</cite>
+Poi sono perplesso ad applicare l’adiabatica reversibile ad un’esplosione.<br>
+Ma per l’irreversibile manca la temperatura finale nella canna, a meno che non si consideri la pressione finale uguale e non maggiore di quella atmosferica.</div></blockquote>
+
+Bè, con la pressione finale uguale a <span class="tex">\(p_{atm}\)</span> mi pare un po' strano, dato che mi sembra (anche se non mi intendo di armamenti  :D ) che buona parte del gas si propaghi con violenza anche all'esterno della canna...</article>
+<nav class="pager"><a class="prev" href="oliforum-6116.html"><small>← precedente</small>SNS 1995</a><a class="next" href="oliforum-6206.html"><small>successivo →</small>Ammissione SNS (1996-1997).4</a></nav>
+</main></body></html>

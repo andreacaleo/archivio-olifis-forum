@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sns 1994-5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1994-1995, problema 1</span></nav>
+<h1>Sns 1994-5</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6720">forum Olifis</a></p>
+<article class="post first" id="p24896"><div class="who"><b>.Ruben.</b><span>3 lug 2018, 13:39</span></div>Due cilindri uniformi ruotano indipendentemente intorno ai loro assi. Indichiamo con R_1,M_1 ed R_2,M_2 raggio e massa dei due cilindri. Supponiamo poi che i due assi di rotazione siano paralleli e che la rotazione avvenga nello stesso senso con velocità angolari ω_1 e ω_2 rispettivamente.<br>
+I due cilindri vengono quindi spostati fino a farli accostare e i loro assi sono mantenuti nella posizione schematizzata in figura. In questa posizione, essi sono liberi di ruotare intorno al proprio asse e rotolano senza strisciare lungo una tangente. Si calcoli la velocità angolare finale di ogni cilindro.</article>
+<article class="post" id="p24902"><div class="who"><b>Aleksej99</b><span>5 lug 2018, 10:15</span></div>Non agendo forze esterne sul sistema il momento angolare totale si conserva e dunque dette <span class="tex">\(\omega_1 '\)</span> e <span class="tex">\(\omega_2 '\)</span> le velocità angolari finali dei due corpi si avrà<br>
+<br>
+<span class="tex">\(1/2 M_1R_1^2 \omega_1 + 1/2 M_2R_2^2 \omega_2 = 1/2 M_1R_1^2 \omega_1 '+ 1/2 M_2R_2^2 \omega_2 '\)</span><br>
+<br>
+dalla condizione di non slittamento si ha che <br>
+<br>
+<span class="tex">\(\omega_1 ' R_1 = \omega_2 ' R_2\)</span><br>
+<br>
+Svolgendo diligentemente i calcoli e detti <span class="tex">\(I_1=1/2 M_1R_1^2\)</span>, <span class="tex">\(I_2=1/2 M_2R_2^2  \)</span> si ottiene <br>
+<br>
+<span class="tex">\(\omega_1 ' = \displaystyle{ \frac{I_1 \omega_1 + I_2 \omega_2}{I_1 R_2 + I_2R_1} R_2}\)</span><br>
+<br>
+<span class="tex">\(\omega_2 ' = \displaystyle{ \frac{I_1 \omega_1 + I_2 \omega_2}{I_1 R_2 + I_2R_1} R_1}\)</span></article>
+<article class="post" id="p24903"><div class="who"><b>Dudin</b><span>5 lug 2018, 13:30</span></div>Correggetemi se sbaglio ma secondo me il momento angolare non si conserva e bisogna sfruttare che:<br>
+<span class="tex">\( \Delta L_{1} = F_{m}* \Delta t *R1 \)</span>  e che<br>
+<span class="tex">\( \Delta L_{2} = F_{m}* \Delta t *R2 \)</span> da cui<br>
+<span class="tex">\( \Delta L_{1}*R2 = \Delta L_{2} *R1 \)</span></article>
+<article class="post" id="p24904"><div class="who"><b>Dudin</b><span>5 lug 2018, 13:31</span></div>per il resto direi che la mia soluzione e' identica ma il risultato esce leggermente diverso</article>
+<article class="post" id="p24908"><div class="who"><b>.Ruben.</b><span>6 lug 2018, 8:29</span></div>Ecco é come la mia.<br>
+Ora c'è un problema, i cilindri per non slittare alla fine devono muoversi in versi opposti, quindi le velocitá angolari finali devono avere segni diversi. Ma, se provi a farlo, ottieni un meno orrendo a denominatore</article>
+<article class="post" id="p24943"><div class="who"><b>nicarepo</b><span>13 lug 2018, 16:30</span></div>Il dubbio è ingiustificato in quanto la risposta proposta sopra è evidentemente corretta. Nonostante ciò ad essere rigorosi si dovrebbe fare la seguente considerazione. <br>
+<br>
+Supponiamo che i momenti di inerzia dei due cilindri siano diversi e che inizialmente ruotino nello stesso senso. Dopo il contatto (senza strisciamento) uno dei due cilindri inverte la rotazione, affinché la velocità tangenziale nel punto di contatto sia uguale in modulo e verso per entrambi i corpi.<br>
+<br>
+A questo punto la conservazione si può scrivere così:<br>
+<br>
+<span class="tex">\(I_1\omega_1+I_2\omega_2=I_1\omega'_1-I_2\omega'_2\)</span><br>
+<br>
+<span class="tex">\(R_1\omega'_1=-R_2\omega'_2\)</span><br>
+<br>
+Da cui le formule trovate in precedenza (con <span class="tex">\(-\omega'_2\)</span>)</article>
+<article class="post" id="p24948"><div class="who"><b>.Ruben.</b><span>14 lug 2018, 12:25</span></div>Continuo a non essere d'accordo.<br>
+Scriviamolo coi vettori e poi con i moduli:<br>
+Il momento angolare (diretto lungo l'asse verticale) all'inizio vale: <span class="tex">\(I_1 \vec{\omega_1} + I_2 \vec{\omega_2}\)</span>.<br>
+Alla fine (supponendo che il disco col secondo indice inverta la rotazione) il momento angolare vale:<br>
+<span class="tex">\(I_1 \vec{\omega'_1} + I_2 \vec{\omega'_2}\)</span>.<br>
+Prendendo i moduli (ossia moltiplicando scalarmente per il versore verticale nella direzione positiva): <span class="tex">\(I_1 |\vec{\omega_1}| + I_2 |\vec{\omega_2}| = I_1 |\vec{\omega'_1}| - I_2 |\vec{\omega'_2}|\)</span>.<br>
+A questo punto il modulo della velocità nel punto di contatto vale: <span class="tex">\(|\omega'_1 R_1| = |\omega'_2 R_2|\)</span> da cui: <span class="tex">\(|\omega'_1| R_1 = |\omega'_2| R_2\)</span>. Il problema di segno rimane (se i dischi sono identici si ha una singolarità).<br>
+<br>
+Altro ragionamento (SUPPONENDO I DISCHI IDENTICI):<br>
+<span class="tex">\(\vec{\omega_1} + \vec{\omega_2} = \vec{\omega'_1} + \vec{\omega'_2}\)</span><br>
+Siano <span class="tex">\(\vec{R_1}, \vec{R_2}\)</span> i vettori che collegano i centri di massa dei dischi al punto di contatto: ovviamente <span class="tex">\(\vec{R_1} = -\vec{R_2}\)</span>.<br>
+La velocità nel punto di contatto vale: <span class="tex">\(\vec{v} = \vec{\omega'_1} \times \vec{R_1} =  \vec{\omega'_2} \times \vec{R_2} = -  \vec{\omega'_2} \times \vec{R_1} \)</span>, da cui: <span class="tex">\(\vec{\omega'_1} = -\vec{\omega'_2} \)</span> (e si ha ancora qualcosa di assurdo).</article>
+<article class="post" id="p24965"><div class="who"><b>Avancini</b><span>16 lug 2018, 1:44</span></div>xyz</article>
+<article class="post" id="p24966"><div class="who"><b>.Ruben.</b><span>16 lug 2018, 6:05</span></div>Se mi dici che N invece di una forza é un impulso, allora finalmente mi trovo.</article>
+<nav class="pager"><a class="prev" href="olifis-215.html"><small>← precedente</small>SNS 1993/1994 n°5 - ottica geometrica</a><a class="next" href="olifis-916.html"><small>successivo →</small>SNS 1994/1995 Problema 3</a></nav>
+</main></body></html>

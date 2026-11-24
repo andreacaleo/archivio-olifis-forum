@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onda su cavo a due densità</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1999-2000, problema 3</span></nav>
+<h1>Onda su cavo a due densità</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6137">forum Olifis</a></p>
+<article class="post first" id="p21072"><div class="who"><b>Tatakai</b><span>22 giu 2015, 20:57</span></div>Ehilà! Voglio confrontare la mia risposta al punto b (e di conseguenza gli altri) :) <br>
+Un cavo teso orizzontalmente da un peso P in B e sollecitato verticalmente vicino ad A diventa  sede di un’onda elastica che si propaga con velocità v lungo il cavo stesso. Il peso della corda è piccolo rispetto a P, così come è piccolo lo spostamento verticale rispetto al segmento AB.<br>
+(a) La velocità v dipende da P e dalla densità per unità di lunghezza m del cavo. Come?<br>
+(b) Si supponga ora il cavo composto di due pezzi di metalli diversi di densit`a m1 e m2 e lunghezze l1 e l2, giuntati in C, e che la perturbazione della corda sia sinusoidale con periodo T. Quale condizione deve essere soddisfatta affinch´e possa stabilirsi nella corda un’onda stazionaria con nodi in A, B e C?<br>
+(c) Qual è la minima frequenza alla quale si osserva l’onda stazionaria?<br>
+(d) In questo caso, quanti nodi si osservano sulla corda, inclusi A, C e B?<br>
+<br>
+Hint su a):<span class="tex">\(v=\sqrt{\frac{P}{\mu}}\)</span><br>
+<br>
+Buone vacanze! (per chi se le po fa :P )</article>
+<article class="post" id="p21073"><div class="who"><b>arna1998</b><span>23 giu 2015, 9:58</span></div>(b): Affinchè ci sia un onda stazionaria con nodo in B, deve essere che <span class="tex">\(k \frac{\lambda_1}{2}=l_1\)</span> con <span class="tex">\(k\)</span> intero. Dato che <span class="tex">\(v_1= \frac{\lambda_1}{T}\)</span> e <span class="tex">\(v=\sqrt{\frac{P}{m_1}}\)</span>,  possiamo ricavare la condizione:<br>
+<span class="tex">\(\displaystyle k\frac{T}{2} \sqrt{\frac{P}{m_1}}=l_1\)</span><br>
+Siccome la frequenza è la stessa in entrambi i cavi lo è anche il periodo, quindi con gli stessi passaggi otteniamo una condizione simile anche per il secondo cavo:<br>
+<span class="tex">\(\displaystyle h\frac{T}{2} \sqrt{\frac{P}{m_2}}=l_2\)</span> con <span class="tex">\(h\)</span> intero.<br>
+<br>
+Unendo le due precedenti:<br>
+<br>
+<span class="tex">\(\displaystyle h\frac{l_1}{l_2}=k\sqrt{\frac{m_1}{m_2}}\)</span><br>
+<br>
+Credo che per fare i punti (c) e (d) servano i dati numerici.</article>
+<article class="post" id="p21074"><div class="who"><b>andrea96</b><span>23 giu 2015, 10:03</span></div>No secondo me non servono dati numerici... pensa quando ottieni la frequenza minina e per trovare il numero di nodi usa la relazione che hai trovato tra h e k...  ;)</article>
+<article class="post" id="p21075"><div class="who"><b>Tatakai</b><span>23 giu 2015, 11:33</span></div>Ottimo! Allora, come sospettavo, non serve che sia il rapporto fra dispari quell' h/k (vedi <a href="oliforum-11598.html" class="postlink">http://www.oliforum.it/viewtopic.php?t=11598</a>). Per c) io ho pensato che, sapendo fissi l1 e l2 e v1 e v2, per minimizzare la frequenza devo massimizzare il periodo, da cui k e h... e mi vengono solo quei tre nodi A C B.<br>
+<br>
+PS: era il problema 3 dell'ammissione in normale '99-00  8-)<br>
+<br>
+EDIT: e tra l'altro quando l'onda percorre due volte la lunghezza l2 (nei due versi) si sfasa di <span class="tex">\(\frac{2\pi}{T}*\frac{2l_2}{v2} = 2h\pi\)</span> ricordando la formula ottenuta per l2, cioé non si sfasa affatto! L'unico cambiamento di fase è pi greco per il "rimbalzo" dell'inversione di verso, da cui si ha interferenza perfetta per creare l'onda stazionaria</article>
+<article class="post" id="p21076"><div class="who"><b>arna1998</b><span>23 giu 2015, 11:56</span></div>Forse ho capito, ma chiedo la vostra conferma,<br>
+Per fare fare in modo che valga la condizione <span class="tex">\(\displaystyle h\frac{l_1}{l_2}=k\sqrt{\frac{m_2}{m_1}}\)</span> ( che tra l'altro nel post precedente avevo scritto sbagliata... :roll: ) deve essere che <span class="tex">\(\frac{l_1\sqrt{m_1}}{l_2\sqrt{m_2}}\)</span> sia razionale. A quel punto esisteranno <span class="tex">\(k\)</span> e <span class="tex">\(h\)</span> opportuni per far si che ci sia un onda stazionaria con nodi in A, B e C. E' giusto?</article>
+<article class="post" id="p21077"><div class="who"><b>andrea96</b><span>23 giu 2015, 12:06</span></div>Si bravo. Ora da li i punti C e D dovrebbero essere facili...</article>
+<article class="post" id="p21079"><div class="who"><b>arna1998</b><span>23 giu 2015, 16:30</span></div>(c) Dato che la frequenza è la stessa lungo tutto il cavo, è sufficiente che la trovo su uno dei due segmenti:<br>
+<span class="tex">\(\displaystyle \upsilon=\frac{v_1}{\lambda_1}=\frac{k}{2l_1}\sqrt{\frac{P}{m_1}}\)</span><br>
+<br>
+(d) Il numero di nodi invece è <span class="tex">\(N=k+h+1\)</span></article>
+<article class="post" id="p21080"><div class="who"><b>Tatakai</b><span>23 giu 2015, 16:37</span></div>Perfetto, da cui il massimo per k=h=1, come pensavo. Grazie a tutti!<br>
+ps: è vero, neanche mi ero accorto che la formula sopra fosse sbagliata, nonostante l'avessi scritta bene  :P  siamo sbadati</article>
+<article class="post" id="p21081"><div class="who"><b>arna1998</b><span>23 giu 2015, 16:52</span></div>Non vorrei dire una cavolata, ma non sono certo che il minimo numero di nodi sia per <span class="tex">\(k=h=1\)</span>.<br>
+<br>
+Questo perché se fosse vero significherebbe che <span class="tex">\(l_1\sqrt{m_1}=l_2\sqrt{m_2}\)</span> che è una condizione particolare che non è detto che sia vera. Se per esempio <span class="tex">\(l_1=7m\)</span>, <span class="tex">\(l_2=5m\)</span>, <span class="tex">\(m_1=4Kg/m\)</span> e <span class="tex">\(m_2=9Kg/m\)</span> il minimo numero di nodi si ha per <span class="tex">\(k=14\)</span> e <span class="tex">\(h=15\)</span> con 30 nodi in totale.</article>
+<article class="post" id="p21082"><div class="who"><b>andrea96</b><span>23 giu 2015, 18:30</span></div>No effettivamente non si ha per h=k=1 perchè h e k non sono uguali... il minimo numero di nodi si ottiene quando il più piccolo tra h e k è uguale a 1 e l altro si ricava dalla relazione corrispondente tra h e k... supponiamo che h&gt; k, allora poni k=1, ricavi h e li sommi</article>
+<article class="post" id="p21083"><div class="who"><b>Tatakai</b><span>23 giu 2015, 21:40</span></div>E infatti sono sbadato  :lol:  avete ragione k e h sono legati, quindi come possiamo dirlo? Calcolare <span class="tex">\(\frac{l_1}{l_2}\sqrt{\frac{\mu_1}{\mu_2}}\)</span>. Esso deve essere razionale e si procede considerando la frazione ridotta ai minimi termini. k=numeratore e h=denominatore. Allora i calcoli sono come avete scritto. Può andare? Sembrava sospetto avere solo 3 nodi  :x . Grazie della rettifica!</article>
+<nav class="pager"><a class="prev" href="oliforum-11598.html"><small>← precedente</small>onde su una corda (sns 1999/2000)</a><a class="next" href="olifis-4639.html"><small>successivo →</small>SNS 1999/2000 Problema 5</a></nav>
+</main></body></html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008/2009 problema 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 4</span></nav>
+<h1>SNS 2008/2009 problema 4</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11682">OliForum</a></p>
+<article class="post first" id="p95062"><div class="who"><b>Algebert</b><span>30 ago 2008, 11:38</span></div>Sono date quattro aste rigide di lunghezza $ \displaystyle L $ e massa uniformemente distribuita $ \displaystyle m $. Esse sono collegate l'una di seguito all'altra tramite dei giunti flessibili di peso e dimensioni trascurabili in modo da formare una catena, le cui estremità sono a loro volta attaccate, tramite gli stessi giunti, al soffitto di una stanza a una distanza $D = (1 + \sqrt{3})L$ tra di loro. Quale deve essere la minima altezza del soffitto della stanza per cui la catena, nella sua posizione di equilibrio, non tocca il pavimento?</article>
+<article class="post" id="p95108"><div class="who"><b>Evelynn</b><span>30 ago 2008, 17:30</span></div>In questo mi sono dichiaratamente inventata che la "risultante" di 2 aste attaccate, di cui una appesa al soffitto, dovesse essere inclinata di 45°.. E alla fine mi è risultato uno schifosissimo D/2.. <br>
+<br>
+Ho provato a ragionare con le tensioni, ma non sapevo dove andare a parare..</article>
+<article class="post" id="p95139"><div class="who"><b>caino</b><span>30 ago 2008, 20:15</span></div>A me gli angoli sono venuti di 30 e 60 però ho fatto una marea di conti che non ho riportato completamente. Avrà il suo bel da fare chi dovrà  correggerlo...</article>
+<article class="post" id="p95149"><div class="who"><b>Algebert</b><span>30 ago 2008, 21:28</span></div><blockquote><div><cite>caino ha scritto:</cite>A me gli angoli sono venuti di 30 e 60 però ho fatto una marea di conti che non ho riportato completamente. Avrà il suo bel da fare chi dovrà  correggerlo...</div></blockquote>
+
+Anche a me veniva così, però forse ho assunto come nota una cosa che invece dovevo dimostrare :shock: .</article>
+<article class="post" id="p95151"><div class="who"><b>EUCLA</b><span>30 ago 2008, 21:29</span></div>Doveva essere fattibile tenendo conto di:<br>
+-simmetria<br>
+-risultante delle forze nulla<br>
+-momento nullo rispetto al giunto centrale-laterale. <br>
+<br>
+Peccato che dall'ultima cosa a me sia venuto fuori $ \cos{\alpha}=3\cos{\beta}  $ mentre era più logico che risultasse qualcosa tipo $ \tan{\alpha}=3\tan{\beta}  $.</article>
+<article class="post" id="p95163"><div class="who"><b>Desh</b><span>31 ago 2008, 00:54</span></div><blockquote><div><cite>EUCLA ha scritto:</cite>Doveva essere fattibile tenendo conto di:<br>
+-simmetria
+</div></blockquote>
+
+ :D  :D  :D</article>
+<article class="post" id="p95164"><div class="who"><b>supergrane</b><span>31 ago 2008, 01:01</span></div>Le posizioni d'equilibrio sono tali che minimizzano l'energia potenziale del sistema.<br>
+il problema era simmetrico rispetto all'asse della retta che congiungeva i due ganci.<br>
+se si chiama x l'angolo formato dall'asta collegata al primo gancio col soffitto, l'angolo che formava la seconda col soffitto era univocamente determinato.<br>
+in funzione di x si scriveva la somma  delle quote dei due baricentri,moltiplicata per mg, cioè l'energia potenziale totale.<br>
+la derivata di tale funzione si annullava in x=pi/3<br>
+ :D  :D  :D</article>
+<article class="post" id="p95168"><div class="who"><b>Desh</b><span>31 ago 2008, 01:15</span></div><blockquote><div><cite>supergrane ha scritto:</cite>l'angolo che formava la seconda col soffitto era univocamente determinato.</div></blockquote>
+
+Come?</article>
+<article class="post" id="p95171"><div class="who"><b>supergrane</b><span>31 ago 2008, 02:04</span></div>è l'unico angolo y tale che Lcosy + Lcosx = D/2</article>
+<article class="post" id="p95180"><div class="who"><b>Evelynn</b><span>01 set 2008, 08:46</span></div>Aspetta.. Stai dicendo che il triangolo formato dai due estremi di D e dal gancio centrale (quello che non doveva toccare terra) era equilatero, giusto?</article>
+<article class="post" id="p95186"><div class="who"><b>Desh</b><span>01 set 2008, 10:21</span></div><blockquote><div><cite>supergrane ha scritto:</cite>è l'unico angolo y tale che Lcosy + Lcosx = D/2</div></blockquote>
+
+sì, non so perché te l'ho chiesto, l'ho usato nella soluzione. Ma poi ho sbagliato qualcsoa :roll:</article>
+<nav class="pager"><a class="prev" href="oliforum-11677.html"><small>← precedente</small>SNS 2008/2009 problema 3</a><a class="next" href="olifis-114.html"><small>successivo →</small>SNS 2008/2009 Problema 4</a></nav>
+</main></body></html>

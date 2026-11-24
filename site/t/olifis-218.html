@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1994 n. 5 - Satellite</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1994-1995, problema 5</span></nav>
+<h1>SNS 1994 n. 5 - Satellite</h1>
+<p class="meta">23 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=218">forum Olifis</a></p>
+<article class="post first" id="p1953"><div class="who"><b>Davide90</b><span>12 ago 2009, 16:32</span></div><em class="text-italics">A causa di un'esplosione nel reattore che alimenta un satellite in orbita intorno alla Terra, il satellite si spezza in due parti di massa <span class="tex">\(m_1\)</span> ed <span class="tex">\(m_2\)</span>. L'energia liberata nell'esplosione è circa una parte su diecimila dell'energia cinetica del satellite e si trasforma nella sua quasi totalità in energia cinetica traslazionale dei due frammenti. Prima dell'esplosione l'orbita del satellite era approssimativamente circolare con raggio <span class="tex">\(R_c = R_0+r_i\)</span>, dove <span class="tex">\(R_0\)</span> è il raggio della Terra ed <span class="tex">\(r_i/R_0 = 1/10\)</span>. Si supponga, come schematizzazione semplificativa, che su ciascun frammento non agisca alcuna forza di attrito se è "fuori dell'atmosfera": <span class="tex">\(R &gt; R_0+r_a\)</span>, ove R è la distanza dal centro della Terra ed <span class="tex">\(r_a/R_0 = 1/60\)</span>; mentre se un frammento raggiunge l'atmosfera, <span class="tex">\(R &lt; R_0 +r_a\)</span> , questo lo fa precipitare verso la Terra.<br>
+Sapendo che la massa iniziale del satellite è di 10 tonnellate e facendo l'ipotesi che corpi con massa più piccola di un quintale che cadono attraverso l'atmosfera vengono da questa totalmente vaporizzati prima di raggiungere la superficie terrestre, si dica per quali valori del rapporto <span class="tex">\(m_1/m_2\)</span> uno dei due<br>
+frammenti del satellite può colpire la superficie della Terra, nel caso in cui l'esplosione acceleri i frammenti tangenzialmente all'orbita del satellite. </em><br>
+<br>
+Vorrei confrontare i risultati con quelli che avete trovato voi (se lo avete fatto anche voi)... :D <br>
+Prima di postare il procedimento, scrivo i risultati...<br>
+Prima ho calcolato, con conservazione quantità di moto/energia cinetica e relazione forza gravitazionale/centripeta, i valori di  <span class="tex">\(m_1/m_2\)</span> per cui i due frammenti si assestano su orbite fuori dall'atmosfera e quindi non cadono sulla Terra:<br>
+<span class="tex">\(\dfrac{61}{66}\cdot 10^{-4}&lt;\dfrac{m_1}{m_2}&lt;\dfrac{66}{61}\cdot 10^4\)</span><br>
+Dunque gli intervalli per cui c’è qualche frammento che va a colpire la Terra sono i complementari di questo intervallo; ma in questi casi<br>
+<span class="tex">\(\frac{m_1}{m_2}&lt;\frac{1}{100}\lor\frac{m_1}{m_2}&gt;100\)</span><br>
+quindi il frammento si squaglia prima di toccare Terra.<br>
+In altre parole, l’energia liberata dall’esplosione è troppo scarsa per dare velocità rilevanti ai due frammenti se questi sono circa uguali: solo se uno dei due frammenti è molto piccolo, per la conservazione della quantità di moto ha una velocità abbastanza elevata per assestarsi su un’orbita vicina alla Terra, ma in quel caso ha massa troppo piccola per toccare Terra. L'altro invece, essendo massiccio, ha velocità bassa e dunque si assesta su un orbita ad un raggio 10000 volte più grande di quello iniziale.<br>
+<br>
+Secondo voi può funzionare? Se nessuno ha già provato a farlo posterò anche il procedimento…</article>
+<article class="post" id="p1955"><div class="who"><b>Ippo</b><span>12 ago 2009, 23:36</span></div>io l'ho fatto tempo fa, può darsi che abbia sbagliato i conti (non me ne stupirei più di tanto) ma risultava anche a me che non è possibile che un frammento arrivi a terra. Dovrei rifarlo...</article>
+<article class="post" id="p1963"><div class="who"><b>Davide90</b><span>13 ago 2009, 13:08</span></div>Allora andrà bene, dai...  ;) <br>
+All'inizio avevo fatto i conti dimenticando il <span class="tex">\(10^{-4}\)</span> che dice il testo e per la Terra erano cavoli amari, poi scrivendolo ho corretto e mi viene così.</article>
+<article class="post" id="p1971"><div class="who"><b>String</b><span>13 ago 2009, 16:37</span></div><blockquote><div><cite>Davide90 ha scritto:</cite> Prima ho calcolato, con conservazione quantità di moto/energia cinetica e relazione forza gravitazionale/centripeta, i valori di  <span class="tex">\(m_1/m_2\)</span> per cui i due frammenti si assestano su orbite fuori dall'atmosfera e quindi non cadono sulla Terra:</div></blockquote>
+Ma sbaglio o l'energia cinetica in questo caso non si conserva?</article>
+<article class="post" id="p1972"><div class="who"><b>mrossi</b><span>13 ago 2009, 17:31</span></div>Infatti io non ho capito esattamente come va interpretato il testo:<br>
+
+<blockquote class="uncited"><div>L'energia liberata nell'esplosione è circa una parte su diecimila dell'energia cinetica del satellite e si trasforma nella sua quasi totalità in energia cinetica traslazionale dei due frammenti.</div></blockquote>
+
+Questa decimillesima parte va aggiunta all'energia cinetica totale?</article>
+<article class="post" id="p1973"><div class="who"><b>Davide90</b><span>13 ago 2009, 17:47</span></div><blockquote><div><cite>mrossi ha scritto:</cite>Questa decimillesima parte va aggiunta all'energia cinetica totale?</div></blockquote>
+No, io l'ho interpretato come: l'energia cinetica totale dei due frammenti dopo l'esplosione è un decimillesimo dell'energia cinetica iniziale del satellite. Quindi <span class="tex">\(K_1=10^{-4}K_0\)</span>, dove 1 e 0 indicano dopo e prima dell'esplosione.</article>
+<article class="post" id="p1974"><div class="who"><b>String</b><span>13 ago 2009, 18:04</span></div>Però il testo dice che quella parte su dicemila dell'energia iniziale rappresenta l'energia liberata dall'esplosione e quindi non può essere l'energia cinetica totale...</article>
+<article class="post" id="p1975"><div class="who"><b>Loren Kocillari89</b><span>13 ago 2009, 19:26</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>Allora andrà bene, dai...  ;) <br>
+All'inizio avevo fatto i conti dimenticando il <span class="tex">\(10^{-4}\)</span> che dice il testo e per la Terra erano cavoli amari, poi scrivendolo ho corretto e mi viene così.</div></blockquote>
+ Come lo hai risolto?</article>
+<article class="post" id="p1976"><div class="who"><b>eli9o</b><span>13 ago 2009, 19:32</span></div>Secondo me va sommata all'energia meccanica totale. <br>
+Ma quell'energia da dove viene? Cioè cos'era prima dell'esplosione? Energia potenziale che faceva stare insieme i 2 pezzi?</article>
+<article class="post" id="p1977"><div class="who"><b>CoNVeRGe.</b><span>13 ago 2009, 19:43</span></div>A me viene che il pezzo <span class="tex">\(\displaystyle m_1\)</span> arriva sull'atmosfera (cioè poi a terra) se <span class="tex">\(\displaystyle \frac{m_1}{m_2} \geq 0,253\)</span>, mentre per pesare almeno un quintale deve essere <span class="tex">\(\displaystyle \frac{m_1}{m_2} \geq 1/99\)</span>, quindi l'intervallo richiesto è il primo.<br>
+Poichè c'è simmetria vale anche il viceversa, ovvero <span class="tex">\(\displaystyle \frac{m_2}{m_1} \geq 0,253\)</span> e <span class="tex">\(\displaystyle \frac{m_2}{m_1} \geq 1/99\)</span>, dunque se l'intervallo totale è:<br>
+<br>
+<span class="tex">\(\displaystyle 0,253 \leq \frac{m_1}{m_2} \leq 3,953\)</span><br>
+<br>
+I frammenti arriverebbero entrambi a terra  :shock: .<br>
+<br>
+Ho considerato un aumento di energia cinetica totale, il che mi sembra l'interpretazione più ragionevole del testo.<br>
+<br>
+Dopo spiego come ho fatto  :roll:  :)</article>
+<article class="post" id="p1978"><div class="who"><b>Loren Kocillari89</b><span>13 ago 2009, 19:57</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Secondo me va sommata all'energia meccanica totale. <br>
+Ma quell'energia da dove viene? Cioè cos'era prima dell'esplosione? Energia potenziale che faceva stare insieme i 2 pezzi?</div></blockquote>
+
+Io la penso come all'energia interna del satellite che viene liberata ma non viene dispersa, per cui l'energia totale del satellite rimane invariata. Quello che cambia è l'energia cinetica e potenziale del sistema al variare della posizione, quindi anche l'orbita necessariamente sarà diversa, la quale si può pensare ad un'ellisse. Nel punto in apogeo, infatti accade che la massa minore che quindi ha energia minore, sarà ad un altezza limite al di sotto della quale cadrà verso terra.<br>
+Ora un conto è dire e un conto è fare  :D</article>
+<article class="post" id="p1979"><div class="who"><b>Rigel</b><span>13 ago 2009, 20:03</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Secondo me va sommata all'energia meccanica totale. <br>
+Ma quell'energia da dove viene? Cioè cos'era prima dell'esplosione? Energia potenziale che faceva stare insieme i 2 pezzi?</div></blockquote>
+<blockquote><div><cite>SNS ha scritto:</cite><em class="text-italics">A causa di un'esplosione nel reattore che alimenta un satellite in orbita intorno alla Terra...</em></div></blockquote><em class="text-italics"><br>
+L'energia dovrebbe venire dal reattore, quindi potrebbe essere energia nucleare, o termica, o chimica, o elettrica che prima era usata per muovere il satellite.</em><br>
+
+<blockquote><div><cite>Davide90 ha scritto:</cite><em class="text-italics">No, io l'ho interpretato come: l'energia cinetica totale dei due frammenti dopo l'esplosione è un decimillesimo dell'energia cinetica iniziale del satellite. Quindi <span class="tex">\(K_1=10^{-4}K_0\)</span>, dove 1 e 0 indicano dopo e prima dell'esplosione.</em></div></blockquote><em class="text-italics"><br>
+Sì ma così l'energia diminuirebbe dopo l'esplosione, il che mi sembra paradossale. Secondo me l'energia dell'esplosione si dovrebbe sommare all'energia iniziale. Come sempre una bella difficoltà degli SNS è data dall'interpretazione del testo  :x</em></article>
+<article class="post" id="p1980"><div class="who"><b>Davide90</b><span>13 ago 2009, 20:03</span></div><blockquote><div><cite>String ha scritto:</cite>Però il testo dice che quella parte su diecimila dell'energia iniziale rappresenta l'energia liberata dall'esplosione e quindi non può essere l'energia cinetica totale...</div></blockquote>
+<blockquote><div><cite>Davide90 ha scritto:</cite>L'energia liberata nell'esplosione è circa una parte su diecimila dell'energia cinetica del satellite <span style="text-decoration:underline">e si trasforma nella sua quasi totalità in energia cinetica traslazionale dei due frammenti</span>.</div></blockquote>
+Secondo me il testo indica che quella parte su diecimila diventa l'energia cinetica totale dei due frammenti.
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite> Come lo hai risolto?</div></blockquote>
+Dopo l'esplosione, i due frammenti si allontanano in direzioni opposte con velocità <span class="tex">\(v_1\)</span> e <span class="tex">\(v_2\)</span>; dopodichè si assestano su un'orbita circolare di raggio R che dipende dalla velocità del frammento, in base all'uguaglianza tra accelerazione centripeta e gravitazionale:<br>
+<span class="tex">\(\dfrac{v^2}{R}=\dfrac{GM_T}{R^2}\Longrightarrow v^2=\dfrac{GM_T}{R}  \qquad (1)\)</span><br>
+dove <span class="tex">\(M_T\)</span> è la massa della Terra.<br>
+A questo punto, ricaviamo <span class="tex">\(v_1\)</span> e <span class="tex">\(v_2\)</span> grazie alla conservazione della quantità di moto e dell'energia cinetica, considerando che dell'energia cinetica prima dell'esplosione risulta disponibile solo la decimillesima parte:<br>
+<span class="tex">\(m_1v_1=m_2v_2\)</span> <br>
+<span class="tex">\(\frac12 m_1v_1^2 +\frac12 m_2v_2^2=10^{-4} \frac12 (m_1+m_2)v^2  \qquad (2)\)</span><br>
+Combinando con l'equazione (1), e ricavando <span class="tex">\(v_1\)</span> dalla prima equazione, otteniamo<br>
+<span class="tex">\(v_1^2(m_1+\dfrac{m_1^2}{m_2})=10^{-4}(m_1+m_2)\cdot\dfrac{GM_T}{R_C}\)</span><br>
+<span class="tex">\(\dfrac{GM_T}{R}\dfrac{m_1}{m_2}=10^{-4}\cdot\dfrac{GM_T}{R_C}\)</span><br>
+<span class="tex">\(R=\dfrac{m_1}{m_2}\cdot R_C \cdot 10^{-4} &gt;R_0+r_a=\dfrac{61}{60}R_0\)</span><br>
+<span class="tex">\(\dfrac{m_1}{m_2}&gt;10^{-4}\cdot\dfrac{61}{60}\dfrac{10}{11}=\dfrac{61}{66}\cdot 10^{-4} \qquad(3)\)</span><br>
+Ricavando <span class="tex">\(v_2\)</span> invece si ottiene l'equazione simmetrica della (3), ottenuta cioè scambiando il ruolo di <span class="tex">\(m_1\)</span> e <span class="tex">\(m_2\)</span>, quindi<br>
+<span class="tex">\(9,2\cdot 10^{-5}&lt;\frac{m_1}{m_2}&lt;1,08\cdot10^4 \qquad (4)\)</span><br>
+Dunque i frammenti riescono ad assestarsi su orbite interne all'atmosfera e precipitare solo se <span class="tex">\(\dfrac{m_1}{m_2}\)</span> è al di fuori dell'intervallo (4); ma in questo caso il frammento più piccolo ha massa molto inferiore al quintale, dunque non raggiunge la superficie terrestre, mentre l'altro, raggiungendo una velocità pari a circa un centesimo della velocità del satellite, si assesta su un'orbita di raggio diecimila volte più grande di quella del satellite.<br>
+<br>
+EDIT: questa interpretazione è: l'energia cinetica dei frammenti è un decimillesimo dell'energia cinetica del satellite... dal testo mi sembra quella più giusta, anche se è molto meno sensata.<br>
+Dunque i risultati giusti forse saranno quelli di Converge... Morale: passa la prima mezz'ora del 28 agosto a fare domande sul testo.  :mrgreen:</article>
+<article class="post" id="p1981"><div class="who"><b>mrossi</b><span>13 ago 2009, 20:05</span></div>Si anch'io la intenderei in quest'ultimo modo, comunque direi che ormai potremmo postare le soluzioni</article>
+<article class="post" id="p1982"><div class="who"><b>Davide90</b><span>13 ago 2009, 20:07</span></div>Comunque se vogliamo interpretare che l'energia dopo l'esplosione è uguale a <span class="tex">\(\frac{10001}{10000}\)</span> volte quella iniziale, possiamo approssimare che l'energia cinetica rimanga uguale e i miei conti vanno bene, togliendo quel <span class="tex">\(10^{\pm4}\)</span> dall'intervallo (4), quindi il satellite arriverebbe a Terra se <br>
+<span class="tex">\(\frac{1}{100}&lt;\frac{m_1}{m_2}&lt;\frac{61}{66} \vee \frac{66}{61}&lt;\frac{m_1}{m_2}&lt;100\)</span></article>
+<article class="post" id="p1983"><div class="who"><b>Rigel</b><span>13 ago 2009, 20:12</span></div><blockquote><div><cite>Davide90 ha scritto:</cite> dopodichè si assestano su un'orbita circolare di raggio R che dipende dalla velocità del frammento, in base all'uguaglianza tra accelerazione centripeta e gravitazionale</div></blockquote>
+No i frammenti si "assestano" su orbite ellittiche di cui devi calcolare il perigeo per valutare se l'orbita porta il frammento nell'atmosfera.<br>
+Comunque al test io mi porterei un linguista  :mrgreen:</article>
+<article class="post" id="p1984"><div class="who"><b>Davide90</b><span>13 ago 2009, 20:22</span></div><blockquote><div><cite>Rigel ha scritto:</cite>No i frammenti si "assestano" su orbite ellittiche di cui devi calcolare il perigeo per valutare se l'orbita porta il frammento nell'atmosfera.</div></blockquote>
+
+Verrebbero fuori dei conti sovrumani però, così a occhio... Già i miei sono discreti per un sns 1994, no?  :lol: <br>
+A questo punto aspetterei soluzioni alternative...<br>
+<br>
+A proposito di linguista: avete notato che nel 2008 n. 3 c'era "spenge" " anzichè "spegne"?  :?</article>
+<article class="post" id="p1985"><div class="who"><b>Alex90</b><span>13 ago 2009, 20:24</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>A proposito di linguista: avete notato che nel 2008 n. 3 c'era "spenge" " anzichè "spegne"?  :?</div></blockquote>
+
+Devo dire che mi sembra l'ultimo dettaglio da guardare in quel "simpatico" problema  :lol:</article>
+<article class="post" id="p1989"><div class="who"><b>CoNVeRGe.</b><span>13 ago 2009, 20:43</span></div>Io ho imposto che la velocità di un pezzo fosse minore o uguale di quella necessaria per compiere un'orbita ellittica che tange l'orbita iniziale (nel suo punto di afelio) e tange l'atmosfera (nel suo punto di perielio). Per fare ciò ho imposto che l'energia meccanica di un pezzo fosse minore o uguale a quella dell'orbita ellittica che ho sopra descritto.<br>
+Quest'ultima energia la si calcola con la conservazione del momento angolare tra perielio e afelio insieme alla conservazione dell'energia.<br>
+<br>
+Per calcolarci la velocità di un pezzo ho usato la conservazione della massa, della quantità di moto e dell'energia.<br>
+<br>
+I calcoli sono abbastanza numerosi, anche se meno di quanto ci si possa aspettare ad un certo punto  :mrgreen: .<br>
+<br>
+E' utile scrivere il rapporto richiesto dal testo come <span class="tex">\(\frac{M_{TOT}}{m_2} - 1\)</span></article>
+<article class="post" id="p1993"><div class="who"><b>CoNVeRGe.</b><span>13 ago 2009, 21:38</span></div>Ho corretto il risultato nel messaggio della pagina precedente. In pratica mi viene che per qualsiasi valore del rapporto un pezzo arriva sulla Terra. Forse ho sbagliato i calcoli (ma non credo perchè li ho ricontrollati più volte) o mi sono impappinato con le disuguaglianze. Se trovate altri intervalli fate sapere.<br>
+<br>
+Se quel che ho trovato è giusto magari si potevano sviare tutti i calcoli accorgendosi da subito di questo fatto.<br>
+<br>
+Il risultato sembrerebbe ragionevole se assumiamo <span class="tex">\(\displaystyle \frac{m_1}{m_2} =1\)</span>. Infatti le due masse avrebbero praticamente metà dell'energia totale iniziale e dunque "molto" probabilmente cadrebbero entrambe a terra (e peserebbero 50 quintali).</article>
+<article class="post" id="p2001"><div class="who"><b>Ippo</b><span>14 ago 2009, 11:31</span></div><blockquote><div><cite>Rigel ha scritto:</cite>Sì ma così l'energia diminuirebbe dopo l'esplosione, il che mi sembra paradossale. Secondo me l'energia dell'esplosione si dovrebbe sommare all'energia iniziale. Come sempre una bella difficoltà degli SNS è data dall'interpretazione del testo  :x</div></blockquote>
+Esatto. Si tratta in pratica di un urto esplosivo, ovvero di un urto anelastico "al contrario" (se lo guardi al contrario ci sono due oggetti in moto che si urtano e si attaccano). L'energia cinetica è "liberata" nel senso che nell'urto anelastico corrispondente era perduta, trasformata in energia interna.</article>
+<article class="post" id="p2004"><div class="who"><b>Davide90</b><span>14 ago 2009, 16:10</span></div><blockquote><div><cite>Ippo ha scritto:</cite><blockquote><div><cite>Rigel ha scritto:</cite>Sì ma così l'energia diminuirebbe dopo l'esplosione, il che mi sembra paradossale. Secondo me l'energia dell'esplosione si dovrebbe sommare all'energia iniziale. Come sempre una bella difficoltà degli SNS è data dall'interpretazione del testo  :x</div></blockquote>
+Esatto. Si tratta in pratica di un urto esplosivo, ovvero di un urto anelastico "al contrario" (se lo guardi al contrario ci sono due oggetti in moto che si urtano e si attaccano). L'energia cinetica è "liberata" nel senso che nell'urto anelastico corrispondente era perduta, trasformata in energia interna.</div></blockquote>
+Questa è sicuramente l'interpretazione più sensata e giusta, andrà fatto così. Però leggendo il testo a me era assolutamente sembrato un'altra cosa, era scritto in modo che fosse tutto tranne che intuitivo...  :x La prossima volta provo a ragionare, invece di leggere...
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Io ho imposto che la velocità di un pezzo fosse minore o uguale di quella necessaria per compiere un'orbita ellittica che tange l'orbita iniziale (nel suo punto di afelio) e tange l'atmosfera (nel suo punto di perielio). Per fare ciò ho imposto che l'energia meccanica di un pezzo fosse minore o uguale a quella dell'orbita ellittica che ho sopra descritto.<br>
+Quest'ultima energia la si calcola con la conservazione del momento angolare tra perielio e afelio insieme alla conservazione dell'energia.<br>
+Per calcolarci la velocità di un pezzo ho usato la conservazione della massa, della quantità di moto e dell'energia. </div></blockquote>
+Posso chiederti di postare un po' più nel dettaglio le equazioni che hai messo? I calcoli in mezzo puoi lasciarli stare, li posso fare io...  ;) Thanks</article>
+<article class="post" id="p2005"><div class="who"><b>CoNVeRGe.</b><span>14 ago 2009, 18:27</span></div>Concentriamoci sulla massa <span class="tex">\(\displaystyle m_1\)</span> e le imponiamo un'energia minore o uguale di quella necessaria per compiere l'orbita ellittica di minima grandezza per non cadere sulla Terra, ovvero quella che tange l'orbita iniziale e l'atmosfera.<br>
+<br>
+<span class="tex">\(\displaystyle E_1 = \frac{m_1 v_1^2}{2} - \frac{GM_T m_1}{d} \leq -\frac{GM_T m_1}{2x}\)</span><br>
+<br>
+con <span class="tex">\(\displaystyle E_1\)</span> l'energia della massa subito dopo l'esplosione, <span class="tex">\(\displaystyle d\)</span> il raggio dell'orbita del satellite, <span class="tex">\(\displaystyle x\)</span> il semiasse dell'orbita ellittica.<br>
+L'energia dell'orbita ellittica si ottiene con le conservazioni del momento angolare e dell'energia nei suoi punti di perielio e afelio.<br>
+<br>
+Ottieniamo dunque:<br>
+<br>
+<span class="tex">\(\displaystyle v_1^2 \leq \frac{GM_T (2x-d)}{xd}\)</span><br>
+<br>
+Per calcolare <span class="tex">\(\displaystyle v_1\)</span> usiamo queste tre:<br>
+<br>
+<span class="tex">\(\displaystyle M = m_1 + m_2\)</span><br>
+<br>
+<span class="tex">\(\displaystyle Mv_0 = m_1 v_1 + m_2 v_2\)</span> (qui le velocità includono un segno, mentre io ho scartato l'opzione di una velocità negativa, ma non ho voglia di rivederlo)<br>
+<br>
+<span class="tex">\(\displaystyle \alpha M v_0^2 = m_1 v_1^2 + m_2 v_2^2\)</span><br>
+<br>
+con <span class="tex">\(\displaystyle \alpha = 1 + 10^{-4}\)</span>.<br>
+<br>
+Per semplificarmi i conti ho chiamato <span class="tex">\(\displaystyle m_1 / m_2 = M/m_2 - 1 = x - 1\)</span> e ho tolto subito nelle altre equazioni la dipendenza da <span class="tex">\(\displaystyle m_1\)</span> e imposta quella da <span class="tex">\(\displaystyle x\)</span>, e ciò è risultato utile.</article>
+<nav class="pager"><a class="prev" href="oliforum-8701.html"><small>← precedente</small>Esplosione satellite (SNS 1994/95 n.5)</a><a class="next" href="oliforum-4139.html"><small>successivo →</small>questa e proprio banale...</a></nav>
+</main></body></html>

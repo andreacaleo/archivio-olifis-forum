@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1994/1995 Problema 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1994-1995, problema 3</span></nav>
+<h1>SNS 1994/1995 Problema 3</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=916">forum Olifis</a></p>
+<article class="post first" id="p7613"><div class="who"><b>Omar93</b><span>16 ott 2011, 18:56</span></div>Si consideri il sistema di tre cariche puntiformi, allineate e a distanza d<br>
+come in figura, in assenza di gravità. Le cariche 1 e 3 (ciascuna pari a Q)<br>
+sono fisse, mentre la carica 2 (pari a -Q) `e fissata a due supporti mediante<br>
+due fili di lunghezza L (L molto maggiore di d) e tensione T.<br>
+La carica 2 viene spostata verso una delle due cariche fisse di un tratto x (x<br>
+molto minore di d).<br>
+<br>
+1. Ricavare l’espressione della forza agente sulla carica 2.<br>
+2. Descrivere il moto della carica 2.<br>
+3. Discutere l’effetto di valori crescenti di |Q|.<br>
+<br>
+Sommatoria delle forze orizzontali su -Q è uguale a 0. <br>
+Forze verticali è invece (trascuro le interazioni gravitazionali): <br>
+<span class="tex">\(\displaystyle 2T\frac{x}{L}+\frac{1}{4 \pi \epsilon_0} \frac{Q|-Q|}{(d+x)^2} - \frac{1}{4 \pi \epsilon_0} \frac{Q|-Q|}{(d-x)^2} &gt;= 0\)</span><br>
+Gia' si capisce che il moto sara' periodico.<br>
+Quello scritto diventa <span class="tex">\(\displaystyle 2T\frac{x}{L}+\frac{1}{4 \pi \epsilon_0} \frac{Q|-Q|}{d^2+2dx} - \frac{1}{4 \pi \epsilon_0} \frac{Q|-Q|}{d^2-2dx} &gt;= 0\)</span><br>
+<br>
+Ancora con le approssimazioni suggerite si arriva a :<br>
+<span class="tex">\(\displaystyle F= 2T\frac{x}{L}-\frac{1}{4 \pi \epsilon_0} \frac{4Q^2x}{d^3} = ma\)</span><br>
+<br>
+<span class="tex">\(\displaystyle F= (\frac{2T}{L}-\frac{Q^2}{d^3 \pi \epsilon_0})x = ma\)</span><br>
+<br>
+Il periodo e' : <span class="tex">\(\omega^2 = k/m=4\pi^2/T^2\)</span><br>
+<br>
+<span class="tex">\(T=2\pi \sqrt{\frac{m}{2T/L-Q^2/d^3 \pi \epsilon_0}}\)</span><br>
+<br>
+<br>
+Se |Q| è grande allora possiamo pure togliere le due corde,tanto non cambia 'nulla' nel risultato.<br>
+Cioè non vale il principio di sovrapposizione.</article>
+<article class="post" id="p7627"><div class="who"><b>Alcanter</b><span>24 ott 2011, 16:05</span></div>Non ho capito una cosa dal testo.<br>
+Le due corde a cui è legata la carica al centro sono due elastici giusti?</article>
+<nav class="pager"><a class="prev" href="olifis-6720.html"><small>← precedente</small>Sns 1994-5</a><a class="next" href="oliforum-11519.html"><small>successivo →</small>Re-revival del famigerato SNS 1994.4</a></nav>
+</main></body></html>

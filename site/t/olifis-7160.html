@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2022/5 Ciclo reversibile adiabatiche e isobare</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2022-2023, problema 5</span></nav>
+<h1>SNS 2022/5 Ciclo reversibile adiabatiche e isobare</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7160">forum Olifis</a></p>
+<article class="post first" id="p27532"><div class="who"><b>bosone</b><span>15 ott 2022, 11:48</span></div>Una mole di gas ideale avente rapporto di calori specifici <span class="tex">\(\gamma=c_p/c_v\)</span> compie il ciclo a&gt;b&gt;c&gt;d&gt;a schematizzato nel piano pressione-volume (Edit: non so riportare la figura ma penso che si capisca). Le trasformazioni a&gt;b e c&gt;d sono adiabatiche reversibili, le trasformazioni b&gt;c e d&gt;a sono isobare reversibili.<br>
+i)   Si rappresenti il ciclo nel piano temperatura-entropia, determinando in particolare in quali punti del ciclo si raggiungono la temperatura massima <span class="tex">\(T_h\)</span> e quella minima <span class="tex">\(T_l\)</span>.<br>
+ii)  Per valori fissati di <span class="tex">\(T_h\)</span> e <span class="tex">\(T_l\)</span> si determini per quale valore del rapporto <span class="tex">\(\rho = P_b/P_a = P_c/P_d\)</span> il lavoro fornito dal ciclo è massimo.<br>
+iii) Per il valore di <span class="tex">\(\rho\)</span> che massimizza il lavoro fornito, si determini il rendimento <span class="tex">\(\eta\)</span> del ciclo in funzione di <span class="tex">\(T_h\)</span> e di <span class="tex">\(T_l\)</span>.<br>
+<br>
+<em class="text-italics">(Potrebbe essere utile l'informazione seguente: la funzione f(x)=x+<span class="tex">\(\alpha\)</span>/x , per x&gt;0 con <span class="tex">\(\alpha&gt;0 \)</span>,ha il minimo nel punto x=<span class="tex">\(\sqrt{\alpha}\)</span>)</em></article>
+<article class="post" id="p27537"><div class="who"><b>bosone</b><span>11 nov 2022, 12:11</span></div>E' quasi un mese che ho postato il problema e nessuno si è mostrato interessato. Ritengo opportuno proporre la mia soluzione la prossima settimana se nessuno interverrà.</article>
+<article class="post" id="p27540"><div class="who"><b>Pigkappa</b><span>13 nov 2022, 2:03</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7160.html#p27537" data-post-id="27537" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">11 nov 2022, 12:11</div></cite>
+E' quasi un mese che ho postato il problema e nessuno si è mostrato interessato. Ritengo opportuno proporre la mia soluzione la prossima settimana se nessuno interverrà.
+</div></blockquote>
+Yes please :)</article>
+<article class="post" id="p27542"><div class="who"><b>bosone</b><span>14 nov 2022, 19:08</span></div>i) Siano a,b,c,d disposti in senso orario con a,d appartenenti all'isobara inferiore e pertanto con <span class="tex">\(P_b=P-c&gt;P_a=P_d\)</span>. Dalla equazione dell'adiabaticain T,V <span class="tex">\(T_a V_a^{\gamma-1}=T_b V_b^{\gamma-1}\)</span>essendo<span class="tex">\(V_b&lt;V_a \rightarrow T_b&gt;T_a\)</span>. Analogamente risulta <span class="tex">\(T_c&gt;T_d\)</span>.Per cui <span class="tex">\(T_c=T_h;T_a=T_l\)</span><br>
+<br>
+ii)Considerando le equazioni delle adiabatiche nelle variabili P,T e l'uguaglianza dei rapporti fra le pressioni in a,b e c,d risulta<span class="tex">\(\frac{P_b}{P_a} = \frac{T_l^{\frac{\gamma-1}{\gamma}}}{T_b^{\frac{\gamma-1}{\gamma}}}=\frac{P_c}{P_d}=\frac{T_d^{\frac{\gamma-1}{\gamma}}}{T_h^{\frac{\gamma-1}{\gamma}}}\)</span>.<br>
+Da queste uguaglianze si deduce <span class="tex">\(T_b .T_d= T_l.T_h\)</span>. Considerando ora il lavoro come differenza fra il calore assorbito b&gt;c e quello ceduto d&gt;a si ottiene <span class="tex">\(L=c_p(T_c-T_b) -  c_p(T_d-T_a) = [T_h+T_l-(T_b+T_d)]\)</span>che è palesemente massimo quando la parentesi tonda è minima. Essa può scriversi <span class="tex">\(T_b+ \frac{T_l.T_h}{T_b}\)</span>Si cerca insomma il <span class="tex">\(T_b\)</span>che rende minima l'espressione e,approfittando del suggerimento del testo, si trova <span class="tex">\(T_b=\sqrt{T_l.T_h}\)</span>. Vista la relazione fra le due temperature avremo <span class="tex">\(T_b=T_d=\sqrt{T_h.T_l}\)</span>ovvero il lavoro del ciclo è massimo quando b,d appartengono alla stessa isoterma. Si ottiene <br>
+<span class="tex">\(\rho= (\frac{T_l}{\sqrt{T_l.T_h}})^{\frac{\gamma-1}{\gamma}}\)</span><br>
+<br>
+iii) Il rendimento del ciclo reversibile sarà <span class="tex">\(\eta= 1-\frac{Q_c}{Q_a}=1-\frac{\sqrt{T_l.T_h}-T_l}{T_h-\sqrt{T_l.T_h}}\)</span> dove <span class="tex">\(Q_a,Q_c\)</span> sono rispettivamente il calore assorbito nell'isobara a pressione maggiore e il calore ceduto in quella a pressione minore. E' facile verificare che<span class="tex">\(\frac{\sqrt{T_l.T_h}-T_l}{T_h-\sqrt{T_l.T_h}}\)</span> è compresa fra 0 e 1.</article>
+<article class="post" id="p27543"><div class="who"><b>Pigkappa</b><span>18 nov 2022, 18:44</span></div>Mi sembra giusto. Bello il trucco di dire che la somma dei calori scambiati è il lavoro del ciclo, per evitare conti peggiori, sicuramente lo ricordavo in passato ma lo avevo scordato. Possiamo verificare che il rendimento del ciclo è minore di quello di Carnot?<br>
+(sì, è relativamente facile)</article>
+<article class="post" id="p27544"><div class="who"><b>bosone</b><span>19 nov 2022, 12:53</span></div>Si infatti basta mostrare che<span class="tex">\(\frac{\sqrt{T_l.T_h}-T_l}{T_h-\sqrt{T_h T_l}}&gt;\frac{T_l}{T_h}\)</span>ovvero che<span class="tex">\(T_l^2+T_h^2-2T_l T_h&gt;0\)</span>che è palesemente vero :D</article>
+<nav class="pager"><a class="prev" href="olifis-7159.html"><small>← precedente</small>SNS 2022/4 - Corpo nero</a></nav>
+</main></body></html>

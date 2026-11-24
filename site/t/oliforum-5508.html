@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ancora un in-cubo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1998-1999, problema 2</span></nav>
+<h1>Ancora un in-cubo</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=5508">OliForum</a></p>
+<article class="post first" id="p52979"><div class="who"><b>Flavio5x</b><span>24 mag 2006, 22:55</span></div>Cari amici, ho visto in un precedente topic un problema basato su resistori disposti secondo gli spigoli di un cubo, e ho deciso di proporre alcune varianti.<br>
+<br>
+12 resistori uguali, ciascuno di resistenza R, sono disposti come gli spigoli di un cubo. Si chiede di  determinare:<br>
+1) la resistenza equivalente ai morsetti costituiti da due vertici opposti di una faccia del cubo<br>
+2) la resistenza equivalente ai morsetti costituiti da due vertici adiacenti (posti ai due estremi di uno spigolo)<br>
+L’incubo poi si complica in tal modo: immaginate di aggiungere altri resistori in modo che alla fine ciascun vertice del cubo risulti collegato a ciascuno degli altri  7 vertici mediante un resistore di resistenza R (28 resistori in totale). Si chiede di determinre:<br>
+3) la resistenza equivalente ai morsetti costituiti da due vertici qualsiasi del cubo</article>
+<article class="post" id="p53009"><div class="who"><b>Gauss_87</b><span>26 mag 2006, 14:28</span></div>Posso dare la risposta (1) per il momento perchè è un problemino di ammissione SNS ma non ricordo l'anno.<br>
+<br>
+la resistenza equivalente tra due vertici opposti è $ \frac{5}{6}R $ perchè:<br>
+<br>
+siano i due vertici opposti in considerazione $ A $ e $ B $.<br>
+$ A $ ha tre vertici "adiacenti", cioè da $ A $ partono spigoli del cubo e per definizione di potenziale (- integrale dal riferimento al punto considerato del vettore campo elettrico scalare lo spostamento ds...bla bla bla...) i 3 tre vertici hanno lo stesso potenziale, quindi le 3 resistenze dei 3 spigoli sono in PARALLELO e la resistenza equivalente $ R_A = \frac{R}{3} $.<br>
+Analogamente per $ B  $, $ R_B = \frac{R}{3} $.<br>
+<br>
+Ora il collegamento intermedio sta tra il potenziale di uno dei 3 vertici "adiacenti" ad $ A $ e il potenziale di uno dei vertici "adiacenti" a $ B $ quindi la resistenza equivalente intermedia è il parallelo tra $ R_A $ e $ R_B $ cioè $ R_I = \frac{R}{6} $.<br>
+<br>
+Sommando le 3 adesso in serie: $ R_{tot} = \frac{5}{6} $<br>
+<br>
+ 8)</article>
+<article class="post" id="p53013"><div class="who"><b>Flavio5x</b><span>26 mag 2006, 18:35</span></div>Sì, il calcolo è giusto ma non risponde alla domanda 1.<br>
+Se leggi bene la domanda 1, chiede di prendere in considerazione i vertici opposti di una faccia, non quelli opposti rispetto al cubo.</article>
+<article class="post" id="p53015"><div class="who"><b>__Cu_Jo__</b><span>26 mag 2006, 19:26</span></div>Intanto rispondo alla 1.Chiamo A,B,C,D i vertici della base inferiore e rispettivamente A',B',C',D' i vertici della base superiore.<br>
+$ \displaystyle V_B  - V_A  = R\frac{i}{3} \\V_{B'}  - V_B  = R\frac{i}{6}  $<br>
+Sommando viene fuori che la resistenza equivalente ai morsetti costituiti da due vertici opposti di una faccia del cubo è $ \frac{R}{2} $</article>
+<article class="post" id="p53017"><div class="who"><b>__Cu_Jo__</b><span>26 mag 2006, 19:33</span></div>Per la 2 non ci sono 2 possibili scelte :$ \frac{R}{3} $,$ \frac{R}{6} $?Vabbè,torno a studiare Freud :? ...</article>
+<article class="post" id="p53018"><div class="who"><b>Flavio5x</b><span>26 mag 2006, 20:55</span></div>A dire il vero di questi risultati proposti non me ne torna nemmeno uno.<br>
+Spero comunque che prima o poi qualcuno arrivi alle stesse mie soluzioni. Non ho nessuna voglia di prendere il saldatore e costruirmi il dannato cubo per verificare!</article>
+<article class="post" id="p53021"><div class="who"><b>Gauss_87</b><span>26 mag 2006, 21:43</span></div>si Flavio5x hai ragione, non ho ben letto il testo perchè fine anno significa esami imminenti, cioè iniziare a studiare quel che mi manca di 3 anni...  :lol: <br>
+quindi frequentoil forum solo nei ritagli di tempo e sopratutto di fretta!<br>
+Se ho tempo ti evito di prendere il saldatore!!! (ma dubito di aver tempo...)<br>
+Bye</article>
+<article class="post" id="p53169"><div class="who"><b>Flavio5x</b><span>30 mag 2006, 09:23</span></div>Beh, che succede? Tutto tace!<br>
+Eppure, se non mi sto sbagliando di grosso, mi sembra che applicando elementari criteri di simmetria (che permettono di semplificare le reti) le soluzioni siano abbastanza banali!<br>
+Qualcuno ci vuole provare?</article>
+<article class="post" id="p53392"><div class="who"><b>Flavio5x</b><span>04 giu 2006, 22:36</span></div>Vista la scarsità di contributi non mi resta che pubblicare le soluzioni (vedi figura; nelle formule la serie è indicata con +, il parallelo è indicato con //).<br>
+<a class="lost" href="http://img316.imageshack.us/img316/434/incubiresistivi3bg.jpg" class="ext">[immagine non più disponibile]</a><br>
+Caso 1) (vertici opposti di una faccia)<br>
+I punti CDEF sono equipotenziali per ragioni di simmetria, e quindi non solo i punti C e D possono essere collegati con corti circuiti (linee tratteggiate), ma anche i rami CE e DF possono essere sostituiti con corti circuiti. Così facendo i rami AC e AD sono in parallelotra loro. Operando in tal modo anche sugli altri rami simili e svolgendo le serie e i paralleli come indicato, si ottiene Req=3/4 R<br>
+Caso 2) (vertici opposti di uno spigolo)<br>
+Per ragioni di simmetria i vertici CD sono equipotenziali, e pertanto possono venire collegati con un corto circuito (linea tratteggiata). Analogamente i vertici EF. In tal modo i rami AC e AD risultano in parallelo, e svolgendo gli altri paralleli analoghi e le serie come indicato in figura risulta Req=7/12 R<br>
+Caso 3) (vertici integralmente connessi tra loro)<br>
+Presi due qualsiasi verici AB, esiste un ramo che li collega direttamente, mentre ciascuno degli altri 6 vertici è connesso con un ramo sia ad A che a B. Poi i 6 vertici rimanenti sono completamente connessi tra loro (queste connessioni sono simbolicamente rappresentate con l'ellisse in figura). Per ragioni di simmetria tutti i vertici compresi nell'ellisse sono equipotenziali tra loro, e quindi possono essere collegati con un unico cortocircuito, oppure possono essere idealmente tolti i rami che li collegano perchè in essi non circola corrente. Svolgo questo secondo caso, ma anche considerandoli in cortocircuito si giungerebbe allo stesso risultato. Allora abbiamo 6 paralleli di due resistori in serie, il tutto in parallelo con un resistore rappresentato dal ramo che collega AB direttamente. Il risultato è, come indicato in figura, Req=1/4 R.</article>
+<nav class="pager"><a class="prev" href="olifis-227.html"><small>← precedente</small>SNS 1997-1998 (3)</a><a class="next" href="olifis-223.html"><small>successivo →</small>SNS 1998/1999 - 6</a></nav>
+</main></body></html>

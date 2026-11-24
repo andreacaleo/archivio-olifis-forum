@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ottimizzazione di un ciclotrone (SNS 2017-2)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2017-2018, problema 2</span></nav>
+<h1>Ottimizzazione di un ciclotrone (SNS 2017-2)</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6534">forum Olifis</a></p>
+<article class="post first" id="p23739"><div class="who"><b>arna1998</b><span>1 set 2017, 22:42</span></div>Il ciclotrone fu inventato nel 1930 da Ernest Orlando Lawrence per accelerare gruppi di protoni usando piccole differenze di potenziale. Il suo schema di funzionamento è il seguente: i protoni girano all'interno di due elettrodi cavi a forma di D in presenza di un campo magnetico diretto verticalmente rispetto al piano del moto. Sotto l'azione del campo magnetico le particelle percorrono orbite semicircolari e ad ogni mezzo giro vengono accelerate in un tempo molto breve dalla differenza di potenziale tra gli elettrodi. Ad ogni mezzo giro la tensione applicata agli elettrodi viene invertita, in modo che i protoni vengano accelerati a ciascun passaggio. Questi percorrono dunque orbite di raggio via via crescente per poi essere estratti da un deflettore una volta raggiunto il bordo del dispositivo (vedasi lo schema allegato). <br>
+
+<ul><li>Dimostrate il principio fondamentale del funzionamento del ciclotrone (valido nel limite di velocità non relativistiche), ovvero che il periodo di rotazione dei protoni non dipende dal raggio della loro orbita. Questo permette di accumulare gruppi di protoni all'interno del ciclotrone che girano in sincronia su orbite di raggio diverso invertendo la tensione degli elettrodi con una frequenza costante.</li> </ul>
+<ul><li>Assumendo che i protoni vengono iniettati nel ciclotrone con una velocità iniziale e una distanza dal centro (raggio dell'orbita) molto piccoli rispetto ai corrispondenti valori finali, determinare l'energia cinetica <span class="tex">\(E_K \)</span> che le particelle hanno quando vengono estratte in funzione della loro massa e carica elettrica e dei parametri della macchina.</li></ul> 
+<ul><li>Ottimizzate il progetto di un ciclotrone con <span class="tex">\(E_K = 2 \, MeV\)</span> tenendo conto del suo costo di realizzazione. Assumete che una parte del costo aumenti in modo proporzionale all'area del magnete e una restante parte scali come <span class="tex">\(B^3\)</span>, dove <span class="tex">\(B\)</span> è l'intensità del campo magnetico. Determinare i parametri ottimali della macchina sapendo che un ciclotrone con <span class="tex">\(B = 1 \,T\)</span> e raggio <span class="tex">\(R_1 = 100 \, cm\)</span> costa il doppio di uno con lo stesso campo magnetico e raggio <span class="tex">\(R_0 = R_1 /2\)</span>. Dati utili: <span class="tex">\(1\, MeV = 1, 6 \cdot 10^{-13}\,J\)</span>, <span class="tex">\(m_p = 1, 7 \cdot 10^{-27}\, kg = 940 \, MeV/c^2\)</span> (massa del protone), <span class="tex">\(q = 1,6 \cdot 10^{-19}\,C\)</span> (carica elettrica del protone).</li> </ul></article>
+<article class="post" id="p23741"><div class="who"><b>lance00</b><span>2 set 2017, 11:57</span></div>punto 1) poiché la forza centripeta è la forza magnetica, si ottiene <span class="tex">\(T=\frac{2piM}{qB}\)</span> che, chiaramente, non dipende da R<br>
+punto 2) si ha <span class="tex">\(v=\frac{qRB}{M}\)</span> e, sostituendo nella formula dell'energia cinetica, <span class="tex">\(E=\frac{q^{2}R^{2}B^{2}}{2m}\)</span><br>
+punto 3) si tratta di minimizzare la funzione costo <span class="tex">\(C(R,B) = aR^{2}+bB^{3}\)</span> con il vincolo RB = costante. Dai dati si ricava <span class="tex">\(a=2b\)</span> quindi bisogna trovare il minimo di <span class="tex">\(C(R,B) = 2R^{2}+B^{3}\)</span> con RB fissato. <br>
+Si ha <span class="tex">\(C(R,B) = 2R^{2}+B^{3} &gt;= 5\sqrt[5]{\frac{2}{27}(RB)^{6}}\)</span> per AM-GM pesata con l'uguaglianza quando <span class="tex">\(\frac{2}{3}R^{2} = \frac{1}{2}B^{3}\)</span> <br>
+sapendo quanto vale RB, si ricavano facilmente sia R che B  :D</article>
+<article class="post" id="p23743"><div class="who"><b>arna1998</b><span>2 set 2017, 18:49</span></div>Il procedimento mi sembra tutto corretto :) <br>
+<br>
+Nel punto 3 per trovare il minimo anche io al test ho usato AM-GM, ma eventualmente si può derivare, che credo sia più veloce e apprezzato dai fisici :lol:  :lol:</article>
+<article class="post" id="p23744"><div class="who"><b>lance00</b><span>2 set 2017, 19:03</span></div>come si fa derivando? La funzione è a 2 variabili  :(</article>
+<article class="post" id="p23745"><div class="who"><b>arna1998</b><span>2 set 2017, 23:32</span></div>Dall'energia cinetica <span class="tex">\(R^2=\dfrac{2 E m}{q^2 B^2}\)</span>, sostituendo in <span class="tex">\(C\)</span> si trova <br>
+<span class="tex">\(C(B)=B^3+2\dfrac{2 E m}{q^2 B^2}\)</span> da cui per il minimo <br>
+<span class="tex">\(C'(B)=3B^2-\dfrac{8 E m}{q^2 B^3}=0\)</span> e quindi<br>
+<span class="tex">\(B=\sqrt[5]{\dfrac{8 E m}{3q^2 }}=0,577\, T\)</span> e <span class="tex">\(R=0,379 \, m\)</span>.</article>
+<article class="post" id="p23747"><div class="who"><b>lance00</b><span>3 set 2017, 9:32</span></div>ah già ... non ci avevo proprio pensato... comunque con AM-GM rimane più figo  :lol:</article>
+<nav class="pager"><a class="prev" href="olifis-6535.html"><small>← precedente</small>SNS 2017 n.1</a><a class="next" href="olifis-7155.html"><small>successivo →</small>SNS 2017/18 n.3</a></nav>
+</main></body></html>

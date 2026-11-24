@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2012/2013 Prob. 1: satellite e campo elettrostatico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2012-2013, problema 1</span></nav>
+<h1>SNS 2012/2013 Prob. 1: satellite e campo elettrostatico</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4546">forum Olifis</a></p>
+<article class="post first" id="p14851"><div class="who"><b>Galileo94</b><span>2 ago 2013, 11:55</span></div>Il testo del problema è il seguente: <br>
+
+<blockquote class="uncited"><div>Un satellite nello spazio si può approssimare come una massa M di materiale metallico con resistività media finita ρ. La forma del satellite è approssimativamente sferica, con un raggio R. Ad una distanza d &gt;&gt; R dal satellite si viene a  trovare una sferetta metallica, inizialmente ferma rispetto al satellite, di massa m &lt;&lt; M e raggio r &lt;&lt; R, dotata di una carica elettrica q. Il satellite ha carica elettrica totale nulla. Si considerino inoltre trascurabili tutti gli effetti indotti dalle forze gravitazionali.<br>
+<br>
+• Spiegare qualitativamente perchè si genera una forza attrattiva tra il satellite e la sferetta.<br>
+<br>
+A causa di questa forza, la sferetta e il satellite accelerano l'uno verso l'altro, e infine collidono dopo un certo tempo.<br>
+<br>
+Si supponga che la collisione sia completamente anelastica e la sferetta rimanga attaccata al satellite formando un corpo unico dopo l'urto.<br>
+<br>
+1.	Si calcoli l'energia totale dissipata in calore durante questo processo.<br>
+<br>
+2.	Si risponda alla domanda precedente, nel caso in cui la sferetta non sia inizialmente ferma rispetto al satellite, ma abbia invece una (piccola) velocità iniziale v, perpendicolare alla direzione congiungente i due oggetti.<br>
+<br>
+3.	Perchè nella domanda precedente si richiede che la velocità sia "piccola"?<br>
+<br>
+4.	Che cosa succederebbe se la velocità iniziale fosse esattamente quella necessaria a mettere la sferetta in un'orbita circolare attorno al satellite? Si descriva qualitativamente l'evoluzione del sistema.</div></blockquote>
+
+Ho provato varie strade per il punto 1, ma non sono riuscito ad arrivare ad una conclusione :? : avete suggerimenti?</article>
+<article class="post" id="p14856"><div class="who"><b>Gabry</b><span>2 ago 2013, 16:50</span></div>Ne avevamo discusso già a lungo (troppo a lungo) qui: <a href="olifis-1830.html" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=1830</a><br>
+<br>
+Spero che riuscirai a trovare quello che ti serve in mezzo a quella miriade di messaggi (ti consiglio di tralasciare tutte le parti in cui si cerca di dare una spiegazione di quello che si è fatto e di andare dritto al sodo, se poi hai tempo e voglia leggi il resto).</article>
+<article class="post" id="p14860"><div class="who"><b>Galileo94</b><span>2 ago 2013, 20:53</span></div><blockquote><div><cite>Gabry ha scritto:</cite>Ne avevamo discusso già a lungo (troppo a lungo) qui: <a href="olifis-1830.html" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=1830</a><br>
+<br>
+Spero che riuscirai a trovare quello che ti serve in mezzo a quella miriade di messaggi (ti consiglio di tralasciare tutte le parti in cui si cerca di dare una spiegazione di quello che si è fatto e di andare dritto al sodo, se poi hai tempo e voglia leggi il resto).</div></blockquote>
+
+Grazie, ora sto vedendo :)</article>
+<nav class="pager"><a class="prev" href="olifis-1830.html"><small>← precedente</small>sns 2012 n.1</a><a class="next" href="olifis-1900.html"><small>successivo →</small>sns 2012 n.2</a></nav>
+</main></body></html>

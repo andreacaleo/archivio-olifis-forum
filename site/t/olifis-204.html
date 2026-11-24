@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2006/2007 n 4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2006-2007, problema 4</span></nav>
+<h1>SNS 2006/2007 n 4</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=204">forum Olifis</a></p>
+<article class="post first" id="p1813"><div class="who"><b>mrossi</b><span>1 ago 2009, 11:05</span></div>Un oggetto cilindrico di massa <span class="tex">\(M\)</span> e sezione <span class="tex">\(A\)</span> si muove con velocità <span class="tex">\(w\)</span> parallela al suo asse in un gas di particelle di polvere di massa <span class="tex">\(m\)</span> molto minore di <span class="tex">\(M\)</span>, e numero per unità di volume <span class="tex">\(n\)</span>. Considerando la velocità <span class="tex">\(v\)</span> del moto delle particelle molto minore di <span class="tex">\(w\)</span>, si determini la forza di attrito sul cilindro causata dagli urti contro le particelle di polvere.<br>
+<br>
+Come cambia il risultato se gli urti tra la polvere e il cilindro sono perfettamente anelastici (la polvere si attacca al cilindro) o se sono invece perfettamente elastici?<br>
+<br>
+Si stimi la dipendenza da <span class="tex">\(w\)</span> della forza di attrito se invece la velocità <span class="tex">\(v\)</span> delle particelle di polvere è molto maggiore di <span class="tex">\(w\)</span>.<br>
+<br>
+Grazie mille!!</article>
+<article class="post" id="p1824"><div class="who"><b>spn</b><span>1 ago 2009, 14:50</span></div>1) Per la legge dell'impulso si può scrivere che<br>
+<br>
+<span class="tex">\(F=\frac{\Delta P}{\Delta t}= \frac{n m \Delta v }{\Delta t}= - \frac{n m (v_1 - v)}{\Delta t} = - \frac{n m v_1}{\Delta t}\)</span><br>
+<br>
+Dove <span class="tex">\(n\)</span> è il numero di molecole con cui il cilindro si scontra in un certo tempo, e <span class="tex">\(v_1\)</span> la velocità delle particelle dopo lo scontro(approssimando <span class="tex">\(v_1&gt;&gt;v\)</span>).<br>
+<br>
+Siccome w&gt;&gt;v allora lo scontro tra le particelle e il cilindro avviene solo nella sezione anteriore, e il numero di particelle che scontrano è :<br>
+<br>
+<span class="tex">\(n= V u = w A u \Delta t\)</span><br>
+<br>
+Inoltre, se l'urto è elastico allora la velocità delle particelle dopo lo scontro è <br>
+<br>
+<span class="tex">\(v_1=\frac{2M}{M+m} w = 2w\)</span>        essendo m&lt;&lt;M <br>
+<br>
+<br>
+<br>
+Sostituendo queste due eq. nella prima si ha:<br>
+<br>
+<span class="tex">\(F=-2w^2Aum\)</span><br>
+<br>
+2) Se lo scontro è invece anelastico allora:<br>
+<br>
+<span class="tex">\(v_1 = w\)</span><br>
+<br>
+<span class="tex">\(F=-w^2Aum\)</span><br>
+<br>
+3) Per v&gt;&gt;w le particelle si scontrano invece in tutte e due le sezioni del cilindro, percui:<br>
+<br>
+<span class="tex">\(F= F_2 - F_1 = \frac{\Delta P_2}{\Delta t} - \frac{\Delta P_1}{\Delta t}= \frac{n_2 m \Delta v_2 }{\Delta t} - \frac{n_1 m \Delta v_1 }{\Delta t}\)</span><br>
+<br>
+dove <span class="tex">\(F_2\)</span>è la forza dovuto agli scontri agente sulla sezione anteriore, <span class="tex">\(F_1\)</span> invece quella agente sulla posteriore. <br>
+<br>
+<span class="tex">\(n_2= (v + w) A u \Delta t\)</span><br>
+<br>
+<span class="tex">\(n_1 = (v-w)A u \Delta t\)</span><br>
+<br>
+Inoltre:<br>
+<br>
+<span class="tex">\(\Delta v_2 = (v_2 - v)\)</span><br>
+<br>
+<span class="tex">\(v_2 = \frac {m - M}{m + M}(v+w) - w\)</span><br>
+<br>
+ma essendo w&lt;&lt;v e m&lt;&lt;M allora:<br>
+<br>
+<span class="tex">\(v_2=-v = v_1\)</span><br>
+ <br>
+<span class="tex">\(\Delta v_2 = \Delta v_1 = -2v\)</span><br>
+<br>
+Sostituendo queste tre eq. nella prima si ha:<br>
+<br>
+<span class="tex">\(F = -4wvAum\)</span><br>
+<br>
+Speriamo bene... ;)</article>
+<article class="post" id="p1844"><div class="who"><b>mrossi</b><span>2 ago 2009, 22:46</span></div>OK...<br>
+Molto chiaro! Grazie Mille!</article>
+<article class="post" id="p1846"><div class="who"><b>eli9o</b><span>3 ago 2009, 11:27</span></div>@spn: io ho fatto essenzialmente uguale a te poi ho trovato una soluzione che risulta diversa nell'ultimo punto.<br>
+<br>
+Per la faccia anteriore si ha <span class="tex">\(F_a=-2mnA(w+v)^2\)</span> e per la faccia posteriore <span class="tex">\(F_b=2mnA(v-w)^2\)</span>.  Poi le somma e ottiene <span class="tex">\(F=-8mnAvw\)</span> (che sarebbe quella ottenuta da noi moltiplicata per 2.<br>
+<br>
+Poi, però, spiega: un calcolo più preciso comporta, fissato il valore della velocità <span class="tex">\(v \gg w\)</span>, un integrale sull'angolo solido per tener conto dei possibili angoli di incidenza. Il risultato cambia solo di un fattore <span class="tex">\(\frac{1}{2}\)</span>, ma mantiene la proporzionalità a <span class="tex">\(vw\)</span>. Seguirebbe un integrale sulla distribuzione di <span class="tex">\(v\)</span> ma, a patto che <span class="tex">\(v\)</span> sia sempre molto maggiore di <span class="tex">\(w\)</span> per i valori rilevanti nella distribuzione, questo non cambia la proporzionalità a <span class="tex">\(w\)</span> della forza di attrito risultante.<br>
+<br>
+Credo che l'ultima parte non serva ma il fatto è che anche noi abbiamo utilizzato <span class="tex">\(v\)</span> senza tener conto dell'angolo. Per un calcolo più preciso penso che avremmo dovuto usare <span class="tex">\(v^2=v_x^2+v_y^2+v_z^2\)</span> e dato che la componenti differiscono in modo trascurabile per <span class="tex">\(n\)</span> grande <span class="tex">\(v_x=\frac{v}{\sqrt 3}\)</span>. Poi bisogna dividere per 2 perché a noi interessa solo uno dei due versi. Però utilizzando direttamente <span class="tex">\(v\)</span> come fa lui da dove salta fuori la differenza tra i risultati? :?</article>
+<article class="post" id="p1856"><div class="who"><b>String</b><span>3 ago 2009, 17:42</span></div><blockquote><div><cite>spn ha scritto:</cite>Inoltre:<br>
+<br>
+<span class="tex">\(\Delta v_2 = (v_2 - v)\)</span><br>
+<br>
+<span class="tex">\(v_2 = \frac {m - M}{m + M}(v+w) - w\)</span><br>
+<br>
+ma essendo w&lt;&lt;v e m&lt;&lt;M allora:<br>
+<br>
+<span class="tex">\(v_2=-v = v_1\)</span><br>
+<br>
+<span class="tex">\(\Delta v_2 = \Delta v_1 = -2v\)</span> </div></blockquote>
+Non capisco questo passaggio...Non dovrebbe essere<br>
+<br>
+<span class="tex">\(\displaystyle v_2=\frac {(m-M)(v+w)}{m+M}\)</span> <br>
+<br>
+Quindi dato che <span class="tex">\(\displaystyle m&lt;&lt;M\)</span> si ha<br>
+<br>
+<span class="tex">\(\displaystyle v_2=-(v+w)\Rightarrow \Delta v_2=2(v+w)\)</span><br>
+<br>
+ :?:</article>
+<article class="post" id="p1858"><div class="who"><b>spn</b><span>3 ago 2009, 18:08</span></div>Io approssimando ho semplicemente tolto qualsiasi <span class="tex">\(w\)</span> dall'equazione  :roll: , mentre tu hai lasciato quello tra parentesi, non so se c'è una regola precisa su quale lasciare nell'approssimazione...<br>
+<br>
+Però probabilmente come hai fatto tu è giusto perchè si avrebbe <br>
+<br>
+<span class="tex">\(\Delta v_2=2(v+w)\)</span><br>
+<span class="tex">\(\Delta v_1=2(v-w)\)</span><br>
+<br>
+che porta poi hai risultati della soluzione che ha detto eli9o.<br>
+<br>
+@ eli9o: Penso che il problema, chiedendo una stima, intende di considerare come se tutte le particelle si muovessero lungo la stessa direzione del cilindro, in fondo, come dice la soluzione da te trovata, non differisce poi tanto dal valore che si troverebbe considerando che le particelle si muoverebbero casualmente.</article>
+<article class="post" id="p1867"><div class="who"><b>String</b><span>4 ago 2009, 16:37</span></div><blockquote><div><cite>spn ha scritto:</cite>Io approssimando ho semplicemente tolto qualsiasi <span class="tex">\(w\)</span> dall'equazione  :roll: , mentre tu hai lasciato quello tra parentesi, non so se c'è una regola precisa su quale lasciare nell'approssimazione... </div></blockquote>
+Secondo me non bisogna fare alcuna approssimazione sulle velocità, perchè altrimenti il risultato non verrebbe in funzione di <span class="tex">\(w\)</span> come richiesto dal quesito. Quando hai scritto l'equazione per le velocità tu hai tolto <span class="tex">\(w\)</span> perchè considerato molto minore di <span class="tex">\(v\)</span> mentre invece quando hai scritto le espressioni per <span class="tex">\(n_2\)</span> e <span class="tex">\(n_1\)</span>, non hai fatto alcuna approssimazione...Quindi di regola <span class="tex">\(w\)</span> si deve lasciare sempre...</article>
+<article class="post" id="p1868"><div class="who"><b>spn</b><span>4 ago 2009, 17:52</span></div>Ma scusa, l'equazione che tu hai usato è pure lei approssimata<br>
+<br>
+<span class="tex">\(v_2=\frac{(m - M)(v+w)}{m + M}\)</span><br>
+<br>
+Questa dovrebbe essere l'equazione della velocità delle particelle dopo l'urto in un sistema di riferimento in cui cilindro appare fermo e le particelle gli vanno contro con la somma delle velocità. Però se tu dici che è così anche nel sistema di riferimento in cui il cilindro si muove a velocità w, vuol dire che lo stai approssimando.<br>
+<br>
+Penso che se il problema dà la condizione v&gt;&gt;w ci sarà un motivo...</article>
+<article class="post" id="p1869"><div class="who"><b>String</b><span>4 ago 2009, 22:12</span></div><blockquote><div><cite>spn ha scritto:</cite> Però se tu dici che è così anche nel sistema di riferimento in cui il cilindro si muove a velocità w, vuol dire che lo stai approssimando.<br>
+<br>
+Penso che se il problema dà la condizione v&gt;&gt;w ci sarà un motivo...</div></blockquote>
+Ma io infatti non ho detto questo. Quell'equazione si riferisce al sistema di riferimento del cilindro, per cui cioè la sua velocità è nulla e le particelle si muovono con una velocità pari a <span class="tex">\(v+w\)</span>. La condizione <span class="tex">\(v&gt;&gt;w\)</span> serve per considerare sia gli urti che avvengono sulla faccia anteriore che su quella posteriore.</article>
+<article class="post" id="p1870"><div class="who"><b>spn</b><span>4 ago 2009, 22:45</span></div>Ok, ma la cosa che mi sembra strana è che sarebbe bastata la condizione <span class="tex">\(v&gt;w\)</span>.</article>
+<nav class="pager"><a class="prev" href="oliforum-6270.html"><small>← precedente</small>sns 2006-2007 es. n°3</a><a class="next" href="oliforum-6271.html"><small>successivo →</small>sns 2006-2007 es. n°4</a></nav>
+</main></body></html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spira rotante nel campo magnetico</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2000-2001, problema 6</span></nav>
+<h1>Spira rotante nel campo magnetico</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=3911">OliForum</a></p>
+<article class="post first" id="p42736"><div class="who"><b>hexen</b><span>11 lug 2005, 16:44</span></div>Una spira semicircolare di raggio a, resistenza R e induttanza L ruota con velocità angolare $ \omega $ attorno al punto medio del diametro. Sia questo punto coincidente con l'origine di uno spazio cartesiano con le x positive verso destra e le y positive verso l'alto e le z perpendicolare al foglio. Nel semispazio x&gt;0 c'è un campo magnetico di induzione B costante.<br>
+<br>
+Sui testi dell'ammissione alla sns c'è il disegno.<br>
+<br>
+Calcolare la corrente I(t) in funzione del tempo senza induttanza e poi considerando quest'ultima grandezza.<br>
+<br>
+Il punto è calcolare la superficie S(t) della spira nel campo magnetico in funzione del tempo. Per la corrente basta derivarla e dividere per la resistenza e se si vuole considerare l'induttanza viene una semplice DEQ in I(t).<br>
+<br>
+Sul calcolo di S(t) sono stato tutto stamattina. Mi viene sempre una funzione lineare di t che derivata ovviamente dà una costante. In particolare viene:<br>
+<br>
+$S(t) = \frac{a^2} 2 \left ( \frac{\pi} 2 -\omega t \right ) $<br>
+<br>
+da cui<br>
+<br>
+$ I(t) = - \frac B R \frac d {dt} S(t) = \frac{a^2 \omega B}{2R} $<br>
+<br>
+Derivando di nuovo viene 0 quindi considerare l'induttanza non cambia...<br>
+<br>
+Se c'è un errore quasi sicuramente è nel calcolo di S(t)... ma qual è?</article>
+<article class="post" id="p42765"><div class="who"><b>cga</b><span>12 lug 2005, 14:15</span></div>Come tu dici, secondo me l'errore e' nel calcolo di S(t).<br>
+Se ho ben capito il campo B e' perpendicolare al piano xy per x&gt;0.<br>
+Supponi di avere come condizione iniziale, la spira tutta nel semipiano x&gt;0 quindi e' tutta attraversata dal campo B. Supponi che la spira ruoti in senso anti-orario. Allora S(t) (superficie tagliata dal campo B) diminuisce sino a 0 quando tutta spira e' nel semipiano negativo. Continuando si avra' che S(t) incomincera' ad aumentare sino a che tutta la spira non sara' nuovamente tutta nel semipiano x&gt;0. Dunque s(t) e' periodica di  periodo $ \pi $ cosi' come lo sara' la corrente. La tua S(t) non e' periodica e credo anche che quel $ \frac{\pi}{2} $ nella tua espressione di S(t) debba essere $ \pi $ altrimenti non hai lo zero di S(t) per $ \omega t = \pi $.<br>
+Non ho fatto alcun calcolo ma intuitivamente credo che lasituazione sia questa. Spero di non aver mal interpretato.</article>
+<article class="post" id="p42769"><div class="who"><b>Paoloca</b><span>12 lug 2005, 14:49</span></div>Il bello è che non ti interessa A(t) ma solo dA/dt, che è costante (e quindi è costante anche la corrente).<br>
+<br>
+<br>
+Per quanto riguarda l'autoinduzione il problema è il momento in cui la spira inizia a girare. Così il grafico invece di essere una retta (quella trovata) partirà da 0 e, dopo una rapida salita, sarà asintotico a quella retta.</article>
+<article class="post" id="p42772"><div class="who"><b>hexen</b><span>12 lug 2005, 16:12</span></div>infatti S(t) dev'essere oscillante e sempre positiva... quindi come si calcola? Magari c'è un modo per non farlo direttamente dato che serve solo $\frac d{dt}S(t)$</article>
+<article class="post" id="p42775"><div class="who"><b>cga</b><span>12 lug 2005, 17:49</span></div>La funzione S(t) e' una funzione a "dente di sega" la cui derivata e' una costante. Non ci ho pensato subito per cui ho detto erroneamente che anche la corrente e' periodica. La funzione a dente di sega non e' una funzione elementare. Essa e'<br>
+<br>
+$ \frac{a^2}{2} ((n+1)\pi - \omega t)  $        per $ t $ in $    [\frac{n\pi}{\omega}, \frac{(n+1)\pi}{\omega}[  $<br>
+<br>
+$ \frac{a^2}{2}( \omega t - (n+1)\pi $         per $ t $  in $  [\frac{(n+1)\pi}{\omega}, \frac{(n+2)\pi}{\omega}[ $<br>
+<br>
+dove $ n $ che assume valori 0, 1, 2, .... rappresenta il numero di giri della spira. Ora, la derivata di questa funzione e' costante ma questa costante ha due uguali ma di segno opposto. Questo significa che la corrente gira prima in un verso e poi nell'altro.<br>
+Comunque non credo (non ho calcolato nulla) che sia semplicemente cosi' perche', specialmente quando si considera l'autoinduttanza, la corrente non svanisce istantaneamente quando la spira e' tutta nel piano delle x&lt;0. Quando la spira e' tutta nel piano delle x&lt;0 e la corrente ha segno +, la S(t) ora incomincia ad aumentare: la corrente comincia a scorrere nel verso opposto (essa ha segno -) compensandosi pero' con la corrente "residua" che gira nel verso contrario (la corrente con segno +).</article>
+<article class="post" id="p42786"><div class="who"><b>hexen</b><span>12 lug 2005, 20:16</span></div>beh pure io ho pensato che viene a dente di sega e l'unica per ottenerla era la forma<br>
+<br>
+$ S(t) = \left | \arcsin [ \sin (at+b) ] | $ ma derivandola tornava una costante quindi non avevo risolto granché</article>
+<article class="post" id="p42804"><div class="who"><b>cga</b><span>13 lug 2005, 13:49</span></div><blockquote><div><cite>hexen ha scritto:</cite>beh pure io ho pensato che viene a dente di sega e l'unica per ottenerla era la forma<br>
+<br>
+$ S(t) = \left | \arcsin [ \sin (at+b) ] | $ ma derivandola tornava una costante quindi non avevo risolto granché</div></blockquote>
+
+Quello che hai scritto e' semplicemente<br>
+<br>
+$ \left | \arcsin [ \sin (at+b) ] |=\left|at+b| $ $ <br>
+<br>
+Che e' totalmente diverso da cio' che io ho scritto. La tua funzione non e' a dente di sega. Come tu sai $ \arcsin [ \sin \alpha]=\alpha $<br>
+<br>
+Comunque come ho detto prima la corrente assumera' due valori costanti uguali in valore assoluto ma di segno opposto per indicare che essa scorrera' prima in un verso e poi nell'altro.</article>
+<article class="post" id="p42811"><div class="who"><b>hexen</b><span>13 lug 2005, 16:21</span></div>quindi il modulo non serve perché a parità di induzione magnetica ad area negativa corrisponde corrente negativa<br>
+
+<blockquote class="uncited"><div> Come tu sai $  \arcsin [ \sin \alpha]=\alpha  $</div></blockquote>
+
+si ma il seno non la rende periodica e la presenza di funzione inversa la rende segmentata?</article>
+<article class="post" id="p42814"><div class="who"><b>cga</b><span>13 lug 2005, 16:48</span></div>no. Prova a disegnare il grafico della funzione che hai scritto.</article>
+<article class="post" id="p42815"><div class="who"><b>Marco</b><span>13 lug 2005, 16:49</span></div><blockquote><div><cite>cga ha scritto:</cite>Come tu sai $ \arcsin [ \sin \alpha]=\alpha $
+</div></blockquote>
+Questo è in generale falso. Del resto, $ \alpha $ è libero di prendere qualunque valore reale, mentre l'arcoseno è una funzione limitata, e quindi non può funzionare su tutti i reali. E' vero solo se metti la limitazione giusta (da $ -\pi/2 $ a $ \pi/2 $, mi pare). <br>
+<br>
+Se disegni la funzione su tutto <strong class="text-strong">R</strong>, non hai una funzione a dente di sega, ma un'onda triangolare.</article>
+<article class="post" id="p42822"><div class="who"><b>cga</b><span>13 lug 2005, 17:49</span></div>Prima di tutto correggo quello che ho detto.<br>
+La funzione S(t) che si ottine per il problema e' un'onda triangolare non una funzione a dente di sega. Infatti l'espressione di S(t) che ho scritto in qualche messaggio precedente e' proprio un'onda triangolare. Ho solo fatto confusione con la terminologia.<br>
+Secondo, quando si disegna la funzione arcoseno si sceglie un intervallo in cui sin(x) e' bigettiva. Questo perche' si vuole che arcsin si una funzione e per definizione di funzione ad ogni x esiste ed e' unico y. <br>
+Se nell'intervallo scelto sin(x) non e' bigettiva allora arcoseno non puo' essere definita come una funzione: non si otterra' che ad ogni x esiste un'unica y.  (Da non confondersi con la definizione di bigettivita': una funzione e' bigettiva se ad ogni y esiste una sola x ed e' chiaro che si ha automaticamente che ad ogni x esiste una sola y perche' si sta parlando di funzioni).<br>
+In conclusione la funzione arcsin(sin(x)) non puo essere disegata in tutto R o comunque non e' corretto dire che la funzione arcsi(sin(x)) si un'onda triangolare. Al massimo se vuoi creare un'onda triangolare usando la funzione arcsi(sin(x)) devi considerare l'unione di funzioni arcsi(sin(x)) ognuna di esse definita in un diverso intervallo.</article>
+<nav class="pager"><a class="prev" href="olifis-191.html"><small>← precedente</small>SNS 2000/2001 Problema 4</a><a class="next" href="olifis-217.html"><small>successivo →</small>SNS 2001/2002 n 1</a></nav>
+</main></body></html>

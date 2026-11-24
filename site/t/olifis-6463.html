@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS problema 1 anno 1999/2000</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1999-2000, problema 1</span></nav>
+<h1>SNS problema 1 anno 1999/2000</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6463">forum Olifis</a></p>
+<article class="post first" id="p23394"><div class="who"><b>Wilcz</b><span>30 dic 2016, 13:40</span></div>Ciao a tutti, posto questo problema perché mi sembra che non se ne sia mai parlato (probabilmente perché è molto semplice).<br>
+Ho provato a risolverlo, però volevo avere una conferma perché temo di aver mal interpretato la traccia.<br>
+<br>
+James Chadwik scoprì il neutrone nel 1932 e poté determinare la massa, m<span class="tex">\(n\)</span>, studiandone l'urto con atomi di idrogeno, H, e di azoto, N, il cui rapporto di massa m<span class="tex">\(H\)</span>/m<span class="tex">\(N\)</span> era noto. Mostrare che m<span class="tex">\(n\)</span>/m<span class="tex">\(H\)</span> è determinabile se si misurano le massime velocità v<span class="tex">\(H\)</span> e v<span class="tex">\(N\)</span> ottenibili da atomi di idrogeno e azoto, inizialmente fermi, in un urto elastico con un neutrone di velocità fissa ma ignota.</article>
+<article class="post" id="p23395"><div class="who"><b>Flaffo</b><span>30 dic 2016, 15:49</span></div>Propongo la mia soluzione. <br>
+<br>
+Indichiamo con <span class="tex">\(m_N\)</span>, <span class="tex">\(m_H\)</span>, <span class="tex">\(m_n\)</span> le masse rispettivamente dell' Azoto, Idrogeno e Neutrone. Durante il problema indicherò con <span class="tex">\(\alpha\)</span> il rapporto <span class="tex">\(\alpha = \frac {m_H}{m_N}\)</span>, che conosciamo e  con <span class="tex">\(\beta\)</span> Il rapporto da determinare <span class="tex">\(\beta= \frac  {m_n}{m_H}\)</span>.  Inoltre indicherò con <span class="tex">\({v_n} ^{'}\)</span>  e <span class="tex">\({v_n}^{''}\)</span> rispettuvamente la velocita del neutrone dopo l'urto con l'Azoto e con l'Idrogeno. Gli urti sono elastici, quindi si conserva sia l'energia sia la quantità di moto. Tuttavia,  per semplificare un pò i conti, scriveremo l'equazione di conservazione della quantità di moto e una seconda equazione espressa dal teorema : le velocità relative di due particelle dopo la collisione è l'opposto delle velocità relative prima della collisione (che comunque si dimostra con la conservazione dell'energia e quantità moto)<br>
+<br>
+Scriviamo le quattro equazioni:<br>
+<br>
+<span class="tex">\(\displaystyle v_n= -v_N + {v_n}^{'}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle v_n = -v_H + {v_n}^{''}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle m_n v_n = m_N v_N + m_n {v_n}^{'}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle m_n v_n = m_H v_H + m_n {v_n}^{''}\)</span><br>
+<br>
+Isoliamo dalle prime due equazioni <span class="tex">\({v_n} ^{'}\)</span>  e <span class="tex">\({v_n}^{''}\)</span> e sostituiamo nella terza e quarta. Eguagliando poi la terza e la quarta equazione , sostituendo per semplicità <span class="tex">\(\alpha\)</span> e <span class="tex">\(\beta\)</span>. Giungiamo a:<br>
+<br>
+<span class="tex">\(\displaystyle \left ( \frac {1}{\alpha \beta} +1 \right) v_N = \left ( \frac {1}{\beta} +1 \right) v_H\)</span><br>
+<br>
+Infine, Isolando <span class="tex">\(\beta\)</span>, arriviamo alla soluzione. <br>
+<br>
+<span class="tex">\(\displaystyle \frac {m_n}{m_H}= \frac {\frac {m_N}{m_H}v_N- v_H}{v_H- v_N}\)</span></article>
+<article class="post" id="p23396"><div class="who"><b>Wilcz</b><span>30 dic 2016, 17:37</span></div>Bene, il risultato è lo stesso  :D Solo che io nello svolgimento avevo sviluppato i due sistemi con le equazioni della conservazione della quantità di moto e dell'energia cinetica...più calcoli insomma!!<br>
+Comunque inizialmente il mio dubbio stava nel considerare gli urti come singoli (idrogeno e neutrone/azoto e neutrone) o no (cioè idrogeno, azoto e neutrone in un unico urto). Ma in quest' ultimo caso avrei avuto più incognite di quante fossero le equazioni.</article>
+<nav class="pager"><a class="prev" href="olifis-223.html"><small>← precedente</small>SNS 1998/1999 - 6</a><a class="next" href="oliforum-11598.html"><small>successivo →</small>onde su una corda (sns 1999/2000)</a></nav>
+</main></body></html>

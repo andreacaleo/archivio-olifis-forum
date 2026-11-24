@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treno in una Galleria @ SNS</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2001-2002, problema 3</span></nav>
+<h1>Treno in una Galleria @ SNS</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=6062">OliForum</a></p>
+<p class="notice">Qui c'è solo la prima pagina della discussione: il seguito è su OliForum, al link qui sopra.</p>
+<article class="post first" id="p55957"><div class="who"><b>Gauss_87</b><span>16 ago 2006, 16:47</span></div>Ancora un <strong class="text-strong">SNS</strong>, <strong class="text-strong">2001 - 3</strong><br>
+<br>
+Un treno entra in una galleria.<br>
+<br>
+Velocità del treno $ v_t $, sezione del treno $ S_t $;<br>
+Velocità del Suono $ v_s $, sezione della galleria $ S_0 $.<br>
+<br>
+La velocità del suono in relazione alla temperatura è<br>
+<br>
+$ \displaystyle v_s = \sqrt{\frac{\gamma R T}{\mu}} $<br>
+dove $ \mu $ è la massa di una grammomolecola d'aria, $ \gamma $ la costante dell'aria da considerare come un gas perfetto.<br>
+<br>
+a) Stimare la variazione di pressione tra quando c'è il treno rispetto alla sua assenza, mostrando che dipende dal rapporto $ \frac{v_t}{v_s} $, da $ S_0 $ e da $ S_t $.<br>
+<br>
+ :lol:  Buon Divertimento  :lol:</article>
+<article class="post" id="p56085"><div class="who"><b>Tamaladissa</b><span>18 ago 2006, 22:02</span></div>Si puo impostare il sistema dato dall' equazione di continuita e dall' equazione di Bernoulli: <br>
+<br>
+Chiamando v_n,  la velocita dell aria rispetto al treno inotrno al treno, rho la densita dell aria e Pa la pressione atmosferica esterna:<br>
+<br>
+$ \rho*v_T*S_0 = \rho*v_n*(S_0-S_T) $<br>
+<br>
+$ P_a+\frac{1}2 *\rho*v^2_T=P_n+\frac{1}2 *\rho*v^2_n $<br>
+<br>
+Da queste due equazioni si puo ricavare Pn:<br>
+<br>
+$ P_n=P_a+\frac{1}2 *\rho*v^2_T*[1-(\frac{S_0}{S_0-S_T})^2] $<br>
+<br>
+Dall equazione di Mendeleev-Clapeyron (spero si scriva cosi): <br>
+<br>
+$ \rho=P_a* \frac{\mu}{RT} $ e sapendo che:<br>
+<br>
+$ v_s= \sqrt{ \frac{\gamma RT}{\mu}} $<br>
+<br>
+si ottiene la formula:<br>
+<br>
+<br>
+$ P_n=P_a [1+\frac{1}{2} \gamma \frac{v^2_T}{v^2_s} [1-(\frac{S_0}{S_0-S_T})^2]] $<br>
+<br>
+Ora essendo la variazione relativa di pressione data da:<br>
+<br>
+$ \frac{\delta P}{P_a} = \frac{P_n-P_a}{P_a} $ si ottiene una variazione:<br>
+<br>
+$ \frac{\delta P}{P_a} = [ \frac{1}{2} \gamma \frac {v^2_t}{v^2_s} [1- (\frac{S_0}{S_0-S_T})^2]] $<br>
+<br>
+NB:  delta voleva essere maiuscolo!!! Scusate..A proposito come si fa delta maiuscolo?</article>
+<article class="post" id="p56099"><div class="who"><b>Gauss_87</b><span>19 ago 2006, 10:42</span></div><blockquote><div><cite>Tamaladissa ha scritto:</cite>Si puo impostare il sistema dato dall' equazione di continuita e dall' equazione di Bernoulli</div></blockquote>
+
+Scusa ma per <strong class="text-strong">Equazione di Continuità</strong> intendi $ \vec{S} \cdot \vec{v} = costante $ in un flusso stazionario  :?:<br>
+<br>
+Te lo chiedo perchè non capisco perchè hai messo anche la densità nella tua prima formula, la quale infatti si semplifica</article>
+<article class="post" id="p56101"><div class="who"><b>Gauss_87</b><span>19 ago 2006, 10:46</span></div><blockquote><div><cite>Tamaladissa ha scritto:</cite>
+<br>
+NB:  delta voleva essere maiuscolo!!! Scusate..A proposito come si fa delta maiuscolo?</div></blockquote>
+
+Basta scrivere \Delta $ \Delta $ anzicchè \delta $ \delta $  :wink:</article>
+<article class="post" id="p56104"><div class="who"><b>Tamaladissa</b><span>19 ago 2006, 11:32</span></div>Si e la stessa formula, infatti si semplifica. E che ho ricopiato i calcoli scritti a mano e all' inizio non sapevo se la densita rimanesse costante.<br>
+<br>
+Ah grazie per il $ \Delta $ :)</article>
+<article class="post" id="p56176"><div class="who"><b>Gauss_87</b><span>21 ago 2006, 09:57</span></div><blockquote><div><cite>Tamaladissa ha scritto:</cite>Si puo impostare il sistema dato dall' equazione di continuita e dall' equazione di Bernoulli: <br>
+<br>
+Chiamando v_n,  la velocita dell aria rispetto al treno inotrno al treno, rho la densita dell aria e Pa la pressione atmosferica esterna:<br>
+<br>
+$ \rho*v_T*S_0 = \rho*v_n*(S_0-S_T) $<br>
+<br>
+$ P_a+\frac{1}2 *\rho*v^2_T=P_n+\frac{1}2 *\rho*v^2_n $<br>
+<br>
+-------------------------------------------------<br>
+<br>
+$ \frac{\delta P}{P_a} = [ \frac{1}{2} \gamma \frac {v^2_t}{v^2_s} [1- (\frac{S_0}{S_0-S_T})^2]] $
+</div></blockquote>
+
+Scusami, riguardando la tua soluzione mi è sorto un dubbio riguardo l'equazione di continuità, potresti spiegare di preciso quale flusso stazionario hai scelto e perchè?<br>
+<br>
+Inoltre, riguardo al risultato, ci aspettiamo che se il treno và a velocità molto piccola rispetto alla velocità del suono allora la pressione nella galleria resti la stessa? In realtà non dovremmo aspettarci che la pressione cambi comunque visto che la stessa massa d'aria viene compressa nel volume che il treno lascia libero?</article>
+<article class="post" id="p56179"><div class="who"><b>Tamaladissa</b><span>21 ago 2006, 11:13</span></div>Per l'equazione di continuita io ho supposto che la velocita dell'aria davanti al treno sia $ v_T $ e quella intorno al treno sia $ v_n $ incognita. La massa d'aria davanti al treno e la stessa intorno al treno man mano che quest ultimo avana. Da qui l'equazione di conservazione della massa. (di continuita).<br>
+<br>
+Per la seconda tua domanda. il fatto e questo. La pressione all'esterno della galleria e davanti al treno e sempre e comunque $ P_a $. Mentre la pressione intorno al treno (cioe quella avvertita dal treno) dipende dalla velocita dell aria intorno ad esso. Con piu $ v_T $ e piccola con piu $ v_n $ e piccola (questo discende dall'equazione di continuita). Percio e plausibile il fatto che se $ v_T $ tenda a zero anche $ v_n $ tenda a zero e quindi $ P_n $ si avvicini a $ P_a $. Ovviamente contano le dimensioni in gioco: se la sezione del treno tendesse a quella della galleria anche se il treno si muovesse pianissimo la pressione intorno ad esso muterebbe di molto.</article>
+<article class="post" id="p56229"><div class="who"><b>Gauss_87</b><span>21 ago 2006, 18:56</span></div><blockquote><div><cite>Tamaladissa ha scritto:</cite>Per l'equazione di continuita io ho supposto che la velocita dell'aria davanti al treno sia $ v_T $ e quella intorno al treno sia $ v_n $ incognita. La massa d'aria davanti al treno e la stessa intorno al treno man mano che quest ultimo avana. Da qui l'equazione di conservazione della massa. (di continuita).<br>
+
+</div></blockquote>
+
+quando dici la massa d'aria davanti al treno, perchè consideri la sezione $ S_0 $ e non $ S_T $  :?:</article>
+<article class="post" id="p56233"><div class="who"><b>Tamaladissa</b><span>21 ago 2006, 19:08</span></div>Beh, perche si ipotizza che il treno viaggi aprendosi un varco nell'aria e quindi tutta l'aria presente in galleria, che inizialmente ha una velocita relativa al treno di $ v_T $ e vive in $ S_0 $ deve ora incunearsi intorno al treno e viene pertanto costretta in una sezione $ S_0 - S_T $. Penso sia cosi. Tu cosa diresti?</article>
+<article class="post" id="p56235"><div class="who"><b>Gauss_87</b><span>21 ago 2006, 19:15</span></div>quindi consideri il riferimento del treno cosicchè inizialmente il flusso d'aria è quello dell'intera sezione $ S_0 $ che si muove a $ v_T $ rispetto a tale riferimento, poi tale flusso viene ad incunearsi nella sezione $ S_0 - S_T $ a valocità $ v_{rel} $ incognita.<br>
+<br>
+La cosa che mi stranizza è che la formula di Clapeyron-Mendelev non è da Liceo, quindi penso c dovrebbe essere un altro modo per risolverla.<br>
+<br>
+Riguardo al risultato penso che se il treno entrasse a bassa velocità comporterebbe comunque uno spostamento d'aria la quale si accumulerebbe sopra di esso cambiando la pressione nel volume d'aria sovrastante il treno.<br>
+<br>
+La mia soluzione, prima di proporre il problema, è molto più semplice della tua ma probabilmente hai ragione te</article>
+<article class="post" id="p56237"><div class="who"><b>Tamaladissa</b><span>21 ago 2006, 19:23</span></div><blockquote><div><cite>Gauss_87 ha scritto:</cite>
+<br>
+Riguardo al risultato penso che se il treno entrasse a bassa velocità comporterebbe comunque uno spostamento d'aria la quale si accumulerebbe sopra di esso cambiando la pressione nel volume d'aria sovrastante il treno.<br>
+
+</div></blockquote>
+
+Che la pressione cambi comunque, questo e al di fuori di ogni dubbio. Pero man mano che la velocita diminuisce se la sezione iniziale rimane costante l'effetto si fa sempre piu esiguo. Riguardo alla semplicita o meno della soluzione: le equazioni impostate sono le 2 solite della fluidodinamica; per quanto riguarda l'equazione di Mendeleev-Clapeyron in effetti al liceo non l'avevo vista pero sfogliando un libro di fluidodinamica mi e sembrata super-adatta al problema visto che non sapevo che farmene della densita dell'aria. Se la tua soluzione e piu semplice e porta agli stessi risultati, sicuramente e migliore. Anzi mi faresti un favore a scriverla.</article>
+<article class="post" id="p56243"><div class="who"><b>Fabrizio</b><span>21 ago 2006, 22:31</span></div>Rileggendo il testo originale mi sembra di capire che la pressione incognita sia proprio quella nell'intercapedine tra il treno e la galleria.<br>
+<br>
+Il treno, passando, causa una conpressione adiabatica (perché non c'è tempo per scambi apprezzabili di calore): l'aria che si trova nella galleria viene compressa nell'intercapedine, per cui <br>
+$ p_xV^\gamma=p_0V_0^\gamma $, da cui $ p_x=p_0 V_0^\gamma/V^\gamma $.<br>
+Il rapporto $ V_0^\gamma/V^\gamma $ è uguale a $ S_0^\gamma/(S_0-S_t)^\gamma $.<br>
+Finora mi sembra giusto, non capisco come esprimere tutto in funzione delle velocità..</article>
+<article class="post" id="p56244"><div class="who"><b>Tamaladissa</b><span>21 ago 2006, 23:44</span></div>Attenzione!! Non c enulla che comprima l'aria nell'intercapedine. Tanto che li la pressione e minore e non maggiore.</article>
+<article class="post" id="p56246"><div class="who"><b>NEONEO</b><span>22 ago 2006, 08:45</span></div>Concordo con la soluzione di Tamaladissa fuorchè un particolare: la densità dell'aria perchè la tieni costante? Essa dalla legge dei gas perfetti, o legge di Clapeyron (che è quella che hai scritto tu, ed è solo un riarrangiamento di PV=nRT), dovrebbe variare al variare della pressione se la temperatura rimane costante. Quindi nella tua soluzione dovresti tenere conto anche di questo.</article>
+<article class="post" id="p56258"><div class="who"><b>Tamaladissa</b><span>22 ago 2006, 10:57</span></div>Si in effetti..Forse inizio a ricordare perche non avevo semplificato le densita...Hai gia provato aq vedere come viene la formula finale tenendo conto di cio?</article>
+<nav class="pager"><a class="prev" href="oliforum-10280.html"><small>← precedente</small>Problema sns</a><a class="next" href="oliforum-6091.html"><small>successivo →</small>variazioni di entropia</a></nav>
+</main></body></html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2007/2008 n4</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2007-2008, problema 4</span></nav>
+<h1>sns 2007/2008 n4</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="http://www.oliforum.it/viewtopic.php?t=11416">OliForum</a></p>
+<article class="post first" id="p93208"><div class="who"><b>oli89</b><span>25 lug 2008, 13:14</span></div>vediamo un po...questo!<br>
+<br>
+Un corpo incomprimibile di massa M = 1 kg e di volume V = 0.15dm3 `e attaccato<br>
+a un palloncino di massa trascurabile riempito con una massa m = 1 g di<br>
+azoto e ancorata sul fondo di un serbatoio d’acqua di profondit`a h = 1m con una<br>
+corda di lunghezza l = 0.5 m. Si supponga che l’azoto dentro il palloncino sia<br>
+costantemente in equilibrio termico con l’acqua.<br>
+(a) Cosa succederebbe al sistema corpo pi `u palloncino se non fosse ancorato<br>
+sul fondo ma appoggiato sul pelo dell’acqua a temperatura ambiente T0 =<br>
+20 C?<br>
+(b) Dove si posiziona invece il palloncino ancorato nell’acqua, sempre se l’acqua<br>
+`e a temperatura ambiente T0 = 20 C?<br>
+(c) Supponendo di scaldare lentamente l’acqua fino a 60 C, a quale temperatura<br>
+T1 si muove il palloncino ancorato? Si trascuri la dilatazione dell’acqua.<br>
+(d) Come si muove in seguito il palloncino ancorato se l’acqua si raffredda lentamente?<br>
+Si faccia un grafico della posizione del palloncino al crescere e al<br>
+decrescere della temperatura.<br>
+Peso molecolare azoto= 28 g/mole; pressione atmosferica Pa = 1.01 * 10^5Pa; densit`<br>
+a dell’acqua r0 = 1 g/cm3; R = 8.31 J/K/mole.</article>
+<article class="post" id="p93232"><div class="who"><b>Ippo_</b><span>25 lug 2008, 22:34</span></div>[EDIT: ho corretto alcune boiate]<br>
+Beh, abbiamo che la pressione dell'azoto in funzione della posizione y è $ P(y)=P_{atm}+\rho g (h-y) $ e dunque per l'equazione dei gas perfetti $ \displaystyle V_1(y)=\frac{nRT_0}{P(y)}=\frac{nRT_0}{P_{atm}+\rho g (h-y)} $ dove $ n=1g/28g\cdot mol^{-1}=0,036mol $.<br>
+Ora basta imporre l'equilibrio del sistema, in cui agiscono solo la forza peso Mg e la spinta di Archimede: $ Mg=\rho g \cdot (V+V_1(y)) $ essendo la massa dell'azoto trascurabile. <br>
+Segue $ \displaystyle \frac{M}{\rho}-V=V_1(y)=\frac{nRT_0}{P_{atm}+\rho g (h-y)} $ da cui con qualche passaggio si arriva a $ \displaystyle y=h+\frac{P_{atm}}{\rho g}-\frac{nRT_0}{g(M-\rho V)} $<br>
+In quel punto si ha un equilibrio instabile e dunque il palloncino tenderà sempre ad allontanarsene. Dai conti risulta $ y=0,81m $, quindi il palloncino del caso a) resta in superficie e quello del caso b) va al fondo.<br>
+<br>
+Per rispondere al punto c) si risolve l'equazione $ y(T_x)=0cm $:<br>
+$ \displaystyle \frac{nRT_x}{g(M-\rho V)}=h+\frac{P_{atm}}{\rho g}=11,34m $, $ \displaystyle T_x=\frac{g(M-\rho V)\cdot 11,34m}{nR}=316K=43°C $. A 43 gradi Celsius il punto d'equilibrio del palloncino si troverebbe al di sotto del fondo, e dunque questo si sposta all'altezza massima: 50cm, con la corda in tensione.<br>
+<br>
+Quanto al punto d), il palloncino comincerà a scendere una volta che il punto di equilibrio si troverà al di sopra dei 50cm. Si risolve dunque $ y(T_x)=50cm $ e si ricava $ T_x=302K=29°C $: quando il raffreddamento dell'acqua ne avrà abbassato la temperatura al di sotto dei 29 gradi Celsius il palloncino sarà spinto al fondo.</article>
+<article class="post" id="p93408"><div class="who"><b>ludo90</b><span>30 lug 2008, 19:44</span></div>la tua risposta non mi convince...<br>
+d'accordo sull'equilibrio quando il palloncino e libero..<br>
+ma dopo: aumentando la temperatura si aumenta il volume quindi il palloncino avra tendenza a salire, e salendo la pressione diminuisce quindi sale ancora di piu... enon scende come avevi detto tu<br>
+secondo me cerchi un equilibrio che non c'e</article>
+<article class="post" id="p93549"><div class="who"><b>Ippo_</b><span>01 ago 2008, 23:54</span></div>Mettiamola così. La forza agente sul sistema, esclusa la spinta di Archimede sul palloncino, è $ g(M- \rho V)=9,81\cdot(1-0,15)=8,34N $. Tale forza è fissa e dunque l'equilibrio si ha solo per un determinato volume del palloncino, che è $ 8,34N/(1000kgm^{-3}\cdot9,81ms^{-2})=0,85dm^3 $. A tale volume fisso corrisponde una pressione che varia con la temperatura: $ P=(nR/V)\cdot T=351,9T $. Si vede che se la temperatura cresce allora cresce anche la pressione e dunque la profondità a cui si trova punto d'equilibrio. Solo che, come fai notare tu, se spostiamo verticalmente il palloncino rispetto al punto di equilibrio questo se ne allontana: se lo solleviamo diminuisce la pressione, aumenta il volume e la forza risultante lo allontana verso l'alto; se lo abbassiamo aumenta la pressione, diminuisce il volume e la froza risultante lo spinge verso il basso. Analogamente se la temperatura cambia allora il punto di equilibrio si sposta rispetto al palloncino e si ottiene lo stesso effetto. Questo dimostra che l'equilibrio è instabile (non che "non c'è", comunque  :) ). L'avevo inspiegabilmente scambiato per un equilibrio stabile  :? <br>
+A questo punto il problema si risolve abbastanza facilmente (più facilmente di come avevo fatto io  :lol: ): il palloncino si trova all'altezza massima quando il suo volume supera i 0,85 decimetri cubi o al fondo in caso contrario. La legge dei gas perfetti trasforma la condizione sul volume in una condizione sulla temperatura e sulla pressione (cioè sull'altezza) e fine. Ho corretto la soluzione di sopra.</article>
+<nav class="pager"><a class="prev" href="olifis-197.html"><small>← precedente</small>SNS 2007/2008 Problema 3</a><a class="next" href="oliforum-11676.html"><small>successivo →</small>SNS 2008/2009 problema 1</a></nav>
+</main></body></html>
