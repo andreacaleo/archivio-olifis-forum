@@ -1,0 +1,37 @@
+# imgur refuses visitors from the UK. This runs on GitHub's servers (in the US), downloads the
+# images listed in imgur_list.txt and commits them to the branch "imgur", where build_archive.py's
+# user fetches them (see AGENTS.md).
+name: Fetch imgur images
+on:
+  push:
+    branches: [main]
+    paths: [imgur_list.txt]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download
+        run: |
+          mkdir -p out
+          while read -r url; do
+            [ -z "$url" ] && continue
+            name=$(basename "$url")
+            if curl -sSfL -A "Mozilla/5.0" -o "out/$name" "$url"; then
+              echo "$name: $(file -b --mime-type "out/$name") $(stat -c %s "out/$name") bytes"
+            else
+              echo "$name: FAILED"
+            fi
+          done < imgur_list.txt
+      - name: Commit to the imgur branch
+        run: |
+          cd out
+          git init -q -b imgur
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "imgur images fetched from outside the UK"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" imgur
