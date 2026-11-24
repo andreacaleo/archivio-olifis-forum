@@ -797,7 +797,6 @@ def main():
     sbody = f"""<h1>La staffetta</h1>
 <p class="lede">Chi risolve un problema ne propone uno nuovo. Dal {years_of(first_k)[:4]} al {years_of(last_k)[-4:]} la staffetta del forum è arrivata
 al problema {max(nums)}: qui ci sono tutti, in ordine.</p>
-<p class="meta">{staff_n} discussioni. Il 18 è stato usato due volte; dopo il 328 tre problemi sono stati proposti senza numero (s.n.) e la numerazione riprende dal 330.</p>
 <h2>Le prime staffette</h2>
 <p class="notes">Prima della staffetta numerata, nel 2010 e 2011, ce n'erano tre in un'unica discussione ciascuna.</p>
 <ul class="picks">{prime}</ul>
