@@ -1,13 +1,13 @@
 
 :root {
   --bg:#f7f6f2; --paper:#ffffff; --fg:#1c1b19; --muted:#6d6a63; --faint:#9b978e; --line:#e4e1d8;
-  --link:#1d5ea8; --accent:#2e6b2b; --chip:#e9f2e6; --chip-fg:#2e6b2b; --quote:#f3f1ec;
+  --link:#1d5ea8; --accent:#9a3412; --chip:#eef2f7; --chip-fg:#1d4f8c; --quote:#f3f1ec;
   --serif: Charter, "Bitstream Charter", "Iowan Old Style", Cambria, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root {
   --bg:#141416; --paper:#1c1c1f; --fg:#e7e5e0; --muted:#a19e96; --faint:#77746d; --line:#2e2e33;
-  --link:#86b6ef; --accent:#8fcf86; --chip:#1f3320; --chip-fg:#a6dc9c; --quote:#232327; } }
+  --link:#86b6ef; --accent:#f0a376; --chip:#22303f; --chip-fg:#a9cdf5; --quote:#232327; } }
 * { box-sizing:border-box; }
 html { -webkit-text-size-adjust:100%; }
 body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.6 var(--serif); }
