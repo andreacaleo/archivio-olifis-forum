@@ -831,7 +831,7 @@ al problema {max(nums)}: qui ci sono tutti, in ordine.</p>
                 body_parts.append(f'<h2 class="part">{s["title"]}</h2><p class="notes">{s["lede"]}</p>'
                                   + picks(entries, 'h3'))
             else:
-                body_parts.append(f'<p class="meta">{len(entries)} discussioni scelte su {s["total"]} della sezione</p>' + picks(entries, 'h2'))
+                body_parts.append(picks(entries, 'h2'))
         pbody = f'<h1>{pg["title"]}</h1><p class="lede">{pg["lede"]}</p>' + ''.join(body_parts)
         (SITE / pg['page']).write_text(page(f'{pg["title"]} · {SITE_NAME}', pbody, 0, False), encoding='utf8')
         cards.append((pg, total))
