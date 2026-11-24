@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>72. Serbatoio di idrogeno</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>72. Serbatoio di idrogeno</h1>
+<p class="meta">26 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6320">forum Olifis</a></p>
+<article class="post first" id="p22267"><div class="who"><b>FedericoC.</b><span>31 mag 2016, 23:28</span></div>Si riparte subito con la staffetta con questo, per me interessantissimo, problema <strong class="text-strong">72</strong>! :D <br>
+<br>
+Idrogeno gassoso è racchiuso ad alta pressione in un piccolo e rigido serbatoio sferico. Successivamente viene introdotto in un palloncino leggero ed elastico. Assumendo che tutto il processo avvenga a temperatura costante, dire se è possibile che il palloncino sia in grado di sollevare il serbatoio.<br>
+<br>
+Hint: ricordare che la forza cui è soggetto ciascun emisfero del serbatoio è <span class="tex">\(F=\pi R^2 p\)</span></article>
+<article class="post" id="p22268"><div class="who"><b>Flaffo</b><span>1 giu 2016, 10:21</span></div>Ho fatto il problema durante l'ora di italiano, quindi potrebbe essere tutto sbagliato (o senza senso) :lol: . Comunque mi viene che le moli nel palloncino devono essere maggiori di un certo valore.. dove <span class="tex">\(P_0\)</span>è la pressione atmosferica, <span class="tex">\(r\)</span> il raggio della calotta sferica e <span class="tex">\(mg\)</span> il peso di un emisfero del contenitore sferico. <br>
+<span class="tex">\(n_p&gt;\left (mg+ P_0 \pi r^2\right) \frac {4r}{3RT}-n_{H_2}\)</span></article>
+<article class="post" id="p22269"><div class="who"><b>FedericoC.</b><span>1 giu 2016, 11:58</span></div>Il risultato è sbagliato, anche se credo che il ragionamento non sia del tutto errato. Hai assunto che la pressione del serbatoio possa essere arbitrariamente alta se non sbaglio. La bellezza del risultato sta proprio nel non usare questo presupposto. Prova a cercare una relazione che ti dia la pressione massima che può avere l'idrogeno nel serbatoio, ragionando sulle forze presenti :D</article>
+<article class="post" id="p22270"><div class="who"><b>Flaffo</b><span>1 giu 2016, 13:04</span></div>Ci penso meglio quando arrivo a casa :lol:</article>
+<article class="post" id="p22272"><div class="who"><b>CaptainJohnCabot</b><span>1 giu 2016, 21:16</span></div>Problema interessante veramente  :D <br>
+<br>
+L'unico modo in cui sono riuscito a utilizzare delle forze per arrivare ad una pressione massima è considerando una specie di 'forza di degenerazione' degli atomi di idrogeno, ovvero ho praticamente riempito interamente il volume del contenitore con sfere di raggio <span class="tex">\(a\)</span>. Questo unito ad altre approssimazioni grossolane mi ha portato a:<br>
+<span class="tex">\(\displaystyle p\geq \dfrac{3Mp_a}{4\pi \rho_a a^3}\)</span>, con <span class="tex">\(M\)</span> massa molare dell'idrogeno, <span class="tex">\(p\)</span> la pressione iniziale, <span class="tex">\(p_a\)</span> quella atmosferica e <span class="tex">\(\rho_a\)</span> la densità dell'aria.<br>
+Ho postato giusto per mostrare il mio interesse per l'argomento, purtroppo credo che tutto il mio ragionamento sia sbagliato  :lol: <br>
+Sono talmente fuso che non sono riuscito nemmeno a capire l'Hint  :roll:  :shock:</article>
+<article class="post" id="p22273"><div class="who"><b>FedericoC.</b><span>1 giu 2016, 21:26</span></div>Cerco di dare un hint che possa portare meglio sulla strada da seguire. Non si sa di che materiale sia il serbatoio e quindi nemmeno la resistenza che questo oppone alla rottura del serbatoio quando si raggiunge una pressione che possiamo dire critica, caratteristica di ciascun materiale. Detto questo è opportuno introdurre una variabile (o più) per così dire definire questo materiale sconosciuto. L'hint precedente stava ad indicare che con questi parametri si possono fare ragionamenti sulle forze agenti e arrivare a una relazione particolare che permette di trovare la soluzione.<br>
+Spero di essermi spiegato decentemente  :D</article>
+<article class="post" id="p22274"><div class="who"><b>FedericoC.</b><span>1 giu 2016, 21:36</span></div>Aggiungo un'altra cosa per cercare di chiarire ancora meglio, il risultato di Flaffo ha senso, ma la domanda cui dobbiamo rispondere è se è effettivamente possibile che il palloncino contenga quel numero minimo di moli  ;)</article>
+<article class="post" id="p22275"><div class="who"><b>CaptainJohnCabot</b><span>1 giu 2016, 22:20</span></div>Grazie mille per il chiarimento, appena posso provo a rifarlo  :D</article>
+<article class="post" id="p22277"><div class="who"><b>Flaffo</b><span>2 giu 2016, 19:31</span></div>So che sarà sbagliato, però posto ugualmente :lol:  :lol: <br>
+Mi viene che il numero di moli nel palloncino deve soddisfare:<br>
+<span class="tex">\(n_p \geq \frac{4\pi r^3 P_0}{3RT}\)</span><br>
+Spero abbia più senso del risultato precedente..</article>
+<article class="post" id="p22279"><div class="who"><b>FedericoC.</b><span>2 giu 2016, 20:00</span></div>No non è giusto.<br>
+Trovare un limite minimo per le moli che devono essere contenute nel palloncino non ci interessa molto per arrivare al risultato. Mi spiego meglio, si può considerare che <span class="tex">\(n\geq k\)</span> ma non è rilevante nella soluzione. Il problema vero sorge nel chiarire se esiste un serbatoio allo stesso tempo abbastanza resistente alla pressione e sufficientemente leggero per essere sollevato dal palloncino. Ci interessano principalmente quindi le caratteristiche fisiche del serbatoio.<br>
+Fondamentalmente dobbiamo trovare due relazioni che ne rapportino due in particolare che ci danno poi una condizione particolare.<br>
+Quello che ha provato a fare Captain, cioè trovare la pressione massima, è giusto ma lo ha fatto in modo sbagliato. Il limite alla pressione non è dovuto tanto al gas quanto al serbatoio stesso. Nella condizione limite pertanto la forza dovuta alla pressione sarà uguagliata da un'altra, magari una tensione..  ;)</article>
+<article class="post" id="p22280"><div class="who"><b>CaptainJohnCabot</b><span>2 giu 2016, 21:57</span></div>Riprovo  :lol: <br>
+<br>
+Per disperazione ho considerato, in maniera un po' grossolana, dato che non è sempre vero, che la 'tensione superficiale', chiamiamola così  :lol: , è <span class="tex">\(F=k\rho\)</span>, ovvero direttamente proporzionale alla densità <span class="tex">\(\rho\)</span> del contenitore + idrogeno. Da qui con un po' di passaggi arrivo a due relazioni sulla pressione interna iniziale <span class="tex">\(P_0\)</span>:<br>
+<span class="tex">\(P_0 \geq \dfrac{\rho p_a}{\rho_a}\)</span> e <span class="tex">\(P_0 \leq \dfrac{\rho p_a}{\pi \rho_a}\)</span>, con <span class="tex">\(\rho_a\)</span> densità dell'aria e <span class="tex">\(p_a\)</span> pressione atmosferica.<br>
+Ora è chiaro che le due relazioni sono incompatibili quindi il palloncino non potrà sollevare il contenitore.<br>
+<br>
+Se quello che ho scritto può avere senso, anche se è sbagliato, posso postare il procedimento, altrimenti mi scuso in anticipo per gli errori sciocchi  :lol:  :roll: <br>
+<br>
+<em class="text-italics">Per Federico</em><br>
+Avevo già provato ad utilizzare la costante per calcolare la tensione del materiale ma non sono riuscito a trovare il metodo risolutivo che hai cercato di suggerirci. Provare a legare la pressione massima a qualche altra grandezza (come alle proprietà del gas nel mio precedente tentativo o alla densità in questo) sono gli unici modi (oltre che atti di pura disperazione  :lol: ) in cui sono riuscito ad eliminare le incognite e ad ottenere qualcosa di accettabile.</article>
+<article class="post" id="p22282"><div class="who"><b>FedericoC.</b><span>2 giu 2016, 22:41</span></div>Ci siamo, l'esito è corretto anche se le disequazioni cui sei arrivato sono completamente diverse dalle mie. Penso che questo sia dovuto al fatto che tu abbia posto la tensione direttamente proporzionale alla massa volumica, cosa che come hai detto non è sempre vera, mentre io l'ho posta direttamente proporzionale all'area della sezione del serbatoio diviso in due emisferi. Le grandezze che ci interessano comunque sono giuste: la massa volumica <span class="tex">\(\rho\)</span> e  il coefficiente <span class="tex">\(k\)</span>.             Posta il procedimento e vediamo se tutto torna  :D  ;)</article>
+<article class="post" id="p22283"><div class="who"><b>CaptainJohnCabot</b><span>3 giu 2016, 12:49</span></div>Se il passaggio avviene a temperatura T costante si ha:<br>
+<br>
+<span class="tex">\(\displaystyle P_0V_0=pV\)</span>; con:<br>
+<br>
+<span class="tex">\(\displaystyle V_0=4\pi r^3/3\)</span> volume del contenitore;<br>
+<span class="tex">\(\displaystyle V=4\pi R^3/3\)</span> volume del palloncino (rispetto al quale quello del contenitore è trascurabile);<br>
+<span class="tex">\(\displaystyle p=p_a\)</span> dove <span class="tex">\(p_a\)</span> è la pressione atmosferica, dato che il palloncino è elastico.<br>
+<br>
+Si ha quindi:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{4\pi r^3 P_0}{3}=\dfrac{4\pi R^3 p_a}{3} \Longrightarrow P_0=\dfrac{R^3 p_a}{r^3}\)</span><br>
+<br>
+Ora si pone la condizione affinché avvenga il sollevamento ovvero:<br>
+<br>
+<span class="tex">\(\displaystyle mg \leq  \dfrac{4}{3}\pi R^3 \rho_a g \Longrightarrow R^3 \geq \dfrac{3m}{4\pi \rho_a}\)</span><br>
+<br>
+Da cui si ottiene con la relazione precedente:<br>
+<br>
+<span class="tex">\(P_0 \geq \dfrac{3mp_a}{4\pi \rho_a r^3}\)</span><br>
+<br>
+Si lavora ora su <span class="tex">\(P_0\)</span>. Pongo:<br>
+<br>
+<span class="tex">\(\displaystyle F=k\rho\)</span> la massima tensione che il materiale è in grado di opporre prima di rompersi, allora detta <span class="tex">\(P\)</span> la massima pressione sopportabile si ha:<br>
+<br>
+<span class="tex">\(\displaystyle P=\dfrac{k\rho}{4\pi r^2} \wedge P_0 \leq P \Longrightarrow P_0 \leq \dfrac{k\rho}{4\pi r^2}\)</span><br>
+<br>
+Considero ora <span class="tex">\(P_0=P\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{k\rho}{4\pi r^2}=\dfrac{3mp_a}{4\pi \rho_a r^3} \Longrightarrow k=\dfrac{4\pi p_a r^2}{\rho_a}\)</span><br>
+<br>
+In questo passaggio è scappato l'errore ieri  (mi sono dimenticato un <span class="tex">\(\pi\)</span> :lol:). Quindi ora non esce impossibile ma sostituendo k l'unico valore possibile per la pressione risulta essere <span class="tex">\(P_0=\dfrac{\rho p_a}{\rho_a}\)</span>. Ora nell'approssimazione di diretta proporzionalità con la densità che abbiamo fatto il valore di <span class="tex">\(P_0\)</span> esce molto superiori alle pressioni sopportabili dai detti materiali (le tabelle si trovano su internet), basta evitare di prendere fibre di carbonio o diamanti  :lol:<br>
+<br>
+Provo ora a generalizzare utilizzando il procedimento di Federico. Si ha sempre:<br>
+<br>
+<span class="tex">\(P_0 \geq \dfrac{3mp_a}{4\pi \rho_a r^3}\)</span><br>
+<br>
+A quanto ho capito bisogna porre <span class="tex">\(F=k\pi r^2\)</span>, si ha quindi:<br>
+<br>
+<span class="tex">\(F=\dfrac{P}{A}=\dfrac{3mp_a}{16\pi^2 \rho_a r^5} \Longrightarrow k=\dfrac{3mp_a}{4\pi \rho_a r^3}\)</span><br>
+<br>
+Sostituendo <span class="tex">\(m=\rho V\)</span> si ha nuovamente <span class="tex">\(k=\dfrac{\rho p_a}{\rho_a}\)</span>. Ponendo <span class="tex">\(F_0=P_0/A \leq F\)</span> si ha:<br>
+<br>
+<span class="tex">\(F_0 \geq \dfrac{3mp_a}{16\pi^2 \rho_a r^5}=\dfrac{3\rho V p_a}{16\pi^2 \rho_a r^5}=\dfrac{\rho p_a}{4\pi \rho_a r^2} \wedge F_0 \leq k\pi r^2 = \dfrac{\pi \rho p_a r^2}{\rho_a}\)</span><br>
+<br>
+Le due disequazioni sono incompatibili solo se <span class="tex">\(r^4 \leq 1/4\pi^2 \hspace{2mm} (\approx 0,39 m)\)</span>, che è accettabile nell'approssimazione del contenitore 'piccolo'. Alternativamente si può lavorare con <span class="tex">\(P_0\)</span>, si ha:<br>
+<br>
+<span class="tex">\(P_0 \geq \dfrac{\rho p_a}{\rho_a} \wedge P_0 \leq k/4 = \dfrac{\rho p_a}{4 \rho_a}\)</span> <br>
+<br>
+Queste due disequazioni sono incompatibili e quindi non è possibile che il palloncino sollevi il contenitore. <br>
+<br>
+Questa volta spero di aver preso almeno un procedimento corretto, dato che praticamente ne ho provati 3 :lol:</article>
+<article class="post" id="p22284"><div class="who"><b>FedericoC.</b><span>3 giu 2016, 14:39</span></div>Per quanto riguarda la tua soluzione non mi convince un punto   :roll: <br>
+
+<blockquote class="uncited"><div>
+<br>
+<span class="tex">\(\displaystyle F=k\rho\)</span> la massima tensione che il materiale è in grado di opporre prima di rompersi, allora detta P la massima pressione sopportabile si ha:<br>
+<br>
+<span class="tex">\(\displaystyle P=\dfrac{k\rho}{4\pi r^2} \wedge P_0 \leq P \Longrightarrow P_0 \leq \dfrac{k\rho}{4\pi r^2}\)</span>
+</div></blockquote>
+
+Non vorrei dire una cavolata, ma la pressione non credo tu possa definirla in questo modo in quanto non è esercitata da una forza su una superficie, la tensione è interna al materiale di cui è costituito il serbatoio.<br>
+<br>
+Per quanto riguarda la mia è leggermente diversa. Grazie al fatto che la temperatura rimane costante ho calcolato il volume finale in funzione della pressione iniziale, usandolo per la condizione di sollevamento. La forza di tensione non può essere data da <span class="tex">\(F=k\pi r^2\)</span> perchè la sezione non è un cerchio bensì una corona circolare, ho introdotto dunque anche lo spessore <span class="tex">\(s\)</span> del serbatoio. La tensione deve dunque uguagliare la forza dovuta alla pressione interna nella situazione limite (primo hint), ottengo così la seconda condizione.</article>
+<article class="post" id="p22285"><div class="who"><b>CaptainJohnCabot</b><span>3 giu 2016, 15:16</span></div>Per quanto riguarda la pressione più che la tensione interna ho considerato la forza a cui questa si oppone ovvero quella delle molecole di idrogeno che 'premono'  sulle pareti del contenitore,  quindi non credo sia troppo sbagliato quel passaggio,  poi mi appello comunque all'immensa saggezza del forum per un verdetto finale  :lol: <br>
+
+<blockquote><div><cite>FedericoC ha scritto:</cite>La forza di tensione non può essere data da <span class="tex">\(F=k\pi r^2\)</span> perchè la sezione non è un cerchio bensì una corona circolare, ho introdotto dunque anche lo spessore <span class="tex">\(s\)</span> del serbatoio</div></blockquote>
+Per evitare di introdurre troppe variabili io quello spessore l'avevo trascurato,  non credevo fosse molto importante ma se influisce sul risultato lo reintegro subito  :lol:</article>
+<article class="post" id="p22286"><div class="who"><b>FedericoC.</b><span>3 giu 2016, 15:51</span></div>Nel caso tu considerassi direttamente la forza dovuta alla pressione <span class="tex">\(k\rho=\pi r^2 P_0\)</span> comunque dovresti dividere per <span class="tex">\(\pi r^2\)</span> perché quella sarebbe la forza esercitata su ciascun emisfero. Quindi facendo i calcoli ti risulterebbe <span class="tex">\(P_0=\frac{p_a\rho}{4\rho_a}\)</span> se non ho sbagliato conti. La pressione sarebbe notevolmente più bassa, ma credo sia comunque corretto dato che il coefficiente <span class="tex">\(k\)</span> in questa dimostrazione ha dimensioni <span class="tex">\(\frac{m^4}{s^2}\)</span> che non sono propriamente quelle di un coefficiente di tensione. Quindi non avremmo modo di trovarli su internet (o perlomeno io non ci sono riuscito)   :)</article>
+<article class="post" id="p22287"><div class="who"><b>CaptainJohnCabot</b><span>3 giu 2016, 16:37</span></div>Io ho cercato 'resistenza meccanica materiali' e ho trovato una tabella con le pressioni critiche, e non i coefficienti di tensione, per diversi materiali, in effetti sarebbe difficile trovare su internet un parametro che abbiamo introdotto noi  :lol:<blockquote><div><cite>FedericoC. ha scritto:</cite>Quindi facendo i calcoli ti risulterebbe <span class="tex">\(P_0=\frac{p_a\rho}{4\rho_a}\)</span> se non ho sbagliato conti</div></blockquote> <br>
+<br>
+Infatti anche se nella seconda parte  :mrgreen: : <br>
+
+<blockquote><div><cite>CaptainJohnCabot ha scritto:</cite>
+Alternativamente si può lavorare con <span class="tex">\(P_0\)</span>, si ha:<br>
+<br>
+<span class="tex">\(P_0 \geq \dfrac{\rho p_a}{\rho_a} \wedge P_0 \leq k/4 = \dfrac{\rho p_a}{4 \rho_a}\)</span> <br>
+<br>
+Queste due disequazioni sono incompatibili e quindi non è possibile che il palloncino sollevi il contenitore. 
+</div></blockquote>
+Per quanto riguarda l'approssimazione <span class="tex">\(F=k\rho\)</span> mi sembra che non ho diviso proprio in emisferi e che ho direttamente  considerato la forza come radiale e costante in tutte le direzioni.<br>
+<br>
+C'è ancora qualcosa di impreciso? Cosa dovrei correggere? Dovrei forse introdurre <span class="tex">\(s\)</span> o può andar bene così?</article>
+<article class="post" id="p22288"><div class="who"><b>FedericoC.</b><span>3 giu 2016, 17:12</span></div>Scusa se ti sono sembrato pignolo era solo per capire bene il tuo procedimento, dato che era piuttosto diverso dal mio e ha un'interpretazione leggermente diversa. Ad ogni modo mi sembra che funzioni quindi la staffetta è tua  :D <br>
+<br>
+Scrivo anche il risultato che si ottiene con il mio ragionamento se ha qualcuno interessasse perchè è carino  :lol: <br>
+Facendo i calcoli si ha:<br>
+<span class="tex">\(\frac{k}{\rho}\geq\frac{3 p_a}{2\rho_a}\)</span><br>
+Il rapporto tra il coefficiente e la massa volumica deve essere maggiore di una costante, tuttavia non esiste una materiale allo stesso tempo tanto resistente e tanto leggero da rispettare la condizione.<br>
+<br>
+Riprendendo solo la cosa dello spessore non credo si possa trascurare perché quando nella condizione per il sollevamento si sostituisce a <span class="tex">\(m\)</span> <span class="tex">\(\rho V\)</span> il volume non è quello di una sfera bensì di un guscio sferico. Ad ogni modo è solo questione di un calcolo.  ;)</article>
+<article class="post" id="p22289"><div class="who"><b>CaptainJohnCabot</b><span>3 giu 2016, 17:28</span></div>Per quanto riguarda il sollevamento infatti proprio per evitare di considerare il guscio sferico ho preso <span class="tex">\(\rho\)</span> come la densità del materiale+idrogeno, quindi in caso dovrei cambiare solamente nella formula della forza, caso in cui <span class="tex">\(s\)</span> sembrava più trascurabile (effettivamente rimane questione di un calcolo  :mrgreen: ).<br>
+Prima di andare avanti vedo di correggere appena ho un po' di tempo  :D</article>
+<article class="post" id="p22290"><div class="who"><b>CaptainJohnCabot</b><span>3 giu 2016, 21:14</span></div>Allora ho utilizzato un po' di approssimazioni e l'ho fatto abbastanza in fretta dato che in questo periodo non ho moltissimo tempo  :roll: <br>
+Il risultato non esce pulito come prima, anche se sempre accettabile, ma alla fine il procedimento da seguire è lo stesso, e anche le disuguaglianze sono formalmente simili alle precedenti. Inoltre ci si potrebbe ricondurre, con un sistema di disuguaglianze, anche alla dimostrazione del mio precedente messaggio (infatti se <span class="tex">\(F=k\pi (r-s)^2 \leq k\pi r^2\)</span>, dato che stiamo parlando di una forza massima, se l'impossibilità vale per il valore maggiore,come si è dimostrato, allora vale anche per il minore). Purtroppo non credo di avere il tempo di correggere tutta la mia suddetta dimostrazione, forse ci proverò in futuro, quindi spero che per ora vi possiate accontentare di questo  :lol:  :roll: <br>
+Se a Federico sta bene però io posterei ugualmente il prossimo problema della staffetta così da non bloccarla per troppo tempo (anche perché nei prossimi giorni non potrò appunto dedicarmi al forum  :( )</article>
+<article class="post" id="p22291"><div class="who"><b>FedericoC.</b><span>3 giu 2016, 21:16</span></div>Vai pure con il prossimo, il ragionamento è giusto come ho detto prima il calcolo non importa  ;)</article>
+<article class="post" id="p22295"><div class="who"><b>rocco</b><span>4 giu 2016, 16:12</span></div><blockquote><div><cite>FedericoC. ha scritto:</cite> <br>
+Facendo i calcoli si ha:<br>
+<span class="tex">\(\frac{k}{\rho}\geq\frac{3 p_a}{2\rho_a}\)</span><br>
+Il rapporto tra il coefficiente e la massa volumica deve essere maggiore di una costante, tuttavia non esiste una materiale allo stesso tempo tanto resistente e tanto leggero da rispettare la condizione.</div></blockquote>
+Anche a me era venuta una soluzione analoga che non avevo postato per mancanza di tempo e, soprattutto, perchè non mi convinceva. <br>
+Forse non ci ho capito nulla ma leggendo la tua (vostra) soluzione non sono convinto dalla tua affermazione sul materiale che non consentirebbe a k di superare la costante del secondo membro (che non dipende dal materiale) per la densità <span class="tex">\(\rho\)</span>del materiale medesimo. Mi sembra che preliminarmente non si dica nulla dei possibili valori di k e quindi in linea di principio può avere qualunque valore. Perchè allora non concludere che se k è maggiore di quel valore il palloncino solleva il serbatoio e in caso contrario non lo solleva? <br>
+P.S. Probabilmente hai il testo e la soluzione dell'autore del problema. Per favore potresti citarmelo per togliermi questi dubbi?</article>
+<article class="post" id="p22296"><div class="who"><b>FedericoC.</b><span>4 giu 2016, 16:25</span></div>Si diciamo che anche io quando l'ho svolto arrivato alla relazione non avrei potuto dire niente in particolare se non quello che tu hai obiettato, cioè che bisognerebbe in ogni caso vedere se la condizione è rispettata. Comunque se si pone la forza di tensione proporzionale alla sezione la costante che si introduce esiste e si può trovare (io non me ne sono preoccupato, mi sono fidato del testo) in particolare come ho già scritto non esiste nessun materiale che la rispetti  ;) <br>
+<br>
+Il libro da cui l'ho preso è 200 puzzling physics problems</article>
+<article class="post" id="p22298"><div class="who"><b>rocco</b><span>4 giu 2016, 17:46</span></div>Scusa ancora. Dico solo che la forza che agisce sugli emisferi non può superare verosimilmente una sorta di carico di rottura del serbatoio che è decisivo per trovare k e che di sicuro dipenderà dalla densità del materiale. Ma chi risolve il problema non ha strumenti per trovarlo. Tu stesso confessi che ti sei fidato del testo. Quindi se uno non ha il testo non può essere in grado di valutare (e come potrebbe?) che per TUTTI i materiali esistenti quel valore di k è impossibile. Dare la soluzione dipende allora possesso del testo. Oppure si tira a indovinare...Non voglio assolutamente fare polemica ma se è così la conclusione del problema (che mi piaceva) mi delude alquanto...</article>
+<article class="post" id="p22299"><div class="who"><b>FedericoC.</b><span>4 giu 2016, 18:13</span></div>Sinceramente non capisco perché diciche la forza che agisce sugli emisferi non può giungere ad un ipotetico carico di rottura..<br>
+Ad ogni modo trovare una relazione tipo quella che ho scritto coincide con il risolvere il problema, anche non sapendo che non esistono materiali che la rispettano, quello l'ho scritto per curiosità diciamo. Bastava discutere il risultato a seconda del variare dei parametri e sarebbe stato comunque un procedimento corretto.</article>
+<article class="post" id="p22305"><div class="who"><b>rocco</b><span>5 giu 2016, 10:52</span></div>Ma perchè abbiamo da una parte la forza F=<span class="tex">\(\pi R^2 p\)</span> che spinge e che non dipende dal materiale del serbatoio come si vede e dall'altra la resistenza del serbatoio che invece ne dipende e che abbiamo posto proporzionale alla densità del materiale che lo costituisce. Questa resistenza strutturale del serbatoio ha un carico di rottura cioè una forza F che lo fa esplodere per cui non sarebbe capace di  contenere quella quantità di idrogeno a quella temperatura pressione volume: ecco perchè F non può superare il carico di rottura. Il resto del tuo discorso non lo capisco. Comunque per me l'argomento è chiuso. Mi è bastato sapere che ti sei fidato del testo.</article>
+<nav class="pager"><a class="prev" href="olifis-5983.html"><small>← precedente</small>20:staffetta-meccanica statistica</a></nav>
+</main></body></html>

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPhO 2023</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../olimpiadi.html">Olimpiadi di Fisica</a></span></nav>
+<h1>IPhO 2023</h1>
+<p class="meta">10 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7197">forum Olifis</a></p>
+<article class="post first" id="p27819"><div class="who"><b>TeoMusu</b><span>7 lug 2023, 11:20</span></div>Luglio è inoltrato e gli esami di maturità sono ormai conclusi.<br>
+Milioni di studenti italiani si preparano per lunghi mesi di vacanza (e/o di studio).<br>
+Tuttavia, le vacanze possono attendere per cinque ragazzi, che prima devono affrontare una straordinaria avventura ai confini orientali del mondo…<br>
+<br>
+Si sta parlando del Team italiano alle <a href="https://ipho2023.jp/en/" class="ext" class="postlink">IPhO 2023</a>, che quest'anno si terranno dal 10 al 17 luglio proprio a <strong class="text-strong">Tokyo</strong>, in Giappone!<br>
+I valorosi componenti del <strong class="text-strong">Team ITA</strong> sono:<br>
+<br>
+ITA1 - Samuele Artico<br>
+ITA2 - Giulio Cosentino<br>
+ITA3 - Guglielmo Di Grazia<br>
+ITA4 - Andrea Giuri<br>
+ITA5 - Matteo Musumeci<br>
+<br>
+Ad accompagnarli, sia spiritualmente che <em class="text-italics">fisica</em>mente:<br>
+<br>
+ITA6 - Alberto Meroni (Leader)<br>
+ITA7 - Giuseppe Milanesi (Leader)<br>
+ITA8 - Dennis Luigi Censi (Observer)<br>
+ITA9 - Stefania Carletti (Observer)<br>
+<br>
+Le domande che affliggono la mente dei lettori sono tante:<br>
+<br>
+ :?: Ѐ vero che gli ITA saranno privati dei loro contatti con il mondo per 3 giorni e mezzo?<br>
+ :?: Come faranno i Contestants senza un prode Deputy Leader?<br>
+ :?: L’ordine degli ITA sarà lo stesso con cui sono iscritti in gara?<br>
+ :?: State seguendo l’<a href="https://www.oliforum.it/viewtopic.php?p=177996" class="ext" class="postlink">IMO-diario</a>?<br>
+<br>
+Non perdetevi dunque nessuna puntata di questo entusiasmante e coinvolgente <strong class="text-strong">Diario Olimpico</strong>!<br>
+<br>
+P.S.<br>
+Ѐ questo il primo Diario Olimpico nel Forum? Forse sì, ma l’importante è che non sia l’ultimo!</article>
+<article class="post" id="p27820"><div class="who"><b>Pigkappa</b><span>7 lug 2023, 15:04</span></div>Grandi!<br>
+Siete tutti in quinta?<br>
+Le belle vacanze estive lunghe attenderanno molti anni, perché poi c'è il test in SNS, e poi si è adulti e non se ne parla fino alla pensione  :!:</article>
+<article class="post" id="p27821"><div class="who"><b>TeoMusu</b><span>8 lug 2023, 22:25</span></div>Day -1<br>
+<br>
+NOTA: Come il lettore ben saprà, il tempo è relativo. Per questo motivo ci si prende la libertà di chiamare Day 1 il primo giorno effettivo della manifestazione (10 luglio). Gli altri giorni saranno numerati di conseguenza.<br>
+<br>
+Solo ITA4 ha appena concluso il quarto anno.<br>
+Tempi soavi e spensierati lo attendono, per un'ultima volta, al ritorno dal Giappone.<br>
+Ma la sua mente è già proiettata verso le esplosive e scoppiettanti IPhO 2024 in Iran...<br>
+<br>
+La giornata degli ITA si apre pensando proprio a ITA4, che è arrivato a Milano (località designata per la partenza) già nel Day -2. Egli decide di usare questo tempo guadagnato per dormire a lungo, <em class="text-italics">molto</em> a lungo.<br>
+<br>
+Tuttavia, un evento inatteso stravolge la mattinata dei cinque studenti.<br>
+A causa di un imprevisto inerente ai biglietti aerei, ITA1 e ITA3 non potranno partire assieme al resto della delegazione... La situazione sembra irreparabile, ma non disperate! L'agenzia ha prontamente prenotato per loro un altro volo la mattina dopo. ITA1 e ITA3 sono scossi dalla notizia, ma non si perdono d'animo e proseguono il viaggio verso la città di ritrovo.<br>
+<br>
+L'hotel in cui pernotteranno, però, è a 4km da qualsiasi mezzo pubblico. Degno di nota è il tentativo dell'intraprendente ITA3 che, nonostante il sole cocente della Milano di luglio e il pesante bagaglio trascinato, si incammina solitario...<br>
+Solo ITA1 riesce a farlo desistere.<br>
+<br>
+Per un breve ma entusiasmante momento, 4/5 del team ITA si riuniscono nell'aeroporto, sotto l'occhio attento di ITA6. Manca solo ITA2, che si farà aspettare ancora.<br>
+<br>
+Raggiungere l'hotel sarà un'ardua impresa per ITA1 e ITA3. Innumerevoli sono i tentativi di contattare un Uber, tutti miseramente falliti. I due si vedono costretti a usufruire di un più tradizionale taxi.<br>
+<br>
+Nel frattempo ITA2, grazie a una precisa pianificazione del viaggio, riesce ad arrivare esattamente 4 minuti prima del limite massimo delle 19.30. 2 minuti dopo sopraggiungono anche ITA7, 8, 9 e ci si può finalmente dirigere al check in.<br>
+<br>
+Il momento più teso della giornata è quando ITA4 poggia il proprio bagaglio a mano sulla bilancia. Egli sa già che oltrepassa il limite di peso di un kilo e mezzo... La tensione è palpabile... Sudore gli scende dalla fronte...<br>
+Ma tutto si calma quando la commessa allarga un sorriso e lascia passare.<br>
+<br>
+Ma come pensava ITA4 di salvarsi?<br>
+Il piano era di presentarsi alla pesatura indossando giubbino imbottito di powerbank e con macchina fotografica al collo, rimuovendo un peso pari a circa 1.7kg.<br>
+Egli lascia la seguente nota:  "Mi hanno colto di sorpresa, il piano era perfetto!"<br>
+<br>
+Dopo questo, i sette passano i controlli e riescono a imbarcarsi sorprendentemente senza ulteriori imprevisti, ma le domande senza risposta sono ancora numerose!<br>
+ :?: Qual è la destinazione del volo su cui si sono imbarcati?<br>
+ :?: Perché ITA6 ha dato 100€ a ITA1?<br>
+ :?: Quanto è costato il cavetto che ITA4 ha dovuto comprare in aeroporto?<br>
+ :?: Come stanno se la stanno cavando da soli ITA1 e ITA3?<br>
+ :?: Dov'è che ITA5 troverà il tempo per scrivere altre puntate così lunghe?<br>
+<br>
+Ma per la risposta a tutte (o quasi) queste domande dovrete aspettare la prossima attesissima puntata del Diario Olimpico!</article>
+<article class="post" id="p27822"><div class="who"><b>TeoMusu</b><span>9 lug 2023, 19:00</span></div>Day 0<br>
+<br>
+Il diario ricomincia da dove si era interrotto: i nostri eroi si imbarcano su un mastodontico aeroplano a due piani diretto a Dubai.<br>
+<br>
+I contestants sono affascinati dai servizi offerti a bordo. Questi includono uno schermo personale touch dalle infinite funzionalità.<br>
+La sperimentazione di queste ha portato anche a fortuite coincidenze ad alto potenziale salvifico verso ITA4...<br>
+<br>
+Dopo il pasto, la delegazione dormicchia (chi più, chi meno) e si risveglia a Dubai.<br>
+Lì, dopo urgente pausa in bagno e lungo attraversamento dell'aeroporto, ci si imbarca sul volo diretto, questa volta, proprio a Tokyo.<br>
+<br>
+Qui il piano era di restare svegli, ma non tutti riescono a tenere gli occhi aperti...<br>
+Dopo essersi riposati un po', gli ITA hanno ancora molto tempo per sperimentare al meglio l'intrattenimento offerto.<br>
+In particolare ITA2 si appassiona di un gioco elettronico che susciterebbe ricordi infantili in molti lettori.<br>
+<br>
+Ma il momento migliore del viaggio fu certamente quando una hostess riuscì a catturare in un solo scatto la vera essenza di ITA2, ITA4 e ITA5. La fotografia così ottenuta verrà custodita con cura e ammirazione dai suddetti.<br>
+<br>
+Dopo l'atterraggio, tutta la delegazione esulta quando i bagagli compaiono sul nastro. (E per giunta tra i primi!)<br>
+<br>
+Le complesse procedure di controllo passaporti, che richiedono svariati QR-code, procedono senza troppi intoppi.<br>
+Superato tutto, si affidano finalmente all'organizzazione IPhO che, con un pullmino, trasporta concorrenti e accompagnatori ai rispettivi alloggi.<br>
+Tuttavia dovrete aspettare le prossime puntate per assaporare i commenti sulle stanze...<br>
+<br>
+ :?: Quale videogioco ha scoperto ITA2?<br>
+ :?: Come mai ITA4 è il protagonista dell'IPhO-diario?<br>
+ :?: È illegale portare una mela in Giappone?<br>
+ :?: Qual è l'equazione del terminatore in proiezione di Mercatore?<br>
+ :?: Riusciranno ITA1 e ITA3, ora in viaggio per Dubai, a pubblicare la loro attesissima versione del Day 0?<br>
+<br>
+Ma oggi domande più scottanti turbano la mente degli ITA già a Tokyo!<br>
+Il già famigerato ritiro dei cellulari durante i giorni di gara è imminente...<br>
+ :?: Riusciranno a scrivere comunque le puntate dei Day 1, 2, 3?<br>
+ :?: Quanto durerà il silenzio stampa?<br>
+<br>
+Questa volta il lettore assiduo dovrà attendere un po' più a lungo del solito per ottenere le tanto attese risposte.</article>
+<article class="post" id="p27823"><div class="who"><b>DeoGratias</b><span>9 lug 2023, 22:11</span></div>Day 0 (ma per davvero?)<br>
+<br>
+Mentre il resto della delegazione sorvola le steppe dell'Asia, diretto verso la terra del Sol Levante, i nostri ITA <span class="tex">\(2 \pm 1\)</span> si apprestano a partire a loro volta: dopo un' <em class="text-italics">abbondante</em> colazione e una rapida escursione nell'amena campagna milanese (trasformatasi presto in fuga disordinata dalla fauna locale), i due si recano alla navetta, provvisti di tutto se non di sonno. <br>
+<br>
+Nonostante il viaggio non sia iniziato sotto i migliori auspici, presto cominciano a rivelarsi segnali incoraggianti: primo tra tutti l'autista del mezzo di trasporto, il quale rivela di aver già trasportato altri partecipanti a competizioni sportive internazionali, e assicura che grazie alla sua benedizione l'ITA-Team riuscirà a battere ogni precedente record.<br>
+<br>
+Rincuorati e fiduciosi, i due malcapitati decidono di ingannare l'attesa prima dell'imbarco cercando di localizzare i propri compagni su un flight-tracker: non riuscendovi, formulano diverse ipotesi sulla loro possibile sorte (dirottamento? malfunzionamento dei radar? wormhole?), salvo poi essere interrotti dalle ultime chiamate al gate.<br>
+<br>
+Una volta giunti a bordo del mastodontico Airbus, ITA1 e ITA3 decidono di approfittare dello schermo digitale a loro disposizione per rendere il volo il più produttivo possible: ITA3 decide di provare a battere i record di tutti i videogiochi disponibili, mentre ITA1 si dedica alla visione di film in lingue esotiche.<br>
+Arrivati infine a Dubai, i due sono attesi da un meritato riposo, consapevoli che il viaggio è ancora lungo e che il silenzio stampa si avvicina.<br>
+<br>
+Ma le domande sono ancora molte:<br>
+ :?: Chi era il misterioso atleta che ha viaggiato sulla stessa navetta dei nostri contestants?<br>
+ :?: È vero che, all'aeroporto di Dubai, per ogni piano <span class="tex">\(n\)</span> esiste anche l'<span class="tex">\(n+1\)</span>?<br>
+ :?: È più facile risolvere Navier-Stokes a mente o nei sogni?<br>
+ :?: L'ITA-Team riuscirà mai a ricongiungersi al completo?<br>
+<br>
+Non temete, cari lettori, perché tra pochi fusi orari avrete risposte!</article>
+<article class="post" id="p27851"><div class="who"><b>TeoMusu</b><span>16 lug 2023, 9:20</span></div>Day 1<br>
+<br>
+Il sole sorge sul National Youth Center e i tre italiani che hanno dormito lì si ritrovano a commentare l'accomodation.<br>
+Solo ITA2 risulta in grado di esprimere compiutamente l'attonimento. Impossibile riferire la sua corposa descrizione del degrado, che pervade principalmente gli aspetti spaziale, logistico, sanitario, tecnico e deontologico. Già la sera precedente ITA4 aveva evidenziato le problematicità del luogo individuando gli unici cessi agibili solo nel corridoio contiguo.<br>
+Il bagno rivela inoltre interessanti sorprese, quali un sensore che, attivato, riproduce ad alto volume gorgheggi d'acqua per coprire i rumori delle funzioni biologiche. Informatone, ITA2 viene ulteriormente spiazzato dal contrasto tra la qualità dell'alloggio e l'ipocrisia dell'accorgimento.<br>
+<br>
+Tuttavia, la fame chiama e i tre seguono la folla per raggiungere il luogo della colazione. Anche il pasto richiede grandi virtù di adattamento e i nostri eroi faticano a trovare cibo con cui sfamarsi. Lì fanno conoscenza con il team ESP, con cui si lamentano dell'umidità e del conseguente caldo insopportabile.<br>
+<br>
+Ma ormai è giunto il momento di depositare cellulari e dispositivi elettronici, preceduto dagli estremi saluti ai cari. Gli organizzatori sono molto fiscali e ITA4 si vede costretto a correre in camera per recuperare e depositare anche gli auricolari bluetooth.<br>
+In cambio ricevono i gadget IPhO, tra cui una borraccia termica che, una volta riempita di ghiaccio, verrà spesso utilizzata per rinfrescarsi.<br>
+<br>
+Finalmente i contestants incontrano la loro guida, che parla italiano! Quindi si dirigono alla cerimonia di apertura, che si prospetta densa di emozioni.<br>
+Tuttavia il tricolore di ITA2 è rimasto in camera e l'unica bandiera a disposizione è quella più piccola nello zaino di ITA5. ITA4 è molto dubbioso, ma alla fine i tre sfilano orgogliosi sfoggiando i colori italiani.<br>
+Dopo la sfilata, la cerimonia prosegue con una gradita esibizione musicale e con una dimostrazione di karate, che però lascia ITA2 piuttosto perplesso.<br>
+<br>
+Il caldo continua a opprimere i nostri avventurieri, tanto che ITA2 trova in quel territorio la perfetta definizione di "<em class="text-italics">locus torridus</em>", in risposta al tentativo di ITA4 di dirlo "<em class="text-italics">locus amoenus</em>".<br>
+Unico sollievo il parco lì vicino dove, con una guida suppletiva, visitano un tempio shintoista e svolgono riti tradizionali.<br>
+<br>
+Il tanto atteso incontro sull'utilizzo delle calcolatrici arriva, ma si rivela così banale e superfluo che ITA5 ne approfitta per recuperare un po' di sonno perduto.<br>
+Quando l'organizzazione distribuisce alcune calcolatrici affinché gli studenti acquisiscano confidenza con le stesse, ITA4 viene nominato capitano così che vada a ritirare quella per i nostri. La scelta si rivela ottima: egli regala uno splendido momento quando si volta gesticolando più che italianamente alla notizia dell'esaurimento dei dispositivi.<br>
+<br>
+La cena, come il pranzo, risulta di qualità superiore alla colazione, sebbene comunque molto scarsa.<br>
+<br>
+La giornata si conclude con una sessione di socializzazione con i team CHE e SVK caratterizzata dalla presenza del cioccolato che gli elvetici hanno offerto a chiunque. I tre hanno modo di conoscere CHE4, romano infiltrato nel team svizzero. La conversazione, inevitabilmente, verte su stereotipi e modi di dire italiani.<br>
+<br>
+Ma ecco: ITA1 e ITA3 si ricongiungono al resto del team e non esitano a raccontare le loro avventure. Finalmente al completo, i nostri eroi si concede un po' di riposo prima di un giorno importante.<br>
+<br>
+Anche questa pagina di diario è costellata di domande...<br>
+ :?: Qual è l'albedo della cintura di karate di ITA2?<br>
+ :?: Quali strumenti sa suonare CHE4?<br>
+ :?: Si abitueranno mai al cibo della mensa?</article>
+<article class="post" id="p27855"><div class="who"><b>TeoMusu</b><span>17 lug 2023, 7:29</span></div>Day 2<br>
+<br>
+Gran giornata attende i nostri prodi. Si stagliano dinanzi a loro cinque ore di sofferenza e divertimento con la prova sperimentale. ITA1 e ITA3, dopo un meritato riposo, scoprono le misticità offerte dalla colazione. La gara in generale procede bene e i nostri eroi si sollazzano con i sofisticati apparati sperimentali forniti; peccato, poiché la loro prestazione non risulta altrettanto appagante a causa della lunghezza biblica della prova («Tloppo colta» ~ il team cinese). Da sottolineare l’ormai immancabile presenza di una temuta materia («Grande eccezione alla prima legge dell'ottica» ~ ITA4).<br>
+<br>
+Tra italiani comunque soddisfatti e altri un po’ meno, si prosegue con un dolce pranzo estemporaneo, concluso dallo spavaldo addentamento da parte di ITA3 di una golosa bustina, prima di notare una superflua e misteriosa scritta in rosso: “DO NOT EAT”.<br>
+<br>
+A seguito di questo slancio di audacia, i nostri eroi si dirigono sontuosamente all’edificio dei Cultural Events, dove asseriscono dominanza attraverso le proprie skill in varie attività quali giochi tipici giapponesi, origami e rilegatura di quadernetti targati IPhO.<br>
+<br>
+Le leggende, avide di nuove occasioni per primeggiare, si conducono a cena dove ITA4 intraprende una sfida all’ultimo scacco con AZE2 (successivamente creato ITA10), perdendo (con onore?) dopo aver ricevuto soccorso dall’intera squadra. Naturalmente, ITA3 sarebbe poi riuscito a sconfiggerlo da solo. L'interazione non ha potuto non rivelarsi anche culturalmente proficua, avendo portato all'apprendimento di elementi di azero da parte degli ITA.<br>
+<br>
+La vera emozione, tuttavia, si fa sentire ancor più tardi, intorno alle 22 JST, quando, a seguito della generosa largizione di taralli da parte di ITA4, si sente un certo movimento non trascurabile lungo i corridoi; sopraggiunge il suono di un flauto che orgogliosamente capitana, con festosi motivetti, un manipolo di IPhOisti che incitano qualsivoglia astante ad unirsi, dilagando più rapidamente della crisi finanziaria del 2008. La situazione degenera memorabilmente quando, invasi gli altri piani del dormitorio, il nostro ITA4 col suo palpabile carisma convince il centinaio di ragazzi presenti ad urlare a squarciagola l’erudito incitamento “DAJE ROMA” in onore di un altrettanto erudito apprezzatore della squadra calcistica, molto probabilmente svegliando il team cinese intento a risolvere Navier-Stokes nel sonno. Si conclude così, in bellezza, una giornata di grande skill issue, ma anche grandi responsabilità.<br>
+<br>
+<br>
+ :?: Il banco era magnetizzato?<br>
+ :?: Incombe forse il declino della prima legge dell'ottica?<br>
+ :?: Cosa significa "DO NOT EAT"?<br>
+ :?: Sopravviverà ITA3?<br>
+ :?: Che shampoo usano gli operatori differenziali?<br>
+ :?: Che dominio di integrazione è "TUTTO"?<br>
+ :?: Come si scrive "<em class="text-italics">gijdıllax</em>"?</article>
+<article class="post" id="p27856"><div class="who"><b>TeoMusu</b><span>17 lug 2023, 14:54</span></div>Day 3<br>
+<br>
+Dopo la colazione, a cui ci si abitua con fatica, il nostro team si prepara per la prima escursione. Meta: Yokohama.<br>
+<br>
+Durante il viaggio in autobus i nostri eroi ammirano l'intrecciato tessuto urbano, trapuntato di vertiginosi grattacieli e attraversato da sinuose autostrade.<br>
+<br>
+All'arrivo, i cinque + guida si dirigono verso la Landmark Tower, il più alto edificio nel campo visivo. Dopo qualche problema a trovare l'ingresso giusto, i nostri turisti entrano in ascensore molto veloce (e molto accelerato) diretto verso il piano 69 (<em class="text-italics">nice</em>). Il team si ferma a lungo sul piano migliore della torre, ammirando l'ampia vista.<br>
+<br>
+Per raggiungere la prossima tappa è necessario prendere la metro. Il team è sconvolto da come i giapponesi occupino solo il lato sinistro delle scale mobili. Rimediano subito manifestando un po' della propria italianità.<br>
+<br>
+A Chinatown i prodi scelgono non senza fatica un ristorante in cui pranzare tra gli infiniti proposti. Quando scoprono di avere a disposizione 2000¥ a testa per mangiare, decidono di ordinare fino a esaurimento budget, per comprendere solo successivamente di aver ordinato troppo...<br>
+<br>
+Qui ITA4 ha il suo primo incontro ravvicinato con le bacchette: sebbene l'impugnatura sia impeccabile, la tecnica non restituisce ancora i risultati sperati. Il nemico più temuto si rivela essere un involtino primavera il cui coefficiente di attrito statico con le bacchette è, per quanto difficile da stimare, certamente <span class="tex">\(\ll 1\)</span>. Il valoroso ITA4 combatte a lungo e, alla fine, avrà la meglio sul contendente.<br>
+<br>
+Successivamente, in un meraviglioso giardino panoramico viene avvistato un animale che scatena nei nostri biologi improvvisati un'accesa discussione...<br>
+<br>
+Comunque, è già ora di tornare al campus, dove è stato organizzato un festival tradizionale giapponese.<br>
+La scelta del cibo include varie specialità tipiche:<br>
+- "palle di polpo"<br>
+- granita (neve?) a svariati gusti<br>
+- bibita gassata blu con una pallina dentro (?)<br>
+- banana su stecco ricoperta di cioccolato.<br>
+I nostri eroi hanno sperimentato tutte queste interessanti novità.<br>
+<br>
+ITA2 esclama: "<em class="text-italics">Ora tiriamo pugni qua dentro finché non troviamo la pistola!</em>". Niente risse, signori, e la pistola è ad acqua. ITA1 e ITA3, infatti, si dotano di due esemplari di tale arma, conquistata a uno degli stand in stile fiera presenti alla festa, pronti a controbattere agli spruzzi ricevuti dal team FRA. Il combattimento è intenso e i serbatoi vengono riempiti e svuotati varie volte, ma alla fine si giunge a una tregua.<br>
+<br>
+Fattasi sera, i <span class="tex">\(\frac{3}{5}\)</span> del team, affaticati e appesantiti dall'abbondanza di cibo, decidono di saltare la cena per quel giorno. Inoltre, ITA4 ha un simpatico incontro con dei <em class="text-italics">Lactobacillus</em>, ma tralasciamo i dettagli.<br>
+<br>
+Solo ITA1 e ITA5 si dirigono verso la mensa: stanno forse imparando ad apprezzare le specialità proposte?<br>
+<br>
+Tutti i nostri contestants si addormentano presto, con l'obiettivo di arrivare alla prova del giorno dopo nelle migliori condizione psicofisiche.<br>
+<br>
+Il lettore appassionato proverà certamente a rispondere a queste domande:<br>
+:?: Erano davvero infinti i ristoranti a Chinatown? O erano <em class="text-italics">solo</em> in numero <span class="tex">\(\gg 1\)</span>?<br>
+:?: Assistiamo oggi all'inizio di un lento ma costante miglioramento di ITA4 nell'uso delle bacchette?<br>
+:?: Farfalla o pipistrello?<br>
+:?: Quale sarà l'unica falla nella strategia di riposo adottata per la gara?</article>
+<article class="post" id="p27868"><div class="who"><b>Pigkappa</b><span>29 lug 2023, 18:32</span></div>Suvvia che dite sulla prova e i risultati?  :?:</article>
+<article class="post" id="p27898"><div class="who"><b>TeoMusu</b><span>9 ago 2023, 15:33</span></div>Day 4<br>
+<br>
+La strategia adottata la sera precedente si rivela subito inefficace: i nostri concorrenti, ad eccezione di ITA1, sono precisamente tarati sulle 8 ore di sonno, dunque l’addormentamento precoce ha inevitabilmente causato un risveglio altrettanto anticipato. Nonostante le sfortunate condizioni, la valorosa squadra si presenta agguerrita alla prova teorica.<br>
+<br>
+Ognuno nella propria postazione, i nostri guerrieri percepiscono la <em class="text-italics">contrazione dei tempi</em>: uno strano effetto che si oppone a quello ben più tradizionale proposto dalla relatività (peraltro uno degli argomenti della prova). Mentre per un osservatore esterno sembra che la gara duri 5 ore, per i componenti della squadra ITA sembrano pochi gli attimi che li separano dall’inevitabile conclusione della parte competitiva dell’esperienza.<br>
+<br>
+Colloidi, stelle di neutroni e tensione superficiale sono tra gli argomenti della difficile prova che i nostri eroi affrontano come meglio possono. Le ore passano e, alla fine, il tempo scade. Si respira un’aria tesa, ma al contempo piena di libertà.<br>
+<br>
+I nostri concorrenti si esaltano alla notizia di poter portare via dalla postazione tutto quello che vogliono. Oltre a calcolatrice, sveglietta giapponese e cancelleria, ITA1 riempie una scatola intera con snack "<em class="text-italics">Carbo</em>", zuccherino fluido gelatinoso che lo ha accompagnato per tutta la gara. Lodevole il tentativo di ITA1 e ITA2 di portar via la scrivania, interrotto (anche) dalla propria incapacità di trasportarla.<br>
+<br>
+Tuttavia, nel momento in cui si presentano a ritirare i pocket lunch, questi sono finiti. I prodi sono dunque costretti ad aspettare per poi assaggiare l’interpretazione nipponica di un calzone (o panzerotto per i lettori baresi).<br>
+<br>
+Finalmente, i nostri nativi digitali possono riappropriarsi delle proprie apparecchiature elettroniche, con cui non esitano a contattare i propri cari. Con loro grande dispiacere scoprono però che il WiFi gratuito funziona, ma non è abbastanza veloce per soddisfare le loro modeste esigenze. Arriva quindi in soccorso ITA2 che, con la sua sim a traffico dati illimitato, sarà una valorosa risorsa per ITA1, ITA3 e ITA5, sprovvisti di altre connessioni.<br>
+<br>
+Non ci sono parole per esprimere la gratitudine che gli ITA<em class="text-italics">dispari</em> provano verso ITA2.<br>
+<br>
+Risolti questi inconvenienti, i cinque si dirigono verso i numerosi stand pubblicitari in cui varie aziende giapponesi attirano la gente con attrezzature scientifiche, per poi distribuire brochure e gadget di vario genere. Hanno così l’opportunità di ammirare al microscopio il moto browniano, di fotografare una goccia di latte, di guardare il mondo allo spettroscopio e scoprire la composizione metallica di certi oggetti. Gli ambìti premi includono una tavola periodica formato extra-large, una memory card da 16GB, dei misteriosi dolcetti giapponesi e vari ventagli.<br>
+<br>
+Ma il meglio arriva allo stand della Casio. Lì ITA2 si presenta come promotore ufficiale della marca, fiero di aver convinto innumerevoli amici e conoscenti a comprare il proprio stesso modello di calcolatrice, ovviamente Casio. Nel frattempo, ITA1 trova il modo di suonare il piano, ma solo <em class="text-italics">amatourishly</em>, come d’altronde ha specificato nel proprio cartellino identificativo.<br>
+<br>
+Dopo una cena decente, il team ITA trascorre una serata tranquilla con i propri amici slovacchi. La conversazione è anche istruttiva quando ITA4 spiega il significato che l’espressione "<em class="text-italics">breaking the balls</em>" assume in italiano.<br>
+<br>
+Un’altra giornata volge al termine per i nostri eroi… Ma, ora che le gare sono finite, chissà quali straordinarie avventure li attendono nei giorni a seguire…<br>
+<br>
+ :?: Calzone o panzerotto?<br>
+ :?: Che record ha stabilito ITA4?<br>
+ :?: Quanto hanno faticato gli ITA per vincere un bellissimo ventaglio giapponese?<br>
+ :?: Quanto Afnio (Hf) c'è nella moneta da 50 centesimi?</article>
+<nav class="pager"><a class="prev" href="olifis-825.html"><small>← precedente</small>IPHO 2011</a></nav>
+</main></body></html>

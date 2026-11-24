@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>202. Corsa sul ghiaccio</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>202. Corsa sul ghiaccio</h1>
+<p class="meta">28 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6886">forum Olifis</a></p>
+<article class="post first" id="p25916"><div class="who"><b>bosone</b><span>27 apr 2020, 18:26</span></div>Un ragazzo sta correndo su un campo gelato con velocità v=5 m/s verso Nord. Il coefficiente di attrito fra le sue scarpe e il terreno è <span class="tex">\(\mu = 0,1.\)</span> Assumiamo per semplicità che la reazione del campo rimanga costante. (L'assunzione è giustificata considerando il suo valore come quello medio di un passo dato che in realtà varierebbe ad ogni relativa spinta).<br>
+1) Qual è il tempo minimo necessario al ragazzo per cambiare direzione verso Est in modo che la sua velocità finale sia ancora v=5 m/s?<br>
+2) Qual è la forma della traiettoria ottimale per questo cambio di direzione?</article>
+<article class="post" id="p25917"><div class="who"><b>east_beast</b><span>27 apr 2020, 18:47</span></div>1) <span class="tex">\(7,9 s?\)</span><br>
+2) Una circonferenza di raggio <span class="tex">\(25m\)</span>?</article>
+<article class="post" id="p25918"><div class="who"><b>bosone</b><span>28 apr 2020, 17:24</span></div>1) Il risultato contiene un errore di circa il 10% per cui bisognerebbe che tu scrivessi la formula da cui hai derivato il numero per valutare se è una questione tecnica (una tua approssimazione) o concettuale. 2) E' proprio sbagliata  :roll:</article>
+<article class="post" id="p25919"><div class="who"><b>east_beast</b><span>28 apr 2020, 19:22</span></div>A probabilmente sbagliato, ma vabbè. <br>
+Avevo pensate che siccome <span class="tex">\(|v|\)</span> è costante allora l'accelerazione dev'essere centripeta, quindi <span class="tex">\(a = v^2/R\)</span>. Se la forza di attrito è <span class="tex">\(F = \mu N\)</span> costante in modulo, allora siccome v è costante R dev'essere costante, da cui segue una traiettoria circolare uniforme. (un quarto di circonferenza in realtà) Ha senso?</article>
+<article class="post" id="p25920"><div class="who"><b>bosone</b><span>29 apr 2020, 10:28</span></div>Mi pare allora che tu abbia dato per scontata la traiettoria circolare. Non è detto che durante la transizione, che poi significa che la velocità verso est sia alla fine v a partire da 0, il modulo della velocità sia sempre v. Ho evidenziato nel testo questa circostanza. E' alla fine che deve essere v. Applica i teoremi della meccanica ordinaria e siccome richiede il tempo minimo l'accelerazione sarà massima quando sfrutta tutta la forza disponibile...Ragiona anche poi in termini di <span class="tex">\(v_x\)</span> e <span class="tex">\(v_y\)</span> e sul relativo sistema. <span class="tex">\(v_y\)</span> è la velocità verso Nord, <span class="tex">\(v_x \)</span> quella verso Est. La prima passa da v a 0, la seconda da 0 a v :D</article>
+<article class="post" id="p25921"><div class="who"><b>Luca Milanese</b><span>29 apr 2020, 21:41</span></div>1) <span class="tex">\(7,2 s\)</span>?<br>
+2) <span class="tex">\(y=v\sqrt{\frac{2\sqrt{2}x}{g \mu}}-x\)</span> ?</article>
+<article class="post" id="p25925"><div class="who"><b>bosone</b><span>30 apr 2020, 10:19</span></div>1) Si ma ti prego di scrivere la formula ( e la sua motivazione) da cui trovi il risultato numerico! 2) Non si vede se quello finale è un punto interrogativo o un esponente 2. Se è un punto interrogativo butta giù il procedimento dichiarando di che curva si tratta e perchè e poi potrai andare con il 203! :D  :D</article>
+<article class="post" id="p25926"><div class="who"><b>Luca Milanese</b><span>30 apr 2020, 11:33</span></div>L'accelerazione fornita dall'attrito vale <span class="tex">\(\frac{f}{m}=\frac{\mu N}{m}=\frac{\mu g m}{m}=\mu g\)</span>. In ogni istante quindi <span class="tex">\(a_x^2+a_y^2=(\mu g)^2\)</span>. Inoltre deve essere <span class="tex">\(\int_0^T a_x dt=-\int_0^T a_y dt=v\)</span>, dove <span class="tex">\(T\)</span> è il tempo che cerchiamo. Ho pensato che il modo migliore per distribuire l'accelerazione fra <span class="tex">\(a_x\)</span> e <span class="tex">\(a_y\)</span> fosse avere <span class="tex">\(a_x=-a_y=\frac{\mu g}{\sqrt{2}}\)</span>, da cui si ottiene <span class="tex">\(T=\frac{v}{a_x}=\frac{\sqrt{2}v}{\mu g}\)</span>, che è circa <span class="tex">\(7,2 s\)</span>. Poi si possono scrivere le leggi orarie <span class="tex">\(x=\frac{a_x t^2}{2}\)</span> e <span class="tex">\(y=vt+\frac{a_y t^2}{2}\)</span>, da cui, eliminando <span class="tex">\(t\)</span> e sostituendo ad <span class="tex">\(a_x\)</span> e <span class="tex">\(a_y\)</span> le espressioni scritte in precedenza, si ottiene la traiettoria. Però mi rendo conto adesso che in effetti non saprei dimostrare che proprio avendo quelle <span class="tex">\(a_x\)</span> e <span class="tex">\(a_y\)</span> si ottiene il tempo minimo... magari ci penso un altro po'.</article>
+<article class="post" id="p25927"><div class="who"><b>Luca Milanese</b><span>30 apr 2020, 14:08</span></div>Mi è venuta in mente una soluzione bruttissima, ma mi pare funzionare:<br>
+Per quanto scritto sopra devo avere: <br>
+<span class="tex">\(\int_0^T a_x dt = v\)</span><br>
+<span class="tex">\(\int_0^T -a_y dt = v\)</span><br>
+Ora applico <span class="tex">\(AM-QM\)</span> alle medie integrali di <span class="tex">\(a_x\)</span> e <span class="tex">\(a_y\)</span>:<br>
+<span class="tex">\(\frac{1}{T}\int_0^T a_x dt \leq \sqrt{\frac{1}{T} \int_0^T a_x^2 dt}\)</span><br>
+<span class="tex">\(\frac{1}{T}\int_0^T -a_y dt \leq \sqrt{\frac{1}{T} \int_0^T (-a_y)^2 dt}\)</span><br>
+Elevando al quadrato e moltiplicando per <span class="tex">\(T\)</span> ottengo:<br>
+<span class="tex">\(\frac{1}{T}\bigg (\int_0^T a_x dt \bigg)^2 \leq \int_0^T a_x^2 dt\)</span><br>
+<span class="tex">\(\frac{1}{T}\bigg (\int_0^T -a_y dt \bigg)^2 \leq \int_0^T (-a_y)^2 dt\)</span><br>
+Infine, sommando membro a membro:<br>
+<span class="tex">\(\frac{1}{T} \Bigg [ \bigg(\int_0^T a_x dt \bigg)^2 +\bigg(\int_0^T -a_y dt \bigg)^2 \Bigg ] \leq \int_0^T (a_x^2+a_y^2) dt\)</span><br>
+<span class="tex">\(\Rightarrow \frac{1}{T}(v^2+v^2) \leq \int_0^T (\mu g)^2 dt \Rightarrow \frac{2v^2}{T} \leq (\mu g)^2 T \Rightarrow T \geq \frac{\sqrt{2}v}{\mu g}\)</span>.<br>
+Quanto poi alla traiettoria, penso che basti dire che, poichè con le leggi orarie scritte sopra si ottiene proprio <span class="tex">\(T=\frac{\sqrt{2}v}{\mu g}\)</span>, allora esse (e quindi la traiettoria che ne deriva) vanno bene. In realtà penso che siano anche le uniche possibili, perchè, almeno nel caso discreto, l'uguaglianza in <span class="tex">\(AM-QM\)</span> implica che tutti gli elementi di cui si fa la media siano uguali, e penso che lo stesso si possa dire nel caso continuo, dove quindi significherebbe che <span class="tex">\(a_x\)</span> e <span class="tex">\(a_y\)</span> sono costanti.<br>
+Ora però spero che esista una soluzione più semplice che non ho trovato....</article>
+<article class="post" id="p25928"><div class="who"><b>bosone</b><span>30 apr 2020, 17:29</span></div>Scusa, la risposta alla domanda 1) è corretta ma non dai con i tuoi conti la risposta alla domanda 2) che per ora è inevasa. Dici che la soluzione va bene ma non dici che forma ha la traiettoria ottimale e perchè. E' quello che esplicitamente chiede la 2). Cerchi un'altra soluzione ma non concludi quella che hai dato....Non ho capito poi che  fine ha fatto l'equazione in x e y di stamani quella con il 2 o il ? per intenderci....che mi pareva promettente...va bene ripensaci..</article>
+<article class="post" id="p25929"><div class="who"><b>east_beast</b><span>30 apr 2020, 17:55</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-6886.html#p25928" data-post-id="25928" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 apr 2020, 17:29</div></cite>
+</div></blockquote>
+Bosona ma esiste un modo elementare (o comunque più fisico) di mostrare che <span class="tex">\(a_x = -a_y\)</span>?</article>
+<article class="post" id="p25930"><div class="who"><b>Luca Milanese</b><span>30 apr 2020, 18:05</span></div>Io ho inteso "traiettoria ottimale" come quella che permette di cambiare velocità e direzione nel minor tempo possibile, cioè <span class="tex">\(\frac{\sqrt{2}v}{\mu g}\)</span>. Osservo che se la forza di attrito è sempre rivolta verso sud-est, cioè <span class="tex">\(a_x=\frac{\mu g}{\sqrt{2}}\)</span> e <span class="tex">\(a_y=-\frac{\mu g}{\sqrt{2}}\)</span>, allora la condizione è soddisfatta, poichè integrando ottengo:<br>
+<span class="tex">\(\int_0^T a_x dt=\int_0^{\frac{\sqrt{2} v}{\mu g}}\frac{\mu g}{\sqrt{2}}dt=v\)</span><br>
+<span class="tex">\(\int_0^T a_y dt =\int_0^{\frac{\sqrt{2} v}{\mu g}} -\frac{\mu g}{\sqrt{2}}dt=-v\)</span><br>
+Quindi <span class="tex">\(v_{xf}=0+v=v\)</span> e <span class="tex">\(v_{yf}=v-v=0\)</span>, che è quello che cerchiamo.<br>
+Per ottenere la traiettoria ricavo prima le due leggi orarie integrando le velocità:<br>
+<span class="tex">\(x(t)=v_{xi}t+\frac{a_x t^2}{2}=0+\frac{\mu g t^2}{2\sqrt{2}}\)</span><br>
+<span class="tex">\(y(t)=v_{yi}t+\frac{a_y t^2}{2}= vt-\frac{\mu g t^2}{2\sqrt{2}}\)</span><br>
+A questo punto ricavo <span class="tex">\(t=\sqrt{\frac{2\sqrt{2}x}{\mu g}}\)</span> dalla prima e lo inserisco nella seconda, ottenendo:<br>
+<span class="tex">\(y=v\sqrt{\frac{2\sqrt{2}x}{\mu g}}-x\)</span>, equazione che descrive la traiettoria.<br>
+Poi se vuoi posso fare qualche altro passaggio e arrivare alla forma implicita <span class="tex">\(x^2+y^2+2xy-\frac{2\sqrt{2}v^2 x}{\mu g}=0\)</span>, che descrive una conica con gli assi di simmetria non paralleli agli assi cartesiani, ma non penso di poter andare oltre.</article>
+<article class="post" id="p25931"><div class="who"><b>east_beast</b><span>30 apr 2020, 18:21</span></div>Se il vettore accelerazione è costante e c'è una velocità iniziale non nulla e non parallela ad <span class="tex">\(\vec{a}\)</span> la conica è una parabola con asse di simmetria la direzione del vettore accelerazione (analogia con il moto parabolico) giusto?</article>
+<article class="post" id="p25932"><div class="who"><b>Luca Milanese</b><span>30 apr 2020, 18:25</span></div>Ora che mi ci fai pensare, e dopo aver frettolosamente controllato con Geogebra, penso che sia proprio così...</article>
+<article class="post" id="p25933"><div class="who"><b>Pigkappa</b><span>30 apr 2020, 18:35</span></div><blockquote><div><cite>east_beast ha scritto: <a href="olifis-6886.html#p25929" data-post-id="25929" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 apr 2020, 17:55</div></cite>
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-6886.html#p25928" data-post-id="25928" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 apr 2020, 17:29</div></cite>
+</div></blockquote>
+Bosona ma esiste un modo elementare (o comunque più fisico) di mostrare che <span class="tex">\(a_x = -a_y\)</span>?
+</div></blockquote>
+
+Nel grafico della velocita', dovete andare da <span class="tex">\((0, v)\)</span> a <span class="tex">\((v,0)\)</span> nel minor tempo possibile con accelerazione costante in modulo. La linea piu' breve che connette due punti e' un segmento, per cui mi pare ovvio che il vettore accelerazione dovra' essere constante e parallelo a <span class="tex">\((v, -v)\)</span>...</article>
+<article class="post" id="p25934"><div class="who"><b>east_beast</b><span>30 apr 2020, 18:39</span></div>:shock:  :shock:  :shock:  <br>
+Non ci avevo proprio pensato, che ottuso :D  :lol:</article>
+<article class="post" id="p25935"><div class="who"><b>Pigkappa</b><span>30 apr 2020, 19:15</span></div>Comunque questa situazione e' davvero realistica? Il pattinatore puo' dirigere la forza di attrito nella direzione che vuole per ottenere questo cambio di direzione? Non so la risposta ma sembra interessante.</article>
+<article class="post" id="p25936"><div class="who"><b>Luca Milanese</b><span>30 apr 2020, 19:24</span></div>Ah mannaggia a me che cerco sempre di complicarmi la vita...<br>
+@Pigkappa il testo non mi sembra parlare di un pattinatore, ma di un ragazzo che corre con delle scarpe, quindi probabilmente l'attrito in questione è quello statico, che magari è più facile da direzionare (anche perchè per quanto ne so quello dinamico è invece sempre opposto al movimento).</article>
+<article class="post" id="p25937"><div class="who"><b>Pigkappa</b><span>30 apr 2020, 21:34</span></div>Ho letto campo gelato e mi sono immaginato un pattinatore  :lol: infatti mi stavo chiedendo come avrebbe fatto a orientare l'attrito nella direzione che voleva.</article>
+<article class="post" id="p25938"><div class="who"><b>bosone</b><span>1 mag 2020, 10:46</span></div>Allora siamo arrivati alla conclusione dopo un dibattito approfondito e concitato come si conviene nei problemi davvero intriganti. In realtà il metodo più semplice era, come avevo suggerito a east beast, di mettersi nel sistema<span class="tex">\((v_x,v_y)\)</span> con il primo asse verso Est e il secondo verso Nord. Inizialmente siamo in A=(0,v) e alla fine siamo in B(v,0) - come mi pare abbia inteso Pigkappa. Ora il secondo estremo del vettore velocità <span class="tex">\(\vec v\)</span>percorre la diagonale del quadrato di lato v, cioè <span class="tex">\(v\sqrt{2}\)</span>, nel tempo <span class="tex">\(v\sqrt{2}/\mu g\)</span>e quindi alla velocità costante<span class="tex">\(\mu.g\)</span>. E' facile allora calcolare le componenti di<span class="tex">\(\vec v\)</span>cioè <span class="tex">\(v_x(t), v_y(t)\)</span>che poi sono<span class="tex">\((dx/dt, dy/dt)\)</span>e risalire a x e y e quindi all'equazione della conica come ha fatto Luca.<br>
+Difficile assegnare il 203 perchè per esempio la parabola l'ha riconosciuta east beast. A scuola non si fanno queste cose. Personalmente ero andato sul web a farmi una cultura sulla classificazione delle coniche per stabilire che, avendo due intersezioni coincidenti con la retta all'infinito, era una parabola. In conclusione tuttavia, considerata anche la risposta 1),ritengo che abbia meritato il 203 Luca Milanese! :D  :D</article>
+<article class="post" id="p25939"><div class="who"><b>east_beast</b><span>1 mag 2020, 11:39</span></div>Concordo anche io, vai Luca!<br>
+Bel problema comunque @Bosone</article>
+<article class="post" id="p25940"><div class="who"><b>Pigkappa</b><span>1 mag 2020, 18:29</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-6886.html#p25938" data-post-id="25938" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 mag 2020, 10:46</div></cite>
+Difficile assegnare il 203 perchè per esempio la parabola l'ha riconosciuta east beast. A scuola non si fanno queste cose.
+</div></blockquote>
+
+ :shock:  :shock: <br>
+<br>
+Non si dice piu' che un moto ad accelerazione costante ha traiettoria parabolica?</article>
+<article class="post" id="p25941"><div class="who"><b>east_beast</b><span>1 mag 2020, 19:01</span></div>Personalmente se non fosse stato per il problema di Febbraio 2019 che lo chiedeva esplicitamente io non mi sarei mai nemmeno posto il problema, per farti capire, e temo che ciò ormai accada in troppe scuole... :(</article>
+<article class="post" id="p25943"><div class="who"><b>Pigkappa</b><span>2 mag 2020, 2:37</span></div>Cioè non si fa che la traiettoria di un corpo lanciato in aria sotto effetto di gravità è parabolica? Boh mi sembra molto strano.</article>
+<article class="post" id="p25944"><div class="who"><b>Luca Milanese</b><span>2 mag 2020, 9:45</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-6886.html#p25943" data-post-id="25943" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 mag 2020, 2:37</div></cite>
+Cioè non si fa che la traiettoria di un corpo lanciato in aria sotto effetto di gravità è parabolica? Boh mi sembra molto strano.
+</div></blockquote>
+Sì, si dice che il moto del proiettile sparato sulla Terra è parabolico, e lo si dimostra come ho fatto io in questo problema, cioè scrivendo le leggi orarie ed eliminando <span class="tex">\(t\)</span> (almeno così ho visto fare sui libri di testo che ho incontrato), ma poi non si generalizza al caso di un qualsiasi vettore accelerazione costante.</article>
+<article class="post" id="p25945"><div class="who"><b>bosone</b><span>2 mag 2020, 10:42</span></div>@ Pigkappa Forse mi sono spiegato male, Pigkappa: quello che non si fa a scuola, almeno nella mia, è che una qualunque equazione di secondo grado in x,y rappresenta una conica e che introducendo la terza coordinata z si può fare sistema con la retta all'infinito z=0 che annulla tutti i termini tranne quelli in <span class="tex">\(x^2, y^2, xy\)</span> Se la relativa equazione in y/x ha due soluzioni reali si tratta di un'iperbole, se le ha coincidenti come nel nostro caso è una parabola, se le ha complesse è un'ellisse o una circonferenza. Questa competenza era necessaria nel nostro problema. Chiederei di sapere in quanti licei scientifici si fa una cosa del genere... :?:</article>
+<article class="post" id="p25946"><div class="who"><b>Pigkappa</b><span>2 mag 2020, 13:38</span></div><blockquote><div><cite>Luca Milanese ha scritto: <a href="olifis-6886.html#p25944" data-post-id="25944" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 mag 2020, 9:45</div></cite>
+ma poi non si generalizza al caso di un qualsiasi vettore accelerazione costante.
+</div></blockquote>
+Beh ma quella era la parte interessante di questo problema a cui dovevate arrivare risolvendolo  :P . Non e' che io ho una tabellona di traiettorie possibili sotto varie accelerazioni, so solo due esempi: 1) gravita' costante --&gt; moto parabolico; 2) accelerazione <span class="tex">\(-k \hat{r}/r^2\)</span> --&gt; ellisse, parabola o iperbole in base all'energia del sistema. Mentre pensavo a questo problema mi sono convinto che <span class="tex">\(\vec{a}\)</span> fosse costante, ho pensato "Ah ma e' proprio come se fosse in un campo di gravita'" e quindi il moto era parabolico. Non importa se gli assi li chiami <span class="tex">\(\hat x\)</span> <span class="tex">\(\hat y\)</span> <span class="tex">\(\hat z\)</span> e se <span class="tex">\(\vec{a}\)</span> punta verso il basso o alto o qualsiasi direzione. Puoi sempre ruotare gli assi come vuoi ma una parabola resta una parabola.<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-6886.html#p25945" data-post-id="25945" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">2 mag 2020, 10:42</div></cite>
+Questa competenza era necessaria nel nostro problema.
+</div></blockquote>
+Nah era piu' semplice secondo me. Comunque quella cosa in terza si dovrebbe fare...<br>
+<br>
+Comunque non voglio rallentarvi dall'andare avanti con la staffetta  :!:</article>
+<article class="post" id="p25947"><div class="who"><b>Luca Milanese</b><span>2 mag 2020, 13:56</span></div>Sì sì ma in effetti avrei dovuto capirlo da me... invece di andare di contazzi in analitica :lol: .</article>
+<nav class="pager"><a class="prev" href="olifis-5992.html"><small>← precedente</small>21: Incroci!</a><a class="next" href="olifis-2327.html"><small>successivo →</small>Rotazione attorno ad un perno</a></nav>
+</main></body></html>

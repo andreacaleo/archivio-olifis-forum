@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Macchina di Atwood... Infinita!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Macchina di Atwood... Infinita!</h1>
+<p class="meta">30 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=24">forum Olifis</a></p>
+<article class="post first" id="p115"><div class="who"><b>Pigkappa</b><span>18 gen 2009, 19:22</span></div><a class="lost" href="http://img155.imageshack.us/img155/4544/atwoodgg1.jpg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Si consideri il sistema di masse e carrucole in figura. Tutte le masse sono uguali. Le carrucole non hanno massa e neanche i fili. Si tengono ferme tutte le masse, e poi, improvvisamente, si lascia che possano cadere liberamente. Calcolare l'accelerazione della massa più in alto. <br>
+Se vi aiuta ad immaginare meglio come funzionano le cose, immaginate il sistema di N masse e carrucole, e fate tendere N all'infinito.<br>
+<br>
+<br>
+Il livello secondo me è adatto per un Senigallia non particolarmente facile. Il problema è molto bello, e non esistono solo soluzioni brutte e contose.</article>
+<article class="post" id="p121"><div class="who"><b>bacco</b><span>18 gen 2009, 20:34</span></div>Molto bello!</article>
+<article class="post" id="p125"><div class="who"><b>CoNVeRGe.</b><span>18 gen 2009, 22:32</span></div>non capisco.. l'ultima carrucola avrà (rispettando il disegno) a sinistra una massa e a destra cosa ?</article>
+<article class="post" id="p126"><div class="who"><b>eli9o</b><span>18 gen 2009, 22:37</span></div>Un' altra carrucola... Poi un'altra carrucola, ecc.<br>
+Nota il titolo</article>
+<article class="post" id="p127"><div class="who"><b>CoNVeRGe.</b><span>18 gen 2009, 22:41</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Un' altra carrucola... Poi un'altra carrucola, ecc.<br>
+Nota il titolo</div></blockquote>
+si ma ci sarà prima o poi un'ultima carrucola  :?</article>
+<article class="post" id="p130"><div class="who"><b>Pigkappa</b><span>19 gen 2009, 0:47</span></div>Sì, ci sarà. Supponi che il numero N di carrucole sia molto maggiore di 1 e dimostra che l'accelerazione della prima massa converge per N che tende a infinito.<br>
+<br>
+In alternativa, hai il permesso di fidarti del fatto che converge, e di calcolarla in qualche modo dandolo per scontato.</article>
+<article class="post" id="p131"><div class="who"><b>eli9o</b><span>19 gen 2009, 2:31</span></div>Proviamo dai...<br>
+Prima di tutto assumiamo m=1 Kg. Nel caso più semplice di una macchina di Atwood (una carrucola e 2 masse) abbiamo a sistema le 2 condizioni <span class="tex">\(T-m_1g=m_1a\)</span> e <span class="tex">\(T-m_2g=m_2a\)</span>. Risolvendo il sistema otteniamo le 2 relazioni <span class="tex">\(a=\frac{m_2-m_1}{m_2+m_1}g\)</span> e <span class="tex">\(T=\frac{2m_1m_2}{m_1+m_2}g\)</span>.<br>
+Possiamo associare ad ogni insieme di carrucole (tutte quelle da un certo punto in giù) una massa equivalente, cioè calcolare la forza peso che questo esercita sulla carrucola immediatamente superiore. Numeriamo le carrucole dal basso (consideriamole per ora finite). Sia <span class="tex">\(m_i\)</span> la massa equivalente alla i-esima carrucola (con tutte quelle sotto). Dalle formule ottenute in partenza abbiamo che <span class="tex">\(a_i=\frac{m_i-1}{m_i+1}g\)</span>. Avremo che la forza peso esercitata sulla i+1 esima carrucola è <span class="tex">\(P_{i+1}=(g-a_i)m_i+(g+a_i)m\)</span>. Sostituendo la relazione dell'accelerazione appena determinata otteniamo <span class="tex">\(m_{i+1}=\frac{P_{i+1}}{g}=4\frac{m_i}{m_i+1}\)</span>, inoltre sappiamo che <span class="tex">\(m_1=1 Kg\)</span>.<br>
+Osserviamo che, se <span class="tex">\(m_i&lt;3\)</span> allora <span class="tex">\(m_{i+1}= 4\frac{m_i}{m_i+1}&lt;3\)</span>. Quindi abbiamo che <span class="tex">\(m_{\infty}\leq3\)</span> (senza essere troppo fiscali sull'uguale). <br>
+Per verificare che per i che tende ad infinito m tende a 3 consideriamo la quantità <span class="tex">\(h_i=3-m_i\)</span> e osserviamo che <span class="tex">\(h_i\geq2h_{i+1}\)</span>. Infatti <span class="tex">\(3-m_i\geq 6-8\frac{m_i}{m_i+1}\)</span> risulta verificata per <span class="tex">\(1\leq m_i \leq 3\)</span> che è proprio l'intervallo che ci interessa. <br>
+Ora sostituiamo nella formula iniziale per l'accelerazione <span class="tex">\(m_1=1 Kg\)</span> e <span class="tex">\(m_2=3 Kg\)</span>. Otteniamo <span class="tex">\(a=\frac{1}{2}g\)</span>.<br>
+<br>
+Concordo, bel problema  :)<br>
+Inoltre questo forum spione ci dice che bisogna farti gli auguri! :D<br>
+<br>
+Edit: un amico mi ha fatto notare che c'è un'altra interpretazione (quella giusta?) cioè che a destra nell'ultima carrucola non ci sia niente, mentre io ho supposto ci sia una massa... In quel caso, arrivati alla ricorsione si pone <span class="tex">\(m_1=0\)</span> quindi avremo <span class="tex">\(m_i=0\)</span> per ogni i e la massa cade con accelerazione g; oppure più semplicemente ricordando che il peso della carrucola con le masse è pari al doppio della tensione del filo che "ci gira" attorno avremo che tutte le tensioni sono 0 e tutte le masse cadono con accelerazione g... <br>
+Com'è fatta questa "ultima" carrucola?  :?</article>
+<article class="post" id="p181"><div class="who"><b>CoNVeRGe.</b><span>29 gen 2009, 22:52</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Edit: un amico mi ha fatto notare che c'è un'altra interpretazione (quella giusta?) cioè che a destra nell'ultima carrucola non ci sia niente, mentre io ho supposto ci sia una massa... In quel caso, arrivati alla ricorsione si pone <span class="tex">\(m_1=0\)</span> quindi avremo <span class="tex">\(m_i=0\)</span> per ogni i e la massa cade con accelerazione g; oppure più semplicemente ricordando che il peso della carrucola con le masse è pari al doppio della tensione del filo che "ci gira" attorno avremo che tutte le tensioni sono 0 e tutte le masse cadono con accelerazione g... <br>
+Com'è fatta questa "ultima" carrucola?  :?</div></blockquote>
+è proprio il motivo per cui me lo chiedevo..</article>
+<article class="post" id="p185"><div class="who"><b>Falco5x</b><span>30 gen 2009, 8:37</span></div>A mio parere il problema è un po' vago perché privo di condizioni al contorno. Deve quindi essere discusso assumendo ipotesi arbitrarie, che per comodità e con linguaggio improprio attribuirò alla cosiddetta "ultima massa" situata sul filo di destra dell'"ultima puleggia" (situata all'infinito).<br>
+In questa catena di pulegge, infatti, essendo nullo l'attrito e non possedendo esse massa (e nemmeno i fili), va da sé che il filo a monte di ogni puleggia possiede una tensione doppia rispetto a ciascuno dei due fili a valle, che hanno tensione uguale.<br>
+Pertanto se l"ultima massa avesse valore finito, anche la tensione degli ultimi fili sarebbe finita, e quindi raddoppiando a ogni puleggia si giungerebbe con una tensione infinita sui fili della prima puleggia, risultato che non mi pare proprio "bello".<br>
+Se viceversa l'ultima massa avesse valore zero (filo libero), allora il raddoppio delle tensioni condurrebbe a tensioni zero anche sulla prima puleggia, e allora la prima massa si muoverebbe come se fosse libera, ovvero con accelerazione g.<br>
+Se infine l'ultima massa avesse valore "infinitesimo", allora col sistema del raddoppio si giungerebbe a un valore di tensione qualsiasi (indeterminato) sui fili della prima puleggia, e la prima massa si muoverbbe con accelerazione qualsiasi (indeterminata).</article>
+<article class="post" id="p186"><div class="who"><b>bacco</b><span>30 gen 2009, 10:17</span></div>Ma perché volete per forza imporre il fatto che ci sia un'ultima carrucola? A cosa serve? Secondo me può essere fuorviante, proprio perchè un'ultima carrucola non c'è. Il problema mi sembra ben determinato, anche se ovviamente la situazione non è realizzabile. C'è una serie di carrucole, che hanno delle relazioni cinematiche e dinamiche tra loro, ben definite. Al tempo t=0 sono ferme. Non serve altro.<br>
+<br>
+Ciao</article>
+<article class="post" id="p187"><div class="who"><b>Falco5x</b><span>30 gen 2009, 10:55</span></div>Mi pareva di essere stato abbastanza chiaro nella mia disamina...<br>
+Ma se non ci sono altri dati, allora assumo l'ipotesi più deterministica: la prima massa si muove con accelerazione g, come se il sistema non ci fosse; anzi tutte le masse si muovono con accelerazione g, e tutte le tensioni dei fili sono nulle.<br>
+Però ci sarebbe una soluzione anche per qualsiasi altro valore di accelerazione. Ad esempio se la prima massa accelerasse con g/2, la seconda accelererebbe con 3/4g, la terza con 7/8g, e così via all'infinito. Per questo dico che il problema è indeterminato, perché qualunque soluzione è possibile.<br>
+Però mi pare un problema un po'.. insipido.<br>
+Se invece non ho capito e le cose stanno diversamente da come penso, allora vorrei una confutazione motivata.</article>
+<article class="post" id="p189"><div class="who"><b>Pigkappa</b><span>30 gen 2009, 15:53</span></div>Se vi torna meglio pensarlo, potete mettere una massa uguale alle altre in fondo, ma non è necessario. La risposta si può ottenere univocamente anche senza questo artificio. Potete mettere anche una massa diversa dalle altre e vedere che la risposta converge alla stessa soluzione, purchè tale massa non sia nulla. Se la massa è nulla invece si ottiene un risultato diverso, ma ovviamente questa non è la soluzione accettabile (se nell'altro caso sto sostituendo infinite masse e carrucole con una "massa equivalente" (per modo di dire), qui le sto proprio cancellando, che è peggio).<br>
+<br>
+Se volete fare le cose formalmente, provate a dimostrare quello che ho detto...</article>
+<article class="post" id="p191"><div class="who"><b>Falco5x</b><span>30 gen 2009, 16:06</span></div>Allora c'è decisamente qualcosa che non capisco, limite mio evidentemente!<br>
+A me pare che se metto una massa uguale alle altre in fondo, il sistema resta fermo, la tensione sulle corde raddoppia a ogni carrucola e arriva all'infinito sulla prima carrucola.<br>
+Stesso risultato se in fondo metto una massa di valore piccolo ma finito. Se invece la metto di valore infinitesimo il risultato può essere qualsiasi, come ho già più volte affermato.<br>
+Io resto della mia idea però... probabilmente mi sfugge qualcosa.<br>
+E allora sono curiosissimo di vedere come intendete risolvere questo problema, e poi ne discuteremo.<br>
+E se ho sbagliato pago da bere.</article>
+<article class="post" id="p192"><div class="who"><b>Pigkappa</b><span>30 gen 2009, 16:11</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>A me pare che se metto una massa uguale alle altre in fondo, il sistema resta fermo, la tensione sulle corde raddoppia a ogni carrucola e arriva all'infinito sulla prima carrucola.</div></blockquote>
+
+Dimostralo (formalmente), allora...<br>
+<br>
+Già con due sole carrucole e tre sole masse, non mi pare proprio che il sistemi resti fermo...</article>
+<article class="post" id="p194"><div class="who"><b>Falco5x</b><span>30 gen 2009, 16:19</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>A me pare che se metto una massa uguale alle altre in fondo, il sistema resta fermo, la tensione sulle corde raddoppia a ogni carrucola e arriva all'infinito sulla prima carrucola.</div></blockquote>
+
+Dimostralo (formalmente), allora...<br>
+<br>
+Già con due sole carrucole e tre sole masse, non mi pare proprio che il sistemi resti fermo...</div></blockquote>
+Hai ragione, ho detto una cavolata, ci penso meglio!</article>
+<article class="post" id="p200"><div class="who"><b>Falco5x</b><span>31 gen 2009, 9:14</span></div><span style="font-size: 150%; line-height: normal">Sorry!</span> :oops: <br>
+Avevo ragionato affrettatamente.<br>
+Finalmente mi sono deciso a prendere carta e penna e a svolgere i noiosissimi calcoli (sigh! :( ), verificando che la soluzione converge (forse) a:<br>
+<span class="tex">\(a =  - \frac{g}{2}\)</span><br>
+ (il segno meno indica che l'accelerazione è rivolta verso l'alto)</article>
+<article class="post" id="p210"><div class="who"><b>Falco5x</b><span>1 feb 2009, 4:37</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>la soluzione converge (forse) a:<br>
+<span class="tex">\(a =  - \frac{g}{2}\)</span><br>
+ (il segno meno indica che l'accelerazione è rivolta verso l'alto)</div></blockquote>
+Seppure tardivamente, il metodo "furbo" per risolvere questo problema l'ho trovato; cancello il "forse" e dico che la soluzione è proprio quella. Non occorre fare iterazioni, basta fare la considerazione che il sistema dalla seconda carrucola in poi si comporterebbe esattamente come l'intero sistema se fosse ancorato in un punto fisso, anziché in un punto con accelerazione "a".<br>
+Adesso posso dire anch'io "bello questo problema". Meglio tardi che mai! ;)</article>
+<article class="post" id="p211"><div class="who"><b>Paolo90</b><span>1 feb 2009, 19:24</span></div>Penso di aver trovato la stessa soluzione di falco5x ma la scrivo lo stesso perche' non so se il mio ragionamento e' valido: indico con <span class="tex">\(m_1, m_2, ...\)</span> le masse numerate a partire dall'alto, e <span class="tex">\(C_1, C_2, ...\)</span> le rispettive carrucole. <span class="tex">\(m_1\)</span> si muovera' verso l'alto con accelerazione <span class="tex">\(a\)</span>, mentre <span class="tex">\(C_2\)</span> si muovera' verso il basso con la stessa accelerazione. Prendiamo un sistema di riferimento solidale con <span class="tex">\(C_2\)</span>, in questo sistema la macchina di atwood se osservata dalla seconda carrucola in giu' sara assolutamente identica alla macchina di atwood osservata nel primo sistema di riferimento dalla prima carrucola. Ne consegue che <span class="tex">\(m_2\)</span> si muove verso l'alto con accelerazione <span class="tex">\(a\)</span> (nel sistema di riferimento non inerziale, quindi in quello inerziale <span class="tex">\(m_2\)</span> e' ferma). Su <span class="tex">\(m_2\)</span> agiscono due forze: la forza peso verso il basso e una forza fittizzia di modulo <span class="tex">\(ma\)</span> verso l'alto. L'accelerazione di gravita' pero' inquesto sistema di riferimento non e' <span class="tex">\(g\)</span>, ma <span class="tex">\(g-a\)</span>, in quanto il sistema e' accelerato verso il basso. <span class="tex">\(m(g-a)-ma=0 =&gt; a=g/2\)</span></article>
+<article class="post" id="p212"><div class="who"><b>Falco5x</b><span>1 feb 2009, 22:06</span></div><blockquote><div><cite>Paolo90 ha scritto:</cite>... Ne consegue che <span class="tex">\(m_2\)</span> si muove verso l'alto con accelerazione <span class="tex">\(a\)</span> (nel sistema di riferimento non inerziale, quindi in quello inerziale <span class="tex">\(m_2\)</span> e' ferma). Su <span class="tex">\(m_2\)</span> agiscono due forze: la forza peso verso il basso e una forza fittizzia di modulo <span class="tex">\(ma\)</span> verso l'alto. L'accelerazione di gravita' pero' inquesto sistema di riferimento non e' <span class="tex">\(g\)</span>, ma <span class="tex">\(g-a\)</span>, in quanto il sistema e' accelerato verso il basso. <span class="tex">\(m(g-a)-ma=0 =&gt; a=g/2\)</span></div></blockquote>
+Mi sembra che qualcosa non vada nel tuo ragionamento.<br>
+Primo problema: se il sistema visto dalla seconda carrucola in poi deve avere le stesse caratteristiche di quello visto dalla prima carrucola, e se il sistema dalla seconda carrucola in poi risente di una gravità (relativa) pari a g-a, come può essere che la massa m2 si muova verso l'alto con accelerazione a (relativa)? ciò accadrebbe solo se la gravità relativa fosse g, come testimonia il sistema visto dalla prima carrucola!<br>
+Secondo problema: se la m2 si muove con accelerazione (relativa) <span class="tex">\(a\)</span> verso l'alto, la sua forza fittizia <span class="tex">\(ma\)</span> è diretta verso il basso e si aggiunge, non si sottrae a <span class="tex">\(m(g-a)\)</span>. Il risultato sarebbe una tensione sul filo pari a <span class="tex">\(mg\)</span>, e non 0!<br>
+Ciò significherebbe una tensione sul filo che va alla prima carrucola pari a <span class="tex">\(2mg\)</span>, e allora la m1 si muoverebbe verso l'alto con accelerazione <span class="tex">\(g\)</span>.<br>
+Forse devi ripensare la cosa, anche se la strada è quella giusta.</article>
+<article class="post" id="p360"><div class="who"><b>Donato Palermo</b><span>15 feb 2009, 0:21</span></div><blockquote><div><cite>Falco5x ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>la soluzione converge (forse) a:<br>
+<span class="tex">\(a =  - \frac{g}{2}\)</span><br>
+ (il segno meno indica che l'accelerazione è rivolta verso l'alto)</div></blockquote>
+Seppure tardivamente, il metodo "furbo" per risolvere questo problema l'ho trovato; cancello il "forse" e dico che la soluzione è proprio quella. Non occorre fare iterazioni, basta fare la considerazione che il sistema dalla seconda carrucola in poi si comporterebbe esattamente come l'intero sistema se fosse ancorato in un punto fisso, anziché in un punto con accelerazione "a".<br>
+Adesso posso dire anch'io "bello questo problema". Meglio tardi che mai! ;)</div></blockquote>
+come nell'ultimo problema postato da pigkappa devi mostrare il tuo ragionamento nn puoi fare un copia e incolla del risultato</article>
+<article class="post" id="p362"><div class="who"><b>Falco5x</b><span>15 feb 2009, 12:00</span></div><blockquote><div><cite>Donato Palermo ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>la soluzione converge (forse) a:<br>
+<span class="tex">\(a =  - \frac{g}{2}\)</span><br>
+ (il segno meno indica che l'accelerazione è rivolta verso l'alto)</div></blockquote>
+Seppure tardivamente, il metodo "furbo" per risolvere questo problema l'ho trovato; cancello il "forse" e dico che la soluzione è proprio quella. Non occorre fare iterazioni, basta fare la considerazione che il sistema dalla seconda carrucola in poi si comporterebbe esattamente come l'intero sistema se fosse ancorato in un punto fisso, anziché in un punto con accelerazione "a".<br>
+Adesso posso dire anch'io "bello questo problema". Meglio tardi che mai! ;)</div></blockquote>
+come nell'ultimo problema postato da pigkappa devi mostrare il tuo ragionamento nn puoi fare un copia e incolla del risultato</div></blockquote>
+Vedi, lo so benissimo che un risultato non spiega niente, e poiché dalla tua osservazione deduco che non appare evidente il motivo per il quale agisco in questo modo, cerco di spiegarlo.<br>
+Non credo che in questo forum si vinca qualcosa se si arriva primi e si spiega subito tutto; se lo si facesse l'unico risultato ottenuto sarebbe quello di impedire ad altri di arrivarci da soli, scippando loro la soddisfazione di trovare la soluzione con mezzi propri.<br>
+Preferisco allora tenere aperta la discussione, e se dopo un certo tempo non arrivano altri contributi allora posto il procedimento seguito e mi aspetto altri commenti/contestazioni/richieste di chiarimento.<br>
+Credo che in questo modo il mio contributo abbia un senso maggiore.<br>
+Se però qualcuno ha opinioni diverse, parliamone pure.</article>
+<article class="post" id="p366"><div class="who"><b>Falco5x</b><span>15 feb 2009, 13:48</span></div>Soluzione.<br>
+Chiamiamo C1 la carrucola più in alto attaccata al soffitto, e C2 la seconda carrucola attaccata al filo che passa nella gola di C1.<br>
+Chiamiamo m1 il corpo appeso direttamente a C1 e m2 il corpo appeso direttamente a C2 (entrambi i corpi hanno massa uguale pari a m)<br>
+Altre definizioni:<br>
+ <span class="tex">\({a_1}\)</span> accelerazione di m1 da trovare.<br>
+ <span class="tex">\({T_1}\)</span> tensione sul filo che regge m1, uguale a quella dall’altra parte di C1.<br>
+La relazione che lega questa tensione al moto di m1 è  <span class="tex">\({T_1} = mg + m{a_1}\)</span><br>
+Poiché il filo che regge C2 è lo stesso che regge m1, si deduce che l’intero sistema a partire da C2 in poi è un sistema accelerato con accelerazione  <span class="tex">\({a_1}\)</span> verso il basso.<br>
+Poiché il numero di carrucole è infinito, la considerazione chiave che sta alla base della soluzione del problema deve essere che se il sistema dalla C2 in poi fosse attaccato in un punto fermo (come lo è C1) esso si comporterebbe esattamente come si comporta l’intero sistema a partire dalla C1.<br>
+Il sistema dalla C2 in poi, però, essendo un sistema accelerato con accelerazione <span class="tex">\({a_1}\)</span> verso il basso, ristente di una gravità equivalente pari non a g, bensì a  <span class="tex">\(g - {a_1}\)</span>.<br>
+Allora questa gravità agisce anche su m2, la quale dunque sarà soggetta a una accelerazione verso l’alto pari a<br>
+<span class="tex">\({a_2} = {a_1}\frac{{g - {a_1}}}{g} = {a_1}\left( {1 - \frac{{{a_1}}}{g}} \right)\)</span><br>
+Inoltre la tensione del filo che regge m2 deve essere  <span class="tex">\({T_2} = \frac{{{T_1}}}{2}\)</span><br>
+Il bilancio delle forze sul corpo m2 diventa dunque:<br>
+ <br>
+<span class="tex">\({T_2} = \frac{{{T_1}}}{2} = m\left( {g - {a_1}} \right) + m{a_1}\left( {1 - \frac{{{a_1}}}{g}} \right)\)</span><br>
+<span class="tex">\({T_1} = mg + m{a_1}\)</span><br>
+<span class="tex">\({T_1} = 2m\left( {g - {a_1}} \right) + 2m{a_1}\left( {1 - \frac{{{a_1}}}{g}} \right) = mg + m{a_1}\)</span><br>
+ <span class="tex">\(mg - \frac{{2m{a_1}^2}}{g} = m{a_1}\)</span><br>
+ <span class="tex">\(2{a_1}^2 + {a_1}g - {g^2} = 0\)</span><br>
+<span class="tex">\({a_1} = \frac{{ - g \pm \sqrt {{g^2} + 8{g^2}} }}{4} = \frac{{ - g \pm 3g}}{4}\)</span><br>
+ <span class="tex">\({a_1} = \frac{g}{2}\)</span><br>
+<br>
+<span class="tex">\(oppure\)</span><br>
+<br>
+<span class="tex">\({a_1} =  - g\)</span><br>
+<br>
+Il caso  <span class="tex">\({a_1} = \frac{g}{2}\)</span> (accelerazione verso l’alto) corrisponde alla soluzione cercata, mentre il caso <span class="tex">\({a_1} =  - g\)</span> corrisponde alla soluzione degenere ma anch’essa valida, seppure banale, in cui tutte le tensioni delle funi sono nulle, per cui la massa m1 cade con accelerazione g verso il basso (per visualizzare questa soluzione si può immaginare che all’infinito l”ultima” massa sia nulla, e allora l’intero sistema è scarico).</article>
+<article class="post" id="p368"><div class="who"><b>Donato Palermo</b><span>15 feb 2009, 15:31</span></div>nn ho capito perche T2=T1/2 ?????????????</article>
+<article class="post" id="p371"><div class="who"><b>Falco5x</b><span>15 feb 2009, 16:03</span></div><blockquote><div><cite>Donato Palermo ha scritto:</cite>nn ho capito perche T2=T1/2 ?????????????</div></blockquote>
+Sulla carrucola 2 ci sono due corde: una attraversa la gola, una sostiene la carrucola mediante il perno.<br>
+La corda che attraversa la gola ha tensione <span class="tex">\(T_2\)</span>. Questa tensione agisce sulla carrucola come una forza verso il basso sia a destra che a sinistra (le due tensioni non possono essere diverse perchè la carrucola ha momento di inerzia nullo). La corda che sostiene la carrucola, dunque, deve avere tensione pari alla somma delle due forze di cui sopra, ovvero <span class="tex">\(T_1=2T_2\)</span>, perché la carrucola ha massa nulla.</article>
+<article class="post" id="p373"><div class="who"><b>String</b><span>15 feb 2009, 19:38</span></div>Forse non ho capito bene il problema, ma perchè tutte le masse <span class="tex">\(m\)</span> hanno accelerazione rivolta verso l'alto?<br>
+Perchè poi l'accelerazione verso l’alto di <span class="tex">\(m_2\)</span> è pari a<br>
+<span class="tex">\({a_2} = {a_1}\frac{{g - {a_1}}}{g} = {a_1}\left( {1 - \frac{{{a_1}}}{g}} \right)\)</span><br>
+<br>
+ :?:</article>
+<article class="post" id="p375"><div class="who"><b>Falco5x</b><span>15 feb 2009, 21:26</span></div><blockquote><div><cite>String ha scritto:</cite>Forse non ho capito bene il problema, ma perchè tutte le masse <span class="tex">\(m\)</span> hanno accelerazione rivolta verso l'alto?</div></blockquote>
+Questa è una libera supposizione che faccio a priori sulla m1. Se poi alla fine esce un risultato negativo, allora l'accelerazione è verso il basso. Avrei potuto benissimo supporre che fosse verso il basso e sarebbe uscito un risultato negativo.
+<blockquote><div><cite>String ha scritto:</cite>Perchè poi l'accelerazione verso l’alto di <span class="tex">\(m_2\)</span> è pari a<br>
+<span class="tex">\({a_2} = {a_1}\frac{{g - {a_1}}}{g} = {a_1}\left( {1 - \frac{{{a_1}}}{g}} \right)\)</span><br>
+<br>
+ :?:</div></blockquote>
+E' una semplice questione di proporzioni.<br>
+La domanda che mi sono posto è la seguente: se in un sistema soggetto solo ad accelerazione di gravità pari a <span class="tex">\(g\)</span> si nota che una massa viene accelerata con accelerazione <span class="tex">\(a\)</span>, quale sarebbe l'accelerazione della stessa massa se lo stesso sistema fosse in un campo gravitazionale di valore diverso, ad esempio <span class="tex">\(g-a\)</span>?<br>
+Basta fare una semplice proporzione:<br>
+<span class="tex">\(a:g=x:(g-a)\)</span></article>
+<article class="post" id="p376"><div class="who"><b>String</b><span>15 feb 2009, 21:45</span></div>Si, ok, mi convince  :) 
+<blockquote><div><cite>Falco5x ha scritto:</cite><blockquote><div><cite>String ha scritto:</cite>Forse non ho capito bene il problema, ma perchè tutte le masse <span class="tex">\(m\)</span> hanno accelerazione rivolta verso l'alto?</div></blockquote>
+Questa è una libera supposizione che faccio a priori sulla m1. Se poi alla fine esce un risultato negativo, allora l'accelerazione è verso il basso. Avrei potuto benissimo supporre che fosse verso il basso e sarebbe uscito un risultato negativo.
+</div></blockquote>
+So che è una scelta arbitraria dato che non si conosce il verso a priori...ciò che non capisco è: come fa il sistema a partire da C2 ad essere sottoposto ad una accelerazione verso il basso se tutte le masse che ne fanno parte accelerano verso l'alto dato che il risultato dell'accelerazione è positivo?</article>
+<article class="post" id="p377"><div class="who"><b>Falco5x</b><span>15 feb 2009, 22:13</span></div><blockquote><div><cite>String ha scritto:</cite>So che è una scelta arbitraria dato che non si conosce il verso a priori...ciò che non capisco è: come fa il sistema a partire da C2 ad essere sottoposto ad una accelerazione verso il basso se tutte le masse che ne fanno parte accelerano verso l'alto dato che il risultato dell'accelerazione è positivo?</div></blockquote>
+Non so se ho capito la domanda, comunque provo a rispondere.<br>
+Concentriamoci sulla m2.<br>
+Se la m2 va verso l'alto, la C2 può benissimo sia salire che scendere.<br>
+Se ad esempio scende, pensa che la accelerazione con cui scende la C2 ha il solo effetto di "alleggerire" la gravità dell'intero sistema, cosicché il sistema equivalente è come se fosse soggetto a una gravità più bassa cioè <span class="tex">\(g-a\)</span>. In questo ambito le masse possono sia salire che scendere, tutto dipende da cosa succede sulle funi che le sostengono e che dall'altra parte delle rispettive carrucole vedono a loro volta un intero sistema costituito da un grappolo infinito di masse. Nulla di sorprendente se la massa equivalente di questo grappolo prevale sulla singola m che sta a sinistra di ogni carrucola! Per cui qui l'intuizione aiuta poco. Quello che aiuta sono l'applicazione dei principi fisici, la logica e i calcoli.</article>
+<article class="post" id="p378"><div class="who"><b>String</b><span>15 feb 2009, 22:22</span></div>Quindi le carrucole possono essere soggette a forze nonostante siano prive di massa?</article>
+<article class="post" id="p379"><div class="who"><b>Falco5x</b><span>16 feb 2009, 1:08</span></div><blockquote><div><cite>String ha scritto:</cite>Quindi le carrucole possono essere soggette a forze nonostante siano prive di massa?</div></blockquote>
+Bisogna vedere cosa si intende.<br>
+Siccome le carrucole sono prive di massa (e pure prive dunque di momento di inerzia), sulle corde valgono le seguenti relazioni:<br>
+detta T la tensione sul ramo sinistro della corda che passa nella gola della carrucola, il ramo destro della stessa corda ha anch'esso tensione T. Se non fosse così la carrucola sarebbe soggetta a un momento torcente, ma avendo momento di inerzia nullo ciò risulterebbe un controsenso.<br>
+La tensione della corda che sostiene il perno della carrucola ha tensione 2T: infatti deve equilibrare le tensioni delle due corde che tirano verso il basso. Infatti se così non fosse la carrucola sarebbe soggetta a una forza netta data dalla differenza tra le tensioni sopra-sotto, e avendo massa zero ciò sarebbe un controsenso.<br>
+Insomma la carrucola si può definire una macchina semplice che trasmette verso il basso la stessa forza traente sul perno, ripartendola in parti uguali sulle due corde sottostanti.</article>
+<nav class="pager"><a class="prev" href="olifis-7165.html"><small>← precedente</small>300. Forza impulsiva</a><a class="next" href="olifis-640.html"><small>successivo →</small>Pila di mattoni</a></nav>
+</main></body></html>

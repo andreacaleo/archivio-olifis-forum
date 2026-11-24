@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facce cariche in un cubo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Facce cariche in un cubo</h1>
+<p class="meta">24 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=528">forum Olifis</a></p>
+<article class="post first" id="p4787"><div class="who"><b>Mirko93</b><span>6 ago 2010, 17:26</span></div>Prendiamo 6 quadrati di lato <span class="tex">\(\ell\)</span>, ognuno ha una carica <span class="tex">\(q\)</span>, distribuita uniformemente su tutta la superficie. Con questi si costruisce un cubo. Qual'è la forza elettrostatica agente su ogni faccia?</article>
+<article class="post" id="p4859"><div class="who"><b>AxxMan</b><span>16 ago 2010, 9:05</span></div>Ha senso esprimere la forza elettrostatica come prodotto tra flusso e densità di carica superficiale?</article>
+<article class="post" id="p4862"><div class="who"><b>Mirko93</b><span>16 ago 2010, 20:37</span></div>Se sia il flusso che la densità di carica sono uniformi su tutta la superficie allora probabilmente si, altrimenti immagino che per sapere la forza totale bisogni integrare.</article>
+<article class="post" id="p4864"><div class="who"><b>Pigkappa</b><span>16 ago 2010, 21:47</span></div>Dimostrare le affermazioni che si fanno sarebbe cosa sensata (ed utile, in questo caso).</article>
+<article class="post" id="p4865"><div class="who"><b>AxxMan</b><span>17 ago 2010, 1:16</span></div>Non credo di essere in grado di dimostrare ciò che ho chiesto, l'idea mi era venuta attraverso l'analisi dimensionale e il significato del flusso elettrico, cioè la "quantità" di campo che attraversa una superficie. Il flusso attraverso una faccia dovrebbe essere <span class="tex">\(q/\varepsilon\)</span>, quindi poi si potrebbe dare la soluzione</article>
+<article class="post" id="p4888"><div class="who"><b>Pigkappa</b><span>19 ago 2010, 0:38</span></div>Riesumo questo problema perchè è interessante. La soluzione, con le idee che sono state date, mi sembra molto facile da trovare, ma sarebbe bene che qualcuno la scrivesse...</article>
+<article class="post" id="p4889"><div class="who"><b>AxxMan</b><span>19 ago 2010, 11:12</span></div>Vediamo se è giusto... La forza su una faccia è data dalla risultante delle forze elettrostatiche per ogni area <span class="tex">\(dA\)</span> per cui <span class="tex">\(E\)</span> si può considerare uniforme, quindi <span class="tex">\(F=\Sigma (\textbf{E}dq)\)</span> Poichè la carica è distribuita uniformemente, <span class="tex">\(dq=qdA/A\)</span> e l'equazione di prima si trasforma <span class="tex">\(F=q/A\Sigma (\textbf{E} \cdot dA)\)</span> Nella sommatoria non abbiamo altro che il flusso attraferso la faccia, che possiamo ricavare dalla superficie chiusa dell'intero cubo. Se la carica inclusa è 6q (si può considerare inclua una carica disposta proprio sulla superficie?), per la legge di gauss e per simmetria il flusso vale <span class="tex">\(q/\varepsilon\)</span><br>
+Allora <span class="tex">\(F=q^2/A\varepsilon\)</span>. Ho anche un po' di incertezze sulla trasformazione che ho fatto da prodotto vettore per scalare in prodotto scalare tra vettori</article>
+<article class="post" id="p4890"><div class="who"><b>Gauss91</b><span>19 ago 2010, 11:34</span></div><blockquote><div><cite>AxxMan ha scritto:</cite>si può considerare inclua una carica disposta proprio sulla superficie?</div></blockquote>
+
+Siccome la legge di Gauss si applica su superfici chiuse tu in realtà stai considerando una superficie cubica "appena sopra" il cubo stesso quindi penso proprio di sì. Anche a me viene lo stesso risultato, ma c'è forse da dire che viene perché l'unica componente della forza che ti interessa è, per simmetria, quella perpendicolare alla faccia. E quando calcoli il flusso, automaticamente prendi solo la componente perpendicolare del campo elettrico attraverso una faccia. Per questo si può moltiplicare il flusso per la densità di carica anche se il campo elettrico NON è uniforme sulla faccia.<br>
+O no?</article>
+<article class="post" id="p4891"><div class="who"><b>AxxMan</b><span>19 ago 2010, 11:46</span></div>Giusto, quindi è risolto anche il dubbio che ho esposto modificando il messaggio. Si può fare questa affermazione perchè per simmetria si considerano solo le componenti del campo parallele al vettore area, che è quello che si fa nel prodotto scalare del flusso. Modifico la soluzione?</article>
+<article class="post" id="p4892"><div class="who"><b>Gauss91</b><span>19 ago 2010, 12:03</span></div>No non modificarla... altrimenti i messaggi scritti dopo non avrebbero più senso. Poi così penso anche che sia più istruttivo.</article>
+<article class="post" id="p4901"><div class="who"><b>Pigkappa</b><span>19 ago 2010, 15:38</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>Siccome la legge di Gauss si applica su superfici chiuse tu in realtà stai considerando una superficie cubica "appena sopra" il cubo stesso quindi penso proprio di sì</div></blockquote>
+
+No! A noi interessa il campo elettrico che agisce proprio sulla faccia del cubo; il campo che c'è "appena sopra" è influenzato anche dalla faccia stessa ed è quindi diverso. Ad esempio, secondo il tuo ragionamento potremmo considerare una superficie cubica "appena dentro" il cubo, ma il flusso su quella superficie è chiaramente nullo. Perciò bisogna fare attenzione a questa cosa che, secondo me, fa anche trovare un risultato diverso.<br>
+<br>
+<br>
+Per chi volesse un suggerimento, lo lascio nel quote.<br>
+
+<blockquote class="uncited"><div><span style="color:#BFFFFF">In questi casi, quando valgono alcune ipotesi ragionevoli, il campo da considerare è la media aritmetica tra quello "appena fuori" e quello "appena dentro" la superficie. Potete provare a:<br>
+1)Dimostrare questo fatto (non è banalissimo; potete anche prenderlo per buono se volete solo risolvere il problema).<br>
+2)Scrivere bene la soluzione dall'inizio alla fine.</span></div></blockquote></article>
+<article class="post" id="p4909"><div class="who"><b>spn</b><span>20 ago 2010, 12:22</span></div>Sia <span class="tex">\(\phi\)</span> il flusso che c'è su una della facce, <span class="tex">\(\phi_{int}\)</span> quello appena dentro la faccia e <span class="tex">\(\phi_{ext}\)</span> quello appena esterno, e <span class="tex">\(\phi_q\)</span> quello generato dalla faccia considerata. Si ha allora che:<br>
+<br>
+<span class="tex">\(\phi_{int} = \phi - \phi_q\)</span><br>
+<span class="tex">\(\phi_{ext}= \phi + \phi_q\)</span><br>
+<br>
+Sommando le due eq. si ha <span class="tex">\(\displaystyle \phi= {\phi_{int} +\phi_{ext} \over 2}= {q \over 2 \epsilon_0}\)</span><br>
+<br>
+Infine si ha <span class="tex">\(\displaystyle E \ell^2 = {F \over q} \ell^2 = \phi = {q \over 2 \epsilon_0}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle F={q^2 \over  2 \epsilon_0 \ell^2}\)</span><br>
+<br>
+Comunque si poteva fare benissimo anche considerando le 6 facce come 3 condensatori a facce piane parallele.</article>
+<article class="post" id="p4912"><div class="who"><b>Pigkappa</b><span>20 ago 2010, 13:09</span></div><blockquote><div><cite>spn ha scritto:</cite>Comunque si poteva fare benissimo anche considerando le 6 facce come 3 condensatori a facce piane parallele.</div></blockquote>
+
+Esplicita se puoi... Non è una cosa ovvia, secondo me.</article>
+<article class="post" id="p4913"><div class="who"><b>AxxMan</b><span>20 ago 2010, 13:16</span></div><blockquote><div><cite>spn ha scritto:</cite>
+Comunque si poteva fare benissimo anche considerando le 6 facce come 3 condensatori a facce piane parallele.</div></blockquote>
+Ci avevo pensato anche io, però l'espressione del campo generato da un condensatore vale per punti non vicini ai bordi, e in questo caso sembrava non andare bene, però il risultato è quello...</article>
+<article class="post" id="p4914"><div class="who"><b>Pigkappa</b><span>20 ago 2010, 13:27</span></div>Cioè? Che conto avete fatto? <br>
+<br>
+Questi cosi non sono veri e propri condensatori: la carica sulle facce opposte ha lo stesso segno.</article>
+<article class="post" id="p4915"><div class="who"><b>AxxMan</b><span>20 ago 2010, 13:43</span></div>Il campo generato da una lastra carica infinita è <span class="tex">\(\displaystyle E={d \over  2 \epsilon_0 }\)</span> dove d è la densità di carica superficiale. Gli effetti delle facce opposte si annullano, e quindi il campo effettivo è dovuto alla faccia opposta alla nostra, e moltiplicando per la carica esce l'espressione di spn</article>
+<article class="post" id="p4916"><div class="who"><b>Pigkappa</b><span>20 ago 2010, 14:04</span></div>Ma non sono lastre infinite; il lato delle lastre è uguale alla distanza tra lastre opposte, perciò questa approssimazione non è giustificata. Inoltre, gli effetti delle lastre opposte non si annullano a vicenda, ma contribuiscono tutti a spingere "verso il fuori" la faccia che stiamo considerando. <br>
+<br>
+Trascurare il fatto che la faccia opposta a quella che consideriamo ha dimensione finita introduce un errore in eccesso, e trascurare l'effetto delle altre facce ne introduce uno in difetto, e il risultato finale che si trova è giusto, ma il procedimento direi proprio di no.</article>
+<article class="post" id="p4917"><div class="who"><b>AxxMan</b><span>20 ago 2010, 14:06</span></div>E si infatti perciò l'avevo scartato</article>
+<article class="post" id="p4919"><div class="who"><b>spn</b><span>20 ago 2010, 14:48</span></div>Invece secondo me considerarli come condensatori è ragionevole. <br>
+<br>
+La distanza tra le cariche è da considerare molto minore delle dimensioni delle facce, altrimenti non avrebbe senso parlare di cariche uniformemente distribuite sulla superficie. Per cui il campo generato dalla superficie nei punti non vicini ai bordi è perpendicolare a essa. <br>
+Gli unici punti in cui il campo non è perpendicolare sono nelle estreme vicinanze dei bordi. Qui si ha che per simmetria la componente del campo che agisce a causa della faccia opposta è la metà di quella che agisce nei punti centrali. <br>
+Consideriamo però quattro facce, A e B, che hanno il lato L in comune, e le facce A' e B' opposte alle prime due. Ne i punti vicino ad L agiscono i campi di bordo sia di A' che di B', percui in totale la componente perpendicolare alla superficie che agisce su questi punti è uguale a quella che agisce nel centro. <br>
+E da qui viene facilmente la soluzione.<br>
+<br>
+Poi bho magari toppo alla grande, in tal caso però sarebbe una bella botta di culo che i risultati vengano uguali  :mrgreen: .</article>
+<article class="post" id="p4921"><div class="who"><b>Pigkappa</b><span>20 ago 2010, 15:30</span></div><blockquote><div><cite>spn ha scritto:</cite>Invece secondo me considerarli come condensatori è ragionevole. <br>
+<br>
+La distanza tra le cariche è da considerare molto minore delle dimensioni delle facce, altrimenti non avrebbe senso parlare di cariche uniformemente distribuite sulla superficie. Per cui il campo generato dalla superficie nei punti non vicini ai bordi è perpendicolare a essa. <br>
+Gli unici punti in cui il campo non è perpendicolare sono nelle estreme vicinanze dei bordi. Qui si ha che per simmetria la componente del campo che agisce a causa della faccia opposta è la metà di quella che agisce nei punti centrali. <br>
+Consideriamo però quattro faccie, A e B, che hanno il lato L in comune, e le facce A' e B' opposte alle prime due. Ne i punti vicino ad L agiscono i campi di bordo sia di A' che di B', percui in totale la componente perpendicolare alla superficie che agisce su questi punti è uguale a quella che agisce nel centro. <br>
+E da qui viene facilmente la soluzione.<br>
+<br>
+Poi bho magari toppo alla grande, in tal caso però sarebbe una bella botta di culo che i risultati vengano uguali  :mrgreen: .</div></blockquote>
+
+Innanzitutto: non riesco a capire molto bene quello che scrivi. Per esempio:<br>
+
+<blockquote class="uncited"><div>La distanza tra le cariche è da considerare molto minore delle dimensioni delle facce, altrimenti non avrebbe senso parlare di cariche uniformemente distribuite sulla superficie.</div></blockquote>
+
+Perchè dici questa cosa? Il testo ci dà un cubo sulla cui superficie la carica è distribuita uniformemente. Perchè non avrebbe senso questa configurazione?<br>
+<br>
+Inoltre, da questa frase non penso si capisca perchè vale che:<br>
+
+<blockquote class="uncited"><div>il campo generato dalla superficie nei punti non vicini ai bordi è perpendicolare a essa. </div></blockquote>
+
+<br>
+Se tu prendi una lastra quadrata di lato <span class="tex">\(L\)</span> carica uniformemente, il campo a grande distanza (<span class="tex">\(r &gt;&gt; L\)</span>) è simile a quello di una carica puntiforme, il campo a piccola distanza (<span class="tex">\(r &lt;&lt; L\)</span>) è come quello di una lastra infinita, ma sul campo a media distanza (<span class="tex">\(r \approx L\)</span>) non possiamo fare approssimazioni di questo tipo e bisogna fare l'integrale per bene.</article>
+<article class="post" id="p4922"><div class="who"><b>spn</b><span>20 ago 2010, 15:55</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Perchè dici questa cosa? Il testo ci dà un cubo sulla cui superficie la carica è distribuita uniformemente. Perchè non avrebbe senso questa configurazione?</div></blockquote>
+
+Il fatto che la carica deve essere uniformemente distribuita io l'ho inteso che se si prende una qualunque piccola frazione della superficie, la carica presente all'interno di questa è sempre la stessa. Se è presente un'unica carica puntiforme al centro del quadrato ciò non è rispettato.
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Inoltre, da questa frase non penso si capisca perchè vale che:<br>
+
+<blockquote class="uncited"><div>
+il campo generato dalla superficie nei punti non vicini ai bordi è perpendicolare a essa.</div></blockquote>
+</div></blockquote>
+
+Effettivamente questo passaggio è abbastanza azzardato, e fare l'integrale per benino al momento mi sembra folle  :mrgreen: . Comunque quello che io cerco di fare è cercare di trovare come mai l'esercizio sembra equivalente utilizzando questo procedimento. Il fatto che il campo si mantenga pressapoco ortogonale mi sembra ragionevole, inoltre, visto che se si considera il campo ortogonale nei punti centrali allora sembra venire lo stesso risultato al problema, mi fa ben sperare che se si fanno i conti integrando possa venire qualcosa del genere.</article>
+<article class="post" id="p4924"><div class="who"><b>Pigkappa</b><span>20 ago 2010, 17:40</span></div><blockquote><div><cite>spn ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>Perchè dici questa cosa? Il testo ci dà un cubo sulla cui superficie la carica è distribuita uniformemente. Perchè non avrebbe senso questa configurazione?</div></blockquote>
+
+Il fatto che la carica deve essere uniformemente distribuita io l'ho inteso che se si prende una qualunque piccola frazione della superficie, la carica presente all'interno di questa è sempre la stessa.</div></blockquote>
+
+No o_o. Se consideri un piccolo elemento di superficie <span class="tex">\(dA\)</span> la carica di questo elemento è direttamente proporzionale a <span class="tex">\(dA\)</span>. Non so perchè non ci stiamo capendo; è chiaro che la situazione non è uguale ad avere una carica puntiforme nel centro del quadrato.</article>
+<article class="post" id="p4925"><div class="who"><b>spn</b><span>20 ago 2010, 18:15</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Se consideri un piccolo elemento di superficie  la carica di questo elemento è direttamente proporzionale a .</div></blockquote>
+Certo, quello che dico io è che se si dice che la distribuzione è uniforme si intende che la costante di proporzionalità fra la carica contenuta in dA e dA è fissa, presa una qualsiasi superficie dA sul quadrato (e non eccessivamente piccola). Ciò implica però che allora non è che possiamo considerare ogni singola carica in un punto discreto distante dagli altri, perchè altrimenti l'area fra due cariche vicine avrebbe costante di proporzionalità nulla. Ciò può essere fatto solo se c'è un gran numero di cariche sulla superficie, e quindi la distanza fra queste è molto minore delle dimensioni della superficie. <br>
+<br>
+E' come dire che se si dice che un corpo ha densità uniforme si suppone che il corpo non sia composto da poche decine di particelle. Non è intuitiva come cosa?<br>
+<br>
+Forse non ci stiamo capendo sul termine ''carica''. Io non intendo la carica totale della faccia <span class="tex">\(q\)</span>, ma ogni singola carica puntiforme della distribuzione (ogni singolo elettrone, se vogliamo metterla così).</article>
+<article class="post" id="p4926"><div class="who"><b>Pigkappa</b><span>20 ago 2010, 18:23</span></div>Quando si danno problemi del genere si intende sempre che q è molto maggiore della carica dell'elettrone...<br>
+<br>
+Quello che vorrei capire è se c'è un modo di far sì che la tua soluzione sia pulita e corretta (e quindi che usa solo approssimazioni giustificabili per bene) oppure no; se c'è, potresti provare a scriverla con tutti gli accorgimenti del caso.</article>
+<nav class="pager"><a class="prev" href="olifis-927.html"><small>← precedente</small>Sfera carica divisa</a><a class="next" href="olifis-101.html"><small>successivo →</small>Contraddizione sull&#x27;energia di una &quot;bussola&quot;</a></nav>
+</main></body></html>

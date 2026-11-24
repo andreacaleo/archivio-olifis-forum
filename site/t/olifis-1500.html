@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4° anno SNS: ammissione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../sns.html">Prepararsi all'ammissione</a></span></nav>
+<h1>4° anno SNS: ammissione</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=1500">forum Olifis</a></p>
+<article class="post first" id="p9518"><div class="who"><b>Rgk93</b><span>16 set 2012, 16:11</span></div>è la prima volta che scrivo su questo forum, e colgo l' occasione per ringraziare tutti coloro che vi scrivono: le vostre competenze finora mi hanno molto aiutato, inoltre le esperienze che condividete sono davvero utilissime.<br>
+Vorrei chiedervi dei consigli: il 1° ottobre comincerò a studiare fisica all' università, e ho intenzione di provare a entrare alla Normale per la magistrale; seguendo da qualche tempo questo forum, intuisco che, per avere delle possibilità dignitose, bisogna studiare molto seriamente anche parallelamente ai corsi tradizionali; se, come penso, è così, qualcuno potrebbe consigliarmi argomenti, testi, eserciziari, metodi particolari o qualsiasi altra cosa possa rivelarsi utile per prepararmi?</article>
+<article class="post" id="p9520"><div class="who"><b>Pigkappa</b><span>16 set 2012, 22:27</span></div>Benvenuto!<br>
+<br>
+La prova di ammissione al 4° anno è difficile; superare gli esami della triennale in Fisica non dà alcuna garanzia di riuscire ad affrontare la prova.<br>
+<br>
+Se per caso sei all'università di Pisa, ti suggerisco di seguire i corsi di fisica in Normale oltre che quelli in facoltà. Puoi lasciar stare quelli di matematica.<br>
+<br>
+<br>
+Per quanto riguarda la meccanica, i problemi che escono all'ammissione sono, in genere, abbastanza standard. Il Morin come libro principale per il primo anno va bene. Anche la meccanica analitica e la relatività ristretta possono servire per la prova di ammissione.<br>
+<br>
+Per quanto riguarda l'elettromagnetismo, invece, i problemi dell'ammissione sono spesso più tosti di quelli dei corsi in facoltà. Il libro che suggerisco di usare è il Griffiths, ma alcune cose vanno per forza viste sul Jackson, anche se è pesante.<br>
+<br>
+Per quanto riguarda i metodi matematici, purtroppo la materia è molto varia e non c'è un corso a riguardo in Normale, perciò possono uscire anche cose inaspettate. Io cercherei di sapere bene le serie e trasformate di Fourier, l'analisi complessa, e poi di non scappare dalle trattazioni matematiche che si usano nella meccanica quantistica (quest'anno c'era un problema sulla manipolazione delle matrici di Pauli, e sono cose che si possono imparare nel corso di quantistica, non di metodi...).<br>
+<br>
+Per quanto riguarda termodinamica e meccanica statistica, ci vuole un minimo di confidenza con relazioni di maxwell, potenziali termodinamici, funzioni di partizione e tutto quel che se ne può ricavare, statistiche quantistiche; purtroppo sono cose che alla triennale (almeno a Pisa, non so altrove) si fanno malissimo. Conviene prendere un libro di meccanica statistica (Huang o Kittel o altro) e guardarsi queste cose.<br>
+<br>
+Per quanto riguarda la meccanica quantistica, purtroppo la materia è vastissima e nessun libro nè corso può trattare tutti gli argomenti. Ogni docente ha nella sua testa un programma di cose fondamentali da sapere, e variano parecchio dall'uno all'altro, così che non si possa mai andare sul sicuro. Di sicuro si deve studiare per bene la materia per il corso all'università, e se la teoria delle perturbazioni è fatta male, bisogna guardarsela. Il libro migliore di meccanica quantistica secondo me è il Cohen (servono entrambi i volumi), ma anche lì mancano alcune cose, e si concentra molto sulla teoria e poco sui problemi.<br>
+<br>
+Ci sono alcuni libri con problemi tutto sommato analoghi a quelli che possono capitare all'ammissione. Sono i libri sugli esami di Chicago e di Princeton. Un altro libro con molti problemi è il Cahn (tutti e due i volumi). Mettendoli insieme, ci sono un sacco di problemi rilevanti (esempio: di quantistica ben più di 50).<br>
+<br>
+Alcuni link rilevanti: <a href="http://www.amazon.it/Introduction-Classical-Mechanics-Problems-Solutions/dp/0521876222/ref=sr_1_1?ie=UTF8&amp;qid=1347827611&amp;sr=8-1" class="ext" class="postlink">http://www.amazon.it/Introduction-Class ... 611&amp;sr=8-1</a> <a href="http://www.amazon.it/Introduction-Electrodynamics-David-J-Griffiths/dp/0139199608/ref=sr_1_1?ie=UTF8&amp;qid=1347827663&amp;sr=8-1" class="ext" class="postlink">http://www.amazon.it/Introduction-Elect ... 663&amp;sr=8-1</a> <a href="http://www.amazon.it/Classical-Electrodynamics-John-David-Jackson/dp/047130932X/ref=sr_1_1?ie=UTF8&amp;qid=1347827599&amp;sr=8-1" class="ext" class="postlink">http://www.amazon.it/Classical-Electrod ... 599&amp;sr=8-1</a> <a href="http://www.amazon.it/Elementary-Statistical-Physics-Charles-Kittel/dp/0486435148/ref=sr_1_1?ie=UTF8&amp;qid=1347827642&amp;sr=8-1" class="ext" class="postlink">http://www.amazon.it/Elementary-Statist ... 642&amp;sr=8-1</a> <a href="http://www.amazon.it/University-Chicago-Graduate-Problems-Solutions/dp/0226121097/ref=sr_1_1?ie=UTF8&amp;qid=1347827573&amp;sr=8-1" class="ext" class="postlink">http://www.amazon.it/University-Chicago ... 573&amp;sr=8-1</a> <a href="http://www.amazon.it/Princeton-Problems-Physics-Solutions-Newbury/dp/0691024499/ref=sr_1_1?ie=UTF8&amp;qid=1347827623&amp;sr=8-1" class="ext" class="postlink">http://www.amazon.it/Princeton-Problems ... 623&amp;sr=8-1</a></article>
+<article class="post" id="p9521"><div class="who"><b>Rgk93</b><span>16 set 2012, 22:36</span></div>ti ringrazio molto per la risposta dettagliata;<br>
+i testi che hai citato sono facilmente reperibili?<br>
+<br>
+EDIT: scusa, non avevo visto i link.</article>
+<article class="post" id="p9556"><div class="who"><b>andreaandrea</b><span>19 set 2012, 18:27</span></div>ciao, <br>
+scusa Pigkappa, potresti darmi anchew il titolo o il link del Kahn, che non riesco a trovarlo ?<br>
+Grazie mille!!</article>
+<article class="post" id="p9557"><div class="who"><b>Pigkappa</b><span>19 set 2012, 18:46</span></div>Avevo scritto male il nome: è Cahn e non Kahn.<br>
+<br>
+<a href="http://www.amazon.it/Guide-Physics-Problems-Relativity-Electrodynamics/dp/0306446790/ref=sr_1_3?ie=UTF8&amp;qid=1348073110&amp;sr=8-3" class="ext" class="postlink">http://www.amazon.it/Guide-Physics-Prob ... 110&amp;sr=8-3</a><br>
+<a href="http://www.amazon.it/Guide-Physics-Problems-Thermodynamics-Statistical/dp/030645291X/ref=sr_1_5?ie=UTF8&amp;qid=1348073110&amp;sr=8-5" class="ext" class="postlink">http://www.amazon.it/Guide-Physics-Prob ... 110&amp;sr=8-5</a><br>
+<br>
+Ovviamente, non posso suggerirvi di trovare questi testi online, ma solo di comprarli...</article>
+<article class="post" id="p21713"><div class="who"><b>pietro96</b><span>25 dic 2015, 20:20</span></div>Scusa pigkappa, se non sono troppo indiscreto come fai a sapere queste informazioni? A te andrea e rg... sono state utili invece le informazioni? Inoltre ora come ora una delle due prove di fisica è basata su metodi matematici per la fisica, sai cosa si dovrebbe studiare?<br>
+Come fai a sapere informazioni anche sulle università americane?</article>
+<article class="post" id="p21728"><div class="who"><b>Pigkappa</b><span>3 gen 2016, 23:52</span></div>Io ho fatto la Normale e nel mio anno anche chi era già dentro doveva fare la prova scritta di ammissione al quarto anno, per cui ho esperienza diretta e anche informazioni dagli studenti che avevano un anno più di me. <br>
+<br>
+Ho fatto la prova alcuni anni fa e non sono più molto aggiornato, purtroppo non posso aggiungere molto rispetto al post del 2012.</article>
+<article class="post" id="p25532"><div class="who"><b>cucco2001</b><span>10 set 2019, 15:47</span></div>Salve, vorrei sapere se con gli anni sono sorte delle novità rispetto a quanto scritto nel post del 2012, riguardo al test di ammissione al IV anno di fisica. Più precisamente, se ci sono dei testi maggiormente consigliabili e se le prove di matematica necessitano uno studio più approfondito o specifico.<br>
+Grazie in anticipo</article>
+<article class="post" id="p25535"><div class="who"><b>gluonstrongforce</b><span>11 set 2019, 23:42</span></div>Ciao! I consigli di Pigkappa sono ancora molto utili. Questo è quello che AGGIUNGO.<br>
+<br>
+1) Aggiungerei l'eserciziario "Problems in classical electromagnetism" di Macchi, una delle migliori raccolte di problemi in circolazione. Molti li puoi trovare sulla sua pagina <a href="http://osiris.df.unipi.it/~macchi/" class="ext" class="postlink">http://osiris.df.unipi.it/~macchi/</a>. Il libro in inglese è impostato sul sistema MKS, mentre le soluzioni sul suo sito sono in cgs. Poi ti consiglio questo  <a href="https://www.amazon.it/Meccanica-classica-Compendio-esercizi-svolti/dp/8867415808" class="ext" class="postlink">https://www.amazon.it/Meccanica-classic ... 8867415808</a> per gli esercizi di meccanica classica.<br>
+<br>
+2) Assicurati di fare un corso di Meccanica statistica alla triennale: nel mio percorso di studi non c'era, quindi ho dovuto fare da solo. Un libro favoloso per iniziare è <a href="https://www.amazon.it/Concepts-Thermal-Physics-Stephen-Blundell/dp/0199562105" class="ext" class="postlink">https://www.amazon.it/Concepts-Thermal- ... 0199562105</a>.<br>
+<br>
+3) Assicurati di fare un bel corso di metodi matematici o di approfondire da solo. Questo non è futile solo per l'ammissione, ma anche perchè "un fisico che non conosce bene la matematica è un fisico scarso". Magari approfitta anche di un corso sulle equazioni a derivate parziali. Un buon libro, ricco di esercizi, è <a href="https://www.amazon.com/Partial-Differential-Equations-Graduate-Solutions/dp/1502911523" class="ext" class="postlink">https://www.amazon.com/Partial-Differen ... 1502911523</a>.<br>
+<br>
+4) Procurati i libri della raccolta "Problems and solutions on" ... Mechanics, electromagnetism e altri.<br>
+<br>
+Ultimamente (sia al primo che al quarto anno) capitano esercizi di indirizzo sperimentale. Ti si può chiedere di stimare delle incertezze e di trovare accorgimenti per prendere delle migliori misure. Qui ci vuole intuito + la teoria di laboratorio che sicuramente farai all'università. <br>
+<br>
+Quello che sento di dirti è di studiare e fare esercizi prima per te stesso, per la tua cultura e per sviluppare tante tecniche di Problem solving. Se posso darti un parere personale, gli ultimi due anni in Normale (per FISICA) danno poco in confronto ai primi tre (però in compenso hai più tempo libero). Il livello dei corsi dei primi tre anni è più alto di quelli all'università, mentre alla magistrale non c'è  differenza (corsi interni potrebbero benissimo essere proposti in facoltà e viceversa). Questo non è un problema proprio della Normale, ma è dovuto principalmente all'andare avanti negli studi e al livello di specializzazione raggiunto.  Assicurati comunque di avere le idee chiare su cosa fare alla magistrale (e molte volte non è facile, come nel mio caso).</article>
+<article class="post" id="p25536"><div class="who"><b>Pigkappa</b><span>12 set 2019, 2:17</span></div>Gli ultimi due anni in SNS aggiungono poco o nulla nel senso di quanto si impara, ma il prestigio della SNS un po' conta per farsi prendere per il dottorato. Perlomeno, questa è l'impressione che ho avuto io.</article>
+<article class="post" id="p25537"><div class="who"><b>cucco2001</b><span>12 set 2019, 13:00</span></div>Grazie di nuovo, però vorrei delle ulteriori delucidazioni...<br>
+1)Per la meccanica quantistica mi consigliate ancora il “Cohen”?<br>
+2)Per l’elettromagnetismo è preferibile il “Griffiths” per integrarlo col “Jackson”?<br>
+3)Per i metodi matematici esistono uno o più testi per studiarli in modo più sistematico ed esaustivo?<br>
+4)Per la meccanica statistica consigliate il “Huang” o il “Blundell” è il migliore per avvicinarlesi?</article>
+<article class="post" id="p25542"><div class="who"><b>Pigkappa</b><span>16 set 2019, 23:45</span></div>1. A me era piaciuto piu' degli altri libri, ma come ho scritto sopra non basta. La meccanica quantistica e' vasta. Il Cohen e' buono ma non ti allena bene per i problemi. Fai tanti problemi dai libri scritti sopra e quando non conosci un argomento, cercatelo. Ho appena dato un'occhiata al Griffiths (stesso autore di quello di elettromagnetismo) e mi sembra fatto bene. Probabilmente la cosa migliore e' studiare a fondo quello. <br>
+<br>
+2. Purtroppo servono entrambi. Il Griffiths perche' se si parte dal Jackson si muore, il Jackson per approfondire e trovare problemi tosti su tante cose, in particolare mi vengono in mente elettrostatica e onde che entrano in materiali.<br>
+<br>
+3. Esistono tanti testi quanti vuoi, ma quel che conta e' cosa hanno in testa i professori che scelgono i problemi. Metodi matematici vuol dire tutto e niente, ogni professore intendera' la cosa diversamente. Quando ho fatto l'esame io mi sono concentrato sul fare i problemi dei testi consigliati sopra, ed e' uscito proprio uno di quei problemi. Purtroppo non sono in grado di consigliarti titoli. Basati sui corsi di metodi che fai all'universita' e su quel che e' uscito negli scorsi anni.<br>
+<br>
+4. Io mi ero limitato a fare pochissimo - il primo capitolo del <a href="https://www.amazon.co.uk/Elementary-Statistical-Physics-Dover-Books/dp/0486435148/" class="ext" class="postlink">Kittel</a> e circa tutti i problemi dai testi scritti sopra, e mi e' andata bene. I problemi di fisica statistica usciti al mio anno erano facili e simili a quelli di quei libri. Da alcuni anni pero' credo ci sia un corso interno di fisica statistica per il terzo anno per cui probabilmente il livello e' salito, ma non so cosa facciano. Dell'Huang ricordo poco, del Blundell nulla.<br>
+<br>
+Entrare al quarto anno richiede una certa fortuna perche' c'e' enorme variabilita' in quel che puo' uscire. I consigli poi dipendono anche dal tuo livello. Se sei una superstar puoi anche studiarti 3 libri interi a fondo di quantistica, puoi saltare il Griffiths e farti il Jackson in dettaglio di elettromagnetismo, e cosi' via. Non conoscendoti e' difficile da dire.</article>
+<article class="post" id="p27870"><div class="who"><b>Fede03</b><span>30 lug 2023, 20:00</span></div>Scusate se riprendo un topic vecchio, ma volendomi informare su come prepararmi per il test del quarto anno non ho trovato molte altre fonti. Innanzitutto ringrazio molto gli utenti che hanno già condiviso i loro utili consigli; io volevo chiedere se esistesse una piattaforma (telegram, forum ...) in cui sono discusse le soluzioni dei problemi di ammissione del quarto anno. A quanto ho letto in un altro topic esiste un gruppo telegram, ma non so se vi siano discussi tali problemi, inoltre qui nel forum non mi pare ci siano molti riferimenti ai test del quarto anno...</article>
+</main></body></html>

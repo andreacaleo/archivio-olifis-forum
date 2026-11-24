@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>321. Torre infinita di cilindri</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>321. Torre infinita di cilindri</h1>
+<p class="meta">42 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7255">forum Olifis</a></p>
+<article class="post first" id="p28468"><div class="who"><b>Fibdg</b><span>22 giu 2024, 15:04</span></div>Si consideri un sistema di assi prive di massa e cilindri (dotati di massa) identici impilati all'infinito come mostrato nella figura allegata. Il momento d'inerzia di ciascun cilindro è <span class="tex">\(I=MR^2/2\)</span>. In ogni livello troviamo due cilindri, e il numero di livelli è infinito. Il sistema è inizialmente in equilibro. Le assi sono libere di muoversi, i cilindri non strisciano rispetto alle assi con cui sono a contatto, e l'asse che poggia sul terreno può traslare liberamente su di esso. Se si spinge quest'ultima asse in modo che acceleri orizzontalmente verso destra con un'accelerazione <span class="tex">\(a\)</span>, qual è l'accelerazione orizzontale dei due cilindri alla base, ovvero quei due cilindri che poggiano direttamente sopra alla prima asse? (Il testo originale era in inglese, spero sia tutto chiaro).<br>
+<br>
+<a href="https://i.imgur.com/0loLb27.png" class="ext" class="postlink">https://i.imgur.com/0loLb27.png</a></article>
+<article class="post" id="p28469"><div class="who"><b>Higgs</b><span>25 giu 2024, 18:11</span></div>Come tutti i problemi strani suscita ipotesi di soluzioni strane. Ti voglio sottoporre questa domandando se ho capito il tuo testo..<br>
+Il punto di contatto dei cilindri con il piano in basso non può slittare sul medesimo. Allora deve assumere l'accelerazione a e indurre una rotazione antioraria dei due cilindri. La rotazione è attorno al cdm dei due cilindri. Infatti i punti di contatto con il piano superiore ugualmente non possono slittare sul piano superiore per cui trasmettono a a questo piano inducendo nei cilindri che ci poggiano una rotazione oraria. Quindi in ciascun piano si inducono rotazioni opposte sempre attorno ai rispettivi cdm che pertanto non si muovono. Quindi la mia paradossale risposta sarebbe che l'accelerazione orizzontale dei cilindri è NULLA! :?:  :?:  :?:</article>
+<article class="post" id="p28470"><div class="who"><b>Fibdg</b><span>25 giu 2024, 22:21</span></div>Ci tengo a precisare che la richiesta è determinare l'accelerazione orizzontale dei cilindri che poggiano <em class="text-italics">direttamente</em> sopra la prima asse, ovvero solo l'accelerazione dei due cilindri alla base, adesso modifico il messaggio e disambiguo.<br>
+
+<blockquote class="uncited"><div>...ai rispettivi cdm che pertanto non si muovono.</div></blockquote> Se viene indotta la rotazione di uno tra i cilindri, e questo cilindro come gli altri non può slittare sulle assi (che sono inizialmente ferme), allora per forza il suo centro di massa si deve spostare, altrimenti ruoterebbe sul posto senza traslare (= slittare rispetto alle assi su cui poggia). Forse ho capito male io e tu intendi invece che presi due livelli adiacenti il cdm complessivo dei quattro cilindri non si muove: questo però non è vero, ed è legato a quello che dicevo poco fa, ovvero che oltre a ruotare i cilindri traslano (sta a te capire come :D ). Ricordando che c'è anche un moto di traslazione puoi aggiustare il ragionamento che andavi costruendo.<br>
+Sicuramente è vero che <blockquote class="uncited"><div>Il punto di contatto dei cilindri con il piano in basso non può slittare sul medesimo. Allora deve assumere l'accelerazione a e indurre una rotazione antioraria dei due cilindri.</div></blockquote>
+
+Tra l'altro se qualcuno (Pigkappa  :lol: ) nota che sto dicendo cose sbagliate lo segnali grazie.</article>
+<article class="post" id="p28471"><div class="who"><b>Higgs</b><span>26 giu 2024, 11:35</span></div>[/quote] Se viene indotta la rotazione di uno tra i cilindri, e questo cilindro come gli altri non può slittare sulle assi (che sono inizialmente ferme), allora per forza il suo centro di massa si deve spostare, altrimenti ruoterebbe sul posto senza traslare (= slittare rispetto alle assi su cui poggia).[/quote]<br>
+Ecco era quest'ultima cosa che io intendevo. Infatti se il cdm del cilindro si sposta deve ruotare attorno al punto di contatto che diventa asse istantaneo di rotazione. Attorno ad esso deve ruotare anche il punto di contatto con l'asse superiore che deve quindi STRISCIARE su questo!<br>
+Continuerò a pensarci perchè non sono convinto! :?:  :?:</article>
+<article class="post" id="p28472"><div class="who"><b>Fibdg</b><span>26 giu 2024, 14:04</span></div><blockquote class="uncited"><div> Attorno ad esso deve ruotare anche il punto di contatto con l'asse superiore che deve quindi STRISCIARE su questo!</div></blockquote> Le assi non sono fissate, ma libere di muoversi orizzontalmente (meglio specificare anche questo nel testo), e quindi l'asse superiore si muove con il punto di contatto superiore senza alcuno slittamento.</article>
+<article class="post" id="p28473"><div class="who"><b>Higgs</b><span>26 giu 2024, 17:06</span></div>Mah, mi pare che nel testo originario si diceva che il punto di contatto non doveva strisciare sull'asse ( quindi ci poteva solo rotolare) ...Se allora l'asse si muove con una certa accelerazione a che succede al punto di contatto del cilindro? Viene comunicata anche al punto questa accelerazione cioè rimane immobile rispetto all'asse o ci rotola sopra per cui il cdm del cilindro mi pare si sposti in senso opposto? Ti sembra che ora abbia capito il testo o continuo a equivocare?</article>
+<article class="post" id="p28474"><div class="who"><b>Fibdg</b><span>26 giu 2024, 18:19</span></div>Io direi che nel suo moto il cilindro è a contatto in due punti con due delle assi. Istantaneamente, preso un punto di contatto e la sua asse, questi due hanno la stessa accelerazione (se non fosse così allora sì che striscerebbe). Direi che il punto rimane immobile <em class="text-italics">rispetto all'asse</em> nella stessa misura in cui il punto di contatto di un cilindro che rotola su un piano istantaneamente è fermo. Quindi sì, ci "rotola sopra", ricordando che c'è anche un'asse superiore su cui il cilindro "rotola". Mi sembra che tu abbia capito la situazione! Mi scuso per la confusione sul testo.</article>
+<article class="post" id="p28475"><div class="who"><b>Pigkappa</b><span>26 giu 2024, 23:11</span></div><blockquote><div><cite>Fibdg ha scritto: <a href="olifis-7255.html#p28470" data-post-id="28470" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 giu 2024, 22:21</div></cite>
+Tra l'altro se qualcuno (Pigkappa  :lol: ) nota che sto dicendo cose sbagliate lo segnali grazie.
+</div></blockquote>
+Non mi pare<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7255.html#p28469" data-post-id="28469" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 giu 2024, 18:11</div></cite>
+Il punto di contatto dei cilindri con il piano in basso non può slittare sul medesimo. Allora deve assumere l'accelerazione a e indurre una rotazione antioraria dei due cilindri. La rotazione è attorno al cdm dei due cilindri. Infatti i punti di contatto con il piano superiore ugualmente non possono slittare sul piano superiore per cui trasmettono a a questo piano inducendo nei cilindri che ci poggiano una rotazione oraria. Quindi in ciascun piano si inducono rotazioni opposte sempre attorno ai rispettivi cdm <strong class="text-strong">che pertanto non si muovono</strong>.
+</div></blockquote>
+
+Questo era giusto fino alla parte in grassetto. C'è sia rotazione che traslazione e in un certo senso vanno in due direzioni opposte tra loro, ma non è ovvio, e probabilmente nemmeno vero, che si bilanciano perfettamente così che i cdm non si muovono.<br>
+<br>
+Mi ci devo ancora mettere ma per dire due pensieri che ho:<br>
+1.) La condizione che le assi sono "prive di massa" è cruciale. L'intuito può trarre in inganno, perché non ci immaginiamo questa cosa.<br>
+2.) Comincerei con poche assi e cilindri, prima di fare il caso infinito.</article>
+<article class="post" id="p28476"><div class="who"><b>Higgs</b><span>27 giu 2024, 11:56</span></div>@Fibdg   Eh purtroppo non mi pare invece di aver capito la situazione a partire dal fatto che spingendo si conferisce un'accelerazione a un asse di massa nulla! Anche la forza applicata all'asse per accelerarlo è nulla? Asse e punto di contatto sono istantaneamente con la stessa accelerazione rispetto al pavimento. Allora è come se il punto di contatto stisciasse  sul pavimento sopra l'asse. Tu stesso dici fra virgolette che rotola sull'asse che ha accelerazione a rispetto al pavimento...Se l'asse istantaneo di rotazione è per il punto di contatto occorre per Newton il momento di una forza esterna per farlo rotolare conferendogli un'accelerazione angolare. Quale sarebbe questa forza che passa per l'asse di rotazione e quindi ha momento nullo? Scusami per il casino che ho in testa... :?:  :?:</article>
+<article class="post" id="p28477"><div class="who"><b>Fibdg</b><span>27 giu 2024, 16:14</span></div>Se capisco quello che dici:<br>
+<br>
+1) Avrei dovuto dire che le assi hanno massa trascurabile invece che "prive di massa" (non dovrebbe cambiare nulla no?). A questo punto alla prima viene impartita un'accelerazione <span class="tex">\(a\)</span> verso destra.<br>
+<br>
+2) Riguardo alle forze, ci sono sostanzialmente attriti tra i cilindri e le assi. Non ho capito cosa tu intenda quando dici
+<blockquote class="uncited"><div>Quale sarebbe questa forza che passa per l'asse di rotazione e quindi ha momento nullo?</div></blockquote> <br>
+Direi una forza di attrito
+<blockquote class="uncited"><div> Allora è come se il punto di contatto stisciasse sul pavimento sopra l'asse.</div></blockquote> Se vuoi metterla in questi termini ok, il punto di contatto si muove con un'accelerazione sopra l'asse che è <span class="tex">\(a\)</span> rispetto al pavimento, che è d'altra parte l'accelerazione stessa dell'asse rispetto al pavimento.</article>
+<article class="post" id="p28478"><div class="who"><b>Pigkappa</b><span>27 giu 2024, 20:02</span></div>Viene <span class="tex">\(\displaystyle A = a /(1+\sqrt 2)\)</span> ?</article>
+<article class="post" id="p28479"><div class="who"><b>Fibdg</b><span>27 giu 2024, 21:32</span></div>Giusto!</article>
+<article class="post" id="p28480"><div class="who"><b>Pigkappa</b><span>27 giu 2024, 21:51</span></div>Lascio tempo ad Higgs di provarci. Consiglio di partire dal caso con n=1 cilindro, e poi magari n=2 cilindri, e solo dopo di pensare a n generico, che è piuttosto difficile.</article>
+<article class="post" id="p28481"><div class="who"><b>Higgs</b><span>28 giu 2024, 10:16</span></div>Una cosa che non ho mai chiesto: quando chiede la determinazione dell'acc.ne del cilindro intende quella del suo cdm?</article>
+<article class="post" id="p28482"><div class="who"><b>Pigkappa</b><span>28 giu 2024, 10:21</span></div>Sì</article>
+<article class="post" id="p28483"><div class="who"><b>Higgs</b><span>28 giu 2024, 11:55</span></div>Quando consigli di cominciare con n=1 esistono solo i due cilindri sul pavimento non c'è asse superiore. Abbiamo un asse di rotazione accelerato rispetto al pavimento. Se non ci fosse a si tratterebbe di una rotazione istantanea attorno al punto di contatto e se avviene verso destra anche il cdm andrebbe verso destra, se avviene verso sinistra andrebbe verso sinistra. Ora c'è a e quindi io sono indotto a pensare che la rotazione avviene verso sinistra. Cioè, penso io, all'accelerazione a del punto di contatto deve essere tolta la rotazione verso sinistra antioraria del cdm. Ma non mi torna<span class="tex">\(a/(1+radice di 2)\)</span> :?:  :?: Perchè sbaglio?</article>
+<article class="post" id="p28484"><div class="who"><b>Fibdg</b><span>28 giu 2024, 12:24</span></div>La risposta di Pigkappa si riferiva al caso <span class="tex">\(n\to\infty\)</span>.<br>
+
+<blockquote class="uncited"><div>Cioè, penso io, all'accelerazione a del punto di contatto deve essere tolta la rotazione verso sinistra antioraria del cdm.</div></blockquote> Questo mi sembra corretto.</article>
+<article class="post" id="p28485"><div class="who"><b>Higgs</b><span>28 giu 2024, 18:01</span></div>Ho impiegato il pomeriggio ma non vedo la soluzione. Siccome sono sotto esami e non ho abbastanza tempo per rifletterci ritengo opportuno che Pigkappa  pubblichi il suo post :D</article>
+<article class="post" id="p28486"><div class="who"><b>mantanp</b><span>28 giu 2024, 19:56</span></div>Io ho finito oggi con gli esami, non vedevo l'ora di tornare sul forum :lol: Avrei giusto una domanda: l'accelerazione richiesta è intesa rispetto al sistema di riferimento del laboratorio o rispetto all'asse che accelera? Magari Pigkappa aspetta un paio di giorni che vorrei provare siccome il problema sembra interessante...</article>
+<article class="post" id="p28487"><div class="who"><b>Pigkappa</b><span>28 giu 2024, 21:05</span></div>Rispetto al laboratorio<br>
+<br>
+Comunque sia a questo, che alla risposta alla ultima domanda di Higgs, ci si poteva anche arrivare da soli.<br>
+<br>
+Nelle prove scritte non si possono generalmente fare domande. <br>
+<br>
+In quelle orali sì ma c'è un limite. Se io proponessi questo problema a un esame di fisica 1 e uno studente mi seppellisse di domande tipo "ma per accelerazione del cilindro si intende quella del CDM?", "ma l'accelerazione si misura rispetto a laboratorio o asse?", "ma l'accelerazione va a destra o sinistra o devo arrivarci io?", "ma c'è attrito o no?"... Quell'esame partirebbe con il piede sbagliato.</article>
+<article class="post" id="p28488"><div class="who"><b>Tarapìa Tapioco</b><span>28 giu 2024, 23:51</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7255.html#p28480" data-post-id="28480" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">27 giu 2024, 21:51</div></cite>
+solo dopo di pensare a n generico, che è <strong class="text-strong">piuttosto difficile</strong>.
+</div></blockquote>
+Non necessariamente. La difficoltà del caso in esame dipende soltanto da quale strada si scelga di prendere: una più lunga e classicamente formale, l'altra più breve e leggermente "truccosa".</article>
+<article class="post" id="p28489"><div class="who"><b>mantanp</b><span>29 giu 2024, 17:34</span></div>Penso di avere una difficoltà di fondo nel capire il caso più banale, ovvero n=1... <br>
+Ecco quello che ho pensato: sicuramente i cilindri accelerano a sinistra a causa della forza d'attrito e inoltre l'accelerazione del centro di massa del sistema corrisponde all'accelerazione dei due cilindri, essendo l'asse priva di massa. Ma quindi, non essendoci forze esterne che agiscono orizzontalmente sul sistema (gli attriti sono delle forze di interazione), l'accelerazione del centro di massa dovrebbe essere nulla rispetto al laboratorio, ovvero i due cilindri si muovono con accelerazione <span class="tex">\(\vec{a} \)</span> verso sinistra il che mi pare un po' strano.</article>
+<article class="post" id="p28490"><div class="who"><b>Pigkappa</b><span>30 giu 2024, 1:01</span></div>Non è vero che non ci sono forze esterne. Per mantenere l'asse in moto con accelerazione <span class="tex">\(a\)</span> ed i cilindri in moto con l'accelerazione che bisogna trovare, qualcuno sta tirando l'asse.<br>
+<br>
+Che l'accelerazione dei cilindri sia verso sinistra non è scontato... Combinando traslazione e rotazione si possono ottenere risultati inaspettati. Io non sapevo in che direzione si sarebbero mossi i cilindri finché non ho fatto i conti.</article>
+<article class="post" id="p28491"><div class="who"><b>mantanp</b><span>1 lug 2024, 12:30</span></div>Penso di non essere in grado di risolverlo, aspetto che qualche buon'anima scriva la soluzione o dia dei consigli per cominciare!</article>
+<article class="post" id="p28492"><div class="who"><b>Pigkappa</b><span>1 lug 2024, 20:37</span></div>Allego una immagine qua sotto. Nel cilindro a sinistra mostro la velocità lineare del CDM e quella angolare attorno al CDM, <span class="tex">\(\displaystyle V\)</span> e <span class="tex">\(\displaystyle \omega\)</span> rispettivamente. Nel cilindro a destra mostro le accelerazioni <span class="tex">\(\displaystyle A\)</span> e <span class="tex">\(\displaystyle \alpha\)</span> e la forza di attrito <span class="tex">\(\displaystyle F\)</span>.<br>
+<br>
+<strong class="text-strong">Equazione 1</strong>: scrivere la legge fisica che collega <span class="tex">\(\displaystyle A\)</span> ed <span class="tex">\(\displaystyle F\)</span><br>
+<br>
+<strong class="text-strong">Equazione 2</strong>: scrivere la legge fisica che collega <span class="tex">\(\displaystyle \alpha\)</span> ed <span class="tex">\(\displaystyle F\)</span><br>
+<br>
+<strong class="text-strong">Equazione 3</strong>: scrivere il vincolo geometrico che soddisfa la condizione del testo per cui "i cilindri non strisciano rispetto alle assi"<br>
+<br>
+Riesci a concludere da qui?<br>
+<br>
+<a class="lost" href="https://i.imgur.com/A2eRtcg.jpeg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p28493"><div class="who"><b>mantanp</b><span>1 lug 2024, 22:18</span></div>Allora, con queste indicazioni io ricaverei queste tre equazioni:<br>
+<span class="tex">\(
+\begin{cases}
+F=M \cdot A \\
+F \cdot R=I \alpha=\frac{MR^2 \alpha}{2} \\
+A-a=\alpha \cdot R
+\end{cases}
+\)</span><br>
+<br>
+Risolvendo il sistema, ottengo che <span class="tex">\(A=-a\)</span>, che potrebbe aver senso visto che significa che i cilindri ruotano verso sinistra, come avevamo detto! Magari qualcuno mi dia la conferma che abbia scritto equazioni giuste. Ora resta da pensare al caso <span class="tex">\(n \! \to \! \infty \)</span></article>
+<article class="post" id="p28494"><div class="who"><b>Pigkappa</b><span>1 lug 2024, 22:33</span></div><blockquote><div><cite>mantanp ha scritto: <a href="olifis-7255.html#p28493" data-post-id="28493" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 lug 2024, 22:18</div></cite>
+<span class="tex">\(
+A-a=\alpha \cdot R
+\)</span>
+</div></blockquote>
+
+Questa non mi convince. Attenzione ai segni...</article>
+<article class="post" id="p28495"><div class="who"><b>mantanp</b><span>1 lug 2024, 22:44</span></div>Io pensavo di imporre che il cilindro rotola rispetto alla trave che sta accelerando, quindi l'accelerazione "relativa" sarebbe <span class="tex">\(A-a\)</span>. Cos'è che non va dei segni?  :|</article>
+<article class="post" id="p28496"><div class="who"><b>Pigkappa</b><span>1 lug 2024, 22:58</span></div>Io lo farei così. La velocità di quel punto è <span class="tex">\(\displaystyle V + \omega R\)</span>. Nota bene che per come ho disegnato <span class="tex">\(\displaystyle \omega\)</span>, velocità angolare positiva lo fa ruotare verso destra, la stessa direzione di <span class="tex">\(\displaystyle V\)</span> positiva. Affinché la accelerazione sia la stessa che l'asse, <span class="tex">\(\displaystyle \frac{\text d}{\text d t}(V + \omega R) = a\)</span> quindi <span class="tex">\(\displaystyle A + \alpha R = a\)</span>.<br>
+<br>
+Volendolo fare nel sistema di riferimento dell'asse, come fai tu, direi che la accelerazione di quel punto è <span class="tex">\(\displaystyle A + \alpha R - a\)</span> e si deve imporre che questo sia zero.<br>
+<br>
+In pratica, stai sbagliando a usare il segno di <span class="tex">\(\displaystyle \alpha\)</span>. Nell'equazione 2 hai usato il segno di <span class="tex">\(\displaystyle \alpha\)</span> e quindi nella 3 devi usarlo in modo concordante a quanto hai già fatto. Se io avessi disegnato <span class="tex">\(\displaystyle \omega\)</span> nel verso opposto, sarebbe stata giusta la tua equazione 3 ma sbagliata la 2.</article>
+<article class="post" id="p28497"><div class="who"><b>mantanp</b><span>1 lug 2024, 23:23</span></div>Cambiando la terza equazione come suggerito, otterrei che <span class="tex">\(A=\frac{a}{3}\)</span>. Ma non dovevano muoversi verso sinistra sti cilindri?   :| Oppure me lo sono sognato io? Per quanto riguarda il caso con 4 cilindri, è giusto pensare che la forza d'attrito tra il cilindro ed il piano in alto abbia verso opposto a quello in basso (per permetterne il rotolamento)?</article>
+<article class="post" id="p28498"><div class="who"><b>Pigkappa</b><span>1 lug 2024, 23:54</span></div>Giusto <span class="tex">\(\displaystyle a/3\)</span>. <br>
+<br>
+Mi sembra plausibile che si muovano verso destra. Nel caso estremo in cui non possono ruotare, ad esempio se fossero blocchi rettangolari invece che cilindri, la situazione sarebbe analoga ma con <span class="tex">\(\displaystyle I = \infty\)</span>. Troveremmo <span class="tex">\(\displaystyle \alpha = 0\)</span> e <span class="tex">\(\displaystyle A = a\)</span>, diretto verso destra, che intuitivamente è corretto... Ma, come ho detto sopra, prima di fare il conto e trovare <span class="tex">\(\displaystyle a/3\)</span> non ero sicuro.<br>
+<br>
+Sulla generalizzazione per ora me ne sto zitto :P</article>
+<article class="post" id="p28499"><div class="who"><b>Higgs</b><span>3 lug 2024, 12:37</span></div>Nel tuo schema mi sembra che la rotazione faccia andare il cilindro  indietro verso sinistra. Perchè F di attrito è diretta a destra in avanti e sembra favorire la rotazione indietro?</article>
+<article class="post" id="p28500"><div class="who"><b>Higgs</b><span>4 lug 2024, 11:19</span></div>Io la vedo così. La forza F di Pigkappa è quella che causa l'accelerazione a del cilindro rispetto al pavimento. Lo stesso Pigkappa la individuava come ragione del moto quando individuava la forza esterna agente  e dunque mi sembra debba essere F=Ma. Ora come riconosceva anche Fidbg il 28/6 a questa accelerazione a deve essere tolta la rotazione verso sinistra del cdm. Questa rotazione con accelerazione <span class="tex">\(x=R\alpha\)</span>deve soddisfare a <span class="tex">\((3/2)MR^2 \alpha=-MaR\)</span> da cui si ricava <span class="tex">\(x==-(2/3)a\)</span> e quindi in definitiva <span class="tex">\(A=a-(2/3)a= a/3\)</span> . Osservo che, se va bene, è più semplice e aderente al testo del problema. :?:  :?:</article>
+<article class="post" id="p28501"><div class="who"><b>Pigkappa</b><span>4 lug 2024, 13:00</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7255.html#p28500" data-post-id="28500" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">4 lug 2024, 11:19</div></cite>
+<span class="tex">\((3/2)MR^2 \alpha=-MaR\)</span>
+</div></blockquote>
+Da dove viene questa?</article>
+<article class="post" id="p28502"><div class="who"><b>Higgs</b><span>4 lug 2024, 17:57</span></div>Ho pensato che siccome la forza <strong class="text-strong">F=Ma </strong>è applicata all'asse di rotazione e non al cdm, essa provoca la rotazione in senso opposto da parte di quest'ultimo con un momento negativo (opposto) del valore evidente<strong class="text-strong"> MaR </strong>nella seconda legge di Newton sugli oggetti ruotanti. Quindi c'è traslazione della massa governata da <strong class="text-strong">F=Ma</strong> e rotazione sinistrorsa della stessa massa concentrata nel cdm governata dalla seconda legge di Newton sulle rotazioni . Risulta allora che l'accelerazione netta<strong class="text-strong"> A=a/3 </strong>del cdm  è proprio la differenza fra quella traslazionale <strong class="text-strong">a </strong>e quella rotazionale<strong class="text-strong"> (2/3) a</strong>   aventi versi opposti.</article>
+<article class="post" id="p28503"><div class="who"><b>Pigkappa</b><span>4 lug 2024, 23:30</span></div>Fatico a vedere la rotazione della massa concentrata nel CDM, sinceramente... Penso il tuo argomento si possa rendere più chiaro ma così com'è non l'ho capito in pieno.<br>
+<br>
+Dato che siamo fermi da un po' posto la mia soluzione completa; è lunga e faticosa. Fibdg e Tarapia, se ne avete di migliori postatele :)</article>
+<article class="post" id="p28504"><div class="who"><b>Pigkappa</b><span>4 lug 2024, 23:45</span></div>Per semplificare le formule, poniamo <span class="tex">\(\displaystyle M=1\)</span> e <span class="tex">\(\displaystyle R=1\)</span>. Il momento di inerzia è <span class="tex">\(\displaystyle I = \frac{1}{2}\)</span>.<br>
+<br>
+Ci sono due cilindri per strato ma questo serve solo per evitare che le assi si inclinino. Basta considerare le forze agenti su una sola torre di cilindri.<br>
+<br>
+Assegno numeri agli strati così che l'asse sotto a tutte le altre sia numerata come <span class="tex">\(\displaystyle 0\)</span>, con accelerazione è <span class="tex">\(\displaystyle a_0 = a\)</span>. L'asse più in alto sia <span class="tex">\(\displaystyle N \gg 1\)</span>. Nell'immagine qua sotto mostro la situazione del cilindro <span class="tex">\(\displaystyle n-1\)</span>, che sente una forza <span class="tex">\(\displaystyle F_{n-1}\)</span> dovuta all'asse sotto di lui, e del cilindro <span class="tex">\(\displaystyle n\)</span>. <br>
+<br>
+Il cilindro <span class="tex">\(\displaystyle n\)</span> sente una forza <span class="tex">\(\displaystyle F_n\)</span>; per azione e reazione, esercita una forza opposta <span class="tex">\(\displaystyle -F_n\)</span> sull'asse sotto di lui. Ma l'asse è priva di massa, quindi la somma delle forze su di essa è nulla, quindi il cilindro <span class="tex">\(\displaystyle n-1\)</span> deve esercitare una forza <span class="tex">\(\displaystyle +F_n\)</span> sull'asse e subire da sopra una forza <span class="tex">\(\displaystyle -F_n\)</span>.<br>
+<br>
+In figura ho evidenziato l'accelerazione <span class="tex">\(\displaystyle A_{n-1}\)</span> del CDM e la velocità angolare di rotazione <span class="tex">\(\displaystyle w_{n-1}\)</span>. In realtà più che la velocità angolare ci interessa l'accelerazione angolare <span class="tex">\(\displaystyle \alpha_{n-1}\)</span>.<br>
+<br>
+Cerchiamo equazioni ricorsive che mettano in relazione le variabili <span class="tex">\(\displaystyle n-1\)</span> e quelle per <span class="tex">\(\displaystyle n\)</span>.<br>
+<br>
+<strong class="text-strong">Usiamo le condizioni fisiche.</strong><br>
+<br>
+La seconda legge di Newton dà <strong class="text-strong">(1)</strong> <span class="tex">\(\displaystyle A_{n-1} = F_{n-1} - F_n\)</span>.<br>
+<br>
+La legge del momento della forza dà <strong class="text-strong">(2)</strong> <span class="tex">\(\displaystyle \frac{1}{2} \alpha_{n-1} = F_{n-1} + F_n\)</span>.<br>
+<br>
+Facendo la somma si ricava <strong class="text-strong">(3)</strong>: <span class="tex">\(\displaystyle A_{n-1} + \frac{1}{2} \alpha_{n-1} = 2 F_{n-1}\)</span>.<br>
+<br>
+Evidentemente la <strong class="text-strong">(3)</strong> deve valere anche se sostituiamo gli indici per il cilindro successivo ottenendo <strong class="text-strong">(4)</strong>: <span class="tex">\(\displaystyle 2 F_n = A_n + \frac{1}{2} \alpha_n\)</span>.<br>
+<br>
+Facendo la differenza tra (2) e (1): <span class="tex">\(\displaystyle \frac{1}{2} \alpha_{n-1} - A_{n-1} = 2F_n\)</span> e usando la (4) qua dentro otteniamo la prima relazione ricorsiva che chiamo <strong class="text-strong">(5)</strong>: <span class="tex">\(\displaystyle \frac{1}{2} \alpha_{n-1} - A_{n-1} = A_n + \frac{1}{2} \alpha_n\)</span><br>
+<br>
+<strong class="text-strong">Ora usiamo le condizioni geometriche.</strong><br>
+<br>
+Il punto superiore del cilindro inferiore deve restare fermo rispetto all'asse di mezzo <strong class="text-strong">(6)</strong>: <span class="tex">\(\displaystyle A_{n-1} - \alpha_{n-1} = a_n\)</span>.<br>
+<br>
+Lo stesso dicasi per il punto inferiore del cilindro superiore <strong class="text-strong">(7)</strong>: <span class="tex">\(\displaystyle A_n + \alpha_n = a_n\)</span>.<br>
+<br>
+Mettendo insieme la (6) e la (7) otteniamo la seconda equazione ricorsiva <strong class="text-strong">(8)</strong>: <span class="tex">\(\displaystyle A_{n-1} - \alpha_{n-1} = A_n + \alpha_n\)</span><br>
+<br>
+<strong class="text-strong">Maneggiamo le relazioni ricorsive</strong><br>
+Usando la (5) e la (8) ricaviamo <span class="tex">\(\displaystyle A_{n-1}\)</span> e <span class="tex">\(\displaystyle \alpha_{n-1}\)</span>, equazioni <strong class="text-strong">(9)</strong> e <strong class="text-strong">(10)</strong>:<br>
+<span class="tex">\(\displaystyle A_{n-1} = -3 A_n -2 \alpha_n\)</span><br>
+<span class="tex">\(\displaystyle \alpha_{n-1} = -4 A_n -3 \alpha_n\)</span><br>
+<br>
+<strong class="text-strong">Definiamo le condizioni al contorno</strong><br>
+La condizione fisica sull'asse <span class="tex">\(\displaystyle N\)</span> più in alto, che sente una sola forza è <strong class="text-strong">(11)</strong>: <span class="tex">\(\displaystyle A_N = \frac{1}{2}\alpha_N\)</span>. <br>
+<br>
+La condizione geometrica per il punto inferiore dell'asse più in basso è <strong class="text-strong">(12)</strong>: <span class="tex">\(\displaystyle A_0 + \alpha_0 = a\)</span>. <br>
+<br>
+<strong class="text-strong">Contiamo le equazioni</strong><br>
+Le incognite <span class="tex">\(\displaystyle A_0, ..., A_N\)</span> e <span class="tex">\(\displaystyle \alpha_0, ..., \alpha_N\)</span> sono <span class="tex">\(\displaystyle 2N + 2\)</span>. Le equazioni ricorsive (9) e (10) forniscono N equazioni ciascuna e le condizioni al contorno (11) e (12) sono le due equazioni mancanti. Abbiamo finito - possiamo ricavare tutte le incognite.<br>
+<br>
+Per ottenere una risposta esplicita dobbiamo però fare alcuni passaggi.<br>
+<br>
+<strong class="text-strong">Semplifichiamo le equazioni ricorsive</strong><br>
+Trasformiamo le equazioni (9) e (10) in una forma più facile da usare. Se fossero nella forma <span class="tex">\(\displaystyle x_{n-1} = k x_n\)</span> sarebbe chiaro che avremmo <span class="tex">\(\displaystyle x_0 = k^N x_N\)</span>, ma poiché ci sono due variabili <span class="tex">\(\displaystyle A_n, \alpha_n\)</span> che si mischiano tra loro, la nostra vita non è così semplice.<br>
+<br>
+Allora cerchiamo <em class="text-italics">una combinazione lineare <span class="tex">\(\displaystyle x_n\)</span> di <span class="tex">\(\displaystyle A_n\)</span> e <span class="tex">\(\displaystyle \alpha_n\)</span> tale che la formula ricorsiva sia del tipo <span class="tex">\(\displaystyle x_{n-1} = k x_n\)</span></em>. <br>
+<br>
+Facendo un po' di lavoro (<span style="text-decoration:underline">eufemismo</span>!) ne troviamo due. Queste sono <span class="tex">\(\displaystyle x_n = A_n + \frac{1}{\sqrt 2} \alpha_n\)</span> e <span class="tex">\(\displaystyle y_n = A_n - \frac{1}{\sqrt 2} \alpha_n\)</span>. Le equazioni di ricorrenza le chiamo <strong class="text-strong">(13)</strong> e <strong class="text-strong">(14)</strong>:<br>
+<span class="tex">\(\displaystyle A_{n-1} + \frac{1}{\sqrt 2} \alpha_{n-1} = -(3 + 2 \sqrt 2) \times (A_n + \frac{1}{\sqrt 2} \alpha_n)\)</span><br>
+<span class="tex">\(\displaystyle A_{n-1} - \frac{1}{\sqrt 2} \alpha_{n-1} = -(3 - 2 \sqrt 2) \times (A_n - \frac{1}{\sqrt 2} \alpha_n)\)</span><br>
+Si può verificare, sostituendo qua dentro i valori <span class="tex">\(\displaystyle A_{n-1}\)</span> e <span class="tex">\(\displaystyle \alpha_{n-1}\)</span> dalla (9) e (10), che sono corrette.<br>
+<br>
+Questo ci permette di saltare direttamente tra l'indice 0 ed N:<br>
+<span class="tex">\(\displaystyle A_0 + \frac{1}{\sqrt 2} \alpha_0 = (-1)^N(3 + 2 \sqrt 2)^N \times (A_N + \frac{1}{\sqrt 2} \alpha_N)\)</span><br>
+<span class="tex">\(\displaystyle A_0 - \frac{1}{\sqrt 2} \alpha_0 = (-1)^N(3 - 2 \sqrt 2)^N \times (A_N - \frac{1}{\sqrt 2} \alpha_N)\)</span><br>
+<br>
+<strong class="text-strong">Usiamo le condizioni al contorno</strong><br>
+Usiamo la (12) a sinistra e (11) a destra:<br>
+<span class="tex">\(\displaystyle A_0 + \frac{1}{\sqrt 2} (a - A_0) = (-1)^N(3 + 2 \sqrt 2)^N \times (\frac{1}{2}\alpha_N + \frac{1}{\sqrt 2} \alpha_N)\)</span><br>
+<span class="tex">\(\displaystyle A_0 - \frac{1}{\sqrt 2} (a - A_0) = (-1)^N(3 - 2 \sqrt 2)^N \times (\frac{1}{2}\alpha_N - \frac{1}{\sqrt 2} \alpha_N)\)</span><br>
+Dividiamo membro a membro e semplifichiamo i radicali. Ometto alcuni passaggi. Si ottiene la <strong class="text-strong">(15)</strong>:<br>
+<span class="tex">\(\displaystyle \frac{(\sqrt 2 - 1)A_0 + a}{(\sqrt 2 + 1)A_0 - a} = - (\sqrt 2 + 1)^2 (3+2\sqrt2)^{2N} \)</span><br>
+<br>
+<strong class="text-strong">Facciamo il limite</strong><br>
+Si vede che per <span class="tex">\(\displaystyle N \rightarrow +\infty\)</span> il termine di destra va all'infinito. Evidentemente, deve essere così anche a sinistra. Guardando il denominatore, questo ci dice che <span class="tex">\(\displaystyle A_0\)</span> tende a <span class="tex">\(\displaystyle \frac{a}{\sqrt 2 + 1}\)</span>. Problema risolto!<br>
+<br>
+<strong class="text-strong">Risolviamo il caso N finito</strong><br>
+Già che ci siamo, possiamo ricavare <span class="tex">\(\displaystyle A_0\)</span> in generale. Facendo il conto partendo dalla (15):<br>
+<span class="tex">\(\displaystyle A_0 = a \frac{(-1 + (3+2\sqrt2)^{2N+1})}{((\sqrt 2 - 1) + (\sqrt 2 + 1) (3+2\sqrt2)^{2N+1})}\)</span> <br>
+<br>
+Il caso <span class="tex">\(\displaystyle N = 0\)</span> corrisponde ad avere un solo cilindro. In tal caso:<br>
+<span class="tex">\(\displaystyle A_0 = a \frac{(-1 + (3 + 2 \sqrt 2) )}{((\sqrt 2 - 1) + (\sqrt 2 + 1)(3+2\sqrt2))}\)</span> <br>
+<span class="tex">\(\displaystyle A_0 = a \frac{(2 + 2 \sqrt 2)}{((\sqrt 2 - 1) + 5 \sqrt 2 + 7)}\)</span> <br>
+<span class="tex">\(\displaystyle A_0 = a \frac{(2 + 2 \sqrt 2)}{((6 \sqrt 2 + 6)} = \frac{a}{3}\)</span> <br>
+Che è il risultato di mantenp.<br>
+<br>
+Il caso <span class="tex">\(\displaystyle n \rightarrow + \infty\)</span> dà il risultato <span class="tex">\(\displaystyle \frac{a}{\sqrt 2 + 1}\)</span> come sopra.<br>
+<a class="lost" href="https://i.imgur.com/iChnSvq.jpeg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p28505"><div class="who"><b>mantanp</b><span>5 lug 2024, 11:18</span></div>Grazie mille per la soluzione dettagliata! Problema molto carino, forse più complicato dal punto di vista matematico che fisico ma comunque insegna molte cose sulla differenza tra rotolamento e scivolamento per esempio.</article>
+<article class="post" id="p28506"><div class="who"><b>Higgs</b><span>5 lug 2024, 11:33</span></div>Sicuramente mi sbaglio dato che il risultato è corretto ma componendo la 5) e la 8) non mi torna <span class="tex">\(A_{ n-1}\)</span>in funzione di <span class="tex">\(A_n\)</span>perchè se addiziono scompare <span class="tex">\(A_{n-1 }\)</span>e se sottraggo scompare <span class="tex">\(A_n\)</span> :?:</article>
+<article class="post" id="p28507"><div class="who"><b>mantanp</b><span>5 lug 2024, 14:00</span></div>Se sommi non ottieni nulla, devi sostituire. <br>
+Dalla (8) ottieni che <span class="tex">\(A_{n-1}=A_n+\alpha_{n-1}+\alpha_{n}\)</span>, quindi ora puoi prendere dalla (5) l'espressione <span class="tex">\(\alpha_{n-1}=2A_{n-1}+2A_{n}+\alpha_{n}\)</span> e sostituirla ottenendo la (9):<br>
+<span class="tex">\(
+A_{n-1}=A_n+\underbrace{2A_{n-1}+2A_n+\alpha_n}_{=\alpha_{n-1}}+\alpha_n \iff A_{n-1}=-3A_n-2\alpha_n\)</span><br>
+<br>
+Sostituendo questa espressione qua nella (5) ottieni poi la (10)!</article>
+<article class="post" id="p28508"><div class="who"><b>Higgs</b><span>5 lug 2024, 18:01</span></div>Grazie mantanp! :D</article>
+<article class="post" id="p28509"><div class="who"><b>Fibdg</b><span>5 lug 2024, 22:55</span></div>Bella soluzione Pigkappa! Innanzitutto rivelo che la fonte del problema è il Morin. Condivido altre possibili tracce di soluzioni (purtroppo non sono farina del mio sacco, io non sono riuscito a risolverlo):<br>
+<br>
+1) Soluzione (completa) dal dipartimento di fisica di Harvard: <a href="https://www.physics.harvard.edu/files/sol85.pdf" class="ext" class="postlink">https://www.physics.harvard.edu/files/sol85.pdf</a> Sfrutta le matrici per concludere, direi che l'idea di fondo è praticamente quella di Pigkappa.<br>
+<br>
+2) Soluzione 2: Prendiamo il punto medio della prima asse. Rispetto a quel punto sicuramente il momento angolare del sistema si conserva. Deriviamo la sua espressione così da poter ragionare in termini di accelerazioni invece che velocità. A questo punto un'intuizione chiave semplifica tutto. Se l'accelerazione della prima asse è <span class="tex">\(a\)</span>, per la seconda asse sarà <span class="tex">\(ka\)</span> dove <span class="tex">\(k\)</span> può essere anche negativo, quella successiva <span class="tex">\(k^2a\)</span> eccetera (non mi è chiarissimo come si dovrebbe giustificare questo passaggio, semplicemente per la simmetria del problema per cui ogni livello è assolutamente analogo ad ogni altro tranne l'"ultimo"?). Da ciò, e da alcune considerazioni sull'accelerazione (angolare e non) dei cilindri del primo livello, riprendo l'equazione del momento angolare derivata e noto che le somme infinite che si presentano convergono ad un risultato finito! (a patto che <span class="tex">\(|k|&lt;1\)</span>; questa condizione ha un significato fisico, deriva dal fatto che se una forza finita ha messo in moto il sistema non può aver causato un'accelerazione infinita, che sarebbe quella dell'"ultimo cilindro", o almeno credo sia questo il motivo). Ottengo un'equazione che ha come incognita solo <span class="tex">\(k\)</span>. Trovato questo valore il problema è concluso perché dalle considerazioni precedenti sull'accelerazione dei cilindri del primo livello so che legame c'è tra la richiesta del problema, <span class="tex">\(a\)</span> e <span class="tex">\(k\)</span>.<br>
+<br>
+3) Soluzione 3: La terza soluzione sfrutta la stessa idea del <span class="tex">\(k\)</span> menzionato prima ed è forse la soluzione "truccosa" a cui si riferisce Tarapia. Scrivo la II Legge di Newton sul cilindro del primo livello e ottengo un'equazione con incognite la forza <span class="tex">\(F\)</span> che agisce "dal basso" sul primo livello di cilindri (quella dall'alto sarà <span class="tex">\(kF\)</span>), <span class="tex">\(k\)</span> e l'accelerazione <span class="tex">\(a\)</span> (con considerazioni analoghe alla soluzione 2 si esprimono l'accelerazione angolare e non dei cilindri in funzione di <span class="tex">\(k\)</span>, <span class="tex">\(a\)</span> e <span class="tex">\(R\)</span>). Ora scrivo la II Legge di Newton per il moto rotazionale sempre su quel cilindro e ottengo un'altra equazione con le stesse incognite. Le divido membro a membro e ottengo un'equazione di secondo grado in <span class="tex">\(k\)</span> ! Scarto la soluzione con <span class="tex">\(|k|&gt;1\)</span> come prima e concludo allo stesso modo della 2).<br>
+<br>
+Soluzioni 2) e 3) in dettaglio: <a href="https://www.youtube.com/watch?v=-qbZJLEZY_4&amp;t=69s" class="ext" class="postlink">https://www.youtube.com/watch?v=-qbZJLEZY_4&amp;t=69s</a><br>
+<br>
+Buon proseguimento di staffetta!</article>
+<nav class="pager"><a class="prev" href="olifis-346.html"><small>← precedente</small>Momento d&#x27;inerzia dell&#x27;insieme di Cantor</a><a class="next" href="olifis-7222.html"><small>successivo →</small>Sfera in una doppia guida</a></nav>
+</main></body></html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tre masse e due aste.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Tre masse e due aste.</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=8">forum Olifis</a></p>
+<article class="post first" id="p16"><div class="who"><b>Pigkappa</b><span>11 gen 2009, 15:10</span></div>(per chi mi conoscesse ma non riconoscesse il mio nick, sono Andrea Caleo)<br>
+<br>
+Propongo questo problema interessante che viene da un compitino dell'università di Pisa, per gli studenti del primo anno. Non sono richieste conoscenze in più rispetto a quelle che servono per le Olimpiadi. Secondo me la difficoltà è a metà tra le provinciali e Senigallia.<br>
+<br>
+<a class="lost" href="http://www.df.unipi.it/~cella/daily/081219/081219-img1.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Le tre masse identiche in figura sono collegate da due aste di lunghezza <span class="tex">\(\displaystyle l\)</span> e massa trascurabile. Quelle agli estremi sono vincolate a scorrere su un piano orizzontale, mentre l'angolo <span class="tex">\(\displaystyle \theta\)</span> tra le aste può variare liberamente, e all'inizio vale <span class="tex">\(\displaystyle \theta_0\)</span>.<br>
+<br>
+1.)Se <span class="tex">\(\displaystyle v_1(0)=V\)</span> e <span class="tex">\(\displaystyle v_3(0)=0\)</span>, determinare la velocità iniziale <span class="tex">\(\displaystyle \vec{v_2}(0)\)</span> della massa in alto.<br>
+<br>
+2.)Se <span class="tex">\(\displaystyle v_1(0) = v_3(0) = 0\)</span>, determinare la velocità <span class="tex">\(\displaystyle \vec{v_2}\)</span> della massa in alto quando tocca il suolo.<br>
+<br>
+3.)Se <span class="tex">\(\displaystyle v_3(0)=0\)</span>, determinare il minimo valore di <span class="tex">\(\displaystyle v_1(0)\)</span> che permette alle masse agli estremi di toccarsi.</article>
+<article class="post" id="p17"><div class="who"><b>Paolo90</b><span>11 gen 2009, 16:29</span></div>punto 1) poniamo <span class="tex">\(L=x_3-x_1\)</span>, allora <span class="tex">\(\frac{dL}{dt}=\frac{d(x_3-x_1)}{dt}=-V\)</span><br>
+inoltre <span class="tex">\(L= 2lsin(\frac{\theta}{2})\)</span> da cui si ottiene <span class="tex">\(\frac{dsin( \theta/2)}{dt}=- \frac{V}{2l}\)</span><br>
+La componente verticale della velocita di m_2 e' <span class="tex">\(l \frac{dcos(\theta/2)}{dt} =\)</span> <span class="tex">\(l\frac{d}{dt}\sqrt{1-sin(\theta/2)^2} = -ltg(\theta/2)\frac{d}{dt}sin(\theta/2) = \frac{V}{2}tg(\theta/2)\)</span><br>
+La componente orizzontale, visto che <span class="tex">\(x_2 = x_3-L/2 =&gt; \frac{d}{dt}x_2=V/2\)</span></article>
+<article class="post" id="p30"><div class="who"><b>Alex90</b><span>12 gen 2009, 16:12</span></div>Provo il 2:<br>
+<br>
+Anzitutto abbiamo che per la conservazione dell'energia meccanica del sistema l'energia potenziale della seconda massa si convertità in energia cinetica delle 3 masse:<br>
+<br>
+<span class="tex">\(\displaystyle mgh = \frac{1}{2}m{v_1}^2 + \frac{1}{2}m{v_2}^2 + \frac{1}{2}m{v_3}^2\)</span><br>
+<br>
+Da cui, ponendo <span class="tex">\(\displaystyle \frac{\theta_0}{2}=\alpha\)</span> e considerando che <span class="tex">\(\displaystyle v_1=v_3\)</span> si ha:<br>
+<br>
+<span class="tex">\(\displaystyle mgl\cos\alpha=\frac{1}{2}m \left (2{v_1}^2+{v_2}^2 \right )\)</span><br>
+<br>
+Considerando ora il moto di caduta della seconda massa come moto uniformemente accelerato con <span class="tex">\(a=g\)</span> si ha che:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta x = \frac{1}{2}gt^2\)</span> dove <span class="tex">\(\Delta x = l\cos\alpha\)</span> e da cui quindi <span class="tex">\(t^2=\frac{2l\cos\alpha}{g}\)</span><br>
+<br>
+Nello stesso tempo sia la prima che la terza massa, con moto uniformemente accelerato, hanno percorso uno spazio pari a <span class="tex">\(\displaystyle l (1 - \sin\alpha)\)</span>, quindi <span class="tex">\(\bar{v}=\frac{l (1 - \sin\alpha)}{t} \Rightarrow {v_1}^2 = \frac{l^2 (1 - \sin\alpha)^2}{\frac{2l\cos\alpha}{g}}\)</span><span class="tex">\(\displaystyle {v_1}^2 = \frac{4lg(1-\sin\alpha)^2}{2\cos\alpha}\)</span><br>
+<br>
+Quindi:<br>
+<br>
+<span class="tex">\({v_2}^2 = 2lg\cos\alpha - 2{v_1}^2= 2lg\cos\alpha - 4\frac{lg(1-\sin\alpha)^2}\)</span><span class="tex">\({\cos\alpha}=2lg\frac{4\sin\alpha - 4\sin^2\alpha - \cos^2\alpha}{\cos\alpha}\)</span><br>
+<span class="tex">\(v_2 = \sqrt{2lg\frac{4\sin\alpha - 4\sin^2\alpha - \cos^2\alpha}{\cos\alpha}}\)</span><br>
+<br>
+mmm...risultato non troppo bello...è giusto?</article>
+<article class="post" id="p31"><div class="who"><b>Paolo90</b><span>12 gen 2009, 16:24</span></div>punto 2) per la conservazione dell'energia <span class="tex">\(mglcos(\theta_0/2) = mv_1^2 + 1/2mv_2^2\)</span><br>
+<span class="tex">\(2v_1=\frac{dL}{dt}=2l\frac{dsin(\theta/2)}{dt}\)</span> e <span class="tex">\(v_2=l\frac{dcos(\theta/2)}{dt}\)</span><br>
+trovandosi v1 in funzione di v2 si ricava dalla prima eq <span class="tex">\(v_2=\sqrt{2glcos(\theta_0/2)}\)</span><br>
+punto 3) su questo ho qualche dubbio.<br>
+per la conservazione della quantita' di moto lungo l'asse x <span class="tex">\(mV+mV/2 = m(v_1+v_2+v_3)\)</span><br>
+per la conservazione dell'energia <span class="tex">\(1/2mV^2 + 1/2m(\frac{V^2}{4}(1+tg(\theta_0/2)^2)) = 1/2m(v_1^2+v_2^2+v_3^2) +\)</span><span class="tex">\(mgl(1-cos(\theta_0/2))\)</span><br>
+visto che V deve essere minima, la somma dei tre quadrati delle velocita' finali e minima quando le tre velocita' sono uguali (perche' e' fissata la somma). quindi <span class="tex">\(v_1=v_2=v_3\)</span><br>
+<span class="tex">\(3/2V=3v_1\)</span><br>
+<span class="tex">\(1/2mV^2 + 1/2m(\frac{V^2}{4}(1+tg(\theta_0/2)^2)) = 3/2m(V^2/4) +\)</span><span class="tex">\(mgl(1-cos(\theta_0/2))\)</span><br>
+da cui si ottiene (salvo probabilissimi errori) <span class="tex">\(V=\sqrt{\frac{8gl(1-cos(\theta_0/2))}{tg(\theta_0/2)^2}}\)</span><br>
+non ho potuto riguardarlo troppo perche' dante incombe su di me... :(  :roll:</article>
+<article class="post" id="p32"><div class="who"><b>Pigkappa</b><span>12 gen 2009, 16:25</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Considerando ora il moto di caduta della seconda massa come moto uniformemente accelerato con <span class="tex">\(a=g\)</span></div></blockquote>
+
+Perchè?</article>
+<article class="post" id="p36"><div class="who"><b>Alex90</b><span>12 gen 2009, 19:45</span></div>Non cade come grave?</article>
+<article class="post" id="p37"><div class="who"><b>Paolo90</b><span>12 gen 2009, 19:53</span></div>si ma fa anche accelerare le altre due masse, che quindi per la terza legge di newton applicano su di lui una forza uguale e contraria e lo rallentano...</article>
+<article class="post" id="p42"><div class="who"><b>CoNVeRGe.</b><span>12 gen 2009, 21:52</span></div><blockquote><div><cite>Paolo90 ha scritto:</cite>punto 2) per la conservazione dell'energia <span class="tex">\(mglcos(\theta_0/2) = mv_1^2 + 1/2mv_2^2\)</span><br>
+<span class="tex">\(2v_1=\frac{dL}{dt}=2l\frac{dsin(\theta/2)}{dt}\)</span> e <span class="tex">\(v_2=l\frac{dcos(\theta/2)}{dt}\)</span><br>
+trovandosi v1 in funzione di v2 si ricava dalla prima eq <span class="tex">\(v_2=\sqrt{2glcos(\theta_0/2)}\)</span>
+</div></blockquote>
+pig, ma è giusta questa soluzione? <br>
+essendo <span class="tex">\(lcos(\theta_0/2)}\)</span> l'altezza iniziale della massa 2, sembra esser valida la semplice conservazione <span class="tex">\(1/2 m_2 v_2^2=m_2 glcos(\theta_0/2)\)</span><br>
+questa è valida solo se l'accelerazione sia mediamente uguale a g, mentre mi sembra di capire che essa sia all'inizio a&lt;g e solo all'ultimo istante sia g.. <br>
+<br>
+ :?:</article>
+<article class="post" id="p43"><div class="who"><b>CoNVeRGe.</b><span>12 gen 2009, 22:06</span></div>per quanto riguarda il punto 2: ho trovato l'accelerazione verticale della massa 2 in funzione dell'angolo, penso. ('penso' perchè non son sicuro della correttezza dei diagrammi di forze che ho adottato)<br>
+<br>
+a questo punto come posso andare avanti? (magari trovare un'accelerazione media)</article>
+<article class="post" id="p45"><div class="who"><b>Pigkappa</b><span>12 gen 2009, 22:12</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite><blockquote><div><cite>Paolo90 ha scritto:</cite>punto 2) per la conservazione dell'energia <span class="tex">\(mglcos(\theta_0/2) = mv_1^2 + 1/2mv_2^2\)</span><br>
+<span class="tex">\(2v_1=\frac{dL}{dt}=2l\frac{dsin(\theta/2)}{dt}\)</span> e <span class="tex">\(v_2=l\frac{dcos(\theta/2)}{dt}\)</span><br>
+trovandosi v1 in funzione di v2 si ricava dalla prima eq <span class="tex">\(v_2=\sqrt{2glcos(\theta_0/2)}\)</span>
+</div></blockquote>
+pig, ma è giusta questa soluzione? </div></blockquote>
+
+Sì. La forza che le aste esercitano sulla massa in alto non è sempre nello stesso verso. Senza andarsi a cercare un'equazione del moto impestata con le derivate, c'è il modo pulito di risolverlo con l'energia e poco più. Il punto dopo è sbagliato, ma solo perchè Paolo90 non si è accorto che avevo fissato <span class="tex">\(\displaystyle v_3(0) = 0\)</span>, il procedimento più o meno è quello.</article>
+<article class="post" id="p46"><div class="who"><b>Pigkappa</b><span>12 gen 2009, 22:13</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>per quanto riguarda il punto 2: ho trovato l'accelerazione verticale della massa 2 in funzione dell'angolo, penso. ('penso' perchè non son sicuro della correttezza dei diagrammi di forze che ho adottato)<br>
+<br>
+a questo punto come posso andare avanti? (magari trovare un'accelerazione media)</div></blockquote>
+
+Magari integri e trovi la velocità in funzione del tempo, poi integri ancora e trovi la posizione, trovi il tempo T in cui l'altezza è nulla e vai a vedere la velocità in quell'istante.<br>
+<br>
+Oppure cerchi il modo di farlo senza passare dall'equazione del moto, che immagino non sia tanto bella...</article>
+<article class="post" id="p47"><div class="who"><b>Paolo90</b><span>12 gen 2009, 22:22</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite> Il punto dopo è sbagliato, ma solo perchè Paolo90 non si è accorto che avevo fissato <span class="tex">\(\displaystyle v_3(0) = 0\)</span>, il procedimento più o meno è quello.</div></blockquote>
+
+mmm un momento mi sa che il problema non e' quello perche' io ho considerato <span class="tex">\(v_3(0)=0\)</span>, infatti per il calcolo della quantita' di moto e dell'energia iniziale ho considerato solo <span class="tex">\(v_1(0)\)</span> e le componenti di <span class="tex">\(v_2(0)\)</span> calcolate nel punto uno (anche li si supponeva <span class="tex">\(v_3(0)=0\)</span> mi sembra...). Ho considerato pero' che v3 aumenta.<br>
+se e' sbagliato e' probabile ci sia qualche errore piu' sostanzioso.<br>
+<br>
+mmm dopo aver riguardato un po' i conti mi e' venuto un risultato diverso: <span class="tex">\(V=\sqrt{\frac{8gl(1-cos(\theta_0/2))}{2+tg^2(\theta_0/2)}}=cos(\theta_0/2)\sqrt{\frac{8gl(1-cos(\theta_0/2))}{cos^2(\theta_0/2)+1}}\)</span></article>
+<article class="post" id="p50"><div class="who"><b>Davide90</b><span>12 gen 2009, 22:42</span></div><blockquote><div><cite>Paolo90 ha scritto:</cite><span class="tex">\(\frac{d}{dt}\sqrt{1-sin(\theta/2)^2} = -ltg(\theta/2)\frac{d}{dt}sin(\theta/2)
+L\)</span></div></blockquote>
+Potresti espliciitare questo passaggio?  :oops: <br>
+Le derivate le ho fatte, però non riesco a capire che passaggi hai fatto...</article>
+<article class="post" id="p51"><div class="who"><b>Paolo90</b><span>12 gen 2009, 22:52</span></div><span class="tex">\(\frac{d}{dt}\sqrt{1-sin^2(\theta/2)}=\frac{1}{2\sqrt{1-sin^2(\theta/2)}}\frac{d}{dt}(1-sin^2(\theta/2)=\)</span><span class="tex">\(-\frac{1}{2cos(\theta/2)}2sin(\theta/2)\frac{d}{dt}sin(\theta/2)=-tg(\theta/2)\frac{d}{dt}sin(\theta/2)\)</span></article>
+<article class="post" id="p52"><div class="who"><b>Davide90</b><span>12 gen 2009, 23:07</span></div>Ok, grazie  ;) <br>
+[OT] Per caso queste sono le famose derivate parziali? [/OT]</article>
+<article class="post" id="p55"><div class="who"><b>Pigkappa</b><span>13 gen 2009, 1:02</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>Ok, grazie  ;) <br>
+[OT] Per caso queste sono le famose derivate parziali? [/OT]</div></blockquote>
+
+No, sta derivando normalmente... Derivata di f(g(x)) rispetto a x = derivata di f(x) rispetto a g(x) per derivata di g(x) rispetto a x.<br>
+
+<blockquote><div><cite>Paolo90 ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite> Il punto dopo è sbagliato, ma solo perchè Paolo90 non si è accorto che avevo fissato <span class="tex">\(\displaystyle v_3(0) = 0\)</span>, il procedimento più o meno è quello.</div></blockquote>
+
+mmm un momento mi sa che il problema non e' quello perche' io ho considerato <span class="tex">\(v_3(0)=0\)</span>, infatti per il calcolo della quantita' di moto e dell'energia iniziale ho considerato solo <span class="tex">\(v_1(0)\)</span> e le componenti di <span class="tex">\(v_2(0)\)</span> calcolate nel punto uno (anche li si supponeva <span class="tex">\(v_3(0)=0\)</span> mi sembra...). Ho considerato pero' che v3 aumenta.<br>
+se e' sbagliato e' probabile ci sia qualche errore piu' sostanzioso.<br>
+<br>
+mmm dopo aver riguardato un po' i conti mi e' venuto un risultato diverso: <span class="tex">\(V=\sqrt{\frac{8gl(1-cos(\theta_0/2))}{2+tg^2(\theta_0/2)}}=cos(\theta_0/2)\sqrt{\frac{8gl(1-cos(\theta_0/2))}{cos^2(\theta_0/2)+1}}\)</span></div></blockquote>
+
+Ah ok, adesso ho capito. Ti viene il risultato giusto, ma il procedimento non è che vada tutto bene. La velocità finale delle masse è vero che è uguale, ma non perchè devi minimizzare una funzione. E' semplicemente perchè imponi che le masse si tocchino, cioè che la velocità relativa tra la massa 3 e la massa 1 sia zero (questo impone direttamente che <span class="tex">\(\displaystyle V\)</span> sia minima: se avessimo voluto solo imporre che si toccassero, avremmo dovuto solo imporre che <span class="tex">\(\displaystyle v_1 \geq v_3\)</span>), e quindi <span class="tex">\(\displaystyle v_1 = v_3\)</span>, e poi segue per simmetria che anche <span class="tex">\(\displaystyle v_2\)</span> è uguale a loro. Da come hai scritto tu la soluzione, sembra che il fatto che le masse debbano toccarsi non sia stato usato per niente.</article>
+<nav class="pager"><a class="next" href="olifis-417.html"><small>successivo →</small>Staffetta meccanica</a></nav>
+</main></body></html>

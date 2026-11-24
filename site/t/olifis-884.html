@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conservazione di Q dalle equazioni di Maxwell.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Conservazione di Q dalle equazioni di Maxwell.</h1>
+<p class="meta">26 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=884">forum Olifis</a></p>
+<article class="post first" id="p7455"><div class="who"><b>Pigkappa</b><span>9 set 2011, 0:34</span></div>Consideriamo una superficie chiusa <span class="tex">\(S\)</span> che racchiude una certa carica interna <span class="tex">\(Q(t)\)</span> dipendente dal tempo. Chiamiamo <span class="tex">\(\vec J\)</span> la densità di corrente, che dipende ovviamente dalla posizione e dal tempo.<br>
+<br>
+Allora la conservazione della carica si scrive come:<br>
+<span class="tex">\(\displaystyle\frac{dQ(t)}{dt} + \int_S{\vec J \cdot d\vec S} = 0\)</span><br>
+Dove <span class="tex">\(\int_S{\vec J \cdot d\vec S}\)</span> è il flusso della densità di corrente verso il fuori. Il senso di questa espressione dovreste vederlo facilmente.<br>
+<br>
+<br>
+<br>
+<strong class="text-strong">1.)</strong>Scrivete le equazioni di Maxwell per una superficie chiusa generica, una linea chiusa generica, campi <span class="tex">\(\vec E\)</span> e <span class="tex">\(\vec B\)</span> non costanti, con tutti i termini.<br>
+<br>
+<strong class="text-strong">2.)</strong>Usate le equazioni di Maxwell per dimostrare la conservazione della carica.</article>
+<article class="post" id="p7540"><div class="who"><b>Pigkappa</b><span>22 set 2011, 0:50</span></div>Up!<br>
+<br>
+È un enunciato molto, molto importante.</article>
+<article class="post" id="p7957"><div class="who"><b>modesto</b><span>20 gen 2012, 19:28</span></div>Tento questo "antico" problema-Pigkappa (che nessuno aveva affrontato) perchè ho studiato in questo periodo un pò di eq. di Maxwell. Sembra che non servano per il test sns tuttavia dovevo affrontare operatori misteriosi (per me) come la divergenza o il rotore. Si deve dimostrare con le eq. di Maxwell che<br>
+<span class="tex">\(\frac{dQ(t)}{dt}\)</span> + <span class="tex">\(\int_S{\vec J . d\vec S}\)</span>= <span class="tex">\(0\)</span><br>
+dove <span class="tex">\(S\)</span> è una superficie chiusa e <span class="tex">\(Q(t)\)</span> è la carica variabile nel tempo in essa contenuta.<br>
+Sviluppando il primo addendo, applicando il teorema di Gauss<br>
+<span class="tex">\(\frac{dQ(t)}{dt}\)</span>= <span class="tex">\(\frac{d}{dt}\)</span> (<span class="tex">\(\epsilon_0\int_S{\vec E . d\vec S}\)</span>)= <span class="tex">\(\frac{d}{dt}\)</span>(<span class="tex">\(\epsilon_0\int_V{div\vec E. dV}\)</span>) poichè, per il teorema della divergenza, il flusso del campo attraverso la superficie chiusa è uguale all'integrale della sua divergenza esteso al volume racchiuso (siccome poi <span class="tex">\(Q(t)\)</span>= <span class="tex">\(\int_V{\rho.dV}\)</span> è possibile allora esprimere il teorema di Gauss in forma differenziale <span class="tex">\(\epsilon_0 div\vec E =\rho\)</span>, come prima eq. di Maxwell con <span class="tex">\(\rho\)</span> densità di carica volumica). Sviluppando invece il secondo addendo, sempre per il teorema della divergenza<br>
+<span class="tex">\(\int_S{\vec J . d\vec S}\)</span> = <span class="tex">\(\int_V{div \vec J . dV }\)</span><br>
+L'equazione che intuitivamente pare più consona alla tesi da dimostrare, contenendo <span class="tex">\(\vec J\)</span> e <span class="tex">\(\vec E\)</span>, è la quarta,generalizzazione della legge di Ampère sempre in forma differenziale (dedotta sull'Halliday dalla circuitazione di <span class="tex">\(\vec B\)</span> su una linea chiusa cui è appoggiata una <span class="tex">\(S\)</span> che passando fra le armature di un condensatore, introduce la densità di <em class="text-italics">corrente di spostamento </em>accanto a quella materiale)<br>
+<span class="tex">\(rot\vec B\)</span> = <span class="tex">\(\mu_0 \vec J\)</span> + <span class="tex">\(\epsilon_0 \mu_0\)</span> <span class="tex">\(\frac{d\vec E}{dt}\)</span>. <br>
+Dato che al secondo membro compaiono i vettori e non le loro divergenze, si può inserire l'operatore ad ambo i membri poichè fra l'altro la divergenza di un rotore si annulla: le sei derivate delle sue componenti cartesiane rispetto alle variabili omologhe si annullano due a due. Per cui si annullano anche la divergenza del secondo membro e il suo integrale esteso a <span class="tex">\(V\)</span>. Prescindendo così da <span class="tex">\(\mu_0\)</span> si ottiene<br>
+<span class="tex">\(\int_V{div\vec J . dV}\)</span> + <span class="tex">\(\epsilon_0\)</span> <span class="tex">\(\frac{d}{dt}\)</span> <span class="tex">\(\int_V{div\vec E.dV}\)</span> = <span class="tex">\(0\)</span><br>
+invertendo eventualmente la derivazione rispetto al tempo con quelle previste dall'operatore.<br>
+Si è visto che il secondo addendo è proprio <span class="tex">\(\frac{dQ(t)}{dt}\)</span> mentre il primo, ancora  per il teorema della divergenza, si è visto che è il flusso di <span class="tex">\(\vec J\)</span> cioè<br>
+<span class="tex">\(\int_S{\vec J . d\vec S}\)</span><br>
+Mi sembra che la conservazione possa così essere dimostrata: la variazione della carica dentro <span class="tex">\(S\)</span> nell'unità di tempo è opposta alla intensità di corrente che fuoriesce da <span class="tex">\(S\)</span>.<br>
+Se questa dimostrazione è accettabile, dalla prima uguaglianza non verrebbe fuori anche un altro signicato fisico e cioè che la corrente materiale attraverso <span class="tex">\(S\)</span> è opposta a quella di spostamento attraverso la stessa superficie?</article>
+<article class="post" id="p7958"><div class="who"><b>Pigkappa</b><span>20 gen 2012, 20:33</span></div>Mi pare sia giusto.<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>Se questa dimostrazione è accettabile, dalla prima uguaglianza non verrebbe fuori anche un altro signicato fisico e cioè che la corrente materiale attraverso <span class="tex">\(S\)</span> è opposta a quella di spostamento attraverso la stessa superficie?</div></blockquote>
+Spiegati meglio; la prima uguaglianza qual è?<br>
+<br>
+Comunque si può fare anche con le equazioni di Maxwell in forma integrale (quelle in cui non compaiono divergenza e rotore), altrimenti non lo avrei postato qua. Mentre le espressioni che usano gli operatori dell'analisi vettoriale non fanno parte del programma per il test SNS, le equazioni di Maxwell in forma integrale (<span class="tex">\(\Phi_E = Q_{int} / \epsilon_0\)</span> e le altre) sicuramente dovete saperle, e penso proprio che facciano parte anche del programma del liceo scientifico!</article>
+<article class="post" id="p7961"><div class="who"><b>modesto</b><span>21 gen 2012, 11:22</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Spiegati meglio; la prima uguaglianza qual è?<br>
+In generale quella cosa non penso sia vera.</div></blockquote>
+ok, al solito mi sono espresso male. Volevo dire che, una volta considerata la divergenza del secondo membro della quarta eq. di Maxwell, avevo scritto che<br>
+<span class="tex">\(\int_V{div\vec J . dV}\)</span> + <span class="tex">\(\epsilon_0\)</span> <span class="tex">\(\frac{d}{dt}\)</span> <span class="tex">\(\int_V{div\vec E.dV}\)</span> = <span class="tex">\(0\)</span><br>
+Ma questa può porsi come<br>
+<span class="tex">\(\int_S{\vec J . d\vec S}\)</span> = - <span class="tex">\(\epsilon_0\)</span><span class="tex">\(\frac{d}{dt}\)</span><span class="tex">\(\int_S{\vec E . d\vec S}\)</span><br>
+ovvero, mi sembra, la corrente materiale attraverso <span class="tex">\(S\)</span> è opposta a quella di spostamento.</article>
+<article class="post" id="p7975"><div class="who"><b>modesto</b><span>22 gen 2012, 12:12</span></div>Scusa per questa postilla, così quando potrai rispondere mi chiarirai tutti i dubbi. 
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Comunque si può fare anche con le equazioni di Maxwell in forma integrale (quelle in cui non compaiono divergenza e rotore), altrimenti non lo avrei postato qua. .. le equazioni di Maxwell in forma integrale (<span class="tex">\(\Phi_E = Q_{int} / \epsilon_0\)</span> e le altre) sicuramente dovete saperle, e penso proprio che facciano parte anche del programma del liceo scientifico!</div></blockquote>
+Purtroppo non ho fatto il liceo scientifico. In compenso ho la mamma che detesta la Fisica ma è docente di Analisi...Venendo alla dimostrazione attraverso le eq. in forma integrale, non l'avevo postata perchè arrivava a conclusioni piuttosto azzardate, di cui non ero sicuro e che però ora desidero esporti. Dalla prima eq. sul teorema di Gauss applicata ad <span class="tex">\(S\)</span> si arriva a <span class="tex">\(\frac{dQ(t)}{dt}\)</span> = <span class="tex">\(\epsilon_0\)</span><span class="tex">\(\frac{d}{dt}\)</span><span class="tex">\(\int_S{\vec E . d\vec S}\)</span> cioè alla corrente di spostamento. D'altra parte la corrente materiale che esce/entra in <span class="tex">\(S\)</span> cioè <span class="tex">\(i = \int_S{\vec J . d\vec S}\)</span> deve uguagliare <span class="tex">\(-\frac{dQ(t)}{dt}\)</span>. Pertanto, considerando la quarta eq. di Maxwell in forma integrale, si deve concludere che la circuitazione di <span class="tex">\(B\)</span> lungo una <em class="text-italics">linea chiusa</em> cui si appoggia <span class="tex">\(S\)</span> deve annullarsi. Viene fuori al solito che la corrente materiale attraverso la superficie è opposta a quella di spostamento.<br>
+Conclusione azzardata. Non solo la carica si conserva: la variazione per unità di tempo di <span class="tex">\(Q(t)\)</span> uguaglia la carica per unità di tempo (i) che esce/entra nella superficie chiusa. Ma la variazione di carica per unità di tempo genera anche un campo elettrico variabile che costituisce con il suo flusso attraverso <span class="tex">\(S\)</span> una corrente di spostamento, opposta a quella materiale, che rende nulla la circuitazione di cui sopra. <br>
+E' sostenibile tutto ciò?</article>
+<article class="post" id="p7976"><div class="who"><b>Pigkappa</b><span>22 gen 2012, 17:28</span></div><blockquote><div><cite>modesto ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>Spiegati meglio; la prima uguaglianza qual è?<br>
+In generale quella cosa non penso sia vera.</div></blockquote>
+ok, al solito mi sono espresso male. Volevo dire che, una volta considerata la divergenza del secondo membro della quarta eq. di Maxwell, avevo scritto che<br>
+<span class="tex">\(\int_V{div\vec J . dV}\)</span> + <span class="tex">\(\epsilon_0\)</span> <span class="tex">\(\frac{d}{dt}\)</span> <span class="tex">\(\int_V{div\vec E.dV}\)</span> = <span class="tex">\(0\)</span><br>
+Ma questa può porsi come<br>
+<span class="tex">\(\int_S{\vec J . d\vec S}\)</span> = - <span class="tex">\(\epsilon_0\)</span><span class="tex">\(\frac{d}{dt}\)</span><span class="tex">\(\int_S{\vec E . d\vec S}\)</span><br>
+ovvero, mi sembra, la corrente materiale attraverso <span class="tex">\(S\)</span> è opposta a quella di spostamento.</div></blockquote>
+Sì, è corretto.<br>
+<br>
+<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>Pertanto, considerando la quarta eq. di Maxwell in forma integrale, si deve concludere che la circuitazione di <span class="tex">\(B\)</span> lungo una <em class="text-italics">linea chiusa</em> cui si appoggia <span class="tex">\(S\)</span> deve annullarsi.</div></blockquote>
+Qui non ho capito bene cosa stai dicendo. La superficie <span class="tex">\(S\)</span> che hai dovuto considerare per applicare Gauss deve essere una superficie chiusa. Invece, affinchè tu abbia una <em class="text-italics">linea chiusa</em> su cui, come dici tu, "si appoggia" una superficie, è chiaro che la superficie non può essere chiusa.<br>
+<br>
+Il metodo che avevo trovato io per fare il problema con le equazioni in forma integrale era questo. <br>
+Facciamo le stesse considerazioni che hai fatto tu su una superficie chiusa <span class="tex">\(S\)</span>. Adesso consideriamo una linea chiusa che stia tutta sul perimetro di <span class="tex">\(S\)</span>; non possiamo dire che <span class="tex">\(S\)</span> si "appoggia" su questa linea e applicare la quarta equazione di Maxwell, perchè non è così. Tuttavia, la nostra linea chiusa ha diviso idealmente la superficie <span class="tex">\(S\)</span> in due superfici <span class="tex">\(S_1\)</span> e <span class="tex">\(S_2\)</span> e queste sì che si appoggiano sulla linea chiusa.<br>
+Allora applichiamo la quarta equazione di Maxwell separatamente a <span class="tex">\(S_1\)</span> e <span class="tex">\(S_2\)</span> e sommiamo le due equazioni trovate. La parte con la circuitazione di <span class="tex">\(B\)</span> si semplifica perchè la linea è percorsa in verso opposto nei due casi. Alla fine rimane <span class="tex">\(\mu_0 (I_1 + I_2) + \mu_0 \epsilon_0 \frac{d(\phi_{E_1} + \phi_{E_2})}{dt} = 0\)</span>, cioè <span class="tex">\(\mu_0 I + \mu_0 \epsilon_0 \frac{d\phi_E}{dt} = 0\)</span>. Adesso usando la legge di Gauss si trova la tesi.</article>
+<article class="post" id="p7977"><div class="who"><b>modesto</b><span>24 gen 2012, 12:46</span></div>Credo di essermi chiarito con il tuo aiuto. Il dubbio dell'ultima mail derivava da un "corto circuito" mentale che avevo fatto della dimostrazione Halliday della quarta e che vale la pena che tenti di spiegarti. Considera il filo percorso da corrente <span class="tex">\(i\)</span> ,diretta, poniamo da sinistra a destra, a caricare l'armatura positiva del condensatore e prosegue materialmente dopo quella negativa. Considera la solita spira amperiana attorno al filo e due superfici<span class="tex">\(S_1\)</span> e <span class="tex">\(S_2\)</span>: la prima a sinistra che è attraversata dal filo e si appoggia alla spira, la seconda a destra (che avevo citato anche nella prima mail) che si appoggia alla spira e si protende comprendendo l'armatura positiva del condensatore. Siccome una superficie vale l'altra la circuitazione, che nel primo caso è <span class="tex">\(\mu_0.i\)</span> nel secondo non può annullarsi e DEVE valere <span class="tex">\(\mu_0 . i_s\)</span> dove<span class="tex">\(i_s\)</span> è la corrente di spostamento fra le armature che si dimostra fra l'altro essere uguale ad <span class="tex">\(i\)</span>. Quindi, conclude, in generale la circuitazione deve tener conto di ENTRAMBE e ribadisce, come quarta eq., la nota circuitazione come somma dei due termini. MA NON E' PIU' riferita al caso considerato bensì al caso generale con la sua superficie <span style="text-decoration:underline">aperta</span> appoggiata sulla spira amperiana. Io la riferivo invece <span style="text-decoration:underline">ancora </span>al caso, complice anche l'identità dei simboli usati, e quindi facevo comparire nella circuitazione il <span style="text-decoration:underline">totale</span> delle due superfici. Ecco perchè mi pareva che la circuitazione dovesse annullarsi... 
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Allora applichiamo la quarta equazione di Maxwell separatamente a <span class="tex">\(S_1\)</span> e <span class="tex">\(S_2\)</span> e sommiamo le due equazioni trovate. La parte con la circuitazione di <span class="tex">\(B\)</span> si semplifica perchè la linea è percorsa in verso opposto nei due casi. Alla fine rimane <span class="tex">\(\mu_0 (I_1 + I_2) + \mu_0 \epsilon_0 \frac{d(\phi_{E_1} + \phi_{E_2})}{dt} = 0\)</span>, cioè <span class="tex">\(\mu_0 I + \mu_0 \epsilon_0 \frac{d\phi_E}{dt} = 0\)</span>. Adesso usando la legge di Gauss si trova la tesi.</div></blockquote>
+ok. A parte il fatto che credo sia preferibile considerare, invece che la linea percorsa in senso opposto, il verso delle correnti, che attraversano le due superfici, come opposto in accordo con la regola della mano destra e del pollice suggerita per il teorema di Ampere. In altri termini, usando le tue notazioni, la circuitazione dell'induzione può avere due valori che devono coincidere:<br>
+<span class="tex">\(\mu_0.I_1\)</span> +<span class="tex">\(\mu_0 \epsilon_0\frac{d(\phi_{E_1})}{dt}\)</span>=<br>
+-<span class="tex">\(\mu_0.I_2\)</span>-<span class="tex">\(\mu_0\epsilon_0\frac{d(\phi_{E_2})}{dt}\)</span><br>
+da cui poi si deduce la conclusione con il totale che si annulla e che NON E', NO NO, la circuitazione...</article>
+<article class="post" id="p7978"><div class="who"><b>Pigkappa</b><span>25 gen 2012, 10:33</span></div><blockquote><div><cite>modesto ha scritto:</cite>Quindi, conclude, in generale la circuitazione deve tener conto di ENTRAMBE e ribadisce, come quarta eq., la nota circuitazione come somma dei due termini. MA NON E' PIU' riferita al caso considerato bensì al caso generale con la sua superficie <span style="text-decoration:underline">aperta</span> appoggiata sulla spira amperiana.</div></blockquote>
+Sì, è giusto.<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>che credo sia preferibile considerare, invece che la linea percorsa in senso opposto, il verso delle correnti, che attraversano le due superfici, come opposto in accordo con la regola della mano destra e del pollice suggerita per il teorema di Ampere</div></blockquote>
+Lo si può fare anche così, volendo. È sostanzialmente la stessa cosa.<br>
+<br>
+<br>
+<br>
+Bonus question: se riguardi il procedimento seguito, scopri di aver dimostrato qua che la conservazione della carica si esprime in formule come <span class="tex">\(\frac{\partial \rho}{\partial t} + \vec \nabla \cdot \vec J = 0\)</span>. Sto indicando con <span class="tex">\(\vec \nabla \cdot \vec J\)</span> la divergenza di <span class="tex">\(\vec J\)</span> visto che a quanto pare sai cos'è, comunque si può anche continuare a fare tutto in termini di integrali.<br>
+Esiste un'equazione simile che descrive la conservazione della massa per un fluido in movimento?<br>
+<br>
+Bonus question molto più difficile: ed esiste un'equazione simile che descrive la conservazione della sua quantità di moto?</article>
+<article class="post" id="p7979"><div class="who"><b>modesto</b><span>26 gen 2012, 12:19</span></div>Bonus 1: proporrei due metodi, uno più sbrigativo, uno più analitico.<br>
+Sia, per analogia con la tua postazione relativa alla carica <span class="tex">\(Q(t)\)</span>, la massa <span class="tex">\(M(t)\)</span> di fluido, contenuta a un dato istante nel volume fisso <span class="tex">\(V\)</span> con il contorno superficiale fisso <span class="tex">\(S\)</span>, avente densità ovviamente variabile <span class="tex">\(\rho(t)\)</span>. Al solito: <em class="text-italics">l'opposto della variazione della massa per unità di tempo deve uguagliare la differenza fra quella uscita e quella entrata nel volume nell'unità di tempo.</em> <br>
+L' opposto della variazione della massa per unità di tempo <br>
+- <span class="tex">\(\frac{\partial M(t)}{\partial t}\)</span> = - <span class="tex">\(\frac{\partial \int_V{\rho.dV}}{\partial t}\)</span> <br>
+<em class="text-italics">I metodo</em>: dovrà uguagliare il flusso di massa attraverso la superficie <span class="tex">\(S\)</span> cioè la massa somma integrale di quelle contenute nel cilindro infinitesimo di base <span class="tex">\(dS\)</span> e altezza la componente di <span class="tex">\(\vec v\)</span> normale a <span class="tex">\(dS\)</span> cioè<span class="tex">\(\int_S{\rho.\vec v.d\vec S}\)</span> = per il teorema della divergenza = <span class="tex">\(\int_V{div(\rho.\vec v).dV}\)</span>. Dall'uguaglianza con l'opposto della variazione della massa, prescindendo da <span class="tex">\(V\)</span> risulta   <br>
+<span class="tex">\(\frac{\partial \rho}{\partial t}\)</span>+ <span class="tex">\(div({\rho. \vec v})\)</span> = 0<br>
+<em class="text-italics">II metodo</em>: dovrà uguagliare la somma (integrale) delle variazioni di massa infinitesima relative agli infiniti volumi infinitesimi <span class="tex">\(dV\)</span> in cui può immaginarsi decomposto il volume <span class="tex">\(V\)</span>. Considerato uno di questi alle coordinate <span class="tex">\(x,y,z\)</span> di lati <span class="tex">\(dx,dy,dz\)</span> sia <span class="tex">\(\vec v\)</span>= <span class="tex">\(v_x\vec i + v_y \vec j +v_z \vec k\)</span> la velocità del fluido in quel punto. Il fluido, che nell'unità di tempo entra nel volumetto attraverso la parete <span class="tex">\(dy.dz\)</span>, sarà (<span class="tex">\(\rho.v_x.dy.dz\)</span>), mentre quello che esce dalla parete parallela avente le solite dimensioni sarà <span class="tex">\(\rho.(v_x\)</span>+<span class="tex">\(\frac{\partial v_x}{\partial x}.dx)\)</span>.<span class="tex">\(dy.dz\)</span> con una differenza quindi pari a <span class="tex">\(\rho.\frac{\partial v_x}{\partial x}.dx.dy.dz\)</span>. Sommando anche i contributi delle pareti <span class="tex">\(dx.dz\)</span> e <span class="tex">\(dx.dy\)</span> si ottiene facilmente <br>
+<span class="tex">\(\int_V({\frac {\partial (\rho.v_x)}{\partial_x}+ \frac {\partial (\rho.v_y)}{\partial y}+\frac{\partial (\rho.v_z)}{\partial z})dV}\)</span> = <span class="tex">\(\int_V{div(\rho.\vec v).dV}\)</span> da cui, siccome si può prescindere ora da <span class="tex">\(V\)</span>, uguagliando all'opposto della variazione di massa si ottiene ancora<br>
+<span class="tex">\(\frac{\partial \rho}{\partial t}\)</span> + <span class="tex">\(div(\rho\vec v)\)</span>=0<br>
+Non ho dimestichezza con nabla: comunque mi pare di capire che moltiplicandolo per uno scalare se ne ottiene l'opposto del gradiente, scalarmente per un vettore se ne ottiene la div., vettorialmente per un vettore se ne ottiene il rot. Ma per queste cose avrò tempo...</article>
+<article class="post" id="p7980"><div class="who"><b>modesto</b><span>26 gen 2012, 12:21</span></div>Bonus 2:
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Bonus question molto più difficile: ed esiste un'equazione simile che descrive la conservazione della sua quantità di moto?</div></blockquote>
+Non ho avuto tempo per pensarci ma d'acchito non capisco neppure il significato. Capisco la conservazione di quantità "sostanziali", come la carica o la massa. Io so che la quantità di moto si conserva se è nulla la risultante delle forze ESTERNE agenti sul sistema o, almeno, è nulla lungo un asse del moto: come nel caso del proiettile in cui si conserva la sua q. di m. lungo l'asse orizzontale. Ma nel caso dei fluidi so che ci sono le forze di volume (peso) e di superficie (pressione). Si possono elidere reciprocamente? Oppure si intende per conservazione la stessa equazione del moto? Tipo: l'impulso della forza è uguale alla variazione di q.di m. tenuto conto che ora variano nel tempo sia la massa che la velocità?<br>
+Non so se puoi darmi qualche dritta senza "annacquarmi" il problema...</article>
+<article class="post" id="p7981"><div class="who"><b>Pigkappa</b><span>26 gen 2012, 16:47</span></div><blockquote><div><cite>modesto ha scritto:</cite>Bonus 1</div></blockquote>
+Funzionano entrambe le idee che hai avuto, e l'equazione è proprio quella:<br>
+<span class="tex">\(\displaystyle \frac{\partial \rho}{\partial t} + \vec \nabla \cdot (\rho \vec v) = 0\)</span><br>
+<br>
+Questa si chiama equazione di continuità (stesso nome che si dà a <span class="tex">\(\frac{\partial \rho}{\partial t} + \vec \nabla \cdot \vec J = 0\)</span> in elettromagnetismo) ed è una delle equazioni fondamentali della fluidodinamica. <br>
+In un qualche modo compare anche nel programma scolastico (o almeno delle olimpiadi), nella versione molto più semplice per la quale <span class="tex">\(S * v\)</span> è uniforme per un fluido incomprimibile che scorre in un tubo di sezione <span class="tex">\(S\)</span> variabile a velocità <span class="tex">\(v\)</span>.<br>
+<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>Non ho dimestichezza con nabla: comunque mi pare di capire che moltiplicandolo per uno scalare se ne ottiene l'opposto del gradiente, scalarmente per un vettore se ne ottiene la div., vettorialmente per un vettore se ne ottiene il rot. Ma per queste cose avrò tempo...</div></blockquote>
+Il simbolo <span class="tex">\(\vec \nabla\)</span> è molto comodo perchè ti permette di non imparare a memoria un certo numero di altre cose. <br>
+<br>
+In coordinate cartesiane è una specie di vettore di coordinate <span class="tex">\((\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})\)</span> e <span class="tex">\(\vec \nabla f\)</span> è il gradiente di <span class="tex">\(f\)</span>, <span class="tex">\(\vec \nabla \cdot \vec A\)</span> la divergenza di <span class="tex">\(\vec A\)</span>, <span class="tex">\(\vec \nabla \times \vec A\)</span> il rotore di <span class="tex">\(\vec A\)</span>, <span class="tex">\(\nabla^2 f\)</span> il laplaciano di <span class="tex">\(f\)</span> (se sai cos'è). <br>
+<br>
+Ci sono un buon numero di formule in cui <span class="tex">\(\vec \nabla\)</span> si comporta in modo simile ad un vettore, e quindi si riescono a ricordare o ricostruire senza troppa fatica, mentre imparare a memoria una decina di identità piene di "div" e "rot" sarebbe brutto. <br>
+<br>
+Comunque sì, hai tutto il tempo del mondo, anche se tra 2 o 3 anni ti accorgerai all'improvviso che nessuno ti avrà insegnato ad usarlo ma tutti pretenderanno che tu lo sappia fare :P.<br>
+<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>
+Non so se puoi darmi qualche dritta senza "annacquarmi" il problema...</div></blockquote>
+Provo a farti un esempio in cui è chiaro che si conserva la quantità di moto.<br>
+<br>
+Consideriamo una grande quantità di fluido che si trova nello spazio vuoto. Questo fluido ha una velocità iniziale in ogni punto che è data come condizione iniziale, e sente ovviamente gli effetti della pressione. Potrebbero esserci altre forze interne (attrazione gravitazionale, campi magnetici che possono fare cose molto brutte) ma diciamo che le trascuriamo. In ogni caso, di forze esterne al fluido non ce ne sono.<br>
+<br>
+Visto che non ci sono forze esterne, è chiaro che la quantità di moto totale si deve conservare, in ogni sua componente. Questa situazione è analoga quella precedente, in cui la massa totale si conservava. Volendo si potrebbero fare discorsi analoghi per l'energia (con qualche precauzione) ed il momento angolare, ma le cose si complicano ancora di più.<br>
+<br>
+Nel caso della massa, siamo riusciti a passare da una legge di conservazione totale ad una legge microscopica, imponendo che la variazione di massa in un piccolo volume fosse dovuta a quella che arriva dagli elementi di fluido vicino ed a quella che sta uscendo dal nostro volume. Si riesce a fare qualcosa di simile per la quantità di moto?</article>
+<article class="post" id="p7982"><div class="who"><b>modesto</b><span>27 gen 2012, 12:05</span></div>Ti ringrazio per il suggerimento e per tutto il resto. Ci penserò. Perchè dopo le equazioni di Maxwell, il tempo che posso dedicare alla preparazione mi viene quasi completamente assorbito dalle onde elettromagnetiche ma soprattutto dall'ottica fisica. Per me era un mondo praticamente sconosciuto. Sono molto <em class="text-italics">intrigato</em> dalla riflessione/rifrazione e massimamente dall'interferenza/diffrazione con i problemi sns su questi argomenti che, nonostante i grandi aiuti dell'Halliday e di Bianciardi-Problemi di Fisica, trovo molto sofisticati e difficili. Non so se in seguito sia il caso di proporre qualcosa anche su questo forum..</article>
+<article class="post" id="p7989"><div class="who"><b>modesto</b><span>30 gen 2012, 12:38</span></div>Bonus 2:se allora si tratta della "normale" conservazione della quantità di moto sarà per la II legge<br>
+<span class="tex">\(\frac{d[M(t) \vec v]}{dt}\)</span> = <span class="tex">\(\vec R_e(volume,superficie) = \vec 0\)</span><br>
+dove <span class="tex">\([M(t) \vec v]\)</span> è la quantità di moto del fluido che transita a un dato istante nel volume <span class="tex">\(V\)</span> , fisso rispetto al riferimento con il relativo contorno superficiale <span class="tex">\(S\)</span> mentre, introducendo la densità del fluido, sarà <span class="tex">\((\rho(t) \vec v)\)</span> la relativa <em class="text-italics">quantità di moto per unità di volume</em>. Al solito:<em class="text-italics">l'opposto della variazione della quantità di moto per secondo deve uguagliare la differenza fra quella uscita e quella entrata nel vonume nello stesso tempo</em>. Essa è data da<br>
+- <span class="tex">\(\frac{\partial [M(t) \vec v]}{\partial t}\)</span> = - <span class="tex">\(\frac{\partial \int_V{(\rho\vec v) dV}}{\partial t}\)</span>.<br>
+I Metodo: l'opposto della variazione uguaglia la quantità di moto che entra/esce dalla superficie <span class="tex">\(S\)</span> nell'unità di tempo, cioè il prodotto di <span class="tex">\((\rho \vec v)\)</span> per il flusso di <span class="tex">\(\vec v\)</span> attraverso <span class="tex">\(S\)</span> esprimibile per il teorema della divergenza come integrale della medesima esteso a <span class="tex">\(V\)</span> ottenendo <span class="tex">\(\int_V{(\rho \vec v).div \vec v.dV}\)</span>.<br>
+Uguagliando all'opposto, portando al primo membro e prescindendo dall'integrale di volume, peraltro qualsiasi, si ottiene<br>
+<span class="tex">\(\frac{\partial (\rho \vec v)}{\partial t}+ (\vec\nabla.\vec v)(\rho \vec v) = \vec 0\)</span><br>
+II Metodo: dovrà uguagliare la somma(integrale) delle variazioni di quantità di moto infinitesime relative ai volumi infinitesimi <span class="tex">\(dV= dx.dy.dz\)</span> in cui può scomporsi <span class="tex">\(V\)</span>. Come nel caso della massa, detta <span class="tex">\(\vec v = v_x \vec i+v_y \vec j +v_z \vec k\)</span> la velocità in quel punto, la differenza fra la quantità di moto che esce dalla parete <span class="tex">\(dy.dz\)</span> e quella che entra nella parete opposta delle stesse dimensioni sarà <span class="tex">\((\rho.\vec v) \frac{\partial v_x}{\partial x}dx.dx.dz\)</span>. Sommando anche i contributi delle due pareti <span class="tex">\(dx.dy\)</span> e <span class="tex">\(dx.dz\)</span> si ottiene facilmente<br>
+<span class="tex">\(\int_V{(\rho.\vec v)}\)</span> <span class="tex">\({(\frac{\partial ( v_x)}{\partial x}+ \frac {\partial(v_y)}{\partial y} + \frac {\partial (v_z)}{\partial z}) dV}\)</span> = <span class="tex">\(\int_V{(\rho \vec v). div \vec v. dV}\)</span><br>
+Uguagliando all'opposto, portando al primo membro e prescindendo da <span class="tex">\(V\)</span> si ottiene ancora<br>
+<span class="tex">\(\frac{\partial (\rho \vec v)}{\partial t} + (\vec \nabla . \vec v)(\rho \vec v) = \vec 0\)</span><br>
+Mi verrebbe insomma una relazione vettoriale in questo caso. <br>
+Avrei bisogno, per concludere sulla questione, di chiarire un paio di dubbi che ti formulerò se fosse corretta anche questa soluzione: sulla natura di questi tre problemi che hai proposto e sulla divergenza della velocità. Ovviamente, per non romperti più di tanto, risponderai se potrai e quando vorrai...</article>
+<article class="post" id="p7990"><div class="who"><b>Pigkappa</b><span>31 gen 2012, 1:55</span></div>Nota: questa cosa che stiamo provando a fare ora è significativamente più complicata delle precedenti, se ci si mette la pressione (vedi sotto). Non garantisco che ne verremo a capo, e non sono sicuro che ci sia un modo facile per arrivare a un'equazione nella solita forma <span class="tex">\(\frac{\partial (\rho \vec v)}{\partial t} + \vec \nabla \cdot Qualcosa = 0\)</span>. D'altra parte, quella equazione esiste e una volta che la si vede ci vuole poco a verificare che è corretta, quindi non dovrebbe neanche essere così difficile da ricavare (ancora non ci ho provato).<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite><em class="text-italics">l'opposto della variazione della quantità di moto per secondo deve uguagliare la differenza fra quella uscita e quella entrata nel vonume nello stesso tempo</em></div></blockquote>
+Io sarei più cauto. La frase scritta in questo modo è corretta, ma il modo in cui la applichi poi non lo è. È vero che in un certo senso la conservazione della quantità di moto si riduce a quella frase, ma la quantità di moto in uscita ed entrata dall'elemento di volume non è dovuta solamente alla materia che ci entra e che ne esce, ma anche al fatto che sull'elemento di volume sono applicate delle forze di pressione (e sicuramente sai che <span class="tex">\(\frac{d \vec P}{dt} = \vec F\)</span>) (trascuriamo tutte le altre forze).<br>
+Comunque, si può anche affrontare il problema supponendo che la pressione sia trascurabile e vedere cosa ne viene fuori. Per ora facciamo così.<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>
+esprimibile per il teorema della divergenza come integrale della medesima esteso a <span class="tex">\(V\)</span> ottenendo <span class="tex">\(\int_V{(\rho \vec v).div \vec v.dV}\)</span>.</div></blockquote>
+Sei sulla strada giusta, ma hai scritto la divergenza della quantità sbagliata... Questo fa sì che risultino sbagliati anche i risultati successivi.<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>la differenza fra la quantità di moto che esce dalla parete <span class="tex">\(dy.dz\)</span> e quella che entra nella parete opposta delle stesse dimensioni sarà <span class="tex">\((\rho.\vec v) \frac{\partial v_x}{\partial x}dx.dx.dz\)</span></div></blockquote>
+Anche con questo metodo sei sulla strada giusta, ma quest'ultima cosa è sbagliata. Prova a pensare perchè.<br>
+<br>
+<br>
+<br>
+Considerando trascurabile la pressione, si può effettivamente arrivare al risultato giusto con i due metodi che stai seguendo. <br>
+Ti dò però un consiglio: inizialmente scegli una sola direzione (diciamo <span class="tex">\(\hat x\)</span>) e fai le cose per quella componente (il che <em class="text-italics">non</em> vuol dire di considerare unidimensionale il problema). Alla fine proverai a vedere se le equazioni per le 3 componenti sono così belle da poterle mettere insieme in un'unica equazione vettoriale. Dovresti accorgerti che si può fare, ma non è così ovvio.<br>
+C'è un modo per fare i conti direttamente con i vettori, ma risulta più complicato delle cose che hai visto fin qui per motivi che probabilmente ti saranno chiari se riuscirai ad aggiustare la tua soluzione, oppure che ti spiegherò poi. Per ora conviene quindi che cerchi espressioni del tipo:<br>
+<span class="tex">\(\displaystyle \frac{\partial (\rho v_x)}{\partial t} + mostro = 0\)</span><br>
+<br>
+<br>
+Comunque, hai già una padronanza di queste cose che è superiore al 95% degli studenti che passano da Senigallia!</article>
+<article class="post" id="p7992"><div class="who"><b>modesto</b><span>1 feb 2012, 12:25</span></div>Sto provando una decisa autocritica alla soluzione data partendo dal suggerimento di considerare una sola coordinata (son d'accordo che non vuol dire unidimensionale) e ti chiedo, prima di formalizzare, se sono sulla strada giusta. Mentre ho sicuramente commesso almeno un errore sulla <span class="tex">\(div\vec v\)</span> francamente non pensavo di dover considerare la pressione. Inoltre credo che debba essere anche <span class="tex">\(\rho = \rho(x)\)</span>. <br>
+L'errore è consistito nello scrivere <span class="tex">\(\vec v= v_x\vec i + v_y\vec j + v_z \vec k\)</span> e poi di non trarne le conseguenze. La quantità di moto entrante nell'unità di tempo nel <span class="tex">\(dV=dx.dy.dz\)</span> attraverso la parete <span class="tex">\(dy.dz\)</span> dovrebbe essere <span class="tex">\(\rho(x).v_x.v_x.dy.dz\)</span>(q.d.m. specifica per volume entrato in un secondo) mentre quella uscente dalla parete opposta dovrebbe essere <span class="tex">\([\rho(x+dx)].(v_x+\frac{\partial v_x}{\partial x}.dx)^{2}.dy.dz\)</span> dove <span class="tex">\(\rho(x+dx) = \rho(x)+\frac{\partial[\rho(x)]}{\partial x}. dx\)</span>. Facendo i conti e trascurando i termini infinitesimi di ordine superiore al primo, mi risulterebbe, se non ho sbagliato, una differenza, cioè una parte del <em class="text-italics">mostro</em>, del tipo<br>
+<span class="tex">\(\frac{\partial [\rho(x).v_x^{2}]}{\partial x}. dV\)</span>.<br>
+Ci sarebbe poi da aggiungere la variazione per unità di tempo della quantità di moto specifica dovuta alle forze di pressione<br>
+<span class="tex">\([p(x+dx)-p(x)]dy.dz = F.1(sec)\)</span> dove <span class="tex">\(p(x+dx) = p(x) + \frac{\partial p(x)}{\partial x}.dx\)</span>. Anche in tal caso risulterebbe a me un termine come<br>
+<span class="tex">\(\frac{\partial p(x)}{\partial x}.dV\)</span><br>
+Prima di andare avanti però, con un eventuale generalizzazione alle altre componenti cartesiane e di vedere se la variazione di pressione può anch'essa esprimersi con quella della velocità, urge  un controllo da parte tua...</article>
+<article class="post" id="p7994"><div class="who"><b>Pigkappa</b><span>1 feb 2012, 15:39</span></div><blockquote><div><cite>modesto ha scritto:</cite>francamente non pensavo di dover considerare la pressione.</div></blockquote>
+Per ora possiamo anche lasciarla stare.<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite><span class="tex">\(\rho = \rho(x)\)</span></div></blockquote>
+Certo che <span class="tex">\(\rho\)</span> dipende dalla posizione. Io scriverei piuttosto <span class="tex">\(\rho = \rho(\vec r)\)</span>; non dipende solo dalla coordinata <span class="tex">\(x\)</span>.<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>La quantità di moto entrante nell'unità di tempo nel <span class="tex">\(dV=dx.dy.dz\)</span> attraverso la parete <span class="tex">\(dy.dz\)</span> dovrebbe essere <span class="tex">\(\rho(x).v_x.v_x.dy.dz\)</span>(q.d.m. specifica per volume entrato in un secondo) mentre quella uscente dalla parete opposta dovrebbe essere <span class="tex">\([\rho(x+dx)].(v_x+\frac{\partial v_x}{\partial x}.dx)^{2}.dy.dz\)</span> dove <span class="tex">\(\rho(x+dx) = \rho(x)+\frac{\partial[\rho(x)]}{\partial x}. dx\)</span></div></blockquote>
+Il fatto di voler fare le cose lungo <span class="tex">\(\hat x\)</span> vuol dire che noi cerchiamo "la componente <span class="tex">\(\hat x\)</span> della quantità di moto entrante nel volume <span class="tex">\(dV\)</span>".<br>
+<br>
+Anche se a prima vista può sembrare strano, questa quantità dipende anche dalle velocità <span class="tex">\(v_y\)</span> e <span class="tex">\(v_z\)</span>. In quello che ho chiamato "mostro" possono entrare anche <span class="tex">\(v_y\)</span> e <span class="tex">\(v_z\)</span> (e ti dico che ci sono, visto che io so la soluzione). Era per questo che avevo sottolineato che non è un problema unidimensionale.<br>
+<br>
+La quantità di moto lungo <span class="tex">\(\hat x\)</span> che entra dalla superficie <span class="tex">\(dy dz\)</span> l'hai calcolata correttamente, ma devi considerare anche quella che entra dalle superfici <span class="tex">\(dx dz\)</span> e <span class="tex">\(dx dy\)</span>.<br>
+<br>
+La parte sulla pressione è giusta; in quel caso è corretto considerare solo quella agente sulla superficie <span class="tex">\(dy dz\)</span> perchè è l'unica a esercitare una forza lungo <span class="tex">\(\hat x\)</span>, e quindi variare la quantità di moto in quella direzione.</article>
+<article class="post" id="p7997"><div class="who"><b>modesto</b><span>3 feb 2012, 12:13</span></div>In effetti dicevo di essere d'accordo ma poi ho ragionato da unidimensionale. Tutte le variabili sono funzione delle coordinate e del tempo. Per cui per es.<span class="tex">\(v_y=v_y(x,y,z,t)\)</span> passa rispetto a x da <span class="tex">\(v_y(x,y,z)\)</span> a <span class="tex">\(v_y(x+dx,y,z)\)</span> ovvero <span class="tex">\(v_y + \frac{\partial v_y}{\partial x}.dx\)</span> così come <span class="tex">\(\rho\)</span> che passa da <span class="tex">\(\rho(x,y,z)\)</span> a <span class="tex">\(\rho(x+dx,y,z)\)</span>. Pertanto la quantità di moto per unità di tempo che esce/entra in <span class="tex">\(dx.dz\)</span> subisce una variazione rispetto ad x. In analogia a quanto visto per x, la quantità di moto che esce/entra per unità di tempo all'ascissa x in <span class="tex">\(dx.dz\)</span>è <span class="tex">\(\frac{\partial[\rho(x,y,z)v_y^{2}]}{\partial y}.dV\)</span> mentre quella che esce/entra per unità di tempo all'ascissa x+dx è <span class="tex">\(\frac{\partial[\rho(x+dx,y.z).v_y^{2}(x+dx,y,z)]}{\partial y}.dV\)</span>. Facendo la differenza rispetto a dx e omettendo i conti, che posso esplicitare dopo il tuo controllo, mi risulterebbe<br>
+<span class="tex">\(\frac{\partial^{2}[{\rho(x,y,z).v_y^{2}}]}{\partial x \partial y}.dx.dV\)</span><br>
+che, per unità di tempo, essendo<span class="tex">\(dx= v_x.dt\)</span> si ridurrebbe a<br>
+<span class="tex">\(\frac{\partial[\frac{\partial(\rho.v_y^{2} }{\partial y}]}{\partial x}.v_x.dV\)</span>. Analogamente per z in <span class="tex">\(dx.dy\)</span><br>
+<span class="tex">\(\frac{\partial [\frac{\partial(\rho.v_z{2}}{\partial z}]}{\partial x}.v_x.dV\)</span>.<br>
+Questi sarebbero altri due <em class="text-italics">mostri </em>da aggiundere a quello che entra in <span class="tex">\(dy.dz\)</span> e alla pressione della volta precedente. Mi sembra che una logica ci sia in questi risultati: in fondo è la variazione per unità di tempo rispetto a x delle quantità di moto che escono/entrano in <span class="tex">\(dx.dz\)</span> e in <span class="tex">\(dx.dy\)</span>. Ma urge ancora tuo controllo.</article>
+<article class="post" id="p8003"><div class="who"><b>Pigkappa</b><span>4 feb 2012, 0:11</span></div><blockquote><div><cite>modesto ha scritto:</cite>In analogia a quanto visto per x, la quantità di moto che esce/entra per unità di tempo all'ascissa x in <span class="tex">\(dx.dz\)</span>è <span class="tex">\(\frac{\partial[\rho(x,y,z)v_y^{2}]}{\partial y}.dV\)</span> mentre quella che esce/entra per unità di tempo all'ascissa x+dx è <span class="tex">\(\frac{\partial[\rho(x+dx,y.z).v_y^{2}(x+dx,y,z)]}{\partial y}.dV\)</span>.</div></blockquote>
+Non sono riuscito a capire che conti hai fatto. Comunque una cosa mi sembra chiara: hai considerato la quantità di moto come uno scalare e non come un vettore, e questo è un errore.<br>
+<br>
+A noi interessava la componente <span class="tex">\(\hat x\)</span> della quantità di moto che entrava dalle superfici <span class="tex">\(dx dy\)</span>, <span class="tex">\(dx dz\)</span>, <span class="tex">\(dy dz\)</span>.<br>
+<br>
+Facciamo ad esempio il caso della quantità di moto lungo <span class="tex">\(\hat x\)</span> che entra dalla superficie <span class="tex">\(dx dy\)</span> posta intorno al punto <span class="tex">\((x, y, z)\)</span>. La massa che entra nel volume <span class="tex">\(dV\)</span> attraverso questa superficie nell'intervallo di tempo <span class="tex">\(dt\)</span> è <span class="tex">\(\rho v_z dx dy dt\)</span>. La componente <span class="tex">\(\hat x\)</span> della quantità di moto è data dalla massa per la velocità lungo <span class="tex">\(\hat x\)</span>, quindi è <span class="tex">\(\rho v_z v_x dx dy dt\)</span>. <br>
+<br>
+La variazione di quantità di moto lungo <span class="tex">\(\hat x\)</span> considerando quella che entra dalla superficie <span class="tex">\(dx dy\)</span> posta intorno al punto <span class="tex">\((x, y, z)\)</span> e quella che esce dalla superficie <span class="tex">\(dx dy\)</span> posta intorno al punto <span class="tex">\((x, y, z+dz)\)</span> è quindi:<br>
+<br>
+<span class="tex">\(\displaystyle (\rho v_z v_x)(x,y,z) dx dy dt -  (\rho v_z v_x)(x,y,z+dz) dx dy dt \approx - \frac{d(\rho v_x v_z)}{dz} dz dx dy dt = - \frac{d(\rho v_x v_z)}{dz} dV dt\)</span><br>
+dove con quella notazione voglio dire che nel primo caso il prodotto <span class="tex">\((\rho v_z v_x)\)</span> è calcolato in <span class="tex">\((x,y,z)\)</span>, nell'altro in <span class="tex">\((x,y,z+dz)\)</span>. Quindi, contando solo il contributo dovuto al moto lungo <span class="tex">\(\hat z\)</span>, troviamo che:<br>
+<span class="tex">\(\frac{\partial(\rho v_x)}{\partial t} = - \frac{d(\rho v_x v_z)}{dz}\)</span><br>
+Adesso prova a considerare il contributo dovuto al moto lungo <span class="tex">\(\hat x\)</span> e <span class="tex">\(\hat y\)</span>. Se riesci, mettici anche la pressione. Così trovi una formula nella forma che volevamo per <span class="tex">\(\frac{\partial (\rho v_x)}{\partial t}\)</span>. Se poi ci riesci, prova a trasformarla in un'equazione vettoriale per <span class="tex">\(\frac{\partial{(\rho \vec v)}}{\partial t}\)</span> (bisogna inventarsi qualcosa di nuovo per farlo, forse qua dovrò intervenire io).</article>
+<article class="post" id="p8005"><div class="who"><b>modesto</b><span>4 feb 2012, 13:15</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>modesto ha scritto:</cite>In analogia a quanto visto per x, la quantità di moto che esce/entra per unità di tempo all'ascissa x in <span class="tex">\(dx.dz\)</span>è <span class="tex">\(\frac{\partial[\rho(x,y,z)v_y^{2}]}{\partial y}.dV\)</span> mentre quella che esce/entra per unità di tempo all'ascissa x+dx è <span class="tex">\(\frac{\partial[\rho(x+dx,y.z).v_y^{2}(x+dx,y,z)]}{\partial y}.dV\)</span>.</div></blockquote>
+Non sono riuscito a capire che conti hai fatto. Comunque una cosa mi sembra chiara: hai considerato la quantità di moto come uno scalare e non come un vettore, e questo è un errore.<br>
+A noi interessava la componente <span class="tex">\(\hat x\)</span> della quantità di moto che entrava dalle superfici <span class="tex">\(dx dy\)</span>, <span class="tex">\(dx dz\)</span>, <span class="tex">\(dy dz\)</span>.</div></blockquote>
+Ho calcolato un'altra cosa:<span class="tex">\(v_y(e v_z)\)</span> variano con x e quindi variano con x le q.d.m.che escono/entrano da <span class="tex">\(dx.dz(e da dx.dy)\)</span>. Queste ho calcolato e quindi non credo di aver considerato la q.d.m. scalare. Invece, se capisco bene, tu intendevi che una massa che pure entra da una "porta" perpendicolare a <span class="tex">\(v_x\)</span> "acquista anche" la componente <span class="tex">\(v_x\)</span>. E' così ?
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Quindi, contando solo il contributo dovuto al moto lungo <span class="tex">\(\hat z\)</span>, troviamo che: <span class="tex">\(\frac{\partial(\rho v_x)}{\partial t} = - \frac{d(\rho v_x v_z)}{dz}\)</span></div></blockquote>
+La derivata non dovrebbe essere parziale <span class="tex">\(\frac{\partial(\rho v_x.v_z)}{\partial z}\)</span>?<br>
+Poi, siccome avevi detto che il contributo lungo <span class="tex">\(\hat x\)</span> era corretto <span class="tex">\((\frac{\partial (\rho.v_x^{2}}{\partial x})\)</span>, allora si dovrebbe aggiungere ancora<br>
+<span class="tex">\(\frac{\partial(\rho v_x.v_y)}{\partial y}\)</span> per ottenere<br>
+<span class="tex">\(\frac{\partial(\rho v_x)}{\partial t} + \frac{\partial(\rho v_x^{2})}{\partial x}+ \frac{\partial(\rho v_x.v_y)}{\partial y} + \frac{\partial(\rho v_x v_z)}{\partial z}= 0\)</span><br>
+Mentre controlli quanto sopra vedo di ragionare sulla questione della pressione di cui avevo già dato un'espressione.</article>
+<article class="post" id="p8006"><div class="who"><b>Pigkappa</b><span>4 feb 2012, 15:09</span></div>Sintesi dovuta al fatto che scrivo da uno smartphone.<br>
+<br>
+Sì, la derivata doveva essere parziale.  La formula a cui sei arrivato va bene, mettici P (avevi già calcolato correttamente il suo contributo).</article>
+<article class="post" id="p8019"><div class="who"><b>modesto</b><span>8 feb 2012, 18:46</span></div>Seguendo la tua esortazione, ho buttato giù le tre <span class="tex">\(\frac{\partial\rho v_i}{\partial t}\)</span> e mi sono messo in primo luogo nell'ipotesi che i versori cartesiani rimangano costanti nel tempo<br>
+( la derivata temporale di ciascun versore sarebbe perpendicolare al medesimo). Dovrebbe allora risultare:<br>
+<span class="tex">\(\frac{\partial(\rho.v_x)}{\partial t}\vec i = - [ \frac{\partial(\rho.v_x^{2})}{\partial x}+ \frac{\partial(\rho.v_x.v_y)}{\partial y}+ \frac{\partial (\rho.v_x.v_z)}{\partial z}+ \frac{\partial p}{\partial x}]\vec i= -I \vec i\)</span><br>
+<span class="tex">\(\frac{\partial(\rho.v_y)}{\partial t}\vec j = -[ \frac{\partial(\rho.v_y^{2})}{\partial y}+ \frac{\partial(\rho.v_x.v_y)}{\partial x}+ \frac{\partial (\rho.v_y.v_z)}{\partial z}+ \frac{\partial p}{\partial y}]\vec j = -J\vec j\)</span><br>
+<span class="tex">\(\frac{\partial(\rho.v_z)}{\partial t}\vec k = -[ \frac{\partial(\rho.v_z^{2})}{\partial z}+ \frac{\partial(\rho.v_x.v_z)}{\partial x}+ \frac{\partial (\rho.v_y.v_z)}{\partial y}+ \frac{\partial p}{\partial z}]\vec k = -K \vec k\)</span><br>
+ovvero   <span class="tex">\(\frac{\partial(\rho\vec v)}{\partial t}+ I \vec i + J \vec j + K \vec k = 0\)</span><br>
+Escludendo subito le derivate della pressione che mi pare diano <strong class="text-strong"><span class="tex">\(\vec \nabla p\)</span>, </strong>si tratta di 9 derivate di tre fattori che, svolte con pazienza, danno luogo a 27 addendi in 18 dei quali ho identificato<br>
+<br>
+<strong class="text-strong"><span class="tex">\((\rho\vec v).(\vec \nabla . \vec v) + (\vec \nabla \rho .\vec v)\vec v\)</span></strong><br>
+<br>
+Rimangono 9 addendi che, prima di scomporre <span class="tex">\(\vec v\)</span> nelle tre componenti, sono<br>
+<span class="tex">\((\rho v_x)\frac {\partial \vec v}{\partial x}+ (\rho.v_y)\frac{\partial \vec v}{\partial y}+ (\rho.v_z)\frac{\partial \vec v}{\partial z}\)</span>.<br>
+Potrei esprimerli come<br>
+<span class="tex">\((\rho \vec v. \vec \nabla v_x)\vec i + (\rho\vec v. \vec \nabla v_y)\vec j + (\rho \vec v . \vec \nabla v_z) \vec k\)</span> con un'espressione molto brutta rispetto alle altre.<br>
+<br>
+Non so se le premesse e i calcoli sono corretti. Così come le aggregazioni di addendi che ho effettuato: forse altre erano più opportune? Comunque, considerato che fino a poco tempo fa per me la <em class="text-italics">divergenza</em> era una discordanza di opinioni, non dimenticherò la cura che mi hai fatto fare. Anche se ora forse è opportuno che torni alle mie OEM e ai relativi problemi sns...</article>
+<article class="post" id="p8021"><div class="who"><b>Pigkappa</b><span>9 feb 2012, 1:15</span></div><blockquote><div><cite>modesto ha scritto:</cite>[...]</div></blockquote>
+Giusto! Le equazioni a cui sei arrivato sono corrette, e più o meno ti sei avvicinato alla forma che si usa di solito.<br>
+<br>
+Prendiamo la prima equazione e togliamo il versore. L'equazione è:<br>
+<br>
+<span class="tex">\(\frac{\partial(\rho.v_x)}{\partial t} +\frac{\partial(\rho.v_x^{2})}{\partial x}+ \frac{\partial(\rho.v_x.v_y)}{\partial y}+ \frac{\partial (\rho.v_x.v_z)}{\partial z}+ \frac{\partial p}{\partial x} = 0\)</span><br>
+<br>
+E quelle per le componenti <span class="tex">\(y\)</span> e <span class="tex">\(z\)</span> ovviamente sono simili.<br>
+<br>
+Raggruppiamo la derivata parziale lungo <span class="tex">\(\hat x\)</span>:<br>
+<br>
+<span class="tex">\(\frac{\partial(\rho.v_x)}{\partial t} +\frac{\partial(p + \rho.v_x^{2})}{\partial x}+ \frac{\partial(\rho.v_x.v_y)}{\partial y}+ \frac{\partial (\rho.v_x.v_z)}{\partial z} = 0\)</span><br>
+<br>
+Anche se non è immediato accorgersi che è conveniente fare così, definiamo il vettore:<br>
+<span class="tex">\(\vec R_x = (P + \rho v_x^2, \rho v_x v_y, \rho v_x v_z)\)</span><br>
+E se guardi attentamente l'equazione sopra, ti accorgi che è nella forma:<br>
+<span class="tex">\(\frac{\partial(\rho v_x)}{\partial t} + \vec \nabla \cdot \vec R_x = 0\)</span><br>
+Che assomiglia alle forme che ci piacevano. Si può fare la stessa cosa per le altre componenti definendo <span class="tex">\(\vec R_y\)</span> e <span class="tex">\(\vec R_z\)</span> in modo analogo; la pressione "si sposta" ogni volta a seconda della componente che stiamo considerando.<br>
+<br>
+Adesso potremmo voler scrivere queste equazioni, che sono 3 perchè ci sono 3 componenti, come un'equazione unica per fare le cose in modo più compatto. E ci piacerebbe che questa equazione unica abbia una forma che ricorda le equazioni in forma conservativa che abbiamo già visto (cioè tutte quelle <span class="tex">\(\frac{\partial qualcosa}{\partial t} + \vec \nabla \cdot \vec{flusso} = 0\)</span>). Per fare questo bisogna inventarsi un nuovo oggetto fisico che metta insieme <span class="tex">\(\vec R_x\)</span>, <span class="tex">\(\vec R_y\)</span> e <span class="tex">\(\vec R_z\)</span>.<br>
+<br>
+Non la tiro per le lunghe e ti dico che questo oggetto si chiama tensore e potrebbe sembrarti un po' ostico capirne il senso fisico. Un tensore è un "vettore a più indici"; ad esempio, una matrice potrebbe essere un tensore a due indici. Ci sono tensori a più di due indici.<br>
+Il nostro tensore lo chiamiamo <span class="tex">\(R\)</span>; a volte si usa qualche simbolo strano per indicare che è un tensore (scriverlo in grassetto, oppure metterci sopra una "doppia freccia" tipo <span class="tex">\(\leftrightarrow\)</span>). Si dice che <span class="tex">\(R\)</span> è il tensore degli sforzi di Reynolds del fluido, ma non è importante.<br>
+<br>
+L'equazione per la quantità di moto del fluido si scrive come:<br>
+<span class="tex">\(\frac{\partial (\rho \vec v)}{\partial t} + \vec \nabla \cdot R = 0\)</span><br>
+Dove il senso dell'equazione è questo: puoi fissare una componente qualsiasi e sostituire a <span class="tex">\(\vec v\)</span> la quantità <span class="tex">\(v_i\)</span> opportuna, e allora a <span class="tex">\(R\)</span> sostituisci <span class="tex">\(\vec R_i\)</span>. <br>
+Nel modo in cui l'ho detto può sembrare un procedimento artificioso, ma non lo è. Se tu fai un cambiamento di coordinate, e passi dalle coordinate <span class="tex">\((\hat x, \hat y, \hat z)\)</span> ad altre coordinate, puoi esprimere sia <span class="tex">\(\vec v\)</span> che <span class="tex">\(R\)</span> in questo nuovo sistema di coordinate e quell'equazione continua a restare valida. In questo senso è un'equazione vettoriale, e non vale solo per le tre direzioni <span class="tex">\(\hat x, \hat y, \hat z\)</span>. Questa è una cosa importante che dà un senso fisico all'equazione che abbiamo scritto; perchè una formula fisica sia valida, deve essere vera in ogni sistema di coordinate e non solo in un sistema particolare.<br>
+<br>
+Per vedere se hai capito come è fatto <span class="tex">\(R\)</span>, dovresti capire facilmente che nel nostro caso è un tensore a due indici, e che indicando con <span class="tex">\(R_{ab}\)</span> l'elemento del tensore della riga <span class="tex">\(a\)</span> e colonna <span class="tex">\(b\)</span>, si ha <span class="tex">\(R_{ab} = \rho v_a v_b + p \delta_{ab}\)</span> dove il simbolo <span class="tex">\(\delta_{ab}\)</span> è uguale a 1 se <span class="tex">\(a=b\)</span> e nullo se <span class="tex">\(a \ne b\)</span>.<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>Anche se ora forse è opportuno che torni alle mie OEM e ai relativi problemi sns...</div></blockquote>
+Ogni tanto guardare un po' oltre l'orizzonte può fare bene, ma esagerare è deleterio, perciò ha senso che torni a cose più umane :P.</article>
+<article class="post" id="p8029"><div class="who"><b>modesto</b><span>11 feb 2012, 12:44</span></div>Sono stato molto gratificato dall' "avventura" in cui mi hai condotto. Però, prima di ritornare "in più spirabil aere" (per me), non posso non farti controllare se ho inteso abbastanza quello che hai chiamato il <em class="text-italics">mostro</em> incognito, l'assassino-tensore. Siano allora<br>
+<span class="tex">\(\vec R_x = (p+\rho.v_x^{2})\vec i + \rho v_x v_y \vec j + \rho v_x v_z \vec k=(R_{xx},R_{xy},R_{xz})\)</span><br>
+<span class="tex">\(\vec R_y = \rho v_x v_y \vec i + (p+\rho v_y^{2})\vec j + \rho v_y v_z \vec k=(R_{yx},R_{yy},R_{yz})\)</span>  = <span class="tex">\(R\)</span><br>
+<span class="tex">\(\vec R_z = \rho v_x v_z \vec i + \rho v_y v_z \vec j + (p +\rho v_z^{2})\vec k=(R_{zx},R_{zy},R_{zz})\)</span> <br>
+Ho scritto così perchè non so esprimere la matrice in Latex: però i terzi membri dovrebbero rappresentare, se ho capito, le righe della matrice <span class="tex">\(R\)</span> che è poi il tensore. Questo sarebbe una matrice (3x3) a due indici, in cui il primo rappresenta il vettore ed il secondo la sua componente. Allora:<br>
+<br>
+1) il prodotto scalare <span class="tex">\(\vec \nabla \cdot \vec R_{x(y)(z)}\)</span> è il secondo membro delle nostre equazioni che con i versori diventano<br>
+<span class="tex">\(\frac{\partial(\rho v_x )}{\partial t}\vec i = - (\vec \nabla \cdot \vec R_x) \vec i\)</span><br>
+<span class="tex">\(\frac{\partial(\rho v_y)}{\partial t}\vec j = - (\vec \nabla \cdot \vec R_y) \vec j\)</span><br>
+<span class="tex">\(\frac{\partial (\rho v_z)}{\partial t}\vec k = - (\vec \nabla \cdot \vec R_z \vec k\)</span><br>
+e dunque sarebbe<br>
+<span class="tex">\(\frac {\partial(\rho \vec v)}{\partial t} + (\vec \nabla \cdot \vec R_x)\vec i+ (\vec \nabla \cdot \vec R_y) \vec j + (\vec \nabla \cdot \vec R_z) \vec k = 0\)</span><br>
+E' davvero simile alla versione che avevo dato con i prodotti rappresentati da <span class="tex">\(I,J,K\)</span>. Si osserva che in termini di componenti scalari dovrebbe essere <br>
+<span class="tex">\(\frac{\partial(\rho \vec v)}{\partial t} =  (-\frac{\partial R_{xx}}{\partial x}- \frac{\partial R_{xy}}{\partial y}- \frac {\partial R_{xz}}{\partial z},....)\)</span> dal momento che <span class="tex">\(\vec \nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})\)</span><br>
+<br>
+2) Con la matrice tensore <span class="tex">\(R\)</span> interviene un prodotto fra matrici che ho trovato deve farsi righe per colonne dato che <span class="tex">\(\vec \nabla\)</span> può riguardarsi come matrice (1x3). Allora (dubbio)  dovrebbe però intervenire la cosiddetta "trasposta" di <span class="tex">\(R\)</span> cioè <span class="tex">\(R^{T}\)</span>ottenuta dalla data scambiando le righe con le colonne di <span class="tex">\(R\)</span>. Le nostre equazioni sarebbero allora tutte rappresentate da <br>
+<span class="tex">\(\frac{\partial(\rho \vec v)}{\partial t}+ \vec\nabla \cdot R^{T}= 0\)</span><br>
+ed in termini di componenti scalari si otterrebbero ancora le solite<br>
+<span class="tex">\(\frac{\partial(\rho \vec v)}{\partial t} =  (-\frac{\partial R_{xx}}{\partial x}- \frac{\partial R_{xy}}{\partial y}- \frac {\partial R_{xz}}{\partial z},....)\)</span></article>
+<article class="post" id="p8030"><div class="who"><b>Pigkappa</b><span>11 feb 2012, 22:05</span></div>1)Tutto ok.<br>
+<br>
+2)Immaginavo conoscessi già le matrici, si dovrebbero fare al liceo scientifico e in qualunque scuola sensata... <br>
+<br>
+Non capisco come mai vorresti coinvolgere la trasposta di <span class="tex">\(R\)</span>. La matrice <span class="tex">\(R\)</span> è simmetrica (cioè <span class="tex">\(R_{ab} = R_{ba}\)</span> per ogni <span class="tex">\(a\)</span> e <span class="tex">\(b\)</span>, basta che guardi gli elementi della matrice e te ne accorgi), quindi è uguale alla sua trasposta: <span class="tex">\(R = R^T\)</span>.</article>
+<article class="post" id="p8031"><div class="who"><b>modesto</b><span>13 feb 2012, 19:14</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Immaginavo conoscessi già le matrici, si dovrebbero fare al liceo scientifico e in qualunque scuola sensata... <br>
+<br>
+Non capisco come mai vorresti coinvolgere la trasposta di <span class="tex">\(R\)</span>. La matrice <span class="tex">\(R\)</span> è simmetrica .... quindi è uguale alla sua trasposta: <span class="tex">\(R = R^T\)</span>.</div></blockquote>
+
+Sì, è verissimo quello che dici rispetto al risultato pratico. Però continuo a credere che sia più corretto vederla come <span class="tex">\(R^{T}\)</span> che come <span class="tex">\(R\)</span>.<br>
+Quanto alla mia conoscenza delle matrici non è certo dovuta al liceo classico. Come ho scritto in altra circostanza, quello che ho imparato, diciamo nell'ultimo anno, lo devo essenzialmente a due libri (Halliday e Bianciardi Problemi di Fisica ed.libreriauniversitaria.it) e a due persone (la mamma docente di Analisi e, soprattutto,il Pigkappa). Così, almeno, penso io.</article>
+<nav class="pager"><a class="prev" href="olifis-7182.html"><small>← precedente</small>301. Cariche in equilibrio ed energia potenziale</a><a class="next" href="olifis-6647.html"><small>successivo →</small>137. Triangolo a temperature costanti</a></nav>
+</main></body></html>

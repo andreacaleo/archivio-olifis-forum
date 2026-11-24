@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cambridge, ne vale la pena?</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../caffe.html">Caffè</a></span></nav>
+<h1>Cambridge, ne vale la pena?</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6716">forum Olifis</a></p>
+<article class="post first" id="p24864"><div class="who"><b>filo0820</b><span>26 giu 2018, 19:50</span></div>Ciao ragazzi, ormai è giunta l'estate ma per uno studente di quarta che deve decidere cosa sarà del proprio percorso universitario qualcosa c'è sempre. Ecco quindi la mia domanda: vorrei entrare in un'università d'eccellenza, ma sono abbaztanza convinto di non riuscire per la SNS e l'ambiente della Galileiana non mi convince molto (sarei lieto se mi lasciaste dei feedback anche su quest'ultima), conviene quindi puntare ad entrare in un'universotà come Cambirdge? Perchè da un lato è globalmente considerata una delle migliori università d'Europa, se non la migliore, ma dall'altro il parere dei miei insegnanti è stato spesso negativo. Per loro l'università in Italia è molto meglio per preparazione, ma dall'altro lato mi interrogo anche sulle porte che le due uni mi aprirebbero al termine del percorso. Che ne pensate? Il gioco (tra l'altro molto complesso) vale la candela? :?:  :?:</article>
+<article class="post" id="p24865"><div class="who"><b>Pigkappa</b><span>26 giu 2018, 21:21</span></div>In termini di porte che ti apre, sì, ne apre parecchie specialmente se punti a lavorare o fare il dottorato all'estero.<br>
+<br>
+In termini di preparazione è vero che l'università italiana per certi aspetti in media dà più preparazione di quella inglese (d'altra parte sono 5 anni full time vs 4 anni con pause), ma il livello a Cambridge è alto. In particolare il corso di matematica collegato al DAMTP (dipartimento di matematica applicata in cui fanno anche parecchia fisica) è serio e difficile, vicino al livello della Normale. Se io fossi un insegnante sarei fiero di avere studenti che vanno a Cambridge. <br>
+<br>
+Tutti gli studenti inglesi vogliono entrare a Cambridge o Oxford, anche più di quanto gli italiani vogliono entrare alla Normale, e si preparano per anni. Ovviamente ci sono più posti, tra Oxford e Cambridge forse 200 per fisica in tutto, ma non aspettarti sia facile... E informati sui costi (quasi £10000 di tasse più £10000 per vivere all'anno, e non penso ci siano prestiti per studenti internazionali, e borse di studio a livello undergraduate sono molto rare).</article>
+<article class="post" id="p24877"><div class="who"><b>filo0820</b><span>28 giu 2018, 20:59</span></div>Ciao Pigkappa, e grazie per la risposta!
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-6716.html#p24865" data-post-id="24865" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">26 giu 2018, 21:21</div></cite>
+<br>
+E informati sui costi (quasi £10000 di tasse più £10000 per vivere all'anno, e non penso ci siano prestiti per studenti internazionali, e borse di studio a livello undergraduate sono molto rare).
+</div></blockquote>
+Per quanto riguarda i costi, almeno per l'anno corrente sono stati confermati i loans (prestiti) del governo britannico, incrocio le dita sperando sia così anche l'anno prossimo. Per quanto riguarda invece i £10000 per il vivere, in effetti quelli sono un bel problemino, mi auguro di riuscire ad inventarmi qualcosa con borse ed affini. <br>
+Inoltre mi stavo informando sul corso da seguire. La mia intenzione era quella di provare ad accedere al corso di Maths with Physics, e dal secondo anno decidere (per non dover trovare a Natural Sciences materie come chimica e scienza dei materiali sulla mi strada  :roll: ). Il problema è che è richiesto un esame suplementare chiamato STEP di mate e fisica, che però ha luogo negli stessi giorni della nostra Maturità, o almeno molto vicino! Cosa ne pensate? Io ho provato a prendere contatti con alcuni college che mi interessavano particolarmente sperando di trovarne almeno uno accondiscendente :|  :| <br>
+Lo spero perchè mi sembra molto ingiusto per gli Italiani! Forse è per questo che solo 20 persone all'anno entrano a Cambridge dall'Italia... :D  :D</article>
+<article class="post" id="p24879"><div class="who"><b>Pigkappa</b><span>28 giu 2018, 22:06</span></div>Purtroppo non sono in grado di aiutarti con i dettagli, non ho fatto l'undergraduate nel Regno Unito ma solo il dottorato, e non avevo mai sentito parlare dello STEP prima d'ora.<br>
+<br>
+Il fatto che sia vicino alla maturità non è la fine del mondo. Le IPhO e IMO sono vicino alla maturità e mi aspetto siano più impegnative... <br>
+<br>
+Scrivere ai colleges e al dipartimento che organizza quel corso di matematica per informazioni su come applicare dall'estero dovrebbe funzionare. Se ti chiederanno di fare lo STEP troveranno un modo di fartelo fare.<br>
+<br>
+Mi stupisce che gli student loans siano disponibili per i non inglesi... Considera che in Scozia se non sbaglio l'università è del tutto gratis e St Andrews e Edinburgh sono buone università, anche se ovviamente non come Cambridge.</article>
+<article class="post" id="p24880"><div class="who"><b>filo0820</b><span>28 giu 2018, 22:25</span></div>Si per i loans, almeno fino a quest'anno, sono validi per gli studenti EU. Ora sto contattando i college, il problema è quando si sovrappongono proprio con l'esame (es. quest'anno era lo stesso giorno della 2a prova :roll:  :roll: ). Riguardo a St Andrews e Edinburgh come le vedi rispetto ad un uni. statale in Italia come può essere una Bicocca di Milano?</article>
+<article class="post" id="p24881"><div class="who"><b>Pigkappa</b><span>28 giu 2018, 23:41</span></div>Non so nulla sulla Bicocca di Milano. St Andrews o Edinburgh penso siano circa allo stesso livello di universita' italiane decenti come Politecnico di Milano o Torino. La scelta a quel punto dipende da altri fattori: ti puoi permettere di studiare all'estero? Vuoi studiare all'estero? Ti va bene avere meno preparazione alla fine ma essere almeno un anno piu' giovane? Sei interessato a fare internships (molto rare in Italia, piu' comuni in UK) ? La risposta dipende dalla tua situazione personale e da quel che vuoi fare in futuro, e non c'e' necessariamente una risposta giusta...</article>
+<article class="post" id="p24882"><div class="who"><b>filo0820</b><span>29 giu 2018, 10:08</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-6716.html#p24881" data-post-id="24881" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">28 giu 2018, 23:41</div></cite>
+Non so nulla sulla Bicocca di Milano. St Andrews o Edinburgh penso siano circa allo stesso livello di universita' italiane decenti come Politecnico di Milano o Torino.
+</div></blockquote>
+Bene, io  avevo parlato di Bicocca perchè ad Politecnico, come può essere quello di Milano, una laurea in fisica e non ingegneria non c'è. Comunque ho capito il livello, al massimo farò il Politecnico :D <br>
+Volevo anche chiedere se vale la pena fare anche l'undergraduate all'estero o spostarsi solo dopo la triennale :?:  :?: <br>
+Grazie mille per le risposte intanto!</article>
+<article class="post" id="p24883"><div class="who"><b>Pigkappa</b><span>29 giu 2018, 13:16</span></div>Non ci sono risposte giuste e sbagliate. Dipende da cosa vuoi fare dopo. Fare un master di un anno all'estero dopo la triennale in Italia potrebbe non essere abbastanza se poi vuoi fare internships appena finisce o trovare lavoro velocemente in quel paese, perché ambientarsi e imparare la lingua e cercare lavoro il tutto mentre si studia può essere difficile. Se non ti spiace prendeeri del tempo per guardarti intorno dopo il master allora la situazione è diversa.<br>
+<br>
+All'estero non tutti fanno il master (a differenza che in Italia) e una triennale da Cambridge o Oxford ha un sacco di valore. Moltissimi premier inglesi sono laureati (solo triennale) a Oxford e Cambridge.</article>
+<article class="post" id="p24884"><div class="who"><b>filo0820</b><span>29 giu 2018, 13:39</span></div>Mmm capisco, grazie mille per le tue risposte Pigkappa, mi hai chiarito un sacco di dubbi!  8-)  8-)</article>
+<article class="post" id="p24885"><div class="who"><b>filo0820</b><span>29 giu 2018, 21:17</span></div>Comunque pensate sia possibile, al termine degli studi in UK, spostarsi facilmente a lavorare in America? Dove non penso di fare la laurea semplicemente per i costi elevatissimi :lol:</article>
+<article class="post" id="p24886"><div class="who"><b>Pigkappa</b><span>30 giu 2018, 1:23</span></div>In generale non e' facile, ma dipende dal tuo settore.<br>
+<br>
+Se vuoi fare carriera accademica (dottorato, postdoc) si puo' fare. Avrai un permesso temporaneo, ma non e' raro che un visto temporaneo diventi permanente.<br>
+<br>
+Se vuoi lavorare nel settore privato e' difficile. Se trovi aziende disposte a fare lo sforzo e pagare i costi di procurarti un visto lo puoi fare, ma e' molto piu' difficile che nell'accademia.<br>
+<br>
+Anche in Inghilterra non e' completamente scontato poter restare. Se ti trasferisci prima della fine del 2020 dovrebbe essere possibile perche' hanno annunciato che chi arriva nel periodo di transizione post Brexit potra' restare, ma se arrivi dopo non e' detto. E anche sulla transizione post Brexit niente di quel che hanno detto e' ancora ufficiale.</article>
+<article class="post" id="p24887"><div class="who"><b>filo0820</b><span>30 giu 2018, 19:34</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-6716.html#p24886" data-post-id="24886" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 giu 2018, 1:23</div></cite>
+Se trovi aziende disposte a fare lo sforzo e pagare i costi di procurarti un visto lo puoi fare
+</div></blockquote>
+Scusa se chiedo, è così costoso ottenere un visto?
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-6716.html#p24886" data-post-id="24886" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 giu 2018, 1:23</div></cite>
+Se ti trasferisci prima della fine del 2020 dovrebbe essere possibile perche' hanno annunciato che chi arriva nel periodo di transizione post Brexit potra' restare, ma se arrivi dopo non e' detto.
+</div></blockquote>
+Per quello io dovrei traferirmi prima del 2020, spero di fare in tempo!</article>
+<article class="post" id="p24888"><div class="who"><b>Pigkappa</b><span>30 giu 2018, 21:37</span></div>Per il datore di lavoro americano i costi tipici sono di $10000. A parte quello ci sono molti requisiti burocratici e compagnie medio piccole spesso non vogliono saperne e non provano neanche.</article>
+<article class="post" id="p24889"><div class="who"><b>filo0820</b><span>1 lug 2018, 7:54</span></div>Capisco  :shock:  :shock: . Grazie comunque di tutte le risposte!</article>
+<article class="post" id="p27106"><div class="who"><b>Elio</b><span>8 ago 2021, 15:14</span></div>Ho scoperto questa conversazione di ormai 3 anni fa, e leggendo le parole di filo0820 nel primo messaggio ad apertura della conversazione mi sono totalmente ritrovato nelle sue parole, cioé mi trovo nella stessa identica situazione in cui si trovava lui sommerso dagli stessi identici dubbi. Quindi volevo chiederti, rivolgendomi a filo, a distanza di 3 anni le strade che hai percorso e dove ti trovi a essere e fare ora. Ti sarei, anche non conoscendoti, infinitamente grato se mi rispondessi</article>
+<nav class="pager"><a class="prev" href="olifis-829.html"><small>← precedente</small>Fisica: quale università?</a></nav>
+</main></body></html>

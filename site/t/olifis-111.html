@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gas e strato di materiale in un pistone</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Gas e strato di materiale in un pistone</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=111">forum Olifis</a></p>
+<article class="post first" id="p1040"><div class="who"><b>Pigkappa</b><span>21 mag 2009, 21:33</span></div>Visto che mi sembrate poco affaccendati, vi suggerisco questo problema istruttivo. Fonte: è stato dato a un esame di Fisica 2 (il primo degli esami in cui compare Termodinamica). Livello: forse potrebbe essere l'inizio di un problema IPhO che contiene altre domande più brutte.<br>
+<br>
+<br>
+------------------------------------------------------------------------<br>
+<br>
+<br>
+Sul fondo di un cilindro di sezione S munito di un pistone mobile si trova uno strato di materiale di capacità termica <span class="tex">\(C_1\)</span>. Sia il cilindro che il pistone sono impermeabili al calore. Nella parte superiore si trovano <span class="tex">\(\displaystyle n\)</span> moli di un gas perfetto monoatomico. Inizialmente il sistema è all'equilibrio termodinamico, con pressione <span class="tex">\(\displaystyle P_0\)</span> e temperatura <span class="tex">\(\displaystyle T_0\)</span> note.<br>
+<br>
+1.) Si raddoppia molto lentamente la pressione. Calcolare la nuova temperatura.<br>
+<br>
+2.) Partendo dalla stessa condizione iniziale, si raddoppia istantaneamente la forza applicata al pistone. Calcolare anche in questo caso la temperatura nello stato finale di equilibrio.<br>
+<br>
+3.) Calcolare la variazione di entropia del sistema e dell'universo nei due casi precedenti.</article>
+<article class="post" id="p1041"><div class="who"><b>Alex90</b><span>21 mag 2009, 21:47</span></div>Il materiale sul fondo è incomprimibile giusto?</article>
+<article class="post" id="p1042"><div class="who"><b>Pigkappa</b><span>21 mag 2009, 22:35</span></div>Sì, è uno strato di materiale solido, incomprimibile, con temperatura di fusione molto elevata (cioè non si scioglie mai mentre avvengono le trasformazioni) e capacità termica indipendente dalla temperatura.</article>
+<article class="post" id="p1043"><div class="who"><b>Loren Kocillari89</b><span>22 mag 2009, 0:08</span></div>Non riesco a capire il fatto per  cui la capacità termica non dipende dalla temperatura... :?</article>
+<article class="post" id="p1044"><div class="who"><b>Pigkappa</b><span>22 mag 2009, 0:38</span></div>Consideriamo un corpo alla temperatura <span class="tex">\(\displaystyle T\)</span> che non è in procinto di cambiare stato. Se indichiamo con <span class="tex">\(\displaystyle \delta Q\)</span> una <em class="text-italics">piccola</em> quantità di calore scambiato dal corpo (con <span class="tex">\(\displaystyle \delta Q &gt; 0\)</span> se il corpo assorbe il calore, <span class="tex">\(\displaystyle \delta Q &lt; 0\)</span> se il corpo cede il calore all'ambiente esterno), e con <span class="tex">\(\displaystyle \delta T\)</span> la <em class="text-italics">piccola</em> variazione di temperatura dovuta al calore scambiato dal corpo, definiamo la capacità termica <span class="tex">\(\displaystyle C(T)\)</span> del corpo alla temperatura <span class="tex">\(\displaystyle T\)</span> come:<br>
+<br>
+<span class="tex">\(\displaystyle C(T) = \frac{\delta Q}{\delta T}\)</span><br>
+<br>
+Nella maggior parte dei casi si verifica sperimentalmente che <span class="tex">\(\displaystyle C\)</span> è, per variazioni della temperatura non troppo grandi, pressochè indipendente da <span class="tex">\(\displaystyle T\)</span>. In quasi tutti i problemi di termodinamica, le capacità termiche dei corpi si considerano costanti, e perciò si usa la relazione <span class="tex">\(\displaystyle Q = C \cdot \Delta T\)</span>.<br>
+<br>
+<br>
+In altre parole: il materiale in fondo al cilindro si comporta in modo normalissimo!<br>
+<br>
+<br>
+[Intermezzo]E' il 666° post di questa sezione! Eeeh! <br>
+<br>
+<img src="../img/125a951f19a70e7b.gif" class="postimage" alt="Immagine"> <a class="lost" href="http://www.giochigratisonline.com/SMILE/faccin64.gif" class="ext">[immagine non più disponibile]</a> <a class="lost" href="http://www.giochigratisonline.com/SMILE/faccin65.gif" class="ext">[immagine non più disponibile]</a> <a class="lost" href="http://www.giochigratisonline.com/SMILE/faccin66.gif" class="ext">[immagine non più disponibile]</a> <a class="lost" href="http://www.giochigratisonline.com/SMILE/faccin72.gif" class="ext">[immagine non più disponibile]</a> <a class="lost" href="http://www.giochigratisonline.com/SMILE/faccin73.gif" class="ext">[immagine non più disponibile]</a>  <img src="../img/5efad3f61eea8608.gif" class="postimage" alt="Immagine"> [/Intermezzo]</article>
+<article class="post" id="p1045"><div class="who"><b>Falco5x</b><span>22 mag 2009, 10:00</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Livello: forse potrebbe essere l'inizio di un problema IPhO che contiene altre domande più brutte</div></blockquote>
+Alla faccia!<br>
+Già così non mi sembra mica tanto banale questo esercizio!!!</article>
+<article class="post" id="p1046"><div class="who"><b>Pairo</b><span>22 mag 2009, 14:02</span></div>Ci provo:<br>
+Primo punto:<br>
+Per il primo principio della dinamica, si ha:<br>
+<br>
+<span class="tex">\(dL =d Q - dU  (1)\)</span> dove<br>
+<br>
+<span class="tex">\(dL = -PdV\)</span><br>
+<br>
+<span class="tex">\(dQ = -CdT\)</span><br>
+<br>
+<span class="tex">\(dU = n{c_V}dT\)</span> Allora per la <span class="tex">\((1)\)</span> e per le tre equazioni precedenti, si ha:<br>
+<br>
+<span class="tex">\(PdV = (C+n{c_V})dT  (2)\)</span> Scriviamo ora l'equazione dei gas perfetti, per la trasformazione:<br>
+<br>
+<span class="tex">\((P+dP)(V+dV) = nR(T+dT)\)</span> che si semplifica,con un po' di passaggi,trascurando il termine di ordine superiore in<br>
+<br>
+<span class="tex">\(PdV = \frac{nRdT-VdP}{P}  (3)\)</span> Dalla <span class="tex">\((2)\)</span> e dalla <span class="tex">\((3)\)</span>,semplificando <span class="tex">\(dV\)</span> si ha <br>
+<br>
+<span class="tex">\(nRdT-VdP = (C+n{c_V})dT\)</span>  Sostituendo <span class="tex">\(V = \frac{nRT}{P}\)</span> e separando le variabili, si ha finalmente:<br>
+<br>
+<span class="tex">\(\frac{dp}{P} = \frac{(n(R-{c_V})-C)}{nR}\frac{dT}{T} (4)\)</span> Possiamo risolvere ora l'equazione differenziale. Chiamiamo per comodità <span class="tex">\(A\)</span> il coefficiente del secondo membro. Tenendo conto che per <span class="tex">\({P_0}\)</span> si deve avere <span class="tex">\({T_0}\)</span>, ottentiamo:<br>
+<br>
+<span class="tex">\(\displaystyle T = {T_0}(\frac{P}{{P_0}})^\frac{1}{A}\)</span> da cui, per <span class="tex">\(P = 2{P_0}\)</span> si ottiene finalmente:<br>
+<br>
+<span class="tex">\(\displaystyle T = 2^\frac{1}{A}{T_0}\)</span><br>
+<br>
+Secondo punto:<br>
+La pressione in questo caso può essere considerata costante per tutta la compressione del cilindro, con valore doppio rispetto a <span class="tex">\({P_0}\)</span>. Allora possiamo scrivere, per la conservazione dell'energia:<br>
+<br>
+<span class="tex">\(P({V_e}-{V_0}) = (n{c_V}+C)({T_e}-{T_0})\)</span> e d'altra parte, si ha l'equazione dei gas perfetti:<br>
+<br>
+<span class="tex">\(2{P_0}{V_e} = nR{T_e}\)</span> Risolvendo le due equazioni nelle due incognite possiamo trovare la temperatura di equilibrio; con un po' di passaggi, si ottiene:<br>
+<br>
+<span class="tex">\({T_e} = \frac{2{P_0}{V_0}-(n{c_V}+C){T_0}}{nR-(n{c_V}+C)}\)</span><br>
+<br>
+Ovviamente aspetto le correzioni  :D . Adesso non ho tempo per il punto 3, perché devo tornare a scuola; dovrei riuscire a lavorarci un po' questa sera, sempre che non debba correggere i primi due punti :D .. Grazie mille per il post comunque!</article>
+<article class="post" id="p1047"><div class="who"><b>Falco5x</b><span>22 mag 2009, 16:30</span></div>Mi sembra che hai sistematicamente sbagliato un segno.<br>
+La prima volta sta nella relazione <span class="tex">\(PdV = (C + n{c_V})dT\)</span><br>
+In realtà la temperatura cresce quando il volume cala (compressione, dunque devi cambiare il segno di uno dei due termini).<br>
+Analogamente verso la fine, nel caso della compressione veloce.<br>
+Per il resto sei sulla buona strada.</article>
+<article class="post" id="p1048"><div class="who"><b>Pigkappa</b><span>22 mag 2009, 16:51</span></div><blockquote><div><cite>Falco5x ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>Livello: forse potrebbe essere l'inizio di un problema IPhO che contiene altre domande più brutte</div></blockquote>
+Alla faccia!<br>
+Già così non mi sembra mica tanto banale questo esercizio!!!</div></blockquote>
+
+Neanche gli IPhO sono tanto banali però, o perlomeno non lo sono tutti  :D . Comunque il segno sbagliato credo si origini da:<br>
+
+<blockquote><div><cite>Pairo ha scritto:</cite><span class="tex">\(dL = -PdV\)</span></div></blockquote>
+
+Con la convenzione che si prende di solito (il lavoro fatto dal gas è positivo, quello fatto sul gas è negativo), se P è la pressione del gas, ci vuole l'altro segno. La strada che hai imboccato è quella giusta, comunque.</article>
+<article class="post" id="p1049"><div class="who"><b>Pairo</b><span>22 mag 2009, 19:36</span></div>Sì, scusate, mi sono sbagliato, grazie. Allora nel primo caso, l'errore porta ad una diversa espressione di <span class="tex">\(A\)</span> che corretta dovrebbe essere:<br>
+<br>
+<span class="tex">\(A =  \frac{(n(R+{c_V})+C)}{nR}\)</span> Nel secondo caso, la temperatura diventa:<br>
+<br>
+<span class="tex">\({T_e} = \frac{2{P_0}{V_0}+(n{c_V}+C){T_0}}{nR+(n{c_V}+C)}\)</span><br>
+<br>
+Passo al terzo punto. Riscriviamo il primo principio (questa volta con il segno giusto  :D ):<br>
+<br>
+<span class="tex">\(PdV =dQ - dU  (1)\)</span> Sostituendo, <span class="tex">\(dU\)</span> e tenendo conto che <span class="tex">\(P = \frac{nRT}{V}\)</span> si ha:<br>
+<br>
+<span class="tex">\(nR\frac{dV}{V} = \frac{dQ}{dT}-n{c_V}\frac{dt}{T}\)</span> cioè<br>
+<br>
+<span class="tex">\(\frac{dQ}{dT} = nR\frac{dV}{V}+n{c_V}\frac{dt}{T}\)</span> Possiamo ora integrare dallo stato iniziale allo stato finale, osservando che il membro di sinistra è proprio la variazione di entropia del sistema. Si ha:<br>
+<br>
+<span class="tex">\(\Delta S = nR\ln{\frac{{V_f}}{{V_0}}}+n{c_V}\ln{\frac{{T_f}}{T_0}}\)</span> La variazione di entropia è allora determinata, poichè <span class="tex">\({T_f}\)</span> è stata calcolata nel punto 1, e <span class="tex">\({V_f} = \frac{nR{T_f}}{2{P_0}}\)</span><br>
+<br>
+Per la variazione di entropia del secondo punto, ci accorgiamo che la trasformazione non è reversibile, ma poiché l'entropia del sistema è una funzione di stato, ne calcoliamo la variazione come al punto precedente, immaginando trasformazione reversibile tra gli stati iniziale e finale. Come prima, otteniamo perciò:<br>
+<br>
+<span class="tex">\(\Delta S = nR\ln{\frac{{V_e}}{{V_0}}}+n{c_V}\ln{\frac{{T_e}}{T_0}}\)</span><br>
+<br>
+Dove <span class="tex">\({T_e}\)</span> è quella calcolata al punto 2, e con <span class="tex">\({V_e} = \frac{nR{T_e}}{2P}\)</span><br>
+<br>
+Per quanto riguarda l'entropia dell'universo: nel primo caso, si ha una trasformazione quasi statica, da cui la variazione di entropia dell'universo è <span class="tex">\(\Delta S = 0\)</span>. Per il secondo caso ho invece qualche dubbio: poiché si tratta di una trasformazione irreversibile l'entropia dell'universo aumenta, ma ho difficoltà a rendere il tutto quantitativo.</article>
+<article class="post" id="p1050"><div class="who"><b>Pigkappa</b><span>22 mag 2009, 19:51</span></div>Hai fatto un po' di confusione nel scrivere le cose. La variazione di entropia è (trasformazione reversibile):<br>
+<br>
+<span class="tex">\(\displaystyle dS = \frac{dQ}{T}\)</span><br>
+<br>
+E <strong class="text-strong">non è</strong>:<br>
+<br>
+<span class="tex">\(\displaystyle dS = \frac{dQ}{dT}\)</span><br>
+<br>
+In ogni caso la risposta non è completa: si chiedeva la variazione di entropia del sistema e dell'universo, e sia il sistema che l'universo comprendono, oltre che il gas, anche il materiale in fondo al cilindro. Inoltre in questo caso è bene che sostituisci il valore di <span class="tex">\(\displaystyle T_f\)</span> per avere il risultato in termini dei dati iniziali (lo so che è un conto orrendo e apparentemente inutile, ma se te lo chiedo c'è un motivo, che vedremo poi  ;) ).</article>
+<article class="post" id="p1051"><div class="who"><b>Pairo</b><span>22 mag 2009, 19:59</span></div>Sì, sì, scusa! E' un <span class="tex">\(d\)</span> che mi è finito lì in mezzo ma in realtà non c'è. Quello è viene fuori dal conto è proprio <span class="tex">\(\frac{dQ}{T}\)</span>. Ok, allora mi prendo ancora un po' di tempo per pensare al completare l'ultimo punto, anche se forse non riesco a postarlo questa sera. Resta il fatto che nel mio programmino delle cose da studiare c'è ancora l'entropia, quindi ho sempre qualche dubbio su come rispondere all'ultima domanda. Intanto però provo con il resto.. grazie comunque  :D</article>
+<article class="post" id="p1052"><div class="who"><b>Alex90</b><span>22 mag 2009, 21:13</span></div><blockquote><div><cite>Pairo ha scritto:</cite>
+Ovviamente aspetto le correzioni  :D</div></blockquote>
+
+Correzioni le hanno già fatte anche se era una piccolezza...solo una cosa magari da "notare":<br>
+<br>
+<br>
+<span class="tex">\(\displaystyle T_e = \frac{2{P_0}{V_0}+(n{c_V}+C){T_0}}{nR+(n{c_V}+C)} \Rightarrow T_e=\frac{2nR + n c_V + C}{nR + n c_V + C}T_0\)</span><br>
+<br>
+che se poi usiamo il dato che il gas è monoatomico si ha<br>
+<br>
+<span class="tex">\(\displaystyle T_e = \frac{7nR + 2C}{5nR + 2C}T_0\)</span><br>
+<br>
+la formula è più bellina così :D</article>
+<article class="post" id="p1055"><div class="who"><b>CoNVeRGe.</b><span>22 mag 2009, 21:45</span></div><blockquote><div><cite>Pairo ha scritto:</cite>
+<span class="tex">\((P+dP)(V+dV) = nR(T+dT)\)</span>
+</div></blockquote>
+Non male quello che ne esce, ho scoperto una cosa nuova.  8-)</article>
+<article class="post" id="p1057"><div class="who"><b>Alex90</b><span>22 mag 2009, 22:25</span></div>3)<br>
+<br>
+La variazione di entropia del sistema è:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta S=nR \ln \frac{V_e}{V_0} + nc_V \ln \frac{T_e}{T_0} + C_1 \ln \frac{T_e}{T_0}\)</span><br>
+<br>
+Dato che per il materiale si ha<br>
+<br>
+<span class="tex">\(\displaystyle dS=\frac{dQ}{T} \Rightarrow \Delta S=C_1 \ln \frac{T_e}{T_0}\)</span><br>
+<br>
+Ora<br>
+<br>
+<span class="tex">\(\displaystyle \frac{V_e}{V_0}=\frac{T_e}{T_0}\frac{P_0}{P_e}=\frac{T_e}{2T_0}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \Delta S=(nR+nc_V+C_1) \ln \frac{T_e}{T_0} - nR\ln2\)</span><br>
+<br>
+Sostituendo<br>
+<br>
+<span class="tex">\(T_e=2^{\frac{2nR}{5nR + 2C_1}}T_0\)</span><br>
+<br>
+si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta S=\left (\frac{5nR+C_1}{2} \right ) \ln \frac{2^{\frac{2nR}{5nR + 2C_1}}T_0}{T_0} - nR\ln2 = 0\)</span><br>
+<br>
+mmm...manca qualcosa?</article>
+<article class="post" id="p1058"><div class="who"><b>Pigkappa</b><span>22 mag 2009, 22:32</span></div>Manca il commento: "Era ovvio che doveva venire 0, perchè la prima trasformazione descritta è reversibile.", potevate risparmiarvi un sacco di conti  :D . Nel secondo caso invece bisogna fare il conto per forza.</article>
+<article class="post" id="p1059"><div class="who"><b>Alex90</b><span>22 mag 2009, 22:44</span></div>Ma Pairo l'aveva detto e tu hai detto di sviluppare i conti! pensavo ti riferivi anche al primo caso! Adesso farò il secondo...<br>
+<br>
+Ammesso e non concesso che sia possibile calcolare la variazione di entropia come nel primo caso, dovrebbe essere:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta S=nR \ln \frac{T_e}{2T_0} + nc_V \ln \frac{T_e}{T_0} + C_1 \ln \frac{T_e}{T_0}\)</span><br>
+<br>
+Dato che in questo caso <br>
+<br>
+<span class="tex">\(\displaystyle T_e = \frac{7nR + 2C}{5nR + 2C}T_0\)</span><br>
+<br>
+si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \Delta S=(nR+nc_V+C) \ln \frac{T_e}{T_0} - nR\ln2\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \Delta S=\frac{5nR + 2C}{2}\ln \frac{7nR + 2C}{5nR + 2C} - nR\ln2\)</span><br>
+<br>
+Ancora più conti?</article>
+<article class="post" id="p1060"><div class="who"><b>Falco5x</b><span>23 mag 2009, 13:21</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Ancora più conti?</div></blockquote>
+Basta basta, per carità... :? <br>
+<br>
+<br>
+<br>
+<br>
+(il risultato mi pare giusto) ;)</article>
+<article class="post" id="p1061"><div class="who"><b>Alex90</b><span>23 mag 2009, 13:35</span></div><blockquote><div><cite>Falco5x ha scritto:</cite><blockquote><div><cite>Alex90 ha scritto:</cite>Ancora più conti?</div></blockquote>
+Basta basta, per carità... :?</div></blockquote>
+
+per fortuna!  :D</article>
+<article class="post" id="p1062"><div class="who"><b>Pairo</b><span>23 mag 2009, 14:56</span></div>Per quanto riguarda la variazione di entropia nell'universo, nel primo caso penso si possa abbastanza tranquillamente dire che <span class="tex">\(\Delta S = 0\)</span>, essendo la trasformazione reversibile. Passiamo al secondo caso; visto che non c'è scambio di energia sotto forma di calore tra il sistema e l'universo, a me verrebbe da dire che l'unico contributo alla variazione di entropia dell'universo è dato da quella del sistema, per cui la variazione di entropia dell'universo è uguale a quella del sistema. A questo punto ho due domande:<br>
+<br>
+1) In un sistema isolato, in una trasformazione reversibile l'entropia rimane costante. Nel nostro caso c'è uno scambio energia tramite lavoro tra l'ambiente ed il sistema. Noi abbiamo concluso però che anche in questo caso l'entropia rimane costante: possiamo quindi comunque considerare il sistema isolato, poiché non c'è scambio di energia attraverso calore?<br>
+<br>
+2) Per il secondo caso, è legittima la conclusione che la variazione d'entropia dell'universo è uguale a quella del sistema per quanto detto?</article>
+<article class="post" id="p1063"><div class="who"><b>Falco5x</b><span>23 mag 2009, 15:45</span></div>Provo a rispondere a modo mio alle domande di Pairo; se poi avrò detto delle cavolate qualcuno mi correggerà.<br>
+<br>
+L'entropia si scambia a causa di scambio di calore e si genera a causa di processi non reversibili. Lo scambio di lavoro non costituisce scambio di entropia.<br>
+Dividiamo per comodità l'universo in tre zone: mondo esterno, gas nel cilindro, materiale solido assorbente interno al cilindro. Cilindro isolato significa termicamente isolato, cioè impermeabile agli scambi di calore. Dunque tra mondo esterno e cilindro non ci può essere nemmeno scambio di entropia.<br>
+Il lavoro comunicato dal mondo esterno al pistone nel primo caso (modalità reversibile) fa sì che il gas comunichi una certa quantità di entropia al materiale assorbente, poiché questo viene riscaldato dal calore comunicatogli dal gas compresso. Ma siccome lo scambio è reversibile, il delta positivo di entropia comunicato al materiale solido tramite il calore che vi è entrato è esattamente uguale al delta negativo di entropia inerente il gas, dal quale il suddetto calore è uscito. Quindi nel sistema gas+materiale il delta complessivo di entropia è zero, come è pure pertanto zero il delta entropia dell'universo.<br>
+Nel secondo caso (irreversibile) il lavoro entrante nel cilindro non ha modificato l'entropia dell'ambiente esterno, per quanto già detto. Però a differenza di prima accade che nonostante il materiale solido raffreddi ugualmente il gas in fase di compressione, la generazione interna di entropia causata dai processi irreversibili interni produce comunque un saldo netto positivo di entropia (come dire che il gas comprimendosi genera più entropia di quella che riesce a comunicare al materiale solido). Questo saldo positivo netto di entropia costituisce dunque anche il delta entropia globale dell'universo.</article>
+<article class="post" id="p1064"><div class="who"><b>Pairo</b><span>23 mag 2009, 15:57</span></div>Perfetto, era quello che avevo ipotizzato in modo un po' incerto. Grazie mille!</article>
+<nav class="pager"><a class="prev" href="olifis-6647.html"><small>← precedente</small>137. Triangolo a temperature costanti</a><a class="next" href="olifis-5983.html"><small>successivo →</small>20:staffetta-meccanica statistica</a></nav>
+</main></body></html>

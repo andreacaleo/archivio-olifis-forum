@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gara di secondo livello</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../olimpiadi.html">Olimpiadi di Fisica</a></span></nav>
+<h1>Gara di secondo livello</h1>
+<p class="meta">104 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=387">forum Olifis</a></p>
+<article class="post first" id="p3395"><div class="who"><b>Ippo</b><span>11 feb 2010, 9:35</span></div>Dopo la prova potete scrivere qui impressioni, dubbi, domande, chiedere chiarimenti, confrontare le risposte etc....<br>
+Per ora in bocca al lupo a tutti!!  :mrgreen:</article>
+<article class="post" id="p3398"><div class="who"><b>Pigkappa</b><span>11 feb 2010, 10:59</span></div>Nota bene: preferibilmente <em class="text-italics">dopo</em> la prova, non durante!<br>
+<br>
+<br>
+(in bocca al lupo)</article>
+<article class="post" id="p3400"><div class="who"><b>Ippo</b><span>11 feb 2010, 13:37</span></div>beh sì, avevo scritto
+<blockquote><div><cite>Ippo ha scritto:</cite><strong class="text-strong">Dopo la prova</strong> potete scrivere qui [...] </div></blockquote>
+ma in effetti sempre meglio ripeterlo, non si sa mai xD</article>
+<article class="post" id="p3401"><div class="who"><b>AleSki</b><span>11 feb 2010, 15:07</span></div>Mmh.. sinceramente pensavo di fare meglio... <br>
+ho fatto 27 dei quesiti, metà del primo problema (mi sn incasinato di brutto con i calcoli... e ho perso troppo tempo, mannaggia!!) quasi tutto il 2 (fatto ultra di fretta... troppo di fretta) e quasi tutto il 4 (fatto anche questo molto di fretta dopo che avevao iniziato a farlo confondendomi tra T1 e T2...)!!<br>
+Sob  :cry: !!<br>
+Speriamo bene..</article>
+<article class="post" id="p3402"><div class="who"><b>Hope</b><span>11 feb 2010, 15:17</span></div>una stima del cut off?inferiore o superiore a 50?</article>
+<article class="post" id="p3403"><div class="who"><b>spn</b><span>11 feb 2010, 15:23</span></div>Direi che mi è andata piuttosto bene.<br>
+I quesiti li ho fatti tutti, particolarmente carino mi è sembrato quello del ciclista, mentre quello del sistema che doveva restare in equilibrio non era un gran chè. I problemi mi sono sembrati piuttosto facili. Il primo era molto figo (simile ad uno che era stato postato qui sul forum un pò di tempo fa) e alla fine mi risultava 1/2. Il 2 e il 4 erano molto calcolosi ma dovrei averli fatti giusti. Per il 3 la prima parte era semplice, la seconda ho pensato che se si supponeva la molecola sferica, il rapporto fra lo spessore della macchia e il diametro della molecola veniva tipo 3.5, percui siccome la molecola in realtà non è sferica ma allungata, si può supporre che la catena si trovi orizzontalmente...bho, secondo voi?<br>
+<br>
+In sostanza mi sono sembrate più facili dell'anno scorso (almeno i problemi), predico un'innalzamento del cut-off oltre i 50 :mrgreen:.</article>
+<article class="post" id="p3404"><div class="who"><b>AleSki</b><span>11 feb 2010, 15:53</span></div>curiosità.. come hai impostato il primo??<br>
+ti ricordi qualche risultato del 4?<br>
+<br>
+thanx! ;) <br>
+<br>
+edit: anke secondo me il cut-off si alzerà rispetto all'anno scorso.. io dico (e spero :mrgreen: ) 50 precisi precisi!!</article>
+<article class="post" id="p3405"><div class="who"><b>Rigel</b><span>11 feb 2010, 15:57</span></div>Secondo me il cut-off sarà sui 45. effettivamete i problemi erano più facili dell'anno scorso, a parte il primo che ha una soluzione carina e una con calcoli assurdi. i quesiti non erano difficili, i più carini mi sono sembati il 7 e il 10.<br>
+al primo problema mi è uscito 1/2, al secondo il rendimento 0.34, al terzo le molecole si dispongono in verticale, al quarto è f.e.m.=60 V, r=5 ohm, dI=0,6 A, I'=6 A</article>
+<article class="post" id="p3406"><div class="who"><b>spn</b><span>11 feb 2010, 15:57</span></div>Per il primo penso che l'idea chiave era quella di considerare un sistema di riferimento solidale col piano inclinato, piuttosto che con il terreno, in questo modo i calcoli si semplificavano parecchio. Naturalmente il tempo fra un rimbalzo è quello dopo e costante, e la cosa bella è che è uguale a quello della pallina lanciata verticalmente con <span class="tex">\(v_0\)</span>. Inoltre un'altra cosa interessante era che alla fine non dipendeva dall'angolo.<br>
+<br>
+@Rigel: come hai ragionato per la seconda parte del terzo?</article>
+<article class="post" id="p3407"><div class="who"><b>Rigel</b><span>11 feb 2010, 16:04</span></div>Mi sono ricavato il volume dello strato dell'acido e poi ho trovato lo spessore s. poi ho schematizzato la molecola come un parallelepipedo di lunghezza l e con base quadrata di lato a. siccome <span class="tex">\(l&gt;&gt;a\)</span>, allora <span class="tex">\(l^3&gt;&gt;V=la^2&gt;&gt;a^3\)</span>. poi ho trovato <span class="tex">\(s^3\)</span> e ho visto che è molto maggiore di V e che quindi deve essere <span class="tex">\(s\approx l\)</span>, per cui le molecole stanno in verticale</article>
+<article class="post" id="p3408"><div class="who"><b>MrTeo</b><span>11 feb 2010, 16:14</span></div><blockquote><div><cite>spn ha scritto:</cite>Per il primo penso che l'idea chiave era quella di considerare un sistema di riferimento solidale col piano inclinato, piuttosto che con il terreno, in questo modo i calcoli si semplificavano parecchio. Naturalmente il tempo fra un rimbalzo è quello dopo e costante, e la cosa bella è che è uguale a quello della pallina lanciata verticalmente con <span class="tex">\(v_0\)</span>. Inoltre un'altra cosa interessante era che alla fine non dipendeva dall'angolo.</div></blockquote>
+
+Immaginavo che ci fosse un modo carino per sbrogliarlo... ma se non ti vengono idee è meglio abbandonare certi problemi  :mrgreen: <br>
+Io sul secondo ho supposto le molecole sferiche e calcolato il raggio e poi l'ho confrontato con lo spessore dello strato verificando che era circa 20 volte più grande, quindi per forza doveva avere una base piccina, indi per cui le molecole erano verticali.<br>
+<br>
+Bonus: per chi si intendesse di chimica si poteva citare il fatto che il palmitato dissociandosi ha una "coda" polare e una "testa" apolare e per questo si comporta da tensioattivo, riducendo la tensione superficiale dell'acqua grazie alla disposizione "a cavallo" delle sue molecole che creano così un ponte elettrico  ;)</article>
+<article class="post" id="p3409"><div class="who"><b>lele91</b><span>11 feb 2010, 16:40</span></div>Spero, e dico spero, un cut-off non più alto di 45... secondo voi se ho impostato il primo, risolto la prima parte del secondo, fatto tutto il terzo, e due punti su 3 nel quarto, quanto posso aver totalizzato nei problemi??<br>
+<br>
+PS: c'è qualcuno del polo di Bari?</article>
+<article class="post" id="p3410"><div class="who"><b>TBPL</b><span>11 feb 2010, 16:43</span></div>Io sono di Bari..<br>
+<br>
+Ho fatto 7/10 quesiti, invece sui problemi ho fatto bene il primo (nel sistema accelerato veniva una figata  :D ) e il terzo, ho messo <span class="tex">\(\gamma=\frac{3}{2}\)</span> invece che <span class="tex">\(\frac{7}{5}\)</span> sul secondo e ho sbagliato un conto sul quarto..</article>
+<article class="post" id="p3411"><div class="who"><b>lele91</b><span>11 feb 2010, 16:48</span></div>Complimenti!!! ;)...dal fatto che hai sbagliato solo la costante suppongo tu sia il ragazzo geniale  :) di andria...io ero quello che veniva con ansia a chiedere i risultati :P...senti come funziona per passare alla fase successiva?? ovvero sai quanti ne prendono da ogni polo?<br>
+<br>
+e di nuovo complimenti!!! :)</article>
+<article class="post" id="p3412"><div class="who"><b>lele91</b><span>11 feb 2010, 16:49</span></div>comunque anch'io ho fatto 7/10 quesiti esatti...l'ultimo, ho fatto solo un errore di calcolo..credo..</article>
+<article class="post" id="p3413"><div class="who"><b>TBPL</b><span>11 feb 2010, 16:56</span></div>Prendono il primo di ogni polo + fanno una classifica nazionale dei rimanenti, prendono tipo i primi 20 (compresi i vinicitori dei poli) non di V e poi prendono i primi dei restanti fino ad arrivare a 100..<br>
+<br>
+E comunque, se mi definisci geniale c'è qualcuno che si offende, mi sa xD</article>
+<article class="post" id="p3414"><div class="who"><b>lele91</b><span>11 feb 2010, 17:05</span></div>ognuno ha la sua genialità xD...non voglio offendere nessuno sia chiaro ;)...però se hai fatto così bene va detto assolutamente e mi sa mi sa che hai superato di granlunga ogni eventuale cut-off :)</article>
+<article class="post" id="p3415"><div class="who"><b>f.o.x</b><span>11 feb 2010, 17:11</span></div>Che sola!! Stanotte non sono riuscito a chiudere occhio e ho dormito solo 3 ore, mi sono preso l'intestinale, mi girava la testa dal sonno, ho dovuto consegnare prma perchè mi veniva da vomitare :cry: ..... insomma ho fatto schifo, e anche se non mi aspettavo molto mi sono prorpio superato! Sono riuscito a sbagliare addirittura il primo quesito! cavolo ho capito che le forze erano opposte... vabbè per il restyo ho fatto tutto il secondo problema, impostato il primo (giusto l'inizio), fatto il primo punto del 3, con qualcosetta del secondo punto. Vebbè sarà per l'anno prossimo, ora sarà meglio cercare di dormire per recuperare il sonno. Complimenti comunque a tutti voi! ;) (certo poteveno dare un pò più di punti sul 2, era una cavolata, ma era lungo, mi ha fatto sprecare un sacco di tempo con tutti quei calcoli!)<br>
+<br>
+Qualcuno sa quando usciranno i fogli di risposta? e poi quanti sono i punti totali?</article>
+<article class="post" id="p3416"><div class="who"><b>MrTeo</b><span>11 feb 2010, 17:49</span></div><blockquote><div><cite>f.o.x ha scritto:</cite>Qualcuno sa quando usciranno i fogli di risposta? e poi quanti sono i punti totali?</div></blockquote>
+
+Il totale dovrebbe essere 90 punti e da noi la Cavaggioni ha scritto sulla lavagna prima che uscissimo: "Stasera le soluzioni su <a href="http://www.olifis.it" class="ext" class="postlink">www.olifis.it</a>".</article>
+<article class="post" id="p3417"><div class="who"><b>f.o.x</b><span>11 feb 2010, 18:12</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>"Stasera le soluzioni su <a href="http://www.olifis.it" class="ext" class="postlink">http://www.olifis.it</a>".</div></blockquote>
+bene attenderò con ansia per il momento della mia disfatta :twisted:</article>
+<article class="post" id="p3418"><div class="who"><b>f.o.x</b><span>11 feb 2010, 18:36</span></div>Nel quesito 2 avete tenuto conto della pressione atmosferica? io non ci ho proprio pensato, perchè dalla frase "il recipiente si trova su un tavolo da laboratorio" sembre proprio che ci sia...e poi nel quesito 8 non sono proprio riuscito a capire quello che volevano da me!<br>
+un'ultima domanda: se uno fa un quesito con qualche errore davvero stupido, o non arriva alla fine, gli danno qualche punto? (anche perchè altrimenti i punti non sarebbero tre per i quesiti)</article>
+<article class="post" id="p3419"><div class="who"><b>Hope</b><span>11 feb 2010, 18:57</span></div>a me l'angolo della bicicletta usciva 32 o 33° a voi?<br>
+e il raggio di curvatura della lente?</article>
+<article class="post" id="p3420"><div class="who"><b>Marta.92</b><span>11 feb 2010, 19:02</span></div>mi togliete una curiosità? in quello dello specchio convesso il raggio vi veniva 30 o 60?</article>
+<article class="post" id="p3421"><div class="who"><b>Marta.92</b><span>11 feb 2010, 19:04</span></div>scusate,  non avevo letto il post di hope... a me l'angolo veniva 33°, che poi erano 32,5°, quindi circa...Per quanto riguarda il raggio di curvatura invece a  me veniva 60, però c'erano dei pareri discordanti da noi...</article>
+<article class="post" id="p3422"><div class="who"><b>f.o.x</b><span>11 feb 2010, 19:05</span></div>il raggio della curvature dovrebbe essere 30cm. però visto che lo specchio (credo intendessi questo) era convesso allora andava messo che per convenienza il raggio era considerato negativo, perciò è -30cm.</article>
+<article class="post" id="p3423"><div class="who"><b>akipowa</b><span>11 feb 2010, 19:08</span></div>il raggio di curvatura veniva -60 tenendo conto della convenzione per gli specchi convessi!!<br>
+al primo problema 1/4???</article>
+<article class="post" id="p3424"><div class="who"><b>f.o.x</b><span>11 feb 2010, 19:15</span></div>caspita, mi sa tanto che hai ragione! che idiota.... ne ho sbagliato un'altro</article>
+<article class="post" id="p3425"><div class="who"><b>Marta.92</b><span>11 feb 2010, 19:18</span></div>Ma se io ho scritto che in valore assoluto il raggio di curvatura dello specchio doveva essere 60 cm va bene lo stesso, vero? Perchè io ero incerta se metterlo positivo o negativo, perchè essendo un raggio di curvatura mi sembrava insensato metterlo negativo, però a questo punto non sono sicura di aver fatto bene...<br>
+<br>
+Il secondo invece come l'avete fatto? avete tenuto conto della pressione atmosferica o no?</article>
+<article class="post" id="p3426"><div class="who"><b>akipowa</b><span>11 feb 2010, 19:25</span></div>la pressione atmosferica mi è sfuggita :S..cmq penso considerano 1-2 punti a chi ha "banalmente" fatto P=F/S xD...cmq è una convenzione quella dei raggi :D non ha alcun significato "reale"...Cmq rifaccio la domanda al primo problema avete messo 1/4??</article>
+<article class="post" id="p3427"><div class="who"><b>f.o.x</b><span>11 feb 2010, 19:26</span></div>dovrebbe essere negativo per gli specchi convessi, infatti anche dai calcoli (ponendo la distanza dell'immagine negativa, cosa che non ho fatto :cry: ) si ottiene un f negativo, e perciò una distanza negativa. Tra l'altro l'Halliday dice: "r è positivo per uno speccio concavo, negativo per uno convesso"... e l'Halliday non mente. Comunque come errore non è gravissimo, almeno non quanto il mio.<br>
+<br>
+Il secondo invece come l'avete fatto? avete tenuto conto della pressione atmosferica o no?[/quote]<br>
+<br>
+bella domanda, è la stessa cosa che ho chiesto io poco fa, io purtroppo no, e credo di aver sbagliato (ancora).</article>
+<article class="post" id="p3428"><div class="who"><b>gceri</b><span>11 feb 2010, 19:34</span></div>Ciao!<br>
+Nel quarto problema io ho scritto che la corrente aumenta del 25% (cioè 0.6A). Secondo voi me lo contestano?<br>
+Per la disposizione delle molecole nel terzo, invece, avevo pensato a qualcosa di simile a come ha fatto Rigel, però non sono andato avanti. Sicché alla fine li ho presi un po' in giro e ho scritto che siccome il gruppo -COOH è polare le molecole si sarebbero disposte verticalmente per assecondare le forze di van der Waals.  :roll: <br>
+Nel secondo il rendimento mi veniva 0,34. Il primo l'ho lasciato perdere perché di solito su quei problemi lì m'incarto.<br>
+Nei quesiti il raggio dello specchio ho messo -60 cm e nel primo ho considerato anche la pressione atmosferica (totale 130730 Pa).<br>
+<br>
+Ciao!</article>
+<article class="post" id="p3429"><div class="who"><b>gceri</b><span>11 feb 2010, 19:42</span></div>Ah, dimenticavo. La velocità del proiettile del decimo quesito quanto vi veniva? La mia era 231 m/s..</article>
+<article class="post" id="p3430"><div class="who"><b>akipowa</b><span>11 feb 2010, 19:43</span></div>a me 228 :S</article>
+<article class="post" id="p3431"><div class="who"><b>MrTeo</b><span>11 feb 2010, 20:14</span></div><blockquote><div><cite>gceri ha scritto:</cite>Sicché alla fine li ho presi un po' in giro e ho scritto che siccome il gruppo -COOH è polare le molecole si sarebbero disposte verticalmente per assecondare le forze di van der Waals.  :roll: </div></blockquote>
+
+Idolo  :mrgreen: <br>
+
+<blockquote><div><cite>f.o.x ha scritto:</cite>Tra l'altro l'Halliday dice: "r è positivo per uno speccio concavo, negativo per uno convesso"... e l'Halliday non mente.</div></blockquote>
+
+La convenzione completa e ufficiale (vedesi la gloriosa "formula degli ottici") dovrebbe essere che il raggio di curvatura è positivo se il raggio luminoso proviene dalla stessa parte della concavità, viceversa ha segno negativo. Spero di non ricordarmi idiozie  :D<br>
+<br>
+Edit: Concordo sul 231 m/s... cmq non mi pare che 228 si scosti poi di molto  :roll:</article>
+<article class="post" id="p3432"><div class="who"><b>f.o.x</b><span>11 feb 2010, 20:37</span></div>Mi sembra la convenzione per il raggio dipenda dalla situazione: per gli specchi è positivo per il raggio proveniente dalla parte della concavità, negativo per i raggi provenienti dalla parte opposta della concavità, come hai detto tu; per le lenti simmetriche formate dadue superfici rifrangenti circolari (come per le lenti sotttli) è il contrario.<br>
+Gran bel casino a ricordarsi tutto, anche perchè le convenzioni sono anche (anzi soprattutto perchè alla fine dipende tutto da questo) per la distanza dell'immagine i.</article>
+<article class="post" id="p3433"><div class="who"><b>AxxMan</b><span>11 feb 2010, 21:32</span></div>Io allo specchio he messo l'immagine negative, di conseguenza dall'equazione dei punti coniugati il raggio esce negativo e rispetta la convenzione. Io ho fatto 7 quesiti su 10 ma dai vostri risultati dovrei aver sbagliato quello della bicicletta. Per i problemi ho dato un po' di idee sul primo, fatto la prima parte del secondo e mi sono incartato nella seconda perchè non mi è venuta la formula del lavoro della adiabatica e non so perchè ho usato quella dell'isoterma, poi ho fatto la prima parte del terzo. La gara a tempo mi spegne sempre il cervello, le competizioni non fanno proprio per me, altro che adrenalina se a casa mi sento normodotato in gara mi sento sempre un cretino. Vabbè speriamo per l'anno prossimo, potrò fare qualche punto in più con l'elettromagnetismo e nel frattempo mi eserciterò con i problemi, ho fatto praticamente tutto il programma di quarto in queste due settimane e non c'era niente su rifrazione e un problema banalissimo di ottica  :x<br>
+Io ero a Bari oggi, tra i due che hanno postato c'è quello con cui mi sono confrontato per l'onda stazionaria?</article>
+<article class="post" id="p3434"><div class="who"><b>f.o.x</b><span>11 feb 2010, 22:17</span></div><blockquote><div><cite>AxxMan ha scritto:</cite>La gara a tempo mi spegne sempre il cervello, le competizioni non fanno proprio per me, altro che adrenalina se a casa mi sento normodotato in gara mi sento sempre un cretino.</div></blockquote> <br>
+hahaha :D io invece non riesco a dormire la notte prima per l'adrenalina, così mi sento distrutto il giorno dopo e mi demoralizzo... perchè non mi prende l'adrenalina nelle gare di atletica, mentre durante le olimpiadi di fisica si, è inutile! ti fa solo tremare le mani!
+<blockquote><div><cite>AxxMan ha scritto:</cite>Vabbè speriamo per l'anno prossimo, potrò fare qualche punto in più con l'elettromagnetismo e nel frattempo mi eserciterò con i problemi, ho fatto praticamente tutto il programma di quarto in queste due settimane e non c'era niente su rifrazione e un problema banalissimo di ottica  :x</div></blockquote>
+anch'io mi sono ammazzato in poco tempo... tra la fase liceale e quella di 2°livello non ho quasi mai avuto tempo di studiare... Mi toccherà anche a me sperare nell'anno prossimo. Fortunatamente faccio solo il terrzo e c'è ancora tempo!<br>
+<br>
+Sto impazzendo, Quando escono le risposte!</article>
+<article class="post" id="p3435"><div class="who"><b>AxxMan</b><span>11 feb 2010, 22:42</span></div><blockquote><div><cite>f.o.x ha scritto:</cite>anch'io mi sono ammazzato in poco tempo... tra la fase liceale e quella di 2°livello non ho quasi mai avuto tempo di studiare... Mi toccherà anche a me sperare nell'anno prossimo. Fortunatamente faccio solo il terrzo e c'è ancora tempo!</div></blockquote>
+Io l'anno scorso sono andato alle provinciali solo con la meccanica, feci due quesiti e il problema del carrello  :lol:</article>
+<article class="post" id="p3436"><div class="who"><b>gceri</b><span>11 feb 2010, 22:51</span></div><blockquote class="uncited"><div>Io l'anno scorso sono andato alle provinciali solo con la meccanica, feci due quesiti e il problema del carrello</div></blockquote>
+
+Beh, se ti consola io c'ero andato con la meccanica, senza momenti torcenti, senza fluidodinamica ma con la termodinamica. Ho fatto un quesito in più di te e il mitico carrellino..  :mrgreen:</article>
+<article class="post" id="p3437"><div class="who"><b>ale.b</b><span>11 feb 2010, 23:37</span></div>soluzioni disponibili!</article>
+<article class="post" id="p3438"><div class="who"><b>AxxMan</b><span>12 feb 2010, 1:08</span></div>Nooo che cretino quello della bicicletta l'avevo fatto bene, ho sbagliato a sostituire nella formula... Il secondo problema era facilissimo mi rode a dir poco, nel primo all'inizio avevo anche disegnato il sistema di assi più conveniente, ma non mi è venuto di usarlo come riferimento e mi sono bloccato sulle espressioni assurde...</article>
+<article class="post" id="p3439"><div class="who"><b>Pigkappa</b><span>12 feb 2010, 3:49</span></div><blockquote><div><cite>spn ha scritto:</cite>Per il primo penso che l'idea chiave era quella di considerare un sistema di riferimento solidale col piano inclinato, piuttosto che con il terreno</div></blockquote>
+
+Visto che il piano inclinato è solidale al terreno, non credo intendessi scrivere proprio quello. <br>
+<br>
+Qualcuno che l'ha risolto nel sistema accelerato spieghi esattamente quella soluzione, che è istruttiva!<br>
+<br>
+<br>
+Un cutoff sui 45 secondo me è realistico quest'anno.</article>
+<article class="post" id="p3440"><div class="who"><b>spn</b><span>12 feb 2010, 10:32</span></div>Sisi naturalmente intendevo di mettersi in un sistema lungo il piano inclinato.</article>
+<article class="post" id="p3441"><div class="who"><b>TBPL</b><span>12 feb 2010, 12:11</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Qualcuno che l'ha risolto nel sistema accelerato spieghi esattamente quella soluzione, che è istruttiva!
+</div></blockquote>
+
+Be', mettendo gli assi parallelamente e perpendicolarmente al piano inclinato, sull'asse orizzontale ho un'accelerazione <span class="tex">\(\vec{x}\)</span> e sull'asse verticale un'accelerazione <span class="tex">\(\vec{y}\)</span>. Mi metto nel sistema non inerziale di accelerazione <span class="tex">\(\vec{x}\)</span>. In questo sistema, la pallina parte da ferma e rimbalza verticalmente, poiché agisce solo la forza verticale. Di conseguenza il tempo fra due urti successivi è uguale. Chiamo <span class="tex">\(t\)</span> la metà di questo tempo. Nel sistema, il piano si sposta orizzontalmente con accelerazione costante <span class="tex">\(-\vec{x}\)</span>. Se <span class="tex">\(x_1\)</span> è la distanza percorsa dal piano da quando viene lasciata cadere la pallina fino al primo urto, <span class="tex">\(x_2\)</span> fino al secondo urto e <span class="tex">\(x_3\)</span> fino al terzo, ho che <span class="tex">\(a=x_2-x_1\)</span> e <span class="tex">\(b=x_3-x_2\)</span>.<br>
+Poiché nel piano l'accelerazione è costante, lo spazio percorso è proporzionale al quadrato del tempo, quindi esiste una costante <span class="tex">\(c\)</span> tale che <span class="tex">\(x_1=ct^2\)</span>, <span class="tex">\(x_2=c{(3t)}^2\)</span> e <span class="tex">\(x_3=c{(5t)}^2\)</span>. Quindi <span class="tex">\(a=8ct^2\)</span> e <span class="tex">\(b=16ct^2\)</span> <span class="tex">\(\Rightarrow \frac{a}{b}=\frac{1}{2}\)</span></article>
+<article class="post" id="p3442"><div class="who"><b>erukette</b><span>12 feb 2010, 12:21</span></div>ho una domanda..ma i punteggi che vengono assegnati ad ogni punto dei problemi si possono sapere? giusto per fare una stima di quanto ho fatto..<br>
+per ora sono sicura solo dei quesiti (7/10),il problema di termodinamica per intero,il 4 tutto tranne l'ultimo punto (dove il mio cervello bacato ha pensato bene di aggiungere alla corrente prodotta dalla scarica del condensatore anche quella che aveva già  :? ),nel terzo ho fatto un ragionamento molto logico per cui le molecole dovevano necessariamente essere messe in orizzontale (e ovviamente ho sbagliato :oops: ) e nel primo ho scritto solo l'inizio..<br>
+non so quanto abbiano fatto gli altri ma siccome quest'anno era piuttosto facile non credo di aver possibilità di passare..<br>
+oltretutto sono anche vecchia (ormai sono in V) quindi non c'è da sperare nemmeno sulla classifica nazionale  :D xD</article>
+<article class="post" id="p3443"><div class="who"><b>akipowa</b><span>12 feb 2010, 12:44</span></div>cioe per specchi convessi hanno messo i raggi di curvatura positivi....VOGLIO AUGURARMI CHE QUELLI CHE HANNO MESSO -60 NON VENGANO PENALIZZATI...</article>
+<article class="post" id="p3444"><div class="who"><b>Ratio</b><span>12 feb 2010, 14:36</span></div>Sono veramente amareggiato...<br>
+I ragionamenti dietro i quesiti e i problemi li ho fatti in gran parte giusti, ma mi perdo sempre per le cavolate... Per esempio a quella del ciclista ho calcolato l'angolo rispetto all'orizzontale e non alla verticale, oppure nel problema 1 ho scritto come risultato finale b/a=2, non a/b=1/2. Visto che gli anni passati la mia scuola non partecipava alle Olimpiadi di Fisica e questo è il mio primo anno alle Regionali non ho idea se questi siano errori gravi o se in qualche modo i correttori terranno in conto il fatto che i ragionamenti dietro sono giusti... voi che dite?</article>
+<article class="post" id="p3445"><div class="who"><b>Pigkappa</b><span>12 feb 2010, 15:33</span></div><blockquote><div><cite>Ratio ha scritto:</cite>Sono veramente amareggiato...<br>
+I ragionamenti dietro i quesiti e i problemi li ho fatti in gran parte giusti, ma mi perdo sempre per le cavolate... Per esempio a quella del ciclista ho calcolato l'angolo rispetto all'orizzontale e non alla verticale, oppure nel problema 1 ho scritto come risultato finale b/a=2, non a/b=1/2. Visto che gli anni passati la mia scuola non partecipava alle Olimpiadi di Fisica e questo è il mio primo anno alle Regionali non ho idea se questi siano errori gravi o se in qualche modo i correttori terranno in conto il fatto che i ragionamenti dietro sono giusti... voi che dite?</div></blockquote>
+
+Dipende veramente dai correttori. Nei quesiti, non è mai stato chiaro al 100% se esistano punteggi parziali oppure no. A seconda del correttore, potresti prendere 0, 2 o 3 punti in quel quesito.<br>
+<br>
+Per il problema, visto che i punteggi parziali esistono e che neanche il correttore più scriteriato potrebbe dire che aver calcolato b/a invece che a/b è un errore grave, la maggior parte dei punti li prenderai. Qualcuno particolarmente illuminato ti darebbe 21 o 22 punti, altri potrebbero dartene 20, forse, ma di meno mi sembra veramente improbabile.</article>
+<article class="post" id="p3446"><div class="who"><b>erukette</b><span>12 feb 2010, 17:01</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Dipende veramente dai correttori. Nei quesiti, non è mai stato chiaro al 100% se esistano punteggi parziali oppure no. A seconda del correttore, potresti prendere 0, 2 o 3 punti in quel quesito.
+</div></blockquote>
+ma nel regolamento non c'è scritto chiaramente che è possibile prendere solo 3 o 0 punti?<br>
+(c'era scritto anche nella prima pagina del fascicolo dei quesiti..)</article>
+<article class="post" id="p3447"><div class="who"><b>Pigkappa</b><span>12 feb 2010, 17:36</span></div>Dove è scritto? Io nel fascicolo dei quesiti non trovo niente a riguardo, dice solo che si prendono 3 punti se si fa il quesito perfettamente e 0 se non si risponde.</article>
+<article class="post" id="p3448"><div class="who"><b>f.o.x</b><span>12 feb 2010, 17:42</span></div>in effeti c'è anche scritto che si danno 0 punti per le mancate risposte. Ma di fatto poi c'è gente  che riceve anche 2 o 1 punto. Quindi è la commissione che sceglie. ad esemopio credo (e spero) che almeno 1 punto lo daranno a chi non ha pensato alla pressione atmosferica nel quesito 2.</article>
+<article class="post" id="p3449"><div class="who"><b>MrTeo</b><span>12 feb 2010, 19:01</span></div>Avendo parlato con uno dei correttori vi riporto la sua interpretazione:<br>
+<br>
+3 punti: cifre significative, u.d.m, risultato e procedimento (su cui però di solito non ci si sofferma molto) giusti<br>
+2 punti: u.d.m. o cifre significative sbagliate in modo evidente (non sono molto fiscali sulle cifre, basta non esagerare  :D )<br>
+1 punto: procedimento corretto in toto, errore clamoroso nei conti<br>
+<br>
+Chiaramente come ha detto Pigkappa possono cambiare da commissione a commissione... l'anno passato per esempio ci sono state discussioni sulla griglia del secondo problema e questo ha sfalsato un po' i punteggi dalle nostre parti.</article>
+<article class="post" id="p3450"><div class="who"><b>Ratio</b><span>12 feb 2010, 21:08</span></div>Sapete in media quanto tempo richiede la correzione e quando sarà stilata la lista ufficiale dei selezionati per Senegallia?</article>
+<article class="post" id="p3451"><div class="who"><b>Pigkappa</b><span>12 feb 2010, 22:40</span></div>La lista definitiva io non me la aspetterei nei prossimi 20/25 giorni. Il tempo di correzione ovviamente dipende da polo a polo, c'è chi ci mette 5 giorni, chi ci mette diverse settimane.</article>
+<article class="post" id="p3452"><div class="who"><b>dinamitardo</b><span>13 feb 2010, 20:56</span></div>Complimenti a tutti per i loro punteggi!!!<br>
+Io, da povero ignorante quale sono, ho affrontato la gara senza conoscere nulla di ottica-onde-elettromagnetismo.<br>
+Il mio obiettivo era uscirne degnamente e mi pare di esserci riuscito, con 4 quesiti (lo so, sono pochi) e i primi 2 problemi risolti al completo. Però c'è una cosa che non mi è chiara:<br>
+mi è parso di sentire da uno dei correttori che i problemi di chi ha realizzato meno di un tot nei quesiti non vengono corretti. E' vero? Se fosse cosi mi dispiacerebbe molto, perchè quella è la parte della prova che ho fatto bene e, pur sapendo di non passare, ci terrei almeno ad avere il punteggio che mi spetta.<br>
+Qualcuno può darmi chiarimenti in merito :?:</article>
+<article class="post" id="p3453"><div class="who"><b>Pigkappa</b><span>13 feb 2010, 22:52</span></div>Nei regolamenti che si trovano in giro non c'è scritta questa cosa. Si tratta però di un'usanza che penso sia diffusa, anche nel polo dove facevo io le provinciali funzionava in questo modo. C'è da dire effettivamente che, facendo così, sia tagliato fuori qualcuno che nei problemi ha realizzato punteggi  alti ma si è bloccato sui quesiti.</article>
+<article class="post" id="p3454"><div class="who"><b>MrTeo</b><span>14 feb 2010, 1:16</span></div>Da noi vale 9 punti e credo sia una soglia tacitamente riconosciuta da più o meno tutte le commissioni... In ogni caso dovresti essere dentro  ;)</article>
+<article class="post" id="p3455"><div class="who"><b>dinamitardo</b><span>14 feb 2010, 15:09</span></div>questo mi conforta....<br>
+speriamo sia davvero cosi  :D</article>
+<article class="post" id="p3456"><div class="who"><b>feldspato</b><span>14 feb 2010, 21:02</span></div>ho risolto correttamente 7 quesiti ; in un quesito il mio ragionamento era giusto ma ho commesso un errore di calcolo( spero mi diano almeno un punto); ho risolto interamente il secondo problema, il primo quesito del terzo e due quesiti su tre del quarto problema... totale : circa 45-47 punti ( dipende da quanti punti vengono attribuiti ai primi due quesiti del quarto problema ) ; cosa ne pensate? ho possibilità di passare?</article>
+<article class="post" id="p3457"><div class="who"><b>Pigkappa</b><span>15 feb 2010, 1:05</span></div>Se hai fatto davvero 45 - 47 punti, sì. Però sopravvalutarsi è facile, e si è comunque sicuri che il cutoff sia inferiore (ma tutto sommato penso di sì; la prova era un po' più difficile di due anni fa, secondo me, e quell'anno il cutoff era intorno a 50).</article>
+<article class="post" id="p3458"><div class="who"><b>Ippo</b><span>15 feb 2010, 10:42</span></div>L'anno scorso era un po' più difficile e il cut-off è stato di circa 39-40 se non ricordo male. 45 per quest'anno mi sembra ragionevole.</article>
+<article class="post" id="p3459"><div class="who"><b>AleSki</b><span>16 feb 2010, 17:47</span></div>Voci ufficiose ma piuttosto attendibili (almeno spero :D ) mi hanno detto che sono arrivato primo nel polo di Savona con una cinquantina di punti (che vergogna!!  :? )... quindi 99 su 100 sono passato a Senigallia!! <br>
+Fiuuu  :? .. per un pelo!!</article>
+<article class="post" id="p3460"><div class="who"><b>erukette</b><span>16 feb 2010, 21:47</span></div>complimenti!!</article>
+<article class="post" id="p3462"><div class="who"><b>spn</b><span>17 feb 2010, 14:52</span></div>Effettivamente se in un polo come quello di Savona il primo sta sui 50 allora probabilmente il cut-off sarà abbastanza inferiore. <br>
+Complimenti AleSki! <br>
+Comunque voci ufficiose hanno detto anche a me di essere arrivato primo a Roma con un punteggio sui 75-80 (misero errore di calcolo nel quarto e ragionamento sbagliato alla fine del terzo, sperando che non mi abbiano tolto ulteriori punti per aver scritto Kir<strong class="text-strong">k</strong>off :roll: ). Direi che ci si vede a Senigallia.  :D  ;)</article>
+<article class="post" id="p3473"><div class="who"><b>fisicorel</b><span>19 feb 2010, 19:50</span></div>Sempre le famose voci ufficiose mi vedono vincitore del Polo del Lazio(Roma Due).Direi che al 99% delle possibità ci vediamo a Senigallia!!!</article>
+<article class="post" id="p3474"><div class="who"><b>feldspato</b><span>19 feb 2010, 21:10</span></div>sapete quanti punti sono stati attribuiti ai primi due punti del 4 problema ?</article>
+<article class="post" id="p3475"><div class="who"><b>Rigel</b><span>19 feb 2010, 23:07</span></div>A occhio e croce direi che il terzo punto del quarto problema vale sui 5-6 punti quindi il resto sui 14-15 punti.<br>
+@spn: complimenti!  :)  già 75 è un signor punteggio  ;)</article>
+<article class="post" id="p3478"><div class="who"><b>spn</b><span>20 feb 2010, 15:39</span></div>Sisi non mi lamento :mrgreen:, anche se un pò rosico per aver perso punti su errori stupidi stupidi. Naturalmente i complimenti sono reciproci dando ormai per assodato che il tuo punteggio tenda asintoticamente a 90 :lol: .<br>
+Comunque proporrei a quelli che ormai sanno di essere passati di mettere i propri punteggi, così si può stimare a occhio e croce quale sarà la soglia.<br>
+<br>
+@fisicorel:complimenti! Sei uno di quelli che ha partecipato allo stage di Roma quest'estate?</article>
+<article class="post" id="p3480"><div class="who"><b>fisicorel</b><span>20 feb 2010, 18:14</span></div><blockquote><div><cite>spn ha scritto:</cite>
+@fisicorel:complimenti! Sei uno di quelli che ha partecipato allo stage di Roma quest'estate?</div></blockquote>
+Si,sono uno di quelli,anche tu c'eri?</article>
+<article class="post" id="p3481"><div class="who"><b>Rigel</b><span>20 feb 2010, 18:40</span></div><blockquote><div><cite>spn ha scritto:</cite>Naturalmente i complimenti sono reciproci dando ormai per assodato che il tuo punteggio tenda asintoticamente a 90  :lol: .</div></blockquote>
+Io non ci scommetterei troppo...uno specchio sferico che da convesso è diventato concavo  :roll:  mi ha fatto saltare risultato ed esercizio. forse dovrei allenarmi nella comprensione del testo  :lol:</article>
+<article class="post" id="p3483"><div class="who"><b>Ratio</b><span>21 feb 2010, 12:06</span></div>Sapete dove posso trovare la classifica per il polo del Lazio? <br>
+Immagino sia uscita ormai...</article>
+<article class="post" id="p3484"><div class="who"><b>spn</b><span>21 feb 2010, 15:43</span></div><blockquote><div><cite>Ratio ha scritto:</cite>Sapete dove posso trovare la classifica per il polo del Lazio? </div></blockquote>
+Il responsabile di Roma uno mi ha detto che sebbene le classifiche siano sostanzialmente già fatte, queste dovrebbero essere rese ufficiali soltanto dopo che sarà decisa la lista delle persone che vanno a Senigallia. Percui non penso che le potrai trovare in giro già adesso.<br>
+
+<blockquote><div><cite>fisicorel ha scritto:</cite>Si,sono uno di quelli,anche tu c'eri?</div></blockquote>
+Si, sono Stefano(quello che a lupus era sempre lupo  :mrgreen: ).</article>
+<article class="post" id="p3488"><div class="who"><b>fisicorel</b><span>21 feb 2010, 19:56</span></div>Io sono Giulio, il ragazzo di Sora. Sono contento che anche tu sia passato. Ci si vede a Senigallia!!!</article>
+<article class="post" id="p3490"><div class="who"><b>MrTeo</b><span>22 feb 2010, 19:07</span></div>Rischio di andare O.T., ma non vale davvero la pena di aprirne uno nuovo per un argomento vecchio come questo...  :D <br>
+<br>
+Vorrei chiedere, specie alle vecchie glorie delle olifis... per prepararsi alle nazionali avendo poco più di un mese e mezzo a parte rivedere alcune parti di teoria che si intendono consolidare e fare un bel po' di vecchi problemi (o almeno tentare di farli  :mrgreen: ) avete altri consigli da dare? Anche considerata la massa (quasi) critica di impegni scolastici che ci si trova sul groppone di questi tempi  :shock:</article>
+<article class="post" id="p3509"><div class="who"><b>Gauss91</b><span>28 feb 2010, 12:34</span></div>Ciao ragazzi. Ma io non ho capito quando, dove e se verranno pubblicate le classifiche per gli ammessi a Senigallia... sapete qualcosa?</article>
+<article class="post" id="p3512"><div class="who"><b>Pigkappa</b><span>28 feb 2010, 15:44</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>Rischio di andare O.T., ma non vale davvero la pena di aprirne uno nuovo per un argomento vecchio come questo...  :D <br>
+<br>
+Vorrei chiedere, specie alle vecchie glorie delle olifis... per prepararsi alle nazionali avendo poco più di un mese e mezzo a parte rivedere alcune parti di teoria che si intendono consolidare e fare un bel po' di vecchi problemi (o almeno tentare di farli  :mrgreen: ) avete altri consigli da dare? Anche considerata la massa (quasi) critica di impegni scolastici che ci si trova sul groppone di questi tempi  :shock:</div></blockquote>
+
+Beh, le tue priorità le scegli tu. Io in quinta avevo fatto l'inimmaginabile per evitare le interrogazioni ed i compiti di materie inutili prima di Senigallia (prendendo anche un 6 di Latino...) ed avevo lasciato perdere anche la matematica per Cesenatico.<br>
+<br>
+Comunque, sei tu che sai quanto conosci bene la teoria. Se sai tutto quello che serve, è il momento di fare problemi; in particolare, tutti i vecchi problemi di Senigallia, e poi le vecchie IPhO, che sono molto istruttive. Se ci sono argomenti su cui non sai la teoria, e pensi di poterla imparare in tempo breve, allora fallo. Non conoscendoti, non ci è possibile dire qual è la cosa migliore...<br>
+<br>
+
+<blockquote><div><cite>Gauss91 ha scritto:</cite>Ciao ragazzi. Ma io non ho capito quando, dove e se verranno pubblicate le classifiche per gli ammessi a Senigallia... sapete qualcosa?</div></blockquote>
+
+Le classifiche, con i punteggi di tutti i partecipanti alle regionali, non saranno pubblicate. La lista degli ammessi sarà pubblicata sul sito, ma per poterla stilare serve avere allo stesso tempo i risultati completi di tutti i poli in cui si è svolta la seconda fase, perciò non è possibile prevedere con precisione quando sarà pubblicata questa lista. Immagino che tra una o due settimane ci sarà, ma non posso saperlo con sicurezza.</article>
+<article class="post" id="p3520"><div class="who"><b>Ippo</b><span>1 mar 2010, 0:40</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>Vorrei chiedere, specie alle vecchie glorie delle olifis... per prepararsi alle nazionali avendo poco più di un mese e mezzo a parte rivedere alcune parti di teoria che si intendono consolidare e fare un bel po' di vecchi problemi (o almeno tentare di farli  :mrgreen: ) avete altri consigli da dare? Anche considerata la massa (quasi) critica di impegni scolastici che ci si trova sul groppone di questi tempi  :shock:</div></blockquote>
+
+boh, io due orette al giorno sull'Halliday le ho passate l'anno scorso. Peraltro senza sacrificare troppo la scuola. Valuta tu quanto tempo dedicarci, non è strettamente necessario sapere benissimo tutta la teoria ma ovviamente aiuta. Se sei un po' a corto di tempo puoi scegliere di sacrificare alcuni argomenti "secondari" (meno frequenti o mai visti a Senigallia). Naturalmente le priorità sono meccanica e elettromagnetismo, che tipicamente si spartiscono 200 dei 300 punti, poi termodinamica e infine ottica (ma non si sa mai, ad esempio l'anno scorso c'erano 2 problemi di ottica e non c'era termodinamica). Relatività e fisica moderna tipicamente non compaiono, ma ovviamente non si può mai dire  :mrgreen: <br>
+Quanto ai problemi direi che l'ideale sarebbe fare tutti i Senigallia che riesci a recuperare su internet (dal '95 in poi) più eventualmente quelli sul libro delle olimpiadi della fisica (anche gli ipho su quel libro sono generalmente fattibili, e con soluzioni comprensibili, che è importante). Questo sarebbe l'ideale, non significa che devi per forza fare tutto questo. Ah, prossimamente sarà disponibile sul forum la simulazione di Senigallia preparata con amore (o forse no?  :twisted:  ) da Pigkappa e (poco) da me, che potrebbe aiutare (l'anno scorso è stato un utile allenamento).</article>
+<article class="post" id="p3526"><div class="who"><b>lele91</b><span>2 mar 2010, 15:49</span></div>Ragazzi ho appena saputo il mio risultato delle gare di secondo livello...ho fatto dei miseri 45 punti...secondo voi in tutta sincerità quante chance ho di passare alla fase nazionale??...immagino poche  :? ...</article>
+<article class="post" id="p3529"><div class="who"><b>Hope</b><span>2 mar 2010, 16:15</span></div>polo di padova rischia di passare solo il primo...il secondo ha fatto 40/90 ...E PENSARE CHE l'anno scorso ne erano passati 7 da quel polo.......CHE DISDETTA"!</article>
+<article class="post" id="p3530"><div class="who"><b>feldspato</b><span>2 mar 2010, 17:20</span></div><blockquote><div><cite>lele91 ha scritto:</cite>Ragazzi ho appena saputo il mio risultato delle gare di secondo livello...ho fatto dei miseri 45 punti...secondo voi in tutta sincerità quante chance ho di passare alla fase nazionale??...immagino poche  :? ...</div></blockquote>
+
+@lele91: conosci la classifica del polo di Bari ?</article>
+<article class="post" id="p3531"><div class="who"><b>lele91</b><span>2 mar 2010, 18:48</span></div>no niente di niente...tu sei del polo di Bari? a te come è andata?</article>
+<article class="post" id="p3532"><div class="who"><b>feldspato</b><span>2 mar 2010, 20:32</span></div>sono del polo di Bari ; ho fatto 7 quesiti , tutto il secondo, il primo punto  e qualcosa del secondo del terzo e i primi due punti del quarto;<br>
+oggi mi hanno detto qualcosa a scuola riguardo un fax proveniente da Bari ma nulla di più....... chi ti ha informato del punteggio?</article>
+<article class="post" id="p3533"><div class="who"><b>TBPL</b><span>2 mar 2010, 22:14</span></div>Sono di Bari. So di aver fatto 66 punti, e che il primo ha fatto 68. Ma non ho idea di chi sia.  :roll:</article>
+<article class="post" id="p3534"><div class="who"><b>AxxMan</b><span>2 mar 2010, 23:50</span></div>Forse è uno dell'altro liceo scientifico di Foggia, mi ha detto di aver risolto tutti i problemi tranne il primo e di aver fatto 8 quesiti</article>
+<article class="post" id="p3535"><div class="who"><b>lele91</b><span>3 mar 2010, 0:07</span></div>Mi ha informato il professore del mio istituto responsabile delle olimpiadi che aveva ricevuto un fax -penso dai responsabili regionali-...ma lui ha avuto solo i punteggi dei ragazzi della mia scuola che hanno partecipato...cmq avendo fatto quello che hai detto dovresti aver ottenuto all'incirca quanto me, punto più punto meno..<br>
+<br>
+PS: Complimenti TBPL!!! :D :)...secondo te ho qualche piccola chance di essere ripescato??  :roll:  :(</article>
+<article class="post" id="p3549"><div class="who"><b>Timmo</b><span>5 mar 2010, 12:20</span></div>Sono passato! :D  :D  :D  :D  :D  :D <br>
+Ci vediamo a Senigallia! :D  :D  :D  :D</article>
+<article class="post" id="p3552"><div class="who"><b>erukette</b><span>5 mar 2010, 13:12</span></div>passata come ripescata! :D  :D  :D<br>
+non farò niente  :oops: ..ma sono felicissima  :D</article>
+<article class="post" id="p3556"><div class="who"><b>Gauss91</b><span>5 mar 2010, 18:55</span></div>Ahah ma è normale che in tutta Milano ne sia passato uno solo? :P<br>
+Siamo proprio scarsi eheh! (Non passato :( )</article>
+<article class="post" id="p3561"><div class="who"><b>mchiara</b><span>5 mar 2010, 21:02</span></div>Passata!!!  :P  :P  :P è fantastico!!!!  :D  :D  :D <br>
+Seconda al polo di lecce, ma visto ki è arrivato primo... ;) mi accontento! <br>
+<br>
+Comunque ci è andata di lusso, ben 5 dal salento...  :D !!!!</article>
+<article class="post" id="p3562"><div class="who"><b>fisicorel</b><span>5 mar 2010, 22:25</span></div>Ma per caso è uscita la lista degli ammessi a Senigallia? Se si, dove posso trovarla?</article>
+<article class="post" id="p3563"><div class="who"><b>Alex90</b><span>5 mar 2010, 22:32</span></div>Guarda nell'homepage...</article>
+<article class="post" id="p3568"><div class="who"><b>Ippo</b><span>6 mar 2010, 0:08</span></div>Uh, ho temuto per un attimo che Stp non fosse passato non avendolo visto tra i vincitori dei poli  :lol: <br>
+Beh complimenti a tutti gli ammessi, ora è il caso di mettersi a studiare, usate bene l'ultimo mese ;)</article>
+<article class="post" id="p3581"><div class="who"><b>Stardust</b><span>6 mar 2010, 15:53</span></div>@ Ippo:<br>
+data la tua esperienza, hai qualche consiglio particolare (a parte lo studio e la prova con i testi delle vecchie edizioni)?<br>
+Per prepararsi bene alla prova sperimentale che si può fare?</article>
+<article class="post" id="p3584"><div class="who"><b>lele91</b><span>6 mar 2010, 20:56</span></div>mi associo a Stardust e rivolgo la stessa domanda anche a Rigel ed Stp...anche se capisco benissimo che in una competizione è sempre un pò difficile voler consigliare degli eventali nemici :D ;)...cmq non pongo limiti al vostro animo gentile :P</article>
+<article class="post" id="p3585"><div class="who"><b>Ippo</b><span>6 mar 2010, 20:57</span></div>intanto ti rimando a questi post <a href="olifis-387.html#p3512" class="postlink">olifis/phpBB3/viewtopic.php?p=3512#p3512</a><br>
+quanto alla parte sperimentale non sono decisamente un'autorità ( :mrgreen: ) ma direi che anche in questo caso scaricare i testi delle passate edizioni, procurarsi il materiale (generalmente è fattibile, ad esempio per quella dell'anno scorso bastava un magnetino tipo geomag, del filo, un'asticella e poco altro) e provare a casa un po' di esperienze è decisamente l'ideale. Può essere il caso di vedere anche un minimo di teoria sull'errore strumentale e statistico (giusto per non usare sempre la semidispersione) e sulla relativa propagazione, e di fare un po' di pratica con qualche metodo per il fit lineare (sistemi abbastanza "ad occhio" tipo le rette di massima e minima pendenza andranno benissimo). Niente di più, a parte la teoria che comunque dovrai vedere per la prova teorica  :)<br>
+(nel sub-forum dedicato alla parte sperimentale trovi un po' di domande su queste cose, anche se generalmente di livello molto più alto del necessario per Senigallia)</article>
+<article class="post" id="p3611"><div class="who"><b>feldspato</b><span>9 mar 2010, 0:43</span></div>quante ore si hanno a disposizione per la prova sperimentale e per la prova teorica a Senigallia?</article>
+<article class="post" id="p3612"><div class="who"><b>Pigkappa</b><span>9 mar 2010, 13:39</span></div>Dipende da anno in anno, di solito c'è scritto nel testo. Negli ultimi anni è stato di 4h per la teorica e di 4h o 3h 30m per la sperimentale. Mi sembra di ricordare che in passato ci siano state volte da 4h 30m nella teorica, ma non ricordo quando e non ne sono sicuro.</article>
+<article class="post" id="p3655"><div class="who"><b>fisicorel</b><span>14 mar 2010, 12:19</span></div>più o meno quale è stato il cutt-off per Senigallia quest'anno?</article>
+<article class="post" id="p3673"><div class="who"><b>spn</b><span>17 mar 2010, 19:15</span></div>Mi sembra che il cut-off sia stato sui 39 punti. Più basso del previsto.</article>
+<article class="post" id="p3675"><div class="who"><b>dinamitardo</b><span>17 mar 2010, 19:42</span></div><blockquote><div><cite>spn ha scritto:</cite>Mi sembra che il cut-off sia stato sui 39 punti. Più basso del previsto.</div></blockquote>
+non credo... se fosse stato sui 39 sarei dovuto passare, perchè sono sicuro di aver fatto più di 40 punti. Sarebbe stato bello però :roll:</article>
+<article class="post" id="p3676"><div class="who"><b>Timmo</b><span>17 mar 2010, 20:38</span></div>può essere invece ...<br>
+
+<blockquote><div><cite>Hope ha scritto:</cite>polo di padova rischia di passare solo il primo...il secondo ha fatto 40/90 ...E PENSARE CHE l'anno scorso ne erano passati 7 da quel polo.......CHE DISDETTA"!</div></blockquote>
+
+e dalla classifica nazionale leggo che ne sono passati 3 da Padova ... ;)</article>
+<article class="post" id="p3679"><div class="who"><b>spn</b><span>17 mar 2010, 22:11</span></div><blockquote><div><cite>dinamitardo ha scritto:</cite>non credo... se fosse stato sui 39 sarei dovuto passare, perchè sono sicuro di aver fatto più di 40 punti.</div></blockquote>
+
+Guarda, che il cut-off fosse sui 38-39 me l'ha detto il responsabile della mia provincia, percui direi che è una fonte abbastanza certa. Però può essere che quello è il cut-off per le terze e quarte, percui se fai la quinta puoi anche non essere passato con un pò più di 40 punti.</article>
+<article class="post" id="p3680"><div class="who"><b>dinamitardo</b><span>17 mar 2010, 22:14</span></div>boh cioè a questo punto non so cosa pensare... ho confrontato con le soluzioni (e non solo i risultati ovviamente) e i 4 quesiti che ho fatto sono giusti, quindi 12 punti. Poi ho fatto i primi 2 problemi completi e corretti come procedimenti e risultati, magari ho perso qualche punto su approssimazioni sbagliate o inesattezze varie ma mi pare plausibile non più di 5...<br>
+o non mi sono stati corretti i problemi come temevo all'inizio oppure nel polo di Parma ci sono state delle scorrettezze. Mi informerò perchè se quello che dite è vero, cioè se quello di Padova ha veramente fatto 40 e non ha solo sottovalutato il suo punteggio, mi incazzo non poco  :x  :x  :x<br>
+<br>
+P.S: io faccio la quarta</article>
+<article class="post" id="p3682"><div class="who"><b>Pigkappa</b><span>18 mar 2010, 0:18</span></div>Arrabbiarsi non serve a niente. Se pensi sia il caso, chiedi a chi organizza la prova nel tuo polo quanti punti hai fatto e quali sono i tuoi punteggi parziali su ogni problema. Un metodo sicuro per non essere tagliati fuori in questo modo è fare una 60ina di punti invece di rischiare di scendere sotto al cutoff per uno o due punti persi in modo misterioso (cosa che può sempre succedere: io in quinta ne ho persi una decina su un problema che secondo me avevo risolto).</article>
+<nav class="pager"><a class="prev" href="olifis-6599.html"><small>← precedente</small>Scuola invernale NON ufficiale</a><a class="next" href="olifis-752.html"><small>successivo →</small>Senigallia 2011.</a></nav>
+</main></body></html>

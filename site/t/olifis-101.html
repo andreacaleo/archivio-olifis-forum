@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contraddizione sull&#x27;energia di una &quot;bussola&quot;</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Contraddizione sull'energia di una &quot;bussola&quot;</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=101">forum Olifis</a></p>
+<article class="post first" id="p928"><div class="who"><b>vitellocromato</b><span>7 mag 2009, 11:18</span></div>Ciao a tutti. <br>
+Ho una contraddizione sui campi magnetici che non riesco a risolvere <br>
+<br>
+Riporto un'immagine in allegato <br>
+<br>
+Ipotiziamo di avere una calamita libera L ( in arancione) libera di ruotare rispetto ad un perno e che genera un campo magnetico B2. Ipotiziamo di avere anche dei magneti fissi ( in blu) che generano un campo magnetico B1 costante. Tralasciamo perdite di flusso e ipotizziamo che i campi magnetici vadano a chiudersi all’infinito. Ora da quello che ho letto la calamita passa dalla configurazione 1 alla configurazione 2. Così facendo dispone il proprio campo magnetico nella stessa direzione del campo esterno ( quello che succede magnetizzando un materiale paramagnetico). Ora però leggo che la densità di energia magnetica è data in ogni punto dalla formula riportata in rosso. Nel primo caso però i campi magnetici sono ortogonali per cui andando a calcolare in ogni punto tale densità avrò una forma del tipo B1^2 nel volume V1 in cui ho il campo magnetico B1 e B2^2 nel volume V2 dove ho il campo magnetico V2 per una energia totale di (B1^2+B2^2)*V1 (ipotizzando che V1 sia uguale A V2). Nel secondo caso invece i campi magnetici sono diretti nella stessa direzione per cui andando a calcolare in ogni punto tale densità avrò (B1+B2)^2*V1 che è maggiore rispetto al caso precedente. Da cui avrei una contraddizione: infatti pare che l’energia aumenti di una fattore 2B1B2V1…. <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+dov’è l’errore – o chi è che fornisce l’energia che manca? –<br>
+<br>
+<br>
+<br>
+ragionando in termini energetici ( a livello istintivo senza pensare troppo) mi sarei aspettato che il magnete rotante in arancione si andasse a disporre in modo che il suo campo magnetico B2 si opponesse al campo magentico B1... in questo caso l'energia magnetica diminuirebbe, trasformandosi in energia cinetica per il magnete ( inizierebbe un moto rotatorio oscillante) e dissipandosi in attriti. Però non sembra andare così... ho cercato su libri ma non ho trovato niente al riguardo
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=11" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Campi.jpg (29.95 KiB) Visto 11135 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p942"><div class="who"><b>vitellocromato</b><span>8 mag 2009, 11:59</span></div>Leggendo su un libro di fisica ( Mazzoldi Nigro Voci ) ho trovato che per un oggetto dotato di momento magnetico m è possibile definire una energia potenziale magnetica dovuta al suo orientamento rispetto al campo.<br>
+Sia <span class="tex">\(\theta\)</span> l'angolo tra il vettore m e il vettore B<br>
+<br>
+avremmo che <br>
+<span class="tex">\(U_{potenziale magnetica}=\int_{0}^{\theta_{fin}}M d\theta\)</span><br>
+con M momento magnetico...<br>
+<br>
+ora il fatto è: ma che energia è questa?<br>
+Prendo una spira dotata di momento m e la pongo in assenza di campo con un dato orientamento <span class="tex">\(\theta\)</span>.<br>
+Faccio poi aumentare il campo da 0 a B... in questo caso avrei stando alla definizione sopra una energia potenziale nulla ( integro lungo theta che è costante)...<br>
+Caso diverso se prendo la spira la metto con orientamento 0 rispetto all'angolo e la porto in posizione <span class="tex">\(\theta_{fin}\)</span>... in questo caso l'integrale di definizione non è nullo....<br>
+<br>
+ma allora avrei due valori diversi di questa energia potenziale magnetica per lo stesso orientamento del campo... ma questa non può essere una energia potenziale che per definizione deve avere un valore unico per un orientamento determinato.<br>
+<br>
+Qui l'errore dov'è?<br>
+<br>
+<br>
+--- comunque l'esistenza di questa energia potenziale risolverebbe il problema precedente... infatti nella configurazione 1 ( del caso precedente) il sistema avrà una certa energia potenziale e una certa energia magnetica Ub1... alla fine ( nella configurazione 2) si avrà solo energia magnetica Ub2... e avremo quindi che Ub2 sarà maggiore di Ub1 perchè l'energia in eccesso deriverà dall'energia potenziale magnetica della spira....  <br>
+tutto il mio problema sta ora nel cercare di risolvere il precedente paradosso sulla definizione di energia magnetica potenziale della spira</article>
+<article class="post" id="p944"><div class="who"><b>memedesimo</b><span>10 mag 2009, 20:10</span></div>Attenzione, c'è una questione di fondo: la calamita, dopo che si sarà disposta nel modo che dici, avrà lo stesso momento di dipolo magnetico che aveva all'inizio oppure ne avrà meno? (stessa domanda per le altre due calamite).<br>
+<br>
+Un dipolo tende a disporsi in un campo magnetico nel modo in cui dici. Cercherò di spiegare quello che credo sia il punto con un altro esempio.<br>
+<br>
+Prendiamo ad esempio il caso in cui il dipolo è fatto da una piccola spira in cui scorre una certa corrente <span class="tex">\(I\)</span>.<br>
+Se pensiamo che il dipolo abbia un momento (di dipolo) costante, allora vuol dire che la corrente <span class="tex">\(I\)</span> che scorre nella spira è costante (questa è una cosa che trovate su tutti i libri: il momento di dipolo magnetico per una spira è proporzionale alla corrente). <br>
+Quando il dipolo si orienta nel campo magnetico, ci sono delle fem indotte nella spira per la legge di faraday. Siccome la corrente è mantenuta costante, c'è un generatore che la mantiene costante. L'energia del campo magnetico AUMENTA perchè il GENERATORE fa lavoro contro la fem generata per la legge di faraday, che viene convertito (in parte) in energia magnetica del campo.<br>
+Se non ci fosse il generatore, la corrente nella spira diminuirebbe e quindi il dipolo, dopo essersi orientato, si sarebbe indebolito, e quindi in realtà l'energia magnetica finale è minore di quella iniziale.<br>
+<br>
+Per il caso di calamite vere penso funzioni all'incirca allo stesso modo, cioè o le calamite perdono qualche altro tipo di energia interna quando vengono orientate nel campo magnetico, oppure il momento di dipolo diminuisce quando si orientano...<br>
+<br>
+spero di essere stato vagamente chiaro</article>
+<article class="post" id="p949"><div class="who"><b>CoNVeRGe.</b><span>10 mag 2009, 21:59</span></div><blockquote><div><cite>vitellocromato ha scritto:</cite>
+Prendo una spira dotata di momento m e la pongo in assenza di campo con un dato orientamento <span class="tex">\(\theta\)</span>.<br>
+Faccio poi aumentare il campo da 0 a B... in questo caso avrei stando alla definizione sopra una energia potenziale nulla ( integro lungo theta che è costante)...
+</div></blockquote>
+Potresti spiegare meglio?<br>
+<br>
+Mi sembra di capire che alla fine hai una spira con l'asse che ha un certo angolo di inclinazione rispetto ad un campo magnetico esterno. Si può sempre parlare di energia potenziale anche in questo caso, e se si prende per nulla l'energia potenziale corrispondente alla configurazione di equilibrio (linee di campo con stessa direzione e stesso verso, <span class="tex">\(\displaystyle \theta = 0\)</span>) il sistema ha energia potenziale eccome.</article>
+<article class="post" id="p950"><div class="who"><b>SkZ</b><span>10 mag 2009, 22:39</span></div>devo un attimo controllare (anche per studio mio, seguendo il corso di elettrodinamica), ma siamo sicuri che le formule usate siano complete per quei casi?<br>
+nel primo il campo magnetico varia, quindi hai pure un campo elettrico che entra nei conti</article>
+<article class="post" id="p951"><div class="who"><b>pascal</b><span>10 mag 2009, 23:14</span></div>Forse conviene considerare una spira nel campo di un solenoide alimentati da due generatori indipendenti. Quando l’asse della spira si dispone dalla direzione ortogonale a quella parallela al campo del solenoide, vi è una variazione di flusso nella spira. Bisogna applicare una maggiore forza elettromotrice f alla spira per vincere la tensione indotta. L’energia spesa dal generatore per mantenere costante la corrente i vale <span class="tex">\(\int_{0}^{t} f i \, dt=i \Phi=BSi\)</span> dove <span class="tex">\(\Phi\)</span> =flusso di B e A=area spira. Questa energia viene versata nel campo magnetico. Intanto la spira perde energia magnetica, infatti la sua energia potenziale, calcolata con la formula <span class="tex">\(- mB \cos \theta\)</span>, passa da 0 a –mB=-BSi. Se fosse così l’energia magnetica del sistema dovrebbe rimanere uguale. Poiché essa aumenta, come risulta dalla densità di energia, vuol dire  che il solenoide, subendo l’induzione elettromagnetica, deve essere maggiormente alimentato per conservare la sua corrente. Quindi vi è un’altra quota di energia che entra nel campo magnetico.</article>
+<article class="post" id="p952"><div class="who"><b>vitellocromato</b><span>11 mag 2009, 12:54</span></div>Ringrazio chi mi ha risposto per il tempo dedicato e spero di aver capito quanto mi avete scritto.<br>
+<br>
+Andrò con ordine<br>
+
+<blockquote><div><cite>memedesimo ha scritto:</cite> <br>
+Attenzione, c'è una questione di fondo: la calamita, dopo che si sarà disposta nel modo che dici, avrà lo stesso momento di dipolo magnetico che aveva all'inizio oppure ne avrà meno? (stessa domanda per le altre due calamite).
+</div></blockquote>
+
+Se ho ben capito si sta ipotizzando che la calamita riduca il proprio campo magnetico in modo tale che l’energia magnetica rimanga costante…era una ipotesi che avevo fatto anche io, ma però non ho trovato conferme esplicite da nessuna parte.<br>
+Non so se il seguente esempio sia valido come controesempio.<br>
+I magneti in blu avranno delle proprie correnti amperiane Ia che generanno un campo H nello spazio.<br>
+Prendiamo un sistema di riferimento {y,x} solidale al magnete in arancione con asse y diretto come il campo magnetico del magnete arancione da S a N e asse x ortogonale.<br>
+Possiamo scomporre H in due campi uno diretto lungo y e uno diretto lungo x con y e x che ruotano con il magnete e chiamiamoli Hy e Hx.<br>
+Nella rotazione proposta Hy passa da 0 a H. per cui pensando all’isteresi {B,H} di un magnete il campo magnetico By tende ad aumentare piuttosto che a diminuire.<br>
+Pensando a questo esempio mi viene in mente però che il magnete blu avrebbe un campo mangetico Bx causato da Hx. L’impressione che ho è che l’energia in più non provenga da quel Bx ma non saprei dirlo con certezza, sarei più orientato a far chiarezza su energia potenziale magnetica ( dovuta alla posizione del magnete) e energia magnetica ( dovuta al campo magnetico).<br>
+
+ <blockquote><div><cite>memedesimo ha scritto:</cite> <br>
+Prendiamo ad esempio il caso in cui il dipolo è fatto da una piccola spira in cui scorre una certa corrente  
+</div></blockquote>
+
+avevo fatto proprio l’esempio dei magneti anzichè della spira, per evitare la presenza del generatore che a mio parere “nasconde” il problema di bilancio energetico. Potendo lui fornire o assorbire qualsiasi potenza è facile attribuirgli le energie di cui non sappiamo la causa in bilancio energetico fatto a “scatola chiusa”.<br>
+<br>
+
+<blockquote><div><cite>memedesimo ha scritto:</cite> <br>
+Quando il dipolo si orienta nel campo magnetico, ci sono delle fem indotte nella spira per la legge di faraday. Siccome la corrente è mantenuta costante, c'è un generatore che la mantiene costante. L'energia del campo magnetico AUMENTA perchè il GENERATORE fa lavoro contro la fem generata per la legge di faraday, che viene convertito (in parte) in energia magnetica del campo.
+</div></blockquote>
+
+chi mi garantisce che quel lavoro fatto dal generatore non diventi tutto energia meccanica? – che tra l’altro non avevo considerato –<br>
+prendendo un modello di motore in continua ( che in pratica è quello che mi stai proponendo) trovo che<br>
+<span class="tex">\(C=K\Phi I\)</span> e <span class="tex">\(E=k\Phi\Omega\)</span> da cui <span class="tex">\(C\Omega=I*E\)</span><br>
+con C coppia meccanica, omega velocità angolare, E f.e.m indotta, k costante<br>
+( magari il modello che ho trovato è approssimato e incompleto, non lo so…)<br>
+
+<blockquote><div><cite>memedesimo ha scritto:</cite> <br>
+Per il caso di calamite vere penso funzioni all'incirca allo stesso modo, cioè o le calamite perdono qualche altro tipo di energia interna quando vengono orientate nel campo magnetico, oppure il momento di dipolo diminuisce quando si orientano...
+</div></blockquote>
+
+si, questo penso sia una sintesi corretta della mia domanda… il problema è cercare conferma su quale delle due sia quella corretta.<br>
+
+<blockquote><div><cite>CoNVveRGe ha scritto:</cite> <br>
+Potresti spiegare meglio?<br>
+<br>
+Mi sembra di capire che alla fine hai una spira con l'asse che ha un certo angolo di inclinazione rispetto ad un campo magnetico esterno. Si può sempre parlare di energia potenziale anche in questo caso, e se si prende per nulla l'energia potenziale corrispondente alla configurazione di equilibrio (linee di campo con stessa direzione e stesso verso,  ) il sistema ha energia potenziale eccome.
+</div></blockquote>
+
+qui credo di aver risolto il mio dubbio, ed era un errore di concetto che riporto in basso (*)<br>
+Comunque è interessante quello che scrivi.<br>
+Confermi che un magnete ha una energia di potenziale magentica dovuta alla sua posizione angolare che è diversa dall’energia magnetica del campo B? <br>
+è possibile che la somma totale Energia Potenziale Magnetica + Energia magnetica + Energia meccanica ( perché mi ero scordato ma c’è anche quella) sia costante, e che quindi l’incremento di eenrgia magnetica e energia meccanica che si ha all’istante 2 sia tutto fornito dal decremento di energia magnetica potenziale all’istante 2?<br>
+<br>
+( *)(detta in breve: tutto deriva in modo contorto dal pensare che l’energia potenziale di un corpo sia il lavoro fatto da una forza conservativa su quel corpo dall’istante 0 all’istante attuale…. in realtà l’energia potenziale – da quello che ho capito – non è propria del corpo ma è propria del campo di forze cui è associata… se fosse stata propria del corpo, nella descrizione che avevo dato, costruendo il sistema dal niente nel modo che avevo descritto, nessuna avrebbe fatto lavoro sul corpo – che sarebbe rimasto fermo – e nonostante tutto alla fine si sarebbe trovato con una energia non nulla data dal lavoro totale fatto su di esso che sarebbe stato nullo. Ma l’errore di concetto è proprio in questa interpratazione dell’energia potenziale in genere)<br>
+<br>
+
+<blockquote><div><cite>SkZ ha scritto:</cite> nel primo il campo magnetico varia, quindi hai pure un campo elettrico che entra nei conti</div></blockquote>
+cavolo… su questo sono proprio impreparato… spero siano effetti trascurabili…non saprei nemmeno quanta energia associare ad un tale campo elettrico<br>
+<br>
+<br>
+
+<blockquote><div><cite>pascal ha scritto:</cite>Forse conviene considerare una spira nel campo di un solenoide alimentati da due generatori indipendenti. Quando l’asse della spira si dispone dalla direzione ortogonale a quella parallela al campo del solenoide, vi è una variazione di flusso nella spira. Bisogna applicare una maggiore forza elettromotrice f alla spira per vincere la tensione indotta. L’energia spesa dal generatore per mantenere costante la corrente i vale <span class="tex">\(\int_{0}^{t} f i \, dt=i \Phi=BSi\)</span> dove <span class="tex">\(\Phi\)</span> =flusso di B e A=area spira. Questa energia viene versata nel campo magnetico. Intanto la spira perde energia magnetica, infatti la sua energia potenziale, calcolata con la formula <span class="tex">\(- mB \cos \theta\)</span>, passa da 0 a –mB=-BSi. Se fosse così l’energia magnetica del sistema dovrebbe rimanere uguale. Poiché essa aumenta, come risulta dalla densità di energia, vuol dire  che il solenoide, subendo l’induzione elettromagnetica, deve essere maggiormente alimentato per conservare la sua corrente. Quindi vi è un’altra quota di energia che entra nel campo magnetico.</div></blockquote>
+
+dunque, molto interessante quello che scrivi, spero di averlo capito bene, anche perché non mi torna interamente.<br>
+Comunque, tu scrivi che se avessi una spira il generatore fornirebbe una energia BSi, e allo stesso tempo il dipolo magnetico fornirebbe una energia BSi che sarebbe estratta dall’energia potenziale magnetica del sistema. Non condivido quando dici che il bilancio tra queste due energie si annulla.<br>
+Infatti una energia è “in uscita “ dal generatore di corrente, l’altra è in “uscita” dall’energia potenziale magnetica. Si annullerebbero se fossero una in “entrata” l’altra in “uscita”.<br>
+Per questo motivo sono indotto a pensare che le due energie siano la stessa cosa.<br>
+Io interpreterei tutto il ragionamento come una spiegazione dell’energia magnetica potenziale a partire da un modello di “spira atomica” composto da un generatore di corrente. Detto in parole molto povere: modello il mio magnete con un circuito con generatore di corrente: vedo che alla fine è stata ceduta una energia Bsi, ma siccome Si sarebbe il dipolo magnetico del magnete m, allora definisco una energia potenziale in modo che il magnete possa cedere una energia BM .<br>
+Può tornare come ragionamento?<br>
+<br>
+<br>
+<br>
+Alla fine l’idea che mi sono fatto è la seguente ( mi ci vorrebbe qualcuno che mi possa confermare)<br>
+<br>
+Energia potenziale magnetica+ Energia magnetica + Energia cinetica = costante ( trascuriamo l’energia potenziale gravitazionale)<br>
+<br>
+nel nostro caso abbiamo che<br>
+<br>
+---------------------------------------------------------------------------------<br>
+(Energia cinetica + Variazione di Energia magnetica) all’istante 2<br>
+<br>
+=<br>
+<br>
+Energia potenziale magnetica all’istante 1<br>
+-----------------------------------------------------------------------------------<br>
+<br>
+torna?</article>
+<article class="post" id="p953"><div class="who"><b>memedesimo</b><span>11 mag 2009, 14:00</span></div>Scusate se non ho tempo di rispondere come si deve, ma (secondo me) state facendo confusione:<br>
+<br>
+Energia potenziale magnetica+ Energia magnetica + Energia cinetica = costante<br>
+<br>
+Questo non torna, perchè l'energia potenziale magnetica della spira, definita in quel modo detto sopra, CONTIENE anche l'energia magnetica (oltre a contenere l'energia del generatore!)<br>
+<br>
+se poi ho tempo questa sera rispondo bene<br>
+<br>
+ciao!</article>
+<article class="post" id="p954"><div class="who"><b>pascal</b><span>11 mag 2009, 14:26</span></div>Penso che i due generatori del solenoide e della spira, per mantenere le correnti costanti,  forniscono due quote di energia al campo magnetico. Una quota viene associata alla spira che può diventare interamente cinetica, l’altra rimane nel campo magnetico.</article>
+<article class="post" id="p962"><div class="who"><b>vitellocromato</b><span>12 mag 2009, 13:18</span></div>Su una dispensa disponibile al seguente link<br>
+<br>
+<a href="http://www.fis.unical.it/Mat_didattico/falcone/fisica2cap7.pdf" class="ext" class="postlink">http://www.fis.unical.it/Mat_didattico/ ... a2cap7.pdf</a><br>
+<br>
+leggo:
+<blockquote class="uncited"><div>
+[...]Ciò suggerisce la possibilità di introdurre una funzione energia potenziale associata<br>
+ad ogni configurazione del circuito nel modo seguente: al circuito in una<br>
+certa configurazione A, si associa un’energia potenziale magnetica pari al lavoro<br>
+che il campo magnetico compierebbe per portare il circuito dalla configurazione<br>
+A ad una 0, di riferimento per tutte [...]
+</div></blockquote>
+
+dato che l'energia potenziale magnetica è un integrale di un lavoro compiuto dal campo magnetico, deduco che il campo magnetico per compiere tale lavoro attinga ad una propria energia ( l'energia magnetica, quella che si ha ad esempio in un solenoide, legata all' "esistenza" del campo), e che la utilizzi per compiere lavoro sul magnete in modo che tale energia venga accumulata in energia potenziale magnetica ( legata alla posizione del magnete). Tralasciando l'energia cinetica, si avrebbe che la somma delle due energie risulterebbe costante all'istante 1 e all'istante 2, solo che all'istante 1 l'energia magnetica "pura" è minore rispetto all'istante 1 perchè c'è una energia magnetica "potenziale" che all'istante 2 non c'è più.<br>
+<br>
+E' una interpretazione corretta?</article>
+<article class="post" id="p967"><div class="who"><b>memedesimo</b><span>12 mag 2009, 18:15</span></div>No, è ancora sbagliato, infatti stai dicendo la stessa cosa di prima.<br>
+<br>
+Quella che qui abbiamo chiamato energia potenziale magnetica NON E' UN ALTRO TIPO DI ENERGIA rispetto a quella che abbiamo chiamato energia magnetica.<br>
+<br>
+Quando tu compi lavoro per orientare una spira (ad esempio di dipolo costante) in un campo magnetico, tu stai facendo del lavoro che serve a due cose:<br>
+<br>
+1) aumenti o diminuisci l'energia magnetica dello spazio <br>
+2) aumenti o diminuisci l'energia immagazzinata nel generatore<br>
+<br>
+Potremmo dire che un modo alternativo di DEFINIRE l'energia potenziale magnetica è:<br>
+<br>
+Energia potenziale magnetica = Energia magnetica + Energia del generatore<br>
+<br>
+Tanto per fare un'analogia, è come se chiamassi l'energia cinetica più l'energia potenziale "Energia nuovo tipo", ma è solo il nome che hai dato alla somma degli altri due tipi di energia e non un nuovo tipo di energia che devi conteggiare nel bilancio energetico.<br>
+<br>
+Quando ho tempo (mai) scriverò l'analogia col caso elettrico che forse è utile per capire</article>
+<article class="post" id="p974"><div class="who"><b>CoNVeRGe.</b><span>12 mag 2009, 23:25</span></div><blockquote><div><cite>vitellocromato ha scritto:</cite>
+Confermi che un magnete ha una energia di potenziale magentica dovuta alla sua posizione angolare che è diversa dall’energia magnetica del campo B?<br>
+è possibile che la somma totale Energia Potenziale Magnetica + Energia magnetica + Energia meccanica ( perché mi ero scordato ma c’è anche quella) sia costante, e che quindi l’incremento di eenrgia magnetica e energia meccanica che si ha all’istante 2 sia tutto fornito dal decremento di energia magnetica potenziale all’istante 2?<br>
+<br>
+( *)(detta in breve: tutto deriva in modo contorto dal pensare che l’energia potenziale di un corpo sia il lavoro fatto da una forza conservativa su quel corpo dall’istante 0 all’istante attuale…. in realtà l’energia potenziale – da quello che ho capito – non è propria del corpo ma è propria del campo di forze cui è associata… se fosse stata propria del corpo, nella descrizione che avevo dato, costruendo il sistema dal niente nel modo che avevo descritto, nessuna avrebbe fatto lavoro sul corpo – che sarebbe rimasto fermo – e nonostante tutto alla fine si sarebbe trovato con una energia non nulla data dal lavoro totale fatto su di esso che sarebbe stato nullo. Ma l’errore di concetto è proprio in questa interpratazione dell’energia potenziale in genere)
+</div></blockquote>
+Ne so molto poco di queste energie, però posso comunque aiutarti anch'io dicendoti due cose sull'energia potenziale in generale, che forse non ti è completamente chiara.<br>
+<br>
+Supponiamo linee parallele di campo magnetico costante orientate in una certa direzione e un magnete con momento magnetico <span class="tex">\(\displaystyle m\)</span> anch'esso costante. L'energia potenziale è propria del sistema. E il sistema che si prende in considerazione è il magnete immerso nel campo. Quando il vettore del momento magnetico magnetico forma un angolo <span class="tex">\(\displaystyle \theta\)</span> con le linee di forza, questo è sottoposto ad un momento meccanico <span class="tex">\(\displaystyle \vec{M}_{(\theta)} = \vec{m} \wedge \vec{B} }\)</span> che tende ad orientare <span class="tex">\(\displaystyle \vec{m}\)</span> secondo <span class="tex">\(\displaystyle \vec{B}\)</span>.<br>
+Per questo motivo maggiore è <span class="tex">\(\displaystyle \sin \theta\)</span> e maggiore sarà il momento. Siamo quindi in una situazione di instabilità. Il sistema vorrebbe giungere alla posizione di equilibrio (in cui <span class="tex">\(\displaystyle |\vec{M}| = 0\)</span>). Per questo motivo (e per la conservatività) si dice che il sistema ha energia potenziale (che in atto sarà cinetica o che altro).<br>
+Se si attribuisce alla configurazione di stabilità un'energia potenziale nulla, allora la formula che hai trovato tu ti dice l'energia potenziale che ha il magnete in quella disposizione, ovvero il lavoro che il campo magnetico farebbe al magnete per portarlo alla situazione di stabilità.<br>
+<br>
+Per i casi in cui <span class="tex">\(\displaystyle m\)</span> è variabile oppure il magnete non è altro che una spira non so dirti nulla.</article>
+<article class="post" id="p1012"><div class="who"><b>vitellocromato</b><span>18 mag 2009, 18:30</span></div><blockquote><div><cite>memedesimo ha scritto:</cite>
+<br>
+Quando tu compi lavoro per orientare una spira (ad esempio di dipolo costante) in un campo magnetico, tu stai facendo del lavoro che serve a due cose:<br>
+<br>
+1) aumenti o diminuisci l'energia magnetica dello spazio <br>
+2) aumenti o diminuisci l'energia immagazzinata nel generatore<br>
+<br>
+Potremmo dire che un modo alternativo di DEFINIRE l'energia potenziale magnetica è:<br>
+<br>
+Energia potenziale magnetica = Energia magnetica + Energia del generatore<br>
+
+</div></blockquote>
+
+Non escludo che quello che stai dicendo sia corretto, in questo modo i bilanci energetici tornerebbero sicuramente.<br>
+Però stai dando una spiegazione utilizzando l'ipotesi di disporre di un generatore ( suppongo di tensione o di corrente se ho ben capito).<br>
+Avevo però formulato il problema utilizzando magneti permanenti di proposito per evitare di inserire l'energia del generatore nel bilancio energetico.<br>
+<br>
+Spiego il perchè con un esempio<br>
+Diciamo che ho un sistema con energia A, energia B energia C e energia X.<br>
+Ipotiziamo che la somma delle energie è costante e che io lo sappia.<br>
+Ipotiziamo che conosca l'esistenza solo dell'energia B e dell'energia A e che ne conosca il valore.<br>
+Ipotiziamo che conosca l'esistenza dell'energia X ma che non ne conosca il valore ( perchè non voglio o non posso calcolarlo)  e che sia K.<br>
+Potrei essere indotto a pensare che X=K-B-A e ipotizzando che A+B+X è costante dato che la somma delle energie deve essere costante ( e faccio la somma delle sole energie che conosco).<br>
+In questo modo non mi accorgerei della presenza dell'energia C e non avrei modo di farlo, avendo ipotizzato di non poter calcolare direttamente X.<br>
+Se però riesco a trovare un sistema in cui l'energia X non è presente, allora mi accorgo che A+B non è più costante e che qualcosa non torna.<br>
+<br>
+In questo esempio X è l'energia del generatore, secondo me è un elemento di "disturbo logico" che può essere utilizzato per far tornare il bilancio energetico, assegnandogli quello che manca per far tornare tale bilancio.<br>
+<br>
+Nell'esempio con i magneti permanenti tale X manca e si nota appunto un incremento dell'energia magnetica che apparentemente non si spiega ( o che si spiegherebbe ipotizzando energia magnetica + energia potenziale magnetica = costante - a meno dell'energia meccanica)</article>
+<article class="post" id="p1013"><div class="who"><b>vitellocromato</b><span>18 mag 2009, 18:33</span></div><blockquote><div><cite>CoNVeRGe ha scritto:</cite>Ne so molto poco di queste energie, però posso comunque aiutarti anch'io dicendoti due cose sull'energia potenziale in generale, che forse non ti è completamente chiara.</div></blockquote>
+
+ :mrgreen: ok, credo di aver chiarito il concetto adesso, dopo anni di errata interpretazione delle energie potenziali. :mrgreen:</article>
+<article class="post" id="p1016"><div class="who"><b>CoNVeRGe.</b><span>18 mag 2009, 19:22</span></div>:mrgreen: <br>
+<br>
+Tornando al problema iniziale si può dire che nella prima situazione il sistema ha una certa energia potenziale (perchè si è assunta la seconda situazione come quella a energia potenziale nulla, con <span class="tex">\(\displaystyle | \vec{M}| = 0\)</span>).<br>
+<br>
+Nella seconda situazione l'energia potenziale è scomparsa e quindi l'energia è finita in altre forme. Poichè si è esclusa l'energia cinetica, direi quindi che è diventata l'energia in più che non sapevi spiegarti.</article>
+<article class="post" id="p1019"><div class="who"><b>vitellocromato</b><span>18 mag 2009, 21:36</span></div>in questo modo mi tornerebbe tutto</article>
+<article class="post" id="p1021"><div class="who"><b>memedesimo</b><span>18 mag 2009, 23:30</span></div>Mi dispiace doverti dare torto ancora, ma quando hai un magnete permanente, esso è così perchè in realtà ci sono delle cariche al suo interno che girano e che creano delle correnti elettriche, quindi la legge di faraday agisce comunque (anche se si tratta di un magnete permanente e non di una spira). Se non c'è qualcosa (qualche riserva di energia, che può essere un generatore, ma anche un qualcos'altro tipo energia chimica interna o non so che altro) che può contrastare la fem indotta, sicuramente il momento magnetico dei dipoli permanenti diminuisce, e non rimane costante (sono abbastanza sicuro che accada questo, anche se non ne ho la conferma).<br>
+<br>
+Il generatore non è affatto un "disturbo logico", perchè in realtà qualsiasi cosa che generi un campo magnetico la puoi in definitiva vedere come una spira. Un generatore è solo un modo per modellizzare "qualcosa" che può immagazzinare l'energia che poi potrà restituire alle cariche. <br>
+E' come se volessi analizzare in elettrostatica qualcosa in cui c'è una differenza di potenziale, ma senza ammettere che questa differenza di potenziale sia generata da qualcosa (in genere questo qualcosa lo chiami pila, ma può essere anche qualcuno che separa con un carro di cavalli due cariche opposte).<br>
+<br>
+Mi spiace se non sono chiaro...</article>
+<article class="post" id="p1022"><div class="who"><b>memedesimo</b><span>18 mag 2009, 23:35</span></div>Aggiungo anche che si, ogni volta che non torna la conservazione dell'energia puoi sempre inventarti un nuovo tipo di energia che faccia tornare il tutto. Anche se a prima vista può sembrare una cavolata (la conservazione dell'energia non sarebbe una grande legge se semplicemente aggiungessi il pezzo che manca ogni volta che vedo che non è conservata), in fisica spesso si fa. (Ad esempio, potete pensare all'energia elettrostatica. Voi la definite in modo che la somma di quella più i tipi che già conoscevate, cinetica ecc..., sia costante. Ma prima di ipotizzarla, per voi l'energia non era una cosa conservata). Un punto importante è che l'energia del "nuovo tipo" deve poter essere riconvertita in energia del "vecchio tipo", in qualche modo.<br>
+<br>
+Questo è un discorso interessante e lungo, a cui vi invito a riflettere (neanche io so bene cosa stia dicendo, a dire la verità).<br>
+Scusate la confusione del discorso ma (come sempre) sono di fretta.</article>
+<nav class="pager"><a class="prev" href="olifis-528.html"><small>← precedente</small>Facce cariche in un cubo</a><a class="next" href="olifis-1397.html"><small>successivo →</small>Un problema sulle nuvole.</a></nav>
+</main></body></html>

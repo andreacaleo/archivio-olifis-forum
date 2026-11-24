@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>111. Sale o non sale? Questo è il dilemma</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>111. Sale o non sale? Questo è il dilemma</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6465">forum Olifis</a></p>
+<article class="post first" id="p23405"><div class="who"><b>Flaffo</b><span>2 gen 2017, 19:52</span></div>Un'asta sottile di densità <strong class="text-strong">non necessariamente </strong> uniforme è sospesa alle estremità da due fili. Se un filo è tagliato, l'estremità opposta sale o scende nell'istante immediatamente successivo?<br>
+<br>
+Corto ma bello  ;)</article>
+<article class="post" id="p23406"><div class="who"><b>guido</b><span>3 gen 2017, 17:20</span></div>Visto che nessuno ci prova :roll:  :roll:  :roll: non mi posso esentare dal dire qualche sciocchezza (c....a) sul tipico problemino di Flaffo :!:  :!: <br>
+Secondo me intanto l'estremità non può scendere se il filo è inestensibile. Un attimo dopo il taglio l'asta è come un pendolo composto su cui agiscono due forze: il peso applicato ad un punto qualsiasi dell'asta (certo, non è necessario che sia il punto medio) e la tensione del filo integro, forze  che sono <strong class="text-strong">parallele</strong>fra loro. Rispetto al punto di sospensione il momento della tensione è nullo mentre quello del peso induce una rotazione (ed un abbassamento)del cdm, rotazione che nell'attimo iniziale è attorno all'estremità che quindi non sale nè scende. Quest'ultima perciò può salire solo quando ruota attorno al punto di sospensione perchè nella posizione di partenza è nel punto più basso rispetto ad esso :?:  :?:  :?:</article>
+<article class="post" id="p23407"><div class="who"><b>Flaffo</b><span>3 gen 2017, 17:56</span></div>Inzio col dire che la conclusione a  cui giungi (sale) è giusta. In un problema così, dove ovviamente ci sono solo due risposte possibili, però, non basta solo il risultato. Primo, anche se il filo è inestensibile, vuoi vedere se subito dopo il taglio l'altra estremità si muove su o giù, cioè se la sua accelerazione è diretta verso l'alto o verso il basso. Se poi effettivamente può andare in alto o in basso non ci interessa  perché <span class="tex">\(\Delta T=0\)</span>, quindi idealmente non percorre uno spazio. Secondo, l'asta ruota attorno al centro di massa e non attorno all'estemità con ancora il filo (che infatti si potrà muovere), quindi non puoi considerare i momenti rispetto a quel punto (puoi scegliere un punto qualsiasi solo se è in equilibrio). Quindi ,a prima vista, ti interessa la posizione del centro di massa, e dovrai allora dimostrare che dovunque sia, l'altra estemità salga sempre.</article>
+<article class="post" id="p23411"><div class="who"><b>Bombadillo</b><span>4 gen 2017, 11:11</span></div>Saluto tutti dalla Terra di Mezzo e compaio anch'io a dire caga... sì, insomma.<br>
+Non vorrei ripetere per sbaglio esattamente quello che ha detto guido, però mi pare che all'incirca la risposta sia quella. Al momento della rottura sull'asta agisce la forza peso nel centro di massa e la tensione all'estremità. Visto che il centro di massa sicuramente non si trova all'estremità vi sarà un punto compreso tra l'estremità e il cdm attorno a cui l'asta ruoterà. E' chiaro che la rotazione porterà quindi l'estremità ad alzarsi rispetto a questo punto.<br>
+O sbaglio ed ho semplificato troppo?</article>
+<article class="post" id="p23412"><div class="who"><b>guido</b><span>4 gen 2017, 12:35</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Secondo, l'asta ruota attorno al centro di massa e non attorno all'estemità con ancora il filo (che infatti si potrà muovere), quindi non puoi considerare i momenti rispetto a quel punto (puoi scegliere un punto qualsiasi solo se è in equilibrio). Quindi ,a prima vista, ti interessa la posizione del centro di massa, e dovrai allora dimostrare che dovunque sia, l'altra estemità salga sempre.</div></blockquote>
+Io ho preso per riferimento il punto di sospensione che è fisso e non ci piove. Il cdm soggetto al peso ovunque sia, ovvero ad un momento non nullo rispetto al punto di sospensione, ruota rispetto a questo punto trascinando anche l'estremità che NON PUO' DISCENDERE e quindi se tende a muoversi accelera verso l'alto. Io la vedo così. :shock:  :shock:  :shock:</article>
+<article class="post" id="p23414"><div class="who"><b>Flaffo</b><span>4 gen 2017, 15:44</span></div>Per Bombadillo e Guido : l'asta ruota attorno al suo centro di massa, e non rispetto ad un punto intermedio o rispettoa all'estremità . Provate a riformulare il vostro ragionamento partendo da questo presupposto.<br>
+Bisognerà capire, all'estremità dell'asta, quale effetto vince: l'accelerazione g con cui cade tutto il corpo o l'accelerazione dovuta alla rotazione dell'asta intorno al centro di massa, diretta in senso opposto. Poi generalizzate per qualsiasi posizione del CM</article>
+<article class="post" id="p23416"><div class="who"><b>guido</b><span>5 gen 2017, 9:06</span></div>Flaffo, ti prego  di avere la pazienza di CONTESTARE il seguente ragionamento, tenendo conto che quando dici che ruota attorno al cdm dipende solo dal fatto che metti il riferimento nel cdm e che quindi si potrebbe sostenere altrettanto che è il cdm che ruota attorno all'estremità riferendosi a quest'ultima. Grazie. <br>
+<br>
+1) il cdm ovunque sia si muove verso il basso partendo dalla stessa quota dell'estremità in direzione perpendicolare all'asta 2) durante il suo moto deve mantenere questa distanza dall'estremità 3) la sua verticale durante il moto si avvicina a quella dell'estremità 4) finchè si trova sulla stessa verticale dell'estremità sotto l'estremità alla stessa distanza da questa 5) <strong class="text-strong">questa si chiama rotazione di 1/4 di circonferenza attorno all'estremità </strong>6) durante questa rotazione aumenta la frazione di peso che grava sull'estremità (che è inversamente proporzionale alla distanza fra le due verticali ) finchè alla fine ci grava tutta la forza peso 7)conseguentemente la tensione del filo verso l'alto aumenta fino a raggiungere il peso. <br>
+Conclusione: Non ci sono ragioni perchè salga all'istante successivo (bada bene tu chiedi se sale cioè se si SPOSTA): ribadisco la risposta data nel primo post: <strong class="text-strong">NON SALE NE' SCENDE</strong>. C'è un continuo adeguamento della tensione verso l'alto per mantenere la sua accelerazione nulla e quindi per tenere ferma l'estremità.  :!:  :!:</article>
+<article class="post" id="p23418"><div class="who"><b>Flaffo</b><span>5 gen 2017, 12:28</span></div>La falla principalmente tuo ragionamento è che dici che puoi considerare la rorotazione attorno l'estremità poiché questa sta ferma, e argomentando giungi alla conclusione che è ferma  :o <br>
+<br>
+Semplifica il problema con il centro di massa esattamente al centro. Calcola l'accelerazione tangenziale all'estremità e paragonala con l'accelerazione g con cui cade tutto il corpo. Posta l soluzione per questo caso intanto....</article>
+<article class="post" id="p23421"><div class="who"><b>CaptainJohnCabot</b><span>5 gen 2017, 14:32</span></div><blockquote><div><cite>guido ha scritto:</cite>
+Non ci sono ragioni perchè salga all'istante successivo (bada bene tu chiedi se sale cioè se si SPOSTA): ribadisco la risposta data nel primo post: <strong class="text-strong">NON SALE NE' SCENDE</strong>. C'è un continuo adeguamento della tensione verso l'alto per mantenere la sua accelerazione nulla e quindi per tenere ferma l'estremità.  :!:  :!:</div></blockquote>
+Per quanto non ci abbia dedicato moltissimo tempo questa volta mi trovo d'accordo con guido. Almeno intuitivamente secondo me l'estremità sale solo se il filo non è attaccato ad essa. Infatti io avrei considerato come punto 'più stabile' quello in cui è attaccato il filo, che si comporta come una specie di vincolo impedendo la rotazione 'regolare' attorno al CDM. Metto le virgolette perché con questi problemi è quasi impossibile dire qualcosa senza sparare cavolate immani  :roll:  :lol: <br>
+
+<blockquote><div><cite>Flaffo ha scritto:</cite>
+Semplifica il problema con il centro di massa esattamente al centro. Calcola l'accelerazione tangenziale all'estremità e paragonala con l'accelerazione g con cui cade tutto il corpo. Posta l soluzione per questo caso intanto....</div></blockquote>
+Tanto per la cronaca avevo tentato anche questo approccio per analogia al problema 99, molto simile per genere a questo. Ripeto che l'ho fatto abbastanza in fretta quindi sicuramente sarà sbagliato, ma lo posterei comunque, casomai possa essere di qualche utilità.<br>
+<br>
+Si calcolano le accelerazioni <span class="tex">\(a_t\)</span>, quella verticale, e <span class="tex">\(a_r\)</span>, quella rotazionale. Si ha:<br>
+<span class="tex">\(a_t=\dfrac{mg-T}{m}\)</span> e <span class="tex">\(a_r=\dfrac{-Ta^2}{I}\)</span><br>
+Dove <span class="tex">\(T\)</span> è la tensione del filo, <span class="tex">\(I\)</span> il momento d'inerzia del corpo e <span class="tex">\(a\)</span> la distanza tra l'estremità e il CDM. Se il corpo sale si dovrà avere <span class="tex">\(a_r \geq -a_t\)</span> dato che sono rivolte in versi opposte, allora:<br>
+<span class="tex">\(\dfrac{Ta^2}{I} \geq \dfrac{mg-T}{m} \implies \dfrac{Ta^2}{I} \geq g- \dfrac{T}{m}\)</span><br>
+E può essere scritta anche come:<br>
+<span class="tex">\(T(\dfrac{a^2}{I} +\dfrac{1}{m}) \geq g\)</span><br>
+<br>
+Ora come dice guido la tensione varia però ad un tempo <span class="tex">\(\delta t\)</span> dall'inizio del moto forse si potrebbe considerare uguale a quella della condizione iniziale (non saprei come proseguire altrimenti  :lol: ), ovvero, dalla condizione di equilibrio del corpo rigido:<br>
+<span class="tex">\(T=\dfrac{mg(l-a)}{l}\)</span><br>
+Sostituendo:<br>
+<span class="tex">\(\dfrac{(l-a)}{l}(\dfrac{ma^2}{I} +1) \geq 1\)</span><br>
+Che dovrebbe essere la condizione che si cercava, peccato che non risulti verificata per alcuni casi come <span class="tex">\(a=l/2\)</span>.<br>
+Alternativamente scrivendo le accelerazioni in funzione della tensione sull'altro filo (non so quanto sia lecito  :roll: ) si dovrebbe giungere alla condizione equivalente (e più semplice!):<br>
+<span class="tex">\(ma(l-a)/I \geq 1\)</span>; che non è comunque verificata per <span class="tex">\(a=l/2\)</span>  :roll:<br>
+Boh vedete se riuscite a trovare l'errore, sarà qualche distrazione sulle accelerazioni probabilmente, o magari è proprio tutto il ragionamento che è ontologicamente sbagliato  :oops:  :lol:</article>
+<article class="post" id="p23422"><div class="who"><b>Flaffo</b><span>5 gen 2017, 16:14</span></div><blockquote><div><cite>CaptainJohnCabot: ha scritto:</cite> calcolano le accelerazioni a_t, quella verticale, e a_r, quella rotazionale. Si ha:<br>
+<span class="tex">\(a_t=\dfrac{mg-T}{m}  a_r=\dfrac{-Ta^2}{I}\)</span><br>
+Dove T è la tensione del filo, I il momento d'inerzia del corpo e a la distanza tra l'estremità e il CDM. Se il corpo sale si dovrà avere <span class="tex">\(a_r \geq -a_t\)</span> dato che sono rivolte in versi opposte, allora:<br>
+<span class="tex">\(\dfrac{Ta^2}{I} \geq \dfrac{mg-T}{m} \implies \dfrac{Ta^2}{I} \geq g- \dfrac{T}{m}\)</span><br>
+E può essere scritta anche come:<br>
+<span class="tex">\(T(\dfrac{a^2}{I} +\dfrac{1}{m}) \geq g\)</span><br>
+<br>
+Ora come dice guido la tensione varia però ad un tempo \delta t dall'inizio del moto forse si potrebbe considerare uguale a quella della condizione iniziale (non saprei come proseguire altrimenti  :lol: ), ovvero, dalla condizione di equilibrio del corpo rigido:<br>
+<span class="tex">\(T=\dfrac{mg(l-a)}{l}\)</span>
+</div></blockquote>
+
+Per CaptainJohnCabot:  la prima parte è giusta. Prova ad isolare dalla relazione che hai ottenuto <span class="tex">\(I\)</span>, il momento di inerzia. Allora ti risulta:<br>
+<br>
+<span class="tex">\(I &lt; m l (l-a)\)</span><br>
+<br>
+Se questa condizione è soddisfatta, allora l'estremità salirà. Puoi notare, per esempio, che se <span class="tex">\(a= \frac {l}{2}\)</span> allora <span class="tex">\(I=\frac {1}{12} m l^2\)</span> e abbiamo:<br>
+<br>
+<span class="tex">\(\frac {1}{12} &lt; \frac {1}{2}\)</span><br>
+<br>
+Verificata. <br>
+<br>
+Ora prova a dimostrare questo per tutti i valori che può assumere <span class="tex">\(a\)</span>.. (la cosa più complicata, ma nemmeno, del problema potrebbe essere questa)</article>
+<article class="post" id="p23423"><div class="who"><b>CaptainJohnCabot</b><span>5 gen 2017, 17:59</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Puoi notare, per esempio, che se <span class="tex">\(a= \frac {l}{2}\)</span> allora <span class="tex">\(I=\frac {1}{12} m l^2\)</span> e abbiamo:<br>
+<br>
+<span class="tex">\(\frac {1}{12} &lt; \frac {1}{2}\)</span><br>
+<br>
+Verificata.</div></blockquote>
+Ah scusate nell'equazione avevo sostituito erroneamente il momento di inerzia di un'asta che ruota attorno ad una sua estremità per questo non mi usciva   :roll: <br>
+<br>
+Purtroppo ora non ho moltissimo tempo per pensare a come concludere quindi non vi fate problemi a continuare. Approssimativamente l'unica cosa che per ora mi viene in mente è mostrare, uguagliando a 0 le derivate, che <span class="tex">\(y=ma(l-a)\)</span> è massima per <span class="tex">\(a=l/2\)</span> e dovrebbe coincidere con il massimo di <span class="tex">\(I\)</span>. Il minimo invece è per <span class="tex">\(a=0 \implies I=0\)</span> perché tutta la massa è in un punto che coincide con l'estremità (situazione impossibile in questo caso). La situazione in cui <span class="tex">\(y=I\)</span> ovvero <span class="tex">\(a=0\)</span> come si è detto è da scartare. Variando <span class="tex">\(a\)</span> da 0 fino a <span class="tex">\(l/2\)</span> sia <span class="tex">\(y\)</span> che <span class="tex">\(I\)</span> crescono, ma dato che il massimo di <span class="tex">\(y\)</span> è maggiore del massimo di <span class="tex">\(I\)</span>, <span class="tex">\(y\)</span> crescerà più velocemente (almeno nella prima fase, comunque rimanendo sempre maggiore di I). La situazione nella restante metà dell'asta dovrebbe essere simmetrica rispetto a quanto già visto. Pertanto la disuguaglianza del messaggio precedente dovrebbe risultare giustificata per ogni valore di <span class="tex">\(a\)</span>.<br>
+<br>
+Ditemi se può avere senso  :lol:<br>
+<br>
+Credo che per azzardare qualcosa di più rigoroso serva un modo (che io non ho trovato) per calcolare il momento d'inerzia dell'asta. Sta bene che non sia omogenea ma servirebbe almeno l'espressione della densità in funzione di x... :lol:</article>
+<article class="post" id="p23425"><div class="who"><b>Flaffo</b><span>6 gen 2017, 9:58</span></div>Può anche aver senso, ma andrebbe dimostrato con dei calcoli  :lol: <br>
+Non c'è bisogno dell'espressione per la densità..se vuoi puoi assumere densità che varia con <span class="tex">\(x^n\)</span> e dimostrare la diseguaglianza per ogni valore di <span class="tex">\(n\)</span>. È abbastanza contoso, ma funziona.  C'è un altro modo molto più breve e bello</article>
+<article class="post" id="p23426"><div class="who"><b>guido</b><span>6 gen 2017, 11:28</span></div>Per CJC: non mi torna molto il sistema di riferimento rispetto a cui imposti le tue equazioni. La prima sembra riferita al punto fisso di sospensione e sono d'accordo è la cosa più sicura. Ma rispetto a questo punto il momento di T è nullo ed è il peso che ha momento non nullo e determina la rotazione. Quindi la seconda equazione è incongrua perchè è riferita al sistema del cdm palesemente non inerziale.  Se si mette il momento del peso come causa della rotazione riferendosi al punto di sospensione, si hanno due equazioni nelle incognite acc.cdm e T. Risolvendo per un angolo di rotazione del cdm tendente a zero come chiede Flaffo (un istante dopo il taglio) <strong class="text-strong">si trova T&gt;0. Quindi l'estremità NON SALE</strong>, salirebbe se T&lt;O!! Non so se ho capito o fraintendo :?:  :?: <br>
+
+<blockquote><div><cite>Flaffo ha scritto:</cite>La falla principalmente tuo ragionamento è che dici che puoi considerare la rorotazione attorno l'estremità poiché questa sta ferma, e argomentando giungi alla conclusione che è ferma  :o <br>
+<br>
+Semplifica il problema con il centro di massa esattamente al centro. Calcola l'accelerazione tangenziale all'estremità e paragonala con l'accelerazione g con cui cade tutto il corpo. Posta l soluzione per questo caso intanto....</div></blockquote>
+
+Non sono d'accordo con l'identificazione della falla. La rotazione ti dicevo è determinata dal sistema di riferimento. Io dico che rispetto all'estremità le cose vanno a quel modo e che non c'è ragione che nel sistema fisso del punto di sospensione l'estremità salga perchè la tensione del filo aumenta in relazione alla quota di peso che su esso grava tanto da mantenere nulla la sua accelerazione. Mi pare che anche i calcoli di CJC non approdino a risultati opposti tanto che si dice d'accordo con me. Poi questa cosa del corpo che cade con g...ma c'è l'estremità attaccata e quindi non puoi dire cade con g.</article>
+<article class="post" id="p23427"><div class="who"><b>CaptainJohnCabot</b><span>6 gen 2017, 14:37</span></div>Per guido: nelle equazioni mi sono affidato ciecamente al consiglio di Flaffo, quindi, a meno di errori, dovrebbero essere entrambe riferite al CdM. Il ragionamento sarebbe quindi giustificato se fosse possibile considerare il sistema del CdM in equilibrio all'istante iniziale. Ovvero se si prendesse un tempo talmente breve da poter considerare la rotazione ancora puramente intorno al CdM. <br>
+Intuitivamente mi pareva strano, però ho fatto e ripreso l'esperimento, e dall'analisi del video risulta effettivamente che l'estremità sale. Pertanto dovrebbe essere lecito considerare la rotazione intorno al CdM all'istante iniziale.</article>
+<article class="post" id="p23428"><div class="who"><b>Flaffo</b><span>6 gen 2017, 15:13</span></div>[quote="guido" Poi questa cosa del corpo che cade con g...ma c'è l'estremità attaccata e quindi non puoi dire cade con g.[/quote]<br>
+<br>
+Intendevo ovviamente g meno il contributo della tensione.. l'ho scritto in seggiovia di fretta :lol: <br>
+<br>
+Comunque è ciò che ha fatto captain</article>
+<article class="post" id="p23429"><div class="who"><b>CaptainJohnCabot</b><span>6 gen 2017, 22:52</span></div>Si prende in via generale che <span class="tex">\(dm=\dfrac{x^ndx}{l^{n+1}}M\)</span>. Si calcolano ora il momento di inerzia <span class="tex">\(I\)</span> (rispetto al CdM) e la posizione del centro di massa (rispetto all'estremità) ovvero <span class="tex">\(a\)</span>. Si ha:<br>
+<span class="tex">\(\displaystyle x_M=\dfrac{1}{M}\int x dm=\int \dfrac{x^{n+1}dx}{l^{n+1}}\)</span><br>
+Ponendo come estremi di integrazione 0 e l si ottiene <span class="tex">\(x_M=\dfrac{l}{n+2}\)</span>. Invece per <span class="tex">\(I\)</span> si ottiene:<br>
+<span class="tex">\(\displaystyle I=\int x^2 dm= \int \dfrac{x^{n+2}dx}{l^{n+1}}M\)</span><br>
+E si pongono come estremi di integrazione <span class="tex">\(-\dfrac{l}{n+2}\)</span> e <span class="tex">\(\dfrac{n+1}{n+2}l\)</span>, ovvero le ascisse delle estremità nel sistema con origine nel CdM. Si ottiene:<br>
+<br>
+<span class="tex">\(\displaystyle I=\dfrac{Ml^2}{(n+3)(n+2)^{n+3}}[(n+1)^{n+3} \pm1]\)</span><br>
+<br>
+Immettendo questi valori nella disuguaglianza <span class="tex">\(I \leq Ma(l-a)\)</span> si ha dopo qualche passaggio:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{(n+1)^{n+3}\pm1}{(n+1)(n+3)(n+2)^{n+1}} &lt; 1\)</span><br>
+<br>
+Ovvero:<br>
+<br>
+<span class="tex">\(\displaystyle \dfrac{(n+1)^{n+3}}{(n+1)(n+3)(n+2)^{n+1}} \pm \dfrac{1}{(n+1)(n+3)(n+2)^{n+1}} &lt; 1\)</span><br>
+<br>
+Si dimostra ora la sua validità:<br>
+<br>
+<span class="tex">\(\displaystyle n+3 &gt; n+2 &gt; n+1 \implies \dfrac{(n+1)^{n+3}}{(n+1)(n+3)(n+2)^{n+1}} &lt; 1\)</span><br>
+<br>
+Ma anche <span class="tex">\(\displaystyle \pm \dfrac{1}{(n+1)(n+3)(n+2)^{n+1}} &lt; 1\)</span> quindi la disuguaglianza risulta dimostrata.</article>
+<article class="post" id="p23430"><div class="who"><b>Flaffo</b><span>7 gen 2017, 13:01</span></div>C'è un errore nell'integrale per I. Prova a prendere un' altra strada per quello.</article>
+<article class="post" id="p23431"><div class="who"><b>guido</b><span>7 gen 2017, 13:05</span></div>Per CJC: io non credo che da un video si possa distinguere se, nell'istante immediatamente successivo al taglio, sale. Mi dispiace i miei calcoli non sono sbagliati, li ho rifatti e T&gt;0 quando la rotazione tende a 0 ciò che significa che <strong class="text-strong">non sale</strong>. Io rimango quindi di questa idea. :roll:  :roll: <br>
+Per Flaffo fai come ritieni opportuno: sai bene che a me non interessa il testimone cui più volte ho rinunciato dopo che mi era stato consegnato. E' solo per una questione di verità. E' questa che ci aiuta a imparare e che ci spinge. :)  :)  :)</article>
+<article class="post" id="p23433"><div class="who"><b>CaptainJohnCabot</b><span>7 gen 2017, 19:18</span></div>Flaffo hai ragione, nell'integrale per <span class="tex">\(I\)</span> c'erano delle traslazioni sulle <span class="tex">\(x\)</span> da fare... In ogni caso quel metodo diventerebbe troppo complicato quindi provo col teorema degli assi paralleli sperando di non fare errori questa volta.<br>
+Per Huygens-Steiner:<br>
+<span class="tex">\(\displaystyle I=I_{CM}+Ml^2/4\)</span> <br>
+Dove <span class="tex">\(I\)</span> è il momento di inerzia dell'asta rispetto all'origine per semplificare l'integrazione e <span class="tex">\(I_{CM}\)</span> è quello rispetto al CdM. Allora:<br>
+<span class="tex">\(\displaystyle I=\int_{0}^{l} x^2 dm=\int_{0}^{l} \dfrac{x^{n+2}dx}{l^{n+1}}M=\dfrac{Ml^2}{n+3}\)</span><br>
+Sostituendo:<br>
+<span class="tex">\(\displaystyle I_{CM}=\dfrac{Ml^2}{n+3}-Ml^2/4=Ml^2\dfrac{1-n}{4(n+3)}\)</span><br>
+Inserendo il risultato e il valore di a trovato in <span class="tex">\(I &lt; ma(l-a)\)</span> si ottiene:<br>
+<span class="tex">\(\displaystyle Ml^2\dfrac{1-n}{4(n+3)}&lt;Ml^2\dfrac{n+1}{n+2}\)</span><br>
+E risulta verificata per ogni n dato <span class="tex">\(n+3 &gt; n+2\)</span> e <span class="tex">\(1-n &lt; n+1\)</span><br>
+<br>
+Spero che sia giusto  :roll:  :lol: <br>
+<br>
+Per guido: devo dire che dal video in realtà si comprendeva anche più che decentemente il fenomeno. Io mi sono convinto della validità del ragionamento ripetendo l'esperienza (usando come asta una matita). Valuta, se pensi che ti possa essere utile potresti provarci anche tu  :D</article>
+<article class="post" id="p23434"><div class="who"><b>Flaffo</b><span>7 gen 2017, 19:33</span></div>Ok, a captainjonhncabot in testimone. Come avevo accennato c'è un metodo meno calcoloso per dimostrare la disequazione, se qualcuno vuole è libero di trovarlo :D <br>
+<br>
+Per Guido, penso sia ovvio il fatto della rotazione attorno al centro di massa, mentre è sbagliato partore dal presupposto che l'estremo sIa fermo anche perche non è completamente vincolato. La rotazione attorno al centro di massa, comunque,  risulta <strong class="text-strong">sempre </strong> lecita come si dimostra nel teorema di Chasles</article>
+<article class="post" id="p23435"><div class="who"><b>CaptainJohnCabot</b><span>7 gen 2017, 20:27</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>La rotazione attorno al centro di massa, comunque,  risulta <strong class="text-strong">sempre </strong> lecita come si dimostra nel teorema di Chasles</div></blockquote>
+Un teorema per ogni occasione  ;) <br>
+<br>
+Posto subito un problema che mi sembra carino  :arrow:</article>
+<article class="post" id="p23437"><div class="who"><b>guido</b><span>8 gen 2017, 11:17</span></div><blockquote><div><cite>CaptainJohnCabot ha scritto:</cite>Per guido: nelle equazioni mi sono affidato ciecamente al consiglio di Flaffo, quindi, a meno di errori, dovrebbero essere entrambe riferite al CdM. Il ragionamento sarebbe quindi giustificato se fosse possibile considerare il sistema del CdM in equilibrio all'istante iniziale. Ovvero se si prendesse un tempo talmente breve da poter considerare la rotazione ancora puramente intorno al CdM. <br>
+Intuitivamente mi pareva strano, però ho fatto e ripreso l'esperimento, e dall'analisi del video risulta effettivamente che l'estremità sale. Pertanto dovrebbe essere lecito considerare la rotazione intorno al CdM all'istante iniziale.</div></blockquote>
+
+Considero sbagliato riferire le equazioni al cdm. e di sicuro lo è la seconda perchè se fosse stata da voi riferita al centro di sospensione fisso come ho fatto io il momento di T sarebbe 0 mentre per voi è quello che determina la rotazione attorno a cdm.<br>
+<strong class="text-strong">Allora nel sistema del cdm non c'è acc. del cdm !! Allo stesso modo che nel sistema dell'ascensore in caduta libera non c'è acc. di gravità!!</strong>Quindi su questa base il vs procedimento sarebbe fortemente inquinato. La soluzione del video <strong class="text-strong">non è una soluzione.</strong>Rimango pertanto della mia idea. Flaffo, hai letto distrattamente la mia soluzione: non è affatto vero che parto dall'ipotesi che l'estremità sia fissa!! Io riferisco le equazioni al sistema fisso con origine nel centro di sospensione, trovo che quando la rotazione è appena iniziata T&gt;0 e pertanto DEDUCO che l'estremità NON sale.  :!:  :!:</article>
+<nav class="pager"><a class="prev" href="olifis-7222.html"><small>← precedente</small>Sfera in una doppia guida</a><a class="next" href="olifis-6434.html"><small>successivo →</small>105. Palla su foglio di carta</a></nav>
+</main></body></html>

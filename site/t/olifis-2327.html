@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotazione attorno ad un perno</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Rotazione attorno ad un perno</h1>
+<p class="meta">41 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=2327">forum Olifis</a></p>
+<article class="post first" id="p11115"><div class="who"><b>michele95</b><span>21 gen 2013, 17:07</span></div><blockquote class="uncited"><div>Su un piano orizzontale ruota con attrito trascurabile attorno ad un piccolo perno una sferetta trattenuta da un filo inestensibile. In questa configurazione man mano che la sfera ruota il filo si avvolge attorno al perno. Quanto sarà la velocità angolare della sferetta quando essa si troverà ad una distanza dal perno <span class="tex">\(r&lt;r_0\)</span>?</div></blockquote>
+
+Questo è l' n-esimo problema (tra problemi di ammisione in scuole di eccellenza, almeno un Senigallia, problemi su libri di testo, ecc...) che gli autori nella loro soluzione risolvono usando la conservazione del momento della quantità di moto (modo, a mio parere, sbagliato). Per avere la conferma di non essere totalmente pazzo, chiedo a voi di provare a fare lo stesso ragionamento che ho fatto io.<br>
+<br>
+a) Una volta risolto il problema come vogliono gli autori, non notate nulla nel risultato che viola vistosamente un'importante legge fisica?<br>
+<br>
+b) Se sì riuscite a capire, analizzando le forze in gioco, perché non si poteva usare la conservazione dello spin?<br>
+<br>
+c) Riuscite a mostrare con un ragionamento semi-qualitativo che, a parità di <span class="tex">\(r\)</span>  e <span class="tex">\(r_0\)</span>, l'errore che si commette stimando lo spin costante è indipendente dalle dimensioni del piolo? (senza usare le considerazioni del punto a)</article>
+<article class="post" id="p11141"><div class="who"><b>bozzio</b><span>21 gen 2013, 21:40</span></div>Premetto di non sapere cosa sia la conservazione dello spin, ad ogni modo perché è errata la conservazione del momento angolare?</article>
+<article class="post" id="p11147"><div class="who"><b>Gabry</b><span>21 gen 2013, 22:46</span></div>Mi sembra difficile che in tutti questi contesti diversi si possa trovare un errore sistematico. Se le dimensioni del perno sono trascurabili e non ci sono attriti allora non ci sono momenti netti (la reazione vincolare produce momento nullo prendendo come origine del sistema di riferimento il perno) quindi il momento angolare si conserva. <br>
+Se ho intuito bene,cioe' la legge che tu credi sia violata e' l' energia, ti posso dire che ti sbagli infatti la reazione vincolare compie un  lavoro non nullo.</article>
+<article class="post" id="p11231"><div class="who"><b>michele95</b><span>22 gen 2013, 15:13</span></div>A Bozzio: per spin intendevo momento angolare.</article>
+<article class="post" id="p11233"><div class="who"><b>michele95</b><span>22 gen 2013, 15:25</span></div>A Gabry:<br>
+Mi sfugge come una reazione vincolare possa compiere un lavoro, proprio perché essa è limitata ad agire (avere il punto di applicazione) su una superficie fissa (credo che tu dicessi quella del perno). Ora, dato che la forza (dato che non ci sono attriti) è normale alla superficie su cui si può spostare l'altro corpo (la fune o qualunque altra cosa), la reazione vincolare non può compiere un lavoro. Probabilmente, o non ho capito cosa intendevi, o mi sfugge qualcosa. Potresti spiegarmi meglio quello che intendi?<br>
+<br>
+Comunque ammettiamo pure che il lavoro sia svolto dalla reazione vincolare. Quanto lavoro devi compiere per srotolare il filo e riportare la sferetta nella posizione iniziale? Se vuoi che il tuo ragionamento funzioni mi devi dare un valore che sia strettamente maggiore di zero, nonché uguale alla differenza di energia cinetica della sferetta.</article>
+<article class="post" id="p11258"><div class="who"><b>Gabry</b><span>22 gen 2013, 19:58</span></div><blockquote><div><cite>michele95 ha scritto:</cite>Mi sfugge come una reazione vincolare possa compiere un lavoro</div></blockquote>
+Scusami scrivevo dal cellulare e mi sono espresso male, la forza che compie il lavoro è la tensione (in questo senso reazione vincolare, se fosse stata un'asta) in quanto il punto di applicazione (la pallina) nel sistema solidale al perno si sposta. Il lavoro compiuto e la differenza di energia cinetica sono quindi <span class="tex">\(L=T\Delta r\)</span> scritta meglio <span class="tex">\(dE_c=-{mv^2 \over r}dr\)</span> cioè <span class="tex">\(mvdv=-{mv^2 \over r}dr\)</span> risolvendo l'equazione differenziale si ottiene <span class="tex">\({v_f \over v_i}={r_i \over r_f}\)</span> che è proprio la conservazione del momento angolare. <br>
+E' normale che possa venire il dubbio, tuttavia trattare analiticamente la situazione non è sempre facile come in questo caso, quindi quando ci sono i presupposti affinchè si conservi il momento angolare fidati di quello, non rischiare di lasciare un problema in bianco per un dubbio che sebbene lecito con solide basi di teoria dovrebbe essere risolto (nel senso sapere che se il momento netto agente è nullo allora in ogni caso si conserva il momento angolare).</article>
+<article class="post" id="p11260"><div class="who"><b>michele95</b><span>22 gen 2013, 20:00</span></div>Non hai risposto alla domanda sul lavoro!</article>
+<article class="post" id="p11261"><div class="who"><b>michele95</b><span>22 gen 2013, 20:03</span></div>Proprio perché non è facile trattare la situazione analiticamente facciamo qualche considerazione globale sull'energia. Prova a rispondere alla domanda sul lavoro...</article>
+<article class="post" id="p11262"><div class="who"><b>Gabry</b><span>22 gen 2013, 20:03</span></div><blockquote><div><cite>michele95 ha scritto:</cite>Non hai risposto alla domanda sul lavoro!</div></blockquote>
+ <blockquote><div><cite>Gabry ha scritto:</cite>L=T\Delta r</div></blockquote></article>
+<article class="post" id="p11263"><div class="who"><b>michele95</b><span>22 gen 2013, 20:07</span></div><blockquote class="uncited"><div>Comunque ammettiamo pure che il lavoro sia svolto dalla reazione vincolare. Quanto lavoro devi compiere per srotolare il filo e riportare la sferetta nella posizione iniziale? Se vuoi che il tuo ragionamento funzioni mi devi dare un valore che sia strettamente maggiore di zero, nonché uguale alla differenza di energia cinetica della sferetta.
+</div></blockquote>
+
+Intendevo il lavoro che ti serve per srotolare il filo e riportare tutto allo stato iniziale. Forse mi ero espresso male...</article>
+<article class="post" id="p11265"><div class="who"><b>Gabry</b><span>22 gen 2013, 20:10</span></div>In questo caso il lavoro è soltanto quello necessario a mettere in moto la pallina con la velocità iniziale (se prima stendi il filo senza incontrare alcuna resistenza e poi metti in moto la pallina) ma devi sempre considerare che con l'urto si è persa una parte consistente di energia!</article>
+<article class="post" id="p11266"><div class="who"><b>michele95</b><span>22 gen 2013, 20:18</span></div>Lascia stare gli urti... Se la pallina urta il perno la tua approssimazione che si possa conservare il momento angolare non resta valida!<br>
+<br>
+Facciamo un ragionamento ideale.<br>
+Imprimo inizialmente una piccola velocità alla pallina. Quando il raggio è , diciamo, la metà e la sua energia cinetica è quadruplicata la fermo e assorbo la sua energia cinetica (che posso usare per scaldare qualcosa o far girare una pala). Ora con la palla ferma riporto tutta l'apparecchiatura, se vuoi molto lentamente, in posizione finale. Per fare questa operazione non ho dovuto compiere lavoro, no? Ora rimetto in moto la pallina e vado avanti ciclicamente, e così facendo produco energia dal nulla!!!!!!!! :shock:<br>
+<br>
+Converrai con me che tutto ciò è lievemente assurdo!!!!</article>
+<article class="post" id="p11267"><div class="who"><b>michele95</b><span>22 gen 2013, 20:23</span></div><blockquote><div><cite>Gabry ha scritto:</cite>
+Scusami scrivevo dal cellulare e mi sono espresso male, la forza che compie il lavoro è la tensione (in questo senso reazione vincolare, se fosse stata un'asta) in quanto il punto di applicazione (la pallina) nel sistema solidale al perno si sposta. Il lavoro compiuto e la differenza di energia cinetica sono quindi <span class="tex">\(L=T\Delta r\)</span> scritta meglio <span class="tex">\(dE_c=-{mv^2 \over r}dr\)</span> cioè <span class="tex">\(mvdv=-{mv^2 \over r}dr\)</span> risolvendo l'equazione differenziale si ottiene <span class="tex">\({v_f \over v_i}={r_i \over r_f}\)</span> che è proprio la conservazione del momento angolare. 
+</div></blockquote>
+
+Ti faccio notare che al primo membro chiami v la velocità, mentre al secondo la sua componente tangenziale. Dato che il raggio diminuisce converrai con me che la velocità deve avere anche una componente radiale...<br>
+Quindi il tuo ragionamento è sbagliato!</article>
+<article class="post" id="p11269"><div class="who"><b>Gabry</b><span>22 gen 2013, 20:28</span></div>Non hai prodotto energia dal nulla, la palla è collegata in qualche modo ad un piano quindi se la tensione ha prodotto un lavoro (che si ripercuote sul perno) allora anche la pallina ha prodotto lavoro sul piano e quindi il piano ha accelerato e ora si muove con una certa velocità. Se vuoi riportare tutto nelle condizioni iniziali dovrai dare una velocità alla pallina uguale a quella di partenza ma nel sistema di riferimento del piano, il che significa che in un sistema di riferimento solidale a quello iniziale del piano (prima che la pallina iniziasse ad avvolgersi) dovrai conferirgli una velocità, e quindi un'energia, maggiore.</article>
+<article class="post" id="p11270"><div class="who"><b>michele95</b><span>22 gen 2013, 20:33</span></div>Io colpisco la pallina dal piano. Nel mio sistema di riferimento gli do la stessa velocità di prima. Dato che il mio sistema è inerziale quando è tutto fermo, io non mi posso accorgermi di quello che dici tu e uso la stessa energia per metterlo in moto.<br>
+Quando devi colpire una pallina tu non pensi quanta energia cinetica gli dovrò dare, visto la velocità a cui si sta muovendo la Terra e tu e la pallina con lei!!!<br>
+Poi se il piano si sta muovendo è ancora meglio, perché lo fermo compiendo un lavoro negativo e guadagno ancora più energia e solo dopo rimetto in moto la palla se è questo che credi non funzioni.</article>
+<article class="post" id="p11272"><div class="who"><b>Gabry</b><span>22 gen 2013, 20:48</span></div>Non mi so regolare bene con l'energia in diversi sitemi di riferimento, ma se il momento angolare cambia, qual è il momento che lo fa cambiare?<br>
+<br>
+P.s. Ho trovato su una fonte abbastanza attendibile che l'energia si conserva perchè la tensione è sempre ortogonale alla velocità, tuttavia così dicendo non considera né lo spostamento ne la velocità radiale quindi non so cosa sia più giusto.</article>
+<article class="post" id="p11274"><div class="who"><b>michele95</b><span>22 gen 2013, 20:54</span></div>La risposta a entrambe le domande è la stessa: il piolo ha un suo raggio!!!!<br>
+La velocità radiale rispetto al punto di contatto non è la velocità radiale rispetto al centro del piolo!!!<br>
+La tensione non è una forza centrale perché è tangente al piolo e non diretta verso il suo centro!!<br>
+<br>
+Puoi provare a fare un'approssimazione, ma, se ti vengono risultati totalmente assurdi, la devi abbandonare.<br>
+Non è facilissimo (ma neanche troppo difficile), senza analizzare le conseguenze, notare il fatto che l'approssimazione del piolo con raggio piccolissimo è sbagliata.</article>
+<article class="post" id="p11275"><div class="who"><b>michele95</b><span>22 gen 2013, 20:57</span></div>P.S. Per la cronaca, il lavoro è un prodotto scalare!!! Questa è un'altra ragione per cui le tue equazioni sono sbagliate.</article>
+<article class="post" id="p11276"><div class="who"><b>Gabry</b><span>22 gen 2013, 20:59</span></div><blockquote><div><cite>michele95 ha scritto:</cite>La risposta a entrambe le domande è la stessa: il piolo ha un suo raggio!!!!</div></blockquote>
+Siamo però nell'ipotesi in cui il piolo è piccolo cioè ha (almeno così lo interpeto io) dimensioni trascurabili. Se si riuscisse a trovare un momento in queste condizioni allora è sicuro che la conservazione del momento angolare non si poteva usare fin dall'inizio, ma se non ci sono momenti in azione la conservazione del momento angolare è necessariamente valida.</article>
+<article class="post" id="p11278"><div class="who"><b>Gabry</b><span>22 gen 2013, 21:02</span></div><blockquote><div><cite>michele95 ha scritto:</cite>P.S. Per la cronaca, il lavoro è un prodotto scalare!!! Questa è un'altra ragione per cui le tue equazioni sono sbagliate.</div></blockquote>
+Non mi pare di aver considerato il prodotto vettoriale (ho usato infatti la diminuzione del raggio parallela alla forza), il dubbio che mi viene sull'equazione che ho scritto è sulla velocità radiale.<br>
+Credo che l'incongruenza stia nel fatto che probabiblmente non è possibile avvolgere un filo attorno ad un piolo puntiforme infatti ad ogni giro se anche il filo ha spessore trascurabile si avvolgerebbe una lunghezza pari a 0 ma per far avvicinare la pallina sarebbe necessario un qualche tipo di forza (legata quindi ad un potenziale) rimanendo quindi la conservazione dell'energia rispettata.<br>
+ Nel caso in cui il piolo ha delle dimensioni allora è ovvio che il momento angolare non si conserva dato che il filo e quindi la tensione non non diretti lungo la congiungente i cetrni pallina-piolo.</article>
+<article class="post" id="p11279"><div class="who"><b>michele95</b><span>22 gen 2013, 21:07</span></div>In tal caso rispondo anche al punto c)
+<blockquote><div><cite>michele95 ha scritto:</cite>c) Riuscite a mostrare con un ragionamento semi-qualitativo che, a parità di  e , l'errore che si commette stimando lo spin costante è indipendente dalle dimensioni del piolo? (senza usare le considerazioni del punto a)</div></blockquote>
+La variazione totale di momento angolare è l'integrale del momento nel tempo.<br>
+Quando riduco il raggio del piolo di un fattore k il momento è ridotto anche lui di un fattore k (tensioni e angoli sono gli stessi). Con il piolo ridotto di un fattore k, quanto tempo impiego a raggiungere una certa distanza dal piolo? La risposta è k volte più tempo (la circonferenza è anch'essa ridotta di un fattore k)! Quindi la variazione di momento angolare è la stessa!!!!!!!!!!</article>
+<article class="post" id="p11280"><div class="who"><b>Gabry</b><span>22 gen 2013, 21:10</span></div><blockquote><div><cite>michele95 ha scritto:</cite>In tal caso rispondo anche al punto c)
+<blockquote><div><cite>michele95 ha scritto:</cite>c) Riuscite a mostrare con un ragionamento semi-qualitativo che, a parità di  e , l'errore che si commette stimando lo spin costante è indipendente dalle dimensioni del piolo? (senza usare le considerazioni del punto a)</div></blockquote>
+La variazione totale di momento angolare è l'integrale del momento nel tempo.<br>
+Quando riduco il raggio del piolo di un fattore k il momento è ridotto anche lui di un fattore k (tensioni e angoli sono gli stessi). Con il piolo ridotto di un fattore k, quanto tempo impiego a raggiungere una certa distanza dal piolo? La risposta è k volte più tempo (la circonferenza è anch'essa ridotta di un fattore k)! Quindi la variazione di momento angolare è la stessa!!!!!!!!!!</div></blockquote>
+Se il momento è 0 e il piolo ha un raggio nullo ottieni un tempo infinito e zero per infinito è una forma indeterminata non mi sbilancerei dicendo che la variazione di momento angolare è la stessa. Leggi la modifica che ho fatto al post precedente potrebbe essere lì il problema, con un piolo puntiforme il filo non potrebbe avvolgersi (confermato dal fatto che il tempo viene infinito).</article>
+<article class="post" id="p11282"><div class="who"><b>michele95</b><span>22 gen 2013, 21:14</span></div>Quello che hai detto tu è la stessa cosa che ho detto io, ma scritta in un modo diverso (se permetti, la tua è un po' meno formale)</article>
+<article class="post" id="p11283"><div class="who"><b>michele95</b><span>22 gen 2013, 21:17</span></div><blockquote><div><cite>Gabry ha scritto:</cite>
+Non mi pare di aver considerato il prodotto vettoriale (ho usato infatti la diminuzione del raggio parallela alla forza), il dubbio che mi viene sull'equazione che ho scritto è sulla velocità radiale.
+</div></blockquote>
+Scusa, lì ho sbagliato io nella tua approssimazione quello è un prodotto scalare. Avevo frainteso io.</article>
+<article class="post" id="p11284"><div class="who"><b>Gabry</b><span>22 gen 2013, 21:18</span></div><blockquote><div><cite>michele95 ha scritto:</cite>uello che hai detto tu è la stessa cosa che ho detto io, ma scritta in un modo diverso (se permetti, la tua è un po' meno formale)</div></blockquote>
+
+<blockquote><div><cite>michele95 ha scritto:</cite>Quindi la variazione di momento angolare è la stessa!!!!!!!!!!</div></blockquote>
+
+Non credo, la variazione di momento angolare se il filo non si avvolge è nulla così come la variazione di energia (la pallina continua semplicemente a muoversi di moto circolare uniforme), tu mi pare che stia sostenendo una variazione di momento angolare non nulla nel caso del piolo puntiforme.</article>
+<article class="post" id="p11285"><div class="who"><b>michele95</b><span>22 gen 2013, 21:21</span></div><blockquote><div><cite>Gabry ha scritto:</cite><blockquote><div><cite>michele95 ha scritto:</cite>uello che hai detto tu è la stessa cosa che ho detto io, ma scritta in un modo diverso (se permetti, la tua è un po' meno formale)</div></blockquote>
+
+<blockquote><div><cite>michele95 ha scritto:</cite>Quindi la variazione di momento angolare è la stessa!!!!!!!!!!</div></blockquote>
+
+Non credo, la variazione di momento angolare se il filo non si avvolge è nulla così come la variazione di energia (la pallina continua semplicemente a muoversi di moto circolare uniforme), tu mi pare che stia sostenendo una variazione di momento angolare non nulla nel caso del piolo puntiforme.</div></blockquote>
+Lascia stare un attimo il piolo puntiforme che è un caso limite che rende abbastanza male l'idea. Quello che intendo io è che fissati i due raggi (iniziale e finale), la variazione di momento angolare è la stessa.<br>
+Nel caso del piolo puntiforme non raggiungi mai il raggio finale e quindi perdi il significato intuitivo.</article>
+<article class="post" id="p11287"><div class="who"><b>Gabry</b><span>22 gen 2013, 21:27</span></div><blockquote class="uncited"><div>Lascia stare un attimo il piolo puntiforme che è un caso limite che rende abbastanza male l'idea. Quello che intendo io è che fissati i due raggi (iniziale e finale), la variazione di momento angolare è la stessa.</div></blockquote>
+La stessa rispetto a cosa? Io (l'avevo detto prima ancora del tuo post) mi riferivo al caso del piolo puntiforme in cui il momento netto è nullo. Il piolo puntiforme è un caso limite, ma se viene detto un piccolo piolo senza fornirne le dimensioni penso ad un piolo con dimensioni trascurabili (quindi puntiforme).</article>
+<article class="post" id="p11295"><div class="who"><b>michele95</b><span>22 gen 2013, 22:48</span></div>E' la stessa, cioè non cambia al variare del raggio del piolo.<br>
+Se vuoi una formulazione più rigorosa: il problema di determinare la variazione di momento angolare, dati il raggio iniziale e quello finale (cioè la distanza della sfera dal centro del piolo) è invariante rispetto al raggio del piolo. Così è chiaro?<br>
+Comunque, in generale, quando in un problema una cosa è detta piccola non puoi sempre dire è uguale a zero, perché a volte, ragionando così, sbagli. Se vuoi un'esempio pensa a come hanno risolto questo problema gli autori del problema stesso.Comunque lasciamo perdere questi discorsi e relative discussioni, che sono altamente inutili.<br>
+<br>
+Detto ciò sei d'accordo anche tu, allora, che il metodo risolutivo che ho definito sbagliato, che usa la conservazione del momento della quantità di moto, sia effettivamente sbagliato?</article>
+<article class="post" id="p11386"><div class="who"><b>Gabry</b><span>23 gen 2013, 14:35</span></div><blockquote><div><cite>michele95 ha scritto:</cite>E' la stessa, cioè non cambia al variare del raggio del piolo.</div></blockquote>
+Se il raggio è 0 non è la stessa per questo non avevo ben compreso.<br>
+<br>
+Se il perno non è puntiforme il momento angolare della pallina non si conserva dato che la tensione non è più una forza centrale ed è quindi presente un visibile momento agente. <br>
+<br>
+P.S. Nei vari Senigallia non ho mai trovato problemi di questo tipo sei sicuro che il problema che hai trovato tu non sia qualcosa di simile a questo ma diverso? Ad esempio che al posto del filo non ci sia un qualche tipo di forza?</article>
+<article class="post" id="p11393"><div class="who"><b>michele95</b><span>23 gen 2013, 15:29</span></div>Era un Senigallia che non si trova su internet perché è molto vecchio.<br>
+Mi sembra di ricordare che ci fosse un'altalena con un piolo che la bloccava a metà o qualcosa del genere. Il risultato che veniva dato nelle soluzioni era giusto, ma per il motivo sbagliato. Ma non ricordo bene e credo di aver perso quel libretto.<br>
+<br>
+Comunque, siccome risolverlo nel modo giusto non è eccessivamente difficile (c'è solo bisogno di stare un po' attenti), ti sfiderei a farlo. Tra l'altro dalla soluzione esatta si vede che il ragionamento che ho fatto sopra riguardo al fatto che il problema è invariante rispetto alle dimensioni del piolo è vero solo a livello molto indicativo (un giro di parole per dire che è falso, ma che l'idea che ci sta dietro è giusta).</article>
+<article class="post" id="p11397"><div class="who"><b>Gabry</b><span>23 gen 2013, 16:04</span></div><blockquote><div><cite>michele95 ha scritto:</cite>Era un Senigallia che non si trova su internet perché è molto vecchio.<br>
+Mi sembra di ricordare che ci fosse un'altalena con un piolo che la bloccava a metà o qualcosa del genere. Il risultato che veniva dato nelle soluzioni era giusto, ma per il motivo sbagliato. Ma non ricordo bene e credo di aver perso quel libretto.</div></blockquote>
+Mi sembra difficile che con un ragionamento sbagliato si possa arrivare ad un ragionamento corretto, magari usava la conservazione del momento angolare rispetto a qualche polo particolare.
+<blockquote><div><cite>michele95 ha scritto:</cite>
+Comunque, siccome risolverlo nel modo giusto non è eccessivamente difficile (c'è solo bisogno di stare un po' attenti), ti sfiderei a farlo. Tra l'altro dalla soluzione esatta si vede che il ragionamento che ho fatto sopra riguardo al fatto che il problema è invariante rispetto alle dimensioni del piolo è vero solo a livello molto indicativo (un giro di parole per dire che è falso, ma che l'idea che ci sta dietro è giusta).</div></blockquote>
+Cosa devo risolvere? Devo trovare la velocità? Semplicemente la velocità lineare rimane la stessa per la conservazione dell'energia (la spiegazione che avevo trovato in un problema era giusta perchè in quel problema il piolo aveva dimensioni non nulle la tensione non era una forza centrale e lo spostamento lungo il filo era nullo).</article>
+<article class="post" id="p11398"><div class="who"><b>michele95</b><span>23 gen 2013, 16:06</span></div>Mi sono spiegato male. C'era da trovare la velocità tangenziale.</article>
+<article class="post" id="p11401"><div class="who"><b>Gabry</b><span>23 gen 2013, 16:28</span></div><blockquote><div><cite>michele95 ha scritto:</cite>Mi sono spiegato male. C'era da trovare la velocità tangenziale.</div></blockquote>
+Tangenziale a cosa? La velocità è sempre ortogonale alla tensione del filo.</article>
+<article class="post" id="p11404"><div class="who"><b>michele95</b><span>23 gen 2013, 16:56</span></div>Fissato un polo, puoi sempre scomporre la velocità in una componente radiale <span class="tex">\(\frac{dr}{dt}\)</span> e in una tangenziale <span class="tex">\(\frac{d\theta}{dt}\)</span>. Prendi come polo il centro del piolo (di raggio R) e calcola la velocità tangenziale ad un dato r, sapendo che la sfera parte ad un raggio <span class="tex">\(r_0\)</span> con velocità pari, in modulo, a <span class="tex">\(v_0\)</span>.<br>
+<br>
+Si capisce così???</article>
+<article class="post" id="p11411"><div class="who"><b>Gabry</b><span>23 gen 2013, 18:04</span></div><blockquote><div><cite>michele95 ha scritto:</cite>Prendi come polo il centro del piolo (di raggio R) e calcola la velocità tangenziale ad un dato r, sapendo che la sfera parte ad un raggio r_0 con velocità pari, in modulo, a v_0.</div></blockquote>
+
+La velocità è sempre ortogonale al filo e sempre uguale in modulo. Consideriamo l'angolo formato dal filo e dalla congiungente i centri del piolo questo angolo vale <span class="tex">\(sen\theta={R \over r}\)</span> dove d è la distanza dal centro la velocità tangenziale sarà <span class="tex">\(v_t=v_0cos\theta\)</span> sempre costante in modulo dato che né la velocità né l'angolo cambiano con il tempo.</article>
+<article class="post" id="p11413"><div class="who"><b>michele95</b><span>23 gen 2013, 18:24</span></div><blockquote><div><cite>Gabry ha scritto:</cite>
+La velocità è sempre ortogonale al filo e sempre uguale in modulo. Consideriamo l'angolo formato dal filo e dalla congiungente i centri del piolo questo angolo vale <span class="tex">\(sen\theta={R \over r}\)</span> dove d è la distanza dal centro </div></blockquote>
+
+Non ho capito, la distanza dal centro non è r?<br>
+Poi al massimo quella sarà la tangente di theta, no?<br>
+Comunque ho dei forti dubbi che il risultato che trovi sia corretto, perché il punto di contatto tra corda e piolo non è fisso, ma si muove in modo strano! Se metti la relazione che hai trovato in una forma esplicita del tipo v=f(v_0,R,r,r_0) vediamo se ci viene lo stesso risultato...</article>
+<article class="post" id="p11416"><div class="who"><b>Gabry</b><span>23 gen 2013, 18:38</span></div><blockquote><div><cite>michele95 ha scritto:</cite>Non ho capito, la distanza dal centro non è r?</div></blockquote>
+Si ho sbagliato a scrivere.<br>
+
+<blockquote><div><cite>michele95 ha scritto:</cite>Poi al massimo quella sarà la tangente di theta, no?</div></blockquote>
+No, al punto di contatto il filo è tangente al piolo quindi ortogonale al raggio quindi si ha un triangolo rettangolo di cui il filo è un cateto e la distanza dal centro l'ipotenusa.<br>
+
+<blockquote><div><cite>michele95 ha scritto:</cite>Comunque ho dei forti dubbi che il risultato che trovi sia corretto, perché il punto di contatto tra corda e piolo non è fisso, ma si muove in modo strano!</div></blockquote>
+Il punto di contatto ruota semplicemente attorno al piolo, l'angolo (prima mi sono sbagliato) non è costante perchè è funzione di r.<br>
+<br>
+Riscritta la velocità tangenziale diventa <span class="tex">\(v_t={v_0 \over r}\sqrt{r^2-R^2}\)</span>.</article>
+<article class="post" id="p11419"><div class="who"><b>michele95</b><span>23 gen 2013, 18:54</span></div><blockquote><div><cite>Gabry ha scritto:</cite>
+<blockquote><div><cite>michele95 ha scritto:</cite>Poi al massimo quella sarà la tangente di theta, no?</div></blockquote>
+No, al punto di contatto il filo è tangente al piolo quindi ortogonale al raggio quindi si ha un triangolo rettangolo di cui il filo è un cateto e la distanza dal centro l'ipotenusa.
+</div></blockquote>
+Scusa, mi ero distratto.</article>
+<article class="post" id="p11420"><div class="who"><b>michele95</b><span>23 gen 2013, 18:58</span></div>Aspetto a dirti cosa veniva a me, perché mi sono accorto che c'era un errore di calcolo nel mio procedimento, allora lo ricontrollo con calma domani mattina e poi ti dico.</article>
+<article class="post" id="p11421"><div class="who"><b>michele95</b><span>23 gen 2013, 19:03</span></div><blockquote><div><cite>Gabry ha scritto:</cite>
+Il punto di contatto ruota semplicemente attorno al piolo
+</div></blockquote>
+Sì, ma in funzione del tempo non mi sembra affatto così banale il suo moto.</article>
+<article class="post" id="p11547"><div class="who"><b>michele95</b><span>24 gen 2013, 15:58</span></div>Ho ricontrollato i conti e alla fine mi viene lo stesso risultato che viene a te. Solamente che il mio procedimento è più lungo e contoso, molto meno elegante del tuo.</article>
+<nav class="pager"><a class="prev" href="olifis-6886.html"><small>← precedente</small>202. Corsa sul ghiaccio</a><a class="next" href="olifis-29.html"><small>successivo →</small>Asta che cade.</a></nav>
+</main></body></html>

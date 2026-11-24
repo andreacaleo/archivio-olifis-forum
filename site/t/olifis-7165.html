@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>300. Forza impulsiva</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>300. Forza impulsiva</h1>
+<p class="meta">34 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7165">forum Olifis</a></p>
+<article class="post first" id="p27552"><div class="who"><b>Pigkappa</b><span>3 dic 2022, 19:18</span></div>Un corpo di massa <span class="tex">\(m\)</span> si trova su un piano orizzontale senza attrito, in posizione <span class="tex">\(x=0\)</span>. Una forza <span class="tex">\(F_0\)</span> costante lo spinge per un tempo <span class="tex">\(\delta t\)</span> lungo <span class="tex">\(\hat x\)</span>. <br>
+<br>
+1. Determina, al tempo <span class="tex">\(\delta t\)</span>, la posizione del corpo, la sua velocita', e il lavoro fatto dalla forza. Esprimi i risultati in termini di <span class="tex">\(F_0\)</span>, <span class="tex">\(m\)</span>, <span class="tex">\(\delta t\)</span>.<br>
+<br>
+Vogliamo costruire un modello per una forza impulsiva che agisce su un corpo. Il caso precedente e' quello di una forza costante che agisce per un tempo <span class="tex">\(\delta t\)</span>, ma un modello di forza impulsiva piu' realistico non sarebbe costante.<br>
+<br>
+2. Proponi una formula <span class="tex">\(F(t)\)</span> per una forza impulsiva in funzione del tempo che abbia queste caratteristiche: <span class="tex">\(F(t)\)</span> e' zero per <span class="tex">\(t \le 0\)</span> e <span class="tex">\(t \ge \delta t\)</span>, e' crescente per <span class="tex">\(t &lt; \delta t/2\)</span>, e' simmetrica rispetto a <span class="tex">\(\delta t / 2\)</span>, ed il suo valor medio tra <span class="tex">\(0\)</span> e <span class="tex">\(\delta t\)</span> e' <span class="tex">\(F_0\)</span>.<br>
+<br>
+3. Per la forza <span class="tex">\(F(t)\)</span> che hai proposto, dimostra che valgono nuovamente i risultati del punto 1.<br>
+<br>
+4. Dimostra che questi risultati valgono per qualsiasi forza <span class="tex">\(F(t)\)</span> che soddisfa le condizioni del punto 2.</article>
+<article class="post" id="p27553"><div class="who"><b>bosone</b><span>5 dic 2022, 18:55</span></div>1. <br>
+<span class="tex">\(a=\frac{\delta v}{\delta t}=\frac{F_0}{m}\)</span><span class="tex">\(\rightarrow \delta v=(F_0/m).\delta t\)</span>  <br>
+<span class="tex">\(\delta s=(1/2)\frac{\delta v}{\delta t}(\delta t)^2= (1/2)(F_0/m)(\delta t)^2\)</span>        <span class="tex">\(\delta W=F_0.(1/2)(F_0/m)(\delta t)^2=(1/2)(F_0^2/m)(\delta t)^2\)</span><br>
+2. <span class="tex">\(F(t)= \frac{4F_0}{\delta t}.t       0&lt;t&lt; \frac{\delta t}{2}\)</span>         <span class="tex">\(F(t)= \frac{-4F_0}{\delta t}(t- \delta t)         
+\frac{\delta t}{2} &lt; t &lt; \delta t\)</span><br>
+Ho fatto anche il terzo punto con le integrazioni ma vorrei sapere se sono sulla strada giusta altrimenti ne cerco un'altra....</article>
+<article class="post" id="p27554"><div class="who"><b>Pigkappa</b><span>5 dic 2022, 19:21</span></div>L'1 e' giusto.<br>
+<br>
+Il 2 non proprio... La media di quella forza mi pare sia 0, non <span class="tex">\(F_0\)</span>. <br>
+<br>
+Quando vuoi fare il "per" in latex si capisce meglio se usi "\cdot" (=centered dot) oppure "\times", invece del punto, che compare in basso.</article>
+<article class="post" id="p27555"><div class="who"><b>bosone</b><span>6 dic 2022, 12:27</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7165.html#p27554" data-post-id="27554" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">5 dic 2022, 19:21</div></cite>
+L'1 e' giusto.<br>
+<br>
+Il 2 non proprio... La media di quella forza mi pare sia 0, non <span class="tex">\(F_0\)</span>. </div></blockquote>
+
+Ma come? Se lo dice il testo che il valor medio è <span class="tex">\(F_0\)</span>. Scusa ma forse non ho capito bene il testo. Pensavo che la F(t) dovesse avere le caratteristiche date fra cui il valor medio che a me sembra <span class="tex">\(F_0\)</span>nell'intervallo <span class="tex">\(0,\delta t \)</span> :?:</article>
+<article class="post" id="p27556"><div class="who"><b>Pigkappa</b><span>6 dic 2022, 21:16</span></div>Errore mio, avevo fatto il grafico della tua funzione a mente e lo avevo fatto sbagliato, chiedo scusa; giusto anche il 2.<br>
+<br>
+Plottando, si vede che la funzione va bene:<br>
+<a class="lost" href="https://i.imgur.com/apos4sZ.png" class="ext">[immagine non più disponibile]</a><br>
+La media e' base per altezza diviso 2 ed e' <span class="tex">\(F_0\)</span>.<br>
+<br>
+Una delle mie funzioni di prova era la stessa tua, ma la avevo scritta come:<br>
+<span class="tex">\(\displaystyle F(t)=2 F_0 \big (\delta t - | 2t - \delta t \big |)\)</span><br>
+<br>
+Btw un modo per imparare gradualmente un po' di latex (che si usa per scrivere articoli e tesi di fisica e matematica) e' guardare i comandi scritti da altri. Se premi il pulsantino "rispondi citando" in alto a destra nei messaggi di qualcuno (io lo vedo solo al pc, non su telefono), puoi "citarli" e nel fare questo ti viene mostrato quel che hanno scritto, e cosi vedi il codice sorgente latex.</article>
+<article class="post" id="p27557"><div class="who"><b>bosone</b><span>8 dic 2022, 11:33</span></div>3. Accertato che <span class="tex">\(F_0 \)</span> è il valor medio di F(t) si può procedere per <span class="tex">\(0&lt; t&lt;\delta t/2\)</span> il valore iniziale di <span class="tex">\(\delta v \)</span>è nullo e quello in <span class="tex">\(\delta t/2\)</span>è <span class="tex">\(2F_0 \delta t/m\)</span>per cui la media di <span class="tex">\(\delta v\)</span>è proprio<span class="tex">\(F_0 \delta t /m\)</span>come in 1. Analogamente viene lo stesso risultato per <span class="tex">\(\delta t/2&lt;t&lt;\delta t\)</span>. Considerando poi <span class="tex">\(\delta s\)</span>che è nullo per t=0 e,sfruttando il valor medio di <span class="tex">\(\delta v\)</span>, è <span class="tex">\(\frac{F_0(\delta t)^2}{m}\)</span> in <span class="tex">\(\delta t\)</span>per cui ha un valor medio <span class="tex">\(\delta s= \frac{F_0 (\delta t)^2}{2m}\)</span> lo stesso risultato di 1. Infine il lavoro <span class="tex">\(\delta W\)</span>, considerando il valor medio <span class="tex">\(F_0\)</span> di F(t), può scriversi <span class="tex">\(\delta W = F_0 \delta s= {F_0^2 (\delta t)^2}{2m}\)</span> come al punto 1.<br>
+4. Una qualunque F(t) che soddisfi alle condizioni 2, si presenta come una forza conservativa, nel senso che il suo lavoro non dipende dal suo grafico ma solo dai suoi valori estremi che sono identici a quelli della F(t) proposta in 2. Pertanto può essere usata come quella considerata. :?:  :?:</article>
+<article class="post" id="p27558"><div class="who"><b>Pigkappa</b><span>8 dic 2022, 23:12</span></div>Non mi trovo... Ti scrivo il perche' e ti mostro come avrei fatto il conto io con la tua funzione, per una sola delle domande.<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27557" data-post-id="27557" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">8 dic 2022, 11:33</div></cite>per <span class="tex">\(0&lt; t&lt;\delta t/2\)</span>, il valore iniziale di <span class="tex">\(\delta v \)</span>è nullo e quello in <span class="tex">\(\delta t/2\)</span>è <span class="tex">\(2F_0 \delta t/m\)</span>per cui la media di <span class="tex">\(\delta v\)</span> è proprio <span class="tex">\(F_0 \delta t /m\)</span> come in 1</div></blockquote>
+
+La media su un intervallo di lunghezza <span class="tex">\(T\)</span> e' per definizione <span class="tex">\(\displaystyle \bar v = \frac{1}{T} \int_{t_0}^{t_0+T}v(t)\; dt\)</span>; non e', in generale, la media aritmetica tra valore minimo e valore massimo. Se <span class="tex">\(v(t)\)</span> aumenta linearmente nel tempo, allora e' anche vero che <span class="tex">\(\bar v = \frac{v(t_0+T) + v(t_0)}{2}\)</span>. Ma nel caso della tua accelerazione <span class="tex">\(a(t) = \frac{4F_0}{m \delta t} \times t\)</span>, la velocita' non aumenta linearmente nel tempo. Per <span class="tex">\(T &lt; \delta t/2\)</span>, la velocita' vale <span class="tex">\(v(T) = \int_0^T(\frac{4F_0}{m \delta t} \times t)\; dt = \frac{4 F_0}{m \delta t} \frac{T^2}{2} = \frac{2 F_0 T^2}{m \delta t}\)</span>. La velocita' in <span class="tex">\(\delta t/2\)</span> e' <span class="tex">\(v(\delta t /2) = \frac{F_0 \delta t}{2m}\)</span>, nota che mi viene piu' piccola della tua di un fattore 4 (inoltre la tua velocita' a <span class="tex">\(\delta t/2\)</span> nella domanda 3 e' uguale al tuo risultato a <span class="tex">\(\delta t\)</span> nella domanda 1; questo sembra un campanello di allarme dato che l'accelerazione e' sempre positiva). La media tra velocita' iniziale e velocita' finale e' <span class="tex">\(\frac{F_0 \delta t}{4m}\)</span>. Ma la velocita' media in questo intervallo e' diversa:<br>
+<br>
+<span class="tex">\(\displaystyle \bar v = \frac{1}{\delta t / 2} \int_0^{\delta t / 2}(v(t)\; dt) = \frac{1}{\delta t / 2}  \times \frac{2 F_0}{m \delta t} \int_0^{\delta t / 2}(T^2\; dT) = \frac{4F_0}{m \delta t^2} \times \frac{1}{3} (\frac{\delta t}{2})^3\)</span><br>
+<span class="tex">\(\displaystyle \bar v =  \frac{F_0 \delta t}{6 m}\)</span><br>
+Il fatto che <span class="tex">\(\bar v &lt; (v(\delta t/2) + v(0))/2\)</span> e' corretto. Il corpo riceve piu' accelerazione verso la fine dell'intervallo di tempo che all'inizio, quindi passa piu' tempo in uno stato di bassa velocita' rispetto a come farebbe se fosse accelerato linearmente, quindi la velocita' media sara' piu' bassa.<br>
+<br>
+Io avrei risolto il punto 2 pensando gia' al punto 3, perche' e' chiaro che questa funzione andra' integrata (due volte), quindi scegliere una funzione a tratti introduce piu' dolore che scegliere una funzione trigonometrica, o un pezzo di parabola. Comunque, con la tua funzione, io avrei fatto il conto cosi'.<br>
+<br>
+Abbiamo gia' dimostrato per <span class="tex">\(T &lt; \delta t/2\)</span> che <span class="tex">\(\displaystyle v(T) = \frac{2 F_0 T^2}{m \delta t} \)</span>.<br>
+Se <span class="tex">\(\delta t/2 &lt; T &lt; \delta t\)</span>:<br>
+<span class="tex">\(\displaystyle v(T) = v(\delta t/2) + \int_{\delta t/2}^{T}(\frac{-4 F_0}{m \delta t}(t- \delta t) \; dt)\)</span><br>
+Si fanno i conti brutti e mi viene:<br>
+<span class="tex">\(\displaystyle v(T) = \frac{F_0}{m \delta t}(-\delta t^2 + 4 \delta t T -2 T^2)\)</span><br>
+Per il tempo <span class="tex">\(\delta t\)</span> basta sostituire: <span class="tex">\(\displaystyle v(\delta t) = \frac{F_0 \delta t}{m}\)</span>. Ma ho calcolato <span class="tex">\(v(T)\)</span> generica perche' per calcolare lo spostamento <span class="tex">\(x(\delta t) = \int_0^{\delta t} v(t)\; dt\)</span> serve averla calcolata.</article>
+<article class="post" id="p27559"><div class="who"><b>Pigkappa</b><span>8 dic 2022, 23:20</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27557" data-post-id="27557" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">8 dic 2022, 11:33</div></cite>
+una forza conservativa, nel senso che il suo lavoro non dipende dal suo grafico ma solo dai suoi valori estremi
+</div></blockquote>
+Haha la gioia di inventarsi i teoremi. Purtroppo essere conservativa non vuol dire quello. <br>
+<br>
+Una forza e' conservativa se il lavoro che fa su un corpo che si muove da <span class="tex">\(\vec x_1\)</span> a <span class="tex">\(\vec x_2\)</span> e' lo stesso per tutte le possibili traiettorie che portano il corpo dal primo al secondo punto. Questo non vuol certo dire che conta solo <span class="tex">\(\vec F(\vec x_1)\)</span> e <span class="tex">\(\vec F(\vec x_2)\)</span> e il valore di <span class="tex">\(\vec F\)</span> in tutti gli altri punti non conta! Ne' che contano solo il massimo e il minimo di <span class="tex">\(F\)</span>.<br>
+<br>
+L'altro fatto da ricordarsi sulle forze conservative e' che, se l'effetto di una forza puo' essere espresso tramite una energia potenziale (ad esempio l'energia potenziale gravitazionale, o quella del campo elettrico, o l'energia potenziale elastica), allora la forza e' sicuramente conservativa.<br>
+<br>
+In una dimensione, qualsiasi forza <span class="tex">\(F(x)\)</span> che dipende solo dalla posizione e' conservativa. Nota bene che questo non vale per la forza di attrito, perche' quella non dipende solo dalla posizione, ma anche dalla velocita' del corpo su cui agisce.</article>
+<article class="post" id="p27560"><div class="who"><b>bosone</b><span>9 dic 2022, 12:08</span></div>1.2.3. Ti ringrazio davvero per la cura e la precisione con cui mi hai risposto. Ma io sono entrato in una vera tempesta intellettuale nel senso che probabilmente c'è un equivoco di fondo nei miei concetti e nella mia interpretazione del testo: io ho preso i <span class="tex">\(\delta (v,s,W)\)</span>come se fossero <strong class="text-strong">intervalli infinitesimi</strong> per i quali sarebbe lecito calcolare il valor medio con il mio procedimento come approssimazione legittima; mentre giudicavo una contraddizione in termini parlare di integrazione perchè l'integrale in un intervallo infinitesimo è analogo ad un differenziale cioè appunto <span class="tex">\(\delta(v,s,W)\)</span>. Ora sta di fatto che con questo metodo ho ottenuto nel 3. i valori di 1. come era richiesto e che mi avevi approvato (e non perchè li ho voluti per forza far tornare). <br>
+4. Non ho detto che l'ipotetica F(t) è conservativa ma che, dato che il suo lavoro non dipende dal suo grafico ma solo dagli estremi (che sono quelli della mia F(t)), si comporta come una forza conservativa per cui come dici il lavoro non dipende dal particolare percorso ma solo dagli estremi. E ora? Chiedo tempo per riflettere. Intanto se hai osservazioni su quanto dico continuando nei fraitendimenti, ti prego di farmele :roll:</article>
+<article class="post" id="p27561"><div class="who"><b>Pigkappa</b><span>9 dic 2022, 18:50</span></div>Ok... Il delta t è da intendersi non infinitesimo qua. È vero che una forza impulsiva di solito agisce in un tempo molto più piccolo di tutti gli altri tempi scala del sistema studiato, ma in questo problema consideriamo proprio cosa succede durante l'urto, quindi non ci sono tempi scala più lunghi.</article>
+<article class="post" id="p27562"><div class="who"><b>bosone</b><span>12 dic 2022, 12:57</span></div>Tentativo. Ricapitolando <span class="tex">\(v(T)= (2F_0 T^2)/(m\delta t)   0&lt;T&lt;\delta t /2\)</span> <span class="tex">\( v(T)= \frac{F_0 [-(\delta t)^2+4(\delta t) T-2T^2}{m\delta t}    (\delta t /2)&lt;T&lt;\delta t\)</span> si ottiene anche <span class="tex">\(v(\delta t/2) = \frac{F_0 \delta t}{2m}\)</span> e <span class="tex">\(v(\delta t)=F_0\delta t/m\)</span> Ora per determinare <span class="tex">\(x(\delta t)=\int_0^T v(T)dt\)</span> io prima ho integrato fra <span class="tex">\(0,\delta t/2\)</span> e poi fra <span class="tex">\(\delta t/2 , \delta t\)</span> ed ho ottenuto <span class="tex">\(x(\delta t/2) = \frac{F_0 (\delta t)^2}{12 m}\)</span>  e <span class="tex">\(x(\delta t)=\frac{F_0 (\delta t)^2}{3m}\)</span>. Mi fermo perchè non viene in <span class="tex">\(F_0^2  \)</span> :?:  :?:Dove sto sbagliando? procedimento e/o conti?</article>
+<article class="post" id="p27563"><div class="who"><b>Pigkappa</b><span>14 dic 2022, 1:04</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27562" data-post-id="27562" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">12 dic 2022, 12:57</div></cite>
+Mi fermo perchè non viene in <span class="tex">\(F_0^2  \)</span>
+</div></blockquote>
+Non deve venire in <span class="tex">\(F_0^2\)</span>... Hai visto gia' che nel caso di forza costante viene <span class="tex">\(\frac{1}{2} \frac{F_0}{m} (\delta t)^2\)</span>, e' moto uniformemente accelerato, proporzionale a <span class="tex">\(F_0\)</span>.  <br>
+<br>
+Il fatto che ti venga quel coefficiente <span class="tex">\(\frac{1}{3}\)</span> invece di <span class="tex">\(\frac{1}{2}\)</span> indica che i conti sono sbagliati.<br>
+<br>
+Lasciami mettere <span class="tex">\(\delta t = 1\)</span>, <span class="tex">\(m = 1\)</span>, <span class="tex">\(F_0 = 1\)</span> nelle formule, tanto per analisi dimensionale si capisce quando dobbiamo riaggiungere questi termini.<br>
+<span class="tex">\(\displaystyle v(T) = 2T^2 \)</span> se <span class="tex">\(\displaystyle 0 \le T \le \frac{1}{2}\)</span><br>
+Quindi <span class="tex">\(\displaystyle x(T) = \frac{2}{3}T^3 \)</span> se <span class="tex">\(\displaystyle 0 \le T \le \frac{1}{2}\)</span>; quindi <span class="tex">\(\displaystyle x(\frac{1}{2}) = \frac{1}{12} \)</span>.<br>
+<span class="tex">\(\displaystyle v(T) = -1 + 4T - 2 T^2 \)</span> se <span class="tex">\(\displaystyle \frac{1}{2} \le T \le 1\)</span><br>
+Fin qui i risultati erano uguali ai tuoi. Il conto qua sotto non lo hai esplicitato:<br>
+<span class="tex">\(\displaystyle x(T) = x(\frac{1}{2}) + \int_{1/2}^T v(t) dt\)</span><br>
+L'integrale indefinito e': <span class="tex">\(\displaystyle I(T) =  \int{-1 + 4T - 2 T^2} = -T + 2 T^2 -\frac{2}{3} T^3 \Rightarrow I(1/2) = -\frac{1}{12}\)</span>.<br>
+Quindi <span class="tex">\(\displaystyle x(T) = \frac{1}{12} + (-T + 2 T^2 -\frac{2}{3} T^3) - (- \frac{1}{12}) = \frac{1}{6} - T + 2 T^2 - \frac{2}{3} T^3\)</span><br>
+E sostituendo <span class="tex">\(\displaystyle x(1) = \frac{1}{2}\)</span> e rimettendoci le variabili per farlo tornare dimensionalmente, <span class="tex">\(\displaystyle x(1) = \frac{1}{2} \frac{F_0 (\delta t)^2}{m}\)</span>.<br>
+<br>
+Questo conto e' stato bruttino, se uno avesse scelto <span class="tex">\(F(t)\)</span> strategicamente poteva semplificarlo. Il primo esempio che avevo provato io era <span class="tex">\(F(t) = \frac{\pi}{2} F_0 \sin(\frac{\pi t}{\delta t})\)</span> dove ho scelto il coefficiente davanti per far venire la media uguale a <span class="tex">\(F_0\)</span>, e il coefficiente dentro la funzione seno per assicurarmi di essere arrivato a <span class="tex">\(\theta = \pi\)</span> quando <span class="tex">\(t = \delta t\)</span>. <br>
+<br>
+In questo caso la velocita': <br>
+<span class="tex">\(\displaystyle v(T) = \frac{\pi F_0}{2m}\int_0^T \sin{\frac{\pi t}{\delta t}} dt = \frac{F_0 \delta t}{2m}(1 - \cos{\frac{\pi T}{\delta t}}) \)</span><br>
+La posizione:<br>
+<span class="tex">\(\displaystyle x(T) = \frac{F_0 \delta t}{2m} \int_0^T (1 - \cos{\frac{\pi T}{\delta t}}) dT = \frac{F_0 \delta t}{2m} (T - \frac{\delta t}{\pi} \sin{\frac{\pi T}{\delta t}}) \)</span><br>
+E sostituendo <span class="tex">\(T = \delta t\)</span> si trovano gli stessi risultati del punto 1.<br>
+<br>
+Se ti tornano i conti, ora hai altre 2 funzioni che danno lo stesso risultato del punto 1, e il punto 4 e' di dimostrare che abbiamo perso tempo a fare questi integrali e tutte le funzioni danno lo stesso risultato... (Quando mi sono inventato questo problema all'inizio non lo sapevo che questa cosa fosse vera, ma dopo 4 funzioni che mi davano lo stesso risultato mi sono deciso di dimostrarlo...)</article>
+<article class="post" id="p27564"><div class="who"><b>bosone</b><span>14 dic 2022, 19:16</span></div>Si hai ragione ho sbagliato un segno. Memtre <span class="tex">\(x(\delta t /2) = (1/12m)F_0(\delta t)^2\)</span>nell'integrale successivo fra <span class="tex">\(\delta t/2\)</span> e <span class="tex">\(\delta t\)</span>ho sbagliato un segno. Viene ancora 1/12 che addizionato al precedente fa 1/6 (io lo ho sottratto invece!)cui bisogna aggiungere 1/3 per un totale di 1/2 come al punto 1.! Appena ho tempo lo posto :D</article>
+<article class="post" id="p27565"><div class="who"><b>bosone</b><span>16 dic 2022, 19:28</span></div>Data l'espressione di v(T) nel mio post del 12/12 si viene ad avere<br>
+<span class="tex">\(x(\delta t)=\int_0^T \frac{2F_0 T^2}{m\delta t}dt+\int_{\delta t/2}^T \frac{F_0 (-\delta t^2+4\delta t T-2T^2)}{m \delta t}= \frac{2F_0 T^3}{3m\delta t}+ \frac{F_0 (-\delta t^2 T+2\delta t T^2-2/3 T^3)}{m \delta t}+\frac{F_0 \delta t^3}{12m\delta t}\)</span> Sostituendo a T il <span class="tex">\(\delta t\)</span> si ottiene <span class="tex">\(\frac{F_0 \delta t^2}{12 m} + \frac{F_0 \delta t^2}{3m}+\frac{F_0\delta t^2}{12 m}= \frac{F_0 \delta t^2}{2m}\)</span>in perfetto accordo con 1. Infine , avendo dimostrato che <span class="tex">\(&lt;F(t)&gt;= F_0\)</span> credo che si possa affermare <span class="tex">\(W(\delta t)= F_0 x(\delta t)= \frac{F_0^2 \delta t^2}{2m}\)</span>sempre in accordo con 1. :?:  :?:</article>
+<article class="post" id="p27566"><div class="who"><b>Pigkappa</b><span>17 dic 2022, 3:05</span></div>Ok su velocità e spostamento. <br>
+<br>
+Non sono convinto si possa usare la forza media (=media nel tempo) nell'integrazione per il lavoro (=integrazione nello spazio)... Forse sì ma andrebbe dimostrato. <br>
+Comunque il lavoro fatto sarà uguale all'energia cinetica acquisita quindi non servono altri conti.<br>
+<br>
+Ora l'ultimo punto che è il più interessante <img alt="😁" class="emoji smilies" draggable="false" src="../img/5ef52b6ac7a59717.svg"></article>
+<article class="post" id="p27571"><div class="who"><b>bosone</b><span>20 dic 2022, 18:56</span></div>4. Tentativo di dimostrazione proposto<br>
+Nel caso generale di una funzione con caratterstiche 2. sia <span class="tex">\(F_1(t), F'_1(t)&gt;0  ;   0&lt; t&lt;\delta t/2\)</span> e <span class="tex">\(F_2(t), F'_2(t) &lt;0     ;   \delta t/2&lt;t&lt;\delta t\)</span>. Viene dato che  <span class="tex">\(&lt;F_1&gt; = &lt;F_2&gt;=F_0\)</span>. Risulta poi che<span class="tex">\(F_1(t)= \int_0^t F'_1 dt ; F_2(t) =\int_0^t F'_2 (t) dt= - \int_{\delta t/2}^t F'_1(t) dt= 2F_0-F_1(t) ;  0&lt;t&lt;\delta t/2\)</span>.<br>
+Dalla legge di Newton si può impostare <span class="tex">\(v(T) = \int_0^T\frac{F_1(t) dt}{m} + \int_{\delta t/2}^T \frac{[2F_0-F_1(t)]dt}{m}= \int_0^T\frac{F_1(t) dt}{m}+\frac{2F_0 T}{m}-\frac{F_0 \delta t}{m}-\frac{\int_{\delta t/2}^TF_1(t) dt}{m}\)</span>. Indichiamo ora con <span class="tex">\(P_1(t)\)</span>una primitiva di <span class="tex">\(F_1(t)\)</span>. Risulta allora<br>
+<span class="tex">\(v(T) = \frac{P_1(T) - P_1(0)}{m}+\frac{2F_0 T}{m} - \frac {F_0 \delta t}{m} - \frac{P_1(T) + P_1(\delta t /2)}{m}= \frac{P_1(\delta t/2)-P_1(0) +2F_0 T-F_0 \delta t}{m}\)</span><br>
+Come sappiamo il valor medio di <span class="tex">\(F_1(t)\)</span>nell'intervallo <span class="tex">\(0,\delta t/2\)</span> è <span class="tex">\((2/\delta t)\int _0 ^{\delta t/2}  F_1(t)dt =F_0\)</span> cioè<span class="tex">\(P_1(\delta t /2) - P_1(0) = F_0 \delta t /2\)</span> per cui risulta in definitiva <span class="tex">\(v(T) = \frac {F_0 \delta t/2+2F_0 T-F_0\delta t}{m}\)</span> e quindi <span class="tex">\(v(\delta t/2) = \frac{F_0 \delta t}{2m}\)</span>proprio come al punto 1.<br>
+A questo punto mi sembra superfluo ribadire il post precedente con <span class="tex">\(x(\delta t); W(\delta t)\)</span> che risulterebbero anch'essi come nel punto 1. :?:  :?:</article>
+<article class="post" id="p27574"><div class="who"><b>Pigkappa</b><span>21 dic 2022, 16:20</span></div>Ho faticato un po' a seguire, mi sembra che la tua <span class="tex">\(F_2(t)\)</span> sia definita solo se <span class="tex">\(\delta t/2 &lt; t &lt; \delta t\)</span> ma sia usata anche al di fuori di questo intervallo, e non sono ancora convinto le cose tornino. <br>
+<br>
+Se non sbaglio, fai il claim che se <span class="tex">\(0 &lt; T &lt; \delta t /2\)</span>, vale <span class="tex">\(v(T) = \frac{F_0 \cdot (2T - \delta t/2)}{m}\)</span>. Ma questo non è vero in generale, la velocità non aumenterà linearmente con il tempo, questo dipenderà dalla forma specifica di <span class="tex">\(F(T)\)</span>... La velocità potrebbe avere una forma a scalino, ad esempio, ed aumentare solo un attimo prima di <span class="tex">\(\delta t / 2\)</span>.<br>
+<br>
+Se trovi un modo convienente di scrivere la velocità così, devi ancora convincermi che anche <span class="tex">\(x(\delta t)\)</span> viene di conseguenza. Nella mia soluzione <span class="tex">\(v(\delta t)\)</span> viene facilmente, ma <span class="tex">\(x(\delta t)\)</span> era la parte difficile.</article>
+<article class="post" id="p27575"><div class="who"><b>bosone</b><span>22 dic 2022, 12:36</span></div>4. Ribadisco intanto la funzione forza proposta con caratterstiche 2 correggendo un errore sul secondo intervallo che hai rilevato. E'  <span class="tex">\(F_1(t), F'_1(t)&gt;0  ;   0&lt; t&lt;\delta t/2\)</span> e <span class="tex">\(F_2(t), F'_2(t) &lt;0     ;   \delta t/2&lt;t&lt;\delta t\)</span>. Dato che  <span class="tex">\(&lt;F_1&gt; = &lt;F_2&gt;=F_0\)</span>, risulta poi <span class="tex">\(F_1(t)= \int_0^t F'_1 dt ; F_2(t) =\int_0^t F'_2 (t) dt= - \int_{\delta t/2}^t F'_1(t) dt= 2F_0-F_1(t) ;  \delta t /2&lt;t&lt;\delta t\)</span>.<br>
+Ora vorrei cercare di chiarire se mi riesce perchè non capisco alcune obiezioni. Dalla legge di Newton <span class="tex">\(\frac{dv}{dt}\sim F_1(t) &gt;0  ; \frac {dv}{dt}\sim F_2(t)&gt;0\)</span> nei due intervalli. Questo mi pare voglia dire che anche dv è proporzionale a F(t)&gt;0. Per cui non capisco gli scaloni che implicano prima dei medesimi dv=0 e quindi il non soddisfacimento di 2. che prevede una funzione crescente o decrescente. Ciò precisato ho allora impostato<br>
+<span class="tex">\(v(T) = \int_0^T\frac{F_1(t) dt}{m} + \int_{\delta t/2}^T \frac{[2F_0-F_1(t)]dt}{m}\)</span> che risulta alla fine<br>
+<span class="tex">\(v(T)= \frac{F_0 \delta t/2 + 2F_0 T-F_0\delta t}{m}\)</span> da cui avevo dedotto <span class="tex">\(v(\delta t/2)=\frac{F_0 \delta t}{2m}\)</span> e <span class="tex">\(v(\delta t)=\frac {3F_0 \delta t}{2m}\)</span>.Tornano come al punto 1. corretto: infatti in un post precedente per calcolare <span class="tex">\(v(\delta t)\)</span> non avevo aggiunto <span class="tex">\(v(\delta t /2)\)</span> Se puoi accettare queste precisazioni poi affronterò lo spostamento e il lavoro :?:  :?:</article>
+<article class="post" id="p27576"><div class="who"><b>Pigkappa</b><span>23 dic 2022, 17:36</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27575" data-post-id="27575" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 dic 2022, 12:36</div></cite>
+Ciò precisato ho allora impostato<br>
+<span class="tex">\(v(T) = \int_0^T\frac{F_1(t) dt}{m} + \int_{\delta t/2}^T \frac{[2F_0-F_1(t)]dt}{m}\)</span>
+</div></blockquote>
+
+Io questa cosa non la capisco troppo... Sicuramente vale <span class="tex">\(v(T) = \int_0^T\frac{F(t) dt}{m}\)</span> per ogni <span class="tex">\(T\)</span>; e se <span class="tex">\(T &lt; \delta t / 2\)</span> la stessa formula vale anche sostituendo <span class="tex">\(F\)</span> con <span class="tex">\(F_1\)</span>. Ma in questo caso <span class="tex">\(F_2\)</span> non compare affatto perché <span class="tex">\(F_2\)</span> è solo definita per <span class="tex">\(T &gt; \delta t / 2\)</span>. Inoltre in questo caso gli intervalli di integrazione del tuo secondo integrale sono invertiti, ovvero quello di sotto è maggiore di quello di sopra, che si può anche fare ma confonde un po' le cose.<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27575" data-post-id="27575" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 dic 2022, 12:36</div></cite>
+<span class="tex">\(v(\delta t)=\frac {3F_0 \delta t}{2m}\)</span>
+</div></blockquote>
+
+Ma il risultato giusto ci era venuto <span class="tex">\(v(\delta t)=\frac {F_0 \delta t}{m}\)</span>...<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27575" data-post-id="27575" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 dic 2022, 12:36</div></cite>
+<span class="tex">\(v(T)= \frac{F_0 \delta t/2 + 2F_0 T-F_0\delta t}{m}\)</span>
+</div></blockquote>
+
+Guarda questa formula. Se ho capito bene, questa sarebbe <span class="tex">\(v(T)\)</span> per qualsiasi <span class="tex">\(T\)</span>, e non dipende dalla forma specifica di <span class="tex">\(F(t)\)</span> in nessun punto dell'intervallo. Ti sembra corretta questa cosa? Puoi dare l'impulso più bruscamente (concentrato vicino a <span class="tex">\(\delta t\)</span>) o meno bruscamente (uniforme, o quasi, nell'intervallo) e la velocità dovrà ben dipendere da come lo dai.<br>
+<br>
+Per dirti in che direzione andrei io... La velocità finale è <span class="tex">\(v(\delta t) = \frac{1}{m} \int_0^{\delta t} F(t)\; dt\)</span>, questo integrale si può fare subito.<br>
+<br>
+Poi la condizione di simmetria è più o meno come la hai scritta tu tramite la tua formula <span class="tex">\(F_2(t) + F_1(t) = 2 F_0\)</span>, anche se questa un po' mi confonde perchè <span class="tex">\(F_2\)</span> e <span class="tex">\(F_1\)</span> non sono definite per gli stessi valori di <span class="tex">\(t\)</span>. Io la scriverei <span class="tex">\(F(t) + F(\delta t - t) = 2F_0\)</span> oppure, equivalentemente, <span class="tex">\(F(\delta t / 2 + t) + F(\delta t/2 - t) = 2F_0\)</span>. Per calcolare lo spostamento finale bisogna calcolare <span class="tex">\(x(\delta t) = \int_0^{\delta t} v(t)\; dt\)</span> e quindi ci servirebbe una relazione che sfrutti la simmetria per la velocità, invece che per la forza...</article>
+<article class="post" id="p27577"><div class="who"><b>bosone</b><span>23 dic 2022, 19:03</span></div>1) Infatti il primo integrale di v(T) contiene <span class="tex">\(F_1(t)\)</span> perchè siamo fra 0 e <span class="tex">\(\delta t/2\)</span> mentre il secondo integrale va da <span class="tex">\(\delta t/2\)</span> a <span class="tex">\(\delta t\)</span> e quindi contiene <span class="tex">\(F_2(t)\)</span> e T non è minore ma maggiore di <span class="tex">\(\delta t/2\)</span><br>
+<br>
+2) Come ho scritto in fondo al post<span class="tex">\(v(\delta t/2) =\frac {F_0 \delta t}{2m}\)</span> ed è giusto ma secondo me <span class="tex">\(v(\delta t)\)</span>viene a quel modo perchè all'integrale fra <span class="tex">\(\delta t/2 , \delta t\)</span> che è uguale appunto  a <span class="tex">\(\frac{F_0 \delta t}{m}\)</span>deve essere aggiunto <span class="tex">\(v(\delta t/2)\)</span><br>
+Rifletterò sulle tue ultime considerazioni. Io avevo già calcolato lo spostamento <span class="tex">\(x(\delta t)= \frac{F_0 \delta t^2}{2m}\)</span> identico a 1. e <span class="tex">\(W(\delta t) = \frac{9F_0^2 \delta t^2}{8m}\)</span></article>
+<article class="post" id="p27578"><div class="who"><b>Pigkappa</b><span>25 dic 2022, 2:39</span></div>Hai scritto:<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27575" data-post-id="27575" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 dic 2022, 12:36</div></cite>
+E'  <span class="tex">\(F_1(t), F'_1(t)&gt;0  ;   0&lt; t&lt;\delta t/2\)</span>
+</div></blockquote>
+
+Questo mi fa pensare che <span class="tex">\(F_1(t)\)</span> sia definita solo per <span class="tex">\(0&lt; t&lt;\delta t/2\)</span> e non si possa calcolarla fuori di questo intervallo. Poi dici che:<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27575" data-post-id="27575" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 dic 2022, 12:36</div></cite>
+<span class="tex">\(v(T) = \int_0^T\frac{F_1(t) dt}{m} + \int_{\delta t/2}^T \frac{[2F_0-F_1(t)]dt}{m}\)</span>
+</div></blockquote>
+
+Adesso, in questa formula, se <span class="tex">\(0&lt; t&lt;\delta t/2\)</span> il secondo integrale è strano perché l'integrando superiore è minore di quello inferiore (di nuovo, questo non è di per sé sbagliato, ma secondo me non è quello che vuoi). Se <span class="tex">\(t &gt; \delta t / 2\)</span>, il problema è ancora più serio: nel primo integrale adesso stai calcolando <span class="tex">\(F_1(t)\)</span> per valori di <span class="tex">\(T &gt; \delta t / 2\)</span> per cui non è definita. Probabilmente volevi intendere che se <span class="tex">\(T &gt; \delta t / 2\)</span> il primo integrale si ferma a <span class="tex">\(\delta t / 2\)</span>, e se <span class="tex">\(T &lt; \delta t / 2\)</span> il secondo integrale non c'è, ma sottointendere cose di questo tipo rischia di causare confusione.<br>
+<br>
+Vedo un modo di salvare questa notazione, potremmo definire <span class="tex">\(F_1(t) = 0\)</span> se <span class="tex">\(t &gt; \delta t / 2\)</span>, <span class="tex">\(F_2(t) = 0\)</span> se <span class="tex">\(t &lt; \delta t / 2\)</span>, e allora adesso è vero che (nota che ho reintrodotto <span class="tex">\(F_2\)</span>):<br>
+<span class="tex">\(v(T) = \int_0^T\frac{F_1(t) dt}{m} + \int_{\delta t/2}^T \frac{F_2(t)dt}{m}\)</span><br>
+<br>
+Comunque mi pare tu abbia fatto confusione ad usare il principio di simmetria, che è <span class="tex">\(F(\delta t/2 - t) = F(\delta t/2 + t)\)</span> oppure anche <span class="tex">\(F(t) = F(\delta t - t)\)</span> e se lo vuoi in termini delle derivate, <span class="tex">\(F_1'(t) = - F_2'(\delta t - t)\)</span>. Le tue equazioni danno <span class="tex">\(F_2(t) = 2F_0 - F_1(t)\)</span> che fatico ad applicare dato che <span class="tex">\(F_1\)</span> ed <span class="tex">\(F_2\)</span> sono definite su intervalli diversi. Ma anche solo sostituendo <span class="tex">\(t=0\)</span> in questa equazione, viene <span class="tex">\(2F_0 = 0\)</span> che è sbagliato.<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27577" data-post-id="27577" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">23 dic 2022, 19:03</div></cite>
+secondo me <span class="tex">\(v(\delta t)\)</span>viene a quel modo
+</div></blockquote>
+
+Ti garantisco che il coefficiente 3/2 non c'è :p Ti faccio questa parte del problema e ti lascio provare <span class="tex">\(x(\delta t)\)</span> che è più difficile, ma se metti a posto la tua notazione e quella cosa sulla simmetria ti dovrebbe venire.<br>
+<br>
+<span class="tex">\(v(\delta t) = \frac{1}{m} \int_0^{\delta t}{F(t) dt} = \frac{\delta t}{m} \frac{1}{\delta t} \int_0^{\delta t}{F(t) dt} = \frac{\delta t F_0}{m}\)</span><br>
+Dove ho manipolato la formula per mettere in evidenza la definizione di forza media per <span class="tex">\(F(t)\)</span>. Per questo risultato non ho usato la simmetria di <span class="tex">\(F\)</span> da nessuna parte e infatti non serve saperla. Ma per <span class="tex">\(x(\delta t)\)</span> l'ipotesi della simmetria è necessaria.</article>
+<article class="post" id="p27579"><div class="who"><b>bosone</b><span>27 dic 2022, 18:31</span></div>4. Accolgo allora il suggerimento relativo a <span class="tex">\(F_1(t); 0&lt;t&lt;\delta t/2\)</span> e <span class="tex">\(F_2(t) ; \delta t/2&lt;t&lt;\delta t\)</span>. Al di fuori degli intervalli precisati per ciascuna <span class="tex">\(F_1(t) e F_2(t)\)</span> sono nulle. Si può anche porre <span class="tex">\(F_2(t)=2F_0-F_1(t)\)</span> e in termini di derivata <span class="tex">\(F'_2(t)=-F'_1(t)\)</span>.Una crescente, l'altra decrescente simmetrica. Inoltre condivido il tuo calcolo di <span class="tex">\(v(T)=\int_0 ^T  \frac{F_1(t) dt}{m} + \int_{\delta t/2}^T\frac {F_2(t) dt}{m} = \frac {F_0 T}{m} + \frac{F_0(T-\delta t/2)}{m}\)</span> da cui emergono <span class="tex">\(v(\delta t/2) = \frac {F_0 \delta t}{2m}\)</span> e <span class="tex">\(v(\delta t)=\frac{F_0 \delta t}{m}\)</span> considerando che entrambe le funzioni hanno lo stesso valor medio <span class="tex">\(F_0\)</span>.<br>
+Riprendendo la tua espressione della velocità con t al posto di T, provo ora a proseguire con il calcolo di <span class="tex">\(x(t)= \int_0^t v(t)dt = \int_0 ^t (\frac{F_0 t}{m}+\frac{F_0 t}{m} - \frac {F_0\delta t}{2m}) dt= \frac{F_0 t^2}{m} - \frac{F_0 t \delta t}{2m}\)</span> da cui risulta <span class="tex">\(x(\delta t) = \frac{F_0 \delta t^2}{2m}\)</span> che sembra coincidere con 1. Usando poi il teorema delle forze vive (variazione di energia cinetica fra 0 e <span class="tex">\(\delta t\)</span> uguale lavoro svolto in questo intervallo) risulterebbe anche <span class="tex">\(W(\delta t) = \frac{F_0^2(\delta t)^2}{2m}\)</span>in accordo con 1.<br>
+Non so se così possa andare o se ho commesso ancora qualche illecita semplificazione... :?:  :?:</article>
+<article class="post" id="p27580"><div class="who"><b>Pigkappa</b><span>27 dic 2022, 21:13</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27579" data-post-id="27579" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">27 dic 2022, 18:31</div></cite>
+<span class="tex">\(v(\delta t/2) = \frac {F_0 \delta t}{2m}\)</span> e <span class="tex">\(v(\delta t)=\frac{F_0 \delta t}{m}\)</span> considerando che entrambe le funzioni hanno lo stesso valor medio <span class="tex">\(F_0\)</span>.
+</div></blockquote>
+
+Fin qui giusto<br>
+
+<blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27579" data-post-id="27579" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">27 dic 2022, 18:31</div></cite>
+<span class="tex">\(x(t)= \int_0^t v(t)dt = \int_0 ^t (\frac{F_0 t}{m}+\frac{F_0 t}{m} - \frac {F_0\delta t}{2m}) dt\)</span>
+</div></blockquote>
+
+Purtroppo questo no... <span class="tex">\(v(t)\)</span> in generale non lo sai, dipende da <span class="tex">\(F(t)\)</span>. Ad esempio se <span class="tex">\(F = F_0\)</span> è costante vale <span class="tex">\(v(t) = \frac{F_0 t}{m}\)</span>, ma se <span class="tex">\(F(t)\)</span> è la tua funzione a triangolo usata in precedenza, vale <span class="tex">\(v(t) = \frac{2F_0}{\delta t^2} t^2\)</span> per <span class="tex">\(t &lt; \delta t/2\)</span>, lo abbiamo dimostrato qua sopra.<br>
+<br>
+Bisogna scrivere <span class="tex">\(x(t) = \int_0^t v(t)dt = \int_0^{\delta t/2} v(t)dt + \int_{\delta t/2}^{\delta t} v(t)dt\)</span><br>
+E poi usare proprietà di simmetria di <span class="tex">\(v(t)\)</span> rispetto a <span class="tex">\(\delta t/2\)</span> per mettere insieme questi due integrali. Non intendo dire che <span class="tex">\(v(t)\)</span> è simmetrica, ma dal fatto che la forza è simmetrica, si possono ricavare proprietà su <span class="tex">\(v\)</span>. Manipolare integrali così, senza poterli calcolare, non si fa spesso prima dell'università ma secondo me si impara molto provandoci :)</article>
+<article class="post" id="p27582"><div class="who"><b>bosone</b><span>29 dic 2022, 19:17</span></div>Osservo che la<br>
+ <span class="tex">\(x(t)=\int_0^t v(t) dt= \int_0^{\delta t/2} v(t)dt +\int_{\delta t/2}^{\delta t} v(t)dt= \int_0^{\delta t/2}[\int_0^t v'_1(t) dt]dt + \int_{\delta t/2}^{\delta t} [\int_0^t v'_2(t)dt]dt\)</span> <br>
+dove le v' sono le accelerazioni nei due intervalli ovvero <span class="tex">\(\frac{F_1(t)}{m}\)</span> e <span class="tex">\(\frac{F_2(t)}{m}= \frac {F_1(\delta t-t)}{m}\)</span> Le accelerazioni presenti in ciascun intervallo <span class="tex">\(0&lt;t&lt;\delta t/2\)</span> e <span class="tex">\(\delta t/2&lt;t&lt;\delta t\)</span> sono simmetriche, la prima crescente e la seconda decrescente entrambe positive. Per <span class="tex">\(t=\delta t/2\)</span> entrambe hanno lo stesso valore il doppio del valor medio<span class="tex">\(2\frac{F_0}{m}\)</span><br>
+Non so se sono sulla strada giusta perchè ora non saprei come risolvere gli integrali di x(t) :?:  :?: Devo ancora pensarci...</article>
+<article class="post" id="p27583"><div class="who"><b>Pigkappa</b><span>29 dic 2022, 20:24</span></div><blockquote><div><cite>bosone ha scritto: <a href="olifis-7165.html#p27582" data-post-id="27582" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">29 dic 2022, 19:17</div></cite>
+Non so se sono sulla strada giusta perchè ora non saprei come risolvere gli integrali di x(t) :?:  :?: Devo ancora pensarci...
+</div></blockquote>
+Eheh a quello ci ho dovuto pensare anch'io per un po'.<br>
+<br>
+Ovviamente gli integrali indefiniti non si possono risolvere se <span class="tex">\(F(t)\)</span> è generica. Ma bisogna dimostrare che l'integrale definito alla fine dà lo stesso risultato.<br>
+<br>
+Ti dò un suggerimento grafico. <span class="tex">\(x(\delta t)\)</span> è l'area sotto la curva di <span class="tex">\(v(t)\)</span>. Metto due immagini della velocità di una certa forza <span class="tex">\(F(t)\)</span>, nella prima evidenzio l'area sotto la curva, nella seconda due parti utili del grafico... <br>
+<br>
+<a class="lost" href="https://i.imgur.com/CsQZwrH.png" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p27585"><div class="who"><b>bosone</b><span>30 dic 2022, 12:53</span></div>Bisogna che capisca il senso dei grafici. Per me il significato è che, <strong class="text-strong">indipendentemente </strong>dalla particolare v(t), <span class="tex">\(x(\delta t)\)</span> vale sempre <span class="tex">\((1/2)\delta t\)</span> aggiungendo e sottraendo i due spezzoni dell'area utile. E' questa la morale della favola o non ho capito un tubo? :?:  :?:</article>
+<article class="post" id="p27586"><div class="who"><b>Pigkappa</b><span>30 dic 2022, 18:06</span></div>Sì l'idea è esattamente quella.<br>
+<br>
+La forma di quello spezzone di area dipende dalla forza, bisogna trovare un modo di dimostrare che i due spezzoni hanno area uguale per ogni F che soddisfa le ipotesi...</article>
+<article class="post" id="p27587"><div class="who"><b>bosone</b><span>30 dic 2022, 18:51</span></div>Nel post precedente mi veniva per <span class="tex">\(0&lt;t&lt;\delta t/2\)</span> <span class="tex">\(v_1(t)=\int_0^t\frac{F_1(t)}{m}dt\)</span> e per <span class="tex">\(\delta t/2&lt;t&lt;\delta t\)</span> <span class="tex">\(v_2(t)= \int_{\delta t/2}^t \frac{F_1(\delta t -t)}{m} dt\)</span> I due integrandi sono uguali e <span class="tex">\(F_1(t)\)</span> è una funzione con le condizioni 2. Io dedurrei che l'area racchiusa da <span class="tex">\(v_1(t)\)</span> e <span class="tex">\(v_2(t)\)</span>è la stessa qualunque sia <span class="tex">\(F_1(t)\)</span> e sfruttando il valor medio <span class="tex">\(F_0\)</span>potrebbe essere calcolata per <span class="tex">\(t=\delta t/2 \)</span> e <span class="tex">\(t=\delta t\)</span>. Potrebbe funzionare? :?:  :?:</article>
+<article class="post" id="p27588"><div class="who"><b>Pigkappa</b><span>30 dic 2022, 22:36</span></div>Non ho laptop per qualche giorno quindi scrivo senza latex... <br>
+<br>
+Non ho capito del tutto, stai dicendo che l'area sotto v(t) per t &lt; delta t / 2 e quella sotto v(t) per t &gt; delta t /2 è uguale?<br>
+<br>
+Dai grafici si vede che non è vero, quella tra delta t/2 e delta t è molto più grande dell'altra. D'altra parte v cresce sempre.</article>
+<article class="post" id="p27589"><div class="who"><b>bosone</b><span>31 dic 2022, 12:10</span></div>Ma si certo si vede bene dal primo dei due tuoi grafici. Mi sono espresso male, intendevo la somma delle due aree che sono tali che, aggiungendo alla prima e togliendo alla seconda lo spezzone dell'area utile, viene sempre nelle tue unità <span class="tex">\((1/2)\delta t\)</span>  come si diceva. Mi pare una quantità indipendente dalla particolare F(t): basta che soddisfi a 2. con lo stesso valor medio <span class="tex">\(F_0\)</span>. Questa mi pareva la dimostrazione che <span class="tex">\(x(\delta t)\)</span> rimane lo stesso per tutte le F(t) 2.</article>
+<article class="post" id="p27590"><div class="who"><b>Pigkappa</b><span>31 dic 2022, 13:03</span></div>Sì bisogna dimostrare che le due aree evidenziate sono uguali e quindi si può spostare l'area di destra a sinistra, e viene v(delta t / 2) per delta t... Ma dici che il tuo messaggio precedente lo ha dimostrato?</article>
+<article class="post" id="p27591"><div class="who"><b>bosone</b><span>2 gen 2023, 18:31</span></div>A me pareva di si nei due interventi del 30 e 31 ma capisco che non ho esplicitato il conto pur dicendolo. Comunque mi pare che a questo punto si dovrebbe essere d'accordo  su: <br>
+1) la somma delle aree viene sempre per tutte le F(t) di 2. con lo stesso valor medio <span class="tex">\(F_0\)</span> uguale a <span class="tex">\(v(\delta t /2) \delta t =\frac {F_0 \delta t \delta t}{2m}= \frac{F_0 \delta t ^2}{2m} = x(\delta t)\)</span> <br>
+2) Questo <span class="tex">\(x(\delta t)\)</span>prescinde dalla particolare F(t) e coincide con 1. dove rappresentava addirittura <span class="tex">\((1/2)at^2\)</span>uno spazio percorso di moto uniformemente accelerato sotto l'azione della forza costante <span class="tex">\(F_0\)</span> <br>
+3)Il lavoro effettuato da qualsiasi F(t) può essere calcolato applicando il teorema delle forze vive conoscendo <span class="tex">\(v(\delta t)\)</span>; esso risulta <span class="tex">\(W(\delta t)= (1/2) mv^2(\delta t)= \frac {F_0^2 \delta t^2}{2m}\)</span>e coincide con 1.lavoro forza costante<br>
+Può stare così :?:  :?:  :?:</article>
+<article class="post" id="p27592"><div class="who"><b>Pigkappa</b><span>4 gen 2023, 0:19</span></div>Diciamo ok, ti passo alla staffetta perche' abbiamo sviscerato abbastanza questo problema, e provero' a reclutare qualcuno che partecipi alla staffetta in aggiunta a noi :) Non che mi dispiaccia comunque partecipare.<br>
+<br>
+Per concludere, posto la mia soluzione al punto che secondo me e' ancora in parte mancante, perche' se ho capito bene tu hai notato dalla figura che quelle due aree sono uguali e lo hai dato come vero, ma invece andrebbe dimostrato.<br>
+<br>
+Dimostrare che lo spostamento <span class="tex">\(x(\delta t)\)</span> non dipende dalla forma della forza e' la parte piu' difficile del problema. Serve usare l'ipotesi che <span class="tex">\(F(t)\)</span> e' simmetrica; senza quell'ipotesi, la tesi e' falsa. La condizione che la forza sia simmetrica si scrive come <span class="tex">\(F(\delta t/2 - t) = F(\delta t/2 + t)\)</span>. Il ragionamento che sto per fare si puo' formalizzare integrando questa formula, ma tenendo le cose a livello intuitivo, si capisce che l'aumento di velocita' nel tratto <span class="tex">\(\delta t/2 - t \rightarrow \delta t / 2\)</span> e nel tratto <span class="tex">\(\delta t / 2 \rightarrow \delta t / 2 + t\)</span> e' lo stesso. Quindi <span class="tex">\(v(\delta t / 2) - v(\delta t / 2 - t) = v(\delta t/2 + t) - v(\delta t / 2)\)</span> e quindi <span class="tex">\( v(\delta t / 2 - t)  +  v(\delta t / 2 + t)  = 2 v(\delta t / 2)\)</span>.<br>
+<br>
+In particolare, sostituendo <span class="tex">\(t = \delta t / 2\)</span> qua dentro e usando <span class="tex">\(v(0)=0\)</span>, troviamo <span class="tex">\(v(\delta t / 2) = \frac{1}{2} v(\delta t)\)</span>; meta' della velocita' e' accumulata nel primo tratto, e meta' nel secondo.<br>
+<br>
+Lo spostamento e' <br>
+<span class="tex">\(\displaystyle x(\delta t) = \int_0^{\delta t}{v(t)\; dt} = \int_0^{\delta t / 2}{v(t)\; dt} + \int_{\delta t/2}^{\delta t}{v(t)\; dt}\)</span>. <br>
+Riscrivo entrambi gli integrali in modo conveniente, ma che in fondo consiste nel fare la stessa operazione:  <br>
+<span class="tex">\(\displaystyle x(\delta t) =  \int_0^{\delta t / 2}{v(\delta t/2 - t)\; dt} + \int_{0}^{\delta t/2}{v(\delta t/2 + t)\; dt}\)</span>.<br>
+E ora uso la formula sopra:<br>
+<span class="tex">\(\displaystyle x(\delta t) =  \int_0^{\delta t / 2}{v(\delta t/2 - t) + v(\delta t/2 + t)\; dt} =  \int_0^{\delta t / 2}{2v(\delta t/2)\; dt}\)</span><br>
+Da cui:<br>
+<span class="tex">\(\displaystyle x(\delta t) = 2 v(\delta t/2) \int_0^{\delta t/2}{dt} = 2v(\delta t/2)\times \delta t/2 = v(\delta t/2) \times \delta t = \frac{1}{2} v(\delta t) \delta t \)</span><br>
+E sostituendo:<br>
+<span class="tex">\(\displaystyle x(\delta t) = \frac{F_0 \delta t^2}{2m} \)</span>.</article>
+<article class="post" id="p27593"><div class="who"><b>bosone</b><span>4 gen 2023, 12:20</span></div>Dice mio fratello,di cui quest'anno ho preso il nickname e che è sempre rimasto affezionato al forum, che la tua domanda 4. è fra le più difficili comparse. Io non so giudicare e continuerò a proporre SNS, l'ultimo del 2022 il n.1 :D</article>
+<nav class="pager"><a class="prev" href="olifis-417.html"><small>← precedente</small>Staffetta meccanica</a><a class="next" href="olifis-24.html"><small>successivo →</small>Macchina di Atwood... Infinita!</a></nav>
+</main></body></html>

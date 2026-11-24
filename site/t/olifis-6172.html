@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 2015</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../sns.html">Fisica 2015-2016</a></span></nav>
+<h1>sns 2015</h1>
+<p class="meta">17 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6172">forum Olifis</a></p>
+<article class="post first" id="p21327"><div class="who"><b>andrea96</b><span>30 ago 2015, 15:07</span></div>apro sta discussione perchè ho visto che ce n'è una simile sul forum di mate ed è giusto che anche i fisici facciano la loro parte  :lol: <br>
+Come vi sono andati gli scritti? come avete trovato le prove?</article>
+<article class="post" id="p21328"><div class="who"><b>CapitanFindus</b><span>30 ago 2015, 16:03</span></div>allora vediamo. La prova di fisica a me non mi è sembrata difficilissima. Il solo problema che mi ha dato molto da pensare era quello del cassettone perfido. Gli altri erano generalmente di media difficoltà, poi c'era quello dell'effetto magnus già postato su questo forum da te @Andrea96 ahahahah! <br>
+<br>
+Se devo fare una stima per la prova di fisica penso di averli fatti tutti discretamente a parte quello del cassone che ho provato ad abbozzare qualcosa.. speriamo! Voi?</article>
+<article class="post" id="p21329"><div class="who"><b>Pigkappa</b><span>30 ago 2015, 17:46</span></div>Mi postate qualche problema?</article>
+<article class="post" id="p21330"><div class="who"><b>andrea96</b><span>30 ago 2015, 18:53</span></div>Mio commento personale sulla prova:<br>
+in generale mi è piaciuta perchè i problemi erano poco contosi e alcuni molto intelligenti (in particolare il 5 che secondo me era sia il più difficile che il più bello :D ) perchè in tutti, apparte il primo, non si chiedeva un risultato ma spiegazioni quantitative e qualitative oppure di inventarsi metodi per fare qualcosa. Ahimè ho sbagliato miseramente l'uno e temo che con quella cavolata mi giochi tutta la prova, e mi dispaice perchè col segno di poi era il più semplice, ma non ho compreso bene la richiesta. Per il resto l'unico più standard degli altri era il 2.... E ri-ahimè una decina di giorni fa ho praticamente detto a tutta italia come si faceva il 4, facendomi del male da solo, ma vabbè... :(<br>
+Poi sul 3, apparte la prima richiesta che era quasi semplice ( cioè quella di trovare un modo per far scorrere corrente ) le altre due le ho trovate molto interessanti e io ho interpretato che siano state messe lì con l'intenzione di farci discutere la conservazione dell'energia nel sistema...
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/254528e119b36f64.jpg" class="postimage" alt="sns 2015 '.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>sns 2015 '.jpg (34.5 KiB) Visto 11071 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/ff550eb74f343fd0.jpg" class="postimage" alt="sns 2015.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>sns 2015.jpg (72.46 KiB) Visto 11071 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p21331"><div class="who"><b>sall96</b><span>30 ago 2015, 19:06</span></div>Molto bella anche secondo me, soprattutto per il 5 che ha creato molti problemi a tanti... Non capito benissimo perché abbiano messo il 6, che bisognava solo stare attenti al prodotto vettoriale (che sono comunque riuscito a sbagliare per distrazione  :lol: ) comunque tutto sommato era ben fatta  :)</article>
+<article class="post" id="p21332"><div class="who"><b>andrea96</b><span>30 ago 2015, 19:13</span></div>Si effettivamente il 6 stonava un po con il resto della prova... un bel problema di circuito RLC sarebbe stato meglio :lol:</article>
+<article class="post" id="p21333"><div class="who"><b>renat_</b><span>31 ago 2015, 11:16</span></div>Stupido effetto magnus e stupido me che non leggo tutti i problemi che postate  :evil:</article>
+<article class="post" id="p21335"><div class="who"><b>Simone256</b><span>31 ago 2015, 21:21</span></div>Problemi belli direi! Entrambi i giorni oserei dire! Cagate qua e lá le abbiamo fatte tutti purtroppo  :lol: <br>
+Concordo sul fatto che il 5 sia stato quello più arzigogoloso :P<br>
+(Ovviamente mancava un figo sistema meccanico infinito  :twisted: )</article>
+<article class="post" id="p21336"><div class="who"><b>renat_</b><span>31 ago 2015, 22:26</span></div>A me il 5 non è sembrato difficilissimo (la soluzione mi è venuta in mente quasi subito). Per il problema dell'effetto magnus o lo conoscevi o eri un genio. Purtroppo non ho fatto il problema 1 che non era troppo malvagio...pazienza :)</article>
+<article class="post" id="p21337"><div class="who"><b>andrea96</b><span>31 ago 2015, 23:49</span></div><blockquote><div><cite>renat_ ha scritto:</cite>A me il 5 non è sembrato difficilissimo</div></blockquote>
+mmmm sicuro? La/le (forse anzi spero) soluzioni che abbiamo trovato per spostarlo non sono ne immediate ne facili ne (oserei dire) intuitive... se tu hai trovato una soluzione semplice per caso puoi (almeno) descriverla per farmi sentire scemo? No scherzo, probabilmente mi sentirò scema ma mi piaxerebbe saperla proprio per saperla...  :D</article>
+<article class="post" id="p21339"><div class="who"><b>renat_</b><span>1 set 2015, 10:56</span></div>C'era più di una soluzione:<br>
+la forza doveva essere applicata su una delle due estremità con una certa inclinazione che ho chiamato alfa;ora la forza premente non era omogenea su tutta la superficie di contatto ed era massima all'estremo opposto: era naturale che l'asse di rotazione fosse l'estremo opposto. Con un po' di calcoli mi è venuto che sen(alfa)+ cos(alfa)&gt;= di 1 virgola qualcosa.<br>
+PS<br>
+ho considerato la soluzione per alfa piccolo, quindi ho approssimato il punto di applicazione della forza d'attrito al centro del cassettone</article>
+<article class="post" id="p21340"><div class="who"><b>andrea96</b><span>1 set 2015, 11:12</span></div><blockquote><div><cite>renat_ ha scritto:</cite> era naturale che l'asse di rotazione fosse l'estremo opposto.</div></blockquote>
+Eh il problema è proprio che non è così naturale, anzi non è così.... se si fa qualcosa per "imporre" un perno questa soluzione funziona ma dal test non si capisce se questa cosa è lecita. In ogni caso quel metodo di agire sul cassone permette di spostare ed è forse il metodo più efficace perchè si fa meno fatica... il problema è che è ovvio che il perno non sia il cdm, ma l equazione per determinare il perno è un orribile equazione di quarto grado. Però alla fine il testo chiedeva di spostare il cassone e lo hai fatto quindi credo vada bene :D</article>
+<article class="post" id="p21341"><div class="who"><b>andrea96</b><span>1 set 2015, 11:17</span></div><blockquote><div><cite>renat_ ha scritto:</cite>
+PS<br>
+ho considerato la soluzione per alfa piccolo, quindi ho approssimato il punto di applicazione della forza d'attrito al centro del cassettone</div></blockquote>
+In base a cosa dici che α è piccolo? Io ho fatto il problema per un  α generico e mi veniva che l intervallo va da angoli piccoli a angoli grandi? Hai fatto vedere che esistevano soluzioni per angoli piccoli e quindi alla fine bastava quello?</article>
+<article class="post" id="p21342"><div class="who"><b>renat_</b><span>1 set 2015, 11:20</span></div>In pratica si, visto che il problema chiedeva un modo...altrimenti sarebbe stato molto più complesso gestire il momento della forza d'attrito</article>
+<article class="post" id="p21344"><div class="who"><b>remat7</b><span>1 set 2015, 16:03</span></div><blockquote><div><cite>renat_ ha scritto:</cite>C'era più di una soluzione:<br>
+la forza doveva essere applicata su una delle due estremità con una certa inclinazione che ho chiamato alfa;ora la forza premente non era omogenea su tutta la superficie di contatto ed era massima all'estremo opposto: era naturale che l'asse di rotazione fosse l'estremo opposto. Con un po' di calcoli mi è venuto che sen(alfa)+ cos(alfa)&gt;= di 1 virgola qualcosa.<br>
+PS<br>
+ho considerato la soluzione per alfa piccolo, quindi ho approssimato il punto di applicazione della forza d'attrito al centro del cassettone</div></blockquote>
+renat anche io ho ottenuto un'equazione simile alla tua, ma mi veniva <span class="tex">\(cos\alpha + \frac{sen\alpha}{4} \geq 1,05\)</span> e non avevo soluzioni poichè derivando ottenevo che il massimo della funzione era in circa 14 gradi e valeva 1,037.</article>
+<article class="post" id="p21345"><div class="who"><b>sall96</b><span>1 set 2015, 16:24</span></div><blockquote><div><cite>renat_ ha scritto:</cite>altrimenti sarebbe stato molto più complesso gestire il momento della forza d'attrito</div></blockquote>
+
+Un modo che ho trovato (sempre che sia corretto  :? ) per sviare questa difficolta e' questo:<br>
+<br>
+Sia <span class="tex">\(dN(x)\)</span> la forza normale infinitesima a distanza <span class="tex">\(x\)</span> dal perno (supposto l'estremo opposto a quello a cui applichiamo la forza) e <span class="tex">\(F_1\)</span> la componente verticale della forza che applico.<br>
+Si ha che <br>
+<span class="tex">\(\displaystyle \tau_{att}= \int_{0}^{L} {\mu dN(x) x}\)</span>.<br>
+Tuttavia, dato che non si ha nessuna rotazione sul piano verticale, ho<br>
+<span class="tex">\(\displaystyle F_1L + \int_{0}^{L} {dN(x)\cdot x}-Mg\dfrac{L}{2}=0\)</span>.<br>
+A questo punto e' facile notare che <br>
+<span class="tex">\(\displaystyle \tau_{att}=\mu Mg\dfrac{L}{2}-\mu F_1L\)</span></article>
+<article class="post" id="p21346"><div class="who"><b>renat_</b><span>1 set 2015, 17:27</span></div><blockquote><div><cite>remat7 ha scritto:</cite><blockquote><div><cite>renat_ ha scritto:</cite>C'era più di una soluzione:<br>
+la forza doveva essere applicata su una delle due estremità con una certa inclinazione che ho chiamato alfa;ora la forza premente non era omogenea su tutta la superficie di contatto ed era massima all'estremo opposto: era naturale che l'asse di rotazione fosse l'estremo opposto. Con un po' di calcoli mi è venuto che sen(alfa)+ cos(alfa)&gt;= di 1 virgola qualcosa.<br>
+PS<br>
+ho considerato la soluzione per alfa piccolo, quindi ho approssimato il punto di applicazione della forza d'attrito al centro del cassettone</div></blockquote>
+renat anche io ho ottenuto un'equazione simile alla tua, ma mi veniva <span class="tex">\(cos\alpha + \frac{sen\alpha}{4} \geq 1,05\)</span> e non avevo soluzioni poichè derivando ottenevo che il massimo della funzione era in circa 14 gradi e valeva 1,037.</div></blockquote>
+come hai considerato i momenti verticali? con alfa piccolo credo che avresti potresti dire che la forza attrito=(Fp-2Fsen(a))mu (forzando un po' la mano con le approssimazioni)<br>
+con 3 gradi veniva</article>
+<nav class="pager"><a class="prev" href="olifis-6337.html"><small>← precedente</small>SNS FISICA 2015/2016</a><a class="next" href="olifis-6026.html"><small>successivo →</small>Sns 2014 1</a></nav>
+</main></body></html>

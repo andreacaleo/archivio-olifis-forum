@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risultati gara di II livello 2023</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../olimpiadi.html">Olimpiadi di Fisica</a></span></nav>
+<h1>Risultati gara di II livello 2023</h1>
+<p class="meta">16 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7175">forum Olifis</a></p>
+<article class="post first" id="p27626"><div class="who"><b>lynxmartes</b><span>21 feb 2023, 11:23</span></div>Come vi è sembrata la gara di quest'anno rispetto agli anni scorsi?<br>
+Qualcuno ha qualche idea di quale sarà il punteggio minimo per andare a Senigallia o di quando usciranno i risultati? Ciao :D</article>
+<article class="post" id="p27627"><div class="who"><b>Fede05</b><span>21 feb 2023, 13:07</span></div>Mi aggrego anche io alle domande :D<br>
+Non avendo mai superato questa fase non posso valutare bene il livello, ma a me sono sembrate in generale abbordabili (o almeno rispetto all'anno scorso)<br>
+Per curiosità, qualcuno potrebbe scrivere quanto pensa di avere fatto? (Io dovrei essere sui 50 punti, ma, conoscendomi, mi sarò perso qualcosa :oops: )</article>
+<article class="post" id="p27628"><div class="who"><b>lynxmartes</b><span>21 feb 2023, 14:41</span></div>Anch'io credo di essere intorno ai 45-50 dopo aver visto le soluzioni</article>
+<article class="post" id="p27630"><div class="who"><b>Dgusdueuno</b><span>21 feb 2023, 19:24</span></div>Io volevo chiedere se qualcuno ha una stima del punteggio minimo di ripescaggio per gli studenti di terza e quarta.</article>
+<article class="post" id="p27634"><div class="who"><b>Pigkappa</b><span>22 feb 2023, 0:51</span></div>Per quanto ne so ci sono <span class="tex">\(n \ge 1\)</span> poli che non hanno ancora finito di correggere, o almeno non avevano finito un paio di giorni fa, quindi nessuno puo' sapere il punteggio minimo.</article>
+<article class="post" id="p27645"><div class="who"><b>Dgusdueuno</b><span>26 feb 2023, 15:23</span></div>Sappiamo se qualche polo ha già stilato la classifica? Giusto per avere un idea sui punteggi</article>
+<article class="post" id="p27646"><div class="who"><b>Fibdg</b><span>26 feb 2023, 23:14</span></div>Si sa di solito quanto ci mettono a correggere in media? E non c'è un portale in cui controllare il proprio punteggio, bisogna per forza fare riferimento al proprio istituto? Grazie, mi sono appena iscritto al forum  :D</article>
+<article class="post" id="p27647"><div class="who"><b>Pigkappa</b><span>27 feb 2023, 16:04</span></div>Purtroppo non c'è un portale così, in ogni polo i referenti decidono se e come comunicare i punteggi. Ad un certo punto, ma probabilmente mancano ancora 1-3 settimane, escono i nomi degli ammessi sul sito Olifis. Non possono uscire finché tutti i poli non hanno comunicato tutti i risultati al Gruppo Olimpiadi.<br>
+<br>
+Ad esempio so che anni fa, nel mio polo, un gruppetto di professori si riuniva ogni lunedì, per N settimane (N = 3 o 4) per correggere insieme. Quindi inevitabilmente ci volevano alcune settimane. Lo fanno gratis quindi non ci si può lamentare granché</article>
+<article class="post" id="p27649"><div class="who"><b>antonella_05</b><span>27 feb 2023, 17:00</span></div>Io sono una studentessa di quarta che è arrivata seconda del Polo con un punteggio di 33 (ho fatto degli  errori stupidi ai problemi ahah) Mi chiedevo se ci fosse una possibilità di essere ripescata …</article>
+<article class="post" id="p27650"><div class="who"><b>Fibdg</b><span>27 feb 2023, 21:38</span></div>Capisco... grazie della risposta. E invece i ripescaggi come funzionano? I responsabili di polo mi avevano detto che in caso di "punteggi interessanti" avrebbero potuto mandare altri a Senigallia oltre al vincitore di polo... ma come funziona di preciso?</article>
+<article class="post" id="p27651"><div class="who"><b>Pigkappa</b><span>28 feb 2023, 1:57</span></div>Innanzitutto non c'è garanzia che gli organizzatori non cambino un po' le regole di anno in anno, ma negli ultimi anni storicamente ha funzionato così.<br>
+<br>
+1. Passano <em class="text-italics">quasi</em> tutti i vincitori di polo. Quasi perché, in alcuni anni, un piccolo numero (parliamo di meno del 10% da quel che ho sentito) di vincitori di polo con i punteggi più bassi sono stati esclusi.<br>
+2. Questo riempie circa 60 posti. Ne restano circa 40. Si ripescano allora circa 40 studenti, quelli che non hanno vinto i poli ma hanno i punteggi più alti. Tipicamente il punteggio di ripescaggio è tra 35 e 50 punti.<br>
+3. Se il numero di studenti di classe inferiore alla quinta qualificato è particolarmente basso, a volte c'è un punteggio di ripescaggio più basso per loro, per aggiungere un piccolo numero (max 5, credo) di studenti che non sono in quinta.</article>
+<article class="post" id="p27652"><div class="who"><b>Fibdg</b><span>28 feb 2023, 8:03</span></div>Grazie! Allora spero di avere qualche chance ...</article>
+<article class="post" id="p27654"><div class="who"><b>Dgusdueuno</b><span>28 feb 2023, 17:36</span></div>Giusto per informarvi il primo del mio polo ha fatto 72 punti totali. Quindi non credo che il cut off sia granché basso.</article>
+<article class="post" id="p27655"><div class="who"><b>antonella_05</b><span>28 feb 2023, 19:41</span></div>Vabbè sarà per l’anno prossimo ahahah</article>
+<article class="post" id="p27664"><div class="who"><b>Fibdg</b><span>9 mar 2023, 8:22</span></div>Per chi fosse interessato, hanno comunicato la liista dei 100 convocati sul sito olifis.it</article>
+<article class="post" id="p27665"><div class="who"><b>antonella_05</b><span>9 mar 2023, 9:46</span></div>Ma anche a voi risulta che uno dei partecipanti sia stato scritto due volte ?</article>
+<nav class="pager"><a class="prev" href="olifis-3446.html"><small>← precedente</small>Sperimentale Senigallia</a><a class="next" href="olifis-6599.html"><small>successivo →</small>Scuola invernale NON ufficiale</a></nav>
+</main></body></html>

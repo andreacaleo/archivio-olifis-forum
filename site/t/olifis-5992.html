@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>21: Incroci!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>21: Incroci!</h1>
+<p class="meta">22 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=5992">forum Olifis</a></p>
+<article class="post first" id="p19653"><div class="who"><b>Simone256</b><span>3 nov 2014, 16:19</span></div>4 macchinine che assumiamo come puntiformi si muovono nel piano ad una velocitá costante (le 4 velocitá non sono necessariamente distinte) in modo rettilineo. Dei 6 possibili incroci (o scontri) tra le macchinine sappiamo che se ne verificano almeno 5 e che ciascuno di questi incroci non comprende mai più di due macchinine alla volta.<br>
+Dimostrare che effettivamente avviene anche il sesto incrocio.<br>
+<br>
+Spero il testo sia chiaro :)</article>
+<article class="post" id="p19654"><div class="who"><b>sall96</b><span>3 nov 2014, 18:00</span></div>Forse non ho capito molto bene la situazione  :? <br>
+La richiesta mi sembra equivalente a dimostrare che 4 rette che non concorrono nello stesso punto hanno sempre 6 intersezioni (le rette sarebbero le traiettorie delle macchinine). Se prendiamo pero' 3 rette non parallele tra loro ed una quarta retta parallela ad una delle 3 abbiamo 5 intersezioni (le 3 delle prime tre rette, piu' le due della quarta retta con le due rette non parallele a quest'ultima)...</article>
+<article class="post" id="p19655"><div class="who"><b>Simone256</b><span>3 nov 2014, 19:42</span></div>Ottima obbiezione! Mi scuso per l'inghippo e invito ad aggiungere l'ipotesi che i percorsi non sono paralleli :)</article>
+<article class="post" id="p19656"><div class="who"><b>sall96</b><span>3 nov 2014, 21:49</span></div>Allora il 6 incrocio e' l'incontro delle rette che per ipotesi non sono parallele e si incontrano in un punto  :) <br>
+<br>
+Volendo si puo' generalizzare la situazione:<br>
+se abbiamo <span class="tex">\(n\)</span> macchinine, la traiettoria della prima incrocia le <span class="tex">\(n-1\)</span> altre traiettorie, la traiettoria della seconda incrocia (senza contare l'incontro con la prima gia' contato precedentemente) <span class="tex">\(n-2\)</span> traiettorie, e cosi' via fino all'ultima.<br>
+Quindi la somma degli incroci e' la sommatoria dei primi <span class="tex">\(n-1\)</span> numeri naturali che vale <span class="tex">\(\dfrac{n(n-1)}{2}\)</span> <br>
+Per il problema abbiamo <span class="tex">\(n=4\)</span> che da appunto <span class="tex">\(6\)</span>  :)</article>
+<article class="post" id="p19657"><div class="who"><b>andrea96</b><span>3 nov 2014, 22:29</span></div>magari sono completamente scemo e non ho capito il problema... però tu hai dimostrato ( sinceramente non ho nemmeno analizzato il procedimento ma mi fido  :lol: ) che se 4 rette si incontrano in 5 punti allora si incontrano anche nel sesto, cosa che tra l'altro si vede anche facendo un disegnino. Ora il fatto che due traiettorie passino per lo stesso punto non implica che ci passino allo stesso istante (condizione fondamentale perchè avvenga lo scontro ). A me sembrava di capire che il fatto che le rette si incontrino in 6 punti fosse un ipotesi dal momento che non ci sono parallele, e quello che va dimostrato è che se i moti sono tali che in 5 di questi punti le macchine delle traiettorie che ci passano arrivano simultanemamente, la stessa cosa avviene anche nel sesto punto... Poi può essere che ho capito male io eh :D</article>
+<article class="post" id="p19658"><div class="who"><b>sall96</b><span>3 nov 2014, 22:47</span></div>Se è come dici tu allora sì, devo dimostrare che esistono delle velocità che comportano gli scontri in tutti i punti. Io avevo capito solo un incontro di traiettorie  :lol: (in effetti un po' banale da dimostrare)</article>
+<article class="post" id="p19659"><div class="who"><b>Simone256</b><span>3 nov 2014, 23:35</span></div>L'interpretazione giusta è quella di andrea! Forse mi sono spiegato male io  :oops: <br>
+Comunque è fondamentale che le macchine si trovino nello stesso istante nell'incrocio; per 5 incroci questa è un'ipotesi, per il sesto è la tesi  :)</article>
+<article class="post" id="p19660"><div class="who"><b>Pigkappa</b><span>7 nov 2014, 20:45</span></div>Up! A me non sembra poi così difficile!</article>
+<article class="post" id="p19661"><div class="who"><b>andrea96</b><span>8 nov 2014, 0:32</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Up! A me non sembra poi così difficile!</div></blockquote>
+Particolarmente difficile no però secondo me è molto bello perchè non c è una soluzione banale! Simone ne conosceva due io ne ho trovata una terza (aspettiamo qualche giorno che magari ne esce una quarta :lol: ) e nessuna di queste si fa con un metodo diretto...</article>
+<article class="post" id="p19662"><div class="who"><b>andrea96</b><span>10 nov 2014, 17:34</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>4 macchinine che assumiamo come puntiformi si muovono nel piano ad una velocitá costante (le 4 velocitá non sono necessariamente distinte) in modo rettilineo. Dei 6 possibili incroci (o scontri) tra le macchinine sappiamo che se ne verificano almeno 5 e che ciascuno di questi incroci non comprende mai più di due macchinine alla volta.<br>
+Dimostrare che effettivamente avviene anche il sesto incrocio.<br>
+<br>
+Spero il testo sia chiaro :)</div></blockquote> Dopo una settimana di puro vuoto pensi sia il caso di sbloccare l'argomento? ( non so come però  :lol:  potresti dare un aiutino per arrivare a una delle tue soluzioni o lo do io per la mia, ma penso sarai d'accordo con me che sarebbe decisamente più sensato mettere aiuti per una delle tue vista l'impestatezza della mia  :lol: )</article>
+<article class="post" id="p19663"><div class="who"><b>Simone256</b><span>11 nov 2014, 0:19</span></div>Ok dai provo a dare un aiutone :):<br>
+<br>
+Immaginate di trovarvi su una delle macchinine e raccontateci cosa vedete voi da lì ;)</article>
+<article class="post" id="p19664"><div class="who"><b>Lasker</b><span>12 nov 2014, 15:28</span></div>Invece di lavorare nel piano (come sembrerebbe suggerire il testo del problema) aggiungiamo una terza coordinata (il tempo) e visualizziamo il moto in questo spazio a tre dimensioni. Visto che la velocità di ciascuna macchinina è costante, le trasformazioni che mandano le rette (traiettorie) nei loro trasformati (fantasia al massimo) in questo spazio sono affinità, dunque le rette delle rispettive traiettorie vengono mandate in altre rette. <br>
+<br>
+Queste nuove rette si incontrano, per ipotesi, in almeno 5 punti (che sarebbero gli scontri tra le macchinine), la nostra tesi diventa quindi mostrare che in realtà si incrociano in ben 6 punti.<br>
+<br>
+Supponiamo per assurdo che ogni terna di rette dia luogo a due sole intersezioni (o meno), il numero massimo di intersezioni totali sarebbe allora<br>
+<span class="tex">\(\frac{{4\choose 3}\cdot 2}{2}=4\)</span><br>
+Dove bisogna dividere per <span class="tex">\(2\)</span> in quanto ogni intersezione è stata contata due volte (una per ognuna delle rette che non la contengono). Visto che sappiamo di avere in totale <span class="tex">\(5\)</span> intersezioni, siamo giunti ad un assurdo, deve dunque esistere una terna di rette che dà luogo a tre intersezioni.<br>
+<br>
+Ma, dalla geometria solida scolastica sappiamo che tre punti identificano un piano, e quindi nel nostro spazio strano tre rette sono complanari. La rimanente retta, per darci le due intersezioni necessarie, deve intersecare esattamente due di queste rette complanari, ed è quindi anch'essa a loro complanare. Quindi, visto che per ogni coppia di rette complanari deve esserci un'intersezione (in quanto non ci sono coppie di rette parallele e nemmeno terne di rette concorrenti per ipotesi) il numero di intersezioni dovrà essere <span class="tex">\({4\choose 2}=6\)</span>, e con questo abbiamo finito!</article>
+<article class="post" id="p19665"><div class="who"><b>andrea96</b><span>12 nov 2014, 15:53</span></div>Non ho capito bene il motivo per cui fai il ragionamento sulle trasformazione affini: nel piano x-y-t le traiettorie sono rette per ipotesi! il testo del problema non dice solo che le macchine si muovono su una retta, ma dice proprio che si muovono di moto rettilineo uniforme; se mi sfugge qualcosa correggimi, te lo dico perchè quando l'ho fatto io mi è sembrato che bastasse fare il ragionamento sulla complanarità...<br>
+P.S. in ogni caso il procedimento è giusto ora aspettiamo simone per la conferma ufficiale ( e magari se gli va scrive anche il procedimento che partiva dal suo suggerimento che secondo me è il più bello :lol: )</article>
+<article class="post" id="p19666"><div class="who"><b>Lasker</b><span>12 nov 2014, 16:11</span></div>Ho cercato di dire "vero per ipotesi" in modo più matematico/figo (conta che di solito il moto lo tratto in una sola coordinata spaziale, e mi è sembrato di dover chiarire), ma in effetti è una precisazione abbastanza inutile che crea solo problemi di comprensione...</article>
+<article class="post" id="p19667"><div class="who"><b>Simone256</b><span>12 nov 2014, 17:49</span></div>Ooook lasker come ti ha già detto andrea vá benissimo :D<br>
+<br>
+Soluzione 2:<br>
+Chiamiamo A, B, C, D le macchine, poniamo che il sesto incrocio da verificare sia quello tra C e D.<br>
+Mettiamoci nel sistema di riferimento di A, anche qui le macchine si muovono di moto rettilineo uniforme (A è ferma diciamo nel punto P) se vogliamo sempre per motivi di affinitá. Ma allora le traiettorie in questo sistema di riferimento sono 3 rette passanti per P. Ma anche B incontra in un punto sia C che D ma poichè questo punto non coincide con P per ipotesi abbiamo che nel piano le rette di C e B hanno due punti distinti in comune così come le rette di D e B. Da qui è immediato dedurre che le rette di C e D coincidono quindo avverrá anche questo incrocio!! :)</article>
+<article class="post" id="p19668"><div class="who"><b>matpro98</b><span>12 nov 2014, 17:57</span></div>Provo con un altro approccio. <br>
+Prendo una coppia di rette/traiettorie in cui avviene un incrocio "esterno" (cioè tale che sia il primo per entrambe le auto). Considero quella di cui non sappiamo se si scontra la terza volta e congiungo gli incroci di tutte le altre auto con il punto in cui si trova quella considerata. Poiché i moti sono rettilinei uniformi, i triangoli risultano simili e, avendo una coppia di lati ciascuno sempre sulle stesse due rette, i terzi lati saranno paralleli. Ma se due corpi in moto mantengono costante la direzione reciproca si incontreranno, e quindi avviene anche il sesto incrocio.</article>
+<article class="post" id="p19672"><div class="who"><b>andrea96</b><span>12 nov 2014, 19:45</span></div>due cose: 1) ci troviamo in x-y o in x-y-t?<br>
+2) <blockquote><div><cite>matpro98 ha scritto:</cite>Poiché i moti sono rettilinei uniformi, i triangoli risultano simili </div></blockquote> non mi è molto chiaro questo passaggio...</article>
+<article class="post" id="p19677"><div class="who"><b>matpro98</b><span>12 nov 2014, 21:26</span></div>Percorrono in tempi uguali spazi proporzionali alle velocità, che sono costanti, quindi i lati di quei triangoli sono in proporzione</article>
+<article class="post" id="p19678"><div class="who"><b>andrea96</b><span>12 nov 2014, 23:04</span></div>Ma gli incroci non avvengono tutti nello stesso istante quindi il tratto che una macchina percorre tra un incorcio e l altro avviene in un tempo, quello di un altra macchina avviene in generale in un altro tempo quindo i tratti non sono percorsi in tempi uguali</article>
+<article class="post" id="p19682"><div class="who"><b>matpro98</b><span>13 nov 2014, 7:13</span></div>E infatti non dico di tutti.<br>
+Prendi in considerazione il primo incrocio della macchina che in teoria ne fa solo due. Poi da tutti gli incroci delle altre mabdi le rette per il punto in cui si troverebbe la prima. Per quanto detto, i triangoli ottenuti con l'incrocio considerato sono simili.</article>
+<article class="post" id="p19683"><div class="who"><b>andrea96</b><span>13 nov 2014, 14:08</span></div>Mah... continuo a non capire. Innanzi tutto non ho ancora capito se ci troviamo nel piano x-y  o nello spazio x-y-t. Poi: in generale non ci sono due incorci che avvengono nello stesso istante, quindi u generale due maccchine che si incirciano non arrivano all incorcio successivo in tempi uguali, di conseguenza non ci sono dei lati che sono i proporzione. Ma poi prova a fare un disegno qualsisi delle traiettorie e vedi che i triangoli che si formano non hanno lati proporzionali...</article>
+<article class="post" id="p19684"><div class="who"><b>matpro98</b><span>13 nov 2014, 16:30</span></div>Non mi sono spiegato bene... intanto sono nel piano xy. Poi è il PRIMO (diciamo A e B) l'incrocio che prendo in considerazione. Dopo di che la traiettoria della macchina da 2 scontri (A) la lascio relativamente da parte. A questo punto unisco i punti degli altri incroci di B con la posizione in quell'istante della macchina A. I triangoli formati dalle rette A, B e dalle congiungenti dovranno essere simili. Ma ragionando dal secondo e dal terzo incontro di B possiamo dire che anche gli altri triangoli costruiti nello stesso modo sono simili fra loro.</article>
+<nav class="pager"><a class="prev" href="olifis-644.html"><small>← precedente</small>Barche all&#x27;inseguimento.</a><a class="next" href="olifis-6886.html"><small>successivo →</small>202. Corsa sul ghiaccio</a></nav>
+</main></body></html>

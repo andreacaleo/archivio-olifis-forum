@@ -1,0 +1,1840 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staffetta meccanica</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Staffetta meccanica</h1>
+<p class="meta">216 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=417">forum Olifis</a></p>
+<article class="post first" id="p3754"><div class="who"><b>Gauss91</b><span>2 apr 2010, 0:15</span></div>Ragazzi del forum, non so se voi frequentate anche il forum delle olimpiadi della Matematica, ma là ci sono, per ogni argomento, delle "staffette" in cui uno propone un problema, un altro lo risolve, e chi lo risolve ne propone uno nuovo, e così via.<br>
+E' una cosa divertente e istruttiva secondo me, e non penso sarebbe una cattiva idea istituirne una anche qui. Per esempio una "staffetta meccanica", una "staffetta elettromagnetismo", e una "staffetta termodinamica". Forse ciò potrebbe contribuire alla vitalità del forum e aumenterebbe i problemi in circolazione, con conseguente miglior allenamento.<br>
+Che ne dite? L'ho postato qua perché non ci sono altre sezioni buone per questa cosa.</article>
+<article class="post" id="p3759"><div class="who"><b>Timmo</b><span>2 apr 2010, 10:58</span></div>Penso che bisognerebbe aspettare dopo Senigallia, visto che probabilmente molti sul forum sono impegnati a fare vecchie edizioni (io si) o a ripassare la teoria (io no...). :)  ;)</article>
+<article class="post" id="p3760"><div class="who"><b>Ippo</b><span>2 apr 2010, 11:01</span></div>Beh se ne avete voglia mi sembra una buona idea! (forse dopo Senigallia come dice Timmo in effetti sarebbe meglio, ormai manca una settimana no?)<br>
+l'unica differenza con matematica è che secondo me sarà un po' più difficile trovare problemi adeguati (=di livello non troppo alto) in giro, o inventarli; comunque provare non costa nulla direi, quindi... buon lavoro!!  :)</article>
+<article class="post" id="p3762"><div class="who"><b>Gauss91</b><span>2 apr 2010, 11:27</span></div>Ok! Quindi dopo senigallia cominciamo, ma visto che l'idea l'ho avuta io, voglio essere io a postare il primo problema! 8-) A presto!</article>
+<article class="post" id="p3795"><div class="who"><b>Gauss91</b><span>11 apr 2010, 17:26</span></div>Ok ragazzi! Senigallia è stata fatta, ed è con un po' di rammarico che posto questo primo problema, dato che purtroppo io non ce l'ho fatta ad arrivare lì... quindi, innanzitutto porgo i miei complimenti a tutti coloro che sono riusciti a partecipare e magari a fare anche un buon punteggio, in secondo luogo spero che possiate perdonare la mia incapacità di arrivare alle nazionali e mi diate l'autorità di postare il primo problema della staffetta senza ridermi dietro! ;) <br>
+Basta con i convenevoli, e buona risoluzione del...<br>
+<br>
+<strong class="text-strong">Problema 1</strong> (own): un cilindro omogeneo di base <span class="tex">\(2d\)</span> e altezza <span class="tex">\(2h\)</span>, con <span class="tex">\(h &gt; d\)</span>, si trova (in piedi) al centro di una giostra circolare di raggio <span class="tex">\(R\)</span>, che gira a velocità angolare costante <span class="tex">\(\omega\)</span>. Il cilindro si trova su un supporto a sua volta dentro una guida diretta radialmente la giostra. Si può immaginare il supporto come una base orizzontale con alto coefficiente d'attrito (insomma non si prendono in considerazione scivolamenti) e la guida come un solco sul pavimento della giostra, entro il quale si muove il supporto del cilindro. Tale sistema "supporto-guida" impedisce al cilindro di scivolare in qualunque direzione, e di muoversi in altre direzioni che non siano quella permessa dalla guida, ma NON gli impedisce di oscillare attorno al suo asse e, eventualmente, di cadere.<br>
+Si fa partire il supporto (con sopra il cilindro) verso l'esterno della giostra, ad una velocità radiale costante, <span class="tex">\(v\)</span>.<br>
+Si determini il massimo valore di <span class="tex">\(v\)</span> tale che il cilindro non cada durante la sua corsa verso l'esterno.<br>
+Buon lavoro! ;)</article>
+<article class="post" id="p3796"><div class="who"><b>Pigkappa</b><span>11 apr 2010, 19:33</span></div>O fai una figura, oppure spieghi molto precisamente come è fatta quella roba, anche rischiando di essere prolisso. La difficoltà del problema non dovrebbe essere nella comprensione del testo...</article>
+<article class="post" id="p3797"><div class="who"><b>Nagdhar</b><span>11 apr 2010, 20:09</span></div>Sono un ragazzo del terzo anno, alle prime armi ed iscritto da poco  :idea: <br>
+Ho provato a dare una prima soluzione teorica al problema.<br>
+Mentre la giostra ruota con una propria velocità angolare <strong class="text-strong">ω</strong>, il cilindro si muove lungo l'asse costituito dalla guida verso "l'ipotetica uscita" con la sua velocità <strong class="text-strong">v</strong> costante. Affinchè il solido fuoriesca senza cadere, a causa del momento dovuto alla forza centrifuga (individuata nel sistema di riferimento solidale al cilindro e generata dalla rotazione della giostra stessa), la logica vuole che il corpo assuma una velocità <strong class="text-strong">v</strong> tale che il tempo impiegato dal baricentro (posto al centro dell'altezza) per fuoriuscire dalla base sia uguale a quello che il corpo impiega a percorrere la distanza <strong class="text-strong">R</strong> verso l'uscita.</article>
+<article class="post" id="p3798"><div class="who"><b>Nagdhar</b><span>11 apr 2010, 20:38</span></div>La traduzione in formule di quanto espresso teoricamente nella prima soluzione è:<br>
+<strong class="text-strong">v</strong>=<strong class="text-strong">ω</strong>*<strong class="text-strong">R</strong><strong class="text-strong">/</strong>(<strong class="text-strong">2</strong>*<strong class="text-strong">β</strong>)   <br>
+laddove:<br>
+<strong class="text-strong">β</strong> è l'angolo complementare di <strong class="text-strong">α</strong>=<strong class="text-strong">arctan</strong>(<strong class="text-strong">h/d</strong>)<br>
+<strong class="text-strong">ω</strong> è la velocità angolare della giostra;<br>
+<strong class="text-strong">R</strong> è il raggio della giostra;<br>
+<strong class="text-strong">v</strong> è la velocità radiale costante assunta dal cilindro.</article>
+<article class="post" id="p3799"><div class="who"><b>Gauss91</b><span>11 apr 2010, 20:44</span></div>@Pigkappa: l'ho modificato aggiungendo un'ulteriore descrizione del sistema, spero che ora sia chiaro ;) <br>
+
+<blockquote><div><cite>Naghdar ha scritto:</cite>il cilindro deve avere una velocità v tale che il tempo impiegato dal baricentro (posto al centro dell'altezza) per fuoriuscire dalla base deve essere uguale a quello che il cilindro impiega a percorrere la distanza R per uscire dalla giostra.</div></blockquote>
+
+Idea abbastanza carina :P . Quindi per te la velocità massima sarebbe infinita (così il cilindro "non ha neanche il tempo" di cadere).<br>
+Tuttavia, quella che hai postato prima di tutto non è una soluzione completa (il fatto che DEVE essere così non l'hai in alcun modo giustificato), e in definitiva non è corretta dato che non è neanche detto che la situazione descritta da te (cilindro che casca più lentamente di quanto esce) sia possibile. Non spiego questo fatto perché darei un hint troppo forte agli altri, comunque pensaci! ;)</article>
+<article class="post" id="p3800"><div class="who"><b>Nagdhar</b><span>11 apr 2010, 23:39</span></div>Il problema potrebbe nascondere la risposta nel testo: se il cilindro assume una velocità radiale costante <strong class="text-strong">v</strong>, unita alla velocità angolare della giostra <strong class="text-strong">ω</strong> che si trasferisce al solido in questione, provocherebbe un moto roto-traslatorio.</article>
+<article class="post" id="p3804"><div class="who"><b>Gauss91</b><span>12 apr 2010, 15:31</span></div><blockquote><div><cite>Nagdhar ha scritto:</cite>te l'avevo detto che ero di terzo ed alle prime armi</div></blockquote>
+
+Mica sono qui per giudicarti!  ;) (e sarei davvero l'ultimo a poterlo fare).<br>
+
+<blockquote><div><cite>Nagdhar ha scritto:</cite>quando tu scrivi che il cilindro assume una velocità radiale costante v, intendi che si muove di moto rettilineo uniforme lungo il supporto in direzione dell'ipotetica uscita?</div></blockquote>
+
+Non nasconde nessun tranello, la guida orizzontale ovviamente è solidale con la giostra, e il supporto si muove all'interno della guida in direzione radiale. Penso che il testo sia abbastanza chiaro!<br>
+Comunque le tue conclusioni sono errate... Potrebbe benissimo, e non c'è interpretazione che tenga, cadere o non cadere! (E in ogni caso, ancora, non è detto che sia vero, che il baricentro possa uscire dalla base PRIMA che il cilindro raggiunga l'uscita... questo succede per un fatto particolare che avviene quando gli oggetti si muovono, oltre che circolarmente, anche radialmente. Non posso dire quale fatto è perché ancora darei un hint troppo forte! ;) )<br>
+
+<blockquote><div><cite>Nagdhar ha scritto:</cite>sul corpo non agirebbe alcuna forza in grado di bilanciare il momento generato dalla forza centrifuga e quindi sarebbe obbligatoriamente costretto a cadere</div></blockquote>
+
+Prova a studiare separatamente il modello di corpo libero della situazione e vedrai che non è così. In fondo, se spingi orizzontalmente una colonna greca non fissa alle estremità dubito che riesca a farla cadere! ;)</article>
+<article class="post" id="p3805"><div class="who"><b>Nagdhar</b><span>12 apr 2010, 15:56</span></div>Un grazie a Gauss91 ;) !</article>
+<article class="post" id="p3927"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>22 apr 2010, 15:49</span></div><span style="color:#00BFBF">Un saluto a tutte le nuove leve iscritte al forum Olifis nel mese di aprile</span>    <br>
+<br>
+Cogliendo il suggerimento di Gauss91, circa lo studio del modello di corpo libero, sul sistema fisico agiscono principalmente la forza centrifuga <span class="tex">\(F_0=m\omega^2r\)</span> e la forza di Coriolis <span class="tex">\(F_1=2m\omega v\)</span>. Poiché il corpo in questione è un cilindro occorre considerare uguale in tutti i punti la direzione degli stessi vettori forza. Affinché il corpo non cada è necessario imporre la condizione che <span class="tex">\(\vec{F_0}+\vec{F_1}&lt;\vec{F_2}\)</span> dove <span class="tex">\(F_2=Mg\frac{d}{h}\)</span>  è la forza minima orizzontale in grado di generare la caduta del cilindro. A questo punto svolgendo delle semplificazioni matematiche si ottiene che:<br>
+<br>
+<span class="tex">\(\displaystyle{v&lt;\sqrt{\frac{K-\omega^4r^2}{4\omega^2}}}\)</span><br>
+<br>
+ponendo:  <span class="tex">\(\displaystyle{K=\frac{g^2d^2}{h^2}}\)</span><br>
+<br>
+Spero di non aver commesso errori nei calcoli e soprattutto nel ragionamento.</article>
+<article class="post" id="p3931"><div class="who"><b>Gauss91</b><span>22 apr 2010, 20:28</span></div>Perfetto! ;) Il risultato è lo stesso a cui sono pervenuto io.<br>
+Finalmente qualcuno che lo risolve! :D <br>
+Visto che è la staffetta, ora spetta ad Eagle proporre il <strong class="text-strong">Problema 2</strong>. Vai! ;)</article>
+<article class="post" id="p3932"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>22 apr 2010, 20:53</span></div>Il problema che ho intenzione di proporre è il seguente:<br>
+Il cavo di un ascensore di massa <span class="tex">\(m_1=2000 kg\)</span> si spezza quando la cabina si trova ferma al primo piano, a una distanza <span class="tex">\(d=3,7 m\)</span> al di sopra di una molla ammortizzatrice avente una costante elastica <span class="tex">\(k=0,15 MN/m\)</span>. Un dispositivo di sicurezza agisce da freno sulle guide  in modo da far loro sviluppare in caso di emergenza una forza d'attrito costante pari a <span class="tex">\(4,4kN\)</span>, che si oppone al moto dell'ascensore. <br>
+<strong class="text-strong">a</strong>) Calcolare la <em class="text-italics">velocità</em> dell'ascensore prima che urti la molla;<br>
+<strong class="text-strong">b</strong>) Trovare di quale <em class="text-italics">lunghezza</em> <span class="tex">\(x\)</span> verrà compressa la molla;<br>
+<strong class="text-strong">c</strong>) Trovare di quale <em class="text-italics">lunghezza</em> rimbalzerà l'ascensore lungo le guide verticali;<br>
+<strong class="text-strong">d</strong>) Calcolare la <em class="text-italics">distanza approssimativa</em> percorsa dall'ascensore fino al punto d'arresto inferiore: perché non si può dare una risposta esatta?<br>
+<br>
+<span style="color:#0000FF">Ecco a voi, fisici di buona volontà</span></article>
+<article class="post" id="p3933"><div class="who"><b>Alex90</b><span>22 apr 2010, 21:09</span></div><blockquote><div><cite>Eagle ha scritto:</cite><strong class="text-strong">c</strong>) Trovare di quale <em class="text-italics">lunghezza</em> rimbalzerà l'ascensore lungo le guide verticali</div></blockquote>
+
+Perdona la domanda ma...cosa vuol dire?</article>
+<article class="post" id="p3934"><div class="who"><b>Ratio</b><span>22 apr 2010, 21:51</span></div>Dunque...<br>
+<br>
+a) <span class="tex">\(Mg-F_A = Ma \rightarrow v = \sqrt {\frac{2(Mg-F_A)d}{M}} = 7,504 m/s\)</span>.<br>
+<br>
+b) Dalla conservazione dell'energia vale <span class="tex">\(\frac{1}{2}Mv^2 = \frac{1}{2}kx^2+F_Ax\)</span>, da cui risolvendo brutalmente per x abbiamo <span class="tex">\(x = \frac{-F_A+\sqrt{F_A^2+kMv^2}}{k} = 0,837 m\)</span>.<br>
+<br>
+c) Detto <span class="tex">\(l\)</span> il tratto di risalita dell'ascensore abbiamo, sempre per la conservazione dell'energia che <span class="tex">\(\frac{1}{2}kx^2=mgl+F_Al \rightarrow l = 2,187 m\)</span>.<br>
+N.B.: <span class="tex">\(l\)</span> è la distanza percorsa dall'ascensore in risalita e comprende anche <span class="tex">\(x\)</span> stesso.<br>
+<br>
+d) Osserviamo che l'altezza iniziale è stata ridotta da <span class="tex">\(d\)</span> a <span class="tex">\(l-x\)</span> nel corso di un rimbalzo, ovverro è stata ridotta del <span class="tex">\(1-\frac{l-x}{d} = 0,63\)</span>. Ad ogni "rimbalzo" la perdita di energia porta ad una quota sempre minore senza mai però giungere a zero, per questo non è possibile calcolare matematicamente il percorso totale dell'ascensore.<br>
+<br>
+Tutto giusto? Chiedo conferma prima di postare il successivo.</article>
+<article class="post" id="p3936"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>22 apr 2010, 23:53</span></div>Confermo quanto scritto da<em class="text-italics"> Ratio</em>, pur ammettendo - non per sminuire la sua eccellente risoluzione - che il problema postato non racchiudeva in sé eccessive difficoltà. <br>
+Comunque gli rivolgo ancora i miei complimenti per la soluzione chiara ed efficace.</article>
+<article class="post" id="p3937"><div class="who"><b>Ratio</b><span>23 apr 2010, 14:37</span></div>Facendo il problema 2 mi è venuto in mente un altro problema che avevo fatto un pò di tempo fa... Perdonatemi la mancanza di fantasia   :oops: <br>
+<br>
+<strong class="text-strong">Problema 3.</strong> Una palla è lanciata verticalmente fino ad una altezza <span class="tex">\(h\)</span>, ricade e rimbalza ripetutamente. Dopo ogni rimbalzo ritorna ad una frazione <span class="tex">\(f\)</span> della sua precedente altezza fino a quando non si arresta. Trovare:<br>
+1) la distanza totale percorsa (operando una approssimazione nota, suppongo);<br>
+2) il tempo totale impiegato;<br>
+3) la velocità media.<br>
+<br>
+Chiedete pure se avete dubbi. Per chi lo riconoscesse l'ho preso dal Morin modificandone il testo (nonché traducendolo  :mrgreen: ), ma non il ragionamento di fondo.<br>
+<br>
+Buon lavoro.<br>
+Io aspetto il prossimo, invece  :x</article>
+<article class="post" id="p3938"><div class="who"><b>Ippo</b><span>23 apr 2010, 14:51</span></div>Problema 2, punto d: <br>
+nell'istante finale l'ascensore si trova fermo in equilibrio sostenuto dalla molla, contratta di <span class="tex">\(Mg/k\)</span>;<br>
+un bilancio energetico dà <span class="tex">\(\displaystyle \Delta E =-F_A \Delta x={k \over 2}{\left( Mg \over k \right)}^2-Mg \left( {Mg \over k}+d\right)\)</span> da cui la lunghezza totale del percorso<br>
+<span class="tex">\(\displaystyle \Delta x={M^2 g^2 \over 2k F_A}+{Mgd \over F_A}\)</span><br>
+<br>
+Nota: spesso per trovare grandezze che riguardano la totalità di un moto anche incasinato non è necessario trattare veramente il moto in tutta la sua bruttezza. Problema idiota su questo: un treno viaggia contro un muro a velocità v, partendo da una distanza L; una mosca va avanti e indietro tra il treno e il muro a velocità (in modulo) costante 2v; quanto vale la distanza totale percorsa dalla mosca prima di essere spiaccicata contro il muro?</article>
+<article class="post" id="p3939"><div class="who"><b>Alex90</b><span>23 apr 2010, 19:38</span></div><blockquote><div><cite>Ippo ha scritto:</cite>Problema idiota su questo: un treno viaggia contro un muro a velocità v, partendo da una distanza L; una mosca va avanti e indietro tra il treno e il muro a velocità (in modulo) costante 2v; quanto vale la distanza totale percorsa dalla mosca prima di essere spiaccicata contro il muro?</div></blockquote>
+
+Sbaglio o questo viene dall'ammissione al Sant'Anna di quest'anno?<br>
+<br>
+@Gauss91: l'infinito in tex si fa con \infty</article>
+<article class="post" id="p3942"><div class="who"><b>Gauss91</b><span>24 apr 2010, 0:13</span></div>Provo a dare la soluzione al Problema 3.<br>
+1) Per "frazione" intendo che dopo il primo rimbalzo la palla va ad un'altezza massima di <span class="tex">\(hf\)</span>, con f&lt;1.<br>
+Dopo n rimbalzi (il "lancio" lo conto come il rimbalzo 1 per motivi di calcolo), è facile vedere che l'altezza raggiunta è <span class="tex">\(h_n = hf^{n-1}\)</span><br>
+Ad ogni rimbalzo percorre la traiettoria di lancio 2 volte, quindi il percorso totale sarà<br>
+<span class="tex">\(D = 2\displaystyle\sum_{n = 1}^{\infty}hf^{n-1} = \dfrac{2h}{1-f}\)</span>.<br>
+<br>
+2) Al rimbalzo n, il tempo impiegato per raggiungere l'altezza massima è <span class="tex">\(t_n = \sqrt{\dfrac{2h_n}{g}}= \sqrt{\dfrac{2h}{g}}f^{\frac{n-1}{2}}\)</span>. Quindi, analogamente a prima,<br>
+<span class="tex">\(T = 2\displaystyle\sum_{n = 1}^{\infty}\sqrt{\dfrac{2h}{g}}f^{\frac{n-1}{2}} = 2\sqrt{\dfrac{2h}{g}}\displaystyle\sum_{n = 1}^{\infty}(\sqrt{f})^{n-1} = \sqrt{\dfrac{2h}{g}}\dfrac{2}{1-\sqrt{f}}\)</span>.<br>
+<br>
+3) <span class="tex">\(v_m = \dfrac{D}{T} = \sqrt{\dfrac{gh}{2}} \dfrac{1-\sqrt{f}}{1-f}\)</span>.<br>
+<br>
+Attendo il responso. :)</article>
+<article class="post" id="p3943"><div class="who"><b>Ratio</b><span>24 apr 2010, 13:24</span></div>Perfetto. Vai col 4.</article>
+<article class="post" id="p3948"><div class="who"><b>Gauss91</b><span>24 apr 2010, 16:06</span></div><strong class="text-strong">Problema 4</strong> (own)<br>
+Una pallina di raggio <span class="tex">\(r\)</span> ruota attorno ad un proprio asse con velocità angolare costante <span class="tex">\(\omega\)</span>. La pallina viene fatta cadere da un'altezza <span class="tex">\(h\)</span>, sul pavimento. A causa del suo moto rotatorio, la pallina rimbalza non in verticale, ma in diagonale. Nella direzione in cui rimbalza, è presente una mensola parallela al pavimento, con distanza <span class="tex">\(d\)</span> da esso e con il bordo la cui proiezione sul pavimento è distante <span class="tex">\(a\)</span> dal punto in cui la pallina tocca terra.<br>
+Si trovi l'altezza minima <span class="tex">\(h\)</span> tale che la pallina, rimbalzando, cada sulla mensola.<br>
+Si consideri l'urto perfettamente elastico e senza scivolamento.<br>
+<br>
+@Alex: grazie! Ora modifico ;)</article>
+<article class="post" id="p3958"><div class="who"><b>spn</b><span>24 apr 2010, 19:55</span></div>Secondo la mia modesta opinione questo problema rimane un pò sul vago:<br>
+<br>
+Immagino che l'asse di rotazione della pallina si trovi su un piano parallelo al terreno, in modo tale che tutta l'energia rotazionale si trasformi in traslazionale. In questo caso si ha dalla conservazione dell'energia:<br>
+<br>
+<span class="tex">\(\displaystyle {1 \over 2}m {v_x}^2={1 \over 2}I {\omega}^2={1 \over 5}m {\omega}^2 r^2\)</span><br>
+<br>
+<span class="tex">\(\displaystyle v_x={\omega}r\sqrt{2\over 5}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle v_y=\sqrt{2gh}\)</span><br>
+<br>
+Suppongo ora che si intenda di trovare l'altezza minima affinchè la pallina cada sulla mensola facendo un solo rimbalzo (se ne può fare di più diventa più calcoloso, ma non si complica tanto, almeno concettualmente). <br>
+<br>
+Al caso limite la pallina colpisce lo spigolo della mensola. L'eq. del moto della pallina rispetto al punto del rimbalzo è:<br>
+<br>
+<span class="tex">\(\displaystyle y=-{g \over 2{v_x}^2}x^2 + {v_y \over v_x}x\)</span><br>
+<br>
+Imponendo ora y=d e x=a, e sostituendo i valori delle velocità, si arriva a:<br>
+<br>
+<span class="tex">\(\displaystyle h={\left(\omega r \dfrac{d}{a} + \dfrac{5ga}{4\omega r}\right)^2 \over 5g}\)</span><br>
+<br>
+Che è appunto l'altezza minima in funzione di w. E' facile notare che per la conservazione dell'energia l'altezza minima in assoluto è h=d, che è possibile quando:<br>
+<span class="tex">\(\displaystyle \omega=\dfrac{a}{r} \sqrt{5g \over 4h}\)</span><br>
+<br>
+spero di aver capito bene quello che intendevi.<br>
+<br>
+@ippo 2L?  :mrgreen:  (Se quel quesito è stato dato al sant'anna abbiamo una seria crisi di ingegneri...)</article>
+<article class="post" id="p3961"><div class="who"><b>Gauss91</b><span>24 apr 2010, 20:55</span></div><blockquote><div><cite>spn ha scritto:</cite>Secondo la mia modesta opinione questo problema rimane un pò sul vago</div></blockquote>
+Devo ancora abituarmi ad essere più preciso :oops: . Comunque hai capito perfettamente ciò che sottintendevo: asse di rotazione parallelo al pavimento e un solo rimbalzo.<br>
+<br>
+Per la soluzione
+<blockquote><div><cite>spn ha scritto:</cite> si ha dalla conservazione dell'energia</div></blockquote>
+L'energia si conserva? Conta che il pavimento esercita una forza di attrito parallela al movimento orizzontale della pallina che compie lavoro su di essa. Impostando il problema e risolvendolo con metodi meccanici si ottiene <span class="tex">\(v_x = \dfrac{2}{7}\omega r\)</span> al posto di <span class="tex">\(v_x = \omega r \sqrt{\dfrac{2}{5}}\)</span>.<br>
+Visto che è un own (e visto che la mia "modesta" opinione è ancora più modesta della tua :P ) può darsi che l'abbia sbagliato io: ai più grandi l'ardua sentenza. In ogni caso tutto il resto è perfetto.</article>
+<article class="post" id="p3962"><div class="who"><b>spn</b><span>24 apr 2010, 21:30</span></div>Hai ragione, in quel punto sono stato poco preciso, e probabilmente ci stà qualche incomprensione di mezzo. Ecco il mio ragionamento:<br>
+<br>
+Durante l'urto si ha che <br>
+<span class="tex">\({\Delta P}_y=N t\)</span><br>
+<span class="tex">\({\Delta P}_x=N \mu  t\)</span><br>
+<br>
+dove <span class="tex">\(\mu\)</span> è l'attrito tra pallina e pavimento, da cui viene fuori che:<br>
+<span class="tex">\(v_x=2\mu \sqrt{2gh}\)</span><br>
+<br>
+Ora, dal fatto che l'urto è elastico, io ho pensato che <span class="tex">\(\mu\)</span> fosse presa proprio in modo da far conservare l'energia nel caso che tutta l'energia rotazionale si trasformi in traslazionale (ossia <span class="tex">\(\mu = {\omega r \over 2\sqrt{5gh}}\)</span>), però effettivamente ora che ci ripenso questo può anche non avere molto senso.<br>
+<br>
+Come ti viene quel risultato lì?</article>
+<article class="post" id="p3963"><div class="who"><b>Ippo</b><span>24 apr 2010, 21:45</span></div><blockquote><div><cite>spn ha scritto:</cite>@ippo 2L?  :mrgreen:  (Se quel quesito è stato dato al sant'anna abbiamo una seria crisi di ingegneri...)</div></blockquote>
+già, ahahah  :mrgreen:</article>
+<article class="post" id="p3976"><div class="who"><b>Gauss91</b><span>25 apr 2010, 17:26</span></div>Ok dopo i chiarimenti di spn posso dire che la sua soluzione è sostanzialmente corretta. <br>
+A lui quindi il compito di postare il problema 5</article>
+<article class="post" id="p3978"><div class="who"><b>spn</b><span>25 apr 2010, 18:40</span></div><strong class="text-strong">Problema 5</strong>:<br>
+Un libro viene tirato da per terra con un angolo <span class="tex">\(\theta\)</span> rispetto all'orizzontale. L'attrito fra libro e terreno è <span class="tex">\(\mu\)</span>. Quanto dev'essere <span class="tex">\(\theta\)</span> affinche il libro si fermi ad una distanza massima rispetto al punto in cui è stato tirato?<br>
+Si trascuri l'attrito dell'aria e ogni tipo di deformazione nell'urto. Il libro rimane con una faccia parallela al terreno per tutto il tempo, e l'urto è completamente anelastico (lungo l'asse verticale).</article>
+<article class="post" id="p3980"><div class="who"><b>Ratio</b><span>25 apr 2010, 23:13</span></div>Ci provo. Dimmi se ci ho azzeccato.<br>
+<br>
+La distanza totale percorsa <span class="tex">\(D\)</span> è la somma della distanza <span class="tex">\(d_1\)</span> percorsa dal libro in volo, dal lancio alla caduta, più la distanza <span class="tex">\(d_2\)</span> percorsa "strisciando" sul pavimento. Definiamo <span class="tex">\(\vec v\)</span> il vettore velocità al momento del lancio, inclinato di un angolo <span class="tex">\(\theta\)</span> rispetto all'orizzontale.<br>
+Risulta da equazioni cinematiche (identiche al volo dei proiettili) che <span class="tex">\(d_1 = \frac{v^2}{g}\sin{2 \theta}\)</span>.<br>
+Usando invece la conservazione dell'energia (solo per la componente orizzontale di <span class="tex">\(\vec v\)</span>, dato che l'urto in verticale è anelastico) otteniamo <span class="tex">\(\displaystyle d_2 = \frac{v^2 \cos^2 \theta}{2g \mu}\)</span>.<br>
+Perciò <span class="tex">\(D = \displaystyle \frac{v^2}{g}(\sin {2\theta}+\frac{\cos^2 \theta}{2 \mu})\)</span>.<br>
+Ora dobbiamo trovare il valore di <span class="tex">\(\theta\)</span> che ci massimizza l'espressione tra parentesi. L'ho derivata e l'ho posta uguale a zero, ricavando <span class="tex">\(\cos 2\theta - \frac{\sin{2 \theta}}{2 \mu} = 0 \rightarrow \theta = \displaystyle \frac{1}{2} \arctan {2 \mu}\)</span>.<br>
+Aspetto convalida.<br>
+<br>
+P.S.: nel caso fosse giusto, mi chiedevo se sono obbligato a postare un problema o se ho anche la possibilità di delegare qualcuno  :roll:</article>
+<article class="post" id="p3981"><div class="who"><b>Pigkappa</b><span>25 apr 2010, 23:27</span></div><blockquote><div><cite>spn ha scritto:</cite>e l'urto è completamente anelastico (lungo l'asse verticale).</div></blockquote>
+
+Considerando che l'energia è uno scalare e non un vettore, non mi è molto chiaro cosa significhi questa cosa...</article>
+<article class="post" id="p3982"><div class="who"><b>Gauss91</b><span>25 apr 2010, 23:34</span></div><blockquote><div><cite>Ratio ha scritto:</cite>mi chiedevo se sono obbligato a postare un problema o se ho anche la possibilità di delegare qualcuno </div></blockquote>
+
+Puoi ma devi presentare la richiesta scritta all'ufficio del Comune di residenza, in carta bollata, aspettare tutti i tempi di attesa necessari, mangiare una polpetta di polenta e sconfiggere un drago. A quel punto puoi chiedere il permesso definitivo a Chuck Norris in persona.<br>
+<br>
+(in altri termini, si fa quello che si vuole mica è una cosa formale :P )</article>
+<article class="post" id="p3983"><div class="who"><b>spn</b><span>25 apr 2010, 23:39</span></div>@Ratio La soluzione non è esatta: non hai considerato gli effetti dell'urto nella componente orizzontale della velocità.<br>
+
+<blockquote><div><cite>Pigkappa ha scritto:</cite> non mi è molto chiaro cosa significhi questa cosa...</div></blockquote>
+
+Semplicemente che il libro non rimbalza e che non viene influenzato da altre cose strane dovute al terreno (tipo non viene lanciato su una spiaggia...).</article>
+<article class="post" id="p3987"><div class="who"><b>Ratio</b><span>26 apr 2010, 13:57</span></div><blockquote><div><cite>spn ha scritto:</cite>@Ratio La soluzione non è esatta: non hai considerato gli effetti dell'urto nella componente orizzontale della velocità.</div></blockquote>
+
+In questo caso per l'asse x abbiamo:<br>
+<br>
+<span class="tex">\(\displaystyle m g \mu \hat x = \frac{\vec {v_f} + \vec v \cos \theta}{\Delta t}\)</span> <br>
+<br>
+Per l'asse y:<br>
+<br>
+<span class="tex">\(\displaystyle m \vec g = \frac {\vec v \sin \theta}{\Delta t} \rightarrow \Delta t = \frac {v \sin \theta}{mg}\)</span><br>
+<br>
+Sostituendo nella prima otteniamo <span class="tex">\(v_f = v (\mu \sin \theta - \cos \theta)\)</span>.<br>
+<br>
+Giusto?<br>
+<br>
+Comunque credo, a questo punto, che il problema andrebbe interpretato considerando che la velocità sull'asse verticale viene annullata nell'urto, mentre la componente orizzontale viene solo modificata...  :roll:</article>
+<article class="post" id="p3992"><div class="who"><b>Rigel</b><span>26 apr 2010, 16:48</span></div><blockquote><div><cite>Ratio ha scritto:</cite>In questo caso per l'asse x abbiamo:<br>
+<br>
+<span class="tex">\(\displaystyle m g \mu \hat x = \frac{\vec {v_f} + \vec v \cos \theta}{\Delta t}\)</span> <br>
+<br>
+Per l'asse y:<br>
+<br>
+<span class="tex">\(\displaystyle m \vec g = \frac {\vec v \sin \theta}{\Delta t} \rightarrow \Delta t = \frac {v \sin \theta}{mg}\)</span><br>
+<br>
+Sostituendo nella prima otteniamo <span class="tex">\(v_f = v (\mu \sin \theta - \cos \theta)\)</span>.<br>
+<br>
+Giusto?<br>
+<br>
+Comunque credo, a questo punto, che il problema andrebbe interpretato considerando che la velocità sull'asse verticale viene annullata nell'urto, mentre la componente orizzontale viene solo modificata... :roll:</div></blockquote>
+l'ultima considerazione mi sembra giusta, mentre nella <span class="tex">\(v_f\)</span> dovrebbe esserci un meno davanti alla parentesi. Comunque nell'urto le forze verticali in gioco sono peso e reazione del piano N, mentre quella orizzontale è la forza d'attrito<span class="tex">\(f=\mu N\)</span>. in un urto le forze impulsive sono molto grandi (<span class="tex">\(N&gt;&gt;mg\)</span>) e quindi si può fare un'approssimazione</article>
+<article class="post" id="p3994"><div class="who"><b>spn</b><span>26 apr 2010, 22:58</span></div>Ok, i concetti ci sono. (Vi invito a fare i calcoli perchè il risultato finale è carino)<br>
+Sennò, vai col prossimo.</article>
+<article class="post" id="p3995"><div class="who"><b>Rigel</b><span>26 apr 2010, 23:28</span></div>ignorando l'effetto rascurabile del peso, la variazione della quantità di moto verticale è <span class="tex">\(\int Ndt=mv\sin\theta\)</span> e quella orizzontale <span class="tex">\(m\Delta v_x=\int\mu Ndt=\mu mv\sin\theta\)</span> e quindi dopo l'urto dell'"atterraggio" la velocità orizzontale è<br>
+<span class="tex">\(v'_x=v(\cos\theta-\mu\sin\theta)\)</span><br>
+dopo l'urto si ha un moto uniformemente decelerato con decelerazione <span class="tex">\(\mu g\)</span> e quindi la distanza percorsa dopo l'urto è <br>
+<span class="tex">\(x_2=\frac{v'^2_{x}}{2\mu g}=\frac{v^2}{2\mu g}(\cos\theta-\mu\sin\theta)^2\)</span><br>
+Durante il moto parabolico la distanza percorsa vale <span class="tex">\(x_1=\frac{2v^2}{g}\sin\theta\cos\theta\)</span><br>
+Quindi<br>
+<span class="tex">\(x=x_1+x_2=\frac{v^2}{2\mu g}(4\mu\sin\theta\cos\theta+(\cos\theta-\mu\sin\theta)^2)\)</span><br>
+derivando rispetto all'angolo per trovare il massimo di x e ignorando la costante fuori parentesi si ottiene<br>
+<span class="tex">\(\frac{dx}{d\theta}=0\)</span><br>
+<span class="tex">\(4\mu(\cos^2\theta-\sin^2\theta)+2(\cos\theta-\mu\sin\theta)(-\sin\theta-\mu\cos\theta)=0\)</span><br>
+<span class="tex">\(4\mu\cos^2\theta-4\mu\sin^2\theta-2\sin\theta\cos\theta-2\mu\cos^2\theta+2\mu\sin^2\theta+2\mu^2\sin\theta\cos\theta=2\mu\cos^2\theta-2(1-\mu^2)\sin\theta\cos\theta-2\mu\sin^2\theta=0\)</span><br>
+Dividendo tutto per <span class="tex">\(-2\mu\cos^2\theta\)</span> si ottiene<br>
+<span class="tex">\(\tan^2\theta+\frac{1-\mu^2}{\mu}\tan\theta-1=0\)</span><br>
+Non sto a scrivere tutti i conti ma vi dico che i conti si semplificano parecchio e che le due soluzioni sono<span class="tex">\(-1/\mu\)</span> e (l'unico accettabile) <span class="tex">\(\mu\)</span> (carino!  :mrgreen: )<br>
+Sostituendo <span class="tex">\(\sin\theta\)</span> e <span class="tex">\(\cos\theta\)</span> nell'equazione di x si ottiene, e qui vi risparmio i conti non richiesti  :) :<br>
+<span class="tex">\(x_{max}=\frac{v^2}{2g}\frac{1+\mu^2}{\mu}\)</span></article>
+<article class="post" id="p3996"><div class="who"><b>spn</b><span>27 apr 2010, 0:21</span></div>Tutto a posto. (In realtà ci si semplificava molto la vita svolgendo il quadrato nell'eq. della distanza totale  ;)  )<br>
+Avanti il prossimo :mrgreen:</article>
+<article class="post" id="p4006"><div class="who"><b>Rigel</b><span>27 apr 2010, 22:17</span></div><blockquote><div><cite>spn ha scritto:</cite>Tutto a posto. (In realtà ci si semplificava molto la vita svolgendo il quadrato nell'eq. della distanza totale ;) )<br>
+Avanti il prossimo :mrgreen:</div></blockquote>
+Vero  :roll:  per precisazione i risultati di sopra valgono per <span class="tex">\(\mu\leq1\)</span>. infatti <span class="tex">\(v'_x\)</span> si annulla per <span class="tex">\(\tan\theta=1/\mu\)</span> e quindi la distanza <span class="tex">\(x_2\)</span> è nulla, anche per angoli maggiori. poichè per <span class="tex">\(\mu&gt;1\)</span>, allora <span class="tex">\(1/\mu&lt;\mu\)</span>, al crescere dell'angolo <span class="tex">\(v'_x\)</span> si annulla prima che si raggiunga il massimo di x per <span class="tex">\(\tan\theta=\mu\)</span>. quindi x è massima quando l'angolo è 45, indipendentemente dal coefficiente di attrito.<br>
+comunque ecco il prossimo problema...divertitevi  :mrgreen: <br>
+<strong class="text-strong">Problema 6.</strong> Un'automobile percorre una curva parabolica, cioè con la strada inclinata verso l'interno di un angolo <span class="tex">\(\theta\)</span>. il raggio della curva è <span class="tex">\(R\)</span> e il coefficiente di attrito statico tra gomme e asfalto vale <span class="tex">\(\mu\)</span>. entro quali valori l'automobilista deve mantenere la velocità <span class="tex">\(v\)</span> affinchè l'auto non slitti? provare per <span class="tex">\(R=100 m\)</span>, <span class="tex">\(\theta=45\)</span> e <span class="tex">\(\mu=0.5\)</span>.</article>
+<article class="post" id="p4010"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>28 apr 2010, 13:44</span></div>Questa volta sono partito col chiedermi come mai, anche in tv, si vedono spesso delle corse automobilistiche su pista inclinata. In effetti, la risposta è molto semplice: l'inclinazione permette di aumentare la velocità in curva. Allora, prima di giungere alla situazione complessa scritta da Rigel, ho ripreso gli stessi dati immaginando più semplicemente un motociclista inclinato di <span class="tex">\(\theta=45^0\)</span> rispetto ad una curva circolare, invece, priva di inclinazione. Allora affinché il motociclista non sbandi vale la seguente relazione:<br>
+<span class="tex">\(\displaystyle{\frac{mv^2_{max}}{R} \leq{mg+mg\mu}}\Rightarrow v_{max}\leq\sqrt{rg(\mu+1)}\)</span><br>
+A differenza di un motociclista in corsa perpendicolarmente alla strada, notiamo l'aggiunta al membro del termine <span class="tex">\(m\vec g\)</span> che deriva proprio dall'inclinazione del motociclista rispetto alla strada.<br>
+Tuttavia se il motociclista fosse inclinato di un angolo <span class="tex">\(\theta=45^0\)</span> a velocità nulla egli si ritroverebbe col mento sulla strada. Affinché sia possibile mantenere tale inclinazione:<br>
+<span class="tex">\(\displaystyle{\frac{mv^2_{min}}{R} \ge{mg-mg\mu}}\Rightarrow v_{min}\ge\sqrt{rg(1-\mu)}\)</span><br>
+Da ciò si deduce che:<br>
+<br>
+<span class="tex">\(68 km/h\)</span> <span class="tex">\(\leq{v}\leq138 km/h\)</span><br>
+<br>
+Il limite <span class="tex">\(v_{max}\)</span> è compatibile con la realtà, pensando anche a quanto sia esiguo questo angolo di 45° rispetto alle inclinazioni dei motociclisti (<em class="text-italics">che viaggiano in curva a velocità pure superiori</em>).</article>
+<article class="post" id="p4012"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>28 apr 2010, 17:02</span></div>Spero che la similitudine con il motociclista sia corretta.<br>
+<br>
+Attendo pertanto il responso  :geek:</article>
+<article class="post" id="p4013"><div class="who"><b>Rigel</b><span>28 apr 2010, 17:19</span></div><blockquote><div><cite>Eagle ha scritto:</cite>Chiedo a Rigel di non scatenare la sua collera nei miei confronti :| </div></blockquote>
+E perchè mai?  ;) <br>
+Comunque il risultato non è quello che dici tu...se ho indovinato come ci sei arrivato credo che tu non abbia considerato in maniera corretta tutte le forze agenti sull'auto.<br>
+<br>
+<span style="font-size: 40%; line-height: normal">Piccolo hint: ricorda che la forza di attrito statico vale |f|&lt;= mu N dove N è la reazione della strada. questo dovrebbe suggerire che la velocità ha un limite superiore ma anche inferiore  ;) </span></article>
+<article class="post" id="p4014"><div class="who"><b>Rigel</b><span>28 apr 2010, 20:15</span></div>la soluzione che ho io non coincide con quella di eagle. se posso darti qualche hint ti consiglio di disegnare tutte le forze che agiscono nel sistema (non inerziale) dell'auto e scomporle in componenti. considerando in che stato si trova l'auto (è in equilibrio?) basta usare la relazione sulla forza d'attrito di prima e si conclude<br>
+<br>
+quanto al paragone con il motociclista, non credo che sia valido perchè per il motociclista, la forza peso è sempre perpendicolare al piano della strada mentre per l'auto no</article>
+<article class="post" id="p4015"><div class="who"><b>egl</b><span>28 apr 2010, 20:49</span></div>Dunque, orientando gli assi con un inclinazione di 45°, mi risulta che <span class="tex">\(\displaystyle 18m/s \leq v \leq 54m/s\)</span></article>
+<article class="post" id="p4016"><div class="who"><b>Rigel</b><span>28 apr 2010, 20:55</span></div>ok i risultati sono quelli<br>
+se puoi postare il procedimento poi passiamo al prossimo problema</article>
+<article class="post" id="p4017"><div class="who"><b>egl</b><span>28 apr 2010, 22:01</span></div>Dunque, ho preso in considerazione il sistema di riferimento della macchina, dove quindi agisce la forza centrifuga. Orientando l'asse delle x parallelo al piano inclinato, le forze agenti sono: la forza peso, scomposta in due componenti, la forza centrifuga, anch'essa scomposta in due componenti, e la forza di attrito che a seconda del caso agisce nella direzione positiva o negativa dell'asse x.<br>
+La forza normale è <span class="tex">\(N=mgcos\theta + \frac{mv^2}{r}sen\theta\)</span>.<br>
+<br>
+Per la velocità massima l'equazione è <span class="tex">\(\displaystyle\frac{mv^2cos\theta}{r}=\mu N + mgsen\theta\)</span>, dalla quale <span class="tex">\(\displaystyle v_{max}=\sqrt\frac{(\mu gcos\theta+gsen\theta)r}{cos\theta-\mu sen\theta}\)</span>.<br>
+<br>
+Per la velocità minima l'equazione è <span class="tex">\(\displaystyle mgsen\theta=\frac{mv^2cos\theta}{r}+\mu m (gcos\theta+\frac{v^2sen\theta}{r})\)</span> dalla quale <span class="tex">\(\displaystyle v_{min}=\sqrt\frac{(gsen\theta-\mu gcos\theta)r}{cos\theta+\mu sen\theta}\)</span>.   <br>
+<br>
+Propongo il <strong class="text-strong">problema 7</strong> preso dall'Halliday:<br>
+<br>
+Una particella di massa <span class="tex">\(m\)</span> scivola dalla sommità di una rampa priva di attrito di altezza <span class="tex">\(h\)</span> e va ad urtare l'estremità libera di un'asta verticale omogenea di massa <span class="tex">\(M\)</span> e lunghezza <span class="tex">\(L\)</span> alla quale si attacca. L'asta è libera di girare vincolata all'altro estremo. L'asta ruota quindi di un angolo <span class="tex">\(\theta\)</span> prima di arrestarsi. Determinare <span class="tex">\(\theta\)</span></article>
+<article class="post" id="p4018"><div class="who"><b>Gauss91</b><span>28 apr 2010, 23:03</span></div>Per la conservazione dell'energia<br>
+<span class="tex">\(mgh = mL(1-\cos\theta) + M\frac{L}{2}(1-\cos\theta)\)</span>, da cui<br>
+<span class="tex">\(\theta = \arccos \dfrac{mgh - L(m+\frac{M}{2})}{L(m+\frac{M}{2})}\)</span></article>
+<article class="post" id="p4019"><div class="who"><b>spn</b><span>28 apr 2010, 23:11</span></div>Occhio che l'energia non si conserva: l'urto è anelastico.
+<blockquote class="uncited"><div> i risultati di sopra valgono per <span class="tex">\(\mu &lt;1\)</span></div></blockquote>
+Giusto, anche se non ho mai visto un libro e un'alra superficie che abbiano  <span class="tex">\(\mu &gt;1\)</span>, ma mai dire mai :lol:</article>
+<article class="post" id="p4020"><div class="who"><b>Gauss91</b><span>28 apr 2010, 23:32</span></div>ops sì evidentemente ho risposto in modo affrettatissimo! (circa 10 secondi ahah mi sono anche perso per strada diversi g ho fatto un disastro ;) ).<br>
+L'urto è anelastico quindi per la conservazione della qdm è<br>
+<span class="tex">\(v' = \dfrac{m}{m+M}v = \dfrac{m}{m+M} \sqrt{2gh}\)</span>. Dove v' è la velocità tangenziale iniziale dell'asta. Quindi <span class="tex">\(\omega = \dfrac{v'}{L} = \dfrac{m}{m+M} \dfrac{\sqrt{2gh}}{L}\)</span>.<br>
+Ora sì, per la conservazione dell'energia,<br>
+<span class="tex">\(mgL(1-\cos\theta) + Mg\frac{L}{2}(1-\cos\theta) = \frac{1}{2}I\omega^2\)</span> dove <span class="tex">\(I = \dfrac{ML^2}{12} + mL^2\)</span> è il momento di inerzia del sistema asta+particella rispetto al perno fisso.<br>
+Si ricava analogamente al post disastrato<br>
+<span class="tex">\(\theta = \arccos\dfrac{\frac{1}{2}I\omega^2 - Lg(m+\frac{M}{2})}{Lg(m+\frac{M}{2})}\)</span></article>
+<article class="post" id="p4021"><div class="who"><b>Alex90</b><span>29 apr 2010, 13:23</span></div>Non vorrei dire una cavolata ma temo che neanche la quantità di moto si conservi nell'urto...un'asta rigida dà luogo ad una reazione impulsiva...non è come se fosse una massa appesa ad un filo!</article>
+<article class="post" id="p4022"><div class="who"><b>spn</b><span>29 apr 2010, 13:48</span></div>Sono d'accordo con Alex90, lì stai consideranto come se ogni elemento infinitesimo dell'asta si muovesse con velocità tangenziale <span class="tex">\(v_1\)</span>, il che è palesemente falso. <br>
+Inoltre vorrei fart notare che <span class="tex">\(\dfrac{1}{12}ML^2\)</span> è il momento d'inerzia di un'asta che gira intorno al suo centro di massa, nel nostro caso, applicando il teorema degli assi paralleli, si ha <span class="tex">\(I_0=\dfrac{1}{3}ML^2\)</span>.<br>
+<br>
+Quello che si conserva è il momento angolare, ossia:<br>
+<br>
+<span class="tex">\(v L m=I_1 \omega= \left( \dfrac{M}{3} + m \right) L^2 \omega\)</span><br>
+<br>
+<span class="tex">\(\displaystyle  \omega = {m \sqrt{2gh} \over L\left( \dfrac{M}{3} + m \right) }\)</span><br>
+<br>
+Applicando la conservazione dell'energia come hai fatto tu si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \cos \theta = 1 - {m^2 h \over L \left( \dfrac{M}{3} + m \right)\left( \dfrac{M}{2} + m \right)}\)</span></article>
+<article class="post" id="p4023"><div class="who"><b>Gauss91</b><span>29 apr 2010, 14:24</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>temo che neanche la quantità di moto si conservi nell'urto...un'asta rigida dà luogo ad una reazione impulsiva...non è come se fosse una massa appesa ad un filo</div></blockquote>
+
+Potresti spiegarmi meglio questo fatto? Qua non ci sono arrivato<br>
+
+<blockquote><div><cite>spn ha scritto:</cite>applicando il teorema degli assi paralleli, si ha <span class="tex">\(I_0 = \dfrac{1}{3}ML^2\)</span></div></blockquote>
+
+Questa invece è distrazione ovviamente è così :oops: .<br>
+<br>
+Comunque è meglio generalmente non postare la soluzione ai problemi... ora chi è che posta il prossimo?</article>
+<article class="post" id="p4024"><div class="who"><b>spn</b><span>29 apr 2010, 17:20</span></div>Ma quello che posto io mica è per forza la soluzione corretta, anzi... :roll: .<br>
+Comunque scusami se ti ho fregato l'esercizio, ma era praticamente finito, percui se tu ne hai uno da proporre vai pure. ( Naturalmente dopo la conferma di egl)</article>
+<article class="post" id="p4026"><div class="who"><b>egl</b><span>29 apr 2010, 18:26</span></div>Ovviamente soluzione esatta, spn :lol: <br>
+<br>
+Postate pure il prossimo problema</article>
+<article class="post" id="p4027"><div class="who"><b>Gauss91</b><span>29 apr 2010, 19:06</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>Comunque è meglio generalmente non postare la soluzione ai problemi... ora chi è che posta il prossimo?</div></blockquote>
+
+SCUSA spn!! :oops:  :(  Pensavo l'avessi proposto tu stesso!! :lol:<br>
+Dimenticate tutti, il delirio che ho detto! :roll:<br>
+Scusami tanto davvero :cry:  :oops:  :|</article>
+<article class="post" id="p4028"><div class="who"><b>spn</b><span>29 apr 2010, 23:32</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>SCUSA spn</div></blockquote>
+Ma di che ti preoccupi? ;) <br>
+<br>
+<strong class="text-strong">Problema 8</strong><br>
+Un'asta omogenea di massa <span class="tex">\(M\)</span> e lunga <span class="tex">\(L\)</span> ,è posta orizzontalmente su un piano privo di attrito. Una piccola pallina di massa <span class="tex">\(m\)</span> viaggia con una velocità <span class="tex">\(v\)</span> lungo il piano, in direzione perpendicolare all'asta, urtando un'estremo di questa e rimanendoci attaccata. Descrivere il moto del sistema.</article>
+<article class="post" id="p4029"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>30 apr 2010, 14:24</span></div>Provo una descrizione qualitativa:<br>
+Dopo che la massa si è scontrata (urto anelastico) con l'asta e vi rimane attaccata, l'asta si alza di un certo angolo <span class="tex">\(\theta\)</span> rispetto al piano orizzontale.<br>
+Fissando adesso un sistema di assi cartesiani con lo stesso angolo <span class="tex">\(\theta\)</span> rispetto all'orizzontale si nota una scomposizione della velocità che genera un moto di scorrimento del corpo (<em class="text-italics">asta+massa</em>) lungo la superficie orizzontale priva di attrito. A causa della forza di gravità il corpo (<em class="text-italics">asta+massa</em>), in un ipotetico istante <span class="tex">\(t_1\)</span>, ritornerà orizzontalmente (annullando l'angolo <span class="tex">\(\theta\)</span>) sul piano privo di attrito, ma non cesserà di muoversi in senso orizzontale.</article>
+<article class="post" id="p4030"><div class="who"><b>Stardust</b><span>30 apr 2010, 14:44</span></div>Credo di aver capito che entrambi gli oggetti sono sul piano orizzontale e lì restano anche dopo l'urto.<br>
+Dato che l'impatto è anelastico, si considera solo la conservazione del momento angolare, che all'inizio è<br>
+<span class="tex">\(L_0=mvL\)</span>, e poi diventa:<br>
+<span class="tex">\(L_f=I_{tot}\omega\)</span>, in cui l'inerzia è quella del sistema M+m che ruota intorno al comune centro di massa.<br>
+Posto il punto di aggancio della pallina a distanza L dall'origine del nostro sistema di riferimento (l'altra estremità dell'asta), il nuovo baricentro è<br>
+<span class="tex">\(x_M'=\displaystyle{\frac{M+2m}{2(M+m)}L}\)</span>.<br>
+L'inerzia attribuibile all'asta ora si calcola con il teorema di Steiner e a me risulta (dopo calcoli veloci...)<br>
+<span class="tex">\(I_{asta}\displaystyle{\frac{L^2}{12(M+m)^2}(M^3+6Mm^2+3M^2m+m^3)}\)</span>, mentre la nuova inerzia della massa minore è<br>
+<span class="tex">\(I_m=\displaystyle{m[\frac{ML}{4(M+m)}]^2}\)</span>.<br>
+L'inerzia complessiva è la loro somma, e questo ci permette di trovare la velocità di rotazione angolare del sistema intorno al suo baricentro.</article>
+<article class="post" id="p4031"><div class="who"><b>Gauss91</b><span>30 apr 2010, 15:05</span></div>Però facendo così tu dici che il sistema asta+pallina rimane fermo traslazionalmente (o comunque non parli della componente traslazionale della velocità), ma non è così.<br>
+Il centro di massa del sistema non subisce alcuna forza esterna, quindi permane nel suo stato di moto rettilineo uniforme, perpendicolare inizialmente all'asta e a distanza <span class="tex">\(\dfrac{L}{2}\dfrac{2m+M}{m+M}\)</span> dall'origine da te posta.<br>
+Inizialmente esso ha velocità <span class="tex">\(v_{CM} = \dfrac{m}{m+M}v'\)</span>: questa sarà la velocità di traslazione del CM del sistema pallina+asta che si forma dopo l'urto.<br>
+Il sistema, insomma, ruota mentre trasla (per la parte rotazionale sono d'accordo con te).</article>
+<article class="post" id="p4032"><div class="who"><b>Stardust</b><span>30 apr 2010, 17:59</span></div>Scusatemi, per la fretta ho scambiato un momento d'inerzia per l'altro. Ristabiliamo un po' di ordine:<br>
+<span class="tex">\(I_{asta}=\displaystyle{\frac{ML^2}{12}\left[1+\frac{3m^2}{(M+m)^2}\right]}\)</span>;<br>
+l'inerzia totale è quella che ho erroneamente attribuito prima alla sola asta:<br>
+<span class="tex">\(I_{tot}=\displaystyle{\frac{L^2}{12(M+m)^2}(M^3+3M^2m+6Mm^2-m^3)}\)</span>.<br>
+Ne deriva che la velocità angolare di rotazione è:<br>
+<span class="tex">\(\omega=\displaystyle{\frac{12m(M+m)^2}{M^3+3M^2m+6Mm^2+m^3}\frac{v_0}{L}}\)</span>.<br>
+Ok, Gauss91, la traslazione si combina con la rotazione: mica è il caso di vedere una legge oraria che unifichi i due moti?<br>
+<br>
+<span class="tex">\(\left\{\begin{array}{ll}
+x=\displaystyle{\frac{m}{m+M}v_0t}&amp;\textrm{(moto di traslazione cdm)}\\
+\theta=\omega t=\displaystyle{\frac{12m(M+m)^2}{M^3+3M^2m+6Mm^2+m^3}\frac{v_0}{L}}t&amp; \textrm{(rotazione sistema intorno a cdm)}
+\end{array}\right.\)</span></article>
+<article class="post" id="p4033"><div class="who"><b>Gauss91</b><span>30 apr 2010, 18:04</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Ok, Gauss91, la traslazione si combina con la rotazione: mica è il caso di vedere una legge oraria che unifichi i due moti?</div></blockquote>
+
+Non è necessario: il problema non lo richiede, e il moto è completamente descritto. Che io sappia, gli unici moti possibili di un corpo rigido sono: traslazione, rotazione, vibrazione (sottolineo CHE IO SAPPIA, e sottolineo anche che so molto poco :P ). Una volta descritti completamente le tre componenti del moto, questo è completamente descritto e non c'è bisogno di trovare una legge oraria magari molto complicata (conta che ci sono 9 incognite in tutto...).</article>
+<article class="post" id="p4034"><div class="who"><b>Stardust</b><span>30 apr 2010, 18:07</span></div>La cosa mi consola, ma in questo caso non ci sarebbe stato niente di troppo difficile. Viene fuori una relazione che regola x e<span class="tex">\(\theta\)</span> in modo completamente lineare.</article>
+<article class="post" id="p4035"><div class="who"><b>Gauss91</b><span>30 apr 2010, 18:10</span></div>Va beh era una considerazione generale per il futuro :P .</article>
+<article class="post" id="p4036"><div class="who"><b>Ratio</b><span>30 apr 2010, 18:52</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Credo di aver capito che entrambi gli oggetti sono sul piano orizzontale e lì restano anche dopo l'urto.<br>
+Dato che l'impatto è anelastico, si considera solo la conservazione del momento angolare, che all'inizio è<br>
+<span class="tex">\(L_0=mvL\)</span>, e poi diventa:<br>
+<span class="tex">\(L_f=I_{tot}\omega\)</span>, in cui l'inerzia è quella del sistema M+m che ruota intorno al comune centro di massa.</div></blockquote>
+
+Scusa, ma il momento <span class="tex">\(L_0\)</span> non dovrebbe essere conservato solo se calcolato sul braccio relativo al polo di rotazione del sistema M+m?<br>
+Ovvero <span class="tex">\(L_0 = mv(L-X_M)\)</span> ?<br>
+
+<blockquote class="uncited"><div>L'inerzia attribuibile all'asta ora si calcola con il teorema di Steiner</div></blockquote>
+
+Visto che sono un pò ignorante... ma è un altro nome del teorema degli assi paralleli?</article>
+<article class="post" id="p4037"><div class="who"><b>Stardust</b><span>30 apr 2010, 19:49</span></div>Hai proprio ragione Ratio, grazie per la correzione.<br>
+Posto r il braccio del momento angolare, ottengo<br>
+<span class="tex">\(r=L-\displaystyle{\frac{L}{2}\left(\frac{M+2m}{M+m}\right)}\)</span>.<br>
+apportato quest'eesenziale cambiamento, la velocità angolare è<br>
+<span class="tex">\(\omega=\displaystyle{\frac{12mM(M+m)}{M^3+3M^2m+6Mm^2+m^3}\frac{v_0}{L}}\)</span>.<br>
+
+<blockquote><div><cite>Ratio ha scritto:</cite>
+
+<blockquote class="uncited"><div>L'inerzia attribuibile all'asta ora si calcola con il teorema di Steiner</div></blockquote>
+
+Visto che sono un pò ignorante... ma è un altro nome del teorema degli assi paralleli?</div></blockquote>
+
+Non ti preoccupare, siamo tutti ignoranti almeno sotto qualche punto di vista: <br>
+è più grave applicare male la conservazione del momento angolare che non sapere cosa sia il teorema di Steiner.  :oops: Tanto più che tu lo conosci già: è il nome "di battesimo" del teorema degli assi paralleli, giusto per renderlo un po' meno anonimo.</article>
+<article class="post" id="p4041"><div class="who"><b>Stardust</b><span>30 apr 2010, 21:52</span></div>La soluzione del problema è stata un lavoro di gruppo, per così dire, quindi conviene che qualcuno controlli i calcoli. <br>
+Comunque se non dispiace a nessuno, ora io proporrei il mio contributo alla staffetta meccanica, cambiando un po' argomento.<br>
+<br>
+Una slitta scivola senza attrito su un piano inclinato inizialmente immobile, partendo da ferma all'istante<br>
+t = 0 da un punto a quota h. Sulla slitta è posta una bilancia a molla su cui è appoggiato<br>
+una cassa C di massa m. La massa della slitta e della bilancia è trascurabile rispetto a m.<br>
+1. Calcolare il tempo impiegato dalla slitta per arrivare a terra, la velocità finale e il peso di C<br>
+(in N) indicato dalla bilancia durante la discesa.<br>
+2. Ripetere il calcolo delle precedenti quantità supponendo che il piano inclinato si sposti verso<br>
+destra su una piattaforma orizzontale con velocità <span class="tex">\(v_t\)</span> costante. È richiesta la velocità finale<br>
+della slitta rispetto al piano inclinato.<br>
+3. Ripetere il calcolo delle precedenti quantità supponendo che il piano inclinato si sposti verso<br>
+destra su una piattaforma orizzontale con accelerazione <span class="tex">\(a_t\)</span> costante, iniziando il suo moto a<br>
+t = 0 . È richiesta la velocità finale della slitta rispetto al piano inclinato e quella assoluta<br>
+(rispetto al laboratorio).<br>
+4. Determinare la condizione da imporre ad <span class="tex">\(a_t\)</span> affinché la slitta scivoli verso l'alto invece che<br>
+verso il basso.<br>
+<br>
+Allego una descrizione grafica della situazione.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=103" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Certamen Fisico-matematico 08.jpg (23.71 KiB) Visto 7210 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p4044"><div class="who"><b>Ratio</b><span>1 mag 2010, 10:04</span></div>1. Il tempo per giungere alla fine del piano è <span class="tex">\(t = \sqrt{\dfrac{2 h}{g \sin^2 \theta}}\)</span>, imponendo chiaramente la lunghezza del piano <span class="tex">\(l = \frac {h}{\sin \theta}\)</span>.<br>
+La velocità finale la si ottiene dalla conservazione dell'energia, perciò <span class="tex">\(v_f = \sqrt{2gh}\)</span>.<br>
+Il peso misurato dovrebbe essere (e su questo ho dei dubbi, purtroppo) <span class="tex">\(P = mg (1-\sin^2 \theta)\)</span>, è dato cioè dalla differenza tra la forza peso e la forza apparente verso l'alto causata dalla discesa accellerata. Il fatto poi che per <span class="tex">\(\theta = 0 \rightarrow P = mg\)</span> e per <span class="tex">\(\theta = \frac {\pi}{2} \rightarrow P = 0\)</span>, cioè caduta libera, mi sembra confortante... :roll: <br>
+<br>
+2. Le risposte sono identiche a quelle del punto 1 perché sono due sistemi inerziali.<br>
+<br>
+3. La presenza di <span class="tex">\(a_t \hat x\)</span> impone che l'accellerazione parallela al piano sia <span class="tex">\(|a \hat i'| = g \cos \theta - a_t \sin \theta\)</span>. [Scusate se segno il versore e poi calcolo il modulo insieme, ma è per far capire la direzione del vettore].<br>
+Percui tenendo conto di questo abbiamo:<br>
+il tempo di arrivo alla fine del piano inclinato è <span class="tex">\(t = \sqrt {\dfrac{2h}{\sin \theta (g \cos \theta - a_t \sin \theta)}}\)</span>;<br>
+la velocità finale relativa al piano è <span class="tex">\(v_f = \sqrt {2(g \cos \theta - a_t \sin \theta) \frac {h}{\sin \theta}}\)</span>;<br>
+la velocità assoluta invece è <span class="tex">\(\vec v_{tot} = \vec v_f + \vec a_t t\)</span>, il cui modulo è <span class="tex">\(v_{tot} = \sqrt {\dfrac{2h}{\sin \theta} (g \cos \theta - a_t \sin \theta + 1)}\)</span>.<br>
+Seguendo lo stesso ragionamento di prima dovremmo avere che la forza peso è <span class="tex">\(P = m(g + a \cos \theta - g \sin^2 \theta)\)</span>.<br>
+<br>
+4. La slitta scivola verso l'alto se <span class="tex">\(a_t &gt; g cotg \theta\)</span>.<br>
+<br>
+Sono sicuro di aver fatto qualche errore, comunque. Ditemi.</article>
+<article class="post" id="p4069"><div class="who"><b>Ratio</b><span>4 mag 2010, 20:04</span></div>Il ritardo del responso si fa sempre più preoccupante...  :roll:</article>
+<article class="post" id="p4074"><div class="who"><b>Stardust</b><span>4 mag 2010, 21:28</span></div>Scusatemi per il ritardo, non ho avuto la possibilità di intervenire prima  :roll: , ma purtroppo mi sembra che non esiste una soluzione ufficiale al problema (tratto dal Certamen Fisico-Matematico di un paio di anni fa).<br>
+Io l'ho fatto alla lavagna a scuola venerdì scorso, riempiendone ogni cm quadro prima di cancellare tutti i calcoli per passare a matematica... <br>
+Se non ricordo male, mi sembrano ok i primi due punti e il quarto, il terzo non lo ricordo perfettamente, ma sicuramente mi veniva fuori un ragionamento di quel tipo. Appeno posso rifaccio su carta quei calcoli e vi faccio sapere.<br>
+Poi, se anche qualcun altro ha svolto il problema, potrebbe intervenire e confrontare le soluzioni.</article>
+<article class="post" id="p4080"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>5 mag 2010, 0:00</span></div>Ho provato a svolgere l'esercizio e non mi trovo con alcuni risultati postati da Ratio.<br>
+1) Il sistema di riferimento <span class="tex">\(S\)</span> della slitta non è inerziale perché si muove con accelerazione  <span class="tex">\(g\sin\theta\)</span>. Ne consegue la presenza di una forza apparente <span class="tex">\(\vec F_s\)</span> di ugual modulo ma di verso opposto rispetto a <span class="tex">\(\vec F_0=m\vec g\sin\theta\)</span>. Concordo, dunque, con la risposta di Ratio: stesso vale per il punto 2.<br>
+3) Il sistema di riferimento <span class="tex">\(P_i\)</span> del piano inclinato non è inerziale perché si muove con accelerazione orizzontale <span class="tex">\(a_t\)</span>. Quest'ultima si scompone nella componente parallela al piano inclinato stesso <span class="tex">\(a \hat i' = a_t * {\cos\theta}\)</span>. <br>
+Di conseguenza la velocità finale del corpo rispetto al piano inclinato è:<br>
+<br>
+<span class="tex">\(\displaystyle{v_f=\sqrt{\frac{2h}{\sin\theta}(g\sin\theta-a_t\cos\theta)}}\)</span><br>
+<br>
+Il tempo con cui arriva il corpo alla fine del piano inclinato è:<br>
+<br>
+<span class="tex">\(\displaystyle{t=\sqrt{\frac{2h}{\sin\theta(g\sin\theta-a_t\cos\theta)}}}\)</span><br>
+<br>
+Il peso misurato dalla bilancia è per il precedente ragionamento:<br>
+<br>
+<span class="tex">\(\displaystyle{P_{y2}=m(g+a_t\sin\theta\cos\theta-g\sin^2\theta)}\)</span><br>
+<br>
+A conferma di ciò:<br>
+<br>
+<span class="tex">\(\theta=90^0 \Rightarrow P=0\)</span> <br>
+<br>
+<span class="tex">\(\theta=0^0 \Rightarrow \vec P=m\vec g\)</span><br>
+<br>
+La velocità assoluta del corpo rispetto al sistema di riferimento <span class="tex">\(L\)</span> del laboratorio è:<br>
+<br>
+<span class="tex">\(\vec V_a = \vec V_f + \vec V_t\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(V_t=a_t*t\)</span> <span class="tex">\(\Rightarrow\)</span> <span class="tex">\(V_a=\sqrt{(V_f\cos\theta+a_t)^2+(V_f\sin\theta)^2}\)</span><br>
+<br>
+4) La slitta risale il piano inclinato se e solo se:<br>
+<br>
+<span class="tex">\(\displaystyle{a \hat i'&gt;g\sin\theta \Rightarrow a_t&gt;g\tan\theta}\)</span></article>
+<article class="post" id="p4098"><div class="who"><b>Stardust</b><span>6 mag 2010, 20:44</span></div>Mi trovo con Eagle sulla velocità relativa finale dell'oggetto, rispetto al sistema di riferimento inerziale del laboratorio, per il resto le vostre soluzioni combaciano.<br>
+A voi il compito di proseguire la staffetta.</article>
+<article class="post" id="p4100"><div class="who"><b>Ratio</b><span>6 mag 2010, 22:38</span></div><blockquote><div><cite>Stardust ha scritto:</cite>A voi il compito di proseguire la staffetta.</div></blockquote>
+
+Ad Eagle l'arduo compito di trovare un problema stuzzicante (il sottoscritto al momento non ne trova...  :shock:  Stranamente).</article>
+<article class="post" id="p4101"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>7 mag 2010, 14:10</span></div>Colgo al balzo l'occasione che Ratio mi ha fornito per proporre questo problema:<br>
+<strong class="text-strong">1)</strong> Una pallina, appesa ad un filo di lunghezza <span class="tex">\(L\)</span> fissato superiormente a un punto <span class="tex">\(P\)</span>, viene spostata dalla posizione di equilibrio <span class="tex">\(O\)</span> e poi lanciata in direzione orizzontale in modo tale da realizzare un pendolo conico: la pallina si muove cioè di moto uniforme in un piano orizzontale lungo una circonferenza, il filo si sposta lungo la superficie di un cono ad asse verticale avente come vertice il punto di sospensione <span class="tex">\(P\)</span>.<br>
+<strong class="text-strong">(a)</strong> Si determini in funzione di <span class="tex">\(\phi\)</span>, angolo formato dal filo con la verticale, la velocità con cui deve essere lanciata la pallina.<br>
+<strong class="text-strong">(b)</strong> Si verifichi entro quali limiti può variare la velocità angolare, e conseguentemente il periodo di rotazione.<br>
+<strong class="text-strong">(c)</strong> Quanti giri deve fare al minuto, come minimo, un pendolo conico di lunghezza <span class="tex">\(1 m\)</span>.</article>
+<article class="post" id="p4104"><div class="who"><b>Ratio</b><span>8 mag 2010, 14:11</span></div>Soluzione del problema 10 (ma siamo al 10?! :roll: ).<br>
+<br>
+a) Disegnando le forze agenti sulla massa otteniamo le equazioni:<br>
+<span class="tex">\(T \cos \phi = mg\)</span> <br>
+<span class="tex">\(T \sin \phi = m \dfrac {v^2}{l \sin \phi}\)</span><br>
+da cui per sostituzione<br>
+<span class="tex">\(v = \sqrt {lg \dfrac {\sin^2 \phi}{\cos \phi}}\)</span><br>
+<br>
+b) dal punto (a) ricaviamo che<br>
+<span class="tex">\(\omega = \dfrac {v}{l \sin \phi} = \sqrt {\dfrac {g}{l \cos \phi}}\)</span>.<br>
+Notiamo che:<br>
+<span class="tex">\(\phi = 0 \Rightarrow \omega = \sqrt {\dfrac{g}{l}}\)</span>, che è il minimo.<br>
+<span class="tex">\(\phi = \pi / 2 \Rightarrow \omega \rightarrow \infty\)</span>, che è il limite superiore.<br>
+Il periodo, ovviamente, è massimo per <span class="tex">\(\phi = 0 \Rightarrow T = 2 \pi \sqrt {\dfrac{l}{g}}\)</span> e minimo per <span class="tex">\(\phi = \pi / 2 \Rightarrow T = 0\)</span>.<br>
+<br>
+c) il numero minimo dei giri è <span class="tex">\(\dfrac {60 s}{T_{max}} = \dfrac {60 s}{2 \pi} \sqrt {\dfrac{g}{l}} \approx 30\)</span>.<br>
+<br>
+N.B.: <span class="tex">\(\omega\)</span> minimo altro non è che la pulsazione di un normale pendolo, giustificata dal fatto che abbiamo spostato la massa dalla posizione di equilibrio senza conferire una velocità orizzontale.<br>
+<br>
+Aspetto conferma, da Eagle.</article>
+<article class="post" id="p4106"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>8 mag 2010, 16:27</span></div>Perfetto, Ratio. Complimenti per l'eccellente risoluzione.<br>
+<br>
+Vai col prossimo  ;)</article>
+<article class="post" id="p4108"><div class="who"><b>Ratio</b><span>8 mag 2010, 18:54</span></div><blockquote><div><cite>Eagle ha scritto:</cite>Vai col prossimo  ;)</div></blockquote>
+
+ :oops: Non mi bastonate se cedo il mio diritto al primo "volenteroso di postare un problema" che passa, vero?!  :oops: <br>
+<br>
+A forza di provare a risolvere problemi, purtroppo mi risulta difficile mettermi "dall'altra parte"...<br>
+<br>
+Perciò invito chiunque creda di avere un problema interessante di non esitare a postarlo al posto mio  ;)</article>
+<article class="post" id="p4109"><div class="who"><b>Pigkappa</b><span>9 mag 2010, 14:59</span></div><strong class="text-strong">Problema 11.</strong> Una particella (relativistica) di massa <span class="tex">\(m_1\)</span> e velocità <span class="tex">\(v_1\)</span> urta una particella di massa <span class="tex">\(m_2\)</span> ferma. Qual è il minimo valore possibile di <span class="tex">\(v_1\)</span> che permette alle particelle di unirsi a formare un'unica particella di massa <span class="tex">\(m_3\)</span>?<br>
+<br>
+<br>
+[se nessuno sa cosa è una trasformazione di Lorentz lasciate perdere e proponete qualcos'altro...]</article>
+<article class="post" id="p4116"><div class="who"><b>Pigkappa</b><span>11 mag 2010, 17:59</span></div>Noto con dispiacere che nessuno lo risolve; sappiate comunque che al preIPhO e alle IPhO problemi di questo tipo ci possono essere. Qualcuno faccia un'altra domanda, allora.</article>
+<article class="post" id="p4176"><div class="who"><b>Rigel</b><span>16 mag 2010, 16:04</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>[se nessuno sa cosa è una trasformazione di Lorentz lasciate perdere e proponete qualcos'altro...]</div></blockquote>
+Servono le trasformazioni di Lorentz? a occhio direi che si può applicare la conservazione della quantità di moto nell'urto e poi imporre che l'energia relativistica della particella 3 sia minore o uguale alla somma delle energie delle particelle 1 e 2.</article>
+<article class="post" id="p4178"><div class="who"><b>Pigkappa</b><span>16 mag 2010, 19:25</span></div><blockquote><div><cite>Rigel ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>[se nessuno sa cosa è una trasformazione di Lorentz lasciate perdere e proponete qualcos'altro...]</div></blockquote>
+Servono le trasformazioni di Lorentz? a occhio direi che si può applicare la conservazione della quantità di moto nell'urto e poi imporre che l'energia relativistica della particella 3 sia minore o uguale alla somma delle energie delle particelle 1 e 2.</div></blockquote>
+
+Si può fare anche senza trasformazioni di Lorentz, ma credo che il conto venga significativamente più brutto.</article>
+<article class="post" id="p4202"><div class="who"><b>Rigel</b><span>19 mag 2010, 20:09</span></div>Siccome sono masochista  :lol:  non ho usato le trasformazioni di Lorentz (no è solo che non mi è venuto in mente nulla col primo metodo  :roll: )<br>
+i conti sono abbastanza brutti e magari salterò qualche passaggio più difficile da texxare.<br>
+l'energia prima dell'urto è <span class="tex">\(E_1=\sqrt{p^2c^2+m_1^2c^4}+m_2c^2\)</span>. nell'urto si conserva la quantità di moto e quindi l'energia sarà <span class="tex">\(E_2=\sqrt{p^2c^2+m_3^2c^4}\)</span>. per la conservazione dell'energia deve essere <span class="tex">\(E_1\geq E_2\)</span> ed elevando i due membri al quadrato si ha:<br>
+<span class="tex">\(\displaystyle p^2c^2+m_1^2c^4+2m_2c^2\sqrt{p^2c^2+m_1^2c^4}+m_2^2c^4\geq p^2c^2+m_3^2c^4\)</span><br>
+<span class="tex">\(\displaystyle \sqrt{p^2c^2+m_1^2c^4}\geq\frac{m_3^2-m_2^2-m_1^2}{2m_2}c^2\)</span><br>
+<span class="tex">\(\displaystyle p^2\geq\left(\frac{m_3^2-m_2^2-m_1^2}{2m_2}\right)^2 c^2-m_1^2c^2\)</span><br>
+Chiamo a tutta quella roba al secondo membro e c'ho (usando l'espressione relativistica della quantità di moto):<br>
+<span class="tex">\(\displaystyle \frac{m_1^2v^2}{1-v^2/c^2}\geq a\)</span><br>
+<span class="tex">\(\displaystyle v^2\geq\frac{a/m_1^2}{1+a/(m_1^2c^2)}\)</span><br>
+ se chiamo b la frazione-mostro dentro la parentesi il denominatore diventa il denominatore diventa<br>
+<span class="tex">\(\displaystyle 1+\frac{b^2-m_1^2}{m_1^2}=\frac{b^2}{m_1^2}\)</span><br>
+e quindi si ha<br>
+<span class="tex">\(\displaystyle v^2\geq\frac{(b^2-m_1^2)c^2/m_1^2}{b^2/m1^2}=\left(1-\left(\frac{m_1}{b}\right)^2\right)c^2\)</span><br>
+sostituendo b si ricava:<br>
+<span class="tex">\(\displaystyle v\geq\sqrt{1-\left(\frac{2m_1m_2}{m_3^2-m_1^2-m_2^2}\right)^2}c\)</span><br>
+ Magari scritta così la formula è più bella ma non so se è giusta</article>
+<article class="post" id="p4205"><div class="who"><b>Pigkappa</b><span>19 mag 2010, 21:16</span></div>Ok, il risultato mi torna e anche il metodo è corretto. Forse sarebbe venuto meno contoso se come dati avessimo preso <span class="tex">\(E_1\)</span> invece di <span class="tex">\(v_1\)</span>.<br>
+<br>
+Quello che avevo in mente io era questo:<br>
+<br>
+1)Scrivere energia e quantità di moto.<br>
+2)Passare al sistema <span class="tex">\(\bar{S}\)</span>, in cui la quantità di moto è zero (lo si trova con una trasformazione di Lorentz).<br>
+3)In questo sistema, la massa <span class="tex">\(m_3\)</span> dopo l'urto sarà ferma e quindi basta imporre che <span class="tex">\(\bar{E} = m_3 c^2\)</span>. <br>
+4)<span class="tex">\(\bar{E}\)</span> si calcola con la stessa trasformazione di Lorentz di prima.<br>
+<br>
+Però ho provato poco fa e, in questo caso, i conti vengono piuttosto brutti lo stesso.<br>
+<br>
+<br>
+Un metodo meno contoso è dire che il modulo del quadrivettore energia-impulso non dipende dal sistema di riferimento, perciò sarà lo stesso in <span class="tex">\(S\)</span> e in <span class="tex">\(\bar{S}\)</span>, e in <span class="tex">\(\bar{S}\)</span> vale <span class="tex">\(m_3\)</span>. I quadrivettori non sono programma olimpico, comunque, e sarebbero stati utili sì e no un paio di volte in 40 anni di IPhO, perciò non sono proprio una priorità...</article>
+<article class="post" id="p4206"><div class="who"><b>Ippo</b><span>19 mag 2010, 22:31</span></div>tra l'altro è praticamente un esercizio del nostro ultimo compitino interno di fisica  :mrgreen:</article>
+<article class="post" id="p4226"><div class="who"><b>Rigel</b><span>22 mag 2010, 19:08</span></div>Visto che toccherebbe a me continuare la staffetta posto un problema che ho trovato carino e che ho un pò modificato.<br>
+<strong class="text-strong">Problema 12.</strong> Immaginiamo una pallina puntiforme con energia cinetica E che si muove all'interno di una sfera cava di raggio R. i rimbalzi contro le pareti interne della sfera sono elastici. determinare la pressione P che la pallina esercita sulla sfera</article>
+<article class="post" id="p4228"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>22 mag 2010, 22:02</span></div>Poiché supponiamo che qualsiasi collisione della massa con la parete sia elastica, quando questa pallina collide con la parete, la componente della quantità di moto parallela alla parete si conserva mentre quella perpendicolare resta uguale modulo, ma inverte verso; di conseguenza:<br>
+<br>
+<span class="tex">\(\displaystyle{F_{med}=\frac{2mv\cos{\theta_n}}{\delta t}}\)</span><br>
+<br>
+L'urto con la parete circolare può essere trattato localmente come quello su una parete piana, per questo la massa compie una traiettoria chiusa, che è quella di un poligono con <span class="tex">\(n\)</span> lati; di conseguenza:<br>
+<br>
+<span class="tex">\(\displaystyle{\delta t=\frac{2R\cos{\theta_n}}{v}}\)</span><br>
+<br>
+Sostituendo la seconda espressione nella prima ottengo che:<br>
+ <br>
+<span class="tex">\(\displaystyle{F_{med}=\frac{mv^2}{R}}\)</span><br>
+<br>
+Il risultato ottenuto è indipendente dal numero <span class="tex">\(n\)</span> degli urti. Ricordando che la superficie della sfera è: <br>
+<br>
+<span class="tex">\(\displaystyle{S=4\pi R^2}\)</span><br>
+<br>
+Dunque la pressione esercitata dalla pallina sulla sfera è:<br>
+<br>
+<span class="tex">\(\displaystyle{P=\frac{F_{med}}{S}=\frac{mv^2}{4\pi R^3}=\frac{E_c}{CR^2}}\)</span><br>
+<br>
+dove <span class="tex">\(\displaystyle{E_c=\frac{mv^2}{2}}\)</span> e <span class="tex">\(\displaystyle{C=2\pi R}\)</span><br>
+<br>
+Attendo il responso  ;)</article>
+<article class="post" id="p4229"><div class="who"><b>Rigel</b><span>22 mag 2010, 22:38</span></div>ok perfetto  :)</article>
+<article class="post" id="p4230"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>22 mag 2010, 22:44</span></div>Un attimo di pausa... dovrò pensare ad un altro problema da postare...<br>
+<br>
+<strong class="text-strong">Anche la staffetta ha il fiatone</strong>!
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=109" class="ext">[immagine non più disponibile]</a></dt>
+			<dd><em>Un po' di pazienza... lavori in corso</em></dd>			<dd>fiatone.gif (14.33 KiB) Visto 6434 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p4231"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>23 mag 2010, 18:10</span></div>L'attesa è terminata: ecco il nuovo problema dal titolo "<em class="text-italics">Dispute tra fisici</em>"<br>
+<strong class="text-strong">Problema 13</strong><br>
+Leibniz si trova sulla torre di Pisa (altezza <span class="tex">\(h=60.0m\)</span> ) per ripetere gli esperimenti di Galileo, usando delle mele. Vede sopraggiungere Newton che cammina in piazza dei Miracoli e che all'istante <span class="tex">\(t=0\)</span> si trova alla distanza <span class="tex">\(d=50.0 m\)</span> dalla base della torre. Leibniz decide di colpirlo lanciando una mela orizzontalmente, con velocità iniziale <span class="tex">\(v_0\)</span> all'istante <span class="tex">\(t=0\)</span>. Sapendo che Newton viaggia spedito alla velocità <span class="tex">\(v_n=1 m/s\)</span>,<br>
+(<strong class="text-strong">a</strong>) calcolare quale è il valore <span class="tex">\(v_0\)</span> affinchè Leibniz abbia successo;<br>
+(<strong class="text-strong">b</strong>) se Leibniz lancia la mela con velocità <span class="tex">\(v_0/2\)</span> e la mela rimbalza al suolo, conservando la componente orizzontale della velocità e riducendo la componente verticale di un fattore <span class="tex">\(f\)</span>, quanto deve essere <span class="tex">\(f\)</span> affinché la mela colpisca Newton?</article>
+<article class="post" id="p4232"><div class="who"><b>Stardust</b><span>23 mag 2010, 20:05</span></div>Personalmente avrei preferito fosse Leibniz a prenderle, come vendetta per quella benedetta storia filosofica delle monadi... :evil: <br>
+Inoltre Newton è già stato colpito una volta da una mela, mi sembra ingiusto continuare ad infierire.  :D</article>
+<article class="post" id="p4233"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>23 mag 2010, 20:21</span></div>Ti do perfettamente ragione, Sturdust. Ma è Newton che si è messo di nuovo a disposizione della scienza  :lol:</article>
+<article class="post" id="p4243"><div class="who"><b>Stardust</b><span>24 mag 2010, 19:29</span></div>A me risulta che la velocità di lancio nel primo caso deve essere <span class="tex">\(v_0=13,3\, m/s\)</span>, mentre il fattore di riduzione f è pari a <span class="tex">\(f=0,0472\)</span>. Non so come intendi definire f, io l'ho considerato come il rapporto tra l'altezza del rimbalzo e quella di lancio, il che equivale al rapporto tra l'energia meccanica iniziale e quella finale, appena prima di colpire Newton. Inoltre questo comporta che nell'urto con il suolo la mela perde oltre il 95% della sua energia iniziale.<br>
+<br>
+Comunque se Newton si accorge della mela che gli rimbalza davanti, può sempre schivarla...</article>
+<article class="post" id="p4244"><div class="who"><b>Ratio</b><span>24 mag 2010, 19:45</span></div><blockquote><div><cite>Stardust ha scritto:</cite> io l'ho considerato come il rapporto tra l'altezza del rimbalzo e quella di lancio, il che equivale al rapporto tra l'energia meccanica iniziale e quella finale</div></blockquote>
+
+Per come l'ha definita Eagle dovrebbe essere <span class="tex">\(f = \dfrac{v_1}{\sqrt{2gh}}\)</span>, dove <span class="tex">\(v_1\)</span> è la velocità verticale della pallina dopo il rimbalzo (considerando tutti e soli i moduli). Percui il rapporto tra le due altezze, di lancio e di rimbalzo, dovrebbe essere uguale a <span class="tex">\(f^2\)</span> e non a <span class="tex">\(f\)</span>. Idem per i rapporti tra le due energie meccaniche.<br>
+Almeno io ho interpretato così.</article>
+<article class="post" id="p4246"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>24 mag 2010, 20:17</span></div>Per quanto riguarda il primo punto sono d'accordo con Sturdust: la velocità <span class="tex">\(v_0\)</span> è esatta.<br>
+Sul punto n° 2, dovete considerare <span class="tex">\(f\)</span> come un fattore che legato a <span class="tex">\(v_y\)</span> ne riduce il valore assoluto. Provate a riscrivere le equazioni del moto in questa maniera e imponete la condizione che la mela colpisca Newton.</article>
+<article class="post" id="p4260"><div class="who"><b>Miralansa</b><span>29 mag 2010, 0:37</span></div>Intanto, se ho ben capito Newton, rispetto al suolo, si muove nella stessa direzione, ma verso opposto della mela.<br>
+<br>
+Allora considerando che la mela cade rispetto l'asse y come un grave, impiega un tempo<span style="font-size: 150%; line-height: normal"> <span class="tex">\(t^*=\sqrt{\frac{2h}{g}}\)</span></span>.<br>
+Abbiamo quindi <span class="tex">\((v_0+v_n)t^*=d\)</span> da cui <span class="tex">\(v_0=\frac{d}{t^*}-v_n\)</span><br>
+Per cui dovrebbe venire appunto <span class="tex">\(13.3  \frac{m}{s}\)</span>.<br>
+<br>
+Per il rimbalzo intendo f come la frazione, rispetto al modulo, di velocità a cui viene ridotta la velocità di impatto perpendicolare al suolo, da cui:<br>
+<br>
+<span class="tex">\(\frac{v_0t^*}{2}+\frac{2fgt^*}{g}\frac{v_0}{2}=d\)</span><br>
+<br>
+dove <span class="tex">\(fgt^*\)</span> è la velocità dopo il rimbalzo, diviso per g fornisce la metà del tempo di volo, che moltiplichiamo per 2 per avere il tempo totale. Risolvendola otteniamo <span class="tex">\(f= \frac{d}{t^*v_0}-\frac{1}{2}\)</span> che numericamente dovrebbe essere <span class="tex">\(0.57\)</span>.</article>
+<article class="post" id="p4263"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>29 mag 2010, 16:50</span></div>Il ragionamento di Miralansa è corretto soltanto in parte: ricordo infatti che mentre la mela rimbalza, Newton si muove nella stessa direzione, ma in verso opposto. L'impatto con il fisico, di conseguenza, non avverrà alla stessa distanza <span class="tex">\(d\)</span>.</article>
+<article class="post" id="p4264"><div class="who"><b>Miralansa</b><span>29 mag 2010, 21:29</span></div>Hai ragione, avevo solo impostato l'ultimo punto e nello scriverlo mi ero dimenticato che Newton camminava. <br>
+<br>
+Allora definisco <span class="tex">\(v_{tot}=\frac{v_0}{2}+v_n\)</span><br>
+<br>
+abbiamo quindi <span class="tex">\(v_{tot}t^*+\frac{2fgt^*}{g}v_{tot}=d\)</span><br>
+<br>
+da cui <span class="tex">\(\frac{d}{2v_{tot}t^*}-\frac{1}{2}\)</span><br>
+<br>
+che adesso mi viene <span class="tex">\(0.43\)</span>.<br>
+<br>
+edit: ringrazio eagle che con un mp mi ha fatto riguardare la soluzione e mi ha impedito di riempire il topic di soluzioni sbagliate.</article>
+<article class="post" id="p4277"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>30 mag 2010, 20:34</span></div><em class="text-italics">Perfetto</em>  :D  <br>
+<br>
+A Stardust e Miralansa, entrambi risolutori, l'onere di postare il prossimo problema.</article>
+<article class="post" id="p4278"><div class="who"><b>Stardust</b><span>30 mag 2010, 21:19</span></div>Credo proprio che a Miralansa spetti di diritto l'onore di proporre un nuovo problema. <br>
+Attendiamo tutti il tuo esercizio, Miralansa.</article>
+<article class="post" id="p4287"><div class="who"><b>Miralansa</b><span>30 mag 2010, 23:37</span></div>Dato che è richiesto a gran voce, non mi resta altro che postare il problema ;) .<br>
+Ho allegato l'immagine della configurazione del medesimo spero si veda e sia comprensibile, se non lo è provvederò a dare chiarimenti. La lunghezza totale della fune è <span class="tex">\(l\)</span>, la carrucola è ideale e la massa <span class="tex">\(m\)</span> scorre senza attrito sull'asta.<br>
+I punti da svolgere sono:<br>
+1) Calcolare la tensione della fune in funzione del generico angolo <span class="tex">\(\alpha\)</span>.<br>
+2)Trovare eventuali posizioni di equilibrio <span class="tex">\(\alpha_{eq}\)</span>.<br>
+3)Verificare che le eventuali posizioni di equilibrio siano punti stazionari dell'energia potenziale <span class="tex">\(U(\alpha)\)</span>.<br>
+4)Discutere la stabilità dell'equilibrio.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=111" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Saliscendi.jpg (27.7 KiB) Visto 7234 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p4365"><div class="who"><b>Stardust</b><span>9 giu 2010, 8:21</span></div>Imposto un sistema di coordinate curvilineo, che segua il filo pendente e l'asta verticale con m.<br>
+<br>
+Le forze su M sono:<br>
+<span class="tex">\(Ma_t=P_M-T\)</span>, mentre su m sono:<br>
+<span class="tex">\(ma_{ty}=T_y-P_m\rightarrow ma_t\cos\alpha=T\cos\alpha-mg\)</span>.<br>
+Combinando le due equazioni e facendo un po' di manovre si arriva alla formula:<br>
+<span class="tex">\(T(\alpha)=\displaystyle{\frac{Mm}{M+m} \frac{1+cos \alpha}{cos \alpha}g}\)</span>.<br>
+All'equilibrio sia su M che su m non ci devono essere forze nette per cui:<br>
+<span class="tex">\(P_M=T\)</span> e<br>
+<span class="tex">\(P_m=T_y=T\,cos\alpha\)</span>, da cui si arriva a:<br>
+<span class="tex">\(\alpha_{eq}=arccos\displaystyle{\frac{m}{M}}\)</span>.<br>
+Da questo si osserva che l'equilibrio si può raggiungere solo se m&lt;M.<br>
+<br>
+Quando M è al punto minimo dista dal soffitto una distanza pari a:<br>
+<span class="tex">\(h_M=l-b\)</span>, mentre il punto minimo raggiunto da m dista dal soffitto<br>
+<span class="tex">\(h_m=\sqrt{l^2-b^2}\)</span>.<br>
+Essendo <span class="tex">\(h_m&gt;h_M\)</span>, si pono un nuovo sistema di riferimento ortogonale sulla situazione, ponendo il livello 0 in corrispondenza della posizione più bassa per m, dunque l'altezza del soffitto in questo sistema è <span class="tex">\(h_m=\sqrt{l^2-b^2}\)</span>.<br>
+L'energia potenziale del corpo m è:<br>
+<span class="tex">\(U_m=mgy\)</span>.<br>
+Per calcolare l'altezza si procede così (guardare la figura per maggiore chiarezza):<br>
+<span class="tex">\(c=\sqrt{y^2+l^2-2y\sqrt{l^2-b^2}}\)</span>;<br>
+<span class="tex">\(d=l-c=l-\sqrt{y^2+l^2-2y\sqrt{l^2-b^2}}\)</span><br>
+<span class="tex">\(y_M=\sqrt{l^2-b^2}-d=\sqrt{l^2-b^2}-l+\sqrt{y^2+l^2-2y\sqrt{l^2-b^2}}\)</span>.<br>
+Quindi l'energia potenziale di M in funzione dell'altezza di m è:<br>
+<span class="tex">\(U_M=Mgy_M=Mg\left(\sqrt{l^2-b^2}-d\right)=Mg\sqrt{l^2-b^2}-l+\sqrt{y^2+l^2-2y\sqrt{l^2-b^2}}\)</span>.<br>
+L'energia potenziale del sistema è:<br>
+<span class="tex">\(U_t=U_M+U_m=Mg\left(\sqrt{l^2-b^2}-l+\sqrt{y^2+l^2-2y\sqrt{l^2-b^2}}\right)+mgy\)</span>, <br>
+la cui derivata è:<br>
+<span class="tex">\(U_t'=\displaystyle{\frac{y-\sqrt{l^2-b^2}} {\sqrt{y^2+l^2-2y\sqrt{l^2-b^2}}}Mg+mg}\)</span>.<br>
+Ponendo <br>
+<span class="tex">\(U_t'=0\)</span> e<br>
+<span class="tex">\(U_t&gt;0\)</span>. <br>
+Si trova un massimo per <br>
+<span class="tex">\(y_{eq}=\sqrt{l^2-b^2}-\displaystyle{\frac{b}{\sqrt{\frac{M^2}{m^2}-1}}}\)</span>, mentre il minimo della funzione è fuori dall'intervallo di definizione, che è <span class="tex">\([0;\sqrt{l^2-b^2}]\)</span>.<br>
+Bisogna dimostrare che tale ordinata corrisponde all'angolo dell'equilibrio prima calcolato.<br>
+Per far questo si nota che <br>
+<span class="tex">\(cos\alpha _{eq}=\frac{m}{M}\)</span> e <br>
+<span class="tex">\(sin\alpha_{eq}=\sqrt{1-{\frac{m^2}{M^2}}}\)</span>, mentre la distanza prima indicata come <br>
+<span class="tex">\(z=y_{eq}-\sqrt{l^2-b^2}\)</span> è definita anche come:<br>
+<span class="tex">\(z=c\, cos\alpha_{eq}=b\displaystyle{\frac{cos\alpha_{eq}}{sin\alpha_{eq}}}\)</span>.<br>
+Sostituendo si arriva a <br>
+<span class="tex">\(z=\displaystyle{\frac{b}{\sqrt{\frac{M^2}{m^2}-1}}}\)</span> e quindi si ha:<br>
+<span class="tex">\(y_{eq}=\sqrt{l^2-b^2}-z=\sqrt{l^2-b^2}-\displaystyle{ \frac{b}{ \sqrt{\frac{M^2}{m^2}-1} } }\)</span>. <br>
+Così si dimostra che i due risultati su <span class="tex">\(\alpha_{eq}\)</span> e <span class="tex">\(y_{eq}\)</span> indicano la stessa situazione di equilibrio.<br>
+Inoltra dato che tale configurazione si verifica in corrispondenza di un massimo di Ut, si osserva che tale equilibrio è instabile.<br>
+<br>
+PS: Con questo post la nostra staffetta meccanica raggiunge la fatidica soglia dei 100 messaggi!!! :D
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=113" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Configurazione generica.jpg (17.77 KiB) Visto 7451 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p4368"><div class="who"><b>Miralansa</b><span>9 giu 2010, 22:08</span></div>Allora la tensione è giusta, l'angolo di equilibrio giusto.<br>
+Per l'energia potenziale avevo suggerito <span class="tex">\(U(\alpha)\)</span>, la funzione viene molto più snella e lo studio molto più semplice. Un altro appunto: l'energia potenziale cambiando l'altezza da cui si calcola cambia al più per una costante che per lo studio dei massimi e minimi è ininfluente, sinceramente a me viene punto di equilibrio stabile, non capisco come hai trovato che il punto sia di massimo hai posto: <br>
+<span class="tex">\(U_t'=0 \ e \ U_t&gt;0.\)</span><br>
+Cioè che la derivata della funzione sia 0 nel punto e sia positiva nello stesso punto?<br>
+Dovrei rifare i calcoli, ma fare una derivata di una doppia radice e studiare il segno(o derivarla un'altra volta), mi prenderebbe troppo tempo.</article>
+<article class="post" id="p4369"><div class="who"><b>Stardust</b><span>9 giu 2010, 22:57</span></div>Ho commesso un'errore nella scrittura della formula in LaTeX: <br>
+per calcolare il massimo o il minimo o il flesso a tangente orizzontale (insomma i punti stazionari) di una funzione bisogna mettere la sua derivata prima uguale a 0 e poi maggiore di 0:<br>
+<span class="tex">\(U_t'=0 \,\,\,\,\, U_t'&gt;0\)</span>.<br>
+Purtroppo non ho messo attenzione alla richiesta di <span class="tex">\(U(\alpha)\)</span>, ma è evidente dalla dimostrazione che ho dato per <span class="tex">\(U(y)\)</span> che il risultato è corretto.<br>
+Quanto al tipo di equilibrio, lo studio della funzione mi dà un massimo in corrispondenza dell'ordinata/angolo dell'equilibrio, perciò l'equilibrio mi risulta instabile. Comunque riprovo a costruire <span class="tex">\(U(\alpha)\)</span> e fare i conti in questo secondo modo, ma osservando la situazione da un punto di vista puramente fisico, mi sembra intuitivo che non appena m si sposta un po' sopra o un po' sotto la sua posizione di quiete, si muove senza tornare alla condizione iniziale. Comunque quest'aspetto merita un ulteriore approfondimento.</article>
+<article class="post" id="p4371"><div class="who"><b>Miralansa</b><span>9 giu 2010, 23:40</span></div>Scusa hai scritto:<br>
+<span class="tex">\(U_t'=0 \,\,\,\,\, U_t'&gt;0.\)</span><br>
+per i punti o studi il segno della derivata prima, deve essere maggiore di 0 prima del punto stazionario e successivamente negativa per avere un punto di massimo; oppure studi la derivata seconda nel punto stazionario se è positiva abbiamo un punto di minimo, un punto di massimo se negativa.</article>
+<article class="post" id="p4372"><div class="who"><b>spn</b><span>10 giu 2010, 0:48</span></div>Scusate, ma siete sicuri della formula per <span class="tex">\(T(\alpha )\)</span> trovata da Stardust?<br>
+Guardandola al volo mi pare che toppi in <span class="tex">\(\alpha = 90\)</span> (quando il filo è orizzontale): messa così viene una tensione infinita, mentre ad occhio direi che dovrebbe essere Mg in quanto l'accelerazione di M è nulla in quell'istante.</article>
+<article class="post" id="p4374"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>10 giu 2010, 12:02</span></div><strong class="text-strong">1</strong>) Poiché il sistema non è in moto sull'asse orizzontale <span class="tex">\(\hat x\)</span>, consideriamo soltanto l'asse verticale <span class="tex">\(\hat y\)</span><br>
+<br>
+<span class="tex">\(\begin{cases} 
+  T-M g=-M a \\ 
+   T \cos{\alpha}-mg=ma \\ 
+  \end{cases}\)</span>               <br>
+<br>
+Svolgendo il sistema:<br>
+<br>
+<span class="tex">\(\displaystyle{T=\frac{2Mmg}{M\cos{\alpha}+m}}\)</span><br>
+<br>
+Analizziamo i casi estremi:<br>
+<br>
+<span class="tex">\(\alpha=0^0\)</span>   <span class="tex">\(\rightarrow\)</span> <span class="tex">\(\displaystyle{T=\frac{2Mmg}{M+m}}\)</span><br>
+<br>
+<span class="tex">\(\alpha=90^0\)</span>   <span class="tex">\(\rightarrow\)</span> <span class="tex">\(\displaystyle{T=2Mg}\)</span></article>
+<article class="post" id="p4376"><div class="who"><b>Miralansa</b><span>10 giu 2010, 14:32</span></div>Cerco di rispondere in ordine e spero di dire cose corrette:<br>
+<br>
+*Spn Dici che il nella posizione <span class="tex">\(\alpha=90^0\)</span> l'accelerazione della massa M è nulla? Quindi è una posizione di equilibrio: essendo vincolati geometricamente entrambe le masse hanno accelerazione nulla e quindi se li mettiamo a riposo in quel punto non si muovono.<br>
+<br>
+*Eagle nel tuo sistema le accelerazioni delle masse sono uguali, sei sicuro: per uno spostamento dl della massa grande la massa piccola si sposta di uno stesso spazio dl, o è solo il filo che le collega e quindi l'ipotenusa che aumenta di una quantità dl?</article>
+<article class="post" id="p4379"><div class="who"><b>spn</b><span>10 giu 2010, 16:38</span></div>No Miralansa, non è in una situazione di equilibrio: m si muove. Non è vero che se l'accelerazione di M è nulla allora lo è anche quella di m. I due corpi sono vincolati ad avere solo la componente parallela al filo uguale per entrambi, ma quella perpendicolare può essere benissimo diversa. In <span class="tex">\(\alpha = 90\)</span> infatti M ha accelerazione nulla, ma m ha un'accelerazione pari a g (in quanto la tensione del filo e la forza peso di m sono perpendicolari tra loro, e la reazione del vincolo non consente a M di muoversi), percui non dovrebbe andare bene neanche la soluzione di Eagle.<br>
+<br>
+Fatti i conti mi viene:<br>
+<br>
+<span class="tex">\(\displaystyle T(\alpha)= {m M g (1 + cos\alpha) \over M cos^2 \alpha + m}\)</span><br>
+<br>
+Inoltre sono anche abbastanza certo sul fatto che l'equilibrio con <span class="tex">\(cos{\alpha_0} = m/M\)</span> è stabile, visto che con <span class="tex">\(cos\alpha &gt; cos{\alpha_0}\)</span> su m agisce una forza diretta verso l'alto, e viceversa con <span class="tex">\(cos\alpha &lt; cos{\alpha_0}\)</span>.</article>
+<article class="post" id="p4381"><div class="who"><b>Miralansa</b><span>10 giu 2010, 18:12</span></div>Scusa spn puoi postare il sistema iniziale e le considerazioni da cui hai ricavato la formula?</article>
+<article class="post" id="p4384"><div class="who"><b>spn</b><span>10 giu 2010, 23:53</span></div>Ecco qua:<br>
+<span class="tex">\(\begin{cases} a_M=a_m \cos\alpha \\ M a_M= Mg - T \\ m a_m = T \cos\alpha - mg \\ \end{cases}\)</span><br>
+<br>
+Da cui si arriva a quella formula.<br>
+La prima eq. è dovuta al fatto che l'accelerazione di M è pari alla componente parallela al filo di quella di m, le alre sono solo le forze agenti sulle due masse.<br>
+Non vi convince qualcosa?</article>
+<article class="post" id="p4387"><div class="who"><b>Miralansa</b><span>11 giu 2010, 1:05</span></div>Il mio sistema è praticamente uguale anche se io ho posto:<br>
+<span class="tex">\(a_M cos(\alpha)=a_m\)</span><br>
+Quindi devo rivederlo, ma l'ora tarda e la sveglia domani mattina è presto.</article>
+<article class="post" id="p4407"><div class="who"><b>Stardust</b><span>13 giu 2010, 14:47</span></div><blockquote><div><cite>spn ha scritto:</cite>Ecco qua:<br>
+<span class="tex">\(\begin{cases} a_M=a_m \cos\alpha \\ M a_M= Mg - T \\ m a_m = T \cos\alpha - mg \\ \end{cases}\)</span><br>
+<br>
+Da cui si arriva a quella formula.<br>
+La prima eq. è dovuta al fatto che l'accelerazione di M è pari alla componente parallela al filo di quella di m, le alre sono solo le forze agenti sulle due masse.<br>
+Non vi convince qualcosa?</div></blockquote>
+
+Scusa spn, ma l'accelerazione di m (che scorre su e giù vincolata all'asta verticale) non è una componente dell'accelerazione di M, la massa appesa al filo, e dell'intero filo?<br>
+Io quindi ho posto:<br>
+<span class="tex">\(a_m=a_M\,cos\alpha\)</span>.</article>
+<article class="post" id="p4414"><div class="who"><b>spn</b><span>14 giu 2010, 13:27</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Scusa spn, ma l'accelerazione di m (che scorre su e giù vincolata all'asta verticale) non è una componente dell'accelerazione di M, la massa appesa al filo, e dell'intero filo?</div></blockquote> <br>
+No, secondo me è il contrario: è la massa m che è vincolata a muoversi lungo l'asta, non M.<br>
+<br>
+Forse per capirlo meglio si può pensare che m e M hanno sempre la stessa componente dell'accelerazione lungo il filo (essendo entrambe collegate ad esso ed essendo questo inestensibile), però m può avere anche una componente perpendicolare al filo, mentre M no. Da cui si ha che <span class="tex">\(a_m \geq a_M\)</span>, e che <span class="tex">\(a_M\)</span> è la componente di <span class="tex">\(a_m\)</span> lungo il filo, percui  dovrebbe essere <span class="tex">\(a_M=a_m \cos\theta\)</span>.<br>
+<br>
+Spero di essere stato chiaro.</article>
+<article class="post" id="p4519"><div class="who"><b>spn</b><span>30 giu 2010, 14:58</span></div>Penso che ormai il problema si possa considerare risolto, e visto che nessuno mette gnente allora ne propongo uno io, che è abbastanza un classico, ma secondo me istruttivo.<br>
+<br>
+<strong class="text-strong">Problema 15</strong><br>
+<br>
+In un cilindro posto verticalmente c'è un liquido di densità <span class="tex">\(\rho\)</span> . Il cilindro viene fatto ruotare intorno al suo asse verticale con una velocità angolare <span class="tex">\(\omega\)</span>. Dire che forma assume il liquido all'equilibrio. Dipende dalla densità?</article>
+<article class="post" id="p4539"><div class="who"><b>Saleh</b><span>2 lug 2010, 19:17</span></div>All'equilibrio nella parte superiore del cilindro si dovrebbe formare un paraboloide vuoto, l'ampiezza di questo dipende dalla densità del liquido, a un alta densità corrisponde un apertura maggiore e viceversa per una bassa. Detto questo non ho la più pallida idea di come scriverlo in calcoli  :?</article>
+<article class="post" id="p4540"><div class="who"><b>Alex90</b><span>2 lug 2010, 21:46</span></div>Prova a pensare come si dispone un liquido in un campo gravitazionale e che relazione cè tra la superficie e il vettore accelerazione.</article>
+<article class="post" id="p4541"><div class="who"><b>spn</b><span>2 lug 2010, 22:29</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>che relazione cè tra la superficie e il vettore accelerazione.</div></blockquote>
+...oppure tra la superficie e l'energia potenziale  ;)</article>
+<article class="post" id="p4542"><div class="who"><b>Saleh</b><span>3 lug 2010, 1:35</span></div>Sulle molecole del liquido agiscono 2 forze : quella centrifuga che spinge le molecole verso l'esterno e quella di Coriolis che fa "salire" quelle con <span class="tex">\(v\)</span> maggiore allargando il cerchio mentre scendendo quelle con <span class="tex">\(v\)</span> minore si avvicinano al centro di rotazione fino ad arrivare alla punta del paraboloide; ma è possibile legare questo alla densità <span class="tex">\(\rho\)</span> ? se applico il secondo principio della dinamica tutti i termini contengono <span class="tex">\(m\)</span> e si semplifica..<br>
+Dal punto di vista dell energia (forse) una <span class="tex">\(\rho\)</span> maggiore causa una maggiore energia potenziale che richiede una rotazione più veloce per raggiungere la forma che si crea con un altro liquido di densità minore.<br>
+Ancora devo capire cosa devo trovare  :D dovrei forse legare questo all'equazione matematica ?</article>
+<article class="post" id="p4543"><div class="who"><b>Stardust</b><span>3 lug 2010, 10:02</span></div>Se osserviamo la vista dall'alto vediamo un disco in rotazione (vedere figura), in cui tutti i punti si muovono con la stessa velocità angolare e subiscono un'accelerazione centripeta direttamente proporzionale alla distanza del punto dal centro di rotazione:<br>
+<span class="tex">\(F_c=-m\omega^2 r\)</span>,<br>
+dove il raggio generico si ottiene dal Teorema di Pitagora: <span class="tex">\(r=\sqrt{x^2+y^2}\)</span>. Il segno meno indica che essa è centripeta.<br>
+Possiamo dire che tutte le circonferenze concentriche sono ciascuna delle linee equipotenziali, perchè tutti i punti appartenenti ad ognuna di esse sono alla stessa energia potenziale U, ricavabile dal fatto che <br>
+<span class="tex">\(F_c=\displaystyle{\frac{dU_c}{dr} }\)</span>.<br>
+Quindi:<br>
+<span class="tex">\(U_c=\displaystyle{\int F_c\,dr}=-m\omega^2\displaystyle{\int r\,dr}=-\displaystyle{\frac{1}{2}}m\omega^2r^2+k=-\displaystyle{\frac{1}{2}}m\omega^2(x^2+y^2)+k\)</span>.<br>
+Se invece osserviamo l'energia potenziale gravitazionale che dipende dalla quota z, si ha:<br>
+<span class="tex">\(U_g=mgz\)</span>.<br>
+Uniamo le due energie potenziali:<br>
+<span class="tex">\(U=U_c+U_g=-\displaystyle{\frac{1}{2}}m\omega^2(x^2+y^2)+mgz+k\)</span>.<br>
+Tale energia complessiva deve essere costante perchè le forze in azione sono conservative, e così si pone che al centro del cilindro in rotazione, nel suo punto basso ci sia:<br>
+<span class="tex">\(U(0;0;0)=0\)</span>, ne consegue che <span class="tex">\(k=0\)</span> e che vale:<br>
+<span class="tex">\(-\displaystyle{\frac{1}{2g}}m\omega^2(x^2+y^2)+mgz=0\)</span>.<br>
+se esplicitiamo tutto in z abbiamo:<br>
+<span class="tex">\(\displaystyle{z=\frac{\omega^2}{2g}(x^2+y^2)}=\displaystyle{\frac{x^2}{ \displaystyle{\frac{2g}{\omega^2}} }+\frac{y^2}{ \displaystyle{\frac{2g}{\omega^2}} }}\)</span>,<br>
+laddove si rispetta la forma del paraboloide ellittico:<br>
+<span class="tex">\(z=\displaystyle{\frac{x^2}{a^2}+\frac{y^2}{b^2}}\)</span>.<br>
+Quindi effettivamente si genera un paraboloide, la cui forma però non è influenzata dalla densità del liquido, ma solo dalla velocità di rotazione... Inaspettato, davvero.<br>
+Edit: ho corretto l'espressione finale del paraboloide. Così è garantita la coerenza dimensionale dell'uguaglianza.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=124" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Vista dall'alto.png (4.74 KiB) Visto 7851 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p4544"><div class="who"><b>Ippo</b><span>3 lug 2010, 12:09</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Quindi effettivamente si genera un paraboloide, la cui forma però non è influenzata dalla densità del liquido, ma solo dalla velocità di rotazione... Inaspettato, davvero.</div></blockquote>
+
+Un modo per "aspettarselo" era considerare che entrambe le forze in gioco (centrifuga, gravitazionale) dipendono linearmente da <span class="tex">\(\rho\)</span> e dato che a noi interesa solo la direzione del campo di forze, e questa dipende solo dal rapporto tra i moduli delle due forze, la densità verrà semplificata.</article>
+<article class="post" id="p4545"><div class="who"><b>spn</b><span>3 lug 2010, 12:37</span></div>Ti sei perso la g alla fine, ma per il resto va bene.<br>
+<br>
+Comunque, senza tirare fuori le tre dimensioni, andava pure bene trovare la forma di una sezione passante per l'asse, e poi dire che per simmetria la forma del solido era la rotazione di quella sezione intorno all'asse.</article>
+<article class="post" id="p4546"><div class="who"><b>Ippo</b><span>3 lug 2010, 14:14</span></div>a proposito di questo problema. <br>
+Conoscerete tutti la legge di Bernoulli, che afferma che <em class="text-italics">sotto certe ipotesi</em> in un fluido la quantità<br>
+<span class="tex">\(H=\rho g z +\rho v^2 /2 + P\)</span><br>
+è costante.<br>
+Sulla superficie del fluido nel nostro secchio rotante la pressione è quella atmosferica, <span class="tex">\(P=P_0\)</span>.<br>
+Risulterebbe allora<br>
+<span class="tex">\(H=\rho g z + \rho \omega^2 r^2 /2 +P_0 \Rightarrow z={H-P_0 \over \rho g}-{\omega^2 \over 2g}r^2\)</span><br>
+che è l'equazione di un paraboloide "storto", con la concavità rivolta verso il basso. Decisamente sbagliato.<br>
+Come mai? Dove fallisce il ragionamento? Quale ipotesi implicita abbiamo fatto per usare Bernoulli?</article>
+<article class="post" id="p4547"><div class="who"><b>Stardust</b><span>3 lug 2010, 21:43</span></div>Probabilmente l'incompatibilità della situazione con l'applicazione di Bernouilli (ma come si pronuncia?) deriva dal fatto che tale espressione è per i flussi laminari, lineari, mentre qui si ha un moto vorticoso.</article>
+<article class="post" id="p4548"><div class="who"><b>Ippo</b><span>4 lug 2010, 3:02</span></div>Esatto. L'ipotesi, che generalmente non viene detta  :mrgreen: , è che il flusso sia irrotazionale, cioè più formalmente abbia rotore nullo (che più o meno equivale a dire che le circuitazioni lungo curve chiuse devono essere nulle). Nel caso del vortice questo è chiaramente falso. Si può essere quantitativi e si arriva al risultato corretto, ma questo va un po' oltre. Era tanto per farvi vedere un caso in cui le cose non funzionano, può essere istruttivo  :)</article>
+<article class="post" id="p4554"><div class="who"><b>Stardust</b><span>4 lug 2010, 21:59</span></div>Beh, cedo volentieri la staffetta al primo generoso che vuole continuarla...<br>
+Non ho modo di aggiungere altri problemi al momento, grazie.</article>
+<article class="post" id="p4555"><div class="who"><b>Pigkappa</b><span>4 lug 2010, 22:24</span></div>Si supponga che il Sole abbia avuto sempre la stessa luminosità che ha adesso, e che l'energia irraggiata dal Sole provenga solamente dalla sua energia potenziale gravitazionale. Fare una stima dell'età del Sole in queste ipotesi.<br>
+<br>
+Dovreste cercare in grado di farlo usando solamente dati che conoscete già, senza cercare costanti numeriche in giro.</article>
+<article class="post" id="p4571"><div class="who"><b>Stardust</b><span>7 lug 2010, 13:59</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Dovreste cercare in grado di farlo usando solamente dati che conoscete già, senza cercare costanti numeriche in giro.</div></blockquote>
+Quali sono i dati da dare per scontati? <br>
+Solo quelli della traccia (intensità luminosa costante, origine gravitazionale dell'energia irradiata) oppure si devono considerare "conosciuti" anche i valori di massa  e temperatura superficiale del Sole (per esempio) ?<br>
+<br>
+Infine, l'energia gravitazionale non è semplicemente del Sole perchè è definita in ragione di più corpi che interagiscono, nel caso specifico è del sistema Sole+pianeti... Questo mica significa che bisogna cercare di capire come si è modificata l'energia dei gruppi Sole+Mercurio, Sole+Venere, Sole+Terra, etc. ?<br>
+Mi sembra abbastanza strano...</article>
+<article class="post" id="p4572"><div class="who"><b>Pigkappa</b><span>7 lug 2010, 14:49</span></div>Quelli che ti ricordi, qualsiasi essi siano (a meno che tu non sappia già a memoria anche la risposta al problema, ovviamente). Ad esempio, il valore di <span class="tex">\(G\)</span> se te lo ricordi a memoria puoi usarlo; se non te lo ricordi, puoi cercare di ricavarlo da altri valori che conosci.<br>
+Nelle prove delle olimpiadi non si danno problemi di questo tipo, ma poi alle prove orali (di qualsiasi esame di fisica) invece si pretende che uno si ricordi qualche numero.<br>
+<br>
+
+<blockquote class="uncited"><div>Questo mica significa che bisogna cercare di capire come si è modificata l'energia dei gruppi Sole+Mercurio, Sole+Venere, Sole+Terra, etc. ?</div></blockquote>
+
+Il problema dovete risolverlo voi, non io...</article>
+<article class="post" id="p4573"><div class="who"><b>Mirko93</b><span>7 lug 2010, 18:59</span></div>Vediamo se sono riuscito a tirarne fuori qualcosa di sensato :roll: .<br>
+Nel mio modello ho considerato come se la massa M del Sole fosse rimasta sempre costante, e che fosse uniforme (ma non costante nel tempo) la sua densità <span class="tex">\(\delta\)</span>.<br>
+Calcolo l'energia potenziale totale del Sole sommando tutti i contributi dati da singoli gusci sferici. <br>
+<br>
+<span class="tex">\(\displaystyle dU=-G { M_{int} dm \over x}\)</span><br>
+<br>
+dove <span class="tex">\(M_{int}= \frac{4}{3} \pi \delta x^3\)</span> è la massa interna al guscio, e <span class="tex">\(dm= 4\delta  \pi x^2 dx\)</span> è la massa infinitesima del guscio, per cui:<br>
+<br>
+<span class="tex">\(\displaystyle U_{tot} =-G \delta ^2 \frac{16}{3} \pi ^2 \int^R_{0} x^4 dx = -G \delta ^2 \frac{16}{15} \pi ^2 R^5= -G { 3M^2 \over 5 R}\)</span><br>
+<br>
+Chiamando P la potenza emessa dal Sole, che è da ritenersi costante per la prima ipotesi del testo, si ha per la seconda ipotesi che <span class="tex">\(\Delta U = - P \Delta t\)</span>, dove <span class="tex">\(\Delta U\)</span> è la differenza dell'energia potenziale del Sole di oggi e quella di quando t=0. Supponendo che il raggio iniziale del Sole sia molto maggiore di quello odierno, allora la sua energia potenziale iniziale può essere ritenuta trascurabile. Per cui<br>
+<br>
+<span class="tex">\(\displaystyle -G { 3M^2 \over 5 R_s} = -P \Delta T\)</span><br>
+<br>
+<span class="tex">\(\displaystyle \Delta T = G { 3M^2 \over 5 P R_s}\)</span><br>
+<br>
+Ora, sapendo la durata dell'anno, che <span class="tex">\(G=6,7 \cdot 10^{-11} \dfrac{m^3}{Kg \cdot s^2}\)</span>, che la distanza Terra-Sole è <span class="tex">\(D=1,5 \cdot 10^{11} m\)</span>, che il raggio medio odierno del Sole è <span class="tex">\(R_s= 7 \cdot 10^8 m\)</span>  e che l'illuminazione dovuta al Sole sulla Terra è di circa <span class="tex">\(I=1000  W/m^2\)</span>, si riesce facilmente a ricavare M con la legge di Keplero e P. Da cui mi risulta<br>
+<br>
+<span class="tex">\(\Delta T \approx 8 \cdot 10^{14} s \approx 3 \cdot 10^7 y\)</span></article>
+<article class="post" id="p4574"><div class="who"><b>Pigkappa</b><span>8 lug 2010, 0:15</span></div>Ok; a questo punto si potrebbe commentare il risultato, però.</article>
+<article class="post" id="p4575"><div class="who"><b>Carmelo</b><span>8 lug 2010, 0:52</span></div>non so se posso chiedere...
+<blockquote><div><cite>Mirko93 ha scritto:</cite>Supponendo che il raggio iniziale del Sole sia molto maggiore di quello odierno,</div></blockquote>
+:-| ?</article>
+<article class="post" id="p4576"><div class="who"><b>Mirko93</b><span>8 lug 2010, 1:48</span></div>Hmm, in realtà si stima che l'età del Sole sia dell'ordine di grandezza di <span class="tex">\(10^9\)</span>, mentre in questo modello l'età è circa cento volte inferiore, per cui un commento sul risultato è che è abbastanza toppato  :lol: . Probabilmente le ipotesi iniziali non sono molto realistiche, oppure sono io ad aver cannato  :roll: .<br>
+<br>
+@Carmelo<br>
+Non ho capito che cosa stai chiedendo o che cosa vuoi che ti risponda.<br>
+Il concetto (che mi sembrava comprensibile...) è che irraggiando energia il Sole perde energia potenziale, ossia diventa più piccolo, e si sta supponendo che quando il Sole ha incominciato ad irraggiare sia stato molto più grande di come è adesso.<br>
+Non torna qualcosa?</article>
+<article class="post" id="p4577"><div class="who"><b>Pigkappa</b><span>8 lug 2010, 3:19</span></div><blockquote><div><cite>Mirko93 ha scritto:</cite>Hmm, in realtà si stima che l'età del Sole sia dell'ordine di grandezza di <span class="tex">\(10^9\)</span>, mentre in questo modello l'età è circa cento volte inferiore, per cui un commento sul risultato è che è abbastanza toppato  :lol: . Probabilmente le ipotesi iniziali non sono molto realistiche, oppure sono io ad aver cannato  :roll:</div></blockquote>
+
+Il conto che hai fatto tu è giusto... Per l'appunto, si potrebbe dire qualcosa sulle ipotesi iniziali &gt;_&lt;.</article>
+<article class="post" id="p4578"><div class="who"><b>Loren Kocillari89</b><span>8 lug 2010, 10:45</span></div>Il fatto che l'energia irraggiata dal sole provenga solamente dall'energia potenziale gravitazionale del sole non tiene conto per ipotesi di un fenomeno che costituisce la maggior parte dell'energia emessa dal sole sotto forma di onde elettromgnetiche, che è l'energia sprigionata dalla fusione nucleare. La massa del sole infatti ,oltre che il raggio,varia nel tempo fino a quando esaurisce il serbatoio di idrogeno, elio,...fino al ferro.  Per cui solo se si tiene conto anche delle fusioni in atto+ l'energia potenziale gravitazionale  si ottiene una vita del sole dell'ordine dei miliardi di anni.</article>
+<article class="post" id="p4579"><div class="who"><b>Carmelo</b><span>8 lug 2010, 14:41</span></div><blockquote><div><cite>Mirko93 ha scritto:</cite>@Carmelo<br>
+Non ho capito che cosa stai chiedendo o che cosa vuoi che ti risponda.<br>
+Il concetto (che mi sembrava comprensibile...) è che irraggiando energia il Sole perde energia potenziale, ossia diventa più piccolo, e si sta supponendo che quando il Sole ha incominciato ad irraggiare sia stato molto più grande di come è adesso.<br>
+Non torna qualcosa?</div></blockquote>
+No, no, era comprensibilissimo  :D e il conto è corretto<br>
+è solo che che una supposizione del genere torna molto utile, ma va giustificata... magari Pig intendeva questo con "si potrebbe dire qualcosa sulle ipotesi iniziali"</article>
+<article class="post" id="p4580"><div class="who"><b>Pigkappa</b><span>8 lug 2010, 16:44</span></div>No, intendevo quello che poi ha detto Loren Kocillari. Il fatto che il raggio iniziale fosse &gt;&gt; di quello attuale è perfettamente ragionevole. Il senso dell'esercizio era far vedere che da questo conto, e dal fatto noto che il Sole ha un'età molto maggiore a <span class="tex">\(10^7 y\)</span> (noto perchè, ad esempio, sappiamo che la Terra è molto più vecchia ed è ragionevole che la sua evoluzione sia legata a quella del Sole), si può mostrare che l'energia irradiata deve essere prodotta in qualche modo diverso dalla sola contrazione gravitazionale.<br>
+<br>
+Il problema è finito, comunque, perciò avanti il prossimo :P</article>
+<article class="post" id="p4581"><div class="who"><b>SkZ</b><span>9 lug 2010, 4:22</span></div>esatto, finche' si contrae e' una stelle di pre-sequenza, quando accende le reazioni (nucleo a 10 mil K) diventa una stella di sequenza.<br>
+Il periodo di tempo da voi calcolato e' infatti il tempo per una stella di massa solare passato come stelle di pre-sequenza (PMS). E infatti le stelle si spostano nel diagramma HR (temperatura, luminosita') circa orizzontalmente verso la sequanza principale, quindi a luminosita' circa costante.<br>
+<br>
+E come ha detto pigkappa, fu cosi' che si capi' che c'era una nuova fonte di enrgia per le stelle (si pensava contrazione o combustibile)</article>
+<article class="post" id="p4583"><div class="who"><b>Pigkappa</b><span>9 lug 2010, 12:56</span></div>Contrazione non è proprio questa che abbiamo escluso?</article>
+<article class="post" id="p4584"><div class="who"><b>SkZ</b><span>9 lug 2010, 17:04</span></div>fino all'accensione delle reazioni nel nucleo, la fonte di energia e' la contrazione secondo teorema del viriale.<br>
+Prima come protostella (ancora con la nube che la circonda) poi come stella di presequenza.<br>
+il tempo da voi trovato e' il tempo di Kelvin-Helmholtz per una stella di 1 massa solare.<br>
+stelle al limite inferiore di massa sono ancora nella fase di PMS (tempo di Kelvin di vari miliardi di anni)</article>
+<article class="post" id="p4586"><div class="who"><b>Mirko93</b><span>10 lug 2010, 0:51</span></div>Ok, ecco il prossimo problema:<br>
+<br>
+Dimostrare la legge di Archimede, ossia che un corpo riceve una spinta verso l'alto pari al peso del liquido spostato.</article>
+<article class="post" id="p4708"><div class="who"><b>Falco5x</b><span>27 lug 2010, 17:22</span></div>Supponiamo di avere un corpo totalmente immerso in un liquido di densità <span class="tex">\(\displaystyle \rho\)</span>.<br>
+Poniamoci in un sistema di riferimento tridimensionale con il piano xy situato sulla superficie del liquido e l'asse z diretto verso il fondo della vasca. Chiamiamo S la proiezione del corpo sul piano xy. Il corpo avrà in ogni punto uno spessore <span class="tex">\(\displaystyle {\Delta z\left( {x,y} \right)}\)</span> funzione del punto (x,y).<br>
+Pensiamo di affettare il corpo in minuscoli prismi aventi per proiezione di base il quadrilatero dxdy.<br>
+Detta p(z) la pressione a profondità z, ognuno di questi prismi sentirà una spinta verticale pari a (il verso positivo della forza è assunto verso l'alto, ovvero come -z) :<br>
+<br>
+<span class="tex">\(\displaystyle d{F_v} = p\left( {{z_2}} \right)dxdy - p\left( {{z_1}} \right)dxdy = g\rho \left( {{z_2} - {z_1}} \right)dxdy = g\rho \Delta zdxdy\)</span><br>
+<br>
+ovvero pari alla superficie della proiezione delle basi sul piano xy moltiplicata per la differenza di pressione sulle due basi.<br>
+Sommando sull'intera superficie S si ha:<br>
+<br>
+<span class="tex">\(\displaystyle {F_v} = \int_S {g\rho \Delta z\left( {x,y} \right)dxdy}\)</span><br>
+<br>
+Osservando che il volume del corpo si può calcolare come<br>
+<br>
+<span class="tex">\(\displaystyle \int_S {\Delta z\left( {x,y} \right)dxdy}  = V\)</span><br>
+<br>
+si ottiene<br>
+<br>
+<span class="tex">\(\displaystyle {F_v} = g\rho V = gM\)</span><br>
+<br>
+dove M è la massa del liquido avente volume pari al volume del corpo.</article>
+<article class="post" id="p4749"><div class="who"><b>Mirko93</b><span>1 ago 2010, 21:39</span></div>Si, avevo usato un metodo analogo!<br>
+Falco5x può mettere il prossimo problema!</article>
+<article class="post" id="p4868"><div class="who"><b>Meta*</b><span>17 ago 2010, 14:15</span></div>Dal momento che la staffetta non procede chiedo il permesso di mandarla avanti  :mrgreen: <br>
+Problema:<br>
+Per il sistema in figura, in cui le carrucole girano senza attrito (e la molla non è presente), calcolare l’accelerazione a del corpo 1<br>
+Successivamente il corpo 1 viene collegato al pavimento mediante una molla di Hooke  (punteggiata in figura) di rigidezza K. Tenendo presente il risultato precedente scrivere la pulsazione del sistema, dettagliando i passaggi.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=132" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Immagine.jpg (12.45 KiB) Visto 8201 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p4869"><div class="who"><b>Gauss91</b><span>17 ago 2010, 17:28</span></div>PUNTO 1<br>
+<br>
+Diamo un po' di premesse:<br>
+Sia a' l'accelerazione del filo, che ovviamente accelererà solo nella parte compresa tra i corpi 2 e 4. Poniamo che l'accelerazione e le forze che agiscono lungo il filo siano POSITIVE se puntano lungo la direzione corpo 4 - soffitto, negative se puntano lungo la direzione soffitto - corpo 4.<br>
+Sia invece a l'accelerazione del corpo 1, positiva se punta verso il basso, negativa verso l'alto.<br>
+Sia <span class="tex">\(\theta\)</span> l'angolo che la parte di filo tra il corpo 3 e il corpo 4 forma con la verticale.<br>
+<br>
+Siano in particolare: <span class="tex">\(T_1\)</span> la tensione che agisce tra il corpo 2 e il soffitto; <span class="tex">\(T_2\)</span> quella tra il corpo 2 e il corpo 3; <span class="tex">\(T_3\)</span> quella tra il corpo 3 e il corpo 4. Sia <span class="tex">\(T\)</span> la tensione che agisce tra il corpo 1 e il corpo 2. (Penso non ci siano problemi sull'identificazione dei corpi).<br>
+Ricordiamo che il momento di inerzia di un disco riferito al suo asse è <span class="tex">\(I = \dfrac{1}{2}MR^2\)</span><br>
+Applichiamo ora la seconda legge di Newton separatamente ai 4 corpi.<br>
+<br>
+Su 4, applichiamo la conservazione dell'energia totale:<br>
+<span class="tex">\(T_3 \Delta x = \dfrac{1}{2}M_4v_4 ^2 + M_4g\Delta x \cos\theta + \dfrac{1}{2}I_4\omega_4^2\)</span>, ed essendo <span class="tex">\(\omega^2 R^2 = v^2\)</span> e <span class="tex">\(\dfrac{v^2}{\Delta x} = 2a'\)</span>, si ha<br>
+<span class="tex">\(T_3 = M_4g\cos\theta + \dfrac{3}{2}M_4 a'\)</span><br>
+<br>
+Su 3<br>
+<span class="tex">\(\tau_3 = (T_2 - T_3)R_3 = I_3\alpha_3\)</span> e <span class="tex">\(R_3 \alpha_3 = a'\)</span>, da cui<br>
+<span class="tex">\(T_2 = T_3 + \dfrac{1}{2}M_3a' = M_4g\cos\theta + (\dfrac{3}{2}M_4 + \dfrac{1}{2}M_3)a'\)</span>.<br>
+<br>
+Su 2<br>
+<span class="tex">\(\tau_2 = (T_1 - T_2)R_2 = I_2\alpha_2\)</span> e ancora <span class="tex">\(R_2\alpha_2 = a'\)</span>, da cui<br>
+<span class="tex">\(T_1 = T_2 + \dfrac{1}{2}M_2a' = M_4g\cos\theta + (\dfrac{3}{2}M_4 + \dfrac{1}{2}M_3 + \dfrac{1}{2}M_2)a'\)</span><br>
+<br>
+Sempre su 2, è <span class="tex">\(M_2g + T - T_1 - T_2 = M_2a\)</span><br>
+<br>
+Su 1, è <span class="tex">\(M_1g - T = M_1a\)</span><br>
+<br>
+Inoltre, è <span class="tex">\(a = \dfrac{1}{2}a'\)</span>, perché in ogni istante la velocità del centro di massa del corpo 2 è la metà della sua velocità tangenziale. Operando le dovute sostituzioni si ottiene<br>
+<br>
+<span class="tex">\(a = \dfrac{M_1 + M_2 - 2M_4\cos\theta}{M_1 + 2M_2 + 2M_3 + 6M_4}g\)</span>.<br>
+In linea di principio non si può ricavare <span class="tex">\(\theta\)</span>, che dipende dalla distanza del corpo 4 dal 3, ma se il filo è abbastanza lungo e se la differenza R_4 - R_3 non è troppo grande si può porre <span class="tex">\(\theta \approx \pi/2 - \beta\)</span>.<br>
+<br>
+PUNTO 2<br>
+<br>
+D'ora in avanti si approssimerà theta al complementare di beta.<br>
+Supponiamo che a &gt; 0, cioè che il corpo 1 vada verso il basso (il caso a &lt; 0 è perfettamente speculare e la pulsazione sarà identica)<br>
+Supponiamo che la molla non sia in tensione al momento della connessione. Allora si comprimerà di un tratto <span class="tex">\(\Delta x\)</span> tale che, per la conservazione dell'energia totale del sistema, sarà<br>
+<br>
+<span class="tex">\(\dfrac{1}{2}K(\Delta x)^2 = (M_1 + M_2)g\Delta x - 2M_4g\Delta x \sin\beta\)</span>, da cui<br>
+<br>
+<span class="tex">\(\Delta x = \dfrac{2(M_1 + M_2) - 4M_4\sin\beta}{K}g\)</span><br>
+Il corpo 1 non può andare più in alto di quando è stato collegato alla molla, perché nessuna energia è fornita al sistema. Quindi, il punto di equilibrio si troverà ad una distanza <span class="tex">\(x_0 = \Delta x  /2\)</span> dal punto in cui il corpo 1 si trovava quando è stato connesso alla molla. Il moto è quindi armonico semplice con ampiezza x_0, e prendendo come punto di inizio del moto armonico l'istante della connessione, l'equazione di questo moto diventa<br>
+<br>
+<span class="tex">\(x(t) = x_0 \cos\omega t\)</span>, da cui<br>
+<span class="tex">\(a(t) = -\omega^2 x_0 \cos\omega t\)</span>. In più, a(0) = -a (il meno è necessario perché qualora x_0 fosse positivo, a deve essere negativo), e sostituendo si ottiene<br>
+<br>
+<span class="tex">\(\omega = \sqrt{\dfrac{a}{x_0}} = \sqrt{\dfrac{K}{M_1 + 2M_2 + 2M_3 + 6M_4}}\)</span>.</article>
+<article class="post" id="p4873"><div class="who"><b>Meta*</b><span>18 ago 2010, 2:40</span></div>Esattamente   :)   Avanti col prossimo.</article>
+<article class="post" id="p4874"><div class="who"><b>Gauss91</b><span>18 ago 2010, 10:20</span></div>Premessa: siamo sulla Terra :P .<br>
+Una sorgente sonora di frequenza propria <span class="tex">\(\nu_0\)</span> viaggia di moto rettilineo uniforme, a velocità <span class="tex">\(v\)</span>. Un osservatore, fermo, è posto a distanza <span class="tex">\(d\)</span> dalla traiettoria della sorgente, e la frequenza che gli arriva è modificata dall'effetto Doppler. Dare una formula che permetta di trovare la frequenza <span class="tex">\(\nu\)</span> udita dall'osservatore, in funzione della posizione della sorgente e della sua frequenza propria.</article>
+<article class="post" id="p4875"><div class="who"><b>egl</b><span>18 ago 2010, 11:19</span></div>Spero di non travisare la richiesta di Gauss91 :roll: :<br>
+<br>
+sia <span class="tex">\(x\)</span> la distanza fra la mia proiezione sulla traiettoria e la sorgente e sia <span class="tex">\(\alpha\)</span> l'angolo che forma con la traiettoria la congiungente persona-sorgente. Vale <span class="tex">\(tg\alpha={d\over x}\)</span>. La velocità "utile" è la componente nella direzione della persona <span class="tex">\(vcos\alpha\)</span>. Con alcuni passaggi mi ricavo che <span class="tex">\(cos\alpha=\frac{x}{\sqrt{d^2+x^2}}\)</span>. <br>
+<br>
+Utilizzo la formula                      <span class="tex">\(\nu=\dfrac{\nu_0}{1-\frac{vcos\alpha}{v_s}}=\dfrac{\nu_0}{1-\dfrac{vx}{v_s\sqrt{d^2+x^2}}}\)</span>.</article>
+<article class="post" id="p4876"><div class="who"><b>Gauss91</b><span>18 ago 2010, 11:29</span></div><blockquote><div><cite>egl ha scritto:</cite>La velocità "utile" è la componente nella direzione della persona <span class="tex">\(v\cos\alpha\)</span></div></blockquote>
+
+E perché? Magari è vero ma se me lo dimostrassi sarebbe meglio...<br>
+
+<blockquote><div><cite>egl ha scritto:</cite>Utilizzo la formula ...</div></blockquote>
+
+Attento: quella formula vale se l'osservatore è sulla traiettoria della sorgente... e non mi sembra così chiaro il fatto che una sorgente non in linea con l'osservatore possa essere trattata alla stregua di una sorgente che si muove sulla sua proiezione sulla parallela alla sua traiettoria passante per l'osservatore... Il fronte d'onda è comlpetamente diverso. Comunque magari è vero eh, ma a me viene un risultato parecchio diverso.</article>
+<article class="post" id="p4877"><div class="who"><b>egl</b><span>18 ago 2010, 12:02</span></div>Forse mi sbaglio ma poichè la formula dell'effetto Doppler vale solo per osservatori sulla traiettoria della sorgente, ho pensato che in un intervallo di tempo molto piccolo la velocità della sorgente verso l'osservatore può ritenersi costante e di valore <span class="tex">\(v\cos \alpha\)</span>. L'angolo cambia con il tempo sempre più velocemente verso <span class="tex">\(\pi \over 2\)</span> e quindi anche la frequenza percepita che tende a <span class="tex">\(\nu_0\)</span>.  Bho...</article>
+<article class="post" id="p4879"><div class="who"><b>Mirko93</b><span>18 ago 2010, 12:22</span></div>A me viene una formula uguale a quella di egl. Per cui provo a rispondere io alle domande di Gauss91.<br>
+<br>
+Per dimostrare il fatto che la velocità ''utile'' è quella nella direzione della persona, basta scomporre la velocità della sorgente in componenti radiale e tangenziale rispetta all'osservatore. La componente tangenziale ha ovviamente un contributo nullo (se la sorgente gira in un cerchio intorno all'osservatore la variazione di frequenza è nulla), mentre invece la componente radiale crea un'effetto doppler pari a quello che avrebbe se la sorgente andrebbe dritta per dritta verso l'osservatore con quella velocità, e quindi si può usare la formula usata anche da egl.<br>
+<br>
+Magari se ci dici la tua formula risolutiva possiamo capire meglio le differenze fra il nostro approccio e il tuo.</article>
+<article class="post" id="p4880"><div class="who"><b>Gauss91</b><span>18 ago 2010, 14:05</span></div>Il punto è che le onde arrivano dalla sorgente e non dalla sua proiezione.<br>
+Supponiamo dapprima che la sorgente (o meglio la sua proiezione) si avvicini.<br>
+Se la proiezione della sorgente sulla linea dell'osservatore è distante <span class="tex">\(x\)</span> dall'osservatore stesso, la cresta d'onda sonora emessa in quella posizione dovrà percorrere una distanza <span class="tex">\(D_1 = \sqrt{d^2 + x^2}\)</span> per arrivare all'osservatore, e ci arriverà in un tempo <span class="tex">\(t_1 = \dfrac{\sqrt{d^2 + x^2}}{v_s}\)</span>.<br>
+La cresta d'onda immediatamente dopo viene emessa dopo un tempo <span class="tex">\(T_0 = \dfrac{1}{\nu_0}\)</span>. In tale tempo, la proiezione della sorgente sulla linea dell'osservatore (parallela alla traiettoria della sorgente) percorre un tratto <span class="tex">\(vT_0\)</span> e l'onda dovrà percorrere un tratto <span class="tex">\(D_2 = \sqrt{d^2 + (x - vT_0)^2}\)</span> e ci impiega <span class="tex">\(t_2 = T_0 + \dfrac{\sqrt{d^2 + (x - vT_0)^2}}{v_s}\)</span>. Il lasso di tempo che intercorre tra le percezioni delle due onde sonore sarà il periodo percepito dell'onda emessa quando la proiezione della sorgente si trova a x_1 dall'osservatore.<br>
+Quindi <span class="tex">\(T = t_2 - t_1 = T_0 - \dfrac{1}{v_s}(\sqrt{d^2 + x^2} - \sqrt{d^2 + (x - vT_0)^2})\)</span> e <span class="tex">\(\nu = \dfrac{1}{T}\)</span>.<br>
+Si noti che al momento della percezione la proiezione della sorgente NON E' a distanza x_1 dall'osservatore, e la formula si riferisce alla posizione in cui l'onda è stata emessa.<br>
+Poi magari mi sbaglio io eh! In tal caso egl ha il prossimo problema.</article>
+<article class="post" id="p4881"><div class="who"><b>Mirko93</b><span>18 ago 2010, 15:25</span></div>Il periodo è da considerare molto piccolo (altrimenti non avrebbe molto senso di parlare di frequenza in funzione della distanza). Se tu lo consideri tale allora definendo <span class="tex">\(\displaystyle v={dx \over dT}\)</span> (dove dT è il periodo) e lavorando un pò con i differenziali ti ritorna la formula trovata da egl. Probabilmente succede pure a te se fai tendere T molto piccolo.<br>
+<br>
+Comunque, potresti essere più chiaro. <br>
+Non si capisce qual'è questa proiezione della sorgente di cui stai parlando: nè su cosa è la proiezione nè dove l'abbiamo usata nel nostro ragionamento.</article>
+<article class="post" id="p4882"><div class="who"><b>Meta*</b><span>18 ago 2010, 17:28</span></div><blockquote><div><cite>Mirko93 ha scritto:</cite>Il periodo è da considerare molto piccolo (altrimenti non avrebbe molto senso di parlare di frequenza in funzione della distanza). Se tu lo consideri tale allora definendo <span class="tex">\(\displaystyle v={dx \over dT}\)</span> (dove dT è il periodo) e lavorando un pò con i differenziali ti ritorna la formula trovata da egl. Probabilmente succede pure a te se fai tendere T molto piccolo.</div></blockquote>
+Quoto.</article>
+<article class="post" id="p4883"><div class="who"><b>Rigel</b><span>18 ago 2010, 18:26</span></div><blockquote><div><cite>Meta* ha scritto:</cite><blockquote><div><cite>Mirko93 ha scritto:</cite>Il periodo è da considerare molto piccolo (altrimenti non avrebbe molto senso di parlare di frequenza in funzione della distanza). Se tu lo consideri tale allora definendo <span class="tex">\(\displaystyle v={dx \over dT}\)</span> (dove dT è il periodo) e lavorando un pò con i differenziali ti ritorna la formula trovata da egl. Probabilmente succede pure a te se fai tendere T molto piccolo.</div></blockquote>
+Quoto.</div></blockquote>
+Quoto anch'io.<br>
+Considerando T molto piccolo e facendo le solite approssimazioni con lo sviluppo in serie esce la stessa identica formula di egl.<br>
+comunque io ho sempre considerato un fatto noto che solo la velocità radiale contribuisce all'effetto Doppler, anche se non conosco la dimostrazione formale.<br>
+sarebbe interessante vedere anche come varia la frequenza in funzione del tempo (in questo caso credo che si possa arbitrariamente porre t=0 per x=0)</article>
+<article class="post" id="p4884"><div class="who"><b>egl</b><span>18 ago 2010, 19:22</span></div><blockquote><div><cite>Rigel ha scritto:</cite>
+sarebbe interessante vedere anche come varia la frequenza in funzione del tempo (in questo caso credo che si possa arbitrariamente porre t=0 per x=0)</div></blockquote>
+
+In questo caso credo che basti imporre che <span class="tex">\(x\)</span> sia <span class="tex">\(vt\)</span>. Procedendo analogamente si dovrebbe giungere a <br>
+<br>
+<span class="tex">\(\nu=\dfrac{\nu_0}{1+\frac{v}{v_s}\cdot\frac{vt}{\sqrt{v^2t^2+d^2}}}\)</span> che per <span class="tex">\(t=0\)</span> dà <span class="tex">\(\nu=\nu_0\)</span><br>
+<br>
+e per <span class="tex">\(t\rightarrow \infty\)</span> dà la formula per l'effetto Doppler senza modifiche. Sembra tornare tutto...  bho, ditemi voi.</article>
+<article class="post" id="p4885"><div class="who"><b>Gauss91</b><span>18 ago 2010, 19:54</span></div>Ok sì effettivamente con T molto piccolo non ci sono differenze (@Rigel: non pensavo fosse un fatto noto, infatti non l'ho mai sentito! :P @Mirco: avevo precisato la proiezione nel mio secondo messaggio). Bene, avendo dimostrato la correttezza della soluzione, a egl va il prossimo problema.</article>
+<article class="post" id="p4886"><div class="who"><b>Mirko93</b><span>18 ago 2010, 20:29</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>avevo precisato la proiezione nel mio secondo messaggio</div></blockquote>
+Scusami, non avevo letto  :oops:</article>
+<article class="post" id="p4887"><div class="who"><b>egl</b><span>18 ago 2010, 21:00</span></div>Propongo questo problema che racchiude un bel po' di argomenti:<br>
+<br>
+Un cilindro pieno di massa <span class="tex">\(M\)</span> e raggio <span class="tex">\(R\)</span> rotola su un piano non inclinato con velocità <span class="tex">\(v_0\)</span>. Incontra un piano inclinato di <span class="tex">\(\alpha\)</span> verso il basso. Determinare la massima <span class="tex">\(v_0\)</span> tale che il cilindro non si stacchi dal piano.<br>
+<br>
+<br>
+<a class="lost" href="http://img202.imageshack.us/img202/7388/cilindrosupiano.png" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p5003"><div class="who"><b>Iuppiter</b><span>27 ago 2010, 14:38</span></div>Provo a rispondere.<br>
+Quando il cilindro arriva in prossimità del punto in cui inizia il piano inclinato, esso deve compiere una rotazione attorno a questo punto. Affinche il cilindro non si stacchi la forza centrifuga <span class="tex">\(F_c\)</span> deve essere minore o uguale alla componente normale del peso <span class="tex">\(P_1\)</span> che schiaccia il cilindro sulla superficie del piano inclinato (che è minore quando il cilindro ha completato la rotazione attorno al punto, e quindi la calcoliamo quando il segmento che unisce il centro del cilindro e il punto attorno al quale il cilindro ruota è perpendicolare al piano inclianato).<br>
+<br>
+<span class="tex">\(F_c \leq P_1\)</span><br>
+<span class="tex">\(\displaystyle\frac{M V_0^2}{R} \leq M g cos \alpha\)</span><br>
+<br>
+da cui ricavo che:<br>
+<span class="tex">\(\displaystyle V_0 \leq \sqrt{R g cos\alpha}\)</span><br>
+<br>
+Quindi la velocità massima possibile per il cilindro è <span class="tex">\(\displaystyle\sqrt{R g cos\alpha}\)</span></article>
+<article class="post" id="p5004"><div class="who"><b>egl</b><span>27 ago 2010, 15:12</span></div>Le considerazioni sulla rotazione attorno a quel punto sono corrette.<br>
+Nella formula che usi, però, stai considerando che la velocità sia sempre la stessa, cioè <span class="tex">\(V_0\)</span> sia prima che dopo che il cilindro abbia ruotato un pò...            Il risultato non è corretto.</article>
+<article class="post" id="p5045"><div class="who"><b>Luke</b><span>29 ago 2010, 13:39</span></div>Ci provo...<br>
+<br>
+Chiamiamo <span class="tex">\(\theta\)</span> l'angolo tra una retta verticale passante per il punto in cui cambia l'inclinazione e il segmento che va dallo stesso punto al centro del disco. Considerando l'intervallo di tempo tra il momento in cui la sfera arriva al punto e quello in cui finisce di compiere la rotazione supplementare di <span class="tex">\(\alpha\)</span>, perché il disco non si stacchi (come già detto) in ogni momento la forza centrifuga non deve superare la componente normale della forza peso. In ogni istante (nell'intervallo considerato) la velocità del centro di massa del disco è data da: <span class="tex">\(v_1^2 = v_0^2 + gR(1 - cos\theta)\)</span> (conservazione dell'energia) per cui deve valere per ogni angolo: <span class="tex">\(v_0 \leq \sqrt{gR (2cos\theta - 1)}\)</span>. Il termine sotto radice diminuisce con l'incremento di <span class="tex">\(\theta\)</span> (perlomeno fino a 90°) e quindi la condizione più "forte" si ha per <span class="tex">\(\theta = \alpha\)</span> ovvero: <span class="tex">\(v_0^2 \leq \sqrt{gR (2cos\alpha -1)}\)</span>.<br>
+Nota: per <span class="tex">\(\alpha\)</span> maggiore di 60° il termine sotto radice diventa negativo.... non so se interpretare la cosa come impossibilità fisica che il disco rimanga attaccato alla superficie per quegli angoli (nel qual caso è cosa interessante peraltro...) o se semplicemente c'é qualche grossolano errore nel ragionamento.</article>
+<article class="post" id="p5052"><div class="who"><b>egl</b><span>29 ago 2010, 19:16</span></div><blockquote><div><cite>Luke ha scritto:</cite> In ogni istante (nell'intervallo considerato) la velocità del centro di massa del disco è data da: <span class="tex">\(v_1^2 = v_0^2 + gR(1 - cos\theta)\)</span> (conservazione dell'energia) </div></blockquote>
+
+Secondo me la velocità del centro di massa non è fornita da quell'equazione; nel momento in cui il cilindro pieno arriva sullo scalino, se non si stacca, è come se rimanesse "ancorato" sullo spigolo e penso che quella formula non sia appropriata.<br>
+
+<blockquote><div><cite>Luke ha scritto:</cite>Nota: per <span class="tex">\(\alpha\)</span> maggiore di 60° il termine sotto radice diventa negativo.... non so se interpretare la cosa come impossibilità fisica che il disco rimanga attaccato alla superficie per quegli angoli (nel qual caso è cosa interessante peraltro...) o se semplicemente c'é qualche grossolano errore nel ragionamento.</div></blockquote>
+
+Sinceramente non ci avevo fatto caso... . Anche nel mio risultato risulta un limite del genere (anche se non dello stesso angolo). Proverò a pensarci un po'.</article>
+<article class="post" id="p5058"><div class="who"><b>Luke</b><span>30 ago 2010, 10:32</span></div><blockquote><div><cite>egl ha scritto:</cite>nel momento in cui il cilindro pieno arriva sullo scalino, se non si stacca, è come se rimanesse "ancorato" sullo spigolo e penso che quella formula non sia appropriata.
+</div></blockquote>
+Quella formula deriva dal considerare che pur restando vincolato il cilindro una parte dell'energia potenziale del centro di massa si trasforma in energia cinetica, considerando che ruotando di un angolo <span class="tex">\(\theta\)</span> intorno allo spigolo il c.d.m. si abbassa di <span class="tex">\(R - Rcos\theta\)</span>, con conseguente apporto in velocità pari alla differenza di energia potenziale, ovvero: <span class="tex">\(1/2 mv_1^2 = 1/2mv_0^2 + mgR(1-cos\theta)\)</span> da cui la formula di sopra. Mi sembra di considerare il vincolo temporaneo dello spigolo, dove dici che è esattamente l'errore in questo tipo di ragionamento?</article>
+<article class="post" id="p5066"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>30 ago 2010, 18:49</span></div>Posto la mia soluzione, cercando di rispondere eventualmente anche alle richieste di Luke.<br>
+Quando il cilindro giunge sullo spigolo, avviene una rotazione del centro di massa intorno a tale punto:<br>
+<br>
+<span class="tex">\(\displaystyle{mgr (1-\cos{\alpha}) = \frac{1}{2}I\omega_2^2}\)</span><br>
+<br>
+Da cui:<br>
+<br>
+<span class="tex">\(\displaystyle{\omega_2=2\sqrt{\frac{g}{r}(1-\cos{\alpha}})}\)</span><br>
+<br>
+Affinché il cilindro non si stacchi dal piano:<br>
+<br>
+<span class="tex">\(\displaystyle{\frac{mv_0^2}{r}+m\omega_2^2r \leq mg\cos{\alpha}}\)</span><br>
+<br>
+Di conseguenza:<br>
+<br>
+<span class="tex">\(\displaystyle{v_0 \leq \sqrt{gr(5\cos{\alpha}-4)}}\)</span></article>
+<article class="post" id="p5067"><div class="who"><b>egl</b><span>30 ago 2010, 19:31</span></div>Penso che Eagle abbia capito cosa fare. Per trovare la velocità del centro di massa utilizzerei la conservazione dell'energia come <span class="tex">\(mgh=\frac{1}{2}I\omega^2\)</span>. Posso ricavarmi <span class="tex">\(\omega\)</span> e così grazie a <span class="tex">\(v=\omega r\)</span> la velocità del centro di massa, che mi sembra appunto venga diversa se seguo il ragionamento di Luke.<br>
+
+<blockquote><div><cite>Eagle ha scritto:</cite>
+<span class="tex">\(\displaystyle{mgr (1-\cos{\alpha}) = \frac{1}{2}I\omega_2^2}\)</span><br>
+<br>
+Da cui:<br>
+<br>
+<span class="tex">\(\displaystyle{\omega_2=2\sqrt{\frac{g}{r}(1-\cos{\alpha}})}\)</span><br>
+
+</div></blockquote>
+
+Il ragionamento penso sia esatto ma credo che tu abbia commesso un errore nello svolgimento.</article>
+<article class="post" id="p5070"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>30 ago 2010, 19:49</span></div>Sì, avevo commesso un errore di calcolo. Spero, stavolta, di postare la soluzione corretta:<br>
+<br>
+<span class="tex">\(\displaystyle{v_0 \leq \sqrt{\frac{gr}{3} (7 \cos {\alpha}-4)}}\)</span></article>
+<article class="post" id="p5071"><div class="who"><b>egl</b><span>30 ago 2010, 20:01</span></div>Sì, il risultato è quello.<br>
+<br>
+Posto anche il mio metodo risolutivo, forse un pò diverso da quello di Eagle.<br>
+<br>
+Il cilindro si avvicina allo scalino con velocità <span class="tex">\(v_0\)</span>. Appena si accinge a ruotare attorno allo spigolo, considero un disco ancorato proprio attorno allo spigolo. Uso il teorema degli assi paralleli per calcolarmi il momento di inerzia di un disco ancorato in questo modo.<br>
+<br>
+A questo punto impongo la conservazione dell'energia: il disco ha un'<span class="tex">\(\omega\)</span> iniziale, la esprimo in funzione di <span class="tex">\(v_0\)</span>. Mi calcolo così l'<span class="tex">\(\omega_f\)</span> a rotazione avvenuta. Impongo <span class="tex">\(\omega_f ^2 R=gcos\alpha\)</span> trovandomi la velocità limite.</article>
+<article class="post" id="p5160"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>10 set 2010, 13:46</span></div>Propongo questo problema di statica dei fluidi:<br>
+<br>
+Si mette un bicchiere di massa <span class="tex">\(390 g\)</span> e capacità <span class="tex">\(500 cm^3\)</span>, parzialmente pieno d'acqua, in una bacinella. Si comincia poi a versare acqua nella bacinella e si constata, sperimentalmente, che se il bicchiere è a metà pieno d'acqua galleggia, ma se contiene una quantità d'acqua maggiore della metà del suo volume, rimane appoggiato sul fondo fino a che l'acqua arriva al suo orlo superiore.<br>
+<em class="text-italics">Qual è la densità del materiale di cui è fatto il bicchiere?</em></article>
+<article class="post" id="p5167"><div class="who"><b>Iuppiter</b><span>11 set 2010, 14:54</span></div>Quando abbiamo che il bicchiere è pieno a metà e galleggia, il sistema è in equilibrio con le forze verso l'alto che compensano quelle verso il basso:<br>
+<span class="tex">\(F_{archimede} = P_{bicchiere} + P_{acqua}\)</span><br>
+<span class="tex">\(g \cdot \rho_{acqua} \cdot (V_{capacita'} + V_{vetro})= g \cdot 0,39 + g \cdot \rho_{acqua} \cdot 0,00025\)</span><br>
+<span class="tex">\(1000\cdot (0,0005 + V_{vetro}) = 0,39 + 0,25\)</span><br>
+<span class="tex">\(V_{vetro}=(0,39+0,25-0,5)/1000\)</span><br>
+<span class="tex">\(\rho_{vetro} = m_{vetro}/V_{vetro}= 2780 Kg/m^3 = 2,78g/cm^3\)</span></article>
+<article class="post" id="p5182"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>11 set 2010, 22:53</span></div><em class="text-italics">Perfetto, vai col prossimo  ;) </em></article>
+<article class="post" id="p5185"><div class="who"><b>Iuppiter</b><span>12 set 2010, 16:48</span></div>Abbiamo due carrucole alla stessa altezza distanti tra loro 1m. Nel punto medio della congiungente i centri delle carrucole abbiamo una massa che vale <span class="tex">\(2m\)</span>. Questa massa è collegata, mediante due fili che passano attorno alle carrucole, a altre due masse che valgono <span class="tex">\(m\)</span> ciascuna. <br>
+In un certo istante la massa centrale viene lasciata cadere, finchè dopo un po' tocca una tavola posta 50 cm più in basso. <br>
+<strong class="text-strong">Calcolare la velocità con cui la massa da <span class="tex">\(2m\)</span> tocca la tavola.</strong> (trascurare gli attriti)<br>
+<br>
+Il problema viene dal test di ammissione per la Superiore di Udine. Dato che non so se potrebbero chiedermi di correggerlo all'orale, sarebbe bello che qualcuno provasse a rispondere prima di martedì :)</article>
+<article class="post" id="p5187"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>12 set 2010, 19:58</span></div><em class="text-italics">Posto la mia soluzione</em> <br>
+<br>
+Sulla massa <span class="tex">\(2M\)</span> agisce durante il moto una tensione media <span class="tex">\(T_m=2T\int\cos{\alpha}=2T\sin{\alpha}\)</span>. Costruisco il classico sistema di equazioni:<br>
+<br>
+<span class="tex">\(\begin{cases} 2T\sin{\alpha} - 2Mg = -2Ma \\ T-Mg=Ma \\ \end{cases}\)</span><br>
+<br>
+Nella posizione finale l'angolo <span class="tex">\(\displaystyle{\alpha=\frac{\pi}{4}}\)</span>, essendo parte di un triangolo rettangolo isoscele.<br>
+<br>
+L'accelerazione <span class="tex">\(a\)</span> del sistema è:<br>
+<br>
+<span class="tex">\(a=0,172 m/s^2\)</span> <br>
+<br>
+E dunque: <br>
+<br>
+<span class="tex">\(\displaystyle{v_f=\sqrt{2ah}=0,41 m/s}\)</span></article>
+<article class="post" id="p5189"><div class="who"><b>Iuppiter</b><span>12 set 2010, 20:23</span></div>Ma sei sicuro della tua soluzione?<br>
+Secondo me l'accelerazione non è costante in tutta la discesa della massa grande, ma varia al variare dell'inclinazione del filo, perchè varia la componente verticale delle forze.<br>
+Quella che hai calcolato tu forse è l'accelerazione istantanea in quel punto.<br>
+<br>
+Io l'ho fatto con la conservazione dell'energia meccanica.</article>
+<article class="post" id="p5190"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>12 set 2010, 20:49</span></div>Sull'asse verticale si sommano le componenti dirette verso l'alto della tensione del filo che agiscono sulla massa <span class="tex">\(2M\)</span> e si ottiene una forza risultante <span class="tex">\(F_y=2T\cos{\alpha}\)</span>. <br>
+Poiché <span class="tex">\(F_y\)</span> dipende dall'angolo <span class="tex">\(\alpha\)</span>, la forza è variabile e, come hai detto giustamente tu, lo è anche l'accelerazione.<br>
+<em class="text-italics">Nella mia soluzione ho fatto questo ragionamento</em>:<br>
+La tensione <span class="tex">\(T\)</span>, agente su tutto il filo, è costante durante il moto. <br>
+Ciò che fa variare <span class="tex">\(F_y\)</span> è il termine <span class="tex">\(\cos{\alpha}\)</span>. <br>
+A questo punto svolgendo l'integrale: <br>
+<br>
+<span class="tex">\(T_m=2T\int\cos{\alpha}=2T\sin{\alpha}\)</span><br>
+<br>
+- ho ottenuto la forza media (<em class="text-italics">costante</em>) <span class="tex">\(T_m\)</span> che agisce verso l'alto sulla massa <span class="tex">\(2M\)</span>. Poiché a forze costanti corrispondono accelerazioni costanti, ho costruito il classico sistema, postato in precedenza.</article>
+<article class="post" id="p5191"><div class="who"><b>Iuppiter</b><span>12 set 2010, 21:22</span></div>Ok. Ho capito e sembra un ragionamento corretto. Solo che l'integrale non dovresti calcolarlo da 0 a <span class="tex">\(\pi/2\)</span>?</article>
+<article class="post" id="p5193"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>12 set 2010, 23:09</span></div>Io ho calcolato l'integrale da <span class="tex">\(0\)</span> a <span class="tex">\(\pi/4\)</span> ottenendo:<br>
+<br>
+<span class="tex">\(T_1y=Tsin{45^0}\)</span><br>
+<br>
+perché ho considerato solo metà del triangolo rettangolo grande e quindi soltanto una componente della tensione <span class="tex">\(T\)</span>. Poi ho moltiplicato per due il risultato, dato che entrambe le componenti di <span class="tex">\(T\)</span> dirette verso l'alto sono uguali (<span class="tex">\(T_1y=T_2y\)</span>), giungendo così a: <br>
+<br>
+<span class="tex">\(T_m=2Tsin{45^0}\)</span></article>
+<article class="post" id="p5194"><div class="who"><b>Iuppiter</b><span>13 set 2010, 10:47</span></div>Si, hai ragione. Giusto!<br>
+<br>
+Solo un'ultima domanda: perchè se applico la conservazione dell'energia meccanica viene un risultato diverso?<br>
+Sbaglio a uguagliare l'energia meccanica della massa <span class="tex">\(2m\)</span> all'energia meccanica delle due masse <span class="tex">\(m\)</span>?</article>
+<article class="post" id="p5195"><div class="who"><b>Gauss91</b><span>13 set 2010, 15:21</span></div><blockquote><div><cite>Iuppiter ha scritto:</cite>Sbaglio a uguagliare l'energia meccanica della massa <span class="tex">\(2m\)</span> all'energia meccanica delle due masse <span class="tex">\(m\)</span></div></blockquote>
+Si non vedo perché dovresti farlo... la conservazione dell'energia ti dice che l'energia meccanica totale si conserva, non che si equipartisce tra le varie parti del sistema ;) .<br>
+<br>
+Comunque non mi convince la soluzione di Eagle con le "forze medie"... sinceramente non capisco perché il metodo dovrebbe essere valido.<br>
+Chiamo x il percorso fatto in un generico istante dalla massa 2m. Chiamo x' il rispettivo percorso delle due masse m. Chiamo 2D la distanza tra le due carrucole. Nella posizione iniziale, un tratto di lunghezza D di corda orizzontale tiene sospesa la massa 2m; dopo che questa faccia un percorso x, il tratto sarà lungo <span class="tex">\(D' = \sqrt{D^2 + x^2}\)</span>, e varrà ovviamente<br>
+<span class="tex">\(x' = D' - D = \sqrt{D^2 + x^2} - D\)</span>.<br>
+Chiamo v la velocità della massa 2m e v' quella della massa m, ad un generico istante. Sarà<br>
+<span class="tex">\(v' = \dfrac{dx'}{dt} = \dfrac{x}{\sqrt{x^2 + D^2}}\dfrac{dx}{dt} = \dfrac{x}{\sqrt{x^2 + D^2}}v\)</span>. All'inizio, la massa 2m si trova a distanza D dal tavolo.<br>
+L'equazione della conservazione dell'energia totale è (sia posta 0 l'energia potenziale iniziale delle due masse m, e sia h il dislivello iniziale tra la massa 2m e le due masse m)<br>
+<span class="tex">\(2mgh = \frac{1}{2}(2m)v^2 + 2\frac{1}{2}mv'^2 + 2mgx' + 2mg(h-x)\)</span>, cioè<br>
+<br>
+<span class="tex">\(v^2 + v'^2 = 2g(x-x')\)</span><br>
+<br>
+Ponendo x = D, sarà <span class="tex">\(x' = (\sqrt2 - 1)D\)</span> e <span class="tex">\(v' = \dfrac{\sqrt{2}}{2}v\)</span><br>
+Sostituendo si ottiene<br>
+<br>
+<span class="tex">\(v^2 = \dfrac{(4-2\sqrt{2})gD}{1 + \sqrt{2}/2}\)</span><br>
+<br>
+e sostituendo i valori numerici si ottiene <span class="tex">\(v = 1,83 m/s\)</span> se non ho preso cantonate con i calcoli.</article>
+<article class="post" id="p5440"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>5 nov 2010, 15:10</span></div>La staffetta piange  ( :cry: )</article>
+<article class="post" id="p5441"><div class="who"><b>edo1493</b><span>5 nov 2010, 15:57</span></div>Chi ha risolto l'ultimo problema?? Gauss91 ??</article>
+<article class="post" id="p5443"><div class="who"><b>Pigkappa</b><span>5 nov 2010, 17:47</span></div>Facciamo così... Se l'utente che ha risolto l'ultimo problema non ne posta subito un altro, allora può prendere il suo posto chiunque voglia.</article>
+<article class="post" id="p5444"><div class="who"><b>Iuppiter</b><span>5 nov 2010, 19:18</span></div>Scusate tantissimo. Non so quale sia alla fine la soluzione esatta del problema proposto da me. So che non avrei dovuto postare in staffetta un problema con soluzione ignota, ma pensavo che ci fosse stato qualcuno che sarebbe stato comunque in grado di risolverlo senza lasciare dubbi. <br>
+Chiedo infinitamente scusa, non succederà più.<br>
+Penso quindi che chiunque abbia un problema da postare possa farlo.</article>
+<article class="post" id="p5445"><div class="who"><b>Stardust</b><span>5 nov 2010, 19:53</span></div>Allora mi faccio avanti io.<br>
+Due automobili si muovono una verso l'altra a velocità in modulo uguale v, partendo da una distanza iniziale d. Nel frattempo una mosca decide intelligentemente di spostarsi tra i due veicoli, partendo dal primo nel momento in cui inizia il moto delle macchine, raggiungendo l'altra auto e poi tornando indietro, ripetendo il percorso finché non resta evidentemente spiaccicata tra i due paraurti.<br>
+Sapendo che la mosca si sposta a velocità in modulo costante 2v (invertendo la rotta istantaneamente), dire:<br>
+1) quanto resta da vivere alla mosca.<br>
+2) quante volte si inverte la sua velocità, quindi quante volte rimbalza tra le due auto;<br>
+3) come cambia 2 se si ammette che la mosca ha dimensioni non trascurabili (tipo 1 cm).<br>
+<br>
+Per 2) e 3) può essere utile vedere "a mano" un po' di volte come e quando gli oggetti in moto si incontrano.</article>
+<article class="post" id="p5446"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>5 nov 2010, 20:36</span></div>Spero di non aver risposto troppo frettolosamente ai primi due quesiti, comunque:<br>
+<strong class="text-strong">1)</strong> Quanto resta da vivere alla mosca dipende esclusivamente dal momento in cui le due auto si impattano. A partire dall'istante <span class="tex">\(t_0\)</span>, in cui le macchine partono, all'istante <span class="tex">\(t_1\)</span> dello scontro:<br>
+<br>
+<span class="tex">\(\displaystyle{t_1-t_0=\frac{d}{2v}}\)</span><br>
+<br>
+<strong class="text-strong">2)</strong> Poiché le dimensioni della mosca si considerano trascurabili, il numero delle volte che la mosca inverte il proprio moto è infinito. E' facile immaginare che nel momento in cui le due auto sono prossime all'impatto, la mosca, essendo un corpo puntiforme, si muove rapidissimamente da una macchina all'altra in un numero infinito di volte.</article>
+<article class="post" id="p5447"><div class="who"><b>edo1493</b><span>5 nov 2010, 23:32</span></div>Ok, esco fuori dalle regole della staffetta e ne posto uno anche io. <br>
+
+<blockquote class="uncited"><div>Due bambini stanno facendo una gara a chi riesce a centrare una scatoletta sul pavimento con una biglia sparata da una pistola a molla montata su un tavolo orizzontale. Il bersaglio è piazzato a distanza D = 2,20m in orizontale dal bordo del tavolo. Orazio comprime la molla di 1,10cm, ma il tiro risulta corto di 27,0cm. Di quanto deve comprimeral Giustina per fare centro?</div></blockquote></article>
+<article class="post" id="p5449"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>6 nov 2010, 1:31</span></div>Per il problema postato da <em class="text-italics">edo1493</em>:<br>
+<strong class="text-strong">1)</strong> Dalla conservazione dell'energia: <span class="tex">\(\frac{1}{2}k \Delta x_1^2=\frac{1}{2}mVx^2\)</span><br>
+<br>
+dove <span class="tex">\(\Delta x_1=1,1 cm\)</span> e <span class="tex">\(V_x\)</span> è la velocità orizzontale della pallina lanciata da Orazio. <br>
+<br>
+Indichiamo <span class="tex">\(D=(2,2-0,27)m=1,93m\)</span><br>
+<br>
+<em class="text-italics">Applico le equazioni del moto parabolico</em>:<br>
+<br>
+<strong class="text-strong">(1)</strong> - asse <span class="tex">\(\hat x\)</span>: <span class="tex">\(D=V_xt\)</span><br>
+<br>
+<strong class="text-strong">(2)</strong> - asse <span class="tex">\(\hat y\)</span>: <span class="tex">\(Y=\frac{1}{2}gt^2\)</span><br>
+<br>
+Sostituisco <span class="tex">\(t\)</span> della <strong class="text-strong">(1)</strong> nella <strong class="text-strong">(2)</strong> ottenendo:<br>
+<br>
+<span class="tex">\(\displaystyle{Y=\frac{1}{2}g\frac{D^2}{V_x^2}}\)</span><br>
+<br>
+Eseguo lo stesso ragionamento per il lancio di Giustina, ponendo con <span class="tex">\(\Delta x_2\)</span> la compressione della molla incognita, con <span class="tex">\(V_o\)</span> la velocità orizzontale ottenuta con la conservazione dell'energia e <span class="tex">\(S\)</span> la distanza dal tavolo alla scatola. Quindi, applicando l'equazione del moto e sostituendo <span class="tex">\(t\)</span> del secondo lancio dalla <strong class="text-strong">(1)</strong> alla <strong class="text-strong">(2)</strong> ottengo che:<br>
+<br>
+<span class="tex">\(\displaystyle{Y=\frac{1}{2}g\frac{S^2}{V_o^2}}\)</span><br>
+<br>
+Dato che in entrambi i casi l'altezza Y del tavolo dal suolo è la stessa, uguaglio le due equazioni in Y, giungendo a:<br>
+<br>
+<strong class="text-strong">(3) </strong> : <span class="tex">\(\displaystyle{\frac{1}{2}g\frac{D^2}{V_x^2}=\frac{1}{2}g\frac{S^2}{V_o^2}}\)</span><br>
+<br>
+E dunque, essendo che:<br>
+<br>
+<span class="tex">\(\displaystyle{Vx^2=\frac{k \Delta x_1^2}{m}}\)</span>, per la conservazione dell'energia nel lancio di Orazio;<br>
+<br>
+<span class="tex">\(\displaystyle{Vo^2=\frac{k \Delta x_2^2}{m}}\)</span>, per la conservazione dell'energia nel lancio di Giustina;<br>
+<br>
+Sostituendo le due velocità nell'equazione <strong class="text-strong">(3)</strong>:<br>
+<br>
+<span class="tex">\(\displaystyle{\Delta x_2={\frac{S \Delta x_1}{D}}=1,25 cm}\)</span><br>
+<br>
+Speriamo di aver fatto bene i calcoli...</article>
+<article class="post" id="p5450"><div class="who"><b>Pigkappa</b><span>6 nov 2010, 2:51</span></div>Si può anche risolvere il problema facendo 1 riga di conti invece di tutto quel lavoro (e perdendoci quindi meno tempo)...<br>
+<br>
+Tutte queste cose si possono capire a mente, senza scrivere equazioni:<br>
+1)Il tempo che la pallina ci mette a cadere è ovviamente sempre lo stesso.<br>
+2)Allora la distanza percorsa è proporzionale alla velocità iniziale.<br>
+3)La velocità iniziale è proporzionale all'allungamento della molla.<br>
+4)Allora la distanza percorsa è proporzionale all'allungamento della molla.<br>
+E quindi viene la risposta che hai trovato tu.<br>
+<br>
+<br>
+(il problema precedente non è stato risolto del tutto)</article>
+<article class="post" id="p5462"><div class="who"><b>Stardust</b><span>12 nov 2010, 17:57</span></div>In effetti ci sarebbe ancora il 3° punto da risolvere per il precedente problema. Nessun idea?<br>
+Magari basta pensare un po' di più al fatto che le dimensioni della mosca non sono più trascurabili.... ma solo a partire da un certo punto: se le due auto sono a 1 km di distanza, mezzo cm in più o in meno non fa molta differenza, ma dopo la cosa ha una sua importanza.</article>
+<article class="post" id="p5463"><div class="who"><b>egl</b><span>12 nov 2010, 19:14</span></div>Ci provo.<br>
+<br>
+Dato che le due auto si muovono l'una verso l'altra ciascuna a velocità <span class="tex">\(v\)</span> mentre la mosca si muove a <span class="tex">\(2v\)</span>, questa si scontrerà con l'auto che gli viene incontro quando le due macchine saranno separate da una distanza che è <span class="tex">\(1 \over 3\)</span> di quella iniziale. Questo ragionamento lo ripeto per ogni urto. Per cui gli urti ci saranno finchè la distanza fra le due auto sarà pari alla lunghezza della mosca, diciamo <span class="tex">\(x\)</span>. <br>
+Vale quindi <span class="tex">\(\frac{d}{3^n}=x\)</span> dove <span class="tex">\(d\)</span> è la distanza iniziale fra le due auto.<br>
+<br>
+Il numero degli urti dovrebbe quindi essere <span class="tex">\(n=\log_{3}\frac{d}{x}\)</span>.<br>
+Tutto a meno di probabili errori.</article>
+<article class="post" id="p5464"><div class="who"><b>Pigkappa</b><span>12 nov 2010, 20:13</span></div>Secondo me non si puó rispondere in modo soddisfacente senza conoscere i dettagli dell'inversione di velocità della mosca. Se la mosca cambia velocità esattamente quando la sua estremità sinistra tocca il treno di sinistra o la sua estremità destra tocca il treno di destra, allora direi che il risultato è infinito...</article>
+<article class="post" id="p5465"><div class="who"><b>Meta*</b><span>12 nov 2010, 23:44</span></div><blockquote class="uncited"><div>Magari basta pensare un po' di più al fatto che le dimensioni della mosca non sono più trascurabili.... ma solo a partire da un certo punto: se le due auto sono a 1 km di distanza, mezzo cm in più o in meno non fa molta differenza, ma dopo la cosa ha una sua importanza.</div></blockquote>
+Non capisco, il caso mi sembra analogo a quello di prima. Nel caso in cui la lunghezza della mosca non sia trascurabile <span class="tex">\(1 cm\)</span> per esempio, al caso limite si avrà lo stesso risultato di prima..<br>
+Per il tempo precedente supponiamo di dividere la lunghezza della mosca in due parti (di 0.5 mm ciascuna in questo caso) e sommarle alla lunghezza dei treni per poter riconsiderare di nuovo puntiforme la mosca. A questo punto è come se la mosca puntiforme urtasse i treni di lunghezza <span class="tex">\(l + \frac{x}{2}\)</span> dove l è la loro lunghezza (superflua in questo caso ) e x/2 che "sporge" nel tratto di pista considerato. Semplificando ancora è come se il tratto iniziale di strada da percorrere fosse d-x, considerando questa come distanza iniziale tra i due treni e una mosca puntiforme il problema si riduce al primo..<br>
+in questo caso però "la cosa ha una sua importanza" non dopo ma prima.. o no ?  :mrgreen:</article>
+<article class="post" id="p5466"><div class="who"><b>Stardust</b><span>13 nov 2010, 1:21</span></div>L'obiezione di Meta* è corretta dal punto di vista logico, ma credo che l'intuizione fisica porti ad una soluzione diversa.<br>
+La distanza citata <span class="tex">\(d-x\)</span> è praticamente indistinguibile da <span class="tex">\(d\)</span>. <br>
+Un esempio numerico con <span class="tex">\(d=1\,km\)</span> porta chiaramente a:<br>
+<span class="tex">\(1\,km-1 \, cm = 1 \, km - 1 \times \, 10^{-5}\,km \approx1\, km\)</span>.<br>
+<br>
+Se invece si guarda agli spazi percorsi dalla mosca poco prima dell'impatto , l'approssimazione di sopra può essere riutilizzata?</article>
+<article class="post" id="p5467"><div class="who"><b>Pigkappa</b><span>13 nov 2010, 3:32</span></div>Non c'è modo di risolvere il problema in modo che venga un risultato sensato (cioè <span class="tex">\(N_{urti} &lt; + \infty\)</span>) senza fare delle ipotesi in più. Non tutte le ciambelle vengono col buco!<br>
+<br>
+<br>
+Esempio di ipotesi che si può aggiungere:<br>
+<br>
+La mosca ha un tempo di reazione <span class="tex">\(t_r = 0.05 s\)</span>: quando tocca una macchina si ferma istantaneamente, aspetta un tempo <span class="tex">\(t_r\)</span> e poi riparte in verso opposto.</article>
+<article class="post" id="p5468"><div class="who"><b>Meta*</b><span>13 nov 2010, 15:48</span></div><blockquote class="uncited"><div>Se invece si guarda agli spazi percorsi dalla mosca poco prima dell'impatto , l'approssimazione di sopra può essere riutilizzata?
+</div></blockquote>
+Anch'io ho pensato che nell'ultimo tratto lo spazio che percorre la mosca sia fortemente vincolato dalla sua lunghezza che le "restringe" lo spazio tra un treno e l'altro. In altre parole negli ultimi n urti prima di raggiungere il limite la lunghezza conta e non è più trascurabile (in termini di distanza percorsa ) come nel caso di d-x ,<br>
+secondo il mio ragionamento però lo spazio che la mosca "perde" alla fine per via della sua lunghezza è equivalente a quello che perde considerando una distanza iniziale d-x, perchè non bisogna pensare che assumere un tratto iniziale d-x influenzi solo il primo urto, ma tutti quelli successivi, infatti incontrerà il secondo treno poco prima e tornando indietro urterà di nuovo il primo treno "poco prima" distribuendo cosi la distanza persa alla fine su tutto il tempo prima del limite..<br>
+Il fatto che si possa approssimare 1km + 1cm a 1km lo considero colpa della mosca che è troppo piccola, se per esempio consideriamo un moscone di 5 m ( :) )  si ha una più chiara visione dei calcoli, ma in ogni caso caso al limite si avrà una serie infinita di urti per cui quoto Pigkappa<br>
+
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Non c'è modo di risolvere il problema in modo che venga un risultato sensato (cioè <span class="tex">\(N_{urti} &lt; + \infty\)</span>) senza fare delle ipotesi in più. Non tutte le ciambelle vengono col buco!</div></blockquote>
+
+<blockquote><div><cite>Pigkappa ha scritto:</cite>
+La mosca ha un tempo di reazione <span class="tex">\(t_r = 0.05 s\)</span>: quando tocca una macchina si ferma istantaneamente, aspetta un tempo <span class="tex">\(t_r\)</span> e poi riparte in verso opposto.</div></blockquote>
+
+In questo caso nel tempo <span class="tex">\(t_r\)</span> la mosca prosegue spiaccicata sul treno o si ferma letteralmente nel punto dove lo tocca?</article>
+<article class="post" id="p5469"><div class="who"><b>Pigkappa</b><span>13 nov 2010, 17:28</span></div><blockquote><div><cite>Meta* ha scritto:</cite>In questo caso nel tempo <span class="tex">\(t_r\)</span> la mosca prosegue spiaccicata sul treno o si ferma letteralmente nel punto dove lo tocca?</div></blockquote>
+
+La mosca si appoggia sul treno e per un tempo <span class="tex">\(t_r\)</span> rimane ferma rispetto al treno.</article>
+<article class="post" id="p5470"><div class="who"><b>Stardust</b><span>13 nov 2010, 19:13</span></div>Personalmente credo che la questione possa essere risolta senza necessariamente introdurre tempi di reazione e altri parametri...<br>
+<br>
+E' abbastanza evidente che quando le due automobili (perché all'inizio si trattava di macchine, non treni -ma fa niente-) raggiungono una distanza pari alla lunghezza della mosca il suo moto si interrompe. Quindi per contare tutti i rimbalzi che permettono alla mosca di trovarsi in questa spiacevole situazione si potrebbe ragionare anche in questo modo.</article>
+<article class="post" id="p5471"><div class="who"><b>Meta*</b><span>13 nov 2010, 20:28</span></div>:)  Io direi è evidente che <span class="tex">\(500m - 0.01m \approx 500m\)</span>.<br>
+
+<blockquote><div><cite>Stardust ha scritto:</cite>Personalmente credo che la questione possa essere risolta senza necessariamente introdurre tempi di reazione e altri parametri...<br>
+<br>
+E' abbastanza evidente che quando le due automobili (perché all'inizio si trattava di macchine, non treni -ma fa niente-) raggiungono una distanza pari alla lunghezza della mosca il suo moto si interrompe. Quindi per contare tutti i rimbalzi che permettono alla mosca di trovarsi in questa spiacevole situazione si potrebbe ragionare anche in questo modo.</div></blockquote>
+
+Non penso che questa considerazione possa essere utile per calcolare il numero di urti prima dell'impatto perchè arrivati a un certo punto non riesco a fare a meno di immaginare urti sempre più frequenti e intervalli di spazio sempre minori.. a menochè arrivati a una certa distanza trascurabile ( 1 mm per esempio ) non interrompa i calcoli.<br>
+Il fatto che le auto debbano percorrere una distanza <span class="tex">\(s=\frac{d}{2}-\frac{x}{2}\)</span> può essere utile a calcolare lo spazio percorso.<br>
+Svolgendo volta per volta i calcoli per urti-distanza i valori della distanza (totale) percorsa dalla mosca si avvicinerà sempre più alla distanza idealmente percorsa da questa nel tempo prima dell'impatto, in poche parole <span class="tex">\(2vt_i\)</span> senza mai tuttavia raggiungerlo. <br>
+Questo a menochè non si calcoli il limite per n tendente a infinito..<br>
+<br>
+le mie competenze terminano qui  :)  a questo punto cedo il problema</article>
+<article class="post" id="p5472"><div class="who"><b>Pigkappa</b><span>13 nov 2010, 20:46</span></div><blockquote><div><cite>Stardust ha scritto:</cite>E' abbastanza evidente che quando le due automobili (perché all'inizio si trattava di macchine, non treni -ma fa niente-) raggiungono una distanza pari alla lunghezza della mosca il suo moto si interrompe. Quindi per contare tutti i rimbalzi che permettono alla mosca di trovarsi in questa spiacevole situazione si potrebbe ragionare anche in questo modo.</div></blockquote>
+
+No, non funziona ragionare in questo modo, lo stiamo dicendo da una pagina. Il problema è che il numero di urti per unità di tempo diverge velocemente subito prima che le due automobili raggiungano una distanza pari alla lunghezza della mosca, e il numero di urti calcolato così viene infinito.<br>
+<br>
+L'errore nei vostri procedimenti, ad esempio nel calcolo di egl, consiste nell'aver supposto molto piccola la lunghezza della mosca rispetto al tratto che le automobili percorrono tra un urto ed il successivo. Questa approssimazione è valida per i primi urti (<span class="tex">\(1 km &gt;&gt; 1 cm\)</span>, coem dicevi tu), ma ad un certo punto la distanza tra le macchine diventa poco più grande di tale lunghezza e l'approssimazione non vale più.</article>
+<article class="post" id="p5474"><div class="who"><b>Meta*</b><span>13 nov 2010, 21:14</span></div>Ricapitolando quindi se non si suppongono ulteriori condizioni per 0 &lt; x &lt; 1km il numero di urti sarà infinito mentre il tempo che rimane alla mosca è <span class="tex">\(t= \frac{d-x}{2v}\)</span> <br>
+Dato che il problema si può considerare risolto posterei il prossimo  :) <br>
+<br>
+Un blocco di massa <span class="tex">\(m=3.64kg\)</span> è collegato ad una sbarra verticale di lunghezza <span class="tex">\(L=2.4m\)</span> mediante due funi di massa trascurabile e lunghezza <span class="tex">\(l=1.5m\)</span>. Calcolare la velocità angolare minima per cui il sistema si trova in tensione e le relative tensioni.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=147" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>viewer.png (2 KiB) Visto 7858 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p5479"><div class="who"><b>f.o.x</b><span>14 nov 2010, 18:52</span></div>Forse ho capito male il problema (non sarebbe la prima volta) ma credo che tu intenda "accelerazione minima" e non "velocità minima", o sbaglio?</article>
+<article class="post" id="p5480"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>14 nov 2010, 18:58</span></div>Ho impostato l'equilibrio delle forze sull'asse <span class="tex">\(\hat x\)</span> e sull'asse <span class="tex">\(\hat y\)</span>.<br>
+<br>
+<span class="tex">\(\hat x: T_1\cos{\alpha}+T_2\cos{\alpha}=\frac{mv^2}{r}\)</span><br>
+<br>
+<span class="tex">\(\hat y: T_1\sin{\alpha}=mg+T_2\sin{\alpha}\)</span><br>
+<br>
+<span class="tex">\(r=\sqrt{l^2-\frac{L^2}{4}}\)</span><br>
+<br>
+<span class="tex">\(\sin{\alpha}=\frac{L}{2l}\)</span><br>
+<br>
+Due equazioni in tre incognite: a prima vista sembra che manchi un dato.</article>
+<article class="post" id="p5481"><div class="who"><b>f.o.x</b><span>14 nov 2010, 19:22</span></div><blockquote class="uncited"><div>Due equazioni in tre incognite: a prima vista sembra che manchi un dato.</div></blockquote>
+infatti io ho trovato<br>
+<span class="tex">\(\displaystyle { T_1-T_2= \frac {2lmg}L}\)</span> per l'asse y e <br>
+<br>
+<span class="tex">\(\displaystyle { T_1+T_2= \frac {ma}{\cos \theta}}\)</span> per l'asse x.<br>
+Non ho capito però perchè ha imposto che la somma di <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2\)</span> per l'asse x deve essere una forza centripeta di un moto circolare unifrme di raggio pari alla distanza sbarra-massa.</article>
+<article class="post" id="p5482"><div class="who"><b>Meta*</b><span>14 nov 2010, 19:37</span></div>@f.o.x intendevo velocità angolare<br>
+
+<blockquote class="uncited"><div>Non ho capito però perchè ha imposto che la somma di <span class="tex">\(T_1\)</span> e <span class="tex">\(T_2\)</span> per l'asse x deve essere una forza centripeta di un moto circolare unifrme di raggio pari alla distanza sbarra-massa.</div></blockquote>
+Non ho scritto che il sistema è in rotazione perchè mi sembrava evidente  ;) <br>
+<br>
+Non manca un dato anzi ce ne sono troppi e inutili  :)  basta fare una considerazione..</article>
+<article class="post" id="p5483"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Staffetta meccanica</b><span>14 nov 2010, 21:27</span></div>La classica considerazione che si è soliti fare è: <span class="tex">\(T_1=T_2\)</span>. Ma personalmente non credo sia possibile in questo caso, altrimenti:<br>
+<br>
+<span class="tex">\(\hat y: (T_1 - T_2)\sin{\alpha}=mg=0\)</span> ( :shock: )</article>
+<article class="post" id="p5484"><div class="who"><b>f.o.x</b><span>14 nov 2010, 23:48</span></div>ok avevo capito che il sitema tralasse con accelerazione costante.<br>
+Così però <span class="tex">\(m \vec g\)</span> cambia ogni istante, e quindi anche le tensioni, quindi c'è un momento in particolare da analizzare? Ad esempio quello in figura?</article>
+<article class="post" id="p5485"><div class="who"><b>Meta*</b><span>15 nov 2010, 0:57</span></div><blockquote><div><cite>f.o.x ha scritto:</cite>ok avevo capito che il sitema tralasse con accelerazione costante.<br>
+Così però <span class="tex">\(m \vec g\)</span> cambia ogni istante, e quindi anche le tensioni, quindi c'è un momento in particolare da analizzare? Ad esempio quello in figura?</div></blockquote>
+Cambia volendo essere pignoli  :)  ma facendo la sommatoria come al solito su 2 dimensioni non cambia niente..<br>
+Puoi anche considerare il caso in figura per comodità..<br>
+
+<blockquote><div><cite>Eagle ha scritto:</cite>La classica considerazione che si è soliti fare è: <span class="tex">\(T_1=T_2\)</span>. Ma personalmente non credo sia possibile in questo caso, altrimenti:<br>
+<span class="tex">\(\hat y: (T_1 - T_2)\sin{\alpha}=mg=0\)</span> ( :shock: )</div></blockquote>
+No infatti non è questa.. pensa all'istante in cui la corda di sotto va in tensione (ovviamente inizialmente lo è solo quella di sopra e questo a prescindere dal fatto che l'asta ruoti )</article>
+<article class="post" id="p5521"><div class="who"><b>egl</b><span>24 nov 2010, 20:44</span></div>Si potrebbe risolvere così: <br>
+<br>
+immagino che il sistema cominci a ruotare da fermo con velocità angolare crescente: <span class="tex">\(T_2\)</span>, la tensione nella cordicella inferiore, è sempre zero fino momento in cui questa cordicella diventa tesa (il caso in figura). Per cui in questo caso posso ignorare la cordicella inferiore: essa andrà in tensione non appena <span class="tex">\(\omega\)</span> aumenterà rispetto a questo momento.<br>
+<br>
+Chiamo <span class="tex">\(\alpha\)</span> l'angolo che la cordicella superiore forma con l'orizzontale: vale <span class="tex">\(\sin \alpha=\frac{L}{2l}\)</span>. La massa descrive una circonferenza di raggio <span class="tex">\(R=l\cos \alpha\)</span>. Per cui avrò <span class="tex">\(T_1\cos \alpha=m\omega^2R\)</span> e per l'asse y <span class="tex">\(T_1 \sin \alpha=mg\)</span>. <br>
+<br>
+Da cui <br>
+<br>
+<span class="tex">\(\omega_{min}=\sqrt{\frac{g}{R\tan \alpha}}=2.86rad/s\)</span>     e poi      <span class="tex">\(T_1\cos \alpha=m{\omega^2_{min}} \cdot l\cos \alpha \longrightarrow T_1=m{\omega^2_{min}}\cdot l=44.6 N\)</span>. <br>
+<br>
+Spero di non aver commesso errori  :roll:</article>
+<article class="post" id="p5522"><div class="who"><b>Meta*</b><span>24 nov 2010, 21:01</span></div>Perfetto  :lol: <br>
+La corda di sotto era un'altro modo per dire quando raggiunge altezza <span class="tex">\(h=\frac{L}{2}\)</span>, a te il prossimo problema  ;)</article>
+<article class="post" id="p5523"><div class="who"><b>egl</b><span>24 nov 2010, 21:45</span></div>Senza aprire un nuovo thread, volevo cogliere l'occasione per sottoporvi un dubbio su un problema che io stesso ho postato qualche pagina indietro. Magari qualche utente più esperto può chiarirlo. Riporto il testo
+<blockquote class="uncited"><div>Un cilindro pieno di massa M e raggio R rotola su un piano non inclinato con velocità <span class="tex">\(v_0\)</span>. Incontra un piano inclinato di <span class="tex">\(\alpha\)</span> verso il basso. Determinare la massima <span class="tex">\(v_0\)</span> tale che il cilindro non si stacchi dal piano.</div></blockquote>
+
+Il risultato è <span class="tex">\(\displaystyle{v_0 \leq \sqrt{\frac{gr}{3} (7 \cos {\alpha}-4)}}\)</span><br>
+<br>
+Se l'angolo supera un valore, sotto radice si ha un numero negativo. Come si giustifica ciò? La velocità cercata non esiste?</article>
+<article class="post" id="p5524"><div class="who"><b>Meta*</b><span>25 nov 2010, 14:59</span></div>Azzardo un ipotesi  :geek: <br>
+Forse se si oltrepassando l'angolo limite che è di circa 55° si cade nel classico problema in cui una pallina salta da un tavolo e percorre un certo spazio <span class="tex">\(x\)</span> prima di toccare terra  :roll: , o meglio la componente orizzontale della velocità è abbastanza elevata da non dare tempo alla gravità di far cadere il cilindro  :?</article>
+<article class="post" id="p5526"><div class="who"><b>f.o.x</b><span>25 nov 2010, 16:58</span></div>il problema ha senso solo se <span class="tex">\(o \le \alpha \le 90\)</span> altrimenti il cilindro non toccherà più il piano per qualsiasi velocità di traslazione, quindi la quantità sotto radice non sarà mai negativa.<br>
+Forse un modo per spiegarlo è questo.</article>
+<article class="post" id="p5535"><div class="who"><b>Meta*</b><span>28 nov 2010, 11:37</span></div>non si spiega però perchè (per esempio) ad <span class="tex">\(\alpha = 70\)</span>° la radice diventa negativa  :?:</article>
+<article class="post" id="p5610"><div class="who"><b>AxxMan</b><span>5 dic 2010, 22:29</span></div>Bisogna considerare che anche se il disco partisse da fermo dal perno, acquisterebbe comunque una velocità angolare definita alla fine della rotazione, prima di intraprendere la corsa sul piano inclinato e la forza centrifuga deve essere sempre adeguata a questa velocità. Poichè a parità di massa la forza centrifuga disponibile "diminuisce" all'aumentare dell'angolo, superato un certo valore d'inclinazione non è più possibile che il disco non si stacchi, nel caso limite in cui parta da fermo e a maggior ragione quando già ruota</article>
+<article class="post" id="p6285"><div class="who"><b>Meta*</b><span>17 mar 2011, 22:14</span></div>Una corda di massa M e' sospesa in due punti A e B. Essa assume la<br>
+forma riportata in dettaglio in ﬁgura. Sapendo che il modulo della tensione<br>
+nel punto C e'  <span class="tex">\(\vec{T_c}=30N\)</span> , calcolare la massa totale della corda.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/adc50c57665b9d2a.jpg" class="postimage" alt="Immagine.jpg" onclick="viewableArea(this);" /></dt>
+						<dd>Immagine.jpg (96.72 KiB) Visto 5908 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p6325"><div class="who"><b>Falco5x</b><span>28 mar 2011, 10:10</span></div>8,2 kg  :?:</article>
+<article class="post" id="p6336"><div class="who"><b>Meta*</b><span>30 mar 2011, 14:56</span></div>Si :)  mi sembra fosse quello il risultato<br>
+il prossimo ?  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-8.html"><small>← precedente</small>Tre masse e due aste.</a><a class="next" href="olifis-7165.html"><small>successivo →</small>300. Forza impulsiva</a></nav>
+</main></body></html>

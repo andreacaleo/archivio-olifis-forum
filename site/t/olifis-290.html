@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perdere un anno per entrare alla Normale</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../sns.html">Prepararsi all'ammissione</a></span></nav>
+<h1>Perdere un anno per entrare alla Normale</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=290">forum Olifis</a></p>
+<article class="post first" id="p2595"><div class="who"><b>duff18</b><span>18 set 2009, 15:14</span></div>Ciao a tutti, sono nuovo nel forum,<br>
+volevo chiedere un vostro parere.<br>
+<br>
+Essendomi interessato seriamente alla Fisica soltanto dopo l'esame della maturità, troppo troppo tardi lo so, dopo questi pochi mesi penso di aver raggiunto un livello  vicino a quello di Senigallia. Chiaramente non ho neanche preso in considerazione l'idea di provare la Normale, perciò vi chiedo, ha senso studiare e allenarsi durante quest'anno per poi tentare l'ingresso in Normale la prossima estate? O meglio rimandare direttamente al quarto anno?<br>
+<br>
+Grazie anticipatamente per le risposte</article>
+<article class="post" id="p2599"><div class="who"><b>Fedecart</b><span>18 set 2009, 16:13</span></div>Io (nel caso posibilissimo che non passassi la Galileiana) riproverò al quarto anno... Ho iniziato a studiare Fisica seriamente solo quest'anno, verso Natale... Ce l'ho fatta ad arrivare a Senigallia, ma la Normale è tutt'un altra cosa... Sinceramente non so quanto ti consiglierei di perdere un anno...</article>
+<article class="post" id="p2601"><div class="who"><b>Pigkappa</b><span>18 set 2009, 16:47</span></div>Dunque:<br>
+<br>
+1) Entrare al quarto anno è <strong class="text-strong">difficile</strong>. Quest'anno di fisici al 4° anno ne sono entrati 0. L'anno scorso ne sono entrati 2, e l'anno prima 3. Non dite "entrerò al quart'anno" con troppa sicurezza.<br>
+<br>
+2) Perdere un anno per poi entrare in Normale non so se conviene dal punto di vista professionale; su questo spero che risponda qualcuno con più esperienza di me.<br>
+<br>
+3) "Perdere" completamente un anno non è detto che ti convenga. Se hai la forza di volontà di studiare Fisica come se fossi iscritto a Fisica, ma senza dover fare gli esami (e concentrandoti più su quello che serve per il test di ammissione che sul resto), allora va bene. Altrimenti potresti prendere in considerazione l'ipotesi di iscriverti ad una qualche ingegneria (gli iscritti ad ingegneria <strong class="text-strong">possono</strong> iscriversi al test della Normale per il 1° anno, o almeno, potevano fino a questo anno. Comunque controlla tu sul bando) in cui si fanno cose che potrebbero servirti, magari trascurando gli esami che non ti servono e facendo un bel po' di matematica olimpica al loro posto. Ad esempio, mi vengono in mente ingegneria meccanica (ma lì c'è tanto disegno, temo) o elettronica. Con un po' di fortuna, potrebbero anche riconoscerti qualcuno degli esami fatti. E se poi ti accorgi che ti piace di più ingegneria, avresti già fatto un anno.</article>
+<article class="post" id="p2604"><div class="who"><b>duff18</b><span>18 set 2009, 20:02</span></div>Beh si sicuramente è difficilissimo anche provando al quarto anno, non mi è mai passato per la mente che al prima anno sia difficile e al quarto semplice o solo meno difficile  :D <br>
+<br>
+Il fatto è che provare quest'anno sarebbe stato da pazzi mentre almeno provare al quarto anno è da prendere in considerazione come possibilità.<br>
+<br>
+Io mi sono iscritto in Fisica nell'università della mia città, ma vista la tua osservazione su Ingegneria, mi viene da chiedermi se sarebbe soltanto possibile poi tentare l'ammissione alla Normale il prossimo anno. Prova a controllare sul sito della Normale, comunque grazie mille per le vostre risposte.</article>
+<article class="post" id="p2606"><div class="who"><b>duff18</b><span>18 set 2009, 20:29</span></div>Questo è quello che ho trovato:<br>
+<br>
+Art. 2<br>
+Requisiti di ammissione <br>
+<br>
+(...)<br>
+<br>
+e) non siano iscritti per l’anno accademico 2008/2009 alle seguenti Classi di laurea triennale:<br>
+<br>
+Per i candidati a posti della Classe Accademica di Scienze Matematiche, Fisiche e Naturali:<br>
+L-13 Scienze biologiche;<br>
+L-27 Scienze e tecnologie chimiche;<br>
+L-30 Scienze e tecnologie fisiche;<br>
+L-31 Scienze e tecnologie informatiche;<br>
+L-32 Scienze e tecnologie per l’ambiente e la natura;<br>
+L-34 Scienze geologiche; <br>
+L-35 Scienze matematiche.<br>
+<br>
+Scusate l'ignoranza ma "Scienze e tecnologie fisiche" è un corso a sè o è un modo per indicare piu corsi come Fisica e altri?</article>
+<article class="post" id="p2608"><div class="who"><b>Fedecart</b><span>18 set 2009, 21:23</span></div>Indubbiamente sarà difficilissimo Pigkappa... Ciò non toglie che porsi l'obbiettico di farcela, e prepararsi per il quarto anno non sia una buona cosa! Male che vada, anche non passando nemmeno al quarto, la preparazione fatta è sempre un qualcosa in più che ti resta... Sempre meglio che rinunciarci subito!! Come si dice, arrendersi mai e illudersi mai!</article>
+<article class="post" id="p2610"><div class="who"><b>Pigkappa</b><span>18 set 2009, 22:03</span></div><blockquote><div><cite>duff18 ha scritto:</cite>L-30 Scienze e tecnologie fisiche;</div></blockquote>
+
+Penso che siano due possibili indirizzi di Fisica; gli ordinamenti cambiano di anno in anno e non sempre è facile capire cosa intendono coi vari nomi. Comunque la morale della favola è che se siete stati iscritti a un corso della facoltà di scienze matematiche, fisiche e naturali non potete fare la prova, se eravate iscritti a ingegneria sì.<br>
+<br>
+
+<blockquote class="uncited"><div>Indubbiamente sarà difficilissimo Pigkappa... Ciò non toglie che porsi l'obbiettico di farcela, e prepararsi per il quarto anno non sia una buona cosa! Male che vada, anche non passando nemmeno al quarto, la preparazione fatta è sempre un qualcosa in più che ti resta... Sempre meglio che rinunciarci subito!! Come si dice, arrendersi mai e illudersi mai!</div></blockquote>
+
+non dico di no, ma dico che se il vostro obbiettivo è ottenere il diploma della Normale, scegliere di entrare al quarto anno è pericoloso. Se al primo anno i più bravi entrano sempre, con pochissime eccezioni, al quarto anno la cosa è molto più variabile. Se danno dei problemi difficili sul programma dell'ammissione al primo anno, che è un po' più di quello di un PNI di fisica, uno studente molto bravo ha una certa probabilità (diciamo 90%) di avere visto qualcosa di simile ad almeno 5 di quei problemi. Quando volete entrare al 4° anno, i problemi sono comunque difficili e sono sul programma dei primi 3 anni di università (e non so se anche su altra roba); la probabilità secondo me si riduce parecchio. Anche perchè quando arrivate a quel test, non fate certe cose (la meccanica) all'università da un buon anno e mezzo: avere presente nello stesso momento tutto il programma di 3 anni di università è una cosa difficile.</article>
+<article class="post" id="p2611"><div class="who"><b>Fedecart</b><span>18 set 2009, 22:28</span></div>Indubbiamente hai ragione... Non sto contestando quello... Penso solo che ne valga comunque sia la pena tentarci!</article>
+<article class="post" id="p2820"><div class="who"><b>memedesimo</b><span>14 nov 2009, 10:19</span></div>Io credo che NON valga assolutamente la pensa di perdere un anno per cercare di entrare in normale.<br>
+<br>
+Prima di tutto, esaminiamo quali sono (secondo me) i vantaggi di stare in Normale:<br>
+- Fai l'università gratis<br>
+- Studi con gli altri studenti e discuti e questo è molto utile<br>
+- Alla fine hai il diploma di licenza<br>
+<br>
+Ora, per il primo punto dipende dalla tua situazione economica. Il secondo punto, è il vantaggio più grosso di stare in Normale. Il terzo punto è un valore aggiunto che può avere più o meno rilevanza a seconda di quello che farai nella vita (se farai ricerca avrà rilevanza quasi zero, mentre se andrai in aziende potrebbe avere rilevanza più alta).<br>
+Il fatto che fare la Normale sia migliore dal punto di vista dei corsi, della didattica, ecc... è purtroppo falso, a mio parere. Cioè, a parte per il fatto che studi con gli altri studenti, credo che l'accoppiata Università di Pisa/Normale non ti dia praticamente nulla di più che la sola università di Pisa, che già giudico scarsa dal punto di vista della didattica. In soldoni: non impari grazie all'università e ai professori, ma grazie al contatto con gli altri studenti. (tutto questo è vero almeno fino al terzo anno incluso, poi non so).<br>
+<br>
+Secondariamente, una volta che hai perso un anno non hai la certezza di entrare in Normale l'anno dopo, e potresti aver semplicemente perso un anno. E comunque credo sia meglio fare una normale università in 5 anni che perdere un anno e poi entrare in Normale, a meno che tu non sia costretto a fare un'università particolarmente scadente (non so dove tu abiti: eventualmente, se te lo puoi permettere, puoi trasferirti a studiare nella città che più ti piace).</article>
+<article class="post" id="p2822"><div class="who"><b>Stardust</b><span>16 nov 2009, 22:18</span></div>E' la prima volta che sento un giudizio negativo sulla Normale, in generale è molto rinomata anche all'estero. Io credo sia apprezzabile anche la presenza di contatti con importanti centri di ricerca e università straniere, come dimostra il calendario degli incontri, per esempio, con professori del MIT o dell'ETH.<br>
+Vorrei sapere che intende memedesimo con il discorso sul diploma di licenza.
+<blockquote class="uncited"><div>Il terzo punto è un valore aggiunto che può avere più o meno rilevanza a seconda di quello che farai nella vita (se farai ricerca avrà rilevanza quasi zero, mentre se andrai in aziende potrebbe avere rilevanza più alta).
+</div></blockquote>
+Cos'è e perchè è valutato in modo diverso nel settore industriale e nella ricerca?<br>
+Comunque per quel che riguarda l'università di Pisa, senza Normale, è vero che la sua facoltà di scienze matematiche, fisiche e naturali si piazza al 21° posto (80,8/110) nella classifica nazionale de La Repubblica e del Censis: un risultato non molto esaltante, mentre in testa ci sono Padova, Pavia e la Bicocca di Milano.</article>
+<article class="post" id="p2823"><div class="who"><b>Pigkappa</b><span>16 nov 2009, 23:40</span></div>purtroppo quelle classifiche sono abbastanza insensate. Generalmente sono fatte con criteri improbabili (del tipo "qual è la percentuale di studenti che si laureano rispetto a quelli che sono partiti?"). Inoltre da corso di laurea a corso di laurea la situazione è molto diversa (si dice che Informatica non sia granchè, mentre fisica e matematica non dovrebbero essere male), e ci sono differenze anche all'interno dello stesso corso di laurea (se volete fare la specialistica in Astrofisica, state lontani da Pisa!).</article>
+<article class="post" id="p2829"><div class="who"><b>memedesimo</b><span>18 nov 2009, 0:23</span></div>"il calendario degli incontri, per esempio, con professori del MIT o dell'ETH."<br>
+<br>
+Questi incontri ti potranno interessare solo dal 5° anno in poi, specialmente al dottorato. Prima, sono totalmente irrilevanti, quindi non sono un valore aggiunto alla laurea triennale ad esempio. Inoltre di solito sono cose aperte a tutti, non è necessario essere normalista per parteciparvi (così come anche a tutti i corsi interni e seminari, sono di libero accesso).<br>
+Poi, il fatto che sia apprezzata sul livello della ricerca non implica nulla sulla qualità della didattica.<br>
+Per finire invece lascia perdere le classifiche che non significano assolutamente nulla, sono solo una cosa che serve per la propaganda giornalistica.</article>
+<article class="post" id="p2830"><div class="who"><b>Pigkappa</b><span>18 nov 2009, 2:39</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Cos'è </div></blockquote>
+
+E' il pezzo di carta finale che ti danno se sei riuscito a entrare in Normale e restarci fino alla fine, superando tutti gli esami interni ed esterni che dovevi superare. Può contare sotto la voce "Titoli" in determinati concorsi (ad esempio, per le ammissioni a perfezionamenti e dottorati). Se uno entra in Normale ma viene buttato fuori alla fine del 5° anno (è successo anche recentemente) non ha nessun titolo in più rispetto a chi si è laureato all'università di Pisa senza la Normale (o forse riceve qualcosa per la triennale, ma non in ogni caso non vale niente).</article>
+<article class="post" id="p2832"><div class="who"><b>Stardust</b><span>18 nov 2009, 15:25</span></div>Abbandonando il discorso statistico, comunque alla fine non sembra tutto rose e fiori nemmeno alla Normale... A questo punto viene spontaneo chiedersi perchè è così ambita (tralasciando l'aspetto economico). <br>
+Non credo si tratti solo del nome celebre, ci sarà pure qualche valore aggiunto che la rende almeno un po' migliore dei corsi regolari delle comuni università, o no?<br>
+Poi, in che senso si studia con gli altri studenti?</article>
+<article class="post" id="p2833"><div class="who"><b>Pigkappa</b><span>18 nov 2009, 15:45</span></div>Ai primi tre anni segui praticamente tutti i corsi con gli altri normalisti del tuo anno, mangi con loro, risiedi nel loro stesso collegio. Ogni volta che hai un dubbio riguardo a qualcosa di matematica e fisica ti puoi confrontare con loro, o eventualmente chiedere a chi è più avanti con gli studi. Chi ha voglia di parlare <em class="text-italics">tutto il giorno</em> di matematica/fisica trova praticamente sempre qualcuno con cui farlo (e sì, in Normale ci sono alcuni che proprio non pensano ad altro, o quasi). Considerando che questi che collaborano sono, con una discreta approssimazione, i dieci studenti più bravi di quell'anno interessati alla Fisica, è chiaro che la cosa funziona molto bene.<br>
+<br>
+Inoltre molti esami a Pisa (e in Normale) sono particolarmente difficili, proprio perchè ci sono i Normalisti che alzano follemente il livello, probabilmente più che da altre parti; anche se la qualità della didattica a volte non è il massimo (e a volte fa proprio schifo), questo costringe a diventare bravi. Insomma, se l'esame di Geometria 1 che c'è il primo anno a Pisa fosse dato in qualche altra facoltà dove i Normalisti non ci sono, su centinaia di persone che lo provano ogni anno ci sarebbe in media solo un 30, e non credo che una cosa del genere possa succedere. Nel compitino di qualche settimana fa il miglior non-normalista si aggira sul 25 come voto (se ricordo bene), su circa 100 partecipanti, ed è andata decisamente meglio dell'anno scorso.</article>
+<article class="post" id="p2840"><div class="who"><b>Ippo</b><span>18 nov 2009, 23:15</span></div>Da matricola ignorante non ho titoli per esprimermi sulla qualità dell'università in generale (per ora mi sembra tutto buono, comunque).<br>
+Però confermo che il confronto con i compagni è in assoluto la cosa più significativa. Si impara (quasi) più che dai professori. <br>
+Ah, e il corso di fisica I della Normale di quest'anno è potentissimo (anche troppo  :lol: )<br>
+Ma perdere un anno davvero no. Non fate boiate, un anno è importante. Se è per i soldi della borsa ce ne sono svariate altre in giro per l'Italia (la Galileiana di Padova, la scuola superiore di Udine o di Catania, collegi a Pavia, a Bologna etc., più l'indam per i matematici e altre cose del genere) Se è per l'università idem, non ne so quasi nulla ma credo che andare a Roma o a Padova o a Torino o dove vi pare sia più o meno uguale. Se è per i corsi interni, venite a Pisa e potete frequentarli da esterni (ma prima o poi potrebbe passarvi la voglia  :lol: ). Insomma ognuno fa la sua strada, non è detto che la Normale sia per forza quella migliore. Certo è una grande possibilità, provate l'ammissione, ma non ammazzatevi se va male.</article>
+<article class="post" id="p2841"><div class="who"><b>Ippo</b><span>18 nov 2009, 23:18</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Nel compitino di qualche settimana fa il miglior non-normalista si aggira sul 25 come voto (se ricordo bene), su circa 100 partecipanti, ed è andata decisamente meglio dell'anno scorso.</div></blockquote>
+LOL, confermo, l'elenco dei voti era un po' il "trova gli intrusi" della settimana enigmistica. Uno sterminio (e qui si capisce perchè quelli che arrivano al secondo anno in pari con gli esami sono pochi  :shock: )</article>
+<article class="post" id="p2847"><div class="who"><b>Stardust</b><span>19 nov 2009, 14:11</span></div>Sono d'accordo, perdere un anno per ritentare l'ammissione mi sembra controproducente, anche perchè rappresenterebbe un ritardo non solo per i tempi di laurea, ma anche per l'ingresso nel mondo del lavoro.<br>
+Comunque io devo ancora pensare all'esame di Stato, quindi per me il problema non si pone, almeno per il momento.<br>
+A me hanno parlato abbastanza bene di Fisica a La Sapienza, per lo meno nell'ambito di astrofisica e fisica teorica, ma ricordo un bel servizio giornalistico di un paio di anni fa in cui diversi scienziati, non solo romani, si lamentavano delle strutture carenti e degli strumenti che arrivavano con mesi di ritardo, divenedo praticamente obsoleti. <br>
+In termini di laboratori e nuove tecnologie, quali potrebbero essere gli atenei più preparati? Quali sono le condizioni della Normale o della Galileiana in questo ambito?<br>
+(Spero che lo Stato abbia un occhio di riguardo per queste speciali università.)</article>
+<article class="post" id="p2851"><div class="who"><b>Pigkappa</b><span>19 nov 2009, 16:02</span></div>Speri male, i tagli del governo hanno colpito anche la Normale (al punto che temiamo che, nei prossimi anni, il rimborso delle tasse possa non essere più totale). Comunque la SNS riceve anche fondi da privati, e le strutture non sono messe troppo male (però per cose importanti non è che possiamo saperne molto, ai primi anni non si usano strumenti troppo complicati in laboratorio).</article>
+</main></body></html>

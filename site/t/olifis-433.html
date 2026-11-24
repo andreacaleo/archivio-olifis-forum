@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asta che gira</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Asta che gira</h1>
+<p class="meta">28 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=433">forum Olifis</a></p>
+<article class="post first" id="p3947"><div class="who"><b>Ippo</b><span>24 apr 2010, 15:54</span></div>Sia data un'asta sottile (praticamente unidimensionale) di lunghezza L e massa M, con un'estremità imperniata ad un motore che la mantiene in moto attorno ad un asse verticale a velocità angolare costante (cioè il vettore <span class="tex">\(\vec \omega\)</span> è costante e diretto verso l'alto) in modo che l'angolo <span class="tex">\(\theta\)</span> tra l'asta e la verticale sia costante.<br>
+(praticamente l'asta girando descrive un cono nello spazio)<br>
+<br>
+Ad un certo istante il vincolo viene rimosso e l'asta inizia a muoversi liberamente, sotto l'effetto della gravità. Descriverne (quantitativamente) il moto.<br>
+<br>
+<span style="font-size: 65%; line-height: normal">Nota: il problema viene da un compito di fisica I dell'università di Pisa di qualche anno fa, non è difficile ma tratta un argomento che generalmente non si vede né a scuola né alle olimpiadi. Ragionate sulla relazione tra il vettore velocità angolare e il vettore momento angolare...</span></article>
+<article class="post" id="p3949"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Asta che gira</b><span>24 apr 2010, 17:23</span></div><span style="color:#0080FF">Un saluto a tutti gli iscritti del mese di aprile</span><br>
+<br>
+Sfruttando l'hint fornito da Ippo e sperando di aver ragionato bene, il vettore momento angolare <span class="tex">\(\vec{L}=I\vec{\omega}\)</span> ha la caratteristica di essere parallelo al vettore velocità angolare <span class="tex">\(\vec{\omega}\)</span>. Ne consegue che il momento meccanico derivato dalla forza gravitazionale <span class="tex">\(\vec{M}\)</span> produce una variazione del momento angolare, difatti <span class="tex">\(\displaystyle{d\vec{L}=\vec{M}dt}\)</span>. Poiché <span class="tex">\(d\vec{L}\)</span> è perpendicolare a <span class="tex">\(\vec{L}\)</span>, <span class="tex">\(\vec{L}\)</span> varierà soltanto in direzione e verso, ma non in modulo. <br>
+Quindi, in assenza di attriti, la velocità angolare <span class="tex">\(\vec{\omega}\)</span> dell'asta resterà costante, nonostante inizi a muoversi liberamente. Vale, allora, la relazione: <br>
+<br>
+<span class="tex">\(\displaystyle{d\theta=mgr\frac{dt}{L}}\)</span> <br>
+<br>
+dove <span class="tex">\(r\)</span> è il braccio della forza gravitazionale e <span class="tex">\(dt\)</span> la variazione di tempo tra l'istante <span class="tex">\(t_0\)</span> in cui l'asta era legata al vincolo e l'istante <span class="tex">\(t_1\)</span> in cui si è slegata da esso.</article>
+<article class="post" id="p3950"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Asta che gira</b><span>24 apr 2010, 17:43</span></div>Sulla base di ciò che ho scritto, sperando intensamente di non aver travisato il testo, l'asta continua a muoversi alla stessa velocità angolare <span class="tex">\(\vec{\omega}\)</span> e in assenza di attriti essa non cadrebbe mai.<br>
+<br>
+P.S: Ringrazio Ippo per la sua prontezza e dedizione nella risposta all'ultimo messaggio.</article>
+<article class="post" id="p3951"><div class="who"><b>Ippo</b><span>24 apr 2010, 17:46</span></div><blockquote><div><cite>Eagle ha scritto:</cite>
+Sfruttando l'hint fornito da Ippo e sperando di aver ragionato bene, il vettore momento angolare <span class="tex">\(\vec{L}=I\vec{\omega}\)</span> ha la caratteristica di essere parallelo al vettore velocità angolare <span class="tex">\(\vec{\omega}\)</span>..</div></blockquote>
+ecco, il punto del problema è proprio che questo in generale è falso. Come ho scritto, la relazione generale tra <span class="tex">\(\vec \omega\)</span> e <span class="tex">\(\vec L\)</span> non è un argomentro che si vede prima dell'università; ma ragionando un po' sulla situazione fisica si può lo stesso ricavare la soluzione, anche senza conoscere veramente la teoria.</article>
+<article class="post" id="p3952"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Asta che gira</b><span>24 apr 2010, 17:54</span></div>Si vede che è un problema tratto da un compito universitario. In effetti avevo trascurato che il momento angolare si somma alla velocità angolare perché non è esattamente sull'asse di <span class="tex">\(\vec{\omega}\)</span>: questo provoca un'oscillazione che prende il nome di <em class="text-italics">nutazione</em> e che aumenta al diminuire della velocità di rotazione.</article>
+<article class="post" id="p3953"><div class="who"><b>Ippo</b><span>24 apr 2010, 18:32</span></div>Nella situazione iniziale imponiamo il vincolo <span class="tex">\(\theta={\rm costante}\)</span> quindi ignoriamo le nutazioni e tutte le altre complicazioni.<br>
+Un hint: se fosse <span class="tex">\(\theta=0\)</span> (asta verticale) quanto varrebbe L? Se ne può dedurre qualcosa per il caso <span class="tex">\(\theta \neq 0\)</span>?  :roll: <br>
+Meditate gente, meditate....</article>
+<article class="post" id="p3954"><div class="who"><b>Gauss91</b><span>24 apr 2010, 18:46</span></div>Io l'unica cosa che sono riuscito per ora a trovare è, dalla definizione,<br>
+<span class="tex">\(\vec{L} = \vec{r}\times M\vec{v} = \vec{r}\times M(\vec{\omega}\times \vec{a})\)</span>, dove a è il raggio di rotazione (ovviamente v si riferisce al centro di massa, così come a).<br>
+Il modulo è<br>
+<span class="tex">\(L = Mra\omega\sin{\theta} = Mr^2\omega\sin^2{\theta} = \frac{L^2}{4}M\omega\sin^2{\theta}\)</span>.<br>
+Ovviamente per <span class="tex">\(\theta = 0\)</span>, il momento angolare è 0.<br>
+Non riesco a dire altro: derivando l'espressione vettoriale e porla uguale al momento della forza di gravità non mi porta a nulla.</article>
+<article class="post" id="p3955"><div class="who"><b>Pigkappa</b><span>24 apr 2010, 19:04</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>definizione,<br>
+<span class="tex">\(\vec{L} = \vec{r}\times M\vec{v} = \vec{r}\times M(\vec{\omega}\times \vec{a})\)</span>, dove a è il raggio di rotazione (ovviamente v si riferisce al centro di massa, così come a).<br>
+Il modulo è</div></blockquote>
+
+Mah, in realtà non è definito così il momento angolare. Il momento angolare, rispetto all'origine, di una particella di massa <span class="tex">\(M\)</span> e velocità <span class="tex">\(\vec{v}\)</span> è in effetti:<br>
+<br>
+<span class="tex">\(\vec{L} = M \vec{r} \times \vec{v}\)</span><br>
+<br>
+Per un corpo di massa M che non sia esattamente una particella, il momento angolare non è detto che sia quello che dici tu.</article>
+<article class="post" id="p3956"><div class="who"><b>Gauss91</b><span>24 apr 2010, 19:30</span></div>Perdona l'ignoranza, ma cosa cambia da <span class="tex">\(\vec{L} = \vec{r} \times M\vec{v}\)</span> a <span class="tex">\(\vec{L} = M\vec{r} \times \vec{v}\)</span>? Non sono vettori di ugual modulo e direzione e quindi uguali? Se sono uguali per ogni particella, se calcolo il momento angolare di un corpo rigido con una o con l'altra formula dovrei ottenere la stessa cosa, dato che si devono semplicemente sommare i momenti angolari di ogni particella. Dove sbaglio?</article>
+<article class="post" id="p3957"><div class="who"><b>Pigkappa</b><span>24 apr 2010, 19:41</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>Perdona l'ignoranza, ma cosa cambia da <span class="tex">\(\vec{L} = \vec{r} \times M\vec{v}\)</span> a <span class="tex">\(\vec{L} = M\vec{r} \times \vec{v}\)</span>?</div></blockquote>
+
+Non cambia niente, non era lì il problema.<br>
+<br>
+
+<blockquote><div><cite>Gauss91 ha scritto:</cite>Se sono uguali per ogni particella [...]</div></blockquote>
+
+Allora forse non ho capito rispetto a quale punto hai calcolato il momento angolare. Se è il perno, direi che le molecole che sono molto vicine al perno hanno momento angolare più piccolo di quelle che sono lontano.<br>
+<br>
+<br>
+Oltre che per <span class="tex">\(\theta = 0\)</span>, anche per <span class="tex">\(\theta = \pi/2\)</span> c'è un modo più facile per calcolare il momento angolare, e potresti usare questa cosa per vedere se il tuo risultato funziona per tale angolo.</article>
+<article class="post" id="p3959"><div class="who"><b>Gauss91</b><span>24 apr 2010, 20:30</span></div>Sì per "sono uguali" intendevo "i momenti calcolati rispetto all'una e all'altra formula".<br>
+Comunque io ho considerato l'asta come una massa tutta concentrata nel suo centro di massa, E da lì ho calcolato tutto.<br>
+<br>
+PS.: viene effettivamente sbagliato se faccio tendere l'angolo a 90° :P . Penserò ad un'altra via...</article>
+<article class="post" id="p3960"><div class="who"><b>Stardust</b><span>24 apr 2010, 20:45</span></div>Se noi definiamo <span class="tex">\(L_{rot}=I\omega\)</span>, dobbiamo chiarire qual è l'inerzia dell'asta, il che significa chiarire anche il punto intorno a cui essa ruota.<br>
+Io ho appena iniziato a vedere il problema, ma mi lascia perplesso il fatto che l'asse di rotazione non è perpendicolare all'asta.<br>
+Se l'inerzia dell'asta in rotazione intorno al suo baricentro è<br>
+<span class="tex">\(I=\frac{1}{12}ML^2\)</span>, allora bisogna guardare al teorema degli assi paralleli per identificare l'inerzia dell'oggetto in moto conico:<br>
+<span class="tex">\(I'=I+M\Delta x^2\)</span>, <br>
+in cui <span class="tex">\(\displaystyle {\Delta x=\frac{L}{2}sen\theta}\)</span>, che è la distanza del centro di massa dall'asta.<br>
+Quindi inizialmente l'inerza I' è<br>
+<span class="tex">\(I'=\displaystyle{{{ML^2}\over{12}}(1+3sin\,\theta ^2)}\)</span>.<br>
+Ciò, se corretto, vale per la fase precedente al distacco, deteminando un momento angolare L pari a <br>
+<span class="tex">\(L_{rot}=\displaystyle{{{ML^2}\over{12}}(1+3sin\,\theta ^2)}\omega\)</span>.<br>
+Qualcuno potrebbe chiarire il diverso orientamento dei vettori <span class="tex">\(\vec{L_{rot}}\)</span>e <span class="tex">\(\vec{\omega}\)</span>?</article>
+<article class="post" id="p3964"><div class="who"><b>Ippo</b><span>24 apr 2010, 22:01</span></div>la definizione di momento angolare per una particella è quella che dite voi: <span class="tex">\(d \vec L=dm ( \vec r \times \vec v)\)</span><br>
+Per il momento angolare di un corpo rigido basta integrare quest'espressione:<br>
+<span class="tex">\(\vec L= \int_m (\vec r \times \vec v ) dm=\int_m (\vec r \times (\vec \omega \times \vec r ) ) dm\)</span><br>
+dove l'integrale s'intende su tutta la massa del corpo rigido.<br>
+Quest'espressione si può maneggiare per arrivare alla legge che lega <span class="tex">\(\vec L\)</span> e <span class="tex">\(\vec \omega\)</span>, ma non è necessario per il problema. Vi lascio pensare ancora un po'  ;)</article>
+<article class="post" id="p3965"><div class="who"><b>Pigkappa</b><span>24 apr 2010, 22:38</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Qualcuno potrebbe chiarire il diverso orientamento dei vettori <span class="tex">\(\vec{L_{rot}}\)</span>e <span class="tex">\(\vec{\omega}\)</span>?</div></blockquote>
+
+Il fatto è che non si definisce, come fai tu, <span class="tex">\(L_{rot}=I\omega\)</span>. Noi vogliamo definire il momento angolare in modo che sia una quantità conservata, ed il momento angolare che si conserva è quello che ha definito Ippo.<br>
+<br>
+In generale, quando un corpo rigido gira intorno ad un asse che non è a lui perpendicolare, w ed L non sono più paralleli, ma si dimostra (non chiedetemi di farlo che queste cose le ho fatte un anno fa, e piuttosto male) che la relazione tra loro è del tipo:<br>
+<br>
+<span class="tex">\(\vec{L} = I \vec{w}\)</span><br>
+<br>
+Dove <span class="tex">\(I\)</span> è una matrice (simmetrica, che si chiama tensore d'inerzia) e non un numero. Questo, comunque, non è necessario per risolvere il problema (io a fare quel problema all'esame c'ero, e non sapevo niente di tutto ciò, e ho preso 30  :P ).</article>
+<article class="post" id="p3966"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Asta che gira</b><span>25 apr 2010, 1:10</span></div>In effetti, il fatto che <span class="tex">\(\vec{L}\)</span> non sia parallelo a <span class="tex">\(\vec{\omega}\)</span> può destare davvero molte sorprese. Va osservato comunque che per giustificare il cambio di direzione della componente ortogonale all'asse di rotazione del momento angolare, bisogna ammettere l'esistenza di un momento torcente generato dalla forza centripeta:<br>
+<br>
+<span class="tex">\(\displaystyle{\frac{dL}{dt}=m\omega^2r^2sin{\theta}cos{\theta}}\)</span><br>
+<br>
+Da ciò si deduce che quando <span class="tex">\(\theta=90^0\)</span> oppure <span class="tex">\(\theta=0^0\)</span> il rapporto <span class="tex">\(\frac{dL}{dt}=0\)</span> .</article>
+<article class="post" id="p3967"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: Asta che gira</b><span>25 apr 2010, 1:24</span></div>Dopo questa riflessione, a lungo meditata, quando interviene sull'asta anche la forza peso avremo:<br>
+<br>
+<span class="tex">\(\displaystyle{\frac{dL}{dt}=Mgrsin{\theta}}\)</span><br>
+<br>
+Di conseguenza avremo una variazione d'angolo <span class="tex">\(\displaystyle{d\theta=\frac{Mgr}{{L}}}\)</span></article>
+<article class="post" id="p3971"><div class="who"><b>Ratio</b><span>25 apr 2010, 15:15</span></div>Per il calcolo del momento angolare ho pensato che potremmo introdurre una densità di massa lineica <span class="tex">\(\lambda = dm/dl\)</span>.<br>
+E questo ci porterebbe a:<br>
+<br>
+<span class="tex">\(\displaystyle \vec{L} = \int_m (\vec{r} \times \vec{v}) dm = \int_m (\vec{r} \times \vec{v}) \lambda dl\)</span>.<br>
+<br>
+A questo punto sappiamo che <span class="tex">\(\tan \theta = dr/dl\)</span>, perciò otteniamo:<br>
+<br>
+<span class="tex">\(\displaystyle \int_0^{l \tan \theta} (\vec{r} \times \vec{v}) \frac{\lambda}{\tan \theta}dr = \int_0^{l \tan \theta} \omega r^2 \frac{\lambda}{\tan \theta}dr = \frac{1}{3}\omega l^2 \tan^2 \theta M\)</span>.<br>
+<br>
+EDIT: Dio benedica il \displaystyle...  :D</article>
+<article class="post" id="p3973"><div class="who"><b>Ippo</b><span>25 apr 2010, 15:25</span></div>attenzione, <span class="tex">\(\vec r \times (\vec \omega \times \vec r) \neq \omega r^2\)</span>!! <br>
+in primo luogo il membro a destra non è un vettore, in secondo luogo r non è la distanza dall'asse ma un vettore condotto da un polo che scegli tu. Direi che il perno è la scelta migliore.</article>
+<article class="post" id="p3974"><div class="who"><b>Ratio</b><span>25 apr 2010, 15:27</span></div>Pensavo inoltre che una cosa certa che sappiamo riguarda al moto è che dopo la "scomparsa del perno" il cdm della sbarra si muoverà lungo la tangente alla circonderenza a <span class="tex">\(v = \omega \frac{L}{2} \sin \theta\)</span>, mentre i punti iniziale (a cui era attaccato il perno) e finale della sbarra viaggeranno a velocità rispettivamente zero e <span class="tex">\(2v\)</span>.<br>
+Questo dovrebbe provocare una rotazione intorno all'asse passante per il cdm (sempre in verticale), con momento angolare conservato. O mi sbaglio?</article>
+<article class="post" id="p3975"><div class="who"><b>Ratio</b><span>25 apr 2010, 15:37</span></div><blockquote><div><cite>Ippo ha scritto:</cite>[...]in secondo luogo r non è la distanza dall'asse ma un vettore condotto da un polo che scegli tu. Direi che il perno è la scelta migliore.</div></blockquote>
+
+Ma allora, detto <span class="tex">\(\vec l\)</span> il vettore di distanza dall'asse, non vale <span class="tex">\(\vec l = \vec r \sin \theta\)</span> e quindi anche <span class="tex">\(\vec r \times \vec \omega = \vec l \times \vec \omega\)</span> ?<br>
+(Sempre prendendo <span class="tex">\(\vec r\)</span> dal perno).</article>
+<article class="post" id="p3977"><div class="who"><b>Ippo</b><span>25 apr 2010, 18:21</span></div>Ah sì certo. Inoltre quello che dici sul moto del c.d.m. è giusto. Quello che dici sul moto rotatorio invece no  :mrgreen: <br>
+Provate a visualizzare intuitivamente il fenomeno. Vi sembra verosimile che l'asta continui a descrivere un cono dopo essere stata rilasciata? (o due coni, dato che poi il punto fisso sarebbe il centro di massa e non l'estremità).<br>
+Cosa vi aspettate che faccia, più realisticamente?</article>
+<article class="post" id="p3979"><div class="who"><b>Gauss91</b><span>25 apr 2010, 19:11</span></div>Io dico che il CM parte per la tangente il punto in cui è stato lasciato, con velocità costante <span class="tex">\(\omega\frac{L}{2}\sin{\theta}\)</span>, e accelera verso il basso di accelerazione g. Per la definizione di centro di massa, il momento della forza di gravità rispetto ad esso è nullo. Mettiamoci in un sistema di riferimento solidale con il centro di massa sbarra. Nessun momento agisce su di esso, quindi è un buon polo in cui considerare il moto.<br>
+Consideriamo quindi tutti gli elementini dm della sbarra. Essi ruoteranno attorno al centro di massa descrivendo inizialmente due coni (per continuità con la situazione precedente al rilascio), ma su di essi agisce una forza centrifuga verso l'esterno che tenderà a farli "orizzontalizzare" allineandoli con il centro di massa.<br>
+Qualitativamente, insomma, dal punto di vista traslazionale la sbarra comincerà a cadere descrivendo un moto parabolico; dal punto di vista rotazionale continuerà a ruotare attorno al proprio centro di massa (questo ce lo confermano sperimentalmente i tiratori di lancio del martello :P ), ma tenderà ad assumere presto una posizione orizzontale al pavimento.<br>
+La velocità con cui ciò avviene non la so e non ho tempo di trovarla perché devo andare a mangiarmi una pizza con la mia ragazza :oops: . Spero solo che questa descrizione qualitativa affrettata abbia un minimo di senso.</article>
+<article class="post" id="p3985"><div class="who"><b>Ippo</b><span>26 apr 2010, 13:51</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>Io dico che il CM parte per la tangente il punto in cui è stato lasciato, con velocità costante <span class="tex">\(\omega\frac{L}{2}\sin{\theta}\)</span>, e accelera verso il basso di accelerazione g. Per la definizione di centro di massa, il momento della forza di gravità rispetto ad esso è nullo. Mettiamoci in un sistema di riferimento solidale con il centro di massa sbarra. Nessun momento agisce su di esso, quindi è un buon polo in cui considerare il moto.<br>
+Consideriamo quindi tutti gli elementini dm della sbarra. Essi ruoteranno attorno al centro di massa descrivendo inizialmente due coni (per continuità con la situazione precedente al rilascio)</div></blockquote>
+Ok, l'idea è giusta; la conclusione no. (scusami, non è che voglio torturarti, è solo per farti pensare xD)<br>
+Il moto del cdm è quello che descrivi tu. Quanto alla rotazione, "per continuità con la situazione precedente" significa che il momento angolare è conservato. L'effetto che descrivi dopo sarà dovuto alla natura non unidimensionale del martello, o alla resistenza dell'aria, non ne ho idea, comunque lo ignoriamo qui. L'asta gira a velocità angolare costante attorno al suo momento angolare. Tu però assumi che prima del distacco sia verticale, parallelo a <span class="tex">\(\vec \omega\)</span>. La domanda a questo punto diventa: dove punta <span class="tex">\(\vec L\)</span> mentre l'asta è fatta girare dal motore? Risolta questa questione è fatta. E questa era un po' la ragione del problema.<br>
+<br>
+<br>
+Hint enorme: <br>
+<span style="font-size: 40%; line-height: normal">la funzione \vec L (\vec \omega) è lineare, cioé \vec L (\vec \omega_1 + \vec \omega_2)=\vec L (\vec \omega_1)+\vec L (\vec \omega_2). Questo si ricava dall'espressione integrale che ho scritto qualche post fa. Sappiamo inoltre che se \omega punta lungo l'asse è \vec L=0, mentre se è perpendicolare si ha \vec L={1 \over 12}M \ell^2 \hat n (\ell lunghezza dell'asta, per non confonderla col momento angolare; \hat n versore perpendicolare all'asta); a questo punto sfruttando la natura vettoriale di \vec \omega si conclude facilmente.</span></article>
+<article class="post" id="p3993"><div class="who"><b>Gauss91</b><span>26 apr 2010, 22:10</span></div>Ok ci provo. Il momento angolare è<br>
+<span class="tex">\(\vec{L} = \int_m(\vec{r}\times\vec{v})dm\)</span>. Se ho operato passaggi leciti e non ho sbagliato i calcoli, L è in ogni istante<br>
+<span class="tex">\(\vec{L} = \omega\dfrac{Ml^2}{12}\sin{\theta}\hat{x}\)</span>, dove <span class="tex">\(\hat{x}\)</span> è il versore perpendicolare alla sbarra, e l è la lunghezza della sbarra.<br>
+Chiamo O l'estremo della sbarra attaccato al motore. Se è vero che il momento angolare si conserva una volta che la sbarra è stata rilasciata, L avrà sempre stessa direzione e modulo durante la caduta, e il momento angolare rispetto all'estremo O della sbarra rimarrà costante. Ciò significa che la sbarra ruoterà attorno un asse parallelo a <span class="tex">\(\hat{x}\)</span> con velocità <span class="tex">\(\omega'\)</span>. Calcolando il momento angolare in questo istante, adesso sì che è<br>
+<span class="tex">\(L' = I\omega' = \omega' \dfrac{Ml^2}{12}\)</span>. Per la conservazione del momento angolare, è inoltre <span class="tex">\(L' = L\)</span>, da cui<br>
+<span class="tex">\(\omega' \dfrac{Ml^2}{12} = \omega\dfrac{Ml^2}{12}\sin{\theta}\)</span> e infine<br>
+<span class="tex">\(\omega' = \omega\sin{\theta}\)</span>.<br>
+Essendo stata descritta la componente sia traslazionale sia rotazionale del moto, il problema è concluso.<br>
+Come va?</article>
+<article class="post" id="p4001"><div class="who"><b>Ippo</b><span>27 apr 2010, 16:45</span></div>Ok, giusto!  ;) <br>
+Lo scopo del problema era solo mostrarvi una semplice situazione in cui <span class="tex">\(\vec L\)</span> e <span class="tex">\(\vec \omega\)</span> non sono paralleli, cosa che in genere non si vede prima dell'università e comunque anche lì si vede poco (noi in facoltà l'abbiamo giusto accennato durante un'esercitazione, e al secondo anno non so se è un argomento ripreso a meccanica analitica, bisognerebbe chiedere a Pig... il fatto che uno rischi di laurearsi in fisica credendo che <span class="tex">\(\vec L\)</span> sia un multiplo scalare di <span class="tex">\(\vec \omega\)</span> è abbastanza triste comunque  :? )<br>
+<br>
+Giusto per i curiosi, si può ricavare l'espressione generale per il momento angolare così:<br>
+<br>
+Usando l'identità vettoriale <span class="tex">\(\vec A \times (\vec B \times \vec C)=(\vec A \cdot \vec C) \vec B-(\vec A \cdot \vec B) \vec C\)</span> nell'integrale che dà L si ottiene:<br>
+<span class="tex">\(\vec L=\int_m dm \left[r^2 \vec \omega-(\vec r \cdot \vec \omega) \vec r \right]\)</span> (e qui si vede che la direzione in generale non è quella di omega).<br>
+Ragionando in componenti rispetto ad una terna cartesiana a caso, e con le seguenti notazioni per i vettori: <span class="tex">\(\vec L=(L_x, \ L_y, \ L_z)\)</span>, <span class="tex">\(\vec \omega= (\omega_x, \ \omega_y, \ \omega_z)\)</span>, <span class="tex">\(\vec r=(x, \ y, \ z)\)</span><br>
+si ottiene<br>
+<span class="tex">\(L_x=\int_m dm \left[ (x^2+y^2+z^2) \omega_x -(x \omega_x+y \omega_y+z \omega_z)x\right]=\)</span><br>
+<span class="tex">\(=\int_m dm \left[ (y^2+z^2)\omega_x -xy \omega_y -xz \omega_z\right]\)</span><br>
+Per le altre componenti è lo stesso a meno di ciclare qualche pedice, e la relazione si scrive bene in forma matriciale:<br>
+<span class="tex">\(\vec L = I \vec \omega\)</span> dove I è una matrice che risulta simmetrica.<br>
+Un teorema di algebra lineare dice che per matrici simmetriche come questa c'è un sistema di coordinate cartesiane ortogonali rispetto al quale la matrice si scrive in forma diagonale, cioé in modo che si abbia <span class="tex">\((L_x, \ L_y, \ L_z)=(I_x \omega_x, \ I_y \omega_2, \ I_z \omega_3)\)</span>. Questi sono detti "assi principali" del corpo. Se Ix, Iy e Iz sono diversi si ha che L è parallelo a omega solo se questa è diretta lungo uno degli assi principali. E questo è il caso di tutti i problemi che incontrate in ambito olimpico.</article>
+<article class="post" id="p4002"><div class="who"><b>Pigkappa</b><span>27 apr 2010, 16:51</span></div><blockquote><div><cite>Ippo ha scritto:</cite>(noi in facoltà l'abbiamo giusto accennato durante un'esercitazione, e al secondo anno non so se è un argomento ripreso a meccanica analitica, bisognerebbe chiedere a Pig... il fatto che uno rischi di laurearsi in fisica credendo che <span class="tex">\(\vec L\)</span> sia un multiplo scalare di <span class="tex">\(\vec \omega\)</span> è abbastanza triste comunque  :? )</div></blockquote>
+
+[Off topic] Mah, in realtà io credevo che in facoltà questa cosa la facessero per bene. Io quando sono andato a fare l'esame di Fisica 2 non sapevo cosa era il tensore d'inerzia perchè Fisica 2 l'ho anticipato in modo molto sportivo (cioè studiando sì e no un giorno...), ma che non c'erano buoni motivi perchè w ed L fossero sempre paralleli lo sapevo. Comunque poi per il corso interno queste cose bisogna studiarle un pochino più dignitosamente. [/Off topic]</article>
+<article class="post" id="p4005"><div class="who"><b>Ippo</b><span>27 apr 2010, 21:09</span></div>[off topic] Noi infatti l'abbiamo fatto per benino al corso interno. Fisica lo seguiamo perché col nuovo ordinamento non si può anticipare, e Cella ha menzionato gli assi principali ma mai il tensore d'inerzia...[/off topic]</article>
+<article class="post" id="p4038"><div class="who"><b>Davide90</b><span>30 apr 2010, 19:51</span></div><blockquote><div><cite>Ippo ha scritto:</cite>il fatto che uno rischi di laurearsi in fisica credendo che <span class="tex">\(\vec L\)</span> sia un multiplo scalare di <span class="tex">\(\vec \omega\)</span> è abbastanza triste comunque  :? )</div></blockquote>
+Già, noi per fortuna ne abbiamo un po' parlato e abbiamo fatto un problema praticamente identico a questo, accennando ai tensori di inerzia. Però anche a me sembrerebbe una cosa piuttosto importante da farla benino a Fisica I, senza dover aspettare Meccanica Analitica...  :roll:</article>
+<nav class="pager"><a class="prev" href="olifis-29.html"><small>← precedente</small>Asta che cade.</a><a class="next" href="olifis-346.html"><small>successivo →</small>Momento d&#x27;inerzia dell&#x27;insieme di Cantor</a></nav>
+</main></body></html>

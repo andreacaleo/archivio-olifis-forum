@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Griglia di resistenze</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Griglia di resistenze</h1>
+<p class="meta">29 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=356">forum Olifis</a></p>
+<article class="post first" id="p3100"><div class="who"><b>Pigkappa</b><span>22 dic 2009, 3:23</span></div>Vi propongo un problema infame che ha una soluzione molto corta e per certi versi geniale. Invito anche i più bravi ad affrontarlo, ma <strong class="text-strong">non</strong> postate la soluzione o aiutini se lo conoscete già, o se ne avete visto qualcuno praticamente uguale. Se non capite il problema, ditelo che cerco di enunciarlo diversamente; il testo è molto semplice da capire.<br>
+<br>
+Una griglia è formata da infinite resistenze disposte a reticolo tutte uguali ad <span class="tex">\(R\)</span> (per capire come è fatta, immaginate che sul piano xy, i punti a coordinate intere che sono affiancati siano collegati da una resistenza <span class="tex">\(R\)</span>). Calcolare la resistenza equivalente tra due nodi contigui.</article>
+<article class="post" id="p3101"><div class="who"><b>Stardust</b><span>22 dic 2009, 8:18</span></div>Per resistenza tra nodi contigui intendi che dobbiamo immaginare che ci sia una differenza di potenziale applicata a due nodi successivi?</article>
+<article class="post" id="p3102"><div class="who"><b>Pigkappa</b><span>22 dic 2009, 13:56</span></div>SÌ.</article>
+<article class="post" id="p3103"><div class="who"><b>Ippo</b><span>22 dic 2009, 15:00</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite> ha una soluzione molto corta e per certi versi geniale. </div></blockquote>
+Non lo sapevo!!  :o (mi ci sono già rotto la testa per un po' una volta, senza cavarne nulla).<br>
+mi hai incuriosito... Aspetterò, e intanto magari ci penserò ancora  :mrgreen:</article>
+<article class="post" id="p3104"><div class="who"><b>Falco5x</b><span>22 dic 2009, 16:09</span></div>C'è qualcosa che non mi torna.<br>
+Forse dico una fesseria... però dall'enunciato sembrerebbe che la resistenza equivalente non dipendesse dalla posizione dei due nodi contigui scelti. Ma allora posso prendere anche due nodi situati sulla periferia del quadrato, ad esempio a metà di un lato. Ma da questa posizione mi sembra invece che la resistenza dovrebbe essere circa il doppio di quella misurata tra due nodi centrali.<br>
+Vabbè, abbiate pietà e ditemi dove sbaglio. ;)</article>
+<article class="post" id="p3105"><div class="who"><b>Pigkappa</b><span>22 dic 2009, 16:22</span></div>Il testo è un po' impreciso, lo modifico. Visto che le resistenze sono infinite, è chiaro che non è proprio un "quadrato" di resistenze, e che non c'è un perimetro. Tutto il piano è ricoperto di resistenze, che formano un reticolo.<br>
+
+<blockquote><div><cite>Ippo ha scritto:</cite>(mi ci sono già rotto la testa per un po' una volta, senza cavarne nulla)</div></blockquote>
+
+Sì, anche io ci avevo provato con metodi contosi quando ero ancora al liceo senza riuscirci... Recentemente invece ci hanno spiegato la soluzione (al corso interno di fisica).</article>
+<article class="post" id="p3106"><div class="who"><b>Timmo</b><span>22 dic 2009, 17:40</span></div>Sapevo di averlo già visto da qualche parte... :) <br>
+<a href="http://xkcd.com/356/" class="ext" class="postlink">http://xkcd.com/356/</a> (non penso sia di aiuto, ma al massimo la figura aiuta)<br>
+Non è esattamente la stessa situazione (nel caso del link non sono nodi contigui, sono tutte resistenze da 1 Ohm, è una vignetta....)<br>
+ :)  :)  :)</article>
+<article class="post" id="p3107"><div class="who"><b>Gauss91</b><span>22 dic 2009, 22:12</span></div>Magari sto dicendo una boiata, ma può essere 0?</article>
+<article class="post" id="p3108"><div class="who"><b>Pigkappa</b><span>22 dic 2009, 22:43</span></div>Spiega perchè dovrebbe essere 0 e vediamo...</article>
+<article class="post" id="p3109"><div class="who"><b>Gauss91</b><span>22 dic 2009, 23:45</span></div>Dunque io ho ragionato così: chiamo i punti contigui a e b, e vedo tutti i percorsi che li congiungono.<br>
+So che ce n'è ALMENO uno per ogni numero n di resistenze attraverso cui voglio passare (perché ne ho infinite). Se passo per un numero m di resistenze, essendo queste in serie, la resistenza equivalente per cui dovrò passare sarà mR.<br>
+Notiamo infine che ogni percorso contiene un numero DISPARI di resistenze.<br>
+Questi percorsi possono essere visti come collegamenti in parallelo da a a b: la resistenza totale, essendo i percorsi infiniti, sarà data da<br>
+<br>
+<span class="tex">\(\displaystyle\frac{1}{R_{eq}} = \displaystyle\frac{1}{R} \displaystyle\sum_{n=0}^{oo}{\displaystyle\frac{1}{2n + 1}}\)</span>. Quella serie diverge, tende a +infinito, quindi si trova infine <span class="tex">\(R_{eq} = 0\)</span>.<br>
+<br>
+Sottolineo ora quell'ALMENO all'inizio della dimostrazione: ne esiste infatti, per ogni <span class="tex">\(n \neq 1\)</span>, più di uno. Quindi la resistenza equivalente finale sarà minore della <span class="tex">\(R_{eq}\)</span> trovata. Ma essendo una resistenza, non può essere negativa, quindi si può dire in definitiva che è 0.<br>
+<br>
+Correggimi senza pietà se ho detto boiate come è molto probabile  :roll:</article>
+<article class="post" id="p3110"><div class="who"><b>Pigkappa</b><span>23 dic 2009, 0:06</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>Questi percorsi possono essere visti come collegamenti in parallelo da a a b</div></blockquote>
+
+No, non possono. Questi percorsi "si intersecano", perchè ci sono solo 4 resistenze che circondano B, e ogni percorso da A a B dovrà passare da almeno una di queste.</article>
+<article class="post" id="p3111"><div class="who"><b>Senior</b><span>23 dic 2009, 0:45</span></div>R'=R/2 dove R' è la resistenza  equivalente tra due nodi contigui.<br>
+Immaginare di far entrare una corrente in un nodo; essa si divide in 4 parti uguali <br>
+la ddp ai capi della resistenza tra i due nodi contigui è ........  <br>
+e di farla uscire dal nodo contiguo in cui convergono 4 correnti uguali la cui somma è<br>
+uguale a quella entrata nell'altro nodo; anche in questo caso la ddp ai capi della resistenza<br>
+tra i due nodi presi in esame è ........  .<br>
+Sommare gli effetti e ........<br>
+<br>
+Lascio ad altri il completamento dei ragionamenti e le deduzioni.</article>
+<article class="post" id="p3112"><div class="who"><b>Pigkappa</b><span>23 dic 2009, 0:54</span></div>Complimenti a Senior che ha avuto l'idea geniale per risolvere il problema... E' comunque importante che capiate bene come si fa e che sappiate spiegare bene la soluzione, perciò qualcuno la espliciti chiaramente.<br>
+<br>
+<br>
+È importante anche perchè questo problema due anni fa è stato proposto all'orale dell'ammissione alla S.N.S., ed è quasi impossibile risolverlo lì per lì senza averlo già visto, secondo me.</article>
+<article class="post" id="p3113"><div class="who"><b>Gauss91</b><span>23 dic 2009, 1:12</span></div>anche io ci ho pensato ma l'ho scartato: non può uscire la corrente in quattro direzioni da un nodo, altrimenti sarebbe una sorgente di cariche! per la prima legge di kirchoff, in ogni nodo di un circuito la corrente in entrata deve uguagliare quella in uscita.<br>
+Al massimo può dividersi in tre direzioni, dato che una direzione è occupata dalla corrente in entrata.<br>
+O no?</article>
+<article class="post" id="p3114"><div class="who"><b>pascal</b><span>23 dic 2009, 1:39</span></div>La corrente viene inviata o estratta da un nodo con un generatore esterno per cui nel punto confluiscono cinque rami.</article>
+<article class="post" id="p3115"><div class="who"><b>Stardust</b><span>23 dic 2009, 15:30</span></div>Visto che la corrente in entrata dal generatore ad un nodo A si divide in 4 parti uguali e quella in uscita dal nodo adiacente B è la somma di 4 correnti pari ciascuna a i/4 (A e B sono i punti contigui in cui viene applicata la differenza di potenziale V), si presume che lungo il ramo AB e attraverso la resistenza R compresa passi una corrente <br>
+<span class="tex">\(i_{AB}=i_{tot}/4\)</span>.<br>
+La caduta di potenziale di questo ramo è <span class="tex">\(R\;i_{AB}=V\)</span>. <br>
+Collegando il generatore si crea un parallelo tra la resistenza R e il resto della griglia infinita, per cui V è la ddp e pure la caduta di potenziale di R e della resistenza complessiva data dalla parte rimenente della griglia.<br>
+Si può scrivere:<br>
+<span class="tex">\(V=R_e\;i_{tot}=R\;{\frac{i_{tot}}{4}}\)</span>.<br>
+Da ciò a me viene:<br>
+<span class="tex">\(R_e=R/4\)</span>. <br>
+Non capisco cosa significhi quel "sommare gli effetti" scritto da Senior: forse sbaglio nel calcolare la corrente tra A e B?<br>
+Chi mi dà una mano?</article>
+<article class="post" id="p3116"><div class="who"><b>Pigkappa</b><span>23 dic 2009, 15:44</span></div><blockquote><div><cite>Stardust ha scritto:</cite>forse sbaglio nel calcolare la corrente tra A e B?</div></blockquote>
+
+Sì, sbagli. Giustifica <strong class="text-strong">tutto</strong> quello che dici. Perchè la corrente in entrata nel generatore in A si divide in 4 parti uguali (cosa che peraltro è falsa, se si applica una tensione <span class="tex">\(+V\)</span> ad A ed una tensione <span class="tex">\(-V\)</span>a B)?</article>
+<article class="post" id="p3117"><div class="who"><b>Stardust</b><span>23 dic 2009, 15:59</span></div>In effetti non ho una giustificazione valida per la divisione della corrente in parti uguali su ogni ramo...<br>
+Però non saprei nemmeno immaginare una distribuzione diversa della corrente.<br>
+Se su A e su B si applicano rispettivamente voltaggi +V e -V, allora l'intera ddp diventa<br>
+<span class="tex">\(ddp=2V\)</span>.<br>
+In ogni caso si rischia non poca confusione tra la V che ho usato io precedentemente come differenza di potenziale complessiva data dal generatore e la V indicata da Pigkappa. Converrebbe usare una notazione comune?</article>
+<article class="post" id="p3118"><div class="who"><b>Pigkappa</b><span>23 dic 2009, 16:07</span></div>Vabbè, non ha importanza, diciamo che ad A applichiamo <span class="tex">\(V/2\)</span> ed a B <span class="tex">\(-V/2\)</span>. Come avevo detto, la soluzione di Senior è giusta ma (volutamente) non ha spiegato tutto nei dettagli, a voi il compito di ricostruirla!</article>
+<article class="post" id="p3125"><div class="who"><b>pascal</b><span>23 dic 2009, 23:46</span></div>Nel procedimento di Senior in A entra dall’esterno una corrente 4i, che per simmetria si divide in parti uguali “i” nelle quattro resistenze  partenti da A e nel contempo da B vi è assenza di corrente. Se invece in A non si introduce corrente, mentre si preleva una corrente 4i da B, vuol dire per simmetria che ciascuna R collegata in B è attraversata dalla corrente “i”. Quando 4i viene immessa in A ed estratta in B, le due situazioni precedenti si sovrappongono. Pertanto nella R tra A e B deve circolare 2i e si ottiene <span class="tex">\(V_{AB}=2Ri\)</span>; risulta che la resistenza della rete tra A e B vale <span class="tex">\(R_{AB}= V_{AB}/(4i)=R/2\)</span>.</article>
+<article class="post" id="p3126"><div class="who"><b>Pigkappa</b><span>24 dic 2009, 0:38</span></div>Ok, lo dico con altre parole in modo da essere ancor più sicuri che si capisca.<br>
+<br>
+Analizziamo prima questo problema. Nella griglia infinita, il punto A è a potenziale <span class="tex">\(+ V/2\)</span> (perchè in tale punto è collegato qualcosa che impone che ci sia quel potenziale); agli altri punti non è attaccato niente. Allora evidentemente una corrente I scorre da A verso gli altri punti, e, per simmetria, tale corrente si divide in parti uguali ad <span class="tex">\(I/4\)</span> sui quattri cavi uscenti da A che fanno parte della griglia.<br>
+<br>
+Adesso analizziamo questo problema. Nella griglia infinita, il punto B è a potenziale <span class="tex">\(- V/2\)</span> (perchè in tale punto è collegato qualcosa che impone che ci sia quel potenziale); agli altri punti non è attaccato niente. Allora evidentemente una corrente I scorre dagli altri punti verso B, e, in modo analogo a prima, tale corrente viene, in parti uguali ad I/4, dai quattri cavi entranti in B che fanno parte della griglia.<br>
+<br>
+Adesso sovrapponiamo i due problemi. La corrente nel cavo che collega A e B è di <span class="tex">\(I/4 + I/4 = I/2\)</span>, perchè la corrente si somma linearmente e nelle due configurazioni precedenti la corrente era di <span class="tex">\(I/4\)</span> ed andava nello stesso verso (da A verso B); la corrente uscente dal punto A è <span class="tex">\(I\)</span> e quella entrante in B è <span class="tex">\(I\)</span>. Il potenziale di A è <span class="tex">\(V/2\)</span> e quello di B è <span class="tex">\(-V/2\)</span>, perchè anche per il potenziale vale la sovrapposizione lineare. Quindi la situazione è esattamente quella che si verifica quando un tester mette i due punti a potenziale <span class="tex">\(\pm V/2\)</span> e misura la corrente <span class="tex">\(I\)</span> che scorre tra i due punti per misurare la resistenza equivalente <span class="tex">\(V/I\)</span> del circuito. Calcolando la differenza di potenziale tra i due punti passando per il ramo che connette A a B si ha <span class="tex">\(V = R * I/2\)</span> da cui troviamo <span class="tex">\(V/I = R/2\)</span>.</article>
+<article class="post" id="p3128"><div class="who"><b>Gauss91</b><span>24 dic 2009, 2:43</span></div>Se invece si impone potenziale <span class="tex">\(V\)</span>, si trova <span class="tex">\(V/I = R/4\)</span>, se si pone uguale a <span class="tex">\(2V\)</span>, si trova <span class="tex">\(V/I = R/8\)</span>.<br>
+Come la mettiamo?  :?</article>
+<article class="post" id="p3130"><div class="who"><b>Senior</b><span>24 dic 2009, 10:29</span></div><blockquote><div><cite>Gauss91 ha scritto:</cite>Se invece si impone potenziale <span class="tex">\(V\)</span>, si trova <span class="tex">\(V/I = R/4\)</span>, se si pone uguale a <span class="tex">\(2V\)</span>, si trova <span class="tex">\(V/I = R/8\)</span>.<br>
+Come la mettiamo? :?</div></blockquote>
+Ma Pigkappa non ha parlato di differenza di potenziale tra i punti A e B?<br>
++V  in A  ;          -V  in B ;     la ddp tra A e B vale ........</article>
+<article class="post" id="p3131"><div class="who"><b>pascal</b><span>24 dic 2009, 13:16</span></div>Ho una mia opinione, ma vorrei conoscere la vostra: la corrente che entra in A senza uscire da B, dove viene estromessa dalla rete?</article>
+<article class="post" id="p3132"><div class="who"><b>Gauss91</b><span>24 dic 2009, 13:19</span></div>ops! ho sbagliato a postare a quell'ora! ahah!</article>
+<article class="post" id="p3135"><div class="who"><b>Stardust</b><span>25 dic 2009, 15:17</span></div>Davvero interessante questo utilizzo della sovrapposizione degli effetti di due configurazioni differenti! Mi sembrava un problema impossibile... Ma non lo è, per fortuna!<br>
+A questo punto è legittimo domandarsi se si può fare un ragionamento simile anche se i punti considerati non sono adiacenti, come nella simpatica vignetta linkata nella pagina precedente. <br>
+Si potrebbe pensare che, dopo essere stata immessa nel punto A, <br>
+ad ogni nodo la corrente si divida ancora in tre porzioni uguali uscenti; <br>
+analogamente avviene anche per la corrente uscente da B, e scegliendo il percorso<br>
+più breve tra A e B sommare gli effetti, magari ottenendo un nuovo valore <br>
+della resistenza equivalente. Non ci ho ancora provato, ma magari si potrebbe ottenere una <br>
+formula generale in grado di descrivere la situazione per un qualunque numero di nodi di distanza tra A e B. <br>
+P.S.: Buon Natale!</article>
+<article class="post" id="p3136"><div class="who"><b>pascal</b><span>25 dic 2009, 15:45</span></div>Non intendo i punti particolari di uscita della corrente, ma le zone della griglia in cui avviene il fenomeno. Ho pensato semplicemente che l’applicazione di un potenziale positivo in A rispetto all’infinito deve trasportare la corrente verso i bordi infiniti della rete (al polo negativo o a terra). Se in B si stabilisce un potenziale di segno contrario e si sopprime la precedente tensione, la stessa corrente deve entrare dall’infinito per fluire in B. Pilotando la rete con i due potenziali, la corrente che entra in A esce soltanto da B.<br>
+La spiegazione della resistenza fra due nodi contigui è concettualmente disagevole, ma formalmente accessibile.<br>
+Nella rete ho trovato, all'indirizzo <a href="http://www.hep.princeton.edu/~mcdonald/examples/EM/atkinson_ajp_67_486_99.pdf" class="ext" class="postlink">http://www.hep.princeton.edu/~mcdonald/ ... 486_99.pdf</a>, una trattazione tesa a determinare la resistenza tra due nodi qualsiasi, anche per configurazioni simmetriche diverse, ma il livello è troppo ostico ed avanzato per le esigenze del forum.</article>
+<article class="post" id="p3138"><div class="who"><b>Stardust</b><span>25 dic 2009, 18:59</span></div>Ho visto il pdf, ed è davvero esagerato...<br>
+Meglio abbandonare gli insani propositi avventatamente esposti poco fa e tornare sul seminato.<br>
+Comunque se la corrente i/2 entra solo da A e fluisce solo in B, la restante metà si disperde <br>
+semplicemente nel resto della rete. Si potrebbe dire che se si considerano punti sempre<br>
+più distanti da A o B, misurandone il potenziale, esso finisce col tendere a meno infinito? <br>
+O forse non si possono avere certezze dato che non si può determinare il verso della corrente, <br>
+che cambia direzione da un nodo all'altro?</article>
+<article class="post" id="p3140"><div class="who"><b>pascal</b><span>26 dic 2009, 15:50</span></div>La corrente che si diffonde nella rete, dividendosi nel suo tragitto, si diluisce, per cui la somma delle tensioni, quando ci si allontana indefinitamente dal punto di iniezione, deve rimanere finita.<br>
+<br>
+Vorrei commentare un punto che mi sembra abbastanza delicato a cui avevo già accennato e che in seguito ho soppresso.<br>
+Scomponiamo la rete nella resistenza R tra A e B e la parte rimanente C.<br>
+La corrente i, insufflata dal generatore in A, si divide in 3i/4 che penetra in C direttamente e i/4 che si introduce in C dopo aver attraversato AB. La corrente i, estratta col generatore in B, proviene da C direttamente per la frazione 3i/4 e indirettamente per un valore i/4, dopo essere transitata per AB.<br>
+La sovrapposizione delle due situazioni produce una corrente i che dal generatore entra in A, dove si scinde nella parte (3/4-1/4)i=i/2, che si sparpaglia in C, e nella porzione (1/4+1/4)i=i/2 che passa per AB. La corrente i, che torna al generatore dal nodo B, è formata da i/2 che scorre in R e da  (3/4-1/4)i=i/2 che restituisce C.<br>
+<br>
+Proposta: adattare il procedimento a reti esagonali e triangolari (esagoni scomposti in triangoli equilateri)  per determinare la resistenza equivalente tra nodi attigui.</article>
+<nav class="pager"><a class="prev" href="olifis-6445.html"><small>← precedente</small>109. Satellite</a><a class="next" href="olifis-927.html"><small>successivo →</small>Sfera carica divisa</a></nav>
+</main></body></html>

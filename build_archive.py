@@ -20,7 +20,25 @@ FORUMS = {
     'olifis': 'https://www.olifis.it/forum.olifis.it/viewtopic.php',
     'oliforum': 'http://www.oliforum.it/viewtopic.php',
 }
-MATHJAX_FILE = 'tex-svg-full.js'  # the full build: every TeX extension is inside, nothing is loaded later
+SITE_NAME = 'Archivio del forum Olifis'
+# figures from the forum's front page, November 2026
+FORUM_STATS = {'topics': '2.622', 'posts': '19.681', 'members': '1.529', 'last': '2026'}
+# sections of chosen discussions; their topics are listed in selezioni.json and were downloaded to raw/sezioni/<folder>
+SECTIONS = [
+    {'key': 'teorici', 'folder': 'problemi-teorici', 'page': 'problemi-teorici.html', 'total': 1463,
+     'title': 'Problemi teorici',
+     'lede': 'La sezione più grande del forum: problemi di fisica proposti, risolti e discussi dagli utenti. Qui le discussioni migliori, al di là dei problemi di ammissione alla Normale.',
+     'card': 'Le discussioni migliori della sezione più grande del forum: problemi proposti, risolti e discussi.'},
+    {'key': 'olimpiadi', 'folder': 'olimpiadi-di-fisica', 'page': 'olimpiadi.html', 'total': 251,
+     'title': 'Olimpiadi di Fisica',
+     'lede': 'Le gare italiane e internazionali raccontate da chi le ha preparate e fatte: prove, problemi, preparazione, risultati.',
+     'card': 'Le gare italiane e internazionali, raccontate da chi le ha fatte.'},
+    {'key': 'caffe', 'folder': 'caffe', 'page': 'caffe.html', 'total': 266,
+     'title': 'Caffè',
+     'lede': 'La sezione per parlare di tutto il resto: libri, università, carriera, curiosità di fisica e non solo.',
+     'card': 'Libri, università, curiosità: le chiacchiere migliori del forum.'},
+]
+MATHJAX_FILE ='tex-svg-full.js'  # the full build: every TeX extension is inside, nothing is loaded later
 MATHJAX_URL = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/' + MATHJAX_FILE
 
 # Old posts mix Latin-1 bytes into UTF-8 pages: decode those bytes as cp1252 rather than losing them.
@@ -322,13 +340,13 @@ def fetch_image(url):
 CSS = """
 :root {
   --bg:#f7f6f2; --paper:#ffffff; --fg:#1c1b19; --muted:#6d6a63; --faint:#9b978e; --line:#e4e1d8;
-  --link:#1d5ea8; --accent:#9a3412; --chip:#eef2f7; --chip-fg:#1d4f8c; --quote:#f3f1ec;
+  --link:#1d5ea8; --accent:#2e6b2b; --chip:#e9f2e6; --chip-fg:#2e6b2b; --quote:#f3f1ec;
   --serif: Charter, "Bitstream Charter", "Iowan Old Style", Cambria, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root {
   --bg:#141416; --paper:#1c1c1f; --fg:#e7e5e0; --muted:#a19e96; --faint:#77746d; --line:#2e2e33;
-  --link:#86b6ef; --accent:#f0a376; --chip:#22303f; --chip-fg:#a9cdf5; --quote:#232327; } }
+  --link:#86b6ef; --accent:#8fcf86; --chip:#1f3320; --chip-fg:#a6dc9c; --quote:#232327; } }
 * { box-sizing:border-box; }
 html { -webkit-text-size-adjust:100%; }
 body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.6 var(--serif); }
@@ -390,6 +408,22 @@ mjx-container [data-mml-node="merror"] { fill:currentColor !important; stroke:no
 .chips a:hover { outline:2px solid var(--chip-fg); }
 .chips a.ext { background:transparent; border:1px solid var(--line); color:var(--muted); font-weight:500; }
 .chips a.ext::after { content:none; }
+.cards { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:14px; margin:28px 0 8px; }
+.card { display:flex; flex-direction:column; gap:6px; padding:16px 18px; background:var(--paper); border:1px solid var(--line); border-radius:10px;
+        text-decoration:none; color:var(--fg); font:14px/1.5 var(--sans); }
+.card:hover { border-color:var(--chip-fg); }
+.card b { font:600 19px/1.25 var(--serif); color:var(--link); }
+.card span { color:var(--muted); }
+.card .count { margin-top:auto; font-size:12px; color:var(--faint); }
+.card.big { grid-column:1 / -1; padding:22px 24px; border-color:var(--chip-fg); background:var(--chip); }
+.card.big b { font-size:24px; color:var(--chip-fg); }
+.card .kicker { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--chip-fg); }
+ul.picks { list-style:none; padding:0; margin:0; }
+ul.picks li { padding:14px 0; border-top:1px solid var(--line); }
+ul.picks li:first-child { border-top:none; }
+ul.picks a { font-size:18px; font-weight:600; text-decoration:none; }
+ul.picks .when { display:block; font:12px var(--sans); color:var(--faint); margin-top:2px; }
+ul.picks p { margin:6px 0 0; font-size:15px; color:var(--muted); }
 details { margin-top:8px; }
 details summary { cursor:pointer; font:600 15px var(--sans); color:var(--fg); padding:8px 0; }
 details p { font:14px var(--sans); color:var(--muted); }
@@ -403,7 +437,7 @@ def page(title, body, depth, dollar, crumb=''):
     up = '../' * depth
     inline = "[['\\\\(','\\\\)'],['[tex]','[/tex]']" + (",['$','$']" if dollar else '') + ']'
     display = "[['\\\\[','\\\\]']" + (",['$$','$$']" if dollar else '') + ']'
-    top = f'<a href="{up}index.html">Archivio SNS · forum Olifis</a>' + (f'<span class="crumb">{crumb}</span>' if crumb else '')
+    top = f'<a href="{up}index.html">{SITE_NAME}</a>' + (f'<span class="crumb">{crumb}</span>' if crumb else '')
     return f"""<!doctype html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title><link rel="stylesheet" href="{up}assets/style.css">
@@ -508,11 +542,31 @@ def main():
     print(f'{len(wanted)} linked topics ({sum(1 for f, _ in wanted if f == "olifis")} on Olifis, {sum(1 for f, _ in wanted if f == "oliforum")} on OliForum)')
     # topics added by hand: extra_topics.json
     extra = json.loads((ROOT / 'extra_topics.json').read_text(encoding='utf8'))
-    extra_keys = [('olifis', e['t']) for e in extra['fisica'] + extra['chimica_biologia']] + [('olifis', t) for t in extra['orali']]
+    extra_keys = ([('olifis', e['t']) for e in extra['fisica'] + extra['chimica_biologia']]
+                  + [('olifis', t) for t in extra['orali'] + extra['preparazione']])
     for k in extra_keys:
         if k not in wanted:
             wanted.append(k)
     print(f'{len(extra_keys)} topics added from extra_topics.json')
+    # chosen discussions from whole sections: selezioni.json; their pages were already downloaded to raw/sezioni/
+    sel_file = ROOT / 'selezioni.json'
+    selections = json.loads(sel_file.read_text(encoding='utf8')) if sel_file.exists() else {}
+    for sec in SECTIONS:
+        for e in selections.get(sec['key'], []):
+            k = ('olifis', e['t'])
+            if not raw_path(*k, 0).exists():
+                for f in (RAW / 'sezioni' / sec['folder']).glob(f't{e["t"]}_s*.html'):
+                    (RAW / 'olifis').mkdir(parents=True, exist_ok=True)
+                    (RAW / 'olifis' / f.name).write_bytes(f.read_bytes())
+            if k not in wanted:
+                wanted.append(k)
+    # any topic already downloaded with its whole section is copied rather than fetched again
+    for forum, t in wanted:
+        if forum == 'olifis' and not raw_path(forum, t, 0).exists():
+            for f in (RAW / 'sezioni').glob(f'*/t{t}_s*.html'):
+                (RAW / 'olifis').mkdir(parents=True, exist_ok=True)
+                (RAW / 'olifis' / f.name).write_bytes(f.read_bytes())
+    excluded_posts = {pid for sec in selections.values() if isinstance(sec, list) for e in sec for pid in e.get('escludi', [])}
     errors = {}
     if not args.build:
         for n, (forum, t) in enumerate(wanted, 1):
@@ -527,6 +581,7 @@ def main():
     topics = {}
     for forum, t in [('olifis', INDEX_TOPIC)] + wanted:
         title, posts = load_topic(forum, t)
+        posts = [p for p in posts if p['id'] not in excluded_posts]  # spam, listed in selezioni.json
         if posts:
             topics[(forum, t)] = {'title': title or f'Discussione {t}', 'posts': posts}
         else:
@@ -571,10 +626,12 @@ def main():
         for e in entries:
             by_year.setdefault(e['year'], []).append((e['n'], f'{FORUMS["olifis"]}?t={e["t"]}'))
         num = lambda link: (0, int(link[0])) if link[0].isdigit() else (1, 0)
-        return [(y, sorted(by_year[y], key=num)) for y in sorted(by_year, key=lambda y: (y[0].isdigit(), y))]
+        # most recent year first, rows without a year at the end
+        return [(y, sorted(by_year[y], key=num)) for y in sorted(by_year, key=lambda y: (0, -int(y[:4])) if y[0].isdigit() else (1, 0))]
 
     idx['fisica'] = merge(idx['fisica'], extra['fisica'])
     idx['chimica_biologia'] = merge([], extra['chimica_biologia'])
+    idx['matematica'] = merge(idx['matematica'], [])
     # reading order for the previous / next links: the physics list, year by year
     order, crumbs = [], {}
     for year, links in idx['fisica']:
@@ -589,6 +646,16 @@ def main():
             crumbs.setdefault(k, f'Chimica e biologia {year}' + (f', problema {label}' if label.isdigit() else ''))
     for t in extra['orali']:
         crumbs.setdefault(('olifis', t), 'Orali')
+    for t in extra['preparazione']:
+        crumbs.setdefault(('olifis', t), "Prepararsi all'ammissione")
+    crumbs = {k: f'<a href="../sns.html">{c}</a>' for k, c in crumbs.items()}
+    # previous / next: the physics list for the admission problems, the page's order for each section
+    sequence = {k: order for k in order}
+    for sec in SECTIONS:
+        seq = [('olifis', e['t']) for e in selections.get(sec['key'], []) if ('olifis', e['t']) in topics]
+        for k in seq:
+            crumbs.setdefault(k, f'<a href="../{sec["page"]}">{sec["title"]}</a>')
+            sequence.setdefault(k, seq)
     plain = lambda s: html.escape(html.unescape(re.sub('<[^>]+>', '', s)))
 
     for (forum, t), v in topics.items():
@@ -602,10 +669,11 @@ def main():
         for i, p in enumerate(v['posts']):
             body.append(f'<article class="post{" first" if i == 0 else ""}" id="p{p["id"]}"><div class="who"><b>{html.escape(p["author"])}</b><span>{html.escape(p["date"])}</span></div>'
                         f'{rw.content(forum, p["content"])}</article>')
-        if k in order:
-            i = order.index(k)
-            prev_ = f'<a class="prev" href="{topic_pages[order[i - 1]]}"><small>← precedente</small>{plain(topics[order[i - 1]]["title"])}</a>' if i > 0 else ''
-            next_ = f'<a class="next" href="{topic_pages[order[i + 1]]}"><small>successivo →</small>{plain(topics[order[i + 1]]["title"])}</a>' if i + 1 < len(order) else ''
+        if k in sequence:
+            seq = sequence[k]
+            i = seq.index(k)
+            prev_ = f'<a class="prev" href="{topic_pages[seq[i - 1]]}"><small>← precedente</small>{plain(topics[seq[i - 1]]["title"])}</a>' if i > 0 else ''
+            next_ = f'<a class="next" href="{topic_pages[seq[i + 1]]}"><small>successivo →</small>{plain(topics[seq[i + 1]]["title"])}</a>' if i + 1 < len(seq) else ''
             body.append(f'<nav class="pager">{prev_}{next_}</nav>')
         (SITE / 't' / topic_pages[k]).write_text(page(plain(v['title']), '\n'.join(body), 1, forum == 'oliforum', crumbs.get(k, '')), encoding='utf8')
 
@@ -624,9 +692,11 @@ def main():
         return '<table class="years">' + ''.join(f'<tr><td class="y">{y}</td><td>{chips(l)}</td></tr>' for y, l in rows) + '</table>'
 
     listed = {key_of(h) for _, links in idx['fisica'] + idx['matematica'] + idx['chimica_biologia'] for _, h in links}
-    listed |= {('olifis', t) for t in extra['orali']}
-    orali = ''.join(f'<li><a href="t/{topic_pages[("olifis", t)]}">{plain(topics[("olifis", t)]["title"])}</a></li>'
-                    for t in extra['orali'] if ('olifis', t) in topics)
+    listed |= {('olifis', t) for t in extra['orali'] + extra['preparazione']}
+    listed |= {('olifis', e['t']) for sec in SECTIONS for e in selections.get(sec['key'], [])}
+    li = lambda ts: ''.join(f'<li><a href="t/{topic_pages[("olifis", t)]}">{plain(topics[("olifis", t)]["title"])}</a></li>'
+                            for t in ts if ('olifis', t) in topics)
+    orali, preparazione = li(extra['orali']), li(extra['preparazione'])
     others = [k for k in topics if k not in listed and k != ('olifis', INDEX_TOPIC)]
     others_html = ''
     if others:
@@ -634,7 +704,7 @@ def main():
         others_html = f'<h2>Altre discussioni collegate</h2><p class="notes">Segnalate nelle risposte alla discussione originale, ma non nell\'elenco per anno.</p><ul class="others">{items}</ul>'
     total_posts = sum(len(v['posts']) for v in topics.values())
     n_problems = len(order)
-    years = sorted(y for y, _ in idx['fisica'] if y[0].isdigit())
+    years = sorted(y for y, _ in idx['fisica'] if y[0].isdigit())  # oldest first, for the range shown
     notes = rw.content('olifis', idx['notes']).replace('href="olifis-', 'href="t/olifis-').replace('href="oliforum-', 'href="t/oliforum-')
     body = f"""<h1>Problemi di ammissione alla Normale, con le soluzioni</h1>
 <p class="lede">Le discussioni del forum delle Olimpiadi di Fisica sui problemi delle prove di ammissione alla Scuola Normale Superiore di Pisa, raccolte anno per anno.</p>
@@ -647,6 +717,9 @@ def main():
 <h2>Orali</h2>
 <p class="notes">Domande e problemi raccontati da chi ha fatto l'esame orale di ammissione.</p>
 <ul class="others">{orali}</ul>
+<h2>Prepararsi all'ammissione</h2>
+<p class="notes">Consigli su come e quanto prepararsi, chiesti e dati sul forum.</p>
+<ul class="others">{preparazione}</ul>
 <h2>Matematica</h2>
 <details><summary>Elenco dei problemi di matematica ({sum(len(l) for _, l in idx['matematica'])})</summary>
 <p>Le soluzioni di matematica sono sul forum delle Olimpiadi di Matematica, che resta aperto: i link portano lì.</p>
@@ -657,7 +730,54 @@ def main():
 <p>Note dalla discussione originale:</p><p>{notes}</p></div>
 """
     body = body.replace(f'{total_posts:,}', f'{total_posts:,}'.replace(',', '.'))
-    (SITE / 'index.html').write_text(page('Archivio SNS · forum Olifis', body, 0, False), encoding='utf8')
+    (SITE / 'sns.html').write_text(page('Problemi di ammissione alla Normale · ' + SITE_NAME, body, 0, False), encoding='utf8')
+
+    # pages of chosen discussions, one per forum section
+    def years_of(k):
+        ys = sorted({int(m) for p in topics[k]['posts'] for m in re.findall(r'\b(20\d\d|19\d\d)\b', p['date'])})
+        return '' if not ys else (str(ys[0]) if ys[0] == ys[-1] else f'{ys[0]}–{ys[-1]}')
+
+    cards = []
+    for sec in SECTIONS:
+        entries = [e for e in selections.get(sec['key'], []) if ('olifis', e['t']) in topics]
+        groups = {}
+        for e in entries:
+            groups.setdefault(e.get('tema', ''), []).append(e)
+        parts = []
+        for tema, es in groups.items():
+            if tema:
+                parts.append(f'<h2>{html.escape(tema)}</h2>')
+            items = []
+            for e in es:
+                k = ('olifis', e['t'])
+                n = len(topics[k]['posts'])
+                items.append(f'<li><a href="t/{topic_pages[k]}">{plain(topics[k]["title"])}</a>'
+                             f'<span class="when">{years_of(k)} · {n} messaggi</span>'
+                             f'<p>{html.escape(e.get("nota", ""))}</p></li>')
+            parts.append('<ul class="picks">' + ''.join(items) + '</ul>')
+        sbody = (f'<h1>{sec["title"]}</h1><p class="lede">{sec["lede"]}</p>'
+                 f'<p class="meta">{len(entries)} discussioni scelte su {sec["total"]} della sezione</p>' + ''.join(parts))
+        (SITE / sec['page']).write_text(page(f'{sec["title"]} · {SITE_NAME}', sbody, 0, False), encoding='utf8')
+        cards.append((sec, len(entries)))
+
+    sns_card = (f'<a class="card big" href="sns.html"><span class="kicker">In evidenza</span><b>Problemi di ammissione alla Normale</b>'
+                f'<span>I problemi di fisica delle prove di ammissione alla Scuola Normale Superiore di Pisa dal 1960 al {years[-1][-4:]}, '
+                f'quasi tutti risolti e discussi sul forum: {len(order)} discussioni, ordinate anno per anno.</span></a>')
+    other_cards = ''.join(f'<a class="card" href="{s["page"]}"><b>{s["title"]}</b><span>{s["card"]}</span>'
+                          f'<span class="count">{n} discussioni</span></a>' for s, n in cards if n)
+    home = f"""<h1>{SITE_NAME}</h1>
+<p class="lede">Dal 2009 il forum delle Olimpiadi di Fisica, su forum.olifis.it, è stato il luogo dove studenti, insegnanti ed ex olimpionici
+discutevano di problemi di fisica, di gare e di tutto il resto. Questa è una copia statica di una selezione delle sue discussioni, fatta nel {time.strftime('%Y')}
+prima della chiusura del forum.</p>
+<div class="cards">{sns_card}{other_cards}</div>
+<h2>Il forum in numeri</h2>
+<div class="stats"><span><b>{FORUM_STATS['topics']}</b>discussioni</span><span><b>{FORUM_STATS['posts']}</b>messaggi</span><span><b>{FORUM_STATS['members']}</b>iscritti</span><span><b>2009–{FORUM_STATS['last']}</b>anni</span></div>
+<h2>Questo archivio</h2>
+<div class="notes"><p>Ogni pagina riproduce una discussione del forum com'era, con autori, date, formule e immagini. Le formule sono mostrate con MathJax e il sito funziona anche senza connessione.
+Alcune immagini, caricate su servizi esterni che le hanno cancellate, sono andate perse.</p>
+<p>L'archivio non è un sito ufficiale dell'AIF né della Scuola Normale Superiore. Copia fatta il {time.strftime('%d/%m/%Y')}.</p></div>
+"""
+    (SITE / 'index.html').write_text(page(SITE_NAME, home, 0, False), encoding='utf8')
 
     report = {'topics': len(topics), 'posts': total_posts, 'errors': errors,
               'images_missing': sorted(rw.missing_images)}

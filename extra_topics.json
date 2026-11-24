@@ -23,6 +23,7 @@
   {"t": 861, "year": "2010-2011", "n": "5"},
   {"t": 557, "year": "2010-2011", "n": "6"},
   {"t": 624, "year": "2010-2011", "n": "?"},
+  {"t": 6172, "year": "2015-2016", "n": "tutti"},
   {"t": 6393, "year": "2016-2017", "n": "tutti"},
   {"t": 6536, "year": "2017-2018", "n": "4"},
   {"t": 6533, "year": "2017-2018", "n": "5"},
@@ -52,7 +53,9 @@
   {"t": 6116, "year": "2013-2014", "n": "?"},
   {"t": 6033, "year": "2014-2015", "n": "?"}
  ],
- "orali": [432, 6226],
+ "orali": [130, 432, 6226],
+ "_preparazione": "Advice on preparing for the admission tests, from the Caffè section: shown on the admission page.",
+ "preparazione": [271, 735, 290, 1500],
  "esclusi": {
   "6035": "not about the SNS: 'derivata normale'",
   "6409": "SNS 2016 n.6: no problem text and no replies",

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Squadra IPhO 2009</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../caffe.html">Caffè</a></span></nav>
+<h1>Squadra IPhO 2009</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=107">forum Olifis</a></p>
+<article class="post first" id="p1003"><div class="who"><b>Davide90</b><span>18 mag 2009, 15:48</span></div>Chiedo ai diretti interessati se possono annunciare la squdra delle IPho di quest'anno...<br>
+So dal forum delle olimat che il buon Ippo (contrariamente a ogni mia previsione  :lol: ) è passato...<br>
+E gli altri 4?</article>
+<article class="post" id="p1004"><div class="who"><b>Alex90</b><span>18 mag 2009, 15:53</span></div>Bisognava organizzare il Toto-Ipho!!<br>
+<br>
+edit: comunque io punto sui 4 ori + fedor</article>
+<article class="post" id="p1005"><div class="who"><b>stp</b><span>18 mag 2009, 16:11</span></div>Giuliano Chiriacò<br>
+Matteo Ippoliti<br>
+Ludovico Lami<br>
+Stefano Rulli<br>
+Vittorio Sala</article>
+<article class="post" id="p1006"><div class="who"><b>Alex90</b><span>18 mag 2009, 16:12</span></div>Beh 4/5 mica male  :D <br>
+<br>
+Comunque un grande in bocca al lupo a tutti e 5!!Tenete alto l'onore italiano in Messico!!</article>
+<article class="post" id="p1008"><div class="who"><b>CoNVeRGe.</b><span>18 mag 2009, 16:38</span></div>Grandissimi!  :D  Buona preparazione a tutti! <br>
+<br>
+Qualcuno sa dirmi chi è Stefano Rulli in <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/naz0901.jpg" class="ext" class="postlink">questa foto ?</a><br>
+<br>
+Fedor l'hanno respinto così si arrabbia e il prossimo anno sfonda tutto. A proposito di prossimo anno.. si prospetta lo squadrone! <br>
+<br>
+<br>
+P.S.=qualcuno può postare i problemi del pre-ipho?</article>
+<article class="post" id="p1010"><div class="who"><b>Rigel</b><span>18 mag 2009, 17:11</span></div>Mi spiace molto per Fedor che secondo me meritava tantissimo di andare in Messico, ma probabilmente si rifarà alla grande gli anni prossimi.<br>
+Agli altri quattro iphoisti dico congratulazioni, preparatevi per bene e occhio ai circuiti LC!  :D <br>
+
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Qualcuno sa dirmi chi è Stefano Rulli in <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/naz0901.jpg" class="ext" class="postlink">questa foto ?</a>
+</div></blockquote>
+Il terzo da sinistra.
+<blockquote><div><cite>CoNVeRGe. ha scritto:</cite>P.S.=qualcuno può postare i problemi del pre-imo?</div></blockquote>
+Intendi pre-ipho ;) . Ci vorrebbe parecchio tempo a scriveli per bene col latex, quindi magari ti dico gli argomenti: il primo problema riguardava l'emissione di fotoni da parte di un atomo di He dopo l'urto con un atomo di H; il secondo era su un conduttore cilindrico cavo e sulla forza di Lorentz; il terzo riguardo all'accelerazione centripeta di un'automobile che percorre un dosso sinusoidale. la sperimentale era di 3 ore e bisognava costruire diversi sistemi ottici con una lente convergente, uno specchio piano e dei liquidi (uno era acqua, un altro era incognito); diciamo che il testo diceva lo scopo dell'esperienza, ma i metodi di misura erano lasciati all'inventiva dei partecipanti.</article>
+<article class="post" id="p1018"><div class="who"><b>Ippo</b><span>18 mag 2009, 21:17</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>A proposito di prossimo anno.. si prospetta lo squadrone! </div></blockquote>
+È esattamente quello che ho pensato anch'io  :mrgreen: <br>
+Mi dispiace un sacco per Fedor, sarebbe stato - correggetemi se sbaglio - il primo italiano ad andare alle IPhO in terza  :shock:  Io in terza sono stato segato alle crocette, per dire  :lol: Ma non dubito che nei prossimi due anni si riprenderà quello che gli è sfuggito stavolta, con gli interessi   ;) <br>
+
+<blockquote><div><cite>Rigel ha scritto:</cite>il primo problema riguardava l'emissione di fotoni da parte di un atomo di He dopo l'urto con un atomo di H; il secondo era su un conduttore cilindrico cavo e sulla forza di Lorentz; il terzo riguardo all'accelerazione centripeta di un'automobile che percorre un dosso sinusoidale. la sperimentale era di 3 ore e bisognava costruire diversi sistemi ottici con una lente convergente, uno specchio piano e dei liquidi (uno era acqua, un altro era incognito); diciamo che il testo diceva lo scopo dell'esperienza, ma i metodi di misura erano lasciati all'inventiva dei partecipanti.</div></blockquote>
+
+Riassumo i quesiti un po' più nel dettaglio:<br>
+<br>
+1.1 C'è un fascio di atomi di H (massa: 1u) che collide con degli atomi di He (massa: 4u); l'elio è a bassa temperatura e pressione: gli atomi sono praticamente fermi e ciascun H collide con un solo He. Trovare il minimo valore della velocità v del fascio di atomi H per cui si ha emissione di fotoni.<br>
+1.2 In questo caso, dire qual'è la differenza di lunghezza d'onda tra la luce osservata lungo la direzione di v, nei due versi possibili.<br>
+<br>
+2.1 Un conduttore cilindrico cavo di lunghezza L ha raggio interno a e raggio esterno b ed è attraversato da una densità di corrente j uniforme. Si dimostri che in ogni punto dello spazio il campo magnetico ha solo componente radiale.<br>
+2.2 Determinare il valore del campo magnetico in ogni punto dello spazio, distinguendo i casi r&lt;a, a&lt;r&lt;b, r&gt;b (r è la distanza dall'asse del cilindro)<br>
+2.3 Una particella di massa m e carica q parte con velocità v a distanza d dall'asse del conduttore. Assumendo che v si mantenga costante e che sia abbastanza grande da avere una deflessione piccola, determinare di quanto devia la particella percorrendo la lunghezza L (trascurare gli effetti di bordo)<br>
+<br>
+3.1 Un tratto di strada si può schematizzare con una cosinusoide di ampiezza 0.5m e lunghezza 100m (da un massimo a quello successivo); un'automobile che percorre questa strada ha al suo interno una molla di costante elastica k che sorregge una massa di 100kg. La lettura della bilancia in condizioni "normali" è P=980N; se l'automobile si muove con velocità v=15m/s costante per tutto il tratto di strada in questione, esprimere la lettura W della bilancia in funzione del tempo. Le oscillazioni della molla vengono smorzate rapidamente.<br>
+<br>
+(li ho trascritti a memoria, potrei aver perso dei pezzi e/o scritto cose sbagliate  :mrgreen: )</article>
+<article class="post" id="p1053"><div class="who"><b>giove</b><span>22 mag 2009, 21:20</span></div><blockquote><div><cite>Rigel ha scritto:</cite><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>P.S.=qualcuno può postare i problemi del pre-imo?</div></blockquote>
+Intendi pre-ipho ;)</div></blockquote>
+No no, vogliamo sapere i problemi del preIMO!!! :P<br>
+<br>
+Comunque complimentissimi e in bocca al lupo! :D</article>
+<article class="post" id="p1054"><div class="who"><b>Alex90</b><span>22 mag 2009, 21:39</span></div><blockquote><div><cite>giove ha scritto:</cite>
+No no, vogliamo sapere i problemi del preIMO!!! :P</div></blockquote>
+
+Vedi di farli bene quelli che ho scommesso su di te al TotoImo!  :D</article>
+<article class="post" id="p1056"><div class="who"><b>Rigel</b><span>22 mag 2009, 22:03</span></div><blockquote><div><cite>giove ha scritto:</cite>
+No no, vogliamo sapere i problemi del preIMO!!! :P
+</div></blockquote>
+Tanto non ne hai bisogno  :D . in bocca al lupo e vedi di non deludere le aspettative di noi fisici  :P</article>
+<article class="post" id="p1074"><div class="who"><b>Carmelo</b><span>24 mag 2009, 13:58</span></div>sottintesi i complimenti (ovvi) e un arrivederci a tutti all'anno prossimo  8-) <br>
+[anche se per quello x adesso incorciamo le dita]<br>
+<br>
+chissà se c'è modo di recuperare i testi esatti dei problemi pre IPhO... io lo avevo chiesto alla Cavaggioni lassù a Trieste e le era sembrata una buona idea...<br>
+o almeno, un'idea che non avrebbe fatto del male a nessuno  :D <br>
+<br>
+non ne avete per caso discusso tra i cinque, nella sessione di allenamento on-line?</article>
+<article class="post" id="p1076"><div class="who"><b>Rigel</b><span>24 mag 2009, 20:00</span></div><blockquote><div><cite>Carmelo ha scritto:</cite>non ne avete per caso discusso tra i cinque, nella sessione di allenamento on-line?</div></blockquote>
+Uhm... no, fino ad oggi non c'è stato nessuna sessione on-line. Credo che sia per farci riposare un pò... ed è pure giusto  ;) <br>
+Se vuoi posso fare una foto ai testi (non ho lo scanner  :roll: ) e spedirteli via e-mail o con msn se mi dai il contatto.</article>
+<article class="post" id="p1078"><div class="who"><b>Alex90</b><span>24 mag 2009, 20:59</span></div>Ma mettiamoli pure sul sito per il bene di tutti gli utenti!  :D</article>
+<article class="post" id="p1186"><div class="who"><b>CoNVeRGe.</b><span>1 giu 2009, 15:53</span></div>Ho letto sul sito che Ludovico Lami ha abbandonato il posto per impegnarsi agli esami di stato (... :roll: ).<br>
+<br>
+Al suo posto Paolo Comaschi, ovvero Paolo90 del forum, complimenti e buona fortuna anche a lui!  :D</article>
+<nav class="pager"><a class="prev" href="olifis-11.html"><small>← precedente</small>Auguri!</a><a class="next" href="olifis-6246.html"><small>successivo →</small>gli isolani dagli occhi blu</a></nav>
+</main></body></html>

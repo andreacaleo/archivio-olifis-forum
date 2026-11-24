@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consigli e libri per la preparazione olimpica.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../olimpiadi.html">Olimpiadi di Fisica</a></span></nav>
+<h1>Consigli e libri per la preparazione olimpica.</h1>
+<p class="meta">102 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=13">forum Olifis</a></p>
+<article class="post first" id="p26"><div class="who"><b>memedesimo</b><span>11 gen 2009, 22:32</span></div><strong class="text-strong">Nota</strong>: nonostante l'autore del post sia memedesimo, questo post e' compilato da Pigkappa. Per domande o suggerimenti su modifiche scrivete qua (preferibilmente), oppure mandatemi un messaggio. I link per alcuni libri potrebbero non riferirsi all'edizione piu' recente: cercate online prima di acquistare.<br>
+<br>
+<span style="font-size: 150%; line-height: normal"><strong class="text-strong">Testi di studio per la teoria.</strong></span><br>
+I seguenti testi sono indicati per una preparazione di livello liceale e pre-universitaria. Il materiale che vi si trova copre la teoria di base ed è più che sufficiente per affrontare le Olimpiadi Italiane di Fisica, se unito ad un solido allenamento nella risoluzione di problemi.<br>
+<br>
+<strong class="text-strong">T.1) Fondamenti di Fisica, Halliday, Resnick e Walker.</strong><br>
+Si tratta di un libro di testo di fisica che esiste in una versione più semplice, che viene usata anche nei licei (Fondamenti di Fisica, che si può integrare con Fisica Moderna), ed in una versione più avanzata (divisa in Fisica 1 e Fisica 2), che a volte è usata nei corsi di Fisica per Ingegneria. E' un testo abbastanza semplice, ed è probabilmente il più adatto a cominciare a studiare fisica, anche se fa un leggero uso del calcolo differenziale ed integrale. Gli esercizi di fine capitolo sono molto buoni per prendere la mano con gli argomenti del libro, e sono generalmente di livello compreso tra la fase di Dicembre e quella di Febbraio delle Olimpiadi. Se non è la Bibbia delle Olimpiadi, poco ci manca.<br>
+<br>
+<strong class="text-strong">T.2) Le dispense di Fabio Zoratti.</strong><br>
+Queste <a href="https://uz.sns.it/~OrsoBruno96/dispense_olimpiadi.pdf" class="ext" class="postlink">dispense</a> sono state scritte da OrsoBruno96, vincitore delle medaglie di bronzo e d'argento alle IPhO del 2014 e 2015, con la collaborazione di altri studenti che hanno partecipato alle Olimpiadi Italiane di Fisica in passato. Presentano molti argomenti essenziali di matematica e fisica in forma condensata e sono corredate da un'ampia gamma di problemi e soluzioni.<br>
+<br>
+<strong class="text-strong">T.3) <a href="https://stagefisica.sns.it/lezioni/" class="ext" class="postlink">Lezioni dello <em class="text-italics">Stage di Fisica a Pisa</em></a></strong><br>
+In questa pagina web è presente il materiale prodotto durante lo Stage di Fisica in preparazione alle Olimpiadi organizzato da un gruppo di studenti della Normale ex-olimpionici. Si tratta di documenti PDF con parti teoriche, problemi e soluzioni, spesso corredati con la videoregistrazione della lezione stessa. Lo stage è pensato come approfondimento per chi ha già una certa esperienza nelle olimpiadi, quindi potrebbe risultare un po' difficile per chi è alle prime armi. Contiene anche delle lezioni di Analisi che possono essere istruttive per chi non la conosce. Lo stage non è identico ogni anno, ma si possono trovare lezioni su argomenti diversi nelle varie edizioni.<br>
+<br>
+<strong class="text-strong">T.4) La fisica di Feynman. (In inglese The Feynman Lectures on Physics).</strong><br>
+Si tratta del testo scritto da Feynman mettendo insieme le lezioni di un suo corso. Al suo interno sono spiegate le idee che stanno dietro a molti degli argomenti di fisica, e spesso si trovano metodi originali e rapidi per affrontare problemi di vario genere. E' un testo interessante per il contenuto e per lo stile, che va ben oltre alle conoscenze necessarie per le Olimpiadi (soprattutto nel 2° e 3° volume). Non è scritto per insegnare a risolvere problemi e non contiene esercizi. Io consiglio il testo in inglese, ma, se non vi sentite sicuri, potete ricorrere al testo tradotto per la Zanichelli.<br>
+<br>
+<strong class="text-strong">T.5) La fisica di Berkeley.</strong><br>
+Si tratta di un testo classico, che ha ormai una quarantina d'anni, ma ne mostra molti di meno. Io consiglio i primi due volumi, da leggere parallelamente ad, oppure al termine di, un libro più classico, come il T.1 o il T.2.<br>
+Il primo volume riguarda la meccanica e tratta in modo particolarmente accurato la relatività ristretta, rispetto agli altri testi del suo tipo. E' ricco di esempi utili e di letture interessanti, ad un livello intermedio tra il liceo e l'università.<br>
+Il secondo volume (2.1 e 2.2) tratta l'elettromagnetismo in modo abbastanza classico. Le cose sono spiegate ad un livello più alto dell'Halliday, facendo uso anche di strumenti di analisi vettoriale (gradiente, rotore, laplaciano), che sono presentati dallo stesso testo ma lo rendono un testo difficile come primo approccio all'elettromagnetismo. Anche in questo caso sono presenti molti esempi utili e letture interessanti, e il testo contiene anche problemi che potrebbero servire per le Olimpiadi (l'ultimo capitolo è dedicato interamente ai problemi). Usa il sistema di unità di misura CGS.<br>
+Il terzo volume tratta le onde e le oscillazioni, ad un livello più alto di quello che serve per le Olimpiadi, anche se molte sue parti sono interessanti e comprensibili già al liceo. <br>
+Il quarto ed il quinto volume trattano temi di fisica quantistica e statistica ad un livello quasi universitario, e sono materiale molto avanzato per le Olimpiadi.<br>
+<br>
+<strong class="text-strong">T.6) Fisica generale 1 e 2, Rosati.</strong><br>
+Il Rosati è un altro libro che viene consigliato per i corsi di laurea in Ingegneria, come l'Halliday. Talvolta è anche consigliato a Fisica. Rispetto all'Halliday è un po' più completo ed avanzato, ed alcuni preferiscono iniziare con questo. Si divide in due testi, Fisica Generale 1 e 2.<br>
+Oltre a questo, ci sono altri libri dello stesso tipo, come il Mazzoldi (1 e 2) ed il Picasso (1 e 2). Per studiare la teoria va bene un po' qualsiasi libro tra questi l'Halliday e' un po' piu' chiaro ma a volte questi approfondiscono di piu'. Gli eserciziari non sono particolarmente stimolanti: spesso gli esercizi sono cervellotici o pieni di conti facili ma lunghi, non sono particolarmente interessanti e sono più semplici di quelli che poi vengono dati a Senigallia, alle IPHO ed ai primi esami universitari.<br>
+<br>
+<strong class="text-strong">T.7) I testi di Giovanni Tonzig.</strong><br>
+I libri di Giovanni Tonzig trattano la fisica del liceo facendo uso di poca matematica avanzata. Sono testi molto adatti alla preparazione delle Olimpiadi, contengono un buon numero di problemi di livello molto variabile e trattano approfonditamente argomenti spesso bistrattati a scuola, come l'attrito, la fisica del vapore, la meccanica rotazionale.<br>
+<br>
+<br>
+<br>
+<span style="font-size: 150%; line-height: normal"><strong class="text-strong">Link a raccolte di problemi ed eserciziari.</strong></span><br>
+In questa sezione indichiamo delle raccolte di problemi tratti dalle Olimpiadi (italiane e non), dai concorsi di ammissione alle scuole di eccellenza, da esami universitari e da testi di studio per l'università.<br>
+<br>
+<strong class="text-strong">E.1) <a href="http://www.olifis.it/" class="ext" class="postlink">Il sito delle olimpiadi italiane.</a></strong> Difficoltà: variabile tra molto facile e difficile.<br>
+Ovviamente questo sito lo conoscete già, ma non sottovalutatelo come risorsa. Ci sono ormai oltre 15 edizioni delle Olimpiadi, cioè oltre 15 prove di Dicembre, 15 prove di Febbraio e 15 gare nazionali. E' un ottimo punto di partenza, e quando dovete prendere parte ad una fase delle gare è consigliabile aver fatto tutti i problemi usciti precedentemente relativi a quella fase. Nella pagina del 2001 sono stati pubblicati anche i testi della gara per la selezione della squadra IPHO (il problema 3 è molto utile; gli altri due sono IPHO tradotti).<br>
+<br>
+<strong class="text-strong">E.2) <a href="http://www.libreriauniversitaria.it/olimpiadi-fisica-problemi-gare-italiane/libro/9788808091147" class="ext" class="postlink">Le olimpiadi della fisica.</a></strong> Difficoltà: variabile tra molto facile e molto difficile.<br>
+Il titolo completo è "Le olimpiadi della fisica. Problemi dalle gare italiane e internazionali.". Si tratta del libro scritto da Giuliana Cavaggioni, Dennis Luigi Censi, Francesco Minosso, Paolo Nesti ed Umberto Penco che raccoglie una selezione di problemi (con soluzioni dettagliate) presi dalle gare italiane ed internazionali. I problemi presi dalle gare italiane sono diversi da quelli che trovate sul sito del link precedente, perchè quelli del libro vengono da prima del 1995. Quelli presi da gare internazionali, invece, li trovate anche nel link successivo, ma la soluzione riportata sul libro è spesso più chiara e precisa di quella presente sul sito (alcune di quelle che si trovano online non sembrano neanche molto corrette).<br>
+<br>
+<strong class="text-strong">E.3) <a href="https://ipho-unofficial.org/" class="ext" class="postlink">Il sito delle olimpiadi internazionali di fisica.</a></strong>  Difficoltà: variabile tra media e molto difficile.<br>
+In questo sito si trovano problemi delle passati edizioni delle Olimpiadi Internazionali di Fisica. <em class="text-italics">Non sono consigliati solo a chi vuole vincere le IPHO</em>. Il livello nel corso degli anni è aumentato, e buona parte dei problemi delle IPHO vecchie potrebbe essere adatto ad una gara di Senigallia di questi ultimi anni. Sono problemi estremamente istruttivi, e farli richiede  impegno e dedizione, ma ne vale la pena. Negli ultimi anni purtroppo è cresciuta a dismisura la tendenza a dare problemi molto lunghi, molto contosi e con poche idee, perciò consiglio di non cominciare dagli anni più recenti, ma da quelli più vecchi. (Nota di pigkappa: ho linkato un sito non ufficiale perche' il link al sito ufficiale non funziona piu'... Se qualcuno ha una fonte migliore, mi faccia sapere.)<br>
+<br>
+<strong class="text-strong">E.4) I problemi di Fisica della Scuola Normale.</strong> Difficoltà: variabile tra facile e difficile.<br>
+E' il libro che raccoglie alcuni problemi (con le soluzioni) del test di ammissione della Scuola Normale Superiore. Sono problemi un po' diversi da quelli delle Olimpiadi, ma molti di loro sono interessanti e non banali. Ovviamente è particolarmente consigliato per chi vuole entrare in una qualche scuola di eccellenza in cui è previsto un test di fisica. Sul sito della Normale si trovano anche tutti gli altri problemi dal 1960 ad oggi, ma senza soluzione. Alcune soluzioni possono essere trovate a partire da <a href="olifis-228.html" class="postlink">qui</a>.<br>
+<br>
+<strong class="text-strong">E.5) Gli esercizi di David Morin.</strong> Difficoltà: variabile tra media e molto difficile.<br>
+Il libro di meccanica classica di David Morin, che rientra anche tra i testi di approfondimento consigliati, è ricchissimo di esercizi (ci sono circa 250 problemi risolti e 350 non risolti) molto belli ed istruttivi. Il link in fondo alla pagina che presenta il suo libro porta ad una novantina di problemi, la maggior parte dei quali proviene dal suo libro.<br>
+Si tratta di materiale un po' avanzato per le Olimpiadi, ma se sapete bene l'Halliday e volete provare qualcosa di più difficile, potete partire da questo testo.<br>
+<br>
+<strong class="text-strong">E.6) <a href="http://www.df.unipi.it/~cella/uegbook/uegbook.pdf" class="ext" class="postlink">Un esercizio al giorno.</a></strong> Difficoltà: variabile tra facile e difficile.<br>
+Questa e' una raccolta di esercizi di meccanica e termodinamica di Giancarlo Cella, esercitatore di Fisica 1 e 2 a Pisa. Anche in questo caso si tratta di problemi di difficoltà molto variabile, in media un po' più facili che gli esercizi di David Morin. Una parte sono abbastanza adatti anche per le Olimpiadi. Non sono ordinati per difficoltà, perciò non lasciatevi scoraggiare dalla soluzione del primo esercizio.<br>
+<br>
+<strong class="text-strong">E.7) 200 Puzzling Physics Problems</strong> and <strong class="text-strong">200 More Puzzling Physics Problems.</strong><br>
+Sono due libri ognuno dei quali presenta 200 problemi belli ed originali su vari argomenti della fisica, in buona parte olimpici, con soluzioni dettagliate. I problemi sono particolarmente consigliati per la preparazione alle EUPhO.<br>
+<br>
+<strong class="text-strong">E.8) <a href="https://physoly.tech/" class="ext" class="postlink">Physics Olympiad Hub</a>.</strong><br>
+Questo sito raccoglie le soluzioni ai problemi delle dispense di Jaan Kalda per le IPhO scritte dagli studenti e collaboratori che gestiscono il sito. Inoltre contiene traduzioni in inglese di problemi presi da varie gare nazionali e internazionali, brevi dispense di argomenti particolari come la Lagrangiana e una raccolta dei problemi del giorno pubblicati sul canale discord del sito. Il livello è generalmente alto.<br>
+<br>
+<br>
+<span style="font-size: 150%; line-height: normal"><strong class="text-strong">Testi di approfondimento.</strong></span><br>
+In questa sezione vi indichiamo alcuni testi che potete usare per approfondire la teoria su alcuni settori che vi interessano particolarmente. Si tratta in buona parte di materiale universitario, la cui conoscenza non è richiesta per affrontare le Olimpiadi, e l'approccio migliore per ben figurare (e per entrare nelle scuole di eccellenza) è quello di fare molti problemi e non di studiare molti libri.<br>
+<br>
+<strong class="text-strong">A.1) Introduction to classical mechanics, di David Morin.</strong><br>
+Se siete curiosi di scoprire cosa è la forza di Coriolis e come si usano i quadrivettori, questo è il testo che fa per voi.<br>
+Si tratta di un testo molto bello e interessante che tratta la meccanica in modo molto chiaro e preciso, senza tralasciare gli aspetti delicati (come il moto dei corpi rigidi e quello degli oscillatori accoppiati). Le spiegazioni sono ineccepibili. E' probabilmente il testo migliore per studiare meccanica al primo anno di Fisica. E' anche un testo ricchissimo di problemi (vedi sopra). <br>
+Per le Olimpiadi, alcuni degli argomenti sono trattati in modo un po' avanzato. Non è un testo adatto per cominciare: prima conviene sapere almeno la meccanica dell'Halliday. Potete trovare alcuni capitoli del libro come esempio alla <a href="https://scholar.harvard.edu/david-morin/books" class="ext" class="postlink">pagina di David Morin</a>.<br>
+<br>
+<strong class="text-strong">A.2) Introduction to Electrodynamics, di David J. Griffiths.</strong><br>
+Se si mette una carica puntiforme di fronte ad una sfera di metallo, come sara' il potenziale nello spazio? A cosa serve davvero il vettore di Poynting? Questo libro contiene le risposte.<br>
+Il testo di elettrodinamica di Griffiths è uno dei testi migliori per una introduzione all'elettromagnetismo a livello universitario. Tratta gli argomenti classici dei corsi di elettromagnetismo in modo chiaro e relativamente completo (un paio di argomenti di base, tra cui i circuiti in corrente alternata, all'università si fanno nei corsi di laboratorio e non di elettrodinamica, e non sono presenti in questo testo), facendo ampio uso degli strumenti dell'analisi vettoriale necessari. Alcuni problemi di fine paragrafo e capitolo sono interessanti e non ovvi. Contiene anche una introduzione alla relatività ristretta molto valida. Non è un testo adatto per cominciare: prima conviene sapere l'elettromagnetismo dell'Halliday. <br>
+Un testo di elettrodinamica ancora piu' avanzato e difficile, consigliato per il corso del secondo anno in Normale, e' il Classical Electrodynamics di Jackson.<br>
+<br>
+<strong class="text-strong">A.3) Libri di astronomia.</strong><br>
+L'astronomia coinvolge quasi tutti gli argomenti di fisica delle Olimpiadi. <strong class="text-strong">Astronomy Today</strong> di Chaisson e McMillan e' un libro di testo americano per studenti universitari che studiano materie scientifiche, ma non fisica. E' eccezionalmente chiaro e completo, evita di fare molti calcoli ma presenta le equazioni piu' importanti e tutti i concetti. Cercando su abebooks.it si possono trovare versioni usate a prezzo ridotto.<br>
+<strong class="text-strong">An introduction to modern astrophysics</strong>, di Carroll e Ostlie e' l'Halliday dell'astrofisica. Il livello è quello di una laurea triennale. Fa relativamente poco uso di conoscenze avanzate, ma fa parecchi conti e richiede parecchio impegno.<br>
+Altri testi meno completi, meno chiari e più tecnici, ma gratuiti ed in italiano, sono le <a href="https://adlibitum.oats.inaf.it/monaco/Dispense/dispense.pdf" class="ext" class="postlink">dispense di Paolo Monaco</a> (università di Trieste) e le <a href="http://www.df.unipi.it/~paolic/dispense.html" class="ext" class="postlink">dispense di Paolo Paolicchi</a> (università di Pisa). Le <a href="http://www.df.unipi.it/~penco/Astronomia/index_astr.html" class="ext" class="postlink">Lezioni di astronomia</a> di Umberto Penco trattano in particolare problemi di meccanica celeste (orbite di corpi celesti) con tutti i dettagli matematici del caso. <br>
+Flavio Salvati, uno studente che ha rappresentato l'Italia sia alle Olimpiadi di Astronomia (IAO) che alle IPhO, ha scritto <a href="https://www.amazon.it/dp/B07ZLK6PCF" class="ext" class="postlink">un libro di teoria ed esercizi</a> per le IAO, e un <a href="https://www.fondamentiastronomia.com/" class="ext" class="postlink">sito</a> con estratti del libro. Buona parte del programma delle IAO e' richiesto anche alle IPhO.<br>
+<br>
+<strong class="text-strong">A.4) <a href="https://bitbucket.org/lbaldini/statnotes/wiki/Home" class="ext" class="postlink">Introduzione all’analisi dei dati.</a></strong><br>
+Si tratta del testo di Laboratorio di Fisica usato a Pisa per i corsi del primo anno. Il primi due capitoli sono un'introduzione su misure, incertezze e grafici. Successivamente vengono trattati vari argomenti di statistica: come propagare l'errore in casi semplici e complessi, come trattare vari tipi di distribuzione, come stimare l'incertezza su una misura, come eseguire un fit a partire da un certo numero di dati, il tutto integrato con esempi di codice Python per fare i conti e i grafici al computer. È un buon testo e spiega le cose in modo semplice, ove possibile. Per alcune parti è richiesta la conoscenza di derivate ed integrali.<br>
+<br>
+<strong class="text-strong">A.5) Termodinamica, di Fermi.</strong><br>
+Il testo di termodinamica di Fermi è un classico. Tratta le cose in un modo più generale di quello che si fa solitamente per le Olimpiadi, e non pone l'accento sugli esercizi (ce n'è qualcuno, ma sono poco entusiasmanti) ma solo sulla teoria. <br>
+<br>
+<strong class="text-strong">A.6) Lezioni di meccanica quantistica, di Luigi Picasso.</strong><br>
+Il testo di lezioni di meccanica quantistica di Luigi Picasso e' consigliato per il terzo anno di laurea in fisica a Pisa. La trattazione comincia con molti esempi dei problemi concettuali e risultati sperimentali che hanno portato a far nascere la meccanica quantistica, e procede con una trattazione un po' piu' semplice della maggioranza degli altri testi. E' consigliato per chi ha un buon fondamento di fisica classica (servono meccanica, termodinamica, elettromagnetismo e ottica) e vuole una introduzione universitaria alla meccanica quantistica.<br>
+<br>
+<br>
+<span style="font-size: 150%; line-height: normal"><strong class="text-strong">Varie ed eventuali.</strong></span><br>
+<br>
+<strong class="text-strong">V.1) Make It Stick: The Science of Successful Learning, di Peter Brown e altri.</strong><br>
+Questo libro (in inglese) non e' un testo di fisica, ma mette insieme ricerche nel campo della psicologia ed esperienze di persone di successo per descrivere quali siano le tecniche di studio piu' efficaci. Tra le altre cose, il libro spiega che il modo migliore di studiare comprende ripassare frequentemente argomenti passati in modo attivo, cioe' non rileggendo vecchio materiale ma sforzandosi di richiamarlo alla memoria autonomamente; e che e' essenziale fare esercizi e problemi, ma facendo attenzione a non dedicarsi a una serie di esercizi tutti uguali tra loro in un breve intervallo di tempo. Nella mia esperienza, i ragazzi che ottengono ottimi risultati alle Olimpiadi e poi all'Universita' studiano in questo modo, anche se talvolta lo fanno senza rendersene conto. Leggere questo libro vi puo' aiutare ad usare il tempo che dedicate allo studio nel modo piu' efficace possibile.<br>
+<br>
+<strong class="text-strong">V.2) <a href="http://www.libreriauniversitaria.it/luna-park-fisica-619-domande/libro/9788808033048" class="ext" class="postlink">Il Luna Park della Fisica.</a></strong><br>
+Questo libretto elenca 600 fenomeni strani dal punto di vista fisico. In fondo al libro ci sono dei suggerimenti su come trovare le risposte, quando è possibile farlo (alcuni sono veramente difficili da spiegare, e neanche l'autore ci riesce). Non è un testo che aiuta molto a vincere le Olimpiadi visto che affronta le cose solo da un punto di vista qualitativo, ma è comunque molto interessante. Walker è uno degli autori del primo libro consigliato in questa pagina.<br>
+<br>
+<strong class="text-strong">V.3) <a href="https://www.ioc.ee/~kalda/ipho/" class="ext" class="postlink">Study guides for IPhO-s</a></strong><br>
+Questa è una pagina web gestita da Jaan Kalda, il leader della squadre estone delle IPhO, nonchè direttore delle EUPhO. Contiene dispense, formulari, raccolte di problemi, consigli... Tutto il materiale è preparato appositamente per concorrenti delle olimpiadi. <br>
+Esiste anche una <a href="https://www.facebook.com/IPhOStudyGuides/" class="ext" class="postlink">pagina Facebook</a> dove vengono pubblicati aggiornamenti sul materiale e curiosità varie.<br>
+<br>
+<br>
+<br>
+<span style="font-size: 150%; line-height: normal"><strong class="text-strong">Come procurarsi i libri.</strong></span><br>
+<br>
+Ci sono diversi modi che potete usare per procurarvi i libri:<br>
+1)Comprarli online. Ci sono molti siti affidabili su cui cercare l'offerta più conveniente; usate Google. Io ho acquistato senza problemi da amazon (it, com e uk), libreriauniversitaria, play.com, bol.it, abebooks (it, com e uk). Alcuni testi sono disponibili in versione e-book per e-readers, ma nella mia esperienza questi dispositivi sono piu' adatti a libri senza figure complicate e equazioni.<br>
+2)Comprarli in libreria, anche usati. Se abitate in una città universitaria esistono apposite librerie universitarie che vendono il libro che cercate o se lo possono procurare. Si trovano anche librerie che comprano e rivendono libri usati.<br>
+3)Fotocopiarli. Questo metodo è illegale e pertanto ne scoraggiamo l'uso. Se abitate in una città universitaria è possibile che esistano dei negozi in cui vendono libri interi fotocopiati.<br>
+4)Averli sul computer. Questo metodo è illegale e pertanto ne scoraggiamo l'uso. Di alcuni testi esistono le versioni .pdf o .djvu che si possono trovare su certi siti, leggere sul computer ed eventualmente stampare.<br>
+<br>
+Alcuni dei libri consigliati qui sono facili da trovare, altri sono più problematici. Se avete dei dubbi su come procurarvi uno dei testi consigliati sopra, chiedete qua.<br>
+<br>
+<span style="font-size: 150%; line-height: normal"><strong class="text-strong">Come si vincono le Olimpiadi di Fisica?</strong></span><br>
+<br>
+Non esiste un percorso lineare che porta uno studente a vincere le Olimpiadi Italiane di Fisica e partecipare alle IPhO. Tuttavia, le tappe principali per molti studenti sono le seguenti:<br>
+<strong class="text-strong">1.)</strong> Lo studente, che chiameremo Angela, ottiene buoni risultati in fisica e matematica a scuola.<br>
+<strong class="text-strong">2.)</strong> Ad un certo punto, forse dopo aver participato ad una delle prime fasi delle Olimpiadi Italiane di Fisica oppure dopo una partecipazione fortuita a Senigallia in classe terza o quarta, Angela decide che e' interessata alla fisica e vuole competere seriamente.<br>
+<strong class="text-strong">3.)</strong> Angela si informa su come fare a diventare piu' brava chiedendo ad altri ragazzi che hanno partecipato alle Olimpiadi, andando sul forum delle Olimpiadi, oppure chiedendo ad uno dei suoi insegnanti.<br>
+<strong class="text-strong">4.)</strong> Seguendo il consiglio che riceve piu' spesso, Angela si procura un libro di fisica che copra il resto del materiale che ancora non ha potuto studiare a scuola (probabilmente l'Halliday). Angela studia vari argomenti futuri dal libro, riguarda argomenti precedenti, e intanto fa esercizi tratti dalle fasi provinciali e nazionale delle Olimpiadi Italiane di Fisica.<br>
+<strong class="text-strong">5.)</strong> Quando i problemi le sembrano facili, Angela prova ad affrontare alcuni problemi delle Olimpiadi Internazionali di Fisica. Si accorge che questi problemi sono molto piu' lunghi e complessi, ed in qualche caso richiedono l'uso di tecniche piu' avanzate di quelle che conosce. Spesso e' quasi indispensabile aver visto un problema simile a quello che si sta provando a risolvere.<br>
+<strong class="text-strong">6.)</strong> Se non l'ha gia' studiata a scuola, Angela studia l'analisi (derivate ed integrali), perche' si accorge che questi argomenti sono menzionati molto spesso nei problemi difficili. In particolare, scopre che aver capito i concetti principali dell'analisi rende piu' facile risolvere anche problemi che in teoria si possono risolvere senza l'analisi.<br>
+<strong class="text-strong">7.)</strong> Angela ha finalmente tutti gli strumenti che le servono per competere nelle Olimpiadi. Affronta molti problemi tratti dalle Olimpiadi Internazionali, dalla raccolta di problemi della Scuola Normale Superiore e da altre fonti che trova interessanti.<br>
+<br>
+Ognuno dei 7 punti elencati ha richiesto uno sforzo attivo da parte di Angela, e non e' scontato che lei si renda conto di dover fare questo sforzo. La maggior parte degli studenti di liceo si limita a studiare quel che viene richiesto dai loro insegnanti, senza decidere autonomamente di approfondire un argomento molto piu' in profondita'. La realta' e' che, per avere successo nel resto della propria vita, avere un ottimo livello di competenza in dieci materie diverse, le stesse dieci per tutti gli studenti della classe, e' decisamente peggio che essere bravini in nove materie e stratosferici in una. Accorgersi di questo fatto prima di andare all'universita' e' una delle cose migliori che possano accadere ad un ragazzo.<br>
+<br>
+Gli ultimi due step elencati sopra sono particolarmente complessi perche' richiedono di fare molti problemi e studiare materiale che non e' univocamente determinato. Ogni studente che arriva alle IPhO ha una preparazione diversa: c'e' chi ha fatto tutti i problemi delle IPhO ma non ha mai aperto un testo di teoria piu' avanzato dell'Halliday, c'e' chi e' molto bravo di matematica e sa bene tutta la fisica spiegata a scuola ma non ha mai visto argomenti particolari come la diffrazione o la relativita', c'e' chi si e' studiato una serie di tecniche universitarie ma non ha fatto molti problemi dalle edizioni precedenti. Quello che quasi tutti loro hanno in comune e' la curiosita' di imparare la fisica e l'aver fatto una certa quantita' di preparazione indipendente.</article>
+<article class="post" id="p27"><div class="who"><b>Pigkappa</b><span>11 gen 2009, 22:50</span></div>Anche se il gusto è un po' diverso da quello olimpico, si possono menzionare i <a href="http://www.pangloss.it/libro.php?isbn=880809877X&amp;id=8624&amp;PHPSESSID=e1f9e96f9557a0f5355aef53e5ba905a" class="ext" class="postlink">Problemi di ammissione della Normale</a>. Poi c'è il libro delle <a href="http://www.libreriauniversitaria.it/olimpiadi-fisica-problemi-gare-italiane/libro/9788808091147" class="ext" class="postlink">Olimpiadi della Fisica</a>: anche se quasi tutti i problemi che sono lì si possono trovare anche su internet, ci sono alcuni vecchi problemi di Senigallia che non sono sul sito e ci sono le soluzioni scritte bene di alcuni IPHO vecchi che avevano soluzioni ufficiali pressochè illeggibili.</article>
+<article class="post" id="p28"><div class="who"><b>gdp</b><span>11 gen 2009, 23:00</span></div><a href="http://www.physicsolympiads.com/album/" class="ext" class="postlink">http://www.physicsolympiads.com/album/</a><br>
+<br>
+Qui si possono trovare alcuni problemi delle APhO (Asian Physics Olympiads) e di gare americane.<br>
+Il livello è simile a quello delle IPhO.</article>
+<article class="post" id="p54"><div class="who"><b>andrea_u</b><span>13 gen 2009, 0:54</span></div>Aggiungerei questo libro, di esercizi di meccanica: <a href="http://www.sns.it/it/edizioni/collane/appunti/problemidimeccanica2/" class="ext" class="postlink">http://www.sns.it/it/edizioni/collane/a ... eccanica2/</a><br>
+<br>
+Però per avere più dettagli consultate persone più "giovani". Io non so cosa contenga esattamente.</article>
+<article class="post" id="p99"><div class="who"><b>Bolzo88</b><span>15 gen 2009, 0:19</span></div><blockquote><div><cite>andrea_u ha scritto:</cite>Aggiungerei questo libro, di esercizi di meccanica: <a href="http://www.sns.it/it/edizioni/collane/appunti/problemidimeccanica2/" class="ext" class="postlink">http://www.sns.it/it/edizioni/collane/a ... eccanica2/</a><br>
+<br>
+Però per avere più dettagli consultate persone più "giovani". Io non so cosa contenga esattamente.</div></blockquote>
+
+Mmh io lo sconsiglierei... la maggior parte dei problemi sono di livello decisamente elevato per chi vuole prepararsi per le olimpiadi. Inoltre spesso i testi sono poco comprensibili e le soluzioni peggio.</article>
+<article class="post" id="p139"><div class="who"><b>almeroni</b><span>21 gen 2009, 22:57</span></div>Un link in inglese, ho guardato solo il primo problema, mi sembra buono.<br>
+AM<br>
+<a href="http://collectionofphysicsproblems.blogspot.com/" class="ext" class="postlink">http://collectionofphysicsproblems.blogspot.com/</a></article>
+<article class="post" id="p574"><div class="who"><b>Pigkappa</b><span>22 mar 2009, 0:27</span></div>Un testo particolare che secondo me può essere interessante è <a href="http://www.libreriauniversitaria.it/luna-park-fisica-619-domande/libro/9788808033048" class="ext" class="postlink">Il luna park della fisica</a>. Si tratta di un libretto che elenca 600 fenomeni strani dal punto di vista fisico. In fondo ci sono dei suggerimenti su come trovare le risposte, quando è possibile farlo (alcuni sono veramente difficili da spiegare). Non è certo un testo adatto per le Olimpiadi visto che affronta le cose solo da un punto di vista qualitativo, ma è comunque molto interessante.</article>
+<article class="post" id="p578"><div class="who"><b>CoNVeRGe.</b><span>22 mar 2009, 19:34</span></div>Jearl Walker  :) <br>
+<br>
+Mi interessa molto il libro. Se ce l'hai potresti mica darmi un'idea-assaggio con una o due di queste domande/curiosità/fenomeni ?</article>
+<article class="post" id="p580"><div class="who"><b>Pigkappa</b><span>22 mar 2009, 22:56</span></div>Aprendo il libro a caso:<br>
+<br>
+2.31 - In equilibrio con la bicicletta<br>
+Come mantenete l'equilibrio su di una bicicletta? Quando intuite di essere sul punto di cadere, raddrizzate la bicicletta sterzando dalla parte verso la quale state cadendo? O è la bicicletta stessa che contribuisce per la maggior parte alla stabilizzazione? Essa deve in qualche modo contribuire alla stabilità perchè, se la spingete via senza che qualcuno ci sia sopra, non cade per quasi 20 secondi.<br>
+Come mantenete l'equilibrio e guidate la bicicletta quando andate senza mani? Supponete di starle vicino e di inclinaria verso destra. Da quale parte girerà la ruota davanti e perchè?<br>
+<br>
+4.29 - Bandiere che sventolano<br>
+Perchè il vento, anche un vento uniforme, fa sventolare le bandiere? Che cosa determina la frequenza dello sventolamento?<br>
+<br>
+6.20 - Bolle spostate da un campo magnetico<br>
+Un grosso magnete messo vicino a una livella a bolla da carpentiere forzerà la bolla a muoversi. Come può il campo magnetico fare una cosa simile? La bolla si muove verso il magnete o se ne allontana?<br>
+<br>
+6.28 - Fulmini e terremoti<br>
+Un terremoto può produrre cariche elettriche? I giapponesi hanno imparato che l'apparire di fulmini a cielo sereno è un segno di terremoto incombente. In effetti, lì e in altre zone, i terremoti sono accompagnati a volte sia da fulmini normali sia da fulmini globulari. Perchè mai ci dovrebbe essere una connessione tra i due fenomeni?</article>
+<article class="post" id="p1229"><div class="who"><b>Loren Kocillari89</b><span>7 giu 2009, 20:42</span></div><blockquote><div><cite>memedesimo ha scritto:</cite>
+<br>
+<br>
+<span style="font-size: 150%; line-height: normal"><strong class="text-strong">Testi di studio per la teoria</strong></span><br>
+<br>
+<strong class="text-strong">- Fondamenti di Fisica, Halliday, Resnick e Walker,  Zanichelli</strong><br>
+Si tratta di un libro di testo di fisica che esiste in una versione più semplice, che viene usata anche nei licei (<a href="http://www.libreriauniversitaria.it/fondamenti-fisica-meccanica-termologia-elettrologia/libro/9788840813318" class="ext" class="postlink">Fondamenti di Fisica</a>, che si può integrare con <a href="http://www.libreriauniversitaria.it/fondamenti-fisica-fisica-moderna-halliday/libro/9788840812038" class="ext" class="postlink">Fisica Moderna</a>), ed in una versione più avanzata (divisa in <a href="http://www.libreriauniversitaria.it/fisica-halliday-david-cea/libro/9788840812540" class="ext" class="postlink">Fisica 1</a> e <a href="http://www.libreriauniversitaria.it/fisica-2-halliday-david-cea/libro/9788840812793" class="ext" class="postlink">Fisica 2</a>), che a volte è usata nei primi corsi di Fisica per Ingegneria. E' un testo abbastanza semplice, ed è probabilmente il più adatto a cominciare a studiare fisica, anche se fa un leggero uso del calcolo differenziale ed integrale. Gli esercizi di fine capitolo sono molto buoni per prendere la mano con gli argomenti del libro, e sono generalmente di livello compreso tra la fase di Dicembre e quella di Febbraio delle Olimpiadi. 
+</div></blockquote>
+
+Riguardo a tale libro, dove è possibile ritrovare le soluzioni ai problemi? Ti viene dato un manuale quando lo vai a comperare?</article>
+<article class="post" id="p1230"><div class="who"><b>Alex90</b><span>7 giu 2009, 21:06</span></div>Che io sappia (almeno su quello "liceale") non ci sono le soluzioni, ma solo i risultati numerici</article>
+<article class="post" id="p1519"><div class="who"><b>Marta.92</b><span>8 lug 2009, 11:17</span></div>E sempre nell'Halliday liceale, ci sono anche dei risultati sbagliati... almeno nelle ultime edizioni è così</article>
+<article class="post" id="p1565"><div class="who"><b>Loren Kocillari89</b><span>13 lug 2009, 12:15</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Che io sappia (almeno su quello "liceale") non ci sono le soluzioni, ma solo i risultati numerici</div></blockquote>
+
+Il problema è che sul libro della 6 edizione le soluzioni numeriche sono solo quelle dei problemi dispari. Dove si possono reperire anche quelle pari??</article>
+<article class="post" id="p1998"><div class="who"><b>Loren Kocillari89</b><span>13 ago 2009, 23:51</span></div>Sapete dirmi qualcosa a riguardo del famoso libro di Kenneth Krane, Modern Physics, purtroppo solo in lingua originale, e in albanese per chi lo sapesse XD Sarei interessato a comprarlo però prima vorrei un vostro parere.</article>
+<article class="post" id="p2406"><div class="who"><b>Hope</b><span>5 set 2009, 18:18</span></div>Io non capisco il perchè nelle scuole ci sia Fisica di Amaldi nuova edizione<br>
+è un libro che fa veramente s#### ed è davvero incompleto su molti argomenti.</article>
+<article class="post" id="p2407"><div class="who"><b>Pigkappa</b><span>5 set 2009, 18:25</span></div>Mah, non lamentarti troppo, ci sono libri molto peggiorI. A scuola mia al triennio ne usavano uno orribile, che credo fosse <a href="http://www.libreriauniversitaria.it/modelli-realta-fisica-arte-comprendere/libro/9788839336637" class="ext" class="postlink">questo</a>. Io in quarta e in quinta mi sono rifiutato di comprarlo...</article>
+<article class="post" id="p2705"><div class="who"><b>Gia91</b><span>27 set 2009, 13:11</span></div>Ciao a tutti<br>
+avrei intenzione di comprare l'halliday. Frequento il quinto anno di scientifico PNI. L'anno scorso sono stato secondo del polo Catania1. Vorrei comprarlo per impegnarmi seriamente quest'anno per le olimpiadi (ho già iniziato quest'estate a fare seriamente problemi regionali e nazionali) e in parte anche perchè avrei intenzione l'anno prossimo di tentare per la Normale di Pisa o la Scuola Superiore di Catania e a quanto ho capito è un testo mooolto utile. Chiedo: devo comprare Fondamenti di fisica, quello usato nei licei, o la versione vera e propria? (<a href="http://www.libreriauniversitaria.it/fisica-halliday-david-cea/libro/9788840812540" class="ext" class="postlink">http://www.libreriauniversitaria.it/fis ... 8840812540</a>)<br>
+Grazie a tutti<br>
+un saluto</article>
+<article class="post" id="p2706"><div class="who"><b>Alex90</b><span>27 set 2009, 13:40</span></div>Se sai utilizzare decentemente derivate e integrali credo che tanto vale comprare direttamente il testo universitario  ;)</article>
+<article class="post" id="p2709"><div class="who"><b>eli9o</b><span>27 set 2009, 14:31</span></div>Anch'io consiglio di comprare quello universitario anche perché sei già in quinta e ormai un po' di analisi ti tocca  :) <br>
+Poi, nel primo libro, l'uso dell'analisi è piuttosto limitato. Nel secondo ce n'è un po' di più ma quando ci arrivi dovresti aver fatto qualcosa anche a scuola se devi ancora iniziare. Almeno nel mio caso è stato così. In bocca al lupo</article>
+<article class="post" id="p2712"><div class="who"><b>Gia91</b><span>27 set 2009, 15:43</span></div>Ok credo che prenderò quello universitario... ancora non sono molto pratico di analisi ma data la lentezza con cui procede la matematica nella mia classe so che dovrò fare tante cose da solo...<br>
+Grazie mille!</article>
+<article class="post" id="p2714"><div class="who"><b>Gia91</b><span>27 set 2009, 18:30</span></div>Sapreste dirmi qualcosa sul Serway? <a href="http://www.libreriauniversitaria.it/principi-fisica-serway-raymond-edises/libro/9788879594196" class="ext" class="postlink">http://www.libreriauniversitaria.it/pri ... 8879594196</a><br>
+Conviene questo o l'Halliday?</article>
+<article class="post" id="p2758"><div class="who"><b>Gia91</b><span>10 ott 2009, 18:00</span></div>Ho comprato l'halliday...davvero ottimo!  :D <br>
+Volevo chiedere se è possibile trovare le soluzioni ai problemi di numero pari...e dove in caso?<br>
+Grazie mille  :D</article>
+<article class="post" id="p3465"><div class="who"><b>franc3sc0</b><span>17 feb 2010, 22:06</span></div>Esistono percaso degli ebook disponibili online?<br>
+Quanto costa l'Halliday?</article>
+<article class="post" id="p3471"><div class="who"><b>f.o.x</b><span>18 feb 2010, 19:09</span></div>dipende da che volume vuoi (meccanica e termologia ad esempio) comunque si aggirano tutti intorno allo stesso prezzo (40€), a meno che non voglia il libro unico (77€). Comunque basta che guardi in internet, ad esempio puoi andare su libreria universitaria, io è li che l'ho ordinato.<br>
+<br>
+PS. ho dato per scontato che volessi il libro semplificato (fondamenti di fisica).</article>
+<article class="post" id="p4140"><div class="who"><b>Fedecart</b><span>14 mag 2010, 17:04</span></div><blockquote><div><cite>Gia91 ha scritto:</cite>
+Volevo chiedere se è possibile trovare le soluzioni ai problemi di numero pari...e dove in caso?
+</div></blockquote>
+
+Quoto in pieno. Sapete se per caso è possibile reperire online le oluzioni agli esercizi pari e ai quesiti dell' Halliday versione universitaria?</article>
+<article class="post" id="p4141"><div class="who"><b>Gauss91</b><span>14 mag 2010, 17:39</span></div>Io penso che l'unico modo, se non ti trovi con qualche problema che hai controllato bene bene, di postarlo qui... non penso che esistano soluzioni in giro :?</article>
+<article class="post" id="p4142"><div class="who"><b>Pigkappa</b><span>14 mag 2010, 18:26</span></div>Ho aggiunto il Griffiths, che secondo me è un ottimo testo per l'elettromagnetismo. <br>
+<br>
+Ci tengo comunque a sottolineare che non è necessario studiarsi tutti i libri consigliati lì; di solito la preparazione dei più bravi ("più bravi" = "quelli che entrano in SNS") consiste nel sapere bene la teoria di base (dall'Halliday o da qualche libro equivalente), nell'aver fatto tanti problemi e nel sapere una serie di altre cose sparse in qua e in là, e non consiste nell'aver studiato un sacco di libri.</article>
+<article class="post" id="p4327"><div class="who"><b>Darkarix</b><span>4 giu 2010, 14:11</span></div>Io ho i tre volumi di James Walker Fisica 1,2 e 3 (<a href="http://www.libreriauniversitaria.it/fisica-walker-james-zanichelli/libro/9788808216861" class="ext" class="postlink">http://www.libreriauniversitaria.it/fis ... 8808216861</a>) editi Zanichelli.<br>
+Sto cercando di prepararmi per il test d'ingresso alla Normale ma il livello dei problemi presentati nei tre libri mi sembra abbastanza inferiore rispetto a quelli del test. Voi li conoscete? Cosa ne pensate?<br>
+Inoltre ho acquistato le schede di gobbino sulla matematica "olimpica" e mi si è letteralmente aperto un mondo! Possibile che non esistano compendi del genere per la fisica (anche in inglese)?</article>
+<article class="post" id="p4328"><div class="who"><b>Ippo</b><span>4 giu 2010, 14:40</span></div>Io li ho usati al liceo, per quello vanno anche bene ma decisamente non bastano per prepararsi con ragionevoli speranze al test SNS.<br>
+La scelta standard è l'Halliday (io ho usato Halliday-Resnick-Krane, Fisica 1 e 2; c'è anche un Halliday-Resnick-Walker che è più o meno equivalente, in teoria un po' meno avanzato ma non ho mai fatto il confronto in realtà). Quello basta e avanza tipicamente  :) <br>
+di "schede olimpiche" per la fisica non so nulla ma dubito si possa fare, è un argomento abbastanza diverso, è difficile comprimere la teoria in così poco spazio, e un semplice "formulario" avrebbe utilità scarsa visto che in genere basta conoscere poche formule idiote, mentre il difficile sta nell'applicazione al problema...</article>
+<article class="post" id="p4330"><div class="who"><b>Darkarix</b><span>4 giu 2010, 15:35</span></div>Quindi non esiste una vera e propria "fisica olimpica" e tutto sta nell'applicare le formule che si trovano in qualunque libro di testo ai complessi problemi posti.<br>
+Comprerei volentieri i due volumi Halliday se solo non costassero così tanto. Ho visto che sono libri usati anche a livello universitario e mi rincuorerebbe se li potessi sfruttare anche in quella sede (anche perché altrimenti spendere più di cento euro per due libri che non userò più...).</article>
+<article class="post" id="p4336"><div class="who"><b>Pigkappa</b><span>4 giu 2010, 17:54</span></div>Dipende da cosa farai all'università. Se studierai Fisica, avere l'Halliday ti farà comodo ma non basterà perchè i corsi sono ad un livello più avanzato. Se studierai Ingegneria, per il primo corso basterà sicuramente l'Halliday.<br>
+<br>
+In generale il problema dei libri costosi lo avrai anche all'università; molti testi costano anche di più. In genere uno cerca di arrangiarsi come può, tra biblioteche/fotocopie/altro, ma se un libro pensi di usarlo con una certa intensità io penso che sia meglio comprarlo.</article>
+<article class="post" id="p4339"><div class="who"><b>Darkarix</b><span>4 giu 2010, 19:29</span></div>Comunque vada il test di ammissione alla Normale mi iscriverò comunque a fisica a Pisa.<br>
+Per ora ho trovato i due volumi in ebook. Anche se non sono proprio comodi chi se ne frega, so gratis!<br>
+Grazie dei consigli!</article>
+<article class="post" id="p4601"><div class="who"><b>Pigkappa</b><span>14 lug 2010, 3:35</span></div>Ho aggiunto i link a delle dispense di astronomia e ad una introduzione all'astrofisica che secondo me possono essere in parte interessanti anche per studenti di liceo (bravi e interessati), e che sono anche gratis. Vale ovviamente il solito avviso:<br>
+
+<blockquote><div><cite>io ha scritto:</cite>[...] la cui conoscenza non è richiesta per affrontare le Olimpiadi, e l'approccio migliore per ben figurare (e per entrare nelle scuole di eccellenza) è quello di fare molti problemi e non di studiare molti libri.</div></blockquote>
+
+<br>
+Le dispense di astronomia sinceramente non mi ispirano moltissimo (ne ho letto solo il 30% circa, però), ma non ne conosco altre e penso che questo sia un argomento che almeno in qualche modo debba comparire tra gli approfondimenti suggeriti. <br>
+<br>
+L'introduzione all'astrofisica mi sembra interessante (anche qui ne ho letta un po' meno di metà) ma molte cose non sono elementari; è comunque il migliore tra i testi di questo tipo che ho visto finora.</article>
+<article class="post" id="p4618"><div class="who"><b>dinamitardo</b><span>16 lug 2010, 14:15</span></div>ho visto che il libro più gettonato e consigliato per prepararsi al test della normale è l'halliday. Quale delle due versioni però (liceale e universitaria) consigliereste a un ragazzo che deve iniziare la quinta e che studierà durante l'anno proprio per il fine sopra riportato?</article>
+<article class="post" id="p4619"><div class="who"><b>Pigkappa</b><span>16 lug 2010, 16:11</span></div>Quello universitario è un po' più completo e per il test SNS probabilmente conviene quello (oltre a fare tanti problemi...).</article>
+<article class="post" id="p4620"><div class="who"><b>Ippo</b><span>16 lug 2010, 19:05</span></div><blockquote><div><cite>dinamitardo ha scritto:</cite>ho visto che il libro più gettonato e consigliato per prepararsi al test della normale è l'halliday. Quale delle due versioni però (liceale e universitaria) consigliereste a un ragazzo che deve iniziare la quinta e che studierà durante l'anno proprio per il fine sopra riportato?</div></blockquote>
+io nella tua stessa situazione (per prepararmi alle olimpiadi e ai vari test d'ammissione durante la quinta) ho preso quello "universitario" (Halliday-Resnick-Krane); non avendo mai avuto l'altro non saprei dirti specifiche differenze, ma di sicuro questo non è "troppo" avanzato, se è di questo che hai paura; si riesce a seguire con le conoscenze di una buona quinta liceo (derivate e qualche integrale semplice).</article>
+<article class="post" id="p4621"><div class="who"><b>Pigkappa</b><span>16 lug 2010, 20:02</span></div>Io ho usato l'altro e la differenza consiste soprattutto nell'assenza di alcuni argomenti (vedasi: gas reali, tensione superficiale) che non sono poi così importanti, ma qualche volta al test sono usciti.</article>
+<article class="post" id="p4638"><div class="who"><b>dinamitardo</b><span>20 lug 2010, 21:15</span></div>ok, allora mi pare di capire che andando su quello universitario non rischio di sbagliare.<br>
+Grazie per avermi tolto il dubbio!! :)</article>
+<article class="post" id="p5473"><div class="who"><b>amatrix92</b><span>13 nov 2010, 21:11</span></div>Ciao a tutti.<br>
+Il mio libro di fisica è "Fisica" di James S. Walker editato Zanichelli che non è malvagio, si legge bene ma è troppo nozionistico e poco concreto.<br>
+Mi potete consigliare un libro o anche delle dispense di un livello un po' più alto e soprattutto che faccia utlizzo dell'analisi perchè sul mio non ho mai visto nemmeno un limite. Facio il 5° liceo PNI e mi destreggio abbastanza bene con l'analisi ( ho provato a vedere dei test di Analisi 1  universitari) però mi piacerebbe imparare ad applicarla anche alla Fisica. La mia priorità sono appunto libro/ dispense di meccanica classica, però sono graditi anche termologia ed elettromagnetismo.<br>
+Per l'università prenderò o ingegneria o matematica quindi mi piacerebbe, soprattuto se fosse un libro e non una dispensa, che questo possa essere utilizzabile anche a livello universitario. Vi ringrazio in anticipo per le risposte :)!</article>
+<article class="post" id="p5477"><div class="who"><b>Pigkappa</b><span>14 nov 2010, 3:13</span></div>L'Halliday versione universitaria dovrebbe andare bene (il testo T.1 del post iniziale; link <a href="http://www.libreriauniversitaria.it/fisica-halliday-david-cea/libro/9788840812540" class="ext" class="postlink">http://www.libreriauniversitaria.it/fis ... 8840812540</a> per meccanica/termodinamica e <a href="http://www.libreriauniversitaria.it/fisica-2-halliday-david-cea/libro/9788840812793" class="ext" class="postlink">http://www.libreriauniversitaria.it/fis ... 8840812793</a> per il resto).<br>
+<br>
+Se farai ingegneria andrà sicuramente bene per il primo esame di fisica (e forse anche il secondo), e immagino che possa andare bene anche se farai matematica.</article>
+<article class="post" id="p5734"><div class="who"><b>galasso93</b><span>14 dic 2010, 19:39</span></div>per favore mi date il link preciso per scaricare le prove di ammissione alla normale? Non riesco a trovarlo.<br>
+grazie!</article>
+<article class="post" id="p5752"><div class="who"><b>Ippo</b><span>17 dic 2010, 1:15</span></div>le trovi <a href="http://www.sns.it/it/scuola/ammissione/corsoordinario/proveesame/" class="ext" class="postlink">qui</a><br>
+buon divertimento!  :)</article>
+<article class="post" id="p5757"><div class="who"><b>Meta*</b><span>17 dic 2010, 18:43</span></div><blockquote><div><cite>Ippo ha scritto:</cite>le trovi <a href="http://www.sns.it/it/scuola/ammissione/corsoordinario/proveesame/" class="ext" class="postlink">qui</a><br>
+buon divertimento!  :)</div></blockquote>
+
+Non è possibile avere soluzioni ?  :)</article>
+<article class="post" id="p5758"><div class="who"><b>Pigkappa</b><span>17 dic 2010, 18:45</span></div>Guarda il libro E.4 dei testi consigliati nel post iniziale di questo topic, e la discussione <a href="olifis-228.html" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=228</a></article>
+<article class="post" id="p5759"><div class="who"><b>Meta*</b><span>17 dic 2010, 18:49</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Guarda il libro E.4 dei testi consigliati nel post iniziale di questo topic, e la discussione <a href="olifis-228.html" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=228</a></div></blockquote>
+
+Ma le soluzioni del libro tornano fino ai problemi del 60' o solo quelli che potrei trovare anche qui sul forum ?</article>
+<article class="post" id="p5760"><div class="who"><b>Pigkappa</b><span>17 dic 2010, 19:00</span></div>Il libro contiene un po' di problemi risolti tra l'inizio del '900 ed il 1995 circa.</article>
+<article class="post" id="p5761"><div class="who"><b>Meta*</b><span>17 dic 2010, 22:28</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Il libro contiene un po' di problemi risolti tra l'inizio del '900 ed il 1995 circa.</div></blockquote>
+
+Non vorrei seccare con quest'ultima domanda ma parlando di fisica "a questo livello" mi può essere utile se studio meccanica o è un po' oltre ? vorrei cercare di avere lunghe vedute  :roll:</article>
+<article class="post" id="p5762"><div class="who"><b>Pigkappa</b><span>18 dic 2010, 0:49</span></div>Non credo di avere capito bene cosa stai chiedendo... Comunque la meccanica è presente a tutti i livelli (tutte le prove delle Olimpiadi, il test di ammissione per qualsiasi scuola di eccellenza o borsa di studio, degli esami all'università), e l'unico motivo per cui potrebbe non servirti studiarla sarebbe quello di saperla già così bene da non averne bisogno.</article>
+<article class="post" id="p5764"><div class="who"><b>Meta*</b><span>18 dic 2010, 7:37</span></div>Intendevo ingegneria meccanica all'università  :roll:</article>
+<article class="post" id="p5789"><div class="who"><b>Pigkappa</b><span>21 dic 2010, 16:04</span></div>Se la domanda è:<br>
+<br>
+"Voglio studiare ingegneria meccanica all'università, ha senso fare bene le Olimpiadi?"<br>
+La risposta è sì. A tutte le ingegnerie ci sono esami su tutta la fisica olimpica (tranne la fisica moderna) ed il livello degli esami può arrivare fino ai problemi di Senigallia. <br>
+Non serve essere in grado di affrontare le IPhO per fare ingegneria meccanica, ma le fasi prima sì.<br>
+<br>
+<br>
+Se invece la domanda è:<br>
+<br>
+"Ha senso studiare le cose di ingegneria meccanica per fare bene le Olimpiadi?"<br>
+La risposta è sì, ma senza esagerare. Fare un milione di problemi su leve, carrucole e cose del genere non è così necessario, ma male non ti può fare...</article>
+<article class="post" id="p5799"><div class="who"><b>Meta*</b><span>21 dic 2010, 22:57</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Se la domanda è:<br>
+<br>
+"Voglio studiare ingegneria meccanica all'università, ha senso fare bene le Olimpiadi?"<br>
+La risposta è sì. A tutte le ingegnerie ci sono esami su tutta la fisica olimpica (tranne la fisica moderna) ed il livello degli esami può arrivare fino ai problemi di Senigallia. <br>
+Non serve essere in grado di affrontare le IPhO per fare ingegneria meccanica, ma le fasi prima sì.<br>
+<br>
+<br>
+Se invece la domanda è:<br>
+<br>
+"Ha senso studiare le cose di ingegneria meccanica per fare bene le Olimpiadi?"<br>
+La risposta è sì, ma senza esagerare. Fare un milione di problemi su leve, carrucole e cose del genere non è così necessario, ma male non ti può fare...</div></blockquote>
+
+Ricevuto  :)  grazie 1000 !</article>
+<article class="post" id="p5857"><div class="who"><b>Ilaria</b><span>27 dic 2010, 12:12</span></div>Buongiorno a tutti! <br>
+Io frequento il 4 anno di liceo scientifico. volevo chiedere se per prepararmi alla seconda faseposso studiare a livello teorico sul walker (libro di testo che utilizziamo normalmente) e poi cercare di fare gli esercizi che avete già proposto.<br>
+Dato che sono ancora al 4 non ho grandi aspirazioni per il risultato, però mi piacerebbe comunque un buon risultato. <br>
+Grazie.</article>
+<article class="post" id="p5861"><div class="who"><b>Omar93</b><span>27 dic 2010, 17:49</span></div>Lascia il Walker,primo non è adatto per le olimpiadi,secondo non è un libro molto buono(ce l'ho anch'io ,però penso che il prossimo anno non lo comprerò).<br>
+<br>
+Invece puoi iniziare subito facendo esercizi,esercizi ed esercizi ,la migliore soluzione.<br>
+<br>
+Poi se hai bisogno di teoria puoi cercare su internet o se no vederti qualche libro o da comprare o preso da una qualsiasi biblioteca.<br>
+Buoni libri li puoi trovare nella pagina iniziale di questo topic.</article>
+<article class="post" id="p6075"><div class="who"><b>Ilaria</b><span>8 feb 2011, 17:02</span></div>Anche se in ritardo grazie omar!</article>
+<article class="post" id="p6317"><div class="who"><b>Pigkappa</b><span>26 mar 2011, 2:32</span></div>Ho trovato alcune lezioni online registrate abbastanza bene: <a href="http://nptel.iitm.ac.in/video.php?courseId=1091&amp;v=hQJjEauQMYVk" class="ext" class="postlink">http://nptel.iitm.ac.in/video.php?cours ... JjEauQMYVk</a> .<br>
+<br>
+Ovviamente sono in inglese e qualcuno potrebbe avere un po' di difficoltà, anche se il professore parla abbastanza bene. Non c'è un programma riportato sul sito; dando un'occhiata a qualcuna mi sembra che trattino la meccanica, la termodinamica e la relatività ristretta in modo abbastanza completo per le Olimpiadi (forse anche troppo). <br>
+<br>
+Non so se vale la pena di guardarle, ma magari qualcuno è curioso di vedere com'è l'impatto con l'università dove in un corso di 40 ore spiegano (male) quello che al liceo si farebbe in 2 anni.</article>
+<article class="post" id="p7599"><div class="who"><b>Pigkappa</b><span>8 ott 2011, 23:04</span></div>Ho aggiunto un sito alle "varie ed eventuali". Niente di entusiasmante, ma è un posto in più in cui guardare, ed è gratis.<br>
+
+<blockquote class="uncited"><div><strong class="text-strong">V.2) <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/hframe.html" class="ext" class="postlink">http://hyperphysics.phy-astr.gsu.edu/hbase/hframe.html</a></strong><br>
+Questo sito dalla strana impaginazione contiene un gran numero di pagine di fisica. Si tratta in gran parte di riassuntini inutilizzabili in uno studio sistematico della materia, ma qualcuno potrebbe divertirsi a dare un'occhiata a varie pagine per farsi un'idea dell'argomento.</div></blockquote></article>
+<article class="post" id="p7894"><div class="who"><b>Pigkappa</b><span>23 dic 2011, 4:22</span></div>Ho cambiato il testo A.5) :<br>
+
+<blockquote><div><cite>io ha scritto:</cite>
+<strong class="text-strong">A.5) <a href="http://www.amazon.it/Introduction-Modern-Astrophysics-International/dp/0321442849/ref=sr_1_1?ie=UTF8&amp;qid=1324605495&amp;sr=8-1" class="ext" class="postlink">An introduction to modern astrophysics</a>, di Carroll e Ostlie.</strong><br>
+Questo librone di 1400 pagine, che potremmo definire l'Halliday dell'astrofisica, spiega in modo chiaro una quantità di fenomeni più grande di quanto possiate immaginarvi. Il livello è leggermente più basso di quello universitario; la maggior parte degli argomenti vengono trattati con qualche dettaglio in più nei corsi appositi, ma le cose fondamentali nel libro ci sono, e sono spiegate molto bene e senza evitare di fare i conti nei casi in cui ciò è possibile. È una lettura che per voi risulterà impegnativa, perciò ve la consiglio solo se siete davvero interessati. A differenza di altri libri dello stesso tipo, questo riesce a non fare uso in modo eccessivo di conoscenze avanzate che richiederebbero di aver seguito i primi 3 anni di università.
+</div></blockquote>
+
+In realtà, dubito che qualcuno si procuri davvero i testi consigliati come approfondimenti (a parte il Morin), ma quando arriverà qualche superman che ci possa far vincere l'oro alle IPhO è bene che sappia dove guardare per portarsi avanti!</article>
+<article class="post" id="p9027"><div class="who"><b>piero arcangeli</b><span>12 ago 2012, 10:22</span></div>C'è questo link che è molto utile:<br>
+<a href="http://www.fisicalewin.altervista.org" class="ext" class="postlink">www.fisicalewin.altervista.org</a></article>
+<article class="post" id="p9507"><div class="who"><b>valto</b><span>15 set 2012, 0:12</span></div>Ciao a tutti,<br>
+<br>
+riguardo ai libri di testo di fisica pieni di problemi, io consiglio vivamente a tutti i libri di Giovanni Tonzig (<a href="http://www.giovannitonzig.it" class="ext" class="postlink">www.giovannitonzig.it</a> , sul sito trovate del materiale dimostrativo).<br>
+<br>
+È un libro di livello adatto alla scuola superiore con quasi niente derivate (tutte idee e poca matematica avanzata) quindi aiuta moltissimo a capire seriamente i meccanismi della fisica di base. Fra l'altro tratta approfonditamente argomenti spesso bistrattati a scuola, tipo attrito, fisica del vapore, meccanica rotazionale (senza tensori di inerzia, che secondo me sono troppo avanzati per la fisica da liceo).<br>
+<br>
+Oltretutto ha una collezione infinita di problemi di tutti i livelli con soluzioni scritte in dettaglio.<br>
+<br>
+Inoltre ripeto ha il vantaggio di avere poca matematica avanzata. Non che la matematica sia il male (io sono un matematico...), però quando si studia fisica al liceo con troppa matematica avanzata si corre il rischio di infilarsi nei dettagli di conti poco digeribili e perdere di vista le idee fisiche di base.<br>
+<br>
+Insomma, secondo me è un libro molto adatto alla preparazione delle olimpiadi (io l'avevo fatta solo seguendo questo testo).<br>
+<br>
+Ciao ciao</article>
+<article class="post" id="p9517"><div class="who"><b>Pigkappa</b><span>15 set 2012, 20:05</span></div>Con una ricerca affrettatissima sul suo sito non ho capito esattamente quali siano tutti e soli i libri per studiare fisica al liceo che ha scritto.<br>
+<br>
+Se mi trovi un link a ognuno di loro, li aggiungo come testi consigliati al primo post.</article>
+<article class="post" id="p9538"><div class="who"><b>valto</b><span>18 set 2012, 3:46</span></div>Ciao,<br>
+<br>
+detto fatto:<br>
+- Fondamenti di meccanica classica  <a href="http://www.giovannitonzig.it/loadpage.php?page=meccanica" class="ext" class="postlink">http://www.giovannitonzig.it/loadpage.p ... =meccanica</a><br>
+- La fisica del calore   <a href="http://www.giovannitonzig.it/loadpage.php?page=fisica_calore" class="ext" class="postlink">http://www.giovannitonzig.it/loadpage.p ... ica_calore</a><br>
+- Elettromagnetismo  <a href="http://www.giovannitonzig.it/loadpage.php?page=elettromagnetismo" class="ext" class="postlink">http://www.giovannitonzig.it/loadpage.p ... magnetismo</a><br>
+<br>
+È anche carino anche il libricino<br>
+- Semplicemente fisica   <a href="http://www.giovannitonzig.it/loadpage.php?page=semplicemente_fisica" class="ext" class="postlink">http://www.giovannitonzig.it/loadpage.p ... nte_fisica</a><br>
+pieno di errori più o meno comuni/gravi sulla fisica.<br>
+<br>
+Fra l'altro, il prof. Tonzig è di Milano e di solito risponde volentieri alle mail degli studenti .<br>
+<br>
+Ciao e grazie, valto</article>
+<article class="post" id="p15064"><div class="who"><b>imagine</b><span>11 ago 2013, 16:16</span></div>Solo a me non funziona il link E.7 ???</article>
+<article class="post" id="p15070"><div class="who"><b>Andg94</b><span>12 ago 2013, 14:10</span></div>No, tranquillo, quel link non è più valido. Cercando un attimo comunque si trova subito in rete, se non erro è questo il link corretto: <a href="http://www.df.unipi.it/~cella/ueg/uegbook.pdf" class="ext" class="postlink">http://www.df.unipi.it/~cella/ueg/uegbook.pdf</a></article>
+<article class="post" id="p15072"><div class="who"><b>Pigkappa</b><span>12 ago 2013, 15:32</span></div>Ho sistemato il link, ora funziona. Quella raccolta non smette mai di crescere...</article>
+<article class="post" id="p20056"><div class="who"><b>andrea96</b><span>26 dic 2014, 14:12</span></div>Dei numerosissimi problemi sul morin che rientrano nella sezione esercizi ( cioè problemi non risolti ) esistono da qualche parte le soluzioni o per lo meno i risultati? Ci sono moltissimi problemi davvero belli e mi sarebbe parecchio utile verificare se li ho fatti bene...</article>
+<article class="post" id="p20060"><div class="who"><b>Pigkappa</b><span>26 dic 2014, 20:07</span></div>Forse esiste un file per gli insegnanti che lo usano come libro di testo ma non è disponibile per noi comuni mortali... Io avevo già cercato anni fa (almeno 5 anni fa) e non ho trovato niente. Puoi postare i problemi qua e vedete se gli altri rispondono...</article>
+<article class="post" id="p21218"><div class="who"><b>alegh</b><span>16 ago 2015, 19:29</span></div>Salve, mi sono appena iscritto. Devo iniziare la quarta liceo scientifico e siccome mi piacerebbe conseguire buoni risultati alle prossime olimpiadi e in futuro tentare il test d'ingresso SNS mi sembra di aver capito che il miglior libro di teoria sia l'Halliday universitario in 2 volumi. Invece come eserciziario ho letto nella pagina iniziale circa il libro "200 puzzling physics problems" e mi sembrava utile il fatto che abbia dettagliate soluzioni per i problemi proposti. Qualcuno sa dirmi di più su questo libro? Com'è la difficoltà? I problemi sono simili a quelli delle olimpiadi?<br>
+Avrei anche un'altra domanda: essendo all'inizio della quarta non ho ancora trattato analisi a scuola e siccome per il momento mi vorrei dedicare a meccanica e termodinamica ho letto che l'Halliday non usa molto analisi e volevo chiedere se senza queste conoscenze o per lo meno solo con quelle di base sia possibile iniziare una seria preparazione in fisica magari usando l'eserciziario sopra citato o sarebbe meglio studiare prima seriamente analisi e non limitarsi solo alle basi.<br>
+Grazie.</article>
+<article class="post" id="p21224"><div class="who"><b>Simone256</b><span>16 ago 2015, 19:49</span></div>Guarda per esperienza personale ti dico:<br>
+Halliday 2 volumi universitari... Parti con quelli! Dentro c'è un po' di analisi ma la impari usandola! La acquisisci in maniera empirica! Se poi vuoi diventare più bravo di andrea96 ti studi analisi su un libro a parte ma per quello c'è tempo  :lol: <br>
+Dell'Halliday fai gli esercizi e i problemi a fine capitolo che sono utili e istruttivi... Poi se vuoi provare qualcosa di nuovo e più olimpico ti vedi direttamente problemi delle vecchie edizioni delle olimpiadi (fidati l'Halliday è pieno di esercizi  :) )<br>
+I 200 puzzle sono veramente belli! E' un libro che mi ha fatto e mi fa talmente divertire che posso dire che tra tutti per ora è il mio preferito! I problemi sono un pochino diversi da quelli che abitualmente ci sono alle olimpiadi forse... Sono più... Puzzle!!!  :D <br>
+Di certo ti fa usare il cervello e ti stimola parecchio... Ma per cominciare meglio farsi un po' le ossa su un testo come l'Halliday  ;)</article>
+<article class="post" id="p22456"><div class="who"><b>Pigkappa</b><span>22 giu 2016, 23:43</span></div>Ho fatto alcune modifiche - rimosso due testi che non mi convincevano e aggiunto <a href="https://www.amazon.it/Make-Stick-Science-Successful-Learning/dp/0674729013" class="ext" class="postlink">Make It Stick</a>, un libro su metodi di apprendimento. Ho chiarificato che potete scrivere qua per suggerire modifiche alla lista e fare domande. Sarei interessato a sapere se la lista vi sembra utile :). Questa discussione riceve poche risposte ma ha piu' visite di ogni altra nel forum, per cui la lista qualcuno deve pur leggerla :P.</article>
+<article class="post" id="p22457"><div class="who"><b>FedericoC.</b><span>22 giu 2016, 23:57</span></div>Per quanto mi riguarda è utilissima, ci ho preso un sacco di spunti sia per procurarmi libri che per leggere direttamente argomenti che mi interessavano. Si risparmia un sacco di tempo e molti dubbi su cosa studiare grazie alla vostra esperienza. Sei sempre gentile nel tenerla aggiornata, anche l'ultimo libro sembra molto interessante!   :D</article>
+<article class="post" id="p22458"><div class="who"><b>Pigkappa</b><span>23 giu 2016, 0:06</span></div>Grazie! Mi sono accorto che alcune informazioni sono un po' datate (per esempio, mr Morin ha scritto vari altri libri negli ultimi anni) ma confido che voi giovani mi facciate sapere se qualcosa va cambiato :D</article>
+<article class="post" id="p22895"><div class="who"><b>Pigkappa</b><span>8 set 2016, 17:25</span></div>Ho aggiunto una sezione intitolata "Come si vincono le Olimpiadi di Fisica?" che spiega il percorso seguito da molti studenti che arrivano alle fasi finali delle Olimpiadi. Fatemi sapere se pensate sia utile :)</article>
+<article class="post" id="p22898"><div class="who"><b>FedericoC.</b><span>8 set 2016, 22:57</span></div>Come sempre estremamente utile, grazie!  :D</article>
+<article class="post" id="p22900"><div class="who"><b>sall96</b><span>9 set 2016, 11:08</span></div>Se posso segnalarlo è da poco uscito il seguito di "200 puzzling physics problems", ovvero "200 more puzzling physics problems" :)</article>
+<article class="post" id="p22902"><div class="who"><b>Pigkappa</b><span>9 set 2016, 12:58</span></div>Ok l'ho aggiunto! Rimane il problema che non posso dire granche' su questo libro perche' non l'ho letto, se vuoi scrivere 2-3 righe di descrizione le posso aggiungere al messaggio iniziale.</article>
+<article class="post" id="p22976"><div class="who"><b>andrea96</b><span>15 set 2016, 0:11</span></div>il libro che ha citato sall96 l'ho comprato appena uscito (quindi credo 4-5 mesi fa) ma per mancanza di tempo purtroppo non l ho potuto usare granché. Comunque posso dire che due volte l ho aperto a caso e ho fatto il primo problema che visto (uno dei due magari prossimamente lo posto perchè é geniale) ed erano entrambe fantastici. Usando il teorema di Bayes si dovrebbe poter calcolare facilmente la probabilità che quelli sono gli unici problemi belli. Non ho voglia di farlo ma sono sicuro che la probabilità é molto bassa quindi quoto il libro.</article>
+<article class="post" id="p22978"><div class="who"><b>guido</b><span>17 set 2016, 17:30</span></div>E' uscito di recente un nuovo libro: Carlo Bianciardi - Olimpiadi della Fisica (sottotitolo: Problemi teorici per la preparazione degli studenti 2010-2015) Ed. Aracne Roma luglio 2016. Mi pare apprezzabile perchè contiene approfondimenti su argomenti poco curati a scuola, hint sulla soluzione autonoma dei problemi nazionali e IPHO degli anni citati ed infine la soluzione degli stessi problemi. :roll:</article>
+<article class="post" id="p22981"><div class="who"><b>Pigkappa</b><span>17 set 2016, 19:27</span></div>Mh senza averlo visto (non riesco a trovare neanche un capitolo di esempio) sono un po' scettico sull'aggiungerlo alla pagina iniziale; se contiene i problemi teorici di Senigallia e IPhO degli ultimi anni, questi si trovano tutti nei link gia' forniti.</article>
+<article class="post" id="p22982"><div class="who"><b>guido</b><span>19 set 2016, 16:38</span></div>Mi scuso, fai pure come vuoi. Ho ritenuto opportuno di segnalarlo perchè personalmente lo trovo utile per la preparazione non solo per le soluzioni ma soprattutto per gli altri motivi accennati.</article>
+<article class="post" id="p22998"><div class="who"><b>dl.censi</b><span>3 ott 2016, 6:30</span></div><blockquote><div><cite>guido ha scritto:</cite>E' uscito di recente un nuovo libro: Carlo Bianciardi - Olimpiadi della Fisica (sottotitolo: Problemi teorici per la preparazione degli studenti 2010-2015) Ed. Aracne Roma luglio 2016. Mi pare apprezzabile perchè contiene approfondimenti su argomenti poco curati a scuola, hint sulla soluzione autonoma dei problemi nazionali e IPHO degli anni citati ed infine la soluzione degli stessi problemi. :roll:</div></blockquote>
+
+Questo libro non ha ottenuto il nulla osta da parte del Gruppo Olimpiadi. Inoltre ha anche vari difetti. Bene ha fatto Pigkappa a non inserirlo nell'elenco.</article>
+<article class="post" id="p22999"><div class="who"><b>guido</b><span>3 ott 2016, 11:26</span></div>Prendo atto del giudizio dell'amministratore ma io lo trovo utile lo stesso :roll:</article>
+<article class="post" id="p23134"><div class="who"><b>dl.censi</b><span>29 ott 2016, 17:14</span></div>Comunicato del Gruppo Olimpiadi (*)<br>
+<br>
+Il Gruppo Olimpiadi dell’AIF è venuto a conoscenza della pubblicazione del libro "Olimpiadi della Fisica, Problemi teorici per la preparazione degli studenti (2010-2015)'' di Carlo Bianciardi, Aracne Ed. (2016) che comprende i problemi delle Olimpiadi Internazionali di Fisica e della Gara Nazionale delle Olimpiadi di Fisica negli anni citati.<br>
+<br>
+Il Gruppo Olimpiadi desidera informare che tutti i problemi proposti nelle gare nazionali delle Olimpiadi di Fisica dal 1986 ad oggi sono stati pensati e prodotti dal Gruppo stesso. I testi e le soluzioni commentate sono liberamente prelevabili dal proprio sito <a href="http://www.olifis.it" class="ext" class="postlink">http://www.olifis.it</a> in una veste molto curata, sia dal punto di vista grafico che dei contenuti. Tale materiale è ivi posto in libera distribuzione ed è utilizzabile per tutti gli scopi non commerciali. Nello stesso sito sono pure disponibili i problemi assegnati alle Olimpiadi Internazionali tradotti in italiano dai membri del suddetto gruppo. Tutto questo materiale, oltre alle soluzioni commentate dei problemi delle Olimpiadi Internazionali, è stato inoltre pubblicato come supplemento alla rivista “La Fisica nella Scuola” edita dall’AIF che viene distribuita ai suoi soci e che si può richiedere dal sito <a href="http://www.aif.it" class="ext" class="postlink">http://www.aif.it</a> .<br>
+<br>
+Il Gruppo Olimpiadi desidera anche informare che l’autore di tale opera non ha e non ha avuto mai nessuna relazione con il gruppo stesso e che nessun contatto riguardante quest’opera è intervenuto prima della pubblicazione tra l’autore o la casa editrice e il Gruppo Olimpiadi o l’Associazione per l’Insegnamento della Fisica, né è stata richiesta alcuna autorizzazione per l'uso commerciale di questi materiali.<br>
+<br>
+Da queste premesse segue che il Gruppo Olimpiadi e l’Associazione per l’Insegnamento della Fisica non hanno nulla a vedere con tale opera e chiunque desideri studiare i problemi delle Olimpiadi di Fisica può rivolgersi direttamente ai testi originali che, come sopra ricordato, sono accessibili gratuitamente in internet e sono controllati rigorosamente sul piano scientifico.<br>
+<br>
+(*) L’AIF, attraverso il suo Gruppo Olimpiadi, da più di trent’anni organizza per conto del Ministero dell’Istruzione Università e Ricerca la selezione e la preparazione della squadra di studenti che rappresenta l’Italia alle Olimpiadi Internazionali di Fisica.</article>
+<article class="post" id="p24062"><div class="who"><b>arna1998</b><span>3 dic 2017, 14:16</span></div>Ho sostituito il libro di Analisi dei Dati con la versione più recente e ho aggiunto <a href="https://www.ioc.ee/~kalda/ipho/" class="ext" class="postlink">questo</a> alla sezione varie ed eventuali</article>
+<article class="post" id="p24668"><div class="who"><b>cucco2001</b><span>5 apr 2018, 12:07</span></div>Buon pomeriggio,<br>
+Vorrei sapere se i volumi di "La fisica di Berkeley" 1, 2\1 e 2\2 (il T.4 consigliato) sono attualmente in commercio ed eventualmente dove poterli reperire. Nel caso contrario, potreste consigliare un altro testo. Vi ringrazio in anticipo.</article>
+<article class="post" id="p24670"><div class="who"><b>Pigkappa</b><span>5 apr 2018, 14:07</span></div>Su Amazon.it il volume 1 si trova. Il volume 2 sembra più difficile da trovare. Se ti va bene in inglese qualcosa trovi su Abebooks (Berkeley physics course 2).<br>
+<br>
+Assumendo tu sia familiare con gli argomenti a livello Halliday e voglia qualcosa di più, puoi cercare gli altri testi consigliati nella sezione di teoria, il Morin per meccanica e il Griffiths per elettromagnetismo.</article>
+<article class="post" id="p24672"><div class="who"><b>cucco2001</b><span>5 apr 2018, 15:06</span></div>Grazie mille. Vorrei chiedere una chiarificazione. Il Morin per la Meccanica e il Griffiths per l'Elettromagnetismo possono considerarsi gli equivalenti di "La fisica di Berkeley" ? O quale di questi testi è più consigliabile ? Visto che ho studiato su "Fondamenti di Fisica" di Halliday e vorrei continuare nello studio teorico.</article>
+<article class="post" id="p24674"><div class="who"><b>Pigkappa</b><span>5 apr 2018, 21:03</span></div>Sono più moderni e leggermente più avanzati della fisica di Berkeley, ma se sai le basi (= l'Halliday e saper fare ragionevolmente bene i problemi delle Olifis fino a livello Senigallia) puoi passare a quelli. Non serve leggersi tutti i libri nella lista in ordine. E non serve essere esperti di tutto, se ti piace più la meccanica vai col Morin sennò con l'altro. Il Griffiths probabilmente richiede più analisi vettoriale ma vale la pena provarci direttamente e provare a impararla da lì (comunque anche io Berkeley 2 la richiede).</article>
+<article class="post" id="p25399"><div class="who"><b>Phy13</b><span>4 mar 2019, 12:00</span></div>Buongiorno a tutti<br>
+Avrei una domanda, ancora sull'Halliday! Ho comprato tempo fa, durante il quarto anno di liceo, i 3 volumi dell'Halliday "Fondamenti di fisica" settima edizione per prepararmi alle olimpiadi di fisica. Vedendo ora i messaggi sul forum mi chiedo, sarà meglio comprare anche Fisica 1 e Fisica 2, perché versioni più avanzate? La mia intenzione è provare ad entrare a Pisa o a Padova, cosa mi consigliate?</article>
+<article class="post" id="p25403"><div class="who"><b>Pigkappa</b><span>6 mar 2019, 16:33</span></div>Se sai bene le cose dell'Halliday per il liceo, puoi saltare Fisica 1 e Fisica 2 e passare direttamente al Morin (meccanica) e Griffiths (elettrodinamica). La versione universitaria dell'Halliday è più completa di quella del liceo ma non così tanto che vale la pena comprarle entrambe.</article>
+<article class="post" id="p25427"><div class="who"><b>arna1998</b><span>26 apr 2019, 18:17</span></div>Ho aggiunto le lezioni dello <a href="https://stagefisica.sns.it" class="ext" class="postlink">Stage di Fisica a Pisa</a>. Sono ormai state fatte due edizioni ed è stato prodotto tanto materiale che si spera possa essere utile :)</article>
+<article class="post" id="p25477"><div class="who"><b>Pigkappa</b><span>11 lug 2019, 22:36</span></div>Ho fatto alcune modifiche alla sezione "Approfondimenti". Ho riunito i testi di astronomia sotto un'unica voce, e ho aggiunto alla lista Astronomy Today che penso sia il migliore in termini di utilita' / impegno. E' discorsivo ma presenta moltissimi concetti utili.<br>
+<br>
+Ho riordinato i libri di quella sezione in base a quanto penso siano utili. Non ricordo molto delle dispense "Introduzione all’analisi dei dati." e non sono un grande fan di "Termodinamica" di Fermi, se qualcuno di voi ha proposte migliori mi faccia sapere.</article>
+<article class="post" id="p25581"><div class="who"><b>Pigkappa</b><span>12 nov 2019, 1:13</span></div>Ho aggiunto qualcosa su un nuovo libro e sito (<a href="https://www.fondamentiastronomia.com/" class="ext" class="postlink">https://www.fondamentiastronomia.com/</a>) e accorciato alcune descrizioni. Sono tentato di togliere il testo di Fermi di termodinamica A5, qualcuno e' particolarmente affezionato?</article>
+<article class="post" id="p25704"><div class="who"><b>Mooltey</b><span>6 mar 2020, 11:49</span></div>Il link alle dispense di Fabio Zoratti non funziona, dice che quell'url non esiste  :(</article>
+<article class="post" id="p25705"><div class="who"><b>OrsoBruno96</b><span>6 mar 2020, 12:42</span></div>@Mooltey<br>
+Ho aggiustato il link, ho recentemente rifatto il mio sito e mi ero dimenticato di mettere i giusti link.<br>
+Riprova, ora dovrebbe funzionare.</article>
+<article class="post" id="p25768"><div class="who"><b>east_beast</b><span>19 mar 2020, 16:21</span></div>Qualcuno di voi ha studiato/letto sul testo di Morin "Electricity and Magnetism"? A quanto sembra è una modifica della Fisica di Berkeley 2 (di Purcell), modificato secondo lo stile di Morin (ci sono un sacco di problemi a tal proposito). Opinioni? Sapreste dirmi rispetto al Griffiths se è più approcciabile per un ragazzo del liceo, o conviene prendere quest'ultimo?</article>
+<article class="post" id="p25771"><div class="who"><b>Pigkappa</b><span>20 mar 2020, 11:54</span></div>Non lo conosco, quando posso vedo ti trovarlo e ti dico che ne penso.<br>
+<br>
+Comunque il Griffiths non è particolarmente difficile, non c'è molto spazio per cose più difficili dell'Halliday ma più facili del Griffiths. Indubbiamente però se il Morin è ricco di esercizi come quello di meccanica è utile...</article>
+<article class="post" id="p25773"><div class="who"><b>Pigkappa</b><span>21 mar 2020, 0:47</span></div>Ho dato un'occhiata. Mi sembra fatto molto bene, simile al Morin di meccanica. E' meglio del Griffiths e sono tentato di rimpiazzare il Griffiths con questo libro nella lista. Come difficolta' probabilmente e' simile al Griffiths.<br>
+<br>
+C'e' solo una cosa a cui bisogna fare attenzione. Se non sbaglio, questo libro assume che lo studente sappia gia' la relativita' speciale e la sappia abbastanza bene; la usa perfino prima di iniziare a parlare di campi magnetici. Il Griffiths invece tiene gli argomenti che richiedono la relativita' per la fine del libro, e la spiega da zero. <br>
+<br>
+Il consiglio che do' io di solito e' di sapere bene l'Halliday prima di passare ai libri avanzati e quindi un'idea della relativita' ristretta gli studenti dovrebbero averla, ma per qualcuno potrebbe essere un problema.</article>
+<article class="post" id="p25776"><div class="who"><b>east_beast</b><span>21 mar 2020, 16:58</span></div>Bhe grazie mille, corro allora a procurarmi l'Halliday prima (si fa per dire, al momento spero di trovarlo ad un prezzo decente su internet, altrimenti dovrò aspettare), e poi eventualmente più avanti passerò al Morin.</article>
+<article class="post" id="p25778"><div class="who"><b>Pigkappa</b><span>22 mar 2020, 14:29</span></div>Non so da che livello parti ma se parti dal basso, per fare bene l'Halliday ci vogliono 6-12 mesi e poi conviene prendersi un po' di tempo per fare problemi dal sito delle Olimpiadi e dai test SNS o IPhO. Non penserei neanche vagamente di passare al Morin per un sacco di tempo...</article>
+<article class="post" id="p25781"><div class="who"><b>east_beast</b><span>22 mar 2020, 17:03</span></div>Sinceramente per quanto riguarda l'elettromagnetismo sono ancora indietro, frequento il quarto e siamo all'elettrostatica, ho integrato la spiegazione del prof con le Dispense di Fabio Zoratti... mi procurerò l'Halliday (Fisica 2); per quanto riguarda la meccanica invece studio già da qualche mese sul Morin e mi trovo bene, per questo ho chiesto informazioni sul suo libro di elettromagnetismo. Grazie mille per le risposte comunque. :D</article>
+<article class="post" id="p26832"><div class="who"><b>Pigkappa</b><span>6 mar 2021, 17:46</span></div>Ho aggiunto un link al Physics Olympiad Hub come E.8 su proposta di LucaMilanese e ho tolto parecchi link ai libri, e ne togliero' altri piu' avanti credo. Alcuni link non funzionavano piu', altri puntavano ormai a edizioni vecchie, e possiamo contare sul fatto che nel 2021 qualunque ragazzo del liceo riesca a trovare un libro su internet dato titolo e autore.<br>
+<br>
+Come sempre scrivete qua o mandatemi suggerimenti per modifiche :)</article>
+<article class="post" id="p27186"><div class="who"><b>Pierlu_17</b><span>24 ott 2021, 22:08</span></div>Salve a tutti, questo è il primo anno in cui sono referente e preparatore per le Olimpiadi di Fisica nella mia scuola.<br>
+Ho letto l'utilissimo elenco di indicazioni relativo a testi e siti per l'allenamento e volevo chiedere, per non sbagliare, qual è il libro di Halliday per il liceo (penso di seguire quello piuttosto che la versione universitaria); è quello della Zanichelli o il volume unico da 1024 pagine alla settima edizione? <br>
+Inoltre volevo un consiglio su come far avere delle dispense agli studenti. Sono alunni del terzo, quarto e quinto anno quindi preferirei utilizzare il meno possibile il calcolo differenziale (se non per una preparazione a livelli di gara più avanzati) e purtroppo non è pensabile proporre l'acquisto dell'Halliday a causa del suo costo elevato.<br>
+Ringrazio in anticipo chiunque volesse aiutarmi!</article>
+<nav class="pager"><a class="next" href="olifis-3446.html"><small>successivo →</small>Sperimentale Senigallia</a></nav>
+</main></body></html>

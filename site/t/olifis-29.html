@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asta che cade.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Asta che cade.</h1>
+<p class="meta">24 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=29">forum Olifis</a></p>
+<article class="post first" id="p157"><div class="who"><b>Pigkappa</b><span>26 gen 2009, 20:48</span></div>Un'asta di lunghezza <span class="tex">\(\displaystyle l\)</span> e massa <span class="tex">\(\displaystyle m\)</span> distribuita uniformemente sta in piedi su un piano orizzontale senza attrito, e si appoggia contro un muro senza attrito. Inizialmente viene tenuta ferma in posizione quasi verticale. L'asta viene lasciata andare. Quanto vale la componente orizzontale della velocità del suo centro di massa nel momento in cui perde il contatto con il muro?<br>
+<br>
+<br>
+Il livello secondo me potrebbe essere quello di un Senigallia abbastanza difficile, oppure potrebbe essere un quesito IPHO da 5 punti, se non fosse un problema abbastanza famoso. Esiste una soluzione bella e olimpica (cioè: senza integrali), anche se imho non è facile da trovare.<br>
+<br>
+BONUS QUESTION: se invece la massa non è distribuita uniformemente, ma il momento d'inerzia rispetto al centro è <span class="tex">\(\displaystyle I = \beta ml^2\)</span> e il centro di massa è ancora il centro dell'asta, come cambia la risposta?
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=1" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Asta in caduta.JPG (1.78 KiB) Visto 15570 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p160"><div class="who"><b>Carmelo</b><span>27 gen 2009, 17:22</span></div>stavo cercando di disegnare il diagramma di corpo libero, ma non so uscirne...<br>
+la mia conclusione (abbastanza empirica) è che la normale del pavimento deve essere minore di <span class="tex">\(m \vec g\)</span>, così il centro di massa dell'asta viene accelerato verso il basso, e contemporaneamente fornisce un momento rispetto a questo in modo che l'asta ruoti fino a terra... (sbagliato al 99%  :!:  :!: )<br>
+<br>
+con la reazione normale del muro non so come uscirne... c'è, ma il suo momento si oppone a quello della normale dal pavimento, e visto che rispetto al c.d.m. il braccio è uguale, la diferenza tra i due momenti dipende solo da come variano le reazioni in base all'angolo con cui l'asta cade...<br>
+<br>
+PS analisi molto qualitativa e poco fisica... magari ci ripenso un po' su</article>
+<article class="post" id="p167"><div class="who"><b>Paolo90</b><span>28 gen 2009, 16:00</span></div>utilizzando la fisica lagrangiana mi e' venuta un'equazione differenziale terribile, nella forma <span class="tex">\(\frac{d^2}{dt^2}\theta=kcos\theta\)</span>, che non ha soluzioni semplici...</article>
+<article class="post" id="p168"><div class="who"><b>Pigkappa</b><span>28 gen 2009, 16:04</span></div>Ho detto che potrebbe essere un problema sensato per le olimpiadi, quindi non è che se scrivi la Lagrangiana lo risolvi in due righe. I problemi fatti bene sono testati contro questo tipo di procedimenti.<br>
+<br>
+Esiste anche il modo non olimpico di farlo (comunque non con le Lagrangiane, che io sappia), ma non è proprio la prima cosa mi aspetto di trovare qui...<br>
+<br>
+Tra l'altro, non ho chiesto di risolvere l'equazione del moto (che probabilmente non si può risolvere), ma ho chiesto una cosa più specifica che invece si può trovare...</article>
+<article class="post" id="p176"><div class="who"><b>Falco5x</b><span>29 gen 2009, 15:26</span></div>Provo a rispondere io.<br>
+Ho fatto il bilancio di energia: delta potenziale = cinetica+rotazionale, mettendo in relazione la velocità traslazionale con quella angolare tramite i vincoli geometrici; e infine per tenere conto del distacco, dopo il quale nessuna forza orizzontale agisce sull'asta, ho imposto accelerazione orizzontale nulla. Da ciò ho tratto le seguenti conclusioni:<br>
+<br>
+<span class="tex">\(\displaystyle v_x=\frac{ 2 }{ 3 }\sqrt{\frac{ 4}{ 13 }gl }\)</span><br>
+<br>
+Nel caso della bonus question:<br>
+<span class="tex">\(\displaystyle v_x=\frac{ 2 }{ 3 }\sqrt{\frac{ gl }{ 3(1+\beta)}\)</span><br>
+<br>
+<br>
+<br>
+Sarà giusto  :?: <br>
+boh...<br>
+<br>
+<br>
+<br>
+Ciao.</article>
+<article class="post" id="p350"><div class="who"><b>MicroM</b><span>13 feb 2009, 17:50</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+Tra l'altro, non ho chiesto di risolvere l'equazione del moto (che probabilmente non si può risolvere), ma ho chiesto una cosa più specifica che invece si può trovare...</div></blockquote>
+
+certo, anche perché se non si precisa l'angolo iniziale ho il forte sospetto che il tempo di caduta sia indeterminato (ovvero tende a infinito se l'angolo iniziale tende a 90°). La quantità richiesta dipende invece con continuità dall'angolo iniziale.<br>
+<br>
+Il concetto di 'potersi risolvere' forse è meglio precisarlo: non si conosce una espressione analitica (combinazione finita di funzioni elementari) per esprimere la legge oraria. Dal punto di vista matematico però, dato l'angolo iniziale, il problema è ben posto e quindi risolvibile e con soluzione unica (ovviamente trascurando attriti, deformabilità e amenità analoghe). In effetti è un problema parente strettissimo del pendolo fisico per grandi oscillazioni.</article>
+<article class="post" id="p351"><div class="who"><b>Pigkappa</b><span>13 feb 2009, 21:09</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>
+<span class="tex">\(\displaystyle v_x=\frac{ 2 }{ 3 }\sqrt{\frac{ 4}{ 13 }gl }\)</span><br>
+Nel caso della bonus question:<br>
+<span class="tex">\(\displaystyle v_x=\frac{ 2 }{ 3 }\sqrt{\frac{ gl }{ 3(1+\beta)}\)</span><br>
+Sarà giusto  :?: </div></blockquote>
+
+I risultati mi pare di sì, ma secondo me è istruttivo mostrare il procedimento, sia perchè così si impara a scrivere la soluzione, sia perchè si permette agli altri di capirci qualcosa... Infatti "imporre i vincoli geometrici" non è del tutto banale e sicuramente il grosso del problema sta in quello.</article>
+<article class="post" id="p364"><div class="who"><b>Falco5x</b><span>15 feb 2009, 13:06</span></div>Scrivendo il procedimento con l’intenzione di pubblicarlo mi sono accorto che nel calcolare i risultati postati in precedenza devo aver commesso qualche errore.<br>
+La soluzione completa che presento adesso, invece, dovrebbe essere corretta.<br>
+<br>
+Detta x la coordinata orizzontale della base dell’asta appoggiata al terreno, e y la coordinata verticale della sommità dell’asta appoggiata alla parete, cerco di determinare la Vx del C.M. in funzione di un parametro posizionale, ad esempio y, nell’ipotesi che l’asta mantenga il contatto sia con la parete che col pavimento (ciò è vero fino al momento del distacco).<br>
+L’abbassamento del C.M. dell’asta permette di calcolare la perdita di energia potenziale che si converte tutta in energia cinetica.<br>
+<br>
+ <br>
+ <span class="tex">\({x_{CM}} = \frac{x}{2}\)</span><br>
+ <span class="tex">\({y_{CM}} = \frac{y}{2}\)</span><br>
+ <span class="tex">\(\Delta {E_P} = \frac{{mg}}{2}\left( {L - y} \right)\)</span><br>
+ <span class="tex">\(\Delta {E_K} = \frac{1}{2}m\left( {\frac{{{{\dot x}^2}}}{4} + \frac{{{{\dot y}^2}}}{4}} \right) + \frac{1}{2}I{{\dot \theta }^2}\)</span><br>
+ <span class="tex">\(\Delta {E_K} = \frac{1}{8}m\left( {{{\dot x}^2} + {{\dot y}^2}} \right) + \frac{1}{2}I{{\dot \theta }^2}\)</span><br>
+Occorre adesso eliminare alcune variabili dipendenti, come ad esempio l’angolo di rotazione.<br>
+ <br>
+ <span class="tex">\(\cos \theta  = \frac{y}{L}\)</span><br>
+ <span class="tex">\(\frac{d}{{dt}}\cos \theta  =  - \dot \theta sen\theta  = \frac{{\dot y}}{L}\)</span><br>
+ <span class="tex">\({{\dot \theta }^2} = \frac{{{{\dot y}^2}}}{{{L^2}se{n^2}\theta }} = \frac{{{{\dot y}^2}}}{{{x^2}}}\)</span><br>
+Sostituendo si ha:<br>
+ <br>
+ <span class="tex">\(\Delta {E_K} = \frac{1}{8}m\left( {{{\dot x}^2} + {{\dot y}^2}} \right) + \frac{1}{2}I\frac{{{{\dot y}^2}}}{{{x^2}}}\)</span><br>
+Adesso eliminiamo anche la variabile dipendente <span class="tex">\({\dot y}\)</span><br>
+ <br>
+ <span class="tex">\(y = \sqrt {{L^2} - {x^2}}\)</span><br>
+ <span class="tex">\(\dot y = \frac{{ - 2x\dot x}}{{2\sqrt {{L^2} - {x^2}} }}\)</span><br>
+ <span class="tex">\(\dot y =  - \frac{{x\dot x}}{y}\)</span><br>
+ <span class="tex">\(\Delta {E_K} = \frac{1}{8}m\left( {{{\dot x}^2} + \frac{{{x^2}{{\dot x}^2}}}{{{y^2}}}} \right) + \frac{1}{2}I\frac{{{{\dot x}^2}}}{{{y^2}}} = \frac{1}{8}m{{\dot x}^2}\frac{{{L^2}}}{{{y^2}}} + \frac{1}{2}I\frac{{{{\dot x}^2}}}{{{y^2}}}\)</span><br>
+Eguagliando  <span class="tex">\(\Delta {E_K} = \Delta {E_P}\)</span> si ha<br>
+ <br>
+<span class="tex">\(\frac{1}{2}m{{\dot x}^2}\frac{{{L^2}}}{{4{y^2}}} + \frac{1}{2}I\frac{{{{\dot x}^2}}}{{{y^2}}} = \frac{{mg}}{2}\left( {L - y} \right)\)</span><br>
+<span class="tex">\({{\dot x}^2}\left( {\frac{{m{L^2} + 4I}}{{4m{y^2}}}} \right) = g\left( {L - y} \right)\)</span><br>
+<span class="tex">\({{\dot x}^2} = g\left( {L - y} \right)\frac{{4{y^2}}}{{{L^2} + \frac{{4I}}{m}}}\)</span><br>
+Al momento del distacco dal muro si azzera la forza orizzontale e quindi l’accelerazione orizzontale del centro di massa, e quindi anche <span class="tex">\({\ddot x}\)</span><br>
+ <br>
+ <span class="tex">\({{\dot x}^2} = g\left( {L - y} \right)\frac{{4{y^2}}}{{{L^2} + \frac{{4I}}{m}}}\)</span><br>
+<span class="tex">\(2\dot x\ddot x = \frac{d}{{dt}}\left[ {\frac{{4g}}{{{L^2} + \frac{{4I}}{m}}}\left( {L{y^2} - {y^3}} \right)} \right] = \frac{{4g}}{{{L^2} + \frac{{4I}}{m}}}\left[ {2Ly\dot y - 3{y^2}\dot y} \right]\)</span><br>
+<span class="tex">\(\ddot x = \frac{{4g}}{{2\dot x\left( {{L^2} + \frac{{4I}}{m}} \right)}}\left[ {2Ly\dot y - 3{y^2}\dot y} \right] = 0\)</span><br>
+<span class="tex">\(y = \frac{2}{3}L\)</span><br>
+Sostituendo nell’espressione della velocità orizzontale<br>
+ <br>
+ <span class="tex">\({{\dot x}^2} = g\left( {L - \frac{2}{3}L} \right)\frac{{16{L^2}}}{{9\left( {{L^2} + \frac{{4I}}{m}} \right)}} = gL\frac{{16{L^2}}}{{27\left( {{L^2} + \frac{{4I}}{m}} \right)}}\)</span><br>
+  <span class="tex">\(I = \frac{1}{{12}}m{L^2}\)</span><br>
+ <span class="tex">\(\dot x = \frac{2}{3}\sqrt {gL}\)</span><br>
+ <span class="tex">\({V_X} = \frac{{\dot x}}{2} = \frac{1}{3}\sqrt {gL}\)</span><br>
+<br>
+Bonus question:<br>
+ <br>
+<span class="tex">\(I = \beta m{L^2}\)</span><br>
+<span class="tex">\(\dot x = \frac{4}{3}\sqrt {\frac{{gL}}{{3\left( {1 + 4\beta } \right)}}}\)</span><br>
+<span class="tex">\({V_X} = \frac{{\dot x}}{2} = \frac{2}{3}\sqrt {\frac{{gL}}{{3\left( {1 + 4\beta } \right)}}}\)</span></article>
+<article class="post" id="p367"><div class="who"><b>pascal</b><span>15 feb 2009, 14:15</span></div>Durante il contatto con la parete verticale, il centro di massa C dell’asta si mantiene alla distanza costante L/2 dall’origine O degli assi. Pertanto C è in moto circolare con accelerazione tangenziale at e centripeta ar e con velocità v. Nell’istante del distacco agiscono sull’asta il suo peso P e la reazione verticale N dovuta al piano orizzontale. Il momento delle forze rispetto a C vale N L/2sen<span class="tex">\(\theta\)</span> = I <span class="tex">\(\alpha\)</span>, dove I = m<span class="tex">\(\[L^2\)</span>/12 è il momento d’inerzia rispetto all’asse ortogonale al piano del moto  per C e <span class="tex">\(\alpha\)</span> è l’accelerazione angolare della sbarretta. Ma l’asta e OC, formando angoli uguali con la verticale, hanno le stesse velocità <span class="tex">\(\omega\)</span> ed accelerazioni <span class="tex">\(\alpha\)</span> angolari; quindi v = <span class="tex">\(\omega\)</span> L /2   e   at = <span class="tex">\(\alpha\)</span> L/2. La risultante delle forze è verticale e la sua componente tangente all’arco di circonferenza descritto da C è: (P – N) sen <span class="tex">\(\theta\)</span> = m at. Le equazioni scritte consentono di calcolare at = 3/4 g sen <span class="tex">\(\theta\)</span> e poi P –N = 3 / 4 mg. La componente centripeta della risultante diretta da C verso O è allora 3 / 4 mg cos <span class="tex">\(\theta\)</span> = m <span class="tex">\(\[v^2\)</span> / (L / 2). Per la conservazione dell’energia tra l’istante iniziale e il distacco si ottiene: mgL / 2 = mg L / 2 cos<span class="tex">\(\theta\)</span> +1 / 2 m <span class="tex">\(\[v^2\)</span> + 1 / 2 I <span class="tex">\(\omega^2\)</span>, dove si sono considerate le energie (potenziale e cinetica) attribuite al centro di massa C e cinetica intorno a C. Da v = <span class="tex">\(\omega\)</span> L / 2 si ricava <span class="tex">\(\[v^2\)</span> = 3 / 4 g L (1- cos<span class="tex">\(\theta\)</span>) che, inserita nell’espressione della forza centripeta, permette di avere cos <span class="tex">\(\theta\)</span> = 2 / 3  e  v = [<span class="tex">\(\sqrt(gL)\)</span>]/2. La componente orizzontale della velocità al momento del distacco vale, dunque, v cos<span class="tex">\(\theta\)</span> = [<span class="tex">\(\sqrt(gL)\)</span>]/3. <br>
+Analogamente si procede per l'asta con l'altro momento d'inerzia.</article>
+<article class="post" id="p369"><div class="who"><b>Donato Palermo</b><span>15 feb 2009, 15:34</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>Scrivendo il procedimento con l’intenzione di pubblicarlo mi sono accorto che nel calcolare i risultati postati in precedenza devo aver commesso qualche errore.<br>
+La soluzione completa che presento adesso, invece, dovrebbe essere corretta.<br>
+<br>
+Detta x la coordinata orizzontale della base dell’asta appoggiata al terreno, e y la coordinata verticale della sommità dell’asta appoggiata alla parete, cerco di determinare la Vx del C.M. in funzione di un parametro posizionale, ad esempio y, nell’ipotesi che l’asta mantenga il contatto sia con la parete che col pavimento (ciò è vero fino al momento del distacco).<br>
+L’abbassamento del C.M. dell’asta permette di calcolare la perdita di energia potenziale che si converte tutta in energia cinetica.<br>
+<br>
+ <br>
+ <span class="tex">\({x_{CM}} = \frac{x}{2}\)</span><br>
+ <span class="tex">\({y_{CM}} = \frac{y}{2}\)</span><br>
+ <span class="tex">\(\Delta {E_P} = \frac{{mg}}{2}\left( {L - y} \right)\)</span><br>
+ <span class="tex">\(\Delta {E_K} = \frac{1}{2}m\left( {\frac{{{{\dot x}^2}}}{4} + \frac{{{{\dot y}^2}}}{4}} \right) + \frac{1}{2}I{{\dot \theta }^2}\)</span><br>
+ <span class="tex">\(\Delta {E_K} = \frac{1}{8}m\left( {{{\dot x}^2} + {{\dot y}^2}} \right) + \frac{1}{2}I{{\dot \theta }^2}\)</span><br>
+Occorre adesso eliminare alcune variabili dipendenti, come ad esempio l’angolo di rotazione.<br>
+ <br>
+ <span class="tex">\(\cos \theta  = \frac{y}{L}\)</span><br>
+ <span class="tex">\(\frac{d}{{dt}}\cos \theta  =  - \dot \theta sen\theta  = \frac{{\dot y}}{L}\)</span><br>
+ <span class="tex">\({{\dot \theta }^2} = \frac{{{{\dot y}^2}}}{{{L^2}se{n^2}\theta }} = \frac{{{{\dot y}^2}}}{{{x^2}}}\)</span><br>
+Sostituendo si ha:<br>
+ <br>
+ <span class="tex">\(\Delta {E_K} = \frac{1}{8}m\left( {{{\dot x}^2} + {{\dot y}^2}} \right) + \frac{1}{2}I\frac{{{{\dot y}^2}}}{{{x^2}}}\)</span><br>
+Adesso eliminiamo anche la variabile dipendente <span class="tex">\({\dot y}\)</span><br>
+ <br>
+ <span class="tex">\(y = \sqrt {{L^2} - {x^2}}\)</span><br>
+ <span class="tex">\(\dot y = \frac{{ - 2x\dot x}}{{2\sqrt {{L^2} - {x^2}} }}\)</span><br>
+ <span class="tex">\(\dot y =  - \frac{{x\dot x}}{y}\)</span><br>
+ <span class="tex">\(\Delta {E_K} = \frac{1}{8}m\left( {{{\dot x}^2} + \frac{{{x^2}{{\dot x}^2}}}{{{y^2}}}} \right) + \frac{1}{2}I\frac{{{{\dot x}^2}}}{{{y^2}}} = \frac{1}{8}m{{\dot x}^2}\frac{{{L^2}}}{{{y^2}}} + \frac{1}{2}I\frac{{{{\dot x}^2}}}{{{y^2}}}\)</span><br>
+Eguagliando  <span class="tex">\(\Delta {E_K} = \Delta {E_P}\)</span> si ha<br>
+ <br>
+<span class="tex">\(\frac{1}{2}m{{\dot x}^2}\frac{{{L^2}}}{{4{y^2}}} + \frac{1}{2}I\frac{{{{\dot x}^2}}}{{{y^2}}} = \frac{{mg}}{2}\left( {L - y} \right)\)</span><br>
+<span class="tex">\({{\dot x}^2}\left( {\frac{{m{L^2} + 4I}}{{4m{y^2}}}} \right) = g\left( {L - y} \right)\)</span><br>
+<span class="tex">\({{\dot x}^2} = g\left( {L - y} \right)\frac{{4{y^2}}}{{{L^2} + \frac{{4I}}{m}}}\)</span><br>
+Al momento del distacco dal muro si azzera la forza orizzontale e quindi l’accelerazione orizzontale del centro di massa, e quindi anche <span class="tex">\({\ddot x}\)</span><br>
+ <br>
+ <span class="tex">\({{\dot x}^2} = g\left( {L - y} \right)\frac{{4{y^2}}}{{{L^2} + \frac{{4I}}{m}}}\)</span><br>
+<span class="tex">\(2\dot x\ddot x = \frac{d}{{dt}}\left[ {\frac{{4g}}{{{L^2} + \frac{{4I}}{m}}}\left( {L{y^2} - {y^3}} \right)} \right] = \frac{{4g}}{{{L^2} + \frac{{4I}}{m}}}\left[ {2Ly\dot y - 3{y^2}\dot y} \right]\)</span><br>
+<span class="tex">\(\ddot x = \frac{{4g}}{{2\dot x\left( {{L^2} + \frac{{4I}}{m}} \right)}}\left[ {2Ly\dot y - 3{y^2}\dot y} \right] = 0\)</span><br>
+<span class="tex">\(y = \frac{2}{3}L\)</span><br>
+Sostituendo nell’espressione della velocità orizzontale<br>
+ <br>
+ <span class="tex">\({{\dot x}^2} = g\left( {L - \frac{2}{3}L} \right)\frac{{16{L^2}}}{{9\left( {{L^2} + \frac{{4I}}{m}} \right)}} = gL\frac{{16{L^2}}}{{27\left( {{L^2} + \frac{{4I}}{m}} \right)}}\)</span><br>
+  <span class="tex">\(I = \frac{1}{{12}}m{L^2}\)</span><br>
+ <span class="tex">\(\dot x = \frac{2}{3}\sqrt {gL}\)</span><br>
+ <span class="tex">\({V_X} = \frac{{\dot x}}{2} = \frac{1}{3}\sqrt {gL}\)</span><br>
+<br>
+Bonus question:<br>
+ <br>
+<span class="tex">\(I = \beta m{L^2}\)</span><br>
+<span class="tex">\(\dot x = \frac{4}{3}\sqrt {\frac{{gL}}{{3\left( {1 + 4\beta } \right)}}}\)</span><br>
+<span class="tex">\({V_X} = \frac{{\dot x}}{2} = \frac{2}{3}\sqrt {\frac{{gL}}{{3\left( {1 + 4\beta } \right)}}}\)</span></div></blockquote>
+perche nell'energia cinetica c'e in theta al quadrato?nn dovrebbe essere la velocità angolare?e perche l'accelerazione orizzontale si azzera?</article>
+<article class="post" id="p370"><div class="who"><b>CoNVeRGe.</b><span>15 feb 2009, 15:45</span></div><blockquote><div><cite>Donato Palermo ha scritto:</cite>
+perche nell'energia cinetica c'e in theta al quadrato?nn dovrebbe essere la velocità angolare?
+</div></blockquote>
+il pallino sopra sta appunto per "derivato rispetto al tempo" quindi è la velocità angolare
+<blockquote><div><cite>Donato Palermo ha scritto:</cite>
+e perche l'accelerazione orizzontale si azzera?
+</div></blockquote>
+all'istante del distacco non c'è più nessuna forza che agisce orizzontalmente sull'asta, quindi necessariamente l'accelerazione orizzontale è nulla<br>
+<br>
+mi è piaciuta la soluzione.. ho visto un paio di cosette nuove  :)</article>
+<article class="post" id="p581"><div class="who"><b>Catacian</b><span>23 mar 2009, 16:39</span></div>Hemm...<br>
+<br>
+Sul sito delle OLIFIS per questo problema viene un altro risultato<br>
+guardate qua:<br>
+<br>
+<a href="http://forum.olifis.it/olifis/naz04tpd.zip" class="ext" class="postlink">olifis/naz04tpd.zip</a><br>
+<br>
+è il 2° punto del 1° problema.<br>
+<br>
+Forse so anche dove sta la differenza: voi del forum avete calcolato l'energia cinetica traslazionale, loro si sono limitati a quella rotazionale.<br>
+Dateci un'occhiata, please!</article>
+<article class="post" id="p583"><div class="who"><b>CoNVeRGe.</b><span>23 mar 2009, 20:56</span></div>Giusto poco fa ho letto quel problema e non ho capito proprio il testo di quel secondo punto ... !<br>
+<br>
+La situazione comunque dovrebbe essere diversa, perchè prima di tutte le domande sembra precisare bene che l'asta inizialmente è verticale in ogni situazione successiva.. non sei d'accordo?<br>
+<br>
+Con "inizia a scivolare lateralmente sul pavimento" non capisco proprio cosa vogliano dire..</article>
+<article class="post" id="p584"><div class="who"><b>String</b><span>23 mar 2009, 21:11</span></div>Neanch'io ho capito bene il testo, a prima vista la situazione mi è sembrata la stessa del problema di questo topic...<blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+La situazione comunque dovrebbe essere diversa, perchè prima di tutte le domande sembra precisare bene che l'asta inizialmente è verticale in ogni situazione successiva.. non sei d'accordo?
+</div></blockquote>
+Non capisco perchè la situazione dovrebbe essere diversa dato che anche nel problema qui discusso l'asta era inizialmente in posizione vertcale...</article>
+<article class="post" id="p585"><div class="who"><b>pascal</b><span>23 mar 2009, 21:12</span></div>Non conoscevo il problema delle nazionali, ma dando uno sguardo alla<br>
+soluzione, non mi sembra che i risultati siano in contraddizione con la<br>
+risposta del forum. La velocità del centro di massa <span class="tex">\(\sqrt{gL}/{2}\)</span>, <br>
+richiesta alla nazionale coincide con quella del forum. La velocità orizzontale <br>
+richiesta nel forum è <span class="tex">\(\sqrt{gL}/3\)</span>.</article>
+<article class="post" id="p586"><div class="who"><b>CoNVeRGe.</b><span>23 mar 2009, 21:23</span></div><blockquote><div><cite>String ha scritto:</cite><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+La situazione comunque dovrebbe essere diversa, perchè prima di tutte le domande sembra precisare bene che l'asta inizialmente è verticale in ogni situazione successiva.. non sei d'accordo?
+</div></blockquote>
+Non capisco perchè la situazione dovrebbe essere diversa dato che anche nel problema qui discusso l'asta era inizialmente in posizione vertcale...</div></blockquote>
+Oddio è vero. E' che anch'io andai a confrontare il testo delle nazionali con questo e trovai qualcosa di diverso ma ho sbagliato a ricordare questo 'qualcosa', infatti sul problema delle nazionali afferma che inizia a cadere ruotando intorno a O, che è un punto ben preciso, e non il punto di contatto tra l'asta e il pavimento (punto mobile).<br>
+<br>
+Se si puo affermare che in questo problema del forum l'asta cominci a ruotare attorno al punto in cui poggia inizialmente è ok: sono uguali.</article>
+<article class="post" id="p587"><div class="who"><b>String</b><span>23 mar 2009, 21:35</span></div><blockquote><div><cite>pascal ha scritto:</cite>Durante il contatto con la parete verticale, il centro di massa C dell’asta si mantiene alla distanza costante L/2 dall’origine O degli assi. Pertanto C è in moto circolare con accelerazione tangenziale at e centripeta ar e con velocità v.</div></blockquote>
+Non capisco perchè il centro di massa si muove mantenendosi a distanza costante dal centro degli assi ( che dovrebbe essere il punto fisso O del problema di Senigallia 2004) compiendo quindi un moto circolare rispetto ad esso...</article>
+<article class="post" id="p588"><div class="who"><b>CoNVeRGe.</b><span>23 mar 2009, 21:45</span></div><blockquote><div><cite>String ha scritto:</cite><blockquote><div><cite>pascal ha scritto:</cite>Durante il contatto con la parete verticale, il centro di massa C dell’asta si mantiene alla distanza costante L/2 dall’origine O degli assi. Pertanto C è in moto circolare con accelerazione tangenziale at e centripeta ar e con velocità v.</div></blockquote>
+Non capisco perchè il centro di massa si muove mantenendosi a distanza costante dal centro degli assi ( che dovrebbe essere il punto fisso O del problema di Senigallia 2004) compiendo quindi un moto circolare rispetto ad esso...</div></blockquote>
+
+Ahhh beh, mica era così chiaro.. non possono fare i testi contorti però eh  :? <br>
+"inizia a cadere ruotando intorno ad O", uno non va a pensare che è il centro di massa a ruotare.. sbaglio? buh<br>
+<br>
+L'asta forma con la parete e il pavimento due tratti L cosQ e L senQ.<br>
+Il centro di massa si troverà in ogni istante (prima che l'asta lasci la parete) ad una posizione L cosQ /2 e L senQ /2 in un sistema che ha il vertice dell'angolo parete-pavimento come centro.<br>
+Da ciò appare ovvio che il centro di massa percorre una circonferenza di raggio L/2 in quanto le sue proiezioni sugli assi sono esattamente le sue coordinate di sopra.<br>
+Non riesco ad essere molto chiaro forse.. sicuramente c'è una spiegazione più evidente.</article>
+<article class="post" id="p589"><div class="who"><b>String</b><span>23 mar 2009, 21:59</span></div>Sei stato chiarissimo ;)  Grazie :!:</article>
+<article class="post" id="p590"><div class="who"><b>pascal</b><span>23 mar 2009, 22:11</span></div>Infatti la distanza <span class="tex">\(OC = \sqrt{x_c^2+y_c^2} = L/2.\)</span><br>
+Un modo geometrico consiste nell'inscrivere il triangolo rettangolo,<br>
+avente come ipotenusa l'asta e i cateti orizzontale e verticale, in<br>
+una circonferenza di centro C e raggio L/2.</article>
+<article class="post" id="p598"><div class="who"><b>CoNVeRGe.</b><span>25 mar 2009, 16:14</span></div>Ho letto la soluzione del problema delle nazionali e mi son convinto del fatto che lì l'asta non tocchi la parete superiormente ma inferiormente, ovvero cade dalla parte opposta rispetto ad essa ruotando intorno ad O fino a quando non la lascia, come in questo. Che il risultato sia lo stesso non credo sorprenda più di tanto..<br>
+<br>
+Penso comunque che la situazione in quello delle nazionali renda lo svolgimento più semplice.</article>
+<article class="post" id="p599"><div class="who"><b>String</b><span>25 mar 2009, 17:19</span></div>E' vero! Quindi la situazione non è la stessa! Ecco perchè nelle soluzioni si considerava solo l'energia rotazionale...</article>
+<article class="post" id="p600"><div class="who"><b>CoNVeRGe.</b><span>25 mar 2009, 17:41</span></div><blockquote><div><cite>String ha scritto:</cite>E' vero! Quindi la situazione non è la stessa! Ecco perchè nelle soluzioni si considerava solo l'energia rotazionale...</div></blockquote>
+Non è esattamente la stessa però in entrambe il centro di massa percorre fino ad un certo punto una circonferenza, e per fare questo necessita di una forza orizzontale (identica in entrambi i casi, da qui la stessa soluzione) data dal contatto con la parete. Come spiegato chiaramente nella soluzione il corpo si staccherà quando necessiterà di una forza diretta verso la parete.<br>
+<br>
+Penso non abbiano considerato l'energia cinetica traslazionale proprio perchè 'vedono' la situazione dal punto O, un punto fisso durante la rotazione, rispetto al quale l'asta ha solo velocità rotazionale e non di traslazione.<br>
+Infatti vale questa equazione:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{1}{2} I_o W^2 = \frac{1}{2}MV_{cm}^2 + \frac{1}{2}I_{cm}W^2\)</span><br>
+<br>
+con:<br>
+<br>
+<span class="tex">\(\displaystyle I_o, I_{cm}\)</span> sono i momenti di inerzia dell'asta rispetto a un asse ortogonale ad essa, passante per un estremo e per il centro di massa rispettivamente<br>
+<br>
+<span class="tex">\(\displaystyle W\)</span> è la velocità angolare di rotazione, uguale in entrambi i casi<br>
+<br>
+<span class="tex">\(\displaystyle V_{cm} = W \frac{L}{2}\)</span> è la velocità del centro di massa<br>
+<br>
+Qualcuno che ha la certezza di questo (per me è una scoperta) ci sprechi due paroline in merito, in nostro aiuto. Grazie   :D</article>
+<article class="post" id="p601"><div class="who"><b>String</b><span>25 mar 2009, 18:11</span></div>Dovrebbe essere una formulazione equivalente del teorema degli assi paralleli secondo il quale il momento d'inerzia di un corpo relativo ad un determinato asse è uguale alla somma tra il momento d'inerzia relativo ad un asse parallelo al precedente e passante per il centro di massa, e il prodotto tra la massa del corpo e il quadrato della distanza fra i due assi. <br>
+In formule sarebbe:<br>
+<br>
+<span class="tex">\(I_o=I_{cm}+Md^2\)</span><br>
+<br>
+Se si moltiplicano entrambi i membri per <span class="tex">\(W^2/2\)</span> si ha in pratica ciò che hai scritto tu...</article>
+<nav class="pager"><a class="prev" href="olifis-2327.html"><small>← precedente</small>Rotazione attorno ad un perno</a><a class="next" href="olifis-433.html"><small>successivo →</small>Asta che gira</a></nav>
+</main></body></html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risultati IPhO 2009</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../olimpiadi.html">Olimpiadi di Fisica</a></span></nav>
+<h1>Risultati IPhO 2009</h1>
+<p class="meta">29 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=182">forum Olifis</a></p>
+<article class="post first" id="p1609"><div class="who"><b>IPhOteam09</b><span>18 lug 2009, 9:04</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><strong class="text-strong">nonostante le premesse disastrose, alla fine abbiamo salvato la faccia</strong></div></blockquote>
+Rigorosamente in ordine alfabetico:<br>
+Giuliano Chiriacò         <span style="color:#BFBFFF">Argento</span><br>
+Paolo Comaschi          <span style="color:#BF8000">Bronzo</span><br>
+Matteo Ippoliti           <span style="color:#BF8000">Bronzo</span><br>
+Stefano Rulli              <span style="color:#BFBFFF">Argento</span><br>
+Vittorio Sala              <span style="color:#BF8000">Bronzo</span><br>
+Ci spiace se non abbiamo soddisfatto appieno le vostre aspettative, speriamo siate clementi.</article>
+<article class="post" id="p1610"><div class="who"><b>Pairo</b><span>18 lug 2009, 10:14</span></div>Fenomeni!! Complimenti a tutti, e saluto soprattutto a Stefano, che era stato compagno di stanza a Senigallia (e dire che non era neanche sicuro di essere passato allora  :mrgreen: ); Davvero bravissimi, ancora tanti complimenti!!</article>
+<article class="post" id="p1611"><div class="who"><b>String</b><span>18 lug 2009, 14:43</span></div>Grandissimi  8-)  Complimenti veramente a tutti!! A quanto pare ci siamo già assicurati due ori per l'anno prossimo :D</article>
+<article class="post" id="p1613"><div class="who"><b>pascal</b><span>18 lug 2009, 18:50</span></div>Auguroni ai campioni italiani per i brillanti risultati conseguiti.</article>
+<article class="post" id="p1616"><div class="who"><b>eli9o</b><span>19 lug 2009, 0:20</span></div>Bravissimi! Complimenti anche da parte mia  :D</article>
+<article class="post" id="p1617"><div class="who"><b>Marta.92</b><span>19 lug 2009, 1:07</span></div>Grandissimi! Complimenti a tutti!!! :D</article>
+<article class="post" id="p1620"><div class="who"><b>Pigkappa</b><span>19 lug 2009, 11:53</span></div><blockquote><div><cite>IPhOteam09 ha scritto:</cite>
+Ci spiace se non abbiamo soddisfatto appieno le vostre aspettative, speriamo siate clementi.</div></blockquote>
+
+Vi perdoniamo!<br>
+<br>
+Bravissimi!  :D</article>
+<article class="post" id="p1627"><div class="who"><b>memedesimo</b><span>19 lug 2009, 23:34</span></div>:shock:  Grandissimi!!</article>
+<article class="post" id="p1629"><div class="who"><b>CoNVeRGe.</b><span>20 lug 2009, 17:15</span></div>Complimentoni!  8-)  Soprattutto ai più giovani!</article>
+<article class="post" id="p1634"><div class="who"><b>Alex90</b><span>20 lug 2009, 21:24</span></div>Bravissimi! Quando ci tartasserete con i problemi sul forum?  :D</article>
+<article class="post" id="p1637"><div class="who"><b>IPhOteam09</b><span>20 lug 2009, 22:44</span></div><div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>________Th1____Th2____Th3___Exp1___Exp2_____Tot
+ITA1___9.40___2.50___3.75___8.75___5.50___29.90 ----&gt; Silver
+ITA2___7.10___0.00___5.95___4.35___4.50___21.90 ----&gt; Bronze
+ITA3___5.50___1.85___6.45___4.00___5.75___23.55 ----&gt; Bronze
+ITA4___5.95___2.70___6.45___3.50___9.25___27.85 ----&gt; Silver
+ITA5___2.90___0.00___5.90___6.50___3.50___18.80 ----&gt; Bronze </code></pre></div>
+
+Cut-offs approssimativi: bronzo 17, argento 25, oro 33.<br>
+ITA1 = Giuliano Chiriacò (Rigel), ITA2 = Paolo Comaschi (Paolo90), ITA3 = Matteo Ippoliti (Ippo), ITA4 = Stefano Rulli (Stp), ITA5 = Vittorio Sala.<br>
+<br>
+Qualche commento sparso.<br>
+<br>
+ITA5 conosce la formula per l'inerzia di una sfera omogenea ma la calcola lo stesso con un integrale, ottiene un risultato diverso e (autostima <span class="tex">\(\rightarrow \infty\)</span>) lo preferisce a quello teoricamente previsto ottenendo penalizzazioni a cascata in Th1. Commento ufficiale:
+<blockquote><div><cite>Prof Censi ha scritto:</cite>Hai usato gli integrali, hai sbagliato, sei stato punito e ti sta bene</div></blockquote>
+Inoltre pare abbia ottenuto una grandezza sperimentale con incertezza del 140%.<br>
+<br>
+ITA2 esegue la prova sperimentale con la febbre (suina?  :lol: ) a 38, riuscendo comunque a fare Exp1 meglio di ITA3 e ITA4 e Exp2 meglio di ITA5 (tutti sani). Fate voi.<br>
+<br>
+ITA3 per spezzare la monotonia di una soluzione sensata affronta la seconda metà di Th1 scrivendo fesserie. Purtroppo i correttori non condividevano lo stesso gusto per il nonsense. Pare inoltre che non sappia il teorema di Carnot. Si riconferma infine Sperimentatore dell'Anno 2009.<br>
+<br>
+ITA1 conta due volte l'energia potenziale elettrica tra due particelle cariche: spiegategli che poteva stare a casa a studiare anziché farci fare queste figuracce internazionali  :mrgreen: <br>
+<br>
+ITA4 sei mesi fa non sapeva cos'è il campo elettrico, tre mesi fa era oro a Senigallia, ora è argento alle IPhO; un'interpolazione approssimativa di questi punti sperimentali suggerisce che sarà Absolute Winner il prossimo anno e Premio Nobel nel 2011.</article>
+<article class="post" id="p1642"><div class="who"><b>IPhOteam09</b><span>21 lug 2009, 12:16</span></div>Qualche altra chicca:<br>
+ITA1 ha contato due volte anche l'energia potenziale di Luna e Terra in Th1, quindi almeno è stato coerente con sè stesso  :lol: <br>
+ITA4 ha preso perfettamente tutte le misure in Exp2, non ha sbagliato gli errori o le cifre significative, ha superato le mille insidie del Calculador Scientifico (la super calcolatrice fornita dall'organizzazione), ha fatto bene i grafici e la regressione, ha ottenuto un risultato ragionevole, ma ha perso 0,75 pt. dimenticandosi di scrivere l'errore in un passaggio finale  :roll: <br>
+Super prova sperimentale di ITA5, dove ha fatto più punti che nella teorica. In Exp1 c'era da calcolare la lunghezza d'onda di un laser rosso e ITA5 ha ottenuto il risultato col minor errore di sempre: <span class="tex">\((240\pm360){\rm nm}\)</span>  :shock: . Il commento dopo la gara:<br>
+ITA1:"Che lunghezza d'onda hai ottenuto?" ITA5:"...EH...240 nanometri" ITA1:"Ma 240 nanometri non è..." ITA5:"...EH...lo so che 240 nanometri non è luce rossa" ITA1:"Se è per questo non è neanche luce"</article>
+<article class="post" id="p1663"><div class="who"><b>Timmo</b><span>22 lug 2009, 16:55</span></div>Bravissimi!Complimenti! :D</article>
+<article class="post" id="p1690"><div class="who"><b>IPhOteam09</b><span>23 lug 2009, 15:42</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Bravissimi! Quando ci tartasserete con i problemi sul forum?  :D</div></blockquote>
+Crediamo mai. Primo perchè non siamo così sadici, anche se avendo sbattuto la testa su quei problemi per cinque ore, dobbiamo essere molto masochisti  :lol: Secondo perchè texxare quaranta domande e otto pagine per ogni problema ( :x ) è da pazzi, quando fra qualche giorno i problemi usciranno sul sito olifis</article>
+<article class="post" id="p1691"><div class="who"><b>Alex90</b><span>23 lug 2009, 19:20</span></div>Non posso obiettare  :D ...aspetteremo qualche giorno  ;)</article>
+<article class="post" id="p1693"><div class="who"><b>Pigkappa</b><span>23 lug 2009, 23:52</span></div>I testi sul sito italiano ci sono. Per ora ho guardato solo il primo problema... Mi sembra molto facile e molto (troppo) guidato... Bastava eseguire le istruzioni senza pensare per risolverlo tutto  :(</article>
+<article class="post" id="p1696"><div class="who"><b>Alex90</b><span>24 lug 2009, 10:34</span></div>Devo ammettere che lo spirito di osservazione di Pig supera il nostro  :lol:</article>
+<article class="post" id="p1697"><div class="who"><b>Rigel</b><span>24 lug 2009, 11:52</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>I testi sul sito italiano ci sono. Per ora ho guardato solo il primo problema... Mi sembra molto facile e molto (troppo) guidato... Bastava eseguire le istruzioni senza pensare per risolverlo tutto  :(</div></blockquote>
+Anche se l'argomento del problema è molto bello, su questo devo darti ragione: nel testo dice anche che il momento torcente è la derivata temporale del momento angolare  :? Comunque è stato il problema con la correzione più spietata e bisognava essere davvero molto attenti per non perdere punti stupidamente.<br>
+La vera difficoltà era la lunghezza dei problemi: sul secondo risolvendo le prime venti domande potevi fare non più di 4 pt. dare decine di domande da 0,2 pt alla fine ti fa perdere il gusto di risolvere il problema</article>
+<article class="post" id="p1698"><div class="who"><b>Ippo</b><span>24 lug 2009, 12:36</span></div>Tra l'altro riguardo al problema 1 segnalo SNS 2000-2001, n°2. Lo stesso calcolo per il momento torcente.<br>
+Il problema più bello secondo me era il numero 3. Guidato lo stesso (ma del resto ormai lo sono tutti), però contiene elementi di elettromagnetismo, meccanica, termodinamica e fisica quantistica. Ed è un problema di astrofisica. Simpatico  :mrgreen:</article>
+<article class="post" id="p1723"><div class="who"><b>Loren Kocillari89</b><span>25 lug 2009, 21:58</span></div>Si davvero grandi complimenti per tutto!  :) Ma visto che siete delle medaglie perchè non ci illuminate pure noi postandoci i testi o il link dei problemi ipho?? :D</article>
+<article class="post" id="p1724"><div class="who"><b>Pigkappa</b><span>26 lug 2009, 2:09</span></div>I testi sono sul sito delle olimpiadi italiane: <a href="http://forum.olifis.it/olifis/iphomat.htm" class="ext" class="postlink">olifis/iphomat.htm</a><br>
+<br>
+Le soluzioni penso che verranno messe insieme ai problemi sul sito delle olimpiadi internazionali: <a href="http://www.jyu.fi/kastdk/olympiads/" class="ext" class="postlink">http://www.jyu.fi/kastdk/olympiads/</a> .</article>
+<article class="post" id="p1726"><div class="who"><b>bacco</b><span>26 lug 2009, 12:35</span></div>Complimentoni!</article>
+<article class="post" id="p1731"><div class="who"><b>spn</b><span>26 lug 2009, 20:21</span></div>Complimenti a tutti!<br>
+Ma la classifica generale comprendente tutti i partecipanti è uscita da qualche parte o ancora non l'hanno messa in rete? Almeno si sanno i primi classificati?</article>
+<article class="post" id="p1755"><div class="who"><b>Hoja</b><span>27 lug 2009, 20:50</span></div><blockquote><div><cite>spn ha scritto:</cite>Complimenti a tutti!<br>
+Ma la classifica generale comprendente tutti i partecipanti è uscita da qualche parte o ancora non l'hanno messa in rete? Almeno si sanno i primi classificati?</div></blockquote>
+Guarda <a href="https://spreadsheets.google.com/ccc?key=0AqAFeyJfGn4HdFlxdzdNVDJFRDBzWkpzY01NSjVNTkE" class="ext" class="postlink">qui</a>.</article>
+<article class="post" id="p1834"><div class="who"><b>IPhOteam09</b><span>2 ago 2009, 11:12</span></div>Finalmente sono usciti <a href="http://ipho2009.smf.mx/marks" class="ext" class="postlink">i  risultati</a> sul sito ufficiale.<br>
+<br>
+Inoltre <a href="http://2.bp.blogspot.com/_MszHEW5S97M/Sm-peGbwO-I/AAAAAAAAARE/y0jXfFCThWs/s1600-h/The+40th+International++Physics+Olympiad+2009.jpg" class="ext" class="postlink">qui</a> c'è una classifica per nazioni che illustra il piazzamento del Genga IPhO team 2009 in relazione alle altre delegazioni: 27° posto per medaglie, che diventa 24° se si considera il punteggio totale (ITA2 e ITA3 erano piuttosto vicini al cutoff superiore), <em class="text-italics">davanti al Regno Unito e a tanto così da Polonia e Francia</em>, per dire.</article>
+<article class="post" id="p1838"><div class="who"><b>Hope</b><span>2 ago 2009, 12:13</span></div>COMPLIMENTI</article>
+<article class="post" id="p1930"><div class="who"><b>Pigkappa</b><span>10 ago 2009, 0:26</span></div><blockquote><div><cite>IPhOteam09 ha scritto:</cite>Inoltre <a href="http://2.bp.blogspot.com/_MszHEW5S97M/Sm-peGbwO-I/AAAAAAAAARE/y0jXfFCThWs/s1600-h/The+40th+International++Physics+Olympiad+2009.jpg" class="ext" class="postlink">qui</a> c'è una classifica per nazioni che illustra il piazzamento del Genga IPhO team 2009 in relazione alle altre delegazioni: 27° posto per medaglie, che diventa 24° se si considera il punteggio totale (ITA2 e ITA3 erano piuttosto vicini al cutoff superiore), <em class="text-italics">davanti al Regno Unito e a tanto così da Polonia e Francia</em>, per dire.</div></blockquote>
+
+Bravi bravi, ma vi faccio presente che i matematici sono arrivati 11esimi  :x !</article>
+<article class="post" id="p1933"><div class="who"><b>Ippo</b><span>10 ago 2009, 11:26</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Bravi bravi, ma vi faccio presente che i matematici sono arrivati 11esimi  :x !</div></blockquote>
+[gufata] il prossimo anno con un paio di ori saremo nella top ten anche in fisica ;) [/gufata]</article>
+<article class="post" id="p1988"><div class="who"><b>Rigel</b><span>13 ago 2009, 20:32</span></div>Cominciamo già da ora con le gufate, eh?  :lol: <br>
+Aspetta almeno di [gufata] entrare in Normale [/gufata] XD</article>
+<nav class="pager"><a class="prev" href="olifis-752.html"><small>← precedente</small>Senigallia 2011.</a><a class="next" href="olifis-515.html"><small>successivo →</small>Risultati IPhO 2010</a></nav>
+</main></body></html>

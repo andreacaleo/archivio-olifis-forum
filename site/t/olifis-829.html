@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fisica: quale università?</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../caffe.html">Caffè</a></span></nav>
+<h1>Fisica: quale università?</h1>
+<p class="meta">23 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=829">forum Olifis</a></p>
+<article class="post first" id="p7035"><div class="who"><b>domx</b><span>23 lug 2011, 20:36</span></div>Ciao a tutti, nell'eventualità molto alta che non entrassi alla normale, sto valutando a quale università iscrivermi. Pensavo alla statale di Pisa perché ne parlano bene e perché poi vorrei ritentare alla normale il quarto anno (e lì sarei avvantaggiato). Ma non so se sia la scelta migliore, secondo voi? Tra Pisa e, ad esempio, Padova, voi quale preferireste?<br>
+Ciao e grazie ;)</article>
+<article class="post" id="p7036"><div class="who"><b>Pigkappa</b><span>23 lug 2011, 23:35</span></div><blockquote><div><cite>domx ha scritto:</cite>Pensavo alla statale di Pisa perché ne parlano bene</div></blockquote>
+Chi è che ne parla bene? o_o.<br>
+<br>
+Scherzi a parte, è difficile confrontare due università diverse. Ci vogliono due studenti che le frequentino più o meno in contemporanea, e che si tengano in contatto.<br>
+<br>
+È anche difficile definire che cosa rende "buona" una università. Secondo me, ad esempio, è importante che gli esami siano seri e difficili, perchè ti costringono ad imparare. Paradossalmente, avere un esame serio è più importante di avere un professore che spiega bene, per me, ma probabilmente in molti non condividono.<br>
+<br>
+A Pisa ti posso dire che circa metà degli esami non sono seri ed i 3/4 dei professori spiegano male (male al punto che io non vado a lezione, se c'è modo di trovare quello che fanno da qualche altra parte). Quindi non siamo messi molto bene.<br>
+<br>
+So un po' di cose sul primo anno dell'università di Parma, e l'impressione che ho avuto è che lì gli esami fossero più facili.</article>
+<article class="post" id="p7037"><div class="who"><b>domx</b><span>25 lug 2011, 11:23</span></div>per Parma intendevi Padova?<br>
+Comunque sentire questo non mi fa affatto piacere, anche perché a questo punto non saprei dove andare...</article>
+<article class="post" id="p7038"><div class="who"><b>Pigkappa</b><span>25 lug 2011, 11:55</span></div>Per Parma intendevo Parma... Non è famosa ma c'è Fisica anche lì.</article>
+<article class="post" id="p7039"><div class="who"><b>domx</b><span>25 lug 2011, 12:32</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Per Parma intendevo Parma... Non è famosa ma c'è Fisica anche lì.</div></blockquote>
+uhm, difficile che scelga Parma...</article>
+<article class="post" id="p7051"><div class="who"><b>Fedecart</b><span>29 lug 2011, 10:21</span></div>Io ho finito il secondo anno a Padova e posso dirti qualcosa. L'impressione che ho è che col passare degli anni la qualità dei corsi cali sempre, anno dopo anno.<br>
+La maggior parte dei professori di fisica spiegano male, si accontentano all'orale che tu impari più o meno a memoria quello che hanno detto in classe (costringendoti in questo modo a frequentare tra l'altro, dal momento che se all'esame dici le stesse cose in modo diverso non va bene), e non si accertano che tu abbia capito.<br>
+In compenso i voti in generale sono un bel pò bassi e la minima media da tenere per fare 110 alla fine è abbastanza alta (più di quello che ho sentito in altre università) ovvero 28,6. Ciò fa si che (in linea teorica, se miri in alto) devi mantenere questa media, e quindi per ogni 28 che per caso prendi devi prendere due 29. E' una roba abbastanza tosta. (Diciamocelo poi, anche abbastanza inutile dato che la laurea triennale conta quasi nulla).<br>
+Di conseguenza significa che uscirne con un voto alto, qui, è più difficile che da altre parti. E anche questo è da contare.<br>
+Ci sono ovviamente le eccezioni. Il professore di fisica matematica, materia abbastanza fondamentale dal mio punto di vista, ha tenuto un corso splendido, chiarissimo, serio e (ho scoperto dopo) anche abbastanza avanti per i contenuti trattati (rispetto ad corsi simili in altre facoltà), esame difficile ma onesto, si è imparato un sacco.<br>
+Come lui quasi tutti i matematici tengono corsi estremamente belli, rigorosi e fatti bene. Con l'esame ci sbatti la testa, ma sicuramente impari molto, capisci le cose e impari a fare. Per i fisici non si può dire altrettanto (almeno quelli che ho conosciuto io finora).<br>
+Poi, altra cosa che forse vorresti sapere, è che devi inserire nel tuo piano di studio 4 corsi a scelta, almeno da noi. Questi sono a tua scelta, e possono variare moltissimo da persona a persona. Chi vuole corsi di un certo tipo (quelli che 30e lode senza sforzo) prende storia della fisica e storia dell'astronomia, introduzione (fasulla) ai rivelatori di particelle, chi è masochista prende geometria differenziale mutuato da matematica, o meccanica superiore, o algebra, chi è normale prende termodinamica, fluidodinamica, programmazione a oggetti in c++ o altro. La scelta è davvero tanta, forte anche del fatto che l'ateneo è MOLTO grande e quindi c'è molta scelta.<br>
+Ah si, se per caso avessi già in mente una vena sperimentale, i corsi di sperimentazioni di fisica fanno schifo, sono inutili, e sono universalmente visti dagli studenti come voti alti facili per alzare medie scomode. In particolare quello del secondo anno.</article>
+<article class="post" id="p7052"><div class="who"><b>domx</b><span>29 lug 2011, 16:43</span></div>uff, a questo punto scelgo Pisa, almeno sarà più semplice ritentare il quarto anno in normale se non dovessi farcela tra un mese...<br>
+però se mi dite questo di Pisa e Padova, che sono tra le più alte università italiane in classifiche internazionali, mi sembra inutile anche solo cercare altrove...</article>
+<article class="post" id="p7053"><div class="who"><b>Fedecart</b><span>29 lug 2011, 18:03</span></div>Io, nella tua identica situazione ed indecisione, avevo fatto un ragionamento sui pro ed i contro di essere in un ateneo molto grande contro uno medio piccolo, e avevo scelto così.<br>
+A oggi non so se sia stata una buona scelta, e certamente sono abbastanza personalmente insoddisfatto dell'università qui a Padova.</article>
+<article class="post" id="p7056"><div class="who"><b>domx</b><span>29 lug 2011, 19:18</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>Io, nella tua identica situazione ed indecisione, avevo fatto un ragionamento sui pro ed i contro di essere in un ateneo molto grande contro uno medio piccolo, e avevo scelto così.<br>
+A oggi non so se sia stata una buona scelta, e certamente sono abbastanza personalmente insoddisfatto dell'università qui a Padova.</div></blockquote>
+anch'io vorrei andare in un ateneo grande, mi sa che Pisa rimane ancora la prima scelta, spero solo di non pentirmene in futuro...</article>
+<article class="post" id="p7057"><div class="who"><b>Omar93</b><span>30 lug 2011, 11:37</span></div><blockquote><div><cite>domx ha scritto:</cite>uff, a questo punto scelgo Pisa, almeno sarà più semplice ritentare il quarto anno in normale se non dovessi farcela tra un mese...<br>
+però se mi dite questo di Pisa e Padova, che sono tra le più alte università italiane in classifiche internazionali, mi sembra inutile anche solo cercare altrove...</div></blockquote>
+E che la sapienza non vale nulla?</article>
+<article class="post" id="p7069"><div class="who"><b>domx</b><span>1 ago 2011, 18:45</span></div><blockquote><div><cite>Omar93 ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>uff, a questo punto scelgo Pisa, almeno sarà più semplice ritentare il quarto anno in normale se non dovessi farcela tra un mese...<br>
+però se mi dite questo di Pisa e Padova, che sono tra le più alte università italiane in classifiche internazionali, mi sembra inutile anche solo cercare altrove...</div></blockquote>
+E che la sapienza non vale nulla?</div></blockquote>
+ah già, la Sapienza!<br>
+Però di solito al primo posto nelle classifiche c'è Pisa, seguita da Padova, e poi Roma è troppo caotica per i miei gusti...</article>
+<article class="post" id="p7089"><div class="who"><b>Fedecart</b><span>3 ago 2011, 10:34</span></div><blockquote><div><cite>domx ha scritto:</cite>Però di solito al primo posto nelle classifiche c'è Pisa, seguita da Padova, e poi Roma è troppo caotica per i miei gusti...</div></blockquote>
+
+La classifica di Repubblica l'anno scorso dava prima Padova e una decina di posizioni dopo Pisa...<br>
+Il punto è che queste classifiche non sono attendibili. Ne prendi 3 diverse e dicono tutto il contrario, anche se i criteri sono gli stessi (o almeno così ci dicono).<br>
+Vi invito a non fidarvi troppo delle classifiche...</article>
+<article class="post" id="p7104"><div class="who"><b>Pigkappa</b><span>3 ago 2011, 14:05</span></div>Le classifiche sono fatte in modo arbitrario e spesso con criteri discutibili. Ad esempio, in alcuni casi considerano positivo che si laureino velocemente tutti quelli che si sono iscritti, mentre secondo me non è necessariamente una gran cosa.</article>
+<article class="post" id="p7114"><div class="who"><b>Fedecart</b><span>3 ago 2011, 19:05</span></div>Infatti, anzi in una ipotetica facoltà fasulla con esami fasulli è ovvio che tutti si laureano rapidamente!</article>
+<article class="post" id="p7127"><div class="who"><b>domx</b><span>4 ago 2011, 20:05</span></div>io mi riferivo ad una classifica fatta da un qualche istituto statunitense che includeva le università di tutto il mondo (non chiedetemi di più, non ricordo)...</article>
+<article class="post" id="p7177"><div class="who"><b>domx</b><span>12 ago 2011, 20:28</span></div>ragazzi, ho trovato <a href="http://www.arwu.org/SubjectPhysics2010.jsp" class="ext" class="postlink">questa</a> classifica...<br>
+vi chiedo: dovrei tenere in considerazione Padova?<br>
+Però mi domando anche quanto sia affidabile una classifica che pone la normale al terzo posto...</article>
+<article class="post" id="p7179"><div class="who"><b>Pigkappa</b><span>13 ago 2011, 0:33</span></div>Se guardi i criteri, vedi subito che sono molto favorite le università grandi che quelle piccole. Ad esempio, è più facile vincere un premio nobel se hai 70 ordinari di fisica che vincerlo se ne hai 5 o 6 come la Normale.</article>
+<article class="post" id="p7199"><div class="who"><b>metsämies</b><span>15 ago 2011, 1:29</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Se guardi i criteri, vedi subito che sono molto favorite le università grandi che quelle piccole. Ad esempio, è più facile vincere un premio nobel se hai 70 ordinari di fisica che vincerlo se ne hai 5 o 6 come la Normale.</div></blockquote>
+non sono d'accordo, la dimensione dell'università non conta nulla per vincere il nobel, è la qualità della ricerca che fa la differenza</article>
+<article class="post" id="p7201"><div class="who"><b>Pigkappa</b><span>15 ago 2011, 13:43</span></div>Se ci sono 100 professori da una parte e 5 dall'altra, dove è più facile che ci sia un vincitore di premio nobel?</article>
+<article class="post" id="p7206"><div class="who"><b>floppino81892</b><span>15 ago 2011, 19:39</span></div><blockquote class="uncited"><div>è più facile vincere un premio nobel se hai 70 ordinari di fisica che vincerlo se ne hai 5 o 6 come la Normale</div></blockquote>
+
+che io sappia la normale ha sfornato + nobel delle altre università italiane messe insieme  :lol:  :D ergo ci deve essere qualche altro fattore che influisce oltre al numero di professori</article>
+<article class="post" id="p7207"><div class="who"><b>Pigkappa</b><span>15 ago 2011, 20:20</span></div>Questo è dovuto ai piccoli numeri del premio Nobel, ma quando si parla di pubblicazioni mi pare normale che grandi università ne abbiano di più che piccole università.<br>
+<br>
+Comunque non sono sicuro che quello che hai detto sia vero. Ad esempio, non credo che il premio nobel di Rubbia sia contato come un premio nobel della Scuola Normale; dipende da dove lavorava quando ha fatto le scoperte che hanno determinato l'assegnazione del premio.</article>
+<article class="post" id="p7208"><div class="who"><b>.mg</b><span>15 ago 2011, 22:04</span></div><blockquote><div><cite>floppino81892 ha scritto:</cite><blockquote class="uncited"><div>è più facile vincere un premio nobel se hai 70 ordinari di fisica che vincerlo se ne hai 5 o 6 come la Normale</div></blockquote>
+
+che io sappia la normale ha sfornato + nobel delle altre università italiane messe insieme  :lol:  :D ergo ci deve essere qualche altro fattore che influisce oltre al numero di professori</div></blockquote>
+Ci sono stati <a href="http://it.wikipedia.org/wiki/Vincitori_del_Nobel_per_paese#Premi_Nobel_per_la_fisica" class="ext" class="postlink">5 premi Nobel italiani</a> per la fisica, di questi solo due hanno frequentato la Normale (Fermi e Rubbia) e nessuno mi sembra che abbia insegnato lì. Se consideri anche le altre categorie, gli italiani insigniti del premio Nobel salgono a 20, i normalisti a <a href="http://it.wikipedia.org/wiki/Scuola_Normale_Superiore_di_Pisa#Personaggi_illustri" class="ext" class="postlink">3</a> (si aggiunge solo Carducci).</article>
+<article class="post" id="p7230"><div class="who"><b>domx</b><span>17 ago 2011, 17:13</span></div>Sì, in effetti avevo dei dubbi su quella classifica, e se il criterio è il numero di pubblicazioni allora è ovvio che la Sapienza sia sopra Pisa...</article>
+<nav class="pager"><a class="prev" href="olifis-394.html"><small>← precedente</small>Scelta dell&#x27;università</a><a class="next" href="olifis-6716.html"><small>successivo →</small>Cambridge, ne vale la pena?</a></nav>
+</main></body></html>

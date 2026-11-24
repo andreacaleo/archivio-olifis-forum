@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>42: riuscirà l&#x27;elettrone a raggiungere il conduttore?</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>42: riuscirà l'elettrone a raggiungere il conduttore?</h1>
+<p class="meta">42 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6059">forum Olifis</a></p>
+<article class="post first" id="p20477"><div class="who"><b>andrea96</b><span>27 feb 2015, 19:43</span></div>Abbiamo due conduttore cilindrici concentrici ( nello spazio tra i due c'è il vuoto ) di raggi <span class="tex">\(a\)</span> e <span class="tex">\(b\)</span> (<span class="tex">\(b&gt;a\)</span>) tra cui viene mantenuta una differenza di potenziale <span class="tex">\(V\)</span> così che il conduttore più grande sia al potenziale maggiore. Nello spazio c'è un campo magnetico uniforme e parallelo all'asse dei cilindri. (In tutto il problema trascurare le cariche indotte sui conduttori.<br>
+a) Ora abbiamo <span class="tex">\(V=0\)</span>. Un elettrone viene fatto partire appena fuori dalla superficie del cilindro interno in direzione radiale con velocità <span class="tex">\(v_0\)</span>. Trovare il valore critico per il campo magnetico <span class="tex">\(B_c\)</span> tale che se <span class="tex">\(B&gt;B_c\)</span> l'elettrone non raggiunge il cilindro esterno e se <span class="tex">\(B&lt;B_c\)</span> l'elettrone raggiunge il cilindro esterno.<br>
+b) Ora abbiamo <span class="tex">\(V=V_0\)</span>. Un elettrone viene posto fermo appena fuori dalla superficie esterna. Trovare il valore critico per il campo magnetico <span class="tex">\(B_c\)</span> tale che se <span class="tex">\(B&gt;B_c\)</span> l'elettrone non raggiunge il cilindro esterno e se <span class="tex">\(B&lt;B_c\)</span> l'elettrone raggiunge il cilindro esterno.<br>
+<br>
+P.S. Ho modificato il problema originale rendendolo molto molto molto più difficile. Non ho provato a fare nessuno dei due punti in maniera contosa e non so nemmeno se sia possibile. In ogni caso se qualcuno lo fa in maniera contosa non considero il problema risolto perchè questo sarebbe un problema "da gara" e non ci si può mettere a fare 6 ore di calcoli per risolverlo. Se non esce fuori niente tra 4-5 giorni metto una aiutino.</article>
+<article class="post" id="p20505"><div class="who"><b>andrea96</b><span>7 mar 2015, 17:02</span></div>Dai su manca un mese a senigallia fa bene fare problemi :D se qualcuno vuole un aiutino lo mando anche per messagio privato così che vuole può cimentarsi indisturbato nella versione senza aiuti ;)</article>
+<article class="post" id="p20506"><div class="who"><b>sall96</b><span>8 mar 2015, 16:07</span></div>puo' darsi che il secondo sia indipendente da <span class="tex">\(a\)</span>?  :? <br>
+<br>
+Il primo a me viene <span class="tex">\(B_c=\dfrac{2m_ev_0b}{e(b^2-a^2)}\)</span> in cui <span class="tex">\(m_e\)</span> e' la massa dell'elettrone ed <span class="tex">\(e\)</span> la sua carica, non so se sia giusto...</article>
+<article class="post" id="p20507"><div class="who"><b>andrea96</b><span>8 mar 2015, 16:49</span></div>Ok il primo è giusto! Magari metti il procprocedimento cosi iniziamo a chiarire un po di cose. Il secondo non è indipendente da a, e dico subito che il modo che io ho usato per farlo (non so se ce ne siano altri ma dubito che un altro procedimento possa essere piu veloce ) non somiglia nemmeno lontanamente a quello che presumibilmente usate per il primo (che suppongo sua quello geometrico, anche se per il primo punto non ho confrontato nemmeno il mio metodo con quello delle soluzioni "ufficiali" e potrebbero quindi esserci metodi altrettanto sbrigativi ).</article>
+<article class="post" id="p20508"><div class="who"><b>sall96</b><span>8 mar 2015, 17:07</span></div>si per il primo punto ho usato un metodo geometrico! Traccio la circonferenza di raggio massimo <span class="tex">\(r\)</span>, tangente internamente alla circonferenza esterna. Dato che la velocita' non cambia (la forza di Lorentz e' sempre perpendicolare al movimento e quindi non compie lavoro), il raggio <span class="tex">\(r\)</span> non cambia. Inoltre dato che la velocita' inizialmente e' radiale, la circonferenza interna e quella descritta dall'elettrone si incontrano in 2 punti in cui le tangenti sono tra loro perpendicolari.<br>
+<br>
+detto questo si ha che <span class="tex">\(\sqrt{a^2+r^2}+r=b\)</span> che risolto per <span class="tex">\(r\)</span> da <span class="tex">\(r=\dfrac{b^2-a^2}{2b}\)</span>. Inoltre <span class="tex">\(r=\dfrac{m_ev_0}{eB_c}\)</span> che sostituito da la soluzione.<br>
+<br>
+Dopo riprovo il punto 2  :D</article>
+<article class="post" id="p20509"><div class="who"><b>sall96</b><span>8 mar 2015, 21:30</span></div>A me viene sempre indipendente da <span class="tex">\(a\)</span>  :( <br>
+Aspetterò la soluzione di qualcuno più esperto di me  :)</article>
+<article class="post" id="p20510"><div class="who"><b>andrea96</b><span>8 mar 2015, 22:09</span></div>se hai voglia prova a mettere la tua soluzione cosi ti dico qual è l'errore... ;)</article>
+<article class="post" id="p20511"><div class="who"><b>sall96</b><span>8 mar 2015, 22:25</span></div>mentre la scrivevo mi sono accorto di aver scritto un mucchio di cavolate  :lol:</article>
+<article class="post" id="p20512"><div class="who"><b>andrea96</b><span>8 mar 2015, 22:46</span></div>ahahahah  :lol:  :lol:  :lol: <br>
+Comunque la soluzione è molto molto difficile e molto molto poco contosa, quindi se state tentando soluzioni semplici o con molti calcoli fermatevi subito e continuate a pensare! ;)</article>
+<article class="post" id="p20515"><div class="who"><b>BorisM</b><span>9 mar 2015, 23:21</span></div>Può darsi che per il secondo punto si debba trovare la velocità con cui l' elettrone arriva nel punto di tangenza della sfera e poi per quel valore di velocità trovare r ugualiando la forza centripeda alla forza di lorentz e alla forza che agisce sull' elettrone a causa della differenza di potenziale per poi sostituire il valore trovato nella formula usata per il primo punto ?</article>
+<article class="post" id="p20517"><div class="who"><b>andrea96</b><span>10 mar 2015, 19:59</span></div>Sinceramente non credo di aver capito troppo bene, però tieni presente che la traiettoria è molto strana e quindi il raggio di cutvatura nel punto di tangenza non ha un significato fisico rilevante.</article>
+<article class="post" id="p20520"><div class="who"><b>renat_</b><span>13 mar 2015, 22:26</span></div>Approfitto del messaggio per presentarmi:<br>
+Sono uno studente di quinta del liceo scientifico di Ancona, non ho mai partecipato alle olimpiadi della fisica, ma questa è stata sempre la mia materia preferita :)<br>
+<br>
+<br>
+non so se ho fatto bene l'esercizio quindi posto il risultato che mi viene (secondo punto ovviamente):<br>
+<span class="tex">\(B_c=\sqrt[2]{\frac{2m_e*V_0}{b^2*e}}\)</span></article>
+<article class="post" id="p20521"><div class="who"><b>drago</b><span>13 mar 2015, 23:59</span></div>La risposta non è giusta, non ti preoccupare perchè il problema è molto difficile; ma vorrei sapere il tuo ragionamento per capire dove hai sbagliato e se possibile correggere.</article>
+<article class="post" id="p20522"><div class="who"><b>renat_</b><span>14 mar 2015, 0:26</span></div>Infatti mi sembrava un po' troppo semplice<br>
+<br>
+Essendoci una accelerazione in direzione radiale verso l'esterno (data dalla differenza di potenziale <span class="tex">\(V_0\)</span>), la traiettoria della carica che per la forza di lorenz è una circonferenza il cui raggio è direttamente proporzionale alla velocità, a causa dell'accelerazione dovrebbe diventare una spirale.<br>
+<br>
+Io ho ipotizzato che nel momento in cui la carica tocca il cilindro la sua velocità debba essere tangente al cilindro, in questo modo la forza di lorenz (che tra l'altro è l'unica forza che agisce sulla carica, visto che non ho più quella data da <span class="tex">\(V_0\)</span>) sarà diretta verso il centro del cilindro. Ora basta qualche semplice calcolo per fare in modo che la traiettoria della carica sia il cilindro esterno e quindi, sono arrivato alla formula che ho scritto (basta porre il raggio = b).<br>
+<br>
+Riflettendoci penso di aver sbagliato l'aver dato per scontato il fatto che la velocità sia tangente al cilindro nel momento in cui la carica lo tocca.</article>
+<article class="post" id="p20523"><div class="who"><b>drago</b><span>14 mar 2015, 1:48</span></div>per prima cosa la carica non seguirà unatraiettoria a spirale perchè ciò è vero solo se c'è la sola forza di lorenz o se c'è la forza di loren e una forza costante in modulo e verso come quella di un campo elettrico uniforme; ciò non è verificat in queste condizioni infatti il campo elettrico è radiale e va come 1/r pertanto non è vero quello che dici, infatti se si provano a simulare le equazioni differenziali esce che l'elettrone percorre dei riccioli(per farti capire prova a vedere l'immagine del primo problema dei nazionali del 2005);la condizione di tangenza è vera proprio per il motivo che hai detto.<br>
+prova a pensare ancora al problema.<br>
+<br>
+p.s. in questo tipo di problemi conoscere il percorso che compie l'elettrone non è necessario ai fini della distanza massima che può raggiungere ( prova a pensare a un pianeta che orbita intorno a una stela).</article>
+<article class="post" id="p20525"><div class="who"><b>andrea96</b><span>14 mar 2015, 15:49</span></div>Visto che la cosa rischia di andare per le lunghe inizio a mettere qualche aiutino; parto dal più piccolo possibile:<br>
+come ha gia detto @drago non tentate di fare calcoli sulla traiettoria e non tentate nemmeno di capire come è fatta perchè non è una traiettoria semplice, tentate invece di soffermarvi su una qualche grandezza che potete valutare all inizio e alla fine e fare delle considerazioni...</article>
+<article class="post" id="p20546"><div class="who"><b>andrea96</b><span>18 mar 2015, 12:09</span></div>credo sia ormai il caso di iniziare a mettere un altro hint ( che tra l'altro ho già dato a qualche persona in privato ):<br>
+1) LAVORATE CON I VETTORI!!!!!!!!!!!!!<br>
+2) provate a scrivere l'equazione per il momento angolare dell'elettrone ed osservate aspettando un ispirazione divina!</article>
+<article class="post" id="p20552"><div class="who"><b>bogcal11</b><span>18 mar 2015, 22:44</span></div>Qualche porcheria tipo: <br>
+<span class="tex">\(B^2=\frac{V_0 m b^2}{log\frac{b}{a}e(b^2 - a^2)a^2}\)</span><br>
+<br>
+?</article>
+<article class="post" id="p20553"><div class="who"><b>andrea96</b><span>18 mar 2015, 23:06</span></div>no non è giusto  :cry: <br>
+appena hai tempo descrivi qualitativamente il metodo che hai usato così posso dirti dove hai sbagliato... ( sentirsi dire di aver sbagliato senza sapere perchè non serve a niente )  :D</article>
+<article class="post" id="p20554"><div class="who"><b>bogcal11</b><span>18 mar 2015, 23:12</span></div>Ho posto la variazione di momento angolare uguale all'integrale del momento torcente in <span class="tex">\(dt\)</span> e quindi ho calcolato la velocità angolare con cui l'elettrone tocca il cilindro, ho messo tutto nell'equazione di Newton con <span class="tex">\(r=b\)</span> e ho supposto che la velocità sia solo tangenziale quando l'elettrone tocca il cilindro esterno...</article>
+<article class="post" id="p20555"><div class="who"><b>andrea96</b><span>19 mar 2015, 0:08</span></div>in linea di principio non è sbagliato, quindi probabilmente hai sbagliato qualcosa di quelle che hai detto...<br>
+mica puoi scrivere quanto ti viene il momento torcente?</article>
+<article class="post" id="p20556"><div class="who"><b>bogcal11</b><span>19 mar 2015, 0:10</span></div><span class="tex">\(er\dot{r}B\)</span> lungo z</article>
+<article class="post" id="p20558"><div class="who"><b>andrea96</b><span>19 mar 2015, 0:21</span></div>perfetto! io non dico più niente... sei molto vicino alla soluzione! ;)</article>
+<article class="post" id="p20559"><div class="who"><b>bogcal11</b><span>19 mar 2015, 0:25</span></div>Lol, vuol dire che devo rivedere i calcoli?</article>
+<article class="post" id="p20560"><div class="who"><b>andrea96</b><span>19 mar 2015, 0:28</span></div>no! vuol dire che devi restare sveglio tutta la notte a guardare il momento torcente! :D <br>
+dimentica tutto quello che hai fatto dopo aver trovato il momento torcente...</article>
+<article class="post" id="p20599"><div class="who"><b>Carlo96</b><span>23 mar 2015, 18:25</span></div>È possibile che venga una roba piuttosto oscena con logaritmi e radici?? :shock:</article>
+<article class="post" id="p20602"><div class="who"><b>Carlo96</b><span>23 mar 2015, 19:06</span></div>Qualcosa tipo <span class="tex">\(V_{0}/b\cdot[2-\frac{logb}{loga}+\frac{1}{loga}]\cdot\sqrt[2]{m_{e}/2}\cdot\sqrt[2]{loga/[eV_{0}\cdot(loga-logb)]}\)</span> é possibile?? :roll:</article>
+<article class="post" id="p20603"><div class="who"><b>andrea96</b><span>23 mar 2015, 20:00</span></div>No....  non devono venire logaritmi</article>
+<article class="post" id="p20604"><div class="who"><b>Simone256</b><span>23 mar 2015, 20:14</span></div>Cercate di ricavare una relazione tra <span class="tex">\(L\)</span> e <span class="tex">\(r\)</span>, non servono né grandi conoscenze di analisi né grande potenza con le equazioni differenziali  :) <br>
+<br>
+...<br>
+<br>
+<span class="tex">\(\tau=\)</span>
+<blockquote><div><cite>bogcal11 ha scritto:</cite><span class="tex">\(er\dot{r}B\)</span></div></blockquote>
+
+...<br>
+<br>
+<span class="tex">\(\tau=\frac{dL}{dt}\)</span></article>
+<article class="post" id="p20606"><div class="who"><b>Carlo96</b><span>23 mar 2015, 21:31</span></div>Il risultato deve essere qualcosa tipo<span class="tex">\(L=eBr^{2}/2-eBa^{2}/2\)</span> per il momento angolare?</article>
+<article class="post" id="p20608"><div class="who"><b>drago</b><span>23 mar 2015, 22:44</span></div>si, spiega come hai fatto e prova a cercare la formula per il campo magnetico critico, adesso dovrebbe essere facile</article>
+<article class="post" id="p20614"><div class="who"><b>Carlo96</b><span>24 mar 2015, 7:51</span></div>Io sono ripartito da zero. Per il momento torcente la sola forza che lo genera è quella di Lorentz perché quella elettrica è sempre radiale, e quindi rispetto al centro del primo cilindro non genera momento. Ho scomposto la forza di Lorentz su x e y utilizzando il prodotto vettoriale di vXB è ancora con il prodotto vettoriale ho calcolato il momento rXF. Ho ricavato la formula già proposta e l'ho integrata rispetto al tempo da a ad un r generico minore di b, considerando che il raggio varia nel tempo, e dunque è l integrale di una funzione moltiplicata per la sua derivata, che da il risultato che ho scritto. <br>
+<br>
+Io adesso farei in modo che la forza centripeta sia pari alla somma di forza di Lorentz e forza elettrica, solo che il campo elettrico dipende dalla densità superficiale di carica oppure dal logaritmo naturale di a, e @andrea96 mi ha detto che non ci sono logaritmi :oops:</article>
+<article class="post" id="p20615"><div class="who"><b>andrea96</b><span>24 mar 2015, 9:38</span></div>Ma perchè vuoi eguagliarla alla forza centripeda? In tanti hanno avuto quest idea...!  Ma quale raggio utilizzate nella forza centripeda?</article>
+<article class="post" id="p20617"><div class="who"><b>Carlo96</b><span>24 mar 2015, 15:12</span></div>In effetti non è una buona idea, ma abbiate pietà mi ero appena alzato. Spero che l'idea venuta durante la spiegazione di Giovenale sia migliore: come risultato deve venire, per me:<br>
+<br>
+<span class="tex">\(B=\frac{2b}{b^{2}-a^{2}}\cdot\sqrt[2]{\frac{2m_{e}V_{0}}{e}}\)</span><br>
+<br>
+Se è giusto do anche il procedimento!! :D</article>
+<article class="post" id="p20618"><div class="who"><b>andrea96</b><span>24 mar 2015, 16:22</span></div>Perfetto vai con il procedimento!</article>
+<article class="post" id="p20619"><div class="who"><b>Carlo96</b><span>24 mar 2015, 16:40</span></div>In effetti ho pensato che non serve a niente sapere come è il campo elettrico, perché so la differenza di energia potenziale tra inizio e fine, pari eV(0). Detto ciò, calcolo la variazione di momento angolare dovuta al momento torcente tra inizio e fine, in parole povere metto r=b nella formula del momento angolare che ho postato ieri. Nello stato finale dunque quello è il valore del momento angolare, essendo nullo all'inizio, e deve essere pari a:<br>
+<br>
+<span class="tex">\(L=m rXv=mvb\)</span><br>
+<br>
+Ricavo v da qui e la metto nell'equazione per la conservazione del energia, che è:<br>
+<br>
+<span class="tex">\(\frac{1}{2}\cdot mv^{2}=eV_{0}\)</span><br>
+<br>
+ Si noti che essendo la forza di Lorentz sempre perpendicolare alla traiettoria, questa non compie lavoro!! Da qui si ottiene il risultato finale!</article>
+<article class="post" id="p20620"><div class="who"><b>andrea96</b><span>24 mar 2015, 16:59</span></div>Va bene puoi andare con il prossimo. <br>
+P. S.  Si poteva notare che visto che il momento torcente è la derivata temporale di una quantitá, il momento angolare meno quella quantitá è conservato e considerandolo all inizio e alla fine sitsi trova il risultato.</article>
+<article class="post" id="p20621"><div class="who"><b>Carlo96</b><span>24 mar 2015, 17:39</span></div>Non sono pratico del forum, mi sono iscritto solo ieri: vuoi dire che devo proporre io un problema??</article>
+<article class="post" id="p20622"><div class="who"><b>andrea96</b><span>24 mar 2015, 19:21</span></div>Esatto: i problemi contrassegnati con un numero (in questo caso 42) fanno parte di una staffetta che abbiamo iniziato mesi fa, chi risolve un problema ne mette un altro contrassegnandolo con il numero successivo. Magari datti uno sguardo agli altri per farti un idea del livello</article>
+<article class="post" id="p20623"><div class="who"><b>Simone256</b><span>24 mar 2015, 19:34</span></div>Non farti spaventare da andrea! Lui mette sempre problemi mega assurdi!  :lol: <br>
+Un problema facile che tiri dentro tutti gli utenti manca da tempo :)</article>
+<article class="post" id="p20645"><div class="who"><b>sall96</b><span>28 mar 2015, 17:17</span></div>La staffetta non prosegue?  :D</article>
+<article class="post" id="p20646"><div class="who"><b>Carlo96</b><span>28 mar 2015, 18:11</span></div>Domani posto il problema!! Ci sto lavorando!! Preparatevi :D</article>
+<nav class="pager"><a class="prev" href="olifis-6017.html"><small>← precedente</small>lastre piane e parallele... in movimento!</a><a class="next" href="olifis-7182.html"><small>successivo →</small>301. Cariche in equilibrio ed energia potenziale</a></nav>
+</main></body></html>

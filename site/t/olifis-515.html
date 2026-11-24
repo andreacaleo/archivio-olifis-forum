@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risultati IPhO 2010</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../olimpiadi.html">Olimpiadi di Fisica</a></span></nav>
+<h1>Risultati IPhO 2010</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=515">forum Olifis</a></p>
+<article class="post first" id="p4668"><div class="who"><b>IPhOteam10</b><span>24 lug 2010, 23:21</span></div><div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>          Th1      Th2      Th3     Exp1     Exp2     Tot     
+ITA1     4.95     0.00     4.50     2.30     7.70     19.45      HM             Alessio Calzona (AleSki)
+ITA2     5.90     9.80     3.50    10.00     8.15     37.35      Silver         Giuliano Chiriacò (Rigel)
+ITA3     7.00     8.00     3.30     7.50     5.05     30.85      Bronze         Stefano Paesani (spn)
+ITA4     9.70     4.00     9.00     8.50     5.65     36.85      Silver         Stefano Rulli (stp)
+ITA5     5.30     0.80     3.80     3.50     7.60     21.00      HM             Fedor Getman (Hoja)</code></pre></div>
+
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>HM:        16.75
+Bronze:    22.35
+Silver:    31.15
+Gold:      38.10</code></pre></div></article>
+<article class="post" id="p4669"><div class="who"><b>Pigkappa</b><span>24 lug 2010, 23:30</span></div>Accidenti che sfortuna con i cutoff  :( . <br>
+<br>
+Complimenti a tutti comunque</article>
+<article class="post" id="p4673"><div class="who"><b>fisicorel</b><span>25 lug 2010, 7:59</span></div>peccato veramente...tutti vicini al cut off per la fascia successiva...Complimenti a tutti!!!</article>
+<article class="post" id="p4674"><div class="who"><b>Stardust</b><span>25 lug 2010, 10:47</span></div>Davvero complimenti a tutti! :D</article>
+<article class="post" id="p4676"><div class="who"><b>edo1493</b><span>25 lug 2010, 19:27</span></div>Complimenti!<br>
+<br>
+HM sta per cosa?</article>
+<article class="post" id="p4677"><div class="who"><b>Pigkappa</b><span>25 lug 2010, 19:38</span></div>Honourable mention.</article>
+<article class="post" id="p4683"><div class="who"><b>Ippo</b><span>26 lug 2010, 22:00</span></div>Ragazzi ma che sfiga allucinante!! due volte in tre anni a meno di un punto dall'oro...  :cry: <br>
+Vabbé, nonostante la sorte non troppo a favore ( :? ) vi meritate tutti dei complimenti giganti!! in particolare Rigel e Stp, che hanno riconfermato e addirittura migliorato i risultati eccezionali dell'anno scorso (e non era facile). Comprensione particolare per Spn che ha perso l'argento di pochissimo (mi ricorda qualcosa  :mrgreen: ).<br>
+Davvero bravissimi, complimenti.<br>
+Qualche curiosità.<br>
+Ho visto distribuzioni di punteggi abbastanza varie (l'anno scorso erano più omogenee, ad esempio tutti punteggi medio-alti nell'1 che era nettamente facile e bassi-nulli nel 2 che faceva nettamente schifo); sarei curioso di vedere i problemi!  :) <br>
+E i cut-off piuttosto alti indicano dei problemi relativamente più facili del solito o meno medaglie?<br>
+E poi vabbé, raccontateci qualcosa!!  :mrgreen:</article>
+<article class="post" id="p4684"><div class="who"><b>dl.censi</b><span>26 lug 2010, 22:16</span></div><blockquote><div><cite>Ippo ha scritto:</cite>sarei curioso di vedere i problemi! </div></blockquote>
+
+Sono pubblicati nel sito olifis<br>
+
+<blockquote><div><cite>Ippo ha scritto:</cite>E i cut-off piuttosto alti indicano dei problemi relativamente più facili del solito o meno medaglie?</div></blockquote>
+
+Meno medaglie</article>
+<article class="post" id="p4685"><div class="who"><b>Ippo</b><span>26 lug 2010, 22:27</span></div><blockquote><div><cite>dl.censi ha scritto:</cite>Sono pubblicati nel sito olifis</div></blockquote>
+che rapidità, non avevo neanche guardato! <br>
+Ad una prima occhiata sembrano belli, noto con piacere diverse domande da 2-3 punti e non una pioggia di 0.2, in leggera controtendenza rispetto agli ultimi anni  :) <br>
+
+<blockquote><div><cite>dl.censi ha scritto:</cite>Meno medaglie</div></blockquote>
+immaginavo... a maggior ragione, complimenti a tutti!</article>
+<article class="post" id="p4688"><div class="who"><b>Pigkappa</b><span>27 lug 2010, 0:50</span></div>Il primo problema è estremamente banale per chi sa già cosa sono le cariche immagine ed ha visto un po' di cose a riguardo, e può essere difficile per chi invece non le conosce. Non dovrebbero dare problemi così  :( .</article>
+<article class="post" id="p4691"><div class="who"><b>spn</b><span>27 lug 2010, 1:48</span></div>In realtà secondo ne la prima parte era abbastanza fattibile anche per chi come ve aveva solo sentito nominare le cariche immagine, e non ne sapeva praticamente nulla. La difficoltà per me è stata soprattutto nei conti, che, oltre ad essere insidiosi, erano pure lunghi e facevano perdere un sacco di tempo, e gli ultimi tre punti sono tosti pure concettualmente.<br>
+Il problema 2 invece è tutto il contrario, molte idee e pochi calcoli.<br>
+Il 3 bho, ho avuto il tempo di vedere solo i primi punti :roll:</article>
+<article class="post" id="p4695"><div class="who"><b>Rigel</b><span>27 lug 2010, 11:12</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Il primo problema è estremamente banale per chi sa già cosa sono le cariche immagine ed ha visto un po' di cose a riguardo, e può essere difficile per chi invece non le conosce. Non dovrebbero dare problemi così  :( .</div></blockquote>
+secondo me non è vero. da quel che so alessio e spn non avevano visto l'applicazione del metodo delle cariche immagine eppure la prima parte l'hanno fatta (era quella dove si richiedeva quel metodo). le altre due parti erano conti più o meno mostruosi, mentre per l'ultima (quella sull'energia) serviva o una montagna di calcoli o un'intuizione geniale</article>
+<article class="post" id="p4702"><div class="who"><b>Pigkappa</b><span>27 lug 2010, 14:21</span></div>Ok, ma per esempio, se ho capito cosa intendi per "intuizione geniale", è una cosa standard per uno che ha già visto questo argomento e piuttosto impensabile per uno che non l'ha visto. Sicuramente la prima parte era fattibile anche senza sapere queste cose, ma chi le aveva già viste ci metteva certamente meno tempo (e alle IPhO tempo=punti).</article>
+<article class="post" id="p4704"><div class="who"><b>Rigel</b><span>27 lug 2010, 15:23</span></div>intendo che l'energia totale del sistema è equivalente a quella di due cariche puntiformi q e q'. a me non sembra una cosa così immediata da capire, anche se il metodo delle immagini non è nuovo</article>
+<article class="post" id="p4705"><div class="who"><b>Pigkappa</b><span>27 lug 2010, 15:41</span></div>Quando uno prende un libro di elettromagnetismo avanzato (avanzato ma non troppo, basta un libro per l'università non particolarmente difficile), dopo le cariche immagine si parla ragionevolmente di come trattare l'energia. Ad esempio: se porti una carica vicino ad un conduttore messo a terra e riesci a descrivere il campo con una carica immagine, l'energia potenziale del sistema è metà dell'energia del sistema formato dalla carica e dalla carica immagine (esercizio: dimostrarlo). <br>
+<br>
+Secondo me qualcuno questa cosa l'aveva già vista e così il problema diventa significativamente più facile, ed è un fatto che è facile da dimostrare, ma difficile da farsi venire in mente se non lo si è visto.</article>
+<article class="post" id="p4709"><div class="who"><b>stp</b><span>27 lug 2010, 19:24</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Il primo problema è estremamente banale per chi sa già cosa sono le cariche immagine ed ha visto un po' di cose a riguardo, e può essere difficile per chi invece non le conosce. Non dovrebbero dare problemi così  :( .</div></blockquote>
+A me invece è sembrato un buon problema, specialmente la parte sull'energia, che è molto istruttiva. È chiaro che un problema sarà più facile per chi ne ha già visto uno simile. Ogni tanto però va bene che nei problemi olimpici si usino un'idea o un metodo po' meno noti del solito. Per esempio nessuno di noi aveva visto prima come trattare l'energia con le cariche immagini. I suggerimenti come è giusto aiutavano parecchio. <br>
+Le difficoltà maggiori credo fossero quelle di calcolo nella parte precedente (tra l'altro analoghe a quelle del primo problema delle IPhO dell'anno scorso).</article>
+<article class="post" id="p4713"><div class="who"><b>Alex90</b><span>27 lug 2010, 21:44</span></div>Facile o difficile...fortuna o sfortuna...in ogni caso complimenti a tutti!  :D</article>
+<article class="post" id="p4723"><div class="who"><b>Loren Kocillari89</b><span>29 lug 2010, 16:47</span></div>Qualcuno è riuscito ad Hackerare il sito delle Ipho 2010 :evil:  Al momento il sito è inacessibile, e all'inizio c'è una frase offensiva che non si può pubblicare.. Rivendicano di essere Fratelli serbi e armeni...Evidentemente Serbi-Armeni e Croati si amano troppo poco..</article>
+<nav class="pager"><a class="prev" href="olifis-182.html"><small>← precedente</small>Risultati IPhO 2009</a><a class="next" href="olifis-825.html"><small>successivo →</small>IPHO 2011</a></nav>
+</main></body></html>

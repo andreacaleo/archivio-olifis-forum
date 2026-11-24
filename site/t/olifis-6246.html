@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gli isolani dagli occhi blu</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../caffe.html">Caffè</a></span></nav>
+<h1>gli isolani dagli occhi blu</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6246">forum Olifis</a></p>
+<article class="post first" id="p21775"><div class="who"><b>andrea96</b><span>22 gen 2016, 19:17</span></div>So che non c'entra assolutamente nulla con la fisica ( e per questo lo metto in "caffè" ), ma c'entra con la capacità di ragionare, talvolta in modo anche molto complicato e laborioso, cose che con la fisica invece c'entrano, ma a parte tutto è un "giochino" bellissimo che è giusto condividere  :D <br>
+Allora la faccenda è questa:<br>
+tanto tempo fa in una galassia lontana lontanta, c'era un isola i cui 1000 abitanti erano seguaci di una strana religione che imponeva loro di non poter conoscere il colore dei loro occhi, ne di parlare dell'argomento "colore degli occhi" e sull'isola non c'erano superfici riflettenti che gli permettessero di farlo; in oltre la loro religione imponeva che se per uno strano caso un abitante fosse venuto a conoscenza del colore dei propri occhi, era obbligato a suicidarsi il giorno seguente. Gli isolani erano inoltre estremamente devoti, ed estremamente logici e razionali, nel se senso che ognji informazione che sia possibile per un isolano conoscere a partire da informazione e osservazione, egli la conoscerà. Inoltre ciascuno di loro sa che tutti gli altri sono estremamente logici e devoti come lui. Anche se loro non lo sanno, ci sono 100 isolani con occhi blu e 900 isolani con occhi marroni. Chiaramente ognuno di loro conosce il colore degli occhi di tutti gli altri perchè li vede, tuttavia non conoscendo il suo colore non può avere un conto totale.<br>
+Un funesto giorno un visitatore giunge sull'isola ignaro della loro religione, e dopo essere partito invia loro una lettera di ringraziamento a tutti gli isolani dicendo anche "...è stato strano trovare in questa parte dell'universo una persona che ha gli occhi blu come i miei".<br>
+Cosa succede ora sull'isola?<br>
+<br>
+<strong class="text-strong">soluzione 1:</strong> la lettera del visitatore non aggiunge alcuna informazione agli isolani che gia sapevano dell'esistenza di persone con gli occhi blu, dunque non succede nulla.<br>
+<br>
+<strong class="text-strong">soluzione 2:</strong> supponiamo in generale ci siano <span class="tex">\(n\)</span> persone con gli occhi blu e dimostriamo per induzione la proposizione <span class="tex">\(P(n): dopo n giorni tutti gli isolani con gli occhi blu si uccidono\)</span><br>
+<span class="tex">\((i)\)</span> se <span class="tex">\(n=1\)</span> l'unico sfortunato, leggendo la lettera, e vedendo che tutti gli altriu hanno gli occhi marroni, capisce di avere gli occhi blu e il giorno dopo si suicida<br>
+<span class="tex">\((ii)\)</span> dimostriamo il passo induttivo: supponiamo ci siano <span class="tex">\(n\)</span> isolani dagli occhi blu, ciascuno di loro vede <span class="tex">\(n-1\)</span> persone e sa (dall'ipotesi induttiva) che se e solo se lui avesse gli occhi di un colore diverso dal blu allora queste dopo <span class="tex">\(n-1\)</span> giorni si suicideranno. Tutti gli sfortunati fanno lo stesso ragionamento quindi dopo n-1 giorni vedendo che gli altri non si suicidano, capiscono di avere gli occhi blu (altrimenti gli altri si sarebbero suicidati per l'ipotesi induttiva) allora il giorno dopo (l'n-esimo ) si suicideranno tutti quanti.<br>
+<br>
+<br>
+è chiaro che una delle due soluzioni deve essere sbagliata... ma quale? ;)</article>
+<article class="post" id="p21777"><div class="who"><b>nace26</b><span>22 gen 2016, 20:56</span></div>Beh, a parte il fatto che è chiaramente più fica... la seconda mi sembra ben più sensata! Anche solo perché di fatto confuta la prima... Consideriamo il caso particolare di tre abitanti, e supponiamo che io sia l'abitante Gigipirola. Diciamo che io vedo, ad esempio, che l'abitante Begl'occhi ha gli occhi azzurri, mentre il terzo, Cacca, ce li ha marroni...<br>
+Ora, quanto vedo chiaramente non mi da alcuna informazione sul colore dei miei occhi! Ma supponiamo che mi sia data l'informazione che almeno uno con gli occhi azzurri c'è. Secondo la soluzione 1, questo non dovrebbe aggiungere nessuna informazione, e invece si che l'aggiunge! <br>
+Supponiamo infatti che Begl'occhi si suicidi. Allora io, che sono tanto razionale, mi domando "che gli è mai saltato in testa?" Ragiona ragiona, capisco che l'unica possibilità è che Begl'occhi abbia guardato Cacca, e notato che ha gli occhi marroni; guardato me, e idem. E a questo punto, ha avuto la certezza di essere quello con gli occhi azzurri, e per questo si è ucciso! Ma allora, mannaggia, capisco che io devo avere gli occhi marroni! Ma se io e Cacca abbiamo entrambi gli occhi marroni, significa che per questo problema siamo praticamente identici! Quindi anche lui si uccide, e contemporaneamente a me. Altro che non aggiungere informazioni, guarda te che disastro...<br>
+Supponiamo invece che Begl'occhi non si suicidi... beh, allora è chiaro che io devo avere gli occhi azzurri, perché altrimenti il buon vecchio Begl'occhi si sarebbe dovuto accorgere di essere l'unico con gli occhi azzurri, visto che si vanta tanto di essere razionale... Mi tocca proprio uccidermi... Ma, come prima con Cacca, questa volta io e Begl'occhi siamo praticamente l'uno la fotocopia dell'altro, quindi anche lui si ucciderà nello stesso momento. A questo punto, Cacca, che è razionale pure lui, capisce di avere gli occhi marroni, perché in caso contrario avremmo avuto tutti gli occhi azzurri e questa concatenazione di eventi non sarebbe potuta avvenire... Insomma, se abbiamo tre signori, e ce n'è almeno uno con gli occhi azzurri, entro il secondo giorno muoiono tutti... Se con gli occhi azzurri ce n'è uno solo, questo muore il primo giorno, esattamente come vuole la soluzione 2, e diversamente da come vuole la soluzione 1... <br>
+La mia chiaramente non è una dimostrazione, ma diciamo che è la massima semplificazione del tuo secondo passo induttivo analizzato nel caso più semplice, ed è il ragionamento che mi ha convinto della soluzione.<br>
+Oserei ampliare la regola nel seguente modo: se ci sono n persone con gli occhi azzurri, queste muoiono dopo n giorni, come ha dimostrato andrea96. Il giorno dopo, devono per forza morire tutti gli altri, che, essendo razionali, capiscono di avere gli occhi marroni perché sono ancora vivi... Quindi questo simpatico visitatore è riuscito a sterminare una popolazione in n+1 giorni...</article>
+<article class="post" id="p21778"><div class="who"><b>andrea96</b><span>23 gen 2016, 0:33</span></div>Si ok analizzando i casi con n piccolo si capisce che senza dubbio la soluzione corretta è la seconda, il punto però è che con n molto grande (per esempio 100) anche la soluzione 1 sembra intuitivamente vera, quindi lo scopo del giochino è proprio capire dov'è l'errore nella soluzione 1 per n=100 (ma direi in generale per n qualsiasi), svincolandosi un pochino dai casi con n  piccolo ( poi è chiaro, questi aiutano a capire più o meno come fare)....</article>
+<article class="post" id="p21779"><div class="who"><b>nace26</b><span>23 gen 2016, 0:58</span></div>Certo, infatti la mia non era affatto una dimostrazione! Direi che la dimostrazione l'hai data tu (soluzione 2 ovviamente), perché errori non ne vedo proprio (tra l'altro, bella l'idea dell'induzione, non penso mi sarebbe venuta in mente). La prima "soluzione", invece, non è nulla di concreto, ma solo un'affermazione non dimostrata (e ci mancherebbe altro, visto che è sbagliata!) <br>
+Quindi la risposta alla tua domanda è: la soluzione giusta è la seconda, il perché sta nella correttezza della dimostrazione; la prima è sbagliata perché in disaccordo con la seconda, che è giusta.<br>
+Poi ho fatto l'esempio del caso particolare per far capire meglio il concetto, che può sembrare strano...<br>
+Ma forse, a questo punto, mi sfugge la tua richiesta :oops:</article>
+<article class="post" id="p21780"><div class="who"><b>andrea96</b><span>23 gen 2016, 11:37</span></div>Ma si da un punto di vista logico è perfetto quello che dici: se hai due soluzioni che danno risultati diversi e sai che una delle due è giusta l altra è sbagliata. <br>
+Ma l obbiettivo non è tanto risolvere la questione come se stessimo risolvendo un problema di fisica, ma piuttosto diverstirsi ad analizzare la soluzione sbagliata e spiegarsi qual è effettivamente l errore (è ovvio che achille raggiunge la tartaruga... ma cosa c è di fondamentalmente sbagliato nell argomentazione di zenone? In un certo senso dire che è sbagliata perchè l altra è giusta non è così divertente :lol: ). Per farti capire meglio la richiesta dico un altra cosetta: qual è l informazione aggiuntiva che spinge ognuno dei 100 a suicidarsi il 100 giorno? Intendo l informazione aggiuntiva alla base, quella che mancava prima della lettera...</article>
+<article class="post" id="p21783"><div class="who"><b>wotzu</b><span>23 gen 2016, 17:32</span></div>questo esercizio è uno degli esempi migliori per fare vedere come l'intuizione fallisca di fronte a certi problemi.<br>
+devo dire che tutt'ora non sono sicuro di averlo digerito totalmente.<br>
+Comunque , entrando nei fatti , l'informazione aggiunge sicuramente qualcosa, è una specie di scintilla che fa partire una reazione a catena devastante.faccio alcune ipotesi(non essendo certo della risposta):<br>
+-prima non si suicida nessuno perchè nemmeno quella frase, a prima vista banale, poteva essere detta.<br>
+-la frase dice che uno ha gli occhi blu, pur non dicendo chi resta pur sempre un informazione che gli abitanti del villaggio sono in grado di utilizzare abilmente.quindi è scorretto dire che non dice nulla di nuovo, infatti nel caso in cui cè un solo occhio azzurro è un informazione vera e propria mentre nel caso in cui ce ne siano di più si "propaga" comunque come informazione utile per gli abitanti; penso perchè gli altri ottengono informazioni dagli avvenuti oppure no suicidi dei compagni.<br>
+In ogni caso mi piacerebbe sapere come l'hai intesa tu perchè continua a rimanermi profondamente controintuitiva.</article>
+<nav class="pager"><a class="prev" href="olifis-107.html"><small>← precedente</small>Squadra IPhO 2009</a><a class="next" href="olifis-6382.html"><small>successivo →</small>Gioco d&#x27;azzardo</a></nav>
+</main></body></html>

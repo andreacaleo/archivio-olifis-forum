@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prepararsi per il test di fisica della sns</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../sns.html">Prepararsi all'ammissione</a></span></nav>
+<h1>Prepararsi per il test di fisica della sns</h1>
+<p class="meta">129 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=735">forum Olifis</a></p>
+<article class="post first" id="p6382"><div class="who"><b>domx</b><span>10 apr 2011, 17:53</span></div>Ciao a tutti, frequento l'ultimo anno al classico ma l'anno prossimo vorrei fare fisica. Credo che tenterò i test d'ingresso della sns, e per matematica, fino ad agosto, dovrei riuscire a prepararmi. Il problema è però fisica: non so praticamente nulla (al classico la fisica quasi non esiste) ed ancora devo iniziare a prepararmi, sebbene abbia acquistato l'halliday (ho letto un po' di teoria, ma non avendo fatto gli esercizi è come se non avessi fatto niente). E, cosa ancora più grave, penso che non avrò il tempo per prepararmi fino alla fine degli esami di maturità (ora sto curando matematica, poi dovrò dedicarmi alla maturità). Dite che in un mese/un mese e mezzo posso riuscire a prepararmi per quel famigerato test? Eventualmente potrei anche prendere delle lezioni...<br>
+vi saluto e vi ringrazio in anticipo :D</article>
+<article class="post" id="p6406"><div class="who"><b>domx</b><span>12 apr 2011, 16:02</span></div>Ragazzi, il vostro silenzio è dovuto alla vita piena di impegni del normalista medio oppure al fatto che non volete dirmi che sono spacciato anche se lo pensate? :lol:</article>
+<article class="post" id="p6408"><div class="who"><b>Ippo</b><span>12 apr 2011, 21:43</span></div><blockquote><div><cite>domx ha scritto:</cite>Ciao a tutti, frequento l'ultimo anno al classico ma l'anno prossimo vorrei fare fisica. [...] Il problema è però fisica: non so praticamente nulla (al classico la fisica quasi non esiste) ed ancora devo iniziare a prepararmi</div></blockquote>
+Scusami se sono indiscreto, ma come mai pensi di fare fisica allora? :roll: <br>
+Se vuoi la mia opinione un mesetto e mezzo è decisamente poco per avere speranze ragionevoli di passare, anche perché non si tratta di imamgazzinare qualche nozione ma di imparare a fare i problemi, e quella è questione soprattutto di tempo ed abitudine (non lo si impara in un mese e mezzo). Provare comunque non costa niente, e non si sa mai...</article>
+<article class="post" id="p6409"><div class="who"><b>Pigkappa</b><span>12 apr 2011, 22:56</span></div>Mah, in teoria dipende dalla tua forza di volontà. <br>
+<br>
+<br>
+Un mese e mezzo sono 45 giorni, e supponendo 8 ore al giorno sono 360 ore; più che sufficienti per imparare tutta la fisica che serve, per fare un sacco di problemi e (con un po' di fortuna) prendere punteggio pieno al test. Però non conosco nessuna persona che definirei sana di mente che riuscirebbe a studiare fisica per conto proprio per 8 ore al giorno per 45 giorni di seguito.<br>
+<br>
+Comunque i docenti della Scuola Normale sarebbero felici di poter testare il tuo punto di rottura, e ti direbbero che è assolutamente fattibile! [niente, questa è una citazione di una cosa agghiacciante che ci hanno detto una volta, lasciate stare  8-) ]<br>
+<br>
+<br>
+Riassumendo, l'impresa è fattibile ma molto difficile. Se non ci dovessi riuscire e finissi per entrare a qualche altra scuola di eccellenza con un po' meno concorrenza (Catania, Padova, Udine...) comunque non sarebbe troppo male, no?</article>
+<article class="post" id="p6410"><div class="who"><b>domx</b><span>13 apr 2011, 15:07</span></div><blockquote><div><cite>Ippo ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>Ciao a tutti, frequento l'ultimo anno al classico ma l'anno prossimo vorrei fare fisica. [...] Il problema è però fisica: non so praticamente nulla (al classico la fisica quasi non esiste) ed ancora devo iniziare a prepararmi</div></blockquote>
+Scusami se sono indiscreto, ma come mai pensi di fare fisica allora? :roll: <br>
+Se vuoi la mia opinione un mesetto e mezzo è decisamente poco per avere speranze ragionevoli di passare, anche perché non si tratta di imamgazzinare qualche nozione ma di imparare a fare i problemi, e quella è questione soprattutto di tempo ed abitudine (non lo si impara in un mese e mezzo). Provare comunque non costa niente, e non si sa mai...</div></blockquote>
+beh, la fisica mi piace molto, ed ovviamente non è che non sappia proprio niente, era un'esagerazione voluta...
+<blockquote><div><cite>Pigkappa ha scritto:</cite>Mah, in teoria dipende dalla tua forza di volontà. <br>
+<br>
+<br>
+Un mese e mezzo sono 45 giorni, e supponendo 8 ore al giorno sono 360 ore; più che sufficienti per imparare tutta la fisica che serve, per fare un sacco di problemi e (con un po' di fortuna) prendere punteggio pieno al test. Però non conosco nessuna persona che definirei sana di mente che riuscirebbe a studiare fisica per conto proprio per 8 ore al giorno per 45 giorni di seguito.<br>
+<br>
+Comunque i docenti della Scuola Normale sarebbero felici di poter testare il tuo punto di rottura, e ti direbbero che è assolutamente fattibile! [niente, questa è una citazione di una cosa agghiacciante che ci hanno detto una volta, lasciate stare  8-) ]<br>
+<br>
+<br>
+Riassumendo, l'impresa è fattibile ma molto difficile. Se non ci dovessi riuscire e finissi per entrare a qualche altra scuola di eccellenza con un po' meno concorrenza (Catania, Padova, Udine...) comunque non sarebbe troppo male, no?</div></blockquote>
+uhm, penso che se noon dovessi entrare alla Normale frequenterò solo la statale a Pisa, pare che i migliori docenti siano a Pisa, poi boh...<br>
+<br>
+<br>
+comunque ragazzi vi ringrazio per avermi risposto, anche se le risposte potevo già immaginarmele: non è impossibile teoricamente, ma praticamente lo è quasi. Diciamo che io ci proverò (male che vada almeno mi faccio una preparazione di fisica decente, giusto? ;)), ma senza troppe speranze. Ciao e grazie ancora ;)</article>
+<article class="post" id="p6411"><div class="who"><b>SkZ</b><span>13 apr 2011, 16:34</span></div>Anche Padova ha ottimi insegnanti a Fisica.</article>
+<article class="post" id="p6412"><div class="who"><b>domx</b><span>13 apr 2011, 17:20</span></div><blockquote><div><cite>SkZ ha scritto:</cite>Anche Padova ha ottimi insegnanti a Fisica.</div></blockquote>
+Dici? In effetti se trovassi qualche studente della Galileiana per chiedergli pareri mi farebbe comodo, peccato che non ce ne siano molti in giro...</article>
+<article class="post" id="p6413"><div class="who"><b>spn</b><span>13 apr 2011, 17:49</span></div><blockquote><div><cite>domx ha scritto:</cite>pare che i migliori docenti siano a Pisa</div></blockquote>
+Ma chi è che mette in giro queste voci?<br>
+Comunque non so per gli anni dopo, ma al primo questa cosa è falsa.</article>
+<article class="post" id="p6414"><div class="who"><b>domx</b><span>13 apr 2011, 18:01</span></div><blockquote><div><cite>spn ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>pare che i migliori docenti siano a Pisa</div></blockquote>
+Ma chi è che mette in giro queste voci?<br>
+Comunque non so per gli anni dopo, ma al primo questa cosa è falsa.</div></blockquote>
+beh, mi fa piacere, se anche Padova dovesse essere valida avrei una speranza in più...</article>
+<article class="post" id="p6415"><div class="who"><b>Pigkappa</b><span>13 apr 2011, 18:03</span></div>I docenti in facoltà a Pisa non sono granchè, in nessuno dei 5 anni. <br>
+<br>
+<br>
+Quasi tutti conoscono bene la materia che insegnano, ma la insegnano malissimo; lezioni sconclusionate, dimostrazioni che traballano, e altri problemi di questo tipo. <br>
+<br>
+<br>
+Ci sono diversi docenti che affrontano il loro corso come se fosse una gara contro il tempo per fare più cose possibili. Se guardate a <a href="http://unimap.unipi.it/cercapersone/cercapersone.php" class="ext" class="postlink">http://unimap.unipi.it/cercapersone/cercapersone.php</a> e cercate "Konishi", andate su "Attività didattica" e sul registro delle lezioni andate a vedere quello di Meccanica Quantistica 1, vedrete che in <strong class="text-strong">un</strong>'ora è stato fatto:<br>
+<br>
+# Lun 22/11/2010 10:00-11:00 (1:0 h) lezione: Oscillatore armonico. Metodo di operatori di creazione e distruzione. Lo spettro di energia e gli elementi di matrice di x e di p. Evoluzione temporale di un pacchetto d’onda. Periodi classici e la distribuzione della particella. Parentesi: evoluzione temporale di un pacchetto d’onda per la particella libera. Diffusione del pacchetto d’onda. (Kenichi Konishi)<br>
+<br>
+Il risultato è ovviamente che non si capisce niente a lezione, e alcuni studenti (tra cui buona parte di quelli più bravi) a lezione non ci vanno e si studiano le cose da soli. Quindi il professore non potrebbe essere più inutile di così (potrebbe essere più dannoso solo se facesse in quel modo <em class="text-italics">e</em> non conoscesse la sua materia, ma per fortuna questo mi è successo solo in un paio di casi finora).</article>
+<article class="post" id="p6424"><div class="who"><b>domx</b><span>13 apr 2011, 18:12</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>I docenti in facoltà a Pisa non sono granchè, in nessuno dei 5 anni. <br>
+<br>
+<br>
+Quasi tutti conoscono bene la materia che insegnano, ma la insegnano malissimo; lezioni sconclusionate, dimostrazioni che traballano, e altri problemi di questo tipo. <br>
+<br>
+<br>
+Ci sono diversi docenti che affrontano il loro corso come se fosse una gara contro il tempo per fare più cose possibili. Se guardate a <a href="http://unimap.unipi.it/cercapersone/cercapersone.php" class="ext" class="postlink">http://unimap.unipi.it/cercapersone/cercapersone.php</a> e cercate "Konishi", andate su "Attività didattica" e sul registro delle lezioni andate a vedere quello di Meccanica Quantistica 1, vedrete che in <strong class="text-strong">un</strong>'ora è stato fatto:<br>
+<br>
+# Lun 22/11/2010 10:00-11:00 (1:0 h) lezione: Oscillatore armonico. Metodo di operatori di creazione e distruzione. Lo spettro di energia e gli elementi di matrice di x e di p. Evoluzione temporale di un pacchetto d’onda. Periodi classici e la distribuzione della particella. Parentesi: evoluzione temporale di un pacchetto d’onda per la particella libera. Diffusione del pacchetto d’onda. (Kenichi Konishi)<br>
+<br>
+Il risultato è ovviamente che non si capisce niente a lezione, e alcuni studenti (tra cui buona parte di quelli più bravi) a lezione non ci vanno e si studiano le cose da soli. Quindi il professore non potrebbe essere più inutile di così (potrebbe essere più dannoso solo se facesse in quel modo <em class="text-italics">e</em> non conoscesse la sua materia, ma per fortuna questo mi è successo solo in un paio di casi finora).</div></blockquote>
+quindi la tanto decantata superiorità della normale deriva dai corsi interni?</article>
+<article class="post" id="p6432"><div class="who"><b>Pigkappa</b><span>13 apr 2011, 19:50</span></div>Non proprio. Deriva dal fatto che se prendi i 10 più bravi del 1989 all'inizio del primo anno di università, e li tieni follemente sotto pressione per 5 anni, è alta la probabilità che alcuni di questi siano ancora tra i più bravi dopo i 5 anni (e che gli altri siano stati buttati fuori nel frattempo). Quindi direi che la decantata superiorità deriva dal test di ingresso, più che altro, e non so quanto ha senso decantarla.<br>
+Quello che è certo è che non deriva da una buona didattica, e questo può confermartelo qualunque fisico della Normale.<br>
+E la direzione in cui si sta andando non è quella di diminuire la pressione e migliorare la didattica. Stanno per introdurre un esame obbligatorio alla fine del 3° anno che è su quello che loro pensano debba essere il programma di tutti i primi 3 anni, senza che ci siano dei corsi in Normale che spiegano quelle cose. L'obbiettivo è quello di selezionare i migliori, e non di spiegarci la fisica.<br>
+<br>
+Comunque non voglio esagerare; ci sono dei buoni professori di fisica all'università di Pisa (ma me ne vengano in mente solo quattro o cinque tra quelli che ho visto in 3 anni).</article>
+<article class="post" id="p6433"><div class="who"><b>domx</b><span>13 apr 2011, 20:19</span></div>Pigkappa, quello che dici non è per nulla rassicurante per me...</article>
+<article class="post" id="p6435"><div class="who"><b>dinamitardo</b><span>13 apr 2011, 23:29</span></div><blockquote><div><cite>domx ha scritto:</cite>Pigkappa, quello che dici non è per nulla rassicurante per me...</div></blockquote>
+perchè no? Significa che in fondo non ti perdi nulla se anche non entri...<br>
+Comunque non cercare sempre conferme o smentite negli altri, tu fai quello che ti senti nella misura che ti va, e vedrai che alla fine sarai sempre soddisfatto</article>
+<article class="post" id="p6437"><div class="who"><b>Pigkappa</b><span>14 apr 2011, 0:44</span></div>Non ho detto che non si perderebbe niente. Si perderebbe la possibilità di studiare fisica per 5 anni con il gruppo di coetanei più preparato e motivato che ci sia in Italia, e alla fine perderebbe il diploma della Normale (non credo conti tantissimo, però).<br>
+<br>
+Non si perderebbe molto invece dal punto di vista della didattica, questo è certo. Come penso possano confermare anche Ippo, Rigel e gli altri...</article>
+<article class="post" id="p6438"><div class="who"><b>SkZ</b><span>14 apr 2011, 3:13</span></div>la normale non e' per la didattica della laurea ovvio: non la controlla ;)<br>
+pero' l'ambiente in cui ti trovi e' il meglio e sei spinto a rendere al meglio. Altrimenti Pigkappa non starebbe la' e se ne sarebbe andato.<br>
+il diploma ha poco valore legale, ma piu' di cv e immagine, per lavorare. un poco meno nella ricerca (li' guardano ai tuoi articoli).</article>
+<article class="post" id="p6441"><div class="who"><b>Ippo</b><span>14 apr 2011, 12:36</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Non si perderebbe molto invece dal punto di vista della didattica, questo è certo. Come penso possano confermare anche Ippo, Rigel e gli altri...</div></blockquote>
+Boh, sul fatto che la didattica sia scadente non sono del tutto d'accordo, molti corsi sono veramente ben fatti; quello che un po' manca è una visione d'insieme del percorso, molte volte si ha l'impressione di fare cose a caso solo perché altrimenti si perderebbe la borsa... (Bisogna anche dire che in questi mesi si è avviato un dialogo positivo tra studenti e professori sui problemi della didattica, speriamo bene.)<br>
+Dato che i corsi interni sono aperti anche alla frequenza di esterni (giustamente), il normalista che vantaggi ha? <br>
+Ha un'ottima borsa (ma del resto ce ne sono diverse di più o meno equivalenti: l'INDAM per i matematici, qualcosa del genere anche per i fisici, più le varie borse regionali etc) e, soprattutto, la possibilità di passare 5 anni coi colleghi "migliori" (almeno all'inizio: poi c'è chi sostiene che il trattamento-normale infiacchisca...) Che svantaggi ha? Una marea di obblighi che costringono a fare tutto di fretta e sotto pressione.<br>
+Personalmente considero il bilancio comunque positivo (non mi sono ritirato, non ho alcuna intenzione di farlo e rifarei l'ammissione se potessi scegliere), ma non tutti la vedono allo stesso modo.</article>
+<article class="post" id="p6444"><div class="who"><b>domx</b><span>14 apr 2011, 14:33</span></div>ragazzi, vi ringrazio tutti per le risposte ;)<br>
+@Ippo: ma per fare i corsi della Normale da "esterni" si paga qualcosa?</article>
+<article class="post" id="p6445"><div class="who"><b>Rigel</b><span>14 apr 2011, 17:21</span></div>No non si paga nulla e ci mancherebbe altro!  ;) <br>
+Comunque al primo anno di fisica secondo me le ore di corso che valgono la pena di essere seguite non sono più di una decina, cioè meno della metà<br>
+Il vero problema secondo me è che ai primi anni il carico di lavoro è una cosa improponibile e uno si trova costretto a dare l'esame solo per passarlo senza potersi preoccupare se ha davvero imparato qualcosa. Magari nei corsi fuffa e inutili questo cosa può anche andare bene, ma in quelli più importanti secondo me no</article>
+<article class="post" id="p6455"><div class="who"><b>domx</b><span>15 apr 2011, 14:40</span></div><blockquote><div><cite>Rigel ha scritto:</cite>No non si paga nulla e ci mancherebbe altro!  ;) <br>
+Comunque al primo anno di fisica secondo me le ore di corso che valgono la pena di essere seguite non sono più di una decina, cioè meno della metà<br>
+Il vero problema secondo me è che ai primi anni il carico di lavoro è una cosa improponibile e uno si trova costretto a dare l'esame solo per passarlo senza potersi preoccupare se ha davvero imparato qualcosa. Magari nei corsi fuffa e inutili questo cosa può anche andare bene, ma in quelli più importanti secondo me no</div></blockquote>
+ok grazie ;), in caso dovessi frequentare solo la statale di Pisa allora vedrò se varrà la pena fare qualche corso alla Normale...</article>
+<article class="post" id="p6472"><div class="who"><b>metsämies</b><span>18 apr 2011, 20:55</span></div><blockquote><div><cite>Rigel ha scritto:</cite>No non si paga nulla e ci mancherebbe altro!  ;) <br>
+Comunque al primo anno di fisica secondo me le ore di corso che valgono la pena di essere seguite non sono più di una decina, cioè meno della metà<br>
+Il vero problema secondo me è che ai primi anni il carico di lavoro è una cosa improponibile e uno si trova costretto a dare l'esame solo per passarlo senza potersi preoccupare se ha davvero imparato qualcosa. Magari nei corsi fuffa e inutili questo cosa può anche andare bene, ma in quelli più importanti secondo me no</div></blockquote>
+La pressione del primo anno è una cosa comune a un po' tutta l'Italia, a Padova ho visto gente andare completamente fuori di testa con analisi, geometria e compagnia. In effetti il tempo per studiare non abbondava e la quantità di nozioni richieste all'esame era enorme. Non so a questo punto se sia meglio l'approccio che hanno all'estero, molto più calmo all'inizio per poi crescere in impegno. Certo chi non è abbastanza motivato con il metodo italiano difficilmente resiste più di un semestre, e sicuramente la quantità di informazioni che ricevi è abbastanza maggiore, bisogna vedere però quanto ne rimane dopo un po' di tempo.</article>
+<article class="post" id="p6473"><div class="who"><b>Pigkappa</b><span>18 apr 2011, 21:40</span></div>No guarda, ti assicuro che non è la stessa cosa. In Normale in questi ultimi anni ti riempiono di prove ed esami pesanti che ti spremono come un limone.<br>
+<br>
+Per fare un esempio, se ho capito bene i fisici del 1° anno hanno avuto un esame (scritto o orale) obbligatorio in ognuno degli ultimi 4 sabati. L'esame pesante di geometria in facoltà ovviamente c'è per tutti, ma quello ha un suo motivo d'essere; invece fare delle prove scritte ed orali ad Aprile in cui si viene interrogati sul programma di Fisica e Analisi svolto fin lì, mentre le lezioni vanno avanti, non ce l'ha.</article>
+<article class="post" id="p6477"><div class="who"><b>spn</b><span>18 apr 2011, 23:18</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>i fisici del 1° anno hanno avuto un esame (scritto o orale) obbligatorio in ognuno degli ultimi 4 sabati.</div></blockquote>
+Con in mezzo anche compitini all'università :roll:</article>
+<article class="post" id="p6479"><div class="who"><b>domx</b><span>19 apr 2011, 15:53</span></div>Quattro esami nel giro di un mese? :shock: <br>
+Ma c'è qualcuno che non riesce a reggere quei ritmi, o tutti quelli che passano quei test riescono a non farsi espellere dalla scuola? :?</article>
+<article class="post" id="p6481"><div class="who"><b>SkZ</b><span>19 apr 2011, 17:43</span></div><blockquote><div><cite>metsämies ha scritto:</cite>La pressione del primo anno è una cosa comune a un po' tutta l'Italia, a Padova ho visto gente andare completamente fuori di testa con analisi, geometria e compagnia. In effetti il tempo per studiare non abbondava e la quantità di nozioni richieste all'esame era enorme. Non so a questo punto se sia meglio l'approccio che hanno all'estero, molto più calmo all'inizio per poi crescere in impegno. Certo chi non è abbastanza motivato con il metodo italiano difficilmente resiste più di un semestre, e sicuramente la quantità di informazioni che ricevi è abbastanza maggiore, bisogna vedere però quanto ne rimane dopo un po' di tempo.</div></blockquote>
+analisi 1 ora con un programma enorme? :shock: <br>
+ :lol:  :lol: <br>
+<br>
+Considera che con la riforma l'hanno tagliato ;)<br>
+tempo fa il corso di Marconi/De Marco era peggio ;)<br>
+il vantaggio era che avevi poco di piu' da studiare</article>
+<article class="post" id="p6482"><div class="who"><b>Pigkappa</b><span>19 apr 2011, 18:59</span></div><blockquote><div><cite>domx ha scritto:</cite>Quattro esami nel giro di un mese? :shock: <br>
+Ma c'è qualcuno che non riesce a reggere quei ritmi, o tutti quelli che passano quei test riescono a non farsi espellere dalla scuola? :?</div></blockquote>
+
+Quattro prove <em class="text-italics">interne</em>, cioè di quelle in più aggiunte dalla Normale. Che si sommano alle normali prove in facoltà (dove in genere ci sono i compitini in questo periodo, non esami veri e propri).<br>
+<br>
+Non tutti quelli che passano il test di ammissione resistono. Lo scorso anno, tra matematici e fisici, ne sono usciti 3 del 2° anno e 1 del 1° anno (per motivi diversi: alcuni buttati fuori per i corsi interni, altri per la facoltà). Degli anni oltre il 2° non parlo perchè è meglio stendere un velo pietoso...</article>
+<article class="post" id="p6483"><div class="who"><b>Fedecart</b><span>19 apr 2011, 20:05</span></div><blockquote><div><cite>metsämies ha scritto:</cite>a Padova ho visto gente andare completamente fuori di testa con analisi, geometria e compagnia</div></blockquote>
+
+Analisi 1 a Padova è effettivamente uno degli esami più tosti che ho mai fatto. Vuoi perchè sei appena uscito dalle superiori e non hai (almeno io non avevo) idea di come si studia la matematica seriamente, vuoi perchè il professore pretende moltissimo (ma è anche molto bravo), vuoi perchè le "regole d'esame" sono un pò strane. Geometria invece ora è una cavolata. Cambiato professore, è diventata medio-facile e il livello è precipitato. Dico facile rispetto ad esempio, a Pisa... Mi permetto di fare questo paragone in base a vecchi esami trovati online, poi effettivamente non so.<br>
+<br>
+Comunque alla fine, se quello che fai ti piace davvero, sopravvivi ovunque.</article>
+<article class="post" id="p6484"><div class="who"><b>domx</b><span>20 apr 2011, 14:56</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>Quattro esami nel giro di un mese? :shock: <br>
+Ma c'è qualcuno che non riesce a reggere quei ritmi, o tutti quelli che passano quei test riescono a non farsi espellere dalla scuola? :?</div></blockquote>
+
+Quattro prove <em class="text-italics">interne</em>, cioè di quelle in più aggiunte dalla Normale. Che si sommano alle normali prove in facoltà (dove in genere ci sono i compitini in questo periodo, non esami veri e propri).<br>
+<br>
+Non tutti quelli che passano il test di ammissione resistono. Lo scorso anno, tra matematici e fisici, ne sono usciti 3 del 2° anno e 1 del 1° anno (per motivi diversi: alcuni buttati fuori per i corsi interni, altri per la facoltà). Degli anni oltre il 2° non parlo perchè è meglio stendere un velo pietoso...</div></blockquote>
+non mi aspettavo che ne venissero espulsi così tanti...</article>
+<article class="post" id="p6504"><div class="who"><b>metsämies</b><span>22 apr 2011, 13:49</span></div><blockquote><div><cite>SkZ ha scritto:</cite><blockquote><div><cite>metsämies ha scritto:</cite>La pressione del primo anno è una cosa comune a un po' tutta l'Italia, a Padova ho visto gente andare completamente fuori di testa con analisi, geometria e compagnia. In effetti il tempo per studiare non abbondava e la quantità di nozioni richieste all'esame era enorme. Non so a questo punto se sia meglio l'approccio che hanno all'estero, molto più calmo all'inizio per poi crescere in impegno. Certo chi non è abbastanza motivato con il metodo italiano difficilmente resiste più di un semestre, e sicuramente la quantità di informazioni che ricevi è abbastanza maggiore, bisogna vedere però quanto ne rimane dopo un po' di tempo.</div></blockquote>
+analisi 1 ora con un programma enorme? :shock: <br>
+ :lol:  :lol: <br>
+<br>
+Considera che con la riforma l'hanno tagliato ;)<br>
+tempo fa il corso di Marconi/De Marco era peggio ;)<br>
+il vantaggio era che avevi poco di piu' da studiare</div></blockquote>
+Ho sentito che una volta era peggio, ma anche adesso non scherza, passarlo non è una cosa difficile ma passarlo con un buon voto (come è richiesto ai galileiani per esempio) lo è. E rispetto a quanto richiesto in un primo anno all'estero il programma teorico da portare all'orale è abbastanza vasto</article>
+<article class="post" id="p6584"><div class="who"><b>Sasha™</b><span>18 mag 2011, 16:38</span></div>Tutto ciò è inquietante.  :shock: <br>
+<br>
+Per Matematica (anche se è un po' OT) alla Normale com'è la situazione?</article>
+<article class="post" id="p6585"><div class="who"><b>Spammowarrior</b><span>19 mag 2011, 11:21</span></div>i corsi interni sono gli stessi, quindi ci ammazzano allo stesso modo (anche se dall'anno prossimo la storia dovrebbe (forse) cambiare)<br>
+però in facoltà i professori sono in buona parte bravi. ovvio, ci sono comunque quelli tragici, ma direi che succede a pisa come in qualunque altra università.<br>
+comunque ci sono molti professori (come diceva pigkappa) che conoscono molto bene la loro materia, sono di alto profilo sotto il livello della ricerca, ma poi si incartano quando spiegano qualunque cosa.</article>
+<article class="post" id="p6586"><div class="who"><b>Sasha™</b><span>19 mag 2011, 15:54</span></div>Perché dovrebbe (forse) cambiare? Parla, che mi interessa.  :D</article>
+<article class="post" id="p6587"><div class="who"><b>Spammowarrior</b><span>19 mag 2011, 16:51</span></div>no, beh, semplicemente perchè cambierà il professore di fisica, e ci si aspetta quindi che il corso passi dall'essere un corso fuori di testa a un corso impengativo ma sensato.</article>
+<article class="post" id="p6588"><div class="who"><b>Pigkappa</b><span>19 mag 2011, 17:50</span></div>E poi si spera che la scelta sul vostro futuro non sia influenzata più di tanto da chi tiene un corso del primo anno...</article>
+<article class="post" id="p6589"><div class="who"><b>domx</b><span>20 mag 2011, 15:36</span></div>Boh, speriamo bene per Pisa, le probabilità che frequenterò quell'università (parlo della statale :lol: ) sono alte...</article>
+<article class="post" id="p6788"><div class="who"><b>edo1493</b><span>14 giu 2011, 23:48</span></div>Quanti sono gli ammessi al corso di fisica al 1° anno ? <br>
+Le prove di matematica e fisica si fanno nello stesso momento ? Quanto sono lunghe ? <br>
+Il livello dei problemi è senigallia - preiPho ? <br>
+ :ugeek:</article>
+<article class="post" id="p6790"><div class="who"><b>Alex</b><span>15 giu 2011, 11:21</span></div><blockquote><div><cite>edo1493 ha scritto:</cite>Quanti sono gli ammessi al corso di fisica al 1° anno ? <br>
+Le prove di matematica e fisica si fanno nello stesso momento ? Quanto sono lunghe ? <br>
+Il livello dei problemi è senigallia - preiPho ? <br>
+ :ugeek:</div></blockquote>
+
+Alla SNS sono ammessi ogni anno fino a 30 studenti per la classe di scienze, senza distinzioni di materia. Solitamente questo si traduce nell'ammissione di circa 10-11 studenti di fisica.<br>
+<br>
+Per l'ammissione a fisica devono essere sostenuti due scritti di circa 6h (matematica e fisica), in giorni consecutivi. Chi passa la fase scritta deve sostenere alcuni giorni dopo i rispettivi orali (di solito sono entrambi lo stesso giorno). <br>
+<br>
+Per il livello, puoi guardare i vecchi testi di ammissione, così ti fai un'idea tu stesso. Ma più o meno il livello è quello.</article>
+<article class="post" id="p6792"><div class="who"><b>edo1493</b><span>15 giu 2011, 20:03</span></div>Ma se a cesenatico sono molti di più, non ci dovrebbero essere più matematici rispetto a fisici? (11 mi sembrano tanti...però non ho considerato che chimica ed informatica potrebbero essere vuote) ???<br>
+<br>
+In un modo o nell'altro loro devono comunque prendere 5 o 6 in fisica, giusto? La classe di fisica non può essere vuota o inesistente per un anno scolastico a causa dell'incapacità degli studenti durante il test??</article>
+<article class="post" id="p6793"><div class="who"><b>Ippo</b><span>15 giu 2011, 20:35</span></div>Al mio anno ad esempio siamo in 7. Ci possono essere fluttuazioni ma credo che nella storia recente non siano mai scesi sotto questo numero.<br>
+Quanto ai numeri di Cesenatico e Senigallia, non sono così confrontabili (le manifestazioni sono pensate un po' diversamente), e in generale la connessione (statistica) tra Olimpiadi e ammissione c'è, ma non è necessariamente così forte...</article>
+<article class="post" id="p6826"><div class="who"><b>edo1493</b><span>20 giu 2011, 23:26</span></div>Mi viene quasi da ridere...ma qualcuno si è mai suicidato?  :cry: <br>
+La media del 27, esami in continuazione, pressione, studio, neve, pioggia, umidità....si sopportano ? xD</article>
+<article class="post" id="p6827"><div class="who"><b>Pigkappa</b><span>21 giu 2011, 10:48</span></div>Si fa abbastanza gruppo per tirare avanti. E poi c'è sempre la possibilità di lasciar perdere tutto e uscire volontariamente (qualcuno, raramente, l'ha fatto)...</article>
+<article class="post" id="p6847"><div class="who"><b>Fedecart</b><span>23 giu 2011, 23:09</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>(qualcuno, raramente, l'ha fatto)...</div></blockquote>
+Posso dire di conoscerne uno...!</article>
+<article class="post" id="p6850"><div class="who"><b>domx</b><span>24 giu 2011, 15:22</span></div>ragazzi, ero deciso a trascorrere la mia prossima estate a studiare per quei test ed invece ecco un forte distrattore: ho la possibilità di farmi 3 settimane in Inghilterra a spese della scuola. Sono più propenso a restare a casa per studiare, però di perdermi quell'opportunità un po' mi dispiace, specie sapendo che le mie possibilità (almeno attualmente) di entrare in normale sono poche...<br>
+voi che fareste? Ovviamente in un mese non riuscirei a combinare niente, quindi una cosa esclude l'altra...<br>
+<br>
+edit: ah, aggiungeteci che se accettassi di fare il viaggio in Inghilterra il mio inglese migliorerebbe parecchio e che prenderei il FIRST...</article>
+<article class="post" id="p6853"><div class="who"><b>Ippo</b><span>24 giu 2011, 20:29</span></div><blockquote><div><cite>domx ha scritto:</cite>edit: ah, aggiungeteci che se accettassi di fare il viaggio in Inghilterra il mio inglese migliorerebbe parecchio e che prenderei il FIRST...</div></blockquote>
+vabbè il first lo puoi prendere lo stesso :P <br>
+Comunque in un mese volendo si fa tanto (ok, se parti da zero è tardi, ma del resto se parti da zero sono pochi anche due mesi)<br>
+Non tutti quelli che entrano hanno necessariamente passato tutta l'estate sui libri...<br>
+Vedi tu, dipende da quanto ci tieni (all'una e all'altra cosa).</article>
+<article class="post" id="p6854"><div class="who"><b>dinamitardo</b><span>24 giu 2011, 21:26</span></div>dal mio punto di vista ti consiglio al 100% le tre settimane in inghilterra. Meglio esperienze di vita che studio sui libri!</article>
+<article class="post" id="p6855"><div class="who"><b>spn</b><span>24 giu 2011, 22:52</span></div>Se fossi in te andrei in inghilterra. Io ho fatto una cosa del genere e alla fine sono entrato. Poi anche se non entri in normale non è la fine del mondo (anzi...)</article>
+<article class="post" id="p6856"><div class="who"><b>SkZ</b><span>25 giu 2011, 19:26</span></div><blockquote><div><cite>edo1493 ha scritto:</cite>Mi viene quasi da ridere...ma qualcuno si è mai suicidato?  :cry: <br>
+La media del 27, esami in continuazione, pressione, studio, neve, pioggia, umidità....si sopportano ? xD</div></blockquote>
+io non provai alla Normale perche'<br>
+1) come astronomia Padova dava una preparazione migliore ed era piu' rinomata<br>
+2) l'idea dell'obbligo del 27 di media e voto minimo 24 mi infastidiva :P<br>
+<br>
+Alla fine mai avuto una media inferiore al 27.5 e l'unico voto inferiore al 24 lo accettai perche' quell'esame l'avevo ridato 3 volte per errori di gestione miei, che non avrei fatto stando alla Normale con l'ambiente che c'e'.<br>
+Considerato che non ho dato il massimo, stando la' avrei anche dato tutti gli esami nei tempi giusti ;)</article>
+<article class="post" id="p6859"><div class="who"><b>Pigkappa</b><span>26 giu 2011, 0:39</span></div>Comunque l'obbligo del 27 di media è un po' truffaldino e leggermente più difficile da tenere di quanto si pensi, almeno al primo anno (e forse anche al secondo). Questo perchè nella media pesano sia i corsi in facoltà (generalmente per circa 60 crediti) che i corsi interni (per 28 crediti), ed ai corsi interni si tende a prendere meno che ai corsi in facoltà.<br>
+<br>
+Perciò è abbastanza comune che si punti ad avere 28.5 di media in facoltà, così da poter bilanciare un 24 ai corsi interni, che non è un voto troppo improbabile.</article>
+<article class="post" id="p6860"><div class="who"><b>Fedecart</b><span>26 giu 2011, 10:32</span></div>Parliamo un attimo di una cosa. Che media dovete avere voi, a Pisa, per poter chiudere la triennale con 110, supponendo di prendere tutti i punti possibili alla discussione della tesi?<br>
+Perchè da noi a far questo conto si ottiene un numero parecchio alto! E volevo capire se è più o meno dappertutto che gira così...</article>
+<article class="post" id="p6861"><div class="who"><b>Pigkappa</b><span>26 giu 2011, 12:56</span></div>Esattamente il conto non l'ho fatto, ma per la prendere la lode alla triennale non ci vuole una media molto alta. Con 28 si prende tranquillamente, e credo che matematicamente sia possibile prenderla anche con 27.<br>
+<br>
+Alla specialistica invece è molto più difficile e pare si debba essere sopra a 28.5, ma stanno cambiando le regole praticamente ogni anno e non so com'è la situazione attuale.</article>
+<article class="post" id="p6862"><div class="who"><b>domx</b><span>27 giu 2011, 15:00</span></div>stasera vado a scuola a sentire i dettagli del viaggio in inghilterra. Se la cosa mi alletta ed un mio amico accetta di andarci (da solo mi annoierebbe), è probabile che ci vado, poi per la normale si vedrà (tanto non ci entrerei comunque, muahahah)</article>
+<article class="post" id="p6863"><div class="who"><b>domx</b><span>27 giu 2011, 21:02</span></div>ragazzi, ho una notizia forse buona: lo stage non è in piena estate ma probabilmente (niente di certo) dall'11 settembre al 1 ottobre. Ho solo due dubbi: 1)se mai dovessi essere ammesso agli orali, saranno prima dell'11 vero? 2)quando iniziano le lezioni in facoltà?<br>
+grazie (e scusa se stiamo andando un po' OT :mrgreen: ) ;)</article>
+<article class="post" id="p6864"><div class="who"><b>Pigkappa</b><span>28 giu 2011, 1:12</span></div>Non è detto che siano prima dell'11. Quest'anno erano tra il 7 ed il 13. Forse potresti convincerli a farteli fare il primo giorno, soprattutto se conosci qualcuno del primo giorno con cui scambiarti. È probabile che il primo giorno di orali sia prima dell'11, ma non ci metterei comunque la mano sul fuoco.</article>
+<article class="post" id="p6867"><div class="who"><b>domx</b><span>28 giu 2011, 11:10</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Non è detto che siano prima dell'11. Quest'anno erano tra il 7 ed il 13. Forse potresti convincerli a farteli fare il primo giorno, soprattutto se conosci qualcuno del primo giorno con cui scambiarti. È probabile che il primo giorno di orali sia prima dell'11, ma non ci metterei comunque la mano sul fuoco.</div></blockquote>
+boh, speriamo bene, calcola pure che quest'anno gli scritti sono uno-due giorni prima...<br>
+comunque per ora do l'adesione, poi se dovessi passare all'orale e ci dovessero essere problemi, vedrò cosa fare...<br>
+grazie per l'info comunque, ma sull'inizio delle lezioni che mi dici? :)</article>
+<article class="post" id="p6868"><div class="who"><b>Pigkappa</b><span>28 giu 2011, 12:34</span></div>In facoltà iniziano verso il 20 settembre, ma non c'è nessun problema a saltare un paio di settimane di lezione.<br>
+<br>
+In Normale iniziano sicuramente dopo l'1 Ottobre.</article>
+<article class="post" id="p6871"><div class="who"><b>domx</b><span>28 giu 2011, 18:48</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>In facoltà iniziano verso il 20 settembre, ma non c'è nessun problema a saltare un paio di settimane di lezione.<br>
+<br>
+In Normale iniziano sicuramente dopo l'1 Ottobre.</div></blockquote>
+ahi, 11 giorni sono tanti però...<br>
+va beh, penso che, con un po' di sforzi, si possa fare. A Pisa per la facoltà di fisica le prime lezioni su sono?</article>
+<article class="post" id="p6872"><div class="who"><b>Pigkappa</b><span>28 giu 2011, 18:58</span></div>Le prime lezioni sono sul niente. Non c'è nessun problema a saltarsi le prime 2 settimane (o anche tre) di lezioni in facoltà. Magari poi si dovranno recuperare alcune cose di Geometria, ma è perfettamente fattibile. Di Fisica 1 non si fa niente che un normalista non abbia già visto infinite volte. Di Analisi 1 si fanno alcune cose inutili che si recuperano come niente.</article>
+<article class="post" id="p6873"><div class="who"><b>domx</b><span>28 giu 2011, 21:23</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Le prime lezioni sono sul niente. Non c'è nessun problema a saltarsi le prime 2 settimane (o anche tre) di lezioni in facoltà. Magari poi si dovranno recuperare alcune cose di Geometria, ma è perfettamente fattibile. Di Fisica 1 non si fa niente che un normalista non abbia già visto infinite volte. Di Analisi 1 si fanno alcune cose inutili che si recuperano come niente.</div></blockquote>
+ah ok, quindi per ora non ritiro l'adesione, anzi  :D <br>
+ti ringrazio per le info ;)</article>
+<article class="post" id="p6900"><div class="who"><b>domx</b><span>1 lug 2011, 9:52</span></div>ragazzi, sapreste dirmi quando c'è la prova d'ingresso per la galileiana? Penso che non posso tentare lì, visto che sul sito per ora dice solo che le domande si devono presentare entro il due settembre...</article>
+<article class="post" id="p6901"><div class="who"><b>Omar93</b><span>1 lug 2011, 17:46</span></div>"Per un laser, si passa da temperature positive a temperature negative non passando attraverso 0 K, ma passando attraverso l'infinito!" (cit.) <br>
+<br>
+Mi ricorda gli specchi.</article>
+<article class="post" id="p6902"><div class="who"><b>Pigkappa</b><span>2 lug 2011, 2:35</span></div><blockquote><div><cite>domx ha scritto:</cite>ragazzi, sapreste dirmi quando c'è la prova d'ingresso per la galileiana? Penso che non posso tentare lì, visto che sul sito per ora dice solo che le domande si devono presentare entro il due settembre...</div></blockquote>
+
+In genere gli scritti della galileiana sono vicini al periodo degli orali della Normale. Il problema, però, è che poi gli orali della galileiana ti coinciderebbero quasi sicuramente con la vacanza studio.<br>
+<br>
+Comunque fossi in te farei richiesta lo stesso. Poi nessuno ti obbliga ad andarci davvero; anche io mi ero iscritto alla prova e poi non ci ero andato.<br>
+<br>
+
+<blockquote><div><cite>Omar93 ha scritto:</cite>"Per un laser, si passa da temperature positive a temperature negative non passando attraverso 0 K, ma passando attraverso l'infinito!" (cit.) <br>
+<br>
+Mi ricorda gli specchi.</div></blockquote>
+
+Pensa che ti diranno quella frase in due corsi diversi (Struttura 1 e Struttura 2) senza aggiungere nessuna spiegazione sensata, e pretendendo che tu la prenda per buona!<br>
+La frase l'ho citata dalle dispense ufficiali di Struttura 2.</article>
+<article class="post" id="p6903"><div class="who"><b>domx</b><span>2 lug 2011, 8:09</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+<br>
+In genere gli scritti della galileiana sono vicini al periodo degli orali della Normale. Il problema, però, è che poi gli orali della galileiana ti coinciderebbero quasi sicuramente con la vacanza studio.<br>
+<br>
+Comunque fossi in te farei richiesta lo stesso. Poi nessuno ti obbliga ad andarci davvero; anche io mi ero iscritto alla prova e poi non ci ero andato.<br>
+<br>
+
+</div></blockquote>
+sì, hai ragione, magari la richiesta la faccio comunque...<br>
+<br>
+
+<blockquote><div><cite>Pigkappa ha scritto:</cite>
+Pensa che ti diranno quella frase in due corsi diversi (Struttura 1 e Struttura 2) senza aggiungere nessuna spiegazione sensata, e pretendendo che tu la prenda per buona!<br>
+La frase l'ho citata dalle dispense ufficiali di Struttura 2.</div></blockquote>
+toh, non ci credo, sembrava una battuta presa da qualche telefilm :lol:</article>
+<article class="post" id="p6919"><div class="who"><b>Hoja</b><span>4 lug 2011, 19:25</span></div>pongo un altra domanda.<br>
+Alla iscrizione telematica alla normale chiedono il numero di diploma e il voto.<br>
+i risultati della maturità da me escono l'8 luglio ma si paral che bisogna aspettare mesi per il diploma.<br>
+avete affrontato un simile problema?</article>
+<article class="post" id="p6920"><div class="who"><b>Pigkappa</b><span>4 lug 2011, 20:40</span></div>Se lasci in bianco quella sezione non credo succederanno disastri. Anche il voto della maturità non è troppo importante, lo chiedono solo per motivi statistici.<br>
+<br>
+Se vuoi andare sul sicuro, comunque, puoi contattare qualcuno della Scuola:<br>
+
+<blockquote class="uncited"><div>6.6. Per informazioni, gli interessati possono consultare la pagina web:<br>
+<a href="http://www.sns.it/it/scuola/ammissione/corsoordinario/" class="ext" class="postlink">http://www.sns.it/it/scuola/ammissione/corsoordinario/</a><br>
+<br>
+oppure rivolgersi, oltre che al responsabile del procedimento:<br>
+<br>
+- allo staff del Servizio Segreteria Allievi:<br>
+<a href="mailto:concorso.ammissione@sns.it" class="ext">concorso.ammissione@sns.it</a><br>
+Silvia Carresi, +39 050.509663,<br>
+Silvia Quaglieri, +39 050.509847,<br>
+Ambra Vettori, +39 050.509026.<br>
+<br>
+- al responsabile dell’Area Didattica della SNS,<br>
+Giancarlo Felici (<a href="mailto:orientamento@sns.it" class="ext">orientamento@sns.it</a>).</div></blockquote>
+
+Eventualmente scrivici qua cosa ti dicono, così diminuiamo il già cospicuo numero di telefonate che ricevono...</article>
+<article class="post" id="p6925"><div class="who"><b>domx</b><span>7 lug 2011, 10:01</span></div>Hoja, hai chiamato? Che ti hanno detto?<br>
+Anch'io magari aspetto di avere il voto per fare l'iscrizione, ma per il diploma?<br>
+ciao ;)</article>
+<article class="post" id="p7019"><div class="who"><b>domx</b><span>18 lug 2011, 19:29</span></div>Ciao a tutti, ho appena fatto la domanda: non c'è nessun numero del diploma da inserire, basta il voto ;)</article>
+<article class="post" id="p7023"><div class="who"><b>dinamitardo</b><span>19 lug 2011, 2:45</span></div>mi sono appena letto letto il bando di concorso della galileiana, e ho letto una cosa che mi ha un po' preoccupato: c'è una prova preliminare con anche quesiti di biologia e chimica! Io sono abbastanza sicuro di riuscire a fare tranquillamente (salvo errori stupidi che possono sempre capitare) i 40 quesiti di matematica e i 15 di fisica, però ce ne sono anche 15 di biologia e 15 di chimica, materie che non faccio da 2 anni e di cui non ricordo quasi nulla! Perchè questa cosa? Che senso ha?</article>
+<article class="post" id="p7025"><div class="who"><b>Ippo</b><span>19 lug 2011, 18:10</span></div><blockquote><div><cite>dinamitardo ha scritto:</cite>Perchè questa cosa? Che senso ha?</div></blockquote>
+Si tratta di una prova di "matematica e attitudine scientifica", in comune per tutti. Pensa ai poveri biologi che si beccano 55 quesiti di matematica e fisica...  :P<br>
+A parte gli scherzi, penso che le domande siano molto facili e che il test serva per lo più a scremare un po' di candidati prima della seconda prova. Neanch'io sono molto convinto dell'efficacia di questo tipo di test, ma chi lo sa...</article>
+<article class="post" id="p7026"><div class="who"><b>dinamitardo</b><span>19 lug 2011, 21:13</span></div>sul fatto che le domande di chimica e biologia siano facili non c'è dubbio, me ne rendo conto anch'io che non sono proprio quel che si dice un esperto in materia (ad esempio ho provato 10 quesiti di chimica dell'anno scorso e ne ho fatti giusti 5 usando un misto tra intuito,vaghi ricordi e conoscenze di termodinamica  :mrgreen: ).<br>
+Ho calcolato che 56 quesiti rappresentano la sufficienza e questo è positivo, però diciamo che lasciano poco margine d'errore a persone come me che appunto non sanno nulla che non sia fisica o matematica!<br>
+<br>
+Ho anche guardato la prova vera e propria (nello specifico quella di matematica) e mi è sembrata abbastanza semplice, sono più preoccupato per la preselezione che per quella che dovrebbe essere la vera selezione  :( <br>
+Magari nel tempo che rimane oltre a continuare la preparazione rispolvero un po' la chimica, la biologia ci rinuncio perchè è un'accozzaglia infinita di nomi che non ricorderò mai.<br>
+<br>
+Boh, neanch'io sono troppo convinto riguardo la decisione di fare un test di questo tipo, ma l'unica cosa che posso fare purtroppo è prenderne atto e sperare per il meglio</article>
+<article class="post" id="p7198"><div class="who"><b>metsämies</b><span>15 ago 2011, 1:15</span></div>da quel che mi ricordo l'anno scorso la prima prova galileiana non è stata proprio una passeggiata, i quesiti di matematica erano impegnativi, fisica e chimica più o meno e biologia praticamente impossibile (almeno per me), in più aggiungi che il tempo era poco. Di consolazione c'è che hanno poi normalizzato i voti, uno se non ricordo male è passato senza fare chimica e biologia.</article>
+<article class="post" id="p7305"><div class="who"><b>Pigkappa</b><span>26 ago 2011, 23:23</span></div>Com'è andata? Com'erano le prove?</article>
+<article class="post" id="p7306"><div class="who"><b>domx</b><span>27 ago 2011, 10:39</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Com'è andata? Com'erano le prove?</div></blockquote>
+più fattibili di quelle di molti altri anni :D <br>
+pensa che di matematica ne ho fatti 4 su 6, e di fisica, considerando che ho studiato fisica solo nell'ultimo mese, due più qualche considerazione su altri due (non so però se quelli di fisica stiano bene). Dici che avrei speranze di essere ammesso all'orale? Perché in tal caso già da lunedì inizierei con l'elettromagnetismo, i cui problemi ieri li ho lasciato in bianco...<br>
+comunque vada però mi sento soddisfatto, considerando il tempo di preparazione :D <br>
+P.S.: c'era un problema che diceva: ho N gradini alti h ed una pallina con raggio maggiore di h; quando la pallina incontra un gradino lo sale senza slittare. Calcolare l'energia che deve avere per salire gli N gradini. Io ho immaginato di avere un piano inclinato (ho fatto il discorso dell'energia meccanica che è conservativa) ed ho uguagliato en. potenziale in cima ad en. cinetica in basso ed ho ricavato così la velocità. Potrebbe andare? A me sembra troppo banale, e poi non tiene conto dell'attrito...</article>
+<article class="post" id="p7307"><div class="who"><b>domx</b><span>27 ago 2011, 11:10</span></div>ah, ce n'era uno praticamente uguale al terzo de 2008, solo che usava il frigorifero al posto del condizionatore (ed io non me lo ricordavo quel problema, lo feci mesi fa...)<br>
+in brutta stavo parlando di coefficiente frigorifero utile, poi non mi portava da nessuna parte e mi sono limitato a dire che, se acceso per un quarto del tempo raffredda a 4° con un ambiente di 24°, acceso per tutto il tempo raffredda a 4° un  ambiente di 4·(24-4). Clamorosamente sbagliato, giusto per non lasciare in bianco...</article>
+<article class="post" id="p7308"><div class="who"><b>AxxMan</b><span>27 ago 2011, 11:47</span></div>Il 6 era il più difficile probabilmente. Io ho risolto pensando che nell'urto si conserva il momento angolare rispetto allo spigolo, poi si conserva l'energia mentre la ruota sale. Il caso limite con il gradino di altezza zero tornava perfettamente quindi penso di aver fatto bene. Si poteva trovare una relazione per ricorrenza tra le velocità e risolvere la successione con una traslazione della successione originaria e qualche calcolo. A me matematica è andata male purtroppo, massimo 3 problemi giusti, ma fisica l'ho fatta tutta. Vediamo se basterà. In media tutti hanno trovato più facile fisica che matematica</article>
+<article class="post" id="p7309"><div class="who"><b>domx</b><span>27 ago 2011, 12:03</span></div><blockquote><div><cite>AxxMan ha scritto:</cite>Il 6 era il più difficile probabilmente. Io ho risolto pensando che nell'urto si conserva il momento angolare rispetto allo spigolo, poi si conserva l'energia mentre la ruota sale. Il caso limite con il gradino di altezza zero tornava perfettamente quindi penso di aver fatto bene. Si poteva trovare una relazione per ricorrenza tra le velocità e risolvere la successione con una traslazione della successione originaria e qualche calcolo. A me matematica è andata male purtroppo, massimo 3 problemi giusti, ma fisica l'ho fatta tutta. Vediamo se basterà. In media tutti hanno trovato più facile fisica che matematica</div></blockquote>
+anch'io penso che fisica sia stata facile, solo che purtroppo ero io a non essere all'altezza :lol: <br>
+comunque sapevo che come l'avevo fatto io non andava bene...</article>
+<article class="post" id="p7310"><div class="who"><b>floppino81892</b><span>27 ago 2011, 20:43</span></div>raga come si risolveva quello delle formiche? Comunque anch io ho trovato la prova di fisica fattibile, non ho fatto solo il primo e il sesto....matematica invece NO COMMENT  :(</article>
+<article class="post" id="p7313"><div class="who"><b>Omar93</b><span>28 ago 2011, 0:52</span></div>Allora.. 1- Il poligono regolare è inscrittibile in una circonferenza<br>
+            2- Per simmetria dopo un dt le formiche sono ancora su un poligono regolare di n lati<br>
+3- Il moto è circolare uniforme <br>
+<br>
+Da 1 e 3 dico che avrò una velocità tangenziale alla circonferenza. Inoltre questa velocità è costante in modulo ed è accelerata. <br>
+4-Poi abbiamo una velocità radiale costante diretta verso il centro. <br>
+Se hai la distanza dal centro(che si ottiene dalla lunghezza di un lato del poligono) da s in funzione del tempo = raggio iniziale - velocità radiale* t  uguali s a 0 e trovi il tempo. Per il numero di giri credo che si debba fare in questo modo: prendiamo in considerazione la formica più in alto ed assi x y centrati nel centro con y che passa per tale formica. Allora essa farà un giro quando ritornerà ancora in y. Quindi continui in questo modo. Se no puoi integrare direttamente da 0 a t conoscendo w in funzione di t e facendo diviso 2pigreco</article>
+<article class="post" id="p7314"><div class="who"><b>Pigkappa</b><span>28 ago 2011, 1:07</span></div>O il problema è diverso da come me l'hanno spiegato, oppure questa cosa è sbagliata:<br>
+<br>
+
+<blockquote><div><cite>Omar93 ha scritto:</cite>
+3- Il moto è circolare uniforme 
+</div></blockquote>
+
+Il problema che mi hanno descritto è questo (più o meno; i dati esatti non ricordo quali fossero):<br>
+<br>
+N formiche numerate in ordine sono ai vertici di un poligono regolare di N lati (raggio <span class="tex">\(R\)</span> della circonferenza noto). Ognuna di loro si muove puntando sempre verso la successiva, con velocità <span class="tex">\(v\)</span> uguale per tutte. Trovare quanto ci mettono a scontrarsi, e quanti giri fanno intorno al centro.</article>
+<article class="post" id="p7315"><div class="who"><b>domx</b><span>28 ago 2011, 9:16</span></div>il problema delle formiche è proprio <a href="http://en.wikipedia.org/wiki/Mice_problem" class="ext" class="postlink">questo</a><br>
+
+<blockquote><div><cite>floppino81892 ha scritto:</cite>raga come si risolveva quello delle formiche? Comunque anch io ho trovato la prova di fisica fattibile, non ho fatto solo il primo e il sesto....matematica invece NO COMMENT  :(</div></blockquote>
+dici? Io l'ho trovata più semplice di molte altre annate...</article>
+<article class="post" id="p7317"><div class="who"><b>Omar93</b><span>28 ago 2011, 12:43</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>O il problema è diverso da come me l'hanno spiegato, oppure questa cosa è sbagliata:<br>
+<br>
+
+<blockquote><div><cite>Omar93 ha scritto:</cite>
+3- Il moto è circolare uniforme 
+</div></blockquote></div></blockquote>
+
+Perché? Se consideri un'istante dt è come se fosse circolare uniforme. Se no non puoi scrivere la relazione che lega la velocità angolare a quella tangenziale. Credo che il disegno del moto venga una spirale.</article>
+<article class="post" id="p7318"><div class="who"><b>Pigkappa</b><span>28 ago 2011, 13:04</span></div>Quando si dice circolare uniforme, generalmente non si intende che lo è solo per un intervallo di tempo infinitesimo. Inoltre, visto che c'è una velocità radiale, è circolare ma con un centro diverso dall'origine. Qualsiasi moto lo puoi chiamare circolare uniforme, in queste condizioni.</article>
+<article class="post" id="p7319"><div class="who"><b>Ippo</b><span>28 ago 2011, 15:56</span></div>Ma tipo postare i testi in "problemi teorici" e risolverli uno ad uno?  :roll:</article>
+<article class="post" id="p7324"><div class="who"><b>domx</b><span>28 ago 2011, 19:58</span></div><blockquote><div><cite>Ippo ha scritto:</cite>Ma tipo postare i testi in "problemi teorici" e risolverli uno ad uno?  :roll:</div></blockquote>
+ok, ora ci penso io ;)<br>
+edit: ne ho postati solo un paio, se gli altri non li posta nessun altro lo faccio io domani...</article>
+<article class="post" id="p7327"><div class="who"><b>floppino81892</b><span>28 ago 2011, 20:46</span></div><blockquote class="uncited"><div>dici? Io l'ho trovata più semplice di molte altre annate...</div></blockquote>
+
+lo so la colpa è mia che mi sono preparato poco in mate...  :lol: me lo merito :)</article>
+<article class="post" id="p7331"><div class="who"><b>domx</b><span>29 ago 2011, 7:59</span></div><blockquote><div><cite>floppino81892 ha scritto:</cite><blockquote class="uncited"><div>dici? Io l'ho trovata più semplice di molte altre annate...</div></blockquote>
+
+lo so la colpa è mia che mi sono preparato poco in mate...  :lol: me lo merito :)</div></blockquote>
+non dirlo a me che ho sempre rimandato per fisica e poi mi sono ridotta a farla seriamente l'ultimo mese, anch'io me lo merito :lol: <br>
+P.S.: qualcuno era nella stanza con quelli col cognome con la P, Q ed R? Avete visto quel tipo che durante l'esame leggeva un giornalino chiamato "lotta comunista", e quando l'hanno visto e gli hanno detto di metterlo via o di andarsene se n'è andato? :lol:</article>
+<article class="post" id="p7335"><div class="who"><b>floppino81892</b><span>29 ago 2011, 10:51</span></div><blockquote class="uncited"><div>non dirlo a me che ho sempre rimandato per fisica e poi mi sono ridotta a farla seriamente l'ultimo mese</div></blockquote>
+
+la mia è praticamente la situazione opposta  :lol: <br>
+
+<blockquote class="uncited"><div>Avete visto quel tipo che durante l'esame leggeva un giornalino chiamato "lotta comunista", e quando l'hanno visto e gli hanno detto di metterlo via o di andarsene se n'è andato? </div></blockquote>
+
+idolo  8-)</article>
+<article class="post" id="p7339"><div class="who"><b>domx</b><span>29 ago 2011, 11:33</span></div><blockquote><div><cite>floppino81892 ha scritto:</cite>
+<blockquote class="uncited"><div>Avete visto quel tipo che durante l'esame leggeva un giornalino chiamato "lotta comunista", e quando l'hanno visto e gli hanno detto di metterlo via o di andarsene se n'è andato? </div></blockquote>
+
+idolo  8-)</div></blockquote>
+già :mrgreen: <br>
+ma tu c'eri? :)</article>
+<article class="post" id="p7363"><div class="who"><b>floppino81892</b><span>30 ago 2011, 17:38</span></div><blockquote class="uncited"><div>ma tu c'eri? 
+</div></blockquote>
+
+no io ero nella stanza accanto (lettera S) e me lo sono perso  :(</article>
+<article class="post" id="p7370"><div class="who"><b>domx</b><span>30 ago 2011, 20:01</span></div><blockquote><div><cite>floppino81892 ha scritto:</cite><blockquote class="uncited"><div>ma tu c'eri? 
+</div></blockquote>
+
+no io ero nella stanza accanto (lettera S) e me lo sono perso  :(</div></blockquote>
+mi spiace per te :lol:</article>
+<article class="post" id="p7384"><div class="who"><b>domx</b><span>1 set 2011, 15:13</span></div>ecco l'elenco degli ammessi all'orale: <a href="http://www.sns.it/it/news/storiconews/2011/settembre/ordinarioscienze/" class="ext" class="postlink">http://www.sns.it/it/news/storiconews/2 ... ioscienze/</a><br>
+non ce l'ho fatta, pazienza, si riproverà tra tre anni ;)<br>
+però i punteggi mi sembrano bassini, getman ha fatto un misero 74 ad esempio...</article>
+<article class="post" id="p7385"><div class="who"><b>Pigkappa</b><span>1 set 2011, 15:24</span></div>Speriamo che alla fine i matematici non siano davvero il doppio dei fisici  :? .</article>
+<article class="post" id="p7386"><div class="who"><b>dinamitardo</b><span>1 set 2011, 15:50</span></div>ci sono! Evvai!  :mrgreen:</article>
+<article class="post" id="p7387"><div class="who"><b>Spammowarrior</b><span>1 set 2011, 18:17</span></div>3 ragazze :'(</article>
+<article class="post" id="p7388"><div class="who"><b>domx</b><span>1 set 2011, 18:51</span></div><blockquote><div><cite>Spammowarrior ha scritto:</cite>3 ragazze :'(</div></blockquote>
+meglio, vorrà dire che resteranno tutte fuori e vi lasceremo senza :lol:</article>
+<article class="post" id="p7390"><div class="who"><b>AxxMan</b><span>1 set 2011, 20:31</span></div><blockquote><div><cite>domx ha scritto:</cite>ecco l'elenco degli ammessi all'orale: <a href="http://www.sns.it/it/news/storiconews/2011/settembre/ordinarioscienze/" class="ext" class="postlink">http://www.sns.it/it/news/storiconews/2 ... ioscienze/</a><br>
+non ce l'ho fatta, pazienza, si riproverà tra tre anni ;)<br>
+però i punteggi mi sembrano bassini, getman ha fatto un misero 74 ad esempio...</div></blockquote>
+Quest'anno hanno abbassato la soglia della sufficienza a 60 punti, quindi è un po' difficile fare un confronto con gli anni passati, in generale i voti sono più bassi e la gente che è in testa ti assicuro che ci sa fare. Siamo in un bel numero nell'intervallo tra 70 e 75, tra l'altro. Certo fa impressione essere terzo tra i fisici e allo stesso tempo ventisettesimo nella classifica  :lol:</article>
+<article class="post" id="p7391"><div class="who"><b>domx</b><span>2 set 2011, 8:59</span></div><blockquote><div><cite>AxxMan ha scritto:</cite><blockquote><div><cite>domx ha scritto:</cite>ecco l'elenco degli ammessi all'orale: <a href="http://www.sns.it/it/news/storiconews/2011/settembre/ordinarioscienze/" class="ext" class="postlink">http://www.sns.it/it/news/storiconews/2 ... ioscienze/</a><br>
+non ce l'ho fatta, pazienza, si riproverà tra tre anni ;)<br>
+però i punteggi mi sembrano bassini, getman ha fatto un misero 74 ad esempio...</div></blockquote>
+Quest'anno hanno abbassato la soglia della sufficienza a 60 punti, quindi è un po' difficile fare un confronto con gli anni passati, in generale i voti sono più bassi e la gente che è in testa ti assicuro che ci sa fare. Siamo in un bel numero nell'intervallo tra 70 e 75, tra l'altro. Certo fa impressione essere terzo tra i fisici e allo stesso tempo ventisettesimo nella classifica  :lol:</div></blockquote>
+sì, sarà dovuto al fatto che hanno abbassato la sufficienza...</article>
+<article class="post" id="p7392"><div class="who"><b>Sasha™</b><span>2 set 2011, 10:13</span></div>Esserci ci sono... Però pago con un punteggio non granché la disastrosa prova di matematica.  :| <br>
+<br>
+A nome di molti... Che consigli ci date per gli orali?</article>
+<article class="post" id="p7395"><div class="who"><b>Spammowarrior</b><span>2 set 2011, 11:27</span></div>per matematica, non preoccupatevi troppo: i professori sanno di non potersi aspettare che voi risolviate al volo qualunque problema vi diano. quindi vi danno tutto il tempo necessario per rifletterci (molto meglio se lo fate ad alta voce, per svariati motivi) e se proprio non trovate la strada giusta vi danno delle indicazioni.<br>
+immagino che il 100/100 lo danno a chi riceve solo una o due indicazioni (almeno credo)<br>
+ah, l'anno scorso è capitato che qualcuno fraintendesse la domanda e quindi morisse tentando di dimostrare qualcosa di improbabile (tipo la disuguaglianza isoperimetrale) quindi ascoltate bene ciò che chiedono ;)<br>
+in generale nulla di troppo complicato, comunque (anche se ci sono state eccezioni).<br>
+<br>
+per fisica boh, ascoltate i consigli di qualcun altro, il mio orale è stato io che dicevo qualche boiata, loro che mi convincevano che era una boiata, io che mi correggevo con una boiata peggiore, e via così</article>
+<article class="post" id="p7400"><div class="who"><b>Ippo</b><span>2 set 2011, 15:38</span></div><blockquote><div><cite>domx ha scritto:</cite>sì, sarà dovuto al fatto che hanno abbassato la sufficienza...</div></blockquote>
+Anche riscalando linearmente i punteggi degli anni precedenti, questi restano relativamente bassi. <br>
+Un 75 in questo regime di valutazione dovrebbe corrispondere ad un 81 vecchio; non mi ricordo che sia mai capitato che tutti i fisici fossero sotto l'81...</article>
+<article class="post" id="p7407"><div class="who"><b>Sasha™</b><span>2 set 2011, 19:19</span></div>Bene, correggere boiate con boiate peggiori è il mio programma. :D<br>
+<br>
+Altra cosa: un "buon orale" in cosa consiste? Rispondere a tutte le domande (eventualmente con gli aiutini loro) o si può fare scena muta su qualcosa?</article>
+<article class="post" id="p7418"><div class="who"><b>NabirAlbar</b><span>3 set 2011, 18:18</span></div>Altra domanda: come vengono pesati scritti e orali nella graduatoria finale?</article>
+<article class="post" id="p7420"><div class="who"><b>Spammowarrior</b><span>3 set 2011, 19:28</span></div>si fa la media (ma si deve essere sufficienti in entrambe)<br>
+<br>
+per quanto riguarda un buon orale consiste nel risolvere i problemi che ti danno, eventualmente con piccoli aiuti che vi danno se siete in difficoltà.<br>
+alcuni aiuti ve li danno gratis, poi immagino che si paghino man mano con voti minori.<br>
+comunque, una scena muta è una cosa che vi sconsiglio di fare. ci sta di sbagliare qualcosa o di non riuscire subito a risolvere gli esercizi, ma se anche aiutati non andate da nessuna parte (e gli aiuti chiaramente diventano man mano più forti) è un brutto segno. contate che fanno due o tre domande, quindi se su una fate scena muta, non sono felici.</article>
+<article class="post" id="p7422"><div class="who"><b>Pigkappa</b><span>3 set 2011, 19:53</span></div><blockquote><div><cite>Sasha™ ha scritto:</cite>o si può fare scena muta su qualcosa?</div></blockquote>
+
+Di solito quando uno fa scena totalmente muta su una domanda, nel senso che non riesce a concludere proprio nulla neanche con il massimo degli aiuti, prende un punteggio parecchio basso in quella materia. Se la vostra strategia è quella di sapere benissimo metà programma e di non sapere nulla dell'altra metà, vi conviene porre rimedio il prima possibile.</article>
+<article class="post" id="p7423"><div class="who"><b>Sasha™</b><span>3 set 2011, 23:30</span></div>Benissimo, fare scena muta su qualcosa è pessimo. Non credo di essere messo così disastrosamente, ma non si sa mai.  :D</article>
+<article class="post" id="p7443"><div class="who"><b>Pigkappa</b><span>7 set 2011, 12:40</span></div>In bocca al lupo a chi fa gli orali in questi giorni!</article>
+<article class="post" id="p7462"><div class="who"><b>Sasha™</b><span>10 set 2011, 0:34</span></div>Domandona: tre problemi di fisica, tre di matematica. <br>
+<br>
+Nel primo di fisica fatico a capire cosa mi chiedono, ma alla fine, con non pochi aiuti, arrivo alla soluzione che volevano. Nel secondo faccio tutto bene, ma quando mi chiedono di giustificare il fatto che stessi usando Bernoulli, ho avuto parecchie difficoltà a rispondere. Nel terzo, abbastanza difficile (me l'hanno detto i commissari stessi), con qualche aiutino arrivo tranquillamente in fondo.<br>
+<br>
+Nel primo di matematica, che era banale combinatoria, ho grossi problemi (perché sono idiota) e arrivo in fondo solo dopo davvero troppi hint. Nel secondo, rispondo subito correttamente, ma per dimostrare una cosa ovvia uso la geometria analitica anziché fare un'elementare osservazione, e sbaglio anche un conto. Nel terzo sbaglio approccio, ma con qualche aiutino arrivo tranquillamente a concludere.<br>
+<br>
+Quanto è disastroso? In altre parole, li vale almeno 70 punti, circa?</article>
+<article class="post" id="p7464"><div class="who"><b>Pigkappa</b><span>10 set 2011, 1:55</span></div>Senza aver visto l'orale, è impossibile rispondere. Io avrei descritto il mio orale di matematica come "problema 1 praticamente risolto da loro dopo mezz'ora in cui io non ho concluso niente, problema 2 in cui ho detto qualcosa ma si è capito che non sapevo andare avanti" ed ho preso più di 90. Mi spiace.<br>
+<br>
+Ti posso comunque dire che è raro che diano un voto insufficiente nell'orale dell'ammissione. A 60 quasi di sicuro ci sei arrivato.<br>
+<br>
+Se i risultati della Normale escono dopo la prova di un'altra scuola di eccellenza e ti stai chiedendo se vale la pena di farne il test oppure se sei entrato sicuramente, direi che ti conviene andarci, comunque, a meno che non avessi un voto altissimo allo scritto.</article>
+<article class="post" id="p7465"><div class="who"><b>Sasha™</b><span>10 set 2011, 11:38</span></div>Be', mi conforti. Il problema 1 l'avrei definito esattamente così (anche se all'ultima richiesta ho risposto), gli altri due decisamente meglio. :D<br>
+<br>
+Mi fingerò ottimista, 70 punti credo di averli fatti e credo anche che bastino...</article>
+<article class="post" id="p7466"><div class="who"><b>Pigkappa</b><span>10 set 2011, 13:11</span></div>Ma ci sono anche persone che sbagliano in direzione opposta. Non voglio averti sulla coscienza se poi non entri  :!: .</article>
+<article class="post" id="p7468"><div class="who"><b>Sasha™</b><span>10 set 2011, 16:28</span></div>D'accordo, ma tranquillo, ho preso il tutto con le molle. Diciamo che in genere sono bravo a fare stime dei punteggi, ma l'orale non saprei proprio. :D</article>
+<article class="post" id="p7472"><div class="who"><b>andreaandrea</b><span>11 set 2011, 12:33</span></div>Secondo voi quando verranno comunicati i vincitori del concorso ? e soprattutto arriva una lettera a casa, una email, oppure bisogna guardare sul sito della sns ?</article>
+<article class="post" id="p7473"><div class="who"><b>exodd</b><span>11 set 2011, 12:56</span></div>Qualcuno diceva entro un paio di giorni lavorativi (ovvero martedì) e che contattano loro tramite telefono o e-mail..<br>
+Ma sono voci di corridoio non confermate..</article>
+<article class="post" id="p7474"><div class="who"><b>Pigkappa</b><span>11 set 2011, 13:56</span></div>Gli anni scorsi uscivano i risultati sul sito, quindi guardateci. Entro 2 o 3 giorni probabilmente ci saranno.</article>
+<article class="post" id="p7477"><div class="who"><b>Spammowarrior</b><span>11 set 2011, 15:24</span></div>voci più affidabili mi hanno detto il 19.</article>
+<article class="post" id="p7478"><div class="who"><b>exodd</b><span>11 set 2011, 15:27</span></div><blockquote><div><cite>Spammowarrior ha scritto:</cite>voci più affidabili mi hanno detto il 19.</div></blockquote>
+L'avevo visto anch'io che uscivano verso quella data, ma forse ai vincitori lo comunicano prima..</article>
+<article class="post" id="p7479"><div class="who"><b>Spammowarrior</b><span>11 set 2011, 15:34</span></div><blockquote><div><cite>exodd ha scritto:</cite><blockquote><div><cite>Spammowarrior ha scritto:</cite>voci più affidabili mi hanno detto il 19.</div></blockquote>
+L'avevo visto anch'io che uscivano verso quella data, ma forse ai vincitori lo comunicano prima..</div></blockquote>
+
+no, la commissione si dovrebbe riunire il 19, quindi i risultati usciranno o il 19 o il venti<br>
+<br>
+(comunque ai vincitori non viene mai comunicato niente, devono controllarsi loro a mano se escono i risultati)</article>
+<article class="post" id="p7480"><div class="who"><b>Sasha™</b><span>11 set 2011, 17:45</span></div>COSA? IL 19?<br>
+Non sopravviverò abbastanza a lungo...<br>
+<br>
+Che fonti sono?</article>
+<article class="post" id="p7514"><div class="who"><b>NabirAlbar</b><span>16 set 2011, 14:56</span></div>Interessante il fatto che abbiano nominato prima gli idonei della classe di Lettere  :lol:</article>
+<article class="post" id="p7515"><div class="who"><b>exodd</b><span>16 set 2011, 21:06</span></div>Anocra più interessante il fatto che Andrea Bianchi è entrato in lettere!  :lol:</article>
+<article class="post" id="p7516"><div class="who"><b>domx</b><span>17 set 2011, 9:45</span></div><blockquote><div><cite>exodd ha scritto:</cite>Anocra più interessante il fatto che Andrea Bianchi è entrato in lettere!  :lol:</div></blockquote>
+ :?:</article>
+<article class="post" id="p7517"><div class="who"><b>AxxMan</b><span>17 set 2011, 15:50</span></div>Andrea Bianchi, medaglia d'oro alle IMO di quest'anno, ha passato l'ammissione per la Classe di Lettere <br>
+<span style="font-size: 20%; line-height: normal">Potrebbe essere un omonimo, ma in realtà secondo molti è riuscito a fare entrambi i concorsi grazie ai suoi superpoteri</span></article>
+<article class="post" id="p7519"><div class="who"><b>domx</b><span>19 set 2011, 17:32</span></div><blockquote><div><cite>AxxMan ha scritto:</cite>Andrea Bianchi, medaglia d'oro alle IMO di quest'anno, ha passato l'ammissione per la Classe di Lettere <br>
+<span style="font-size: 20%; line-height: normal">Potrebbe essere un omonimo, ma in realtà secondo molti è riuscito a fare entrambi i concorsi grazie ai suoi superpoteri</span></div></blockquote>
+ma non stava provando per matematica?</article>
+<article class="post" id="p7521"><div class="who"><b>Sillo</b><span>19 set 2011, 17:43</span></div>Guarda bene il messagio di AxxMan  ;)<br>
+A meno che non abbia imparato la tecnica della moltiplicazione del corpo è un omonimo, anche perchè conosco l'Andrea ammesso a lettere e non sono la stessa persona.<br>
+<br>
+Complimenti a tutti gli ammessi,soprattutto a quelli che nella graduatoria del S.Anna hanno più punti di me XD</article>
+<article class="post" id="p7522"><div class="who"><b>fisicorel</b><span>19 set 2011, 18:39</span></div><blockquote><div><cite>Sillo ha scritto:</cite>
+Complimenti a tutti gli ammessi,soprattutto a quelli che nella graduatoria del S.Anna hanno più punti di me XD</div></blockquote>
+Quoto pienamente!</article>
+<article class="post" id="p7523"><div class="who"><b>Sasha™</b><span>19 set 2011, 19:22</span></div>Complimenti agli ammessi... <br>
+E riguardo a quelli che hanno provato anche alla S. Anna... Mi dite chi sono e cosa vogliono fare?  :?</article>
+<article class="post" id="p7524"><div class="who"><b>Stardust</b><span>19 set 2011, 21:21</span></div>Complimenti a tutti gli ammessi!  :D  <br>
+(da notare che quest'anno i biologi hanno fatto un'exploit inatteso...  :? )</article>
+<article class="post" id="p7525"><div class="who"><b>Pigkappa</b><span>19 set 2011, 23:57</span></div>Complimenti a tutti.<br>
+<br>
+I fisici sono pochissimi.  :shock:</article>
+<article class="post" id="p7533"><div class="who"><b>domx</b><span>20 set 2011, 15:21</span></div>complimenti anche da parte mia ;)</article>
+<article class="post" id="p7537"><div class="who"><b>AxxMan</b><span>21 set 2011, 13:22</span></div>Contentissimo di poter accettare i complimenti! Per la carenza di fisici, spero non si ripeta anche il prossimo anno. Vedendo però come la partecipazione al forum sia di gran lunga inferiore agli anni passati non ci giurerei, perchè credo sia un buon indice. Inoltre i matematici formano un gruppo sempre più compatto e forte, grazie alla carriera più lunga nelle olimpiadi e ai vari stage, e questa cosa penalizza un bel po' i fisici secondo me. Magari è stata solo un'annata sfortunata</article>
+</main></body></html>

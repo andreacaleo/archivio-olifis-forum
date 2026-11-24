@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barche all&#x27;inseguimento.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Barche all'inseguimento.</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=644">forum Olifis</a></p>
+<article class="post first" id="p5763"><div class="who"><b>Pigkappa</b><span>18 dic 2010, 1:21</span></div>Un motoscafo di trafficanti parte a velocità <span class="tex">\(v\)</span> perpendicolarmente ad una spiaggia, e mantiene sempre quella velocità. La costa è diritta e va in direzione nord-sud. Nello stesso istante, una vedetta della polizia parte da una distanza <span class="tex">\(a\)</span> più a sud dei trafficanti, e si muove con velocità costante in modulo e sempre diretta verso la barca dei trafficanti. Quando la vedetta raggiunge i trafficanti, si trova ad una distanza <span class="tex">\(b\)</span> dalla costa.<br>
+Determinare il modulo della velocità della vedetta della polizia.<br>
+<br>
+<br>
+È un problema facile da capire, e la cui soluzione non richiede conoscenze particolari, ma è cattivissimo  :twisted: .</article>
+<article class="post" id="p5766"><div class="who"><b>f.o.x</b><span>18 dic 2010, 14:30</span></div>Tanto per curiosità, quanto viene lungo il risultao? Perche a me viene chilometrico :?</article>
+<article class="post" id="p5767"><div class="who"><b>Pigkappa</b><span>18 dic 2010, 15:02</span></div>Non me lo ricordo, non è bellissimo... Posta il procedimento e vediamo.</article>
+<article class="post" id="p5769"><div class="who"><b>f.o.x</b><span>18 dic 2010, 19:46</span></div><blockquote><div><cite>f.o.x ha scritto:</cite>Tanto per curiosità, quanto viene lungo il risultao? Perche a me viene chilometrico :?</div></blockquote>
+No avevo commesso degli errori, ma ho trovato un nuovo "risultato".<br>
+La considerazione su cui si basa tutto è che la nave vedetta della polizia percorre 1/4 di circonferenza di raggio a, per poi proseguire nell'inseguimento in un moto rettilineo una volta in coda al motoscafo dei trafficanti. Questa traiettoria è dovuta al fatto che la velocità della nave vedetta è sempre diretta verso il motoscafo, che visto che si muove a velocità costante, farà variare costantemente le componenti di V che varieranno linearmente nel tempo.<br>
+Avremo quindi un sistema composta da:<br>
+<span class="tex">\(b=vt\)</span>   e da<br>
+<span class="tex">\(Vt=a \big( \frac{\pi}{2} -1 \big)+b\)</span>    che danno come risultato:<br>
+<span class="tex">\(V=v \big[ \frac a b \big( \frac {\pi} {2} -1 \big) + 1 \big]\)</span></article>
+<article class="post" id="p5770"><div class="who"><b>Pigkappa</b><span>18 dic 2010, 22:06</span></div><blockquote><div><cite>f.o.x ha scritto:</cite>Questa traiettoria è dovuta al fatto che la velocità della nave vedetta è sempre diretta verso il motoscafo, che visto che si muove a velocità costante, farà variare costantemente le componenti di V che varieranno linearmente nel tempo.</div></blockquote>
+
+Quando con una osservazione apparentemente semplice si trasforma un problema difficile in un problema molto facile, bisognerebbe dimostrarla per bene...</article>
+<article class="post" id="p5771"><div class="who"><b>Loren Kocillari89</b><span>19 dic 2010, 1:30</span></div>C'è un modo per dimostrare che la traiettoria non è sicuramente circolare all'inizio.<br>
+Basta che tu prendi il quarto di circonferenza in cui un estremo è l'origine di un sis. di riferimento mentre l'altro è tangente ad una retta. Ora inizi a proiettare punto per punto dalla tua circonferenza alla retta la posizione della vedetta, che corrisponderà, sulla retta, alla posizione dei trafficanti. noterai che all'inizio, per uno spostamento dx della vedetta sulla circonferenza, corrisponderà un buon spostamento sulla retta dei trafficanti, mentre mano a mano che ti sposti (ad esempio verso destra e cioè verso l'altro estremo) potrai notare che le proiezioni sono sempre più "strette" ed è come se fossero decelerate. Ciò dipende ovviamente dalla pendenza della circonferenza che va dall'infinito a 0, e nel punto più alto avrai che la vedetta coincide con i trafficanti, cioè li ha catturati. <br>
+Questo però contraddirrebbe l'ipotesi per cui i trafficanti vanno a velocità costante. Mentre nel modello che hai sviluppato i trafficanti accelerano e decelerano a seconda di dove si trovi la vedetta sulla circonferenza.</article>
+<article class="post" id="p5772"><div class="who"><b>Pigkappa</b><span>19 dic 2010, 1:49</span></div>Non sono riuscito a seguire il tuo discorso contorto e complicato, ma già qua mi sembra le cose non funzionino:<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>che corrisponderà, sulla retta, alla posizione dei trafficanti</div></blockquote>
+
+<br>
+Comunque, per far vedere che la traiettoria descritta da f.o.x non è quella seguita dalla vedetta, basta considerare il caso <span class="tex">\(b &lt;&lt; a\)</span>. In questo caso mi sembra evidente che la vedetta non fa quella traiettoria.</article>
+<article class="post" id="p5773"><div class="who"><b>Loren Kocillari89</b><span>19 dic 2010, 2:08</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Non sono riuscito a seguire il tuo discorso contorto e complicato, ma già qua mi sembra le cose non funzionino:
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>che corrisponderà, sulla retta, alla posizione dei trafficanti</div></blockquote>
+</div></blockquote>
+
+Cioè in che senso? le tangenti prese su ogni punto della circonferenza intersecheranno la retta in punti dove si deve trovare il trafficante, questo ce lo dice l'ipotesi per cui la vedetta(tangente) è sempre rivolta verso il trafficante(punto di intersezione con la retta).<br>
+<br>
+Inoltre volevo chiederti se puoi esplicitare il caso b&lt;&lt;a. non riesco a visualizzarlo bene</article>
+<article class="post" id="p5774"><div class="who"><b>Pigkappa</b><span>19 dic 2010, 2:20</span></div>Sigh. Provo a spiegare perchè non capisco.<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Basta che tu prendi il quarto di circonferenza</div></blockquote>
+
+"Il" quarto di circonferenza? Immagino che parli di quello descritto da fox, che avrebbe quindi un estremo nel punto in cui parte la vedetta (che chiamo A), l'altro estremo sulla retta su cui si muove la barca dei trafficanti (retta che chiamo r), e che è tangente alla costa in A. Spero di aver capito almeno questa cosa.<br>
+<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>un estremo è l'origine di un sis. di riferimento</div></blockquote>
+
+Quale estremo? Immagino che tu intenda il punto A, ma non lo dici.<br>
+<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>mentre l'altro è tangente ad una retta.</div></blockquote>
+
+L'altro estremo è tangente ad una retta. Ma cosa vuol dire questa cosa? Qualunque punto di una circonferenza è tangente ad una retta: dicendo così non descrivi niente.<br>
+Io immagino che intendessi il punto in cui, secondo fox, la vedetta si mette sulla retta r; lo chiamo B da ora in poi.<br>
+<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Ora inizi a proiettare punto per punto dalla tua circonferenza alla retta la posizione della vedetta, che corrisponderà, sulla retta, alla posizione dei trafficanti.</div></blockquote>
+
+Perchè mai? Se fosse così, ad esempio, avremmo che nel punto B sicuramente la vedetta raggiunge la barca dei trafficanti (perchè B appartiene sia a r che al quarto di circonferenza e quindi la sua proiezione sulla retta è se stesso). Ma non è quello che aveva detto fox.<br>
+<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>le tangenti prese su ogni punto della circonferenza intersecheranno la retta in punti dove si deve trovare il trafficante, questo ce lo dice l'ipotesi per cui la vedetta(tangente) è sempre rivolta verso il trafficante(punto di intersezione con la retta).</div></blockquote>
+
+Questa cosa è diversa da quello che hai scritto sopra! Fare la tangente alla circonferenza e intersecarla con quella retta non vuol dire proiettare i punti della circonferenza sulla retta.<br>
+E' vero, comunque, che "le tangenti prese su ogni punto della circonferenza intersecheranno la retta in punti dove si deve trovare il trafficante"; vado perciò avanti supponendo che tu abbia scritto questa cosa nel post iniziale.<br>
+<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>noterai che all'inizio, per uno spostamento dx della vedetta sulla circonferenza, corrisponderà un buon spostamento sulla retta dei trafficanti</div></blockquote>
+
+Se la situazione è quella che ho descritto io qua sopra, non è vero; la circonferenza è tangente alla costa e quindi uno spostamento del 1° ordine della vedetta causa solo uno spostamento del 2° ordine dei trafficanti sulla retta.<br>
+<br>
+<br>
+Non vado avanti, perchè ormai sono sicuro di non aver capito quello che intendevi. <br>
+<br>
+<br>
+<br>
+Comunque, una volta appurato che quella non è la traiettoria, potreste provare a risolvere il problema senza cercare di descrivere analiticamente la traiettoria, perchè penso sia piuttosto difficile (o persino impossibile) farlo.</article>
+<article class="post" id="p5775"><div class="who"><b>AxxMan</b><span>19 dic 2010, 12:01</span></div>Nel sistema di riferimento inerziale della barca dei trafficanti la vedetta è sempre rivolta verso la barca quindi descrive una traiettoria rettilinea, di lunghezza a, perchè nel primo sistema entrambe le imbarcazioni si sono spostate di un tratto b orizzontale. Allora poichè il tempo impiegato dai trafficanti per arrivare in b è <span class="tex">\(b/v\)</span> e quello impiegato dalla vedetta è <span class="tex">\(a/v'\)</span>, poichè i tempi sono uguali abbiamo <span class="tex">\(v'=va/b\)</span> Considerando che Pigkappa diceva che il risultato è brutto ci deve essere qualche considerazione errata però credo di essermi messo sulla strada giusta... Ho capito male il testo e la vedetta parte dalla riva opposta?</article>
+<article class="post" id="p5777"><div class="who"><b>f.o.x</b><span>19 dic 2010, 13:54</span></div>Allora proviamo così:<br>
+Prendiamo le velocità medie <span class="tex">\(V_{M_x} e V_{M_y}\)</span> lungo gli assi centrati nel punto di partenza della vedetta. Avremo quindi che <span class="tex">\(V_{M_x}=b/t\)</span> e <span class="tex">\(V_{M_y}=a/t\)</span> . Possiamo conoscere t poichè <span class="tex">\(b=vt\)</span>. Da cui ricaviamo che <span class="tex">\(V_{M_x}=v\)</span> e <span class="tex">\(V_{M_y}=\frac a b v\)</span>.<br>
+Dato che <span class="tex">\(V_{M_x}\)</span> e <span class="tex">\(V_{M_y}\)</span> sono comprese tra il massimo e il minimo di <span class="tex">\(V_x\)</span> e <span class="tex">\(V_y\)</span> ci sarà almeno un istante in cui V avrà come componenti <span class="tex">\(V_{M_x}\)</span> e <span class="tex">\(V_{M_y}\)</span>, e quindi:<br>
+<span class="tex">\(\displaystyle {V= \sqrt {V_{M_x}^2+V_{M_y}^2} = v \sqrt {1+\frac {a^2} {b^2} } }\)</span><br>
+<br>
+ma ora dobbiamo verificare che le abbia entrambe in un certo istante, perchè potrebbe averle anche prima una e poi l'altra, (e quindi non poterle comporre), o per meglio dire, cerchiamo di dimostrare che se <span class="tex">\(V_{M_x}\)</span>  è una componente di V allora anche <span class="tex">\(V_{M_y}\)</span> è una componente di V. questo significa dire che per un certo angolo <span class="tex">\(\theta\)</span>si avrà:<br>
+<span class="tex">\(V\cos \theta= V_{M_y} \land V\cos \theta= V_{M_y}\)</span><br>
+il seno e coseno, che ci possiamo ricavare, devono sottostare alla prima relazione fondamentale della goniometria, da cui si arriva ad un'identità che ci verifica che le componenti sono associate ad un'unico angolo <span class="tex">\(\theta\)</span> e che quindi le possiamo comporre. <br>
+Tra tutti i metodi che ho provato fin ora (tutti errati) questo mi sembra il più improbabile e per questo lo posto  :D , anche se un discorso sui diversi sistemi di riferimento come ha fatto AxxMan potrebbe essere più proficuo
+<blockquote class="uncited"><div>descrive una traiettoria rettilinea</div></blockquote>
+Due sistemi inerziali associano ad un corpo in moto accelerato la medesima accelerazione in ogni istante, se la nave vedetta accelera rispetto ad un'osservatore sulla riva anche i contrabbandieri la vedranno muoversi con la medesima accelerazione. Quindi in un sistema di riferimento solidale con i contrabbandieri la traiettoria non sarà rettilinea, o se lo è li vedranno muoversi verso di loro con moto rettilineo accelerato, ma allora la velocità della vedetta non sarà più costante in modulo.</article>
+<article class="post" id="p5778"><div class="who"><b>Pigkappa</b><span>19 dic 2010, 13:55</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Inoltre volevo chiederti se puoi esplicitare il caso b&lt;&lt;a. non riesco a visualizzarlo bene</div></blockquote>
+
+Se b &lt;&lt; a (e questo succede se la vedetta è molto più veloce dei trafficanti), la vedetta prende i trafficanti poco lontano dalla costa. Quindi sarebbe una traiettoria veramente sconveniente quella di fare un quarto di circonferenza di raggio a e poi tornare indietro verso la barca dei trafficanti. E' chiaro che la vedetta non punta sempre i trafficanti se si muove in quel modo, visto che si sta perfino allontanando da loro in certi punti della traiettoria.<br>
+<br>
+
+<blockquote><div><cite>AxxMan ha scritto:</cite>Nel sistema di riferimento inerziale della barca dei trafficanti la vedetta è sempre rivolta verso la barca</div></blockquote>
+
+No. Io non l'ho detto nel testo, ma davo per scontato che la vedetta fosse rivolta verso la barca nel sistema inerziale di qualcuno esterno che è fermo (rispetto alla costa) e guarda la situazione.<br>
+Nel sistema di riferimento della barca dei trafficanti, è come se la vedetta avesse una componente <span class="tex">\(\vec w\)</span> (chiamo così la velocità della vedetta) verso di lei a cui si deve sommare <span class="tex">\(- \vec v\)</span>.<br>
+<br>
+Quando risolvete un problema dovreste cercare di mettere in pratica tutti i controlli possibili per vedere se la soluzione è giusta o no: analisi dimensionale, guardare se il risultato numerico viene ragionevole, casi limite (come b &lt;&lt; a di cui ho parlato sopra), vedere se ci sono conseguenze interessanti delle cose che avete scoperto. Ad esempio, se in questo caso fosse risultato che la vedetta si muove di moto rettilineo uniforme nel sistema della barca dei trafficanti, è facile vedere che si sarebbe mossa di moto rettilineo uniforme anche nel sistema in cui la costa è ferma, e allora non avrebbe sempre puntato verso i trafficanti.<br>
+<br>
+
+<blockquote><div><cite>f.o.x ha scritto:</cite><span class="tex">\(V\cos \theta= V_{M_y} \land V\cos \theta= V_{M_y}\)</span><br>
+il seno e coseno, che ci possiamo ricavare, devono sottostare alla prima relazione fondamentale della goniometria, da cui si arriva ad un'identità che ci verifica che le componenti sono associate ad un'unico angolo <span class="tex">\(\theta\)</span> e che quindi le possiamo comporre. </div></blockquote>
+
+No, c'è un errore (molto sottile) da queste parti. Non è vero che <span class="tex">\(V^2 = V_{Mx}^2 + V_{My}^2\)</span> se <span class="tex">\(V_{Mx}\)</span> e <span class="tex">\(V_{My}\)</span> sono la media di <span class="tex">\(V_x\)</span> e <span class="tex">\(V_y\)</span>.<br>
+<br>
+Trovare un controesempio è un po' faticoso; però c'è un modo semplice, anche stavolta, per vedere che la tua soluzione non funziona. Tu non hai usato da nessuna parte l'informazione che la vedetta punta sempre verso la barca; se provi a seguire il tuo ragionamento, vedi che dovrebbe funzionare per ogni traiettoria possibile della barca.</article>
+<article class="post" id="p5784"><div class="who"><b>Pigkappa</b><span>20 dic 2010, 1:02</span></div>Se nessuno prova più a risolverlo, entro un paio di giorni posto la soluzione.<br>
+<br>
+Riguardo a quanto si è detto finora, la traiettoria si può scrivere analiticamente, ma è complicato. Con un po' di astuzia, si può trasformare questo problema in modo che sia molto simile al problema 1.7 di <a href="http://www.df.unipi.it/~cella/ueg/uegbook.pdf" class="ext" class="postlink">http://www.df.unipi.it/~cella/ueg/uegbook.pdf</a> .<br>
+Nel link è spiegata anche la soluzione, che per voi potrebbe essere troppo complicata. La forma della traiettoria, inoltre, è piuttosto sgradevole.</article>
+<article class="post" id="p5793"><div class="who"><b>Sillo</b><span>21 dic 2010, 18:30</span></div>Provando a disegnare la curva su un foglio di carta millimetrata ho notato che l'angolo che indica la direzione della barca inseguitrice è proporzionale alla sua posizione,in pratica consideriamo il percorso della barca in fuga come l'asse x,quando la proiezione su tale asse del punto in cui si trova la barca inseguitrice è b/n l'angolo che definisce la sua direzione istantanea è pigreco*(1-b/n)/2<br>
+(scusate se non uso il latex ma ho appena cominciato a studiarlo)<br>
+<br>
+Non riesco a dimostrare questo,e non so nemmeno se l'intuizione è giustificabile in qualche modo,ma dando per giusta questa idea si può considerare la curva come una trisettrice di Ippia e quindi ottenere che la velocità degli inseguitori è Vi=V*2a/(pigreco*b)</article>
+<article class="post" id="p5798"><div class="who"><b>Pigkappa</b><span>21 dic 2010, 22:56</span></div>La risposta è:<br>
+<br>
+<span class="tex">\(w = v \frac{a + \sqrt{a^2 + 4b^2}}{2b}\)</span><br>
+<br>
+<br>
+Che la risposta di Sillo sia sbagliata lo si può capire vedendo che, con quella formula, non è sicuro che sia <span class="tex">\(w &gt; v\)</span>, mentre è ovvio che deve esserlo.<br>
+<br>
+Prima di postare la soluzione (che in effetti è un po' impensabile, anche se semplice), vi lascio ancora tempo per pensarci...</article>
+<article class="post" id="p5804"><div class="who"><b>pascal</b><span>22 dic 2010, 16:01</span></div>Espongo questa soluzione per rinfrescare il latex, scusate.<br>
+<br>
+Sistema di assi cartesiani:<br>
+origine nella posizione iniziale della polizia, asse x parallelo alla spiaggia verso nord, asse y perpendicolare alla spiaggia verso il mare.<br>
+<br>
+Se ds e <span class="tex">\(dy_T\)</span> sono gli spazi infinitesimi della polizia e dei trafficanti alle velocità w e v rispettivamente, si ha:<br>
+<br>
+<span class="tex">\(ds/w = dy_T/v \,\,(1)\)</span>      <br>
+<br>
+L’equazione della tangente alla traiettoria della polizia in P(x,y) è: <span class="tex">\(y_T-y = y'(x) (a-x)\)</span><br>
+<br>
+da cui si ottiene  <span class="tex">\(dy_T = y''(a-x)\)</span> che posta in (1) fornisce<br>
+<br>
+<span class="tex">\(k \sqrt {1+y'^2}= (a-x)y''dx \,\,(2)\)</span><br>
+<br>
+dove k = v/w  e  <span class="tex">\(ds = \sqrt {dx^2+dy^2}= dx \sqrt {1+y'^2}\)</span>.<br>
+<br>
+Senza scomodare le funzioni iperboliche, si può verificare che la (2) è soddisfatta da<br>
+<br>
+<span class="tex">\(y' = \frac {1}{2}[(\frac {a-x}{a})^{-k}- (\frac {a-x}{a})^k]\)</span><br>
+<br>
+Poi si calcola con integrali di potenze:<br>
+<br>
+<span class="tex">\(b = \int_{0}^{b} \, dy = \int_{0}^{a} y'\, dx = \frac {ak}{1-k^2}\)</span><br>
+<br>
+Quindi <span class="tex">\(b/k^2-a/k-b = 0\)</span><br>
+<br>
+Pertanto <span class="tex">\(w/v = 1/k = \frac {a+\sqrt{a^2+4b^2}}{2b}\)</span></article>
+<article class="post" id="p5806"><div class="who"><b>pascal</b><span>22 dic 2010, 20:29</span></div>Scusate per il refuso:<br>
+il dx della (2) appartiene all'espressione precedente di <span class="tex">\(dy_T\)</span>.</article>
+<article class="post" id="p5807"><div class="who"><b>Pigkappa</b><span>22 dic 2010, 22:23</span></div>Spiego un'altra soluzione, più corta ed elementare di quella di Pascal (ma piuttosto difficile da trovare).<br>
+<br>
+Chiamiamo r la distanza tra le barche, w la velocità della vedetta, v dei contrabbandieri; chiamiamo <span class="tex">\(\vec A\)</span> la posizione dei contrabbandieri e <span class="tex">\(\vec B\)</span> della vedetta. Chiamiamo s la retta che passa per B ed è perpendicolare alla costa, <span class="tex">\(\alpha\)</span> l'angolo tra s e <span class="tex">\(\vec{AB}\)</span>; l'istante della partenza è 0 e l'istante di arrivo è <span class="tex">\(T = b/v\)</span>. Mettiamo l'asse x perpendicolare alla costa in modo che i contrabbandieri si muovano lungo l'asse x.<br>
+<br>
+Allora se fate un disegno e scomponete le velocità a dovere, si trova <span class="tex">\(dr = -w dt +v \cos{(\alpha)} dt\)</span>. Integrando questa espressione tra 0 e T si deve trovare <span class="tex">\(-a\)</span> (distanza finale, cioè 0, meno distanza iniziale, cioè <span class="tex">\(a\)</span>). L'integrale di <span class="tex">\(-w dt\)</span> è ovviamente <span class="tex">\(-wT\)</span>. L'integrale di <span class="tex">\(v \cos{\alpha} dt\)</span> si può fare perchè sappiamo che l'integrale di <span class="tex">\(w_x dt = w \cos{\alpha} dt\)</span> deve fare b.<br>
+<br>
+Da questo viene un'equazione di secondo grado per <span class="tex">\(w\)</span> che dà il risultato postato sopra.</article>
+<article class="post" id="p5808"><div class="who"><b>pascal</b><span>22 dic 2010, 22:59</span></div>Bella semplificazione per il calcolo di w.</article>
+<nav class="pager"><a class="prev" href="olifis-640.html"><small>← precedente</small>Pila di mattoni</a><a class="next" href="olifis-5992.html"><small>successivo →</small>21: Incroci!</a></nav>
+</main></body></html>

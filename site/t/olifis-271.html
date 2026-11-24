@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preparazione Scuole d&#x27;eccellenza</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../sns.html">Prepararsi all'ammissione</a></span></nav>
+<h1>Preparazione Scuole d'eccellenza</h1>
+<p class="meta">14 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=271">forum Olifis</a></p>
+<article class="post first" id="p2455"><div class="who"><b>SARLANGA</b><span>10 set 2009, 20:09</span></div>Ciao ragazzi, sono abbastanza nuovo su questo forum...<br>
+mi indichereste la strada più corta per entrare alla Normale? E non intendo la Fi-Pi-Li!!!<br>
+A parte gli scherzi, come si prepara uno studente che vuole entrare come "fisico"? Quanto tempo ci vuole? Bastano le conoscenze di un liceo scientifico? <br>
+Da dove mi consigliate di cominciare? Ho visto ke per matematica ci sono i video di Gobbino per prepararsi ai buoni livelli delle Olimpiadi... e di fisica? quale materiale è consigliabile?<br>
+Grazie 1000</article>
+<article class="post" id="p2457"><div class="who"><b>MrTeo</b><span>10 set 2009, 21:06</span></div>Mah... credo che sull'oliforum ci sia abbondanza di discussioni come queste, quindi se vuoi qualche info maggiore butta un occhio lì  :D <br>
+Cmq i consigli che danno i normalisti sono i soliti, Halliday (se vuoi integrare anche Rosati) e poi tanti problemi SNS, Olifis e IPhO  ;) <br>
+<br>
+Anche nella sezione delle Olimpiadi trovi un topic con link, libri e dispense più che sufficienti per la preparazione...<br>
+Ecco il <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=3&amp;t=13" class="ext" class="postlink">link</a>.</article>
+<article class="post" id="p2459"><div class="who"><b>Pigkappa</b><span>10 set 2009, 22:32</span></div>Dipende dalla classe che fai ora. Se te la puoi prendere sufficientemente comoda (cioè se il prossimo anno vai in quarta liceo, o precedenti), il metodo migliore secondo me è quello di lavorare per vincere le Olimpiadi di Fisica (dove "vincere" <span class="tex">\(\displaystyle \geq\)</span> "andare alle IPhO") e fare per fare bene a quelle di matematica (dove "fare bene <span class="tex">\(\displaystyle \geq\)</span> "oro a Cesenatico").<br>
+Per fare questo, bisogna studiare la teoria del liceo in modo un po' più approfondito (quindi ci vuole un libro come l'Halliday o superiore) e poi fare tantissimi problemi.</article>
+<article class="post" id="p2460"><div class="who"><b>MrTeo</b><span>10 set 2009, 23:39</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite> [...] il metodo migliore secondo me è quello di lavorare per vincere le Olimpiadi di Fisica (dove "vincere" <span class="tex">\(\displaystyle \geq\)</span> "andare alle IPhO") e fare per fare bene a quelle di matematica (dove "fare bene <span class="tex">\(\displaystyle \geq\)</span> "oro a Cesenatico").</div></blockquote>
+
+In scioltezza insomma  :mrgreen:  :mrgreen:</article>
+<article class="post" id="p2461"><div class="who"><b>Julio14</b><span>10 set 2009, 23:50</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>il metodo migliore secondo me è quello di lavorare per vincere le Olimpiadi di Fisica (dove "vincere" <span class="tex">\(\displaystyle \geq\)</span> "andare alle IPhO") e fare per fare bene a quelle di matematica (dove "fare bene <span class="tex">\(\displaystyle \geq\)</span> "oro a Cesenatico").</div></blockquote>
+Tarato su una persona a caso :D ?<br>
+Comunque, devi sicuramente puntare a questo, ma se non ci riesci non è una tragedia. Conosco qualcuno che è passato e che aveva questi requisiti, ma non era esattamente l'ultimo in classifica :D</article>
+<article class="post" id="p2463"><div class="who"><b>Pigkappa</b><span>11 set 2009, 1:44</span></div>Se non ci riesci secondo me forse non è una tragedia, ma comunque non è neanche tanto bello. Se ti fissi un obbiettivo così con due anni di anticipo e poi non ci riesci, o perlomeno non ci vai vicino, vuol dire che qualcosa è andato veramente storto.<br>
+<br>
+<br>
+Faccio notare che questo è un modo per entrare alla Normale. <br>
+Se poi si cerca un modo di "poter entrare alla Normale se si ha abbastanza fortuna nei giorni delle prove", serve molto di meno. Se poi si è anche particolarmente geniali, serve ancora di meno. Io davo per scontato che si volesse avere un'ottima probabilità di entrare basandosi più sul lavoro che sull'intelligenza (che comunque fa sempre comodo, è chiaro).<br>
+Se uno è un genio, può benissimo lavorare poco, entrare in Normale, e poi laurearsi in tutta scioltezza. Ma non è una cosa che succede spesso.<br>
+<br>
+<br>
+Non voglio mettervi paura o convincervi che entrano solo i secchioni che si sono fatti tutti i problemi del mondo, perchè non è assolutamente così. Però, se a distanza di anni dal test mi chiedete cosa dovete fare per essere sicuri di entrare quando sarà il momento, non posso che rispondervi di lavorarci sopra.<br>
+Consiglio sempre di vincere le olimpiadi perchè sono divertenti, perchè le cose da sapere per le olimpiadi sono le stesse da sapere per l'ammissione, e perchè sono un banco di prova molto efficace: se iniziate a lavorare in quarta, e poi in quarta non vi qualificate nè a Senigallia nè a Cesenatico, dovrebbe essere un campanello d'allarme da ascoltare con attenzione e dovreste capire che qualcosa non va; se in quinta fate male sia a senigallia che a cesenatico, o non ci arrivate nemmeno, potrebbe essere il caso di pensare che certe cose non fanno per voi, probabilmente perchè non avete la forza/voglia di lavorarci su!</article>
+<article class="post" id="p2491"><div class="who"><b>Julio14</b><span>12 set 2009, 0:33</span></div>Sono d'accordo con te su quasi tutto, dicevo solo che il numero di persone che ha buone possibilità di passare a Pisa è strettamente maggiore di quello delle persone che hanno contemporaneamente oro a Cesenatico e se la giocano per le iPho. C'è un mio amico, Luca Battistella, che ne è la prova vivente: mai più di bronzo a Cesenatico, a fisica non so ma quest'anno a Senigallia non c'era, eppure agli scritti in Normale ha fatto 83.1, che è un signor punteggio. Poi certo, se arrivate a Senigallia e Cesenatico prima della quinta e fate qualcosa di buono è meglio, ma non demoralizzatevi se non è tutto rose e fiori. Il miglior matematico di quest'anno al test non ha mai preso l'oro a Cesenatico! In ogni caso, il consiglio, come diceva Pig, è sempre quello: lavorare.</article>
+<article class="post" id="p2492"><div class="who"><b>Loren Kocillari89</b><span>12 set 2009, 0:38</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>non fanno per voi, probabilmente perchè non avete la forza/voglia di lavorarci su!</div></blockquote>
+
+Non sono d'accordo. Probabilmente quel probabilmente non si riferisce ai casi in cui la tua forza/voglia tu lo possa scoprire quando ormai è troppo tardi, forse xkè qua a non andare non siamo noi, ma le nostre amatissime scuole con dentro coloro che ci insegnano!! Il cui unico obiettivo sembra quello di farci assopire per bene :evil:</article>
+<article class="post" id="p2493"><div class="who"><b>Pigkappa</b><span>12 set 2009, 2:03</span></div>io partivo dall'ipotesi "se iniziate a lavorare in quarta...".<br>
+Se uno comincia a lavorarci all'inizio della quarta o anche prima, e si pone come obbiettivo quello di spaccare il mondo, e poi fa male sia a Senigallia che a Cesenatico, secondo me vuol dire che qualcosa non va; la maggior parte di quelli che entrano ci ha lavorato su qualche mese, non anni. <br>
+<br>
+<br>
+Ovviamente se uno inizia a prepararsi per la Normale 20 giorni prima del test non deve demoralizzarsi se poi non entra.<br>
+<br>
+<br>
+Non voglio dire che la pezzentaggine (pochi di voi ricorderanno questo termine, temo, ma è autoesplicativo :D ) sia sbagliata: se siete bravi, potete sicuramente entrare senza cominciare a lavorare presto e facendo giusto un po' di lavoro nei 3 o 4 mesi prima della prova.<br>
+D'altra parte, se chiedete qual è il metodo più sicuro per entrare, non è questo  :P .<br>
+<br>
+<br>
+
+<blockquote class="uncited"><div>C'è un mio amico, Luca Battistella, che ne è la prova vivente: mai più di bronzo a Cesenatico, a fisica non so ma quest'anno a Senigallia non c'era, eppure agli scritti in Normale ha fatto 83.1, che è un signor punteggio</div></blockquote>
+
+Va bene, ma tra i bronzi di Cesenatico che provano a fare il test, qual è la percentuale di entrati in Normale? Tra gli ori, qual è? A occhio direi che è qualcosa come 10% contro 80%: vincere l'oro porta molta più fortuna, se vogliamo vederla così.  :D <br>
+Poi è chiaro che uno può avere sfortuna il giorno delle Olimpiadi ed essere comunque il più bravo del mondo, sono cose che succedono. Ma sono molto rare.<br>
+<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>non fanno per voi, probabilmente perchè non avete la forza/voglia di lavorarci su!</div></blockquote>
+
+Non sono d'accordo. Probabilmente quel probabilmente non si riferisce ai casi in cui la tua forza/voglia tu lo possa scoprire quando ormai è troppo tardi, forse xkè qua a non andare non siamo noi, ma le nostre amatissime scuole con dentro coloro che ci insegnano!! Il cui unico obiettivo sembra quello di farci assopire per bene :evil:</div></blockquote>
+
+Mah, i professori di liceo sono colpevoli solo fino ad un certo punto. In classe non possono fare più di tanto, anche il lavoro che può fare un professore bravo non è molto significativo rispetto al livello richiesto per il test d'ingresso. Ci vorrebbero corsi pomeridiani e impegno al di fuori dalla scuola, ma non si può mica pretendere che siano al servizio degli studenti 24 ore su 24. <br>
+Oltre a lamentarsi per aggiustare le cose che non vanno, comunque fa bene ricordare che il livello (= la preparazione degli studenti che escono) dei licei pubblici d'Italia rispetto a quello che c'è all'estero tutto sommato non è male (e lo stesso per le università scientifiche).</article>
+<article class="post" id="p2496"><div class="who"><b>CoNVeRGe.</b><span>12 set 2009, 11:21</span></div>Secondo me conta molto l'ambiente in cui studi e, quindi, anche i professori che hai.<br>
+<br>
+-Un conto è scegliere di fare il PNI e un conto è fare il liceo scientifico tradizionale (che per me fa decisamente pietà). E questa scelta purtroppo si fa presto.<br>
+-Un conto è stare in una scuola in cui il giorno delle olimpiadi partecipa mezza scuola, o comunque in un ambiente in cui conosci le olimpiadi già dal primo anno, e quindi sei già da giovane interessato; un conto è se passa l'avviso in classe e il professore (di matematica) o non dice niente o, se va bene, chiede chi voglia partecipare nel frastuono della classe (che, se riesci ad ascoltare ciò che il prof dice e sei intenzionato a conoscere 'ste olimpiadi, ti sfotte pure). E quindi probabilmente in quarta riuscirai a partecipare.<br>
+-Un conto è avere un professore che, anche se non strafaccia, almeno mantenga il silenzio in classe, sia competente, ci tenga a trasmettere qualcosa agli studenti, faccia il suo lavoro con ordine e serietà, e mantenga buono il livello della classe; un altro conto è se ti capita un tifoso interista che entra in classe con la gazzetta e dice "fate quello che vi pare", e che in tre anni di insegnamento fa circa 5 compiti in classe (scandalosi), non tocca argomenti come termodinamica, moti rotatori, pendolo, moto proiettile, ottica, circuiti, ecc. e che il resto lo fa in maniera a dir poco indecente.<br>
+<br>
+Ci sarebbero altri punti ovviamente, ma se la situazione di una persona rispecchia i lati positivi dei punti che ho scritto è già tremendamente avvantaggiata, e di questo magari potrebbe anche non accorgersene.<br>
+<br>
+Si può comunque essere sfigati in questi aspetti ma conoscere (ad esempio via internet) le olimpiadi, essere appassionati e, quindi, iniziare a lavorare presto. Il tempo secondo me è fondamentale nella preparazione.<br>
+<br>
+A parte questa (importante) base, la cosa necessaria è assolutamente lavorare tantissimo da soli: partecipare alle gare, vedere più problemi possibili (sottinteso:fare tutti quelli delle olimpiadi), leggere bene le soluzioni (e in particolare il modo di scriverle, se si tratta di matematica), fare cose in ordine di difficoltà e, preferibilmente, per argomenti.<br>
+<br>
+Son d'accordo col discorso di Pigkappa: se inizi a lavorare l'estate prima della quarta e vuoi avere buone speranze di entrare in Normale devi almeno arrivare a Cesenatico e a Senigallia anche se sei in una provincia difficile (anche per avere esperienza), e il quinto anno devi saper fare bene la prova teorica a Senigallia, e sapere fare i primi 4 problemi di Cesenatico  :D .<br>
+<br>
+Necessari sono ovviamente il sale in zucca e la voglia e la convinzione di riuscire ad entrare.</article>
+<article class="post" id="p2499"><div class="who"><b>Ippo</b><span>12 set 2009, 13:40</span></div>D'accordissimo con Pigkappa. Io, per dire, in terza sono stato segato alle crocette e in quarta c'è mancato poco (quinto dell'istituto; ne ammettevano 5 ai regionali  :shock: ). Un anno e mezzo dopo ero nella squadra IPhO.<br>
+Morale della favola: non è che bisogna per forza essere fenomeni nati (beh, c'è <em class="text-italics">qualcuno</em> che spacca già in terza o in quarta, ma sono casi limite  :D ); basta impegnarsi. Se si comincia presto, diciamo in quarta, lo si può fare anche abbastanza tranquillamente. Se si comincia in quinta (come ho fatto io) è già un po' più dura, la scuola è abbastanza pesante di per sé (se si punta a qualcosa di buono per la maturità chiaramente), il tempo è poco e bisogna lavorare quotidianamente. Un bel mazzo.<br>
+Quello che consiglio io, a parte ovviamente un sacco di problemi, è studiare l'Halliday (o testo equivalente) <em class="text-italics">per intero</em>, dall'inzio alla fine (saltando magari i primi e gli ultimi capitoli, poco utili per le olimpiadi), facendo un buon numero di esercizi per capitolo. Sapere anche gli argomenti "secondari" aiuta (è una marcia in più rispetto a quelli che hanno fatto solo le cose più standard); avere fatto molti esercizi su ogni argomento aiuta parecchio (nessun problema dovrebbe risultare del tutto "nuovo", sarà tutta roba più o meno già vista). In matematica non saprei perché a Cesenatico  ho fatto 10/42 in quarta e 31/42 in quinta senza fare assolutamente nulla (di matematica) nel mezzo; comunque il mese scorso mi sono visto i video dal sito di Gobbino in vista del test SNS (sono un po' <em class="text-italics">pezzent inside</em> anche io  :lol: ), e mi pare che ci sia grosso modo tutto quello che serve per fare benino anche matematica.<br>
+Comunque, come ho già detto da qualche parte, 8 dei 9 fisici che hanno passato gli scritti erano reduci di Senigallia, e in particolare tutti quelli che hanno fatto più di 80/100 erano vincitori (o quasi, come nel caso di Pairo che comunque si è ampiamente riscattato  ;) ); e dei primi 12 di quinta a Cesenatico ben 10 hanno passato gli scritti (per matematica, fisica o informatica). Quindi non è necessario fare bene alle olimate/olifis per entrare, ma il nesso che emerge da queste rozze statistiche è evidente. A meno che non sia solo fortuna  :lol:</article>
+<article class="post" id="p2500"><div class="who"><b>CoNVeRGe.</b><span>12 set 2009, 14:23</span></div><blockquote><div><cite>Ippo ha scritto:</cite> Se si comincia in quinta (come ho fatto io) </div></blockquote>
+Cominciato a fare cosa?  :D <br>
+Vuoi dire che la menzione in quarto te l'hanno data senza preparazione personale?  :o</article>
+<article class="post" id="p2502"><div class="who"><b>Davide90</b><span>12 set 2009, 15:17</span></div>Personalmente appoggio pienamente Pigkappa: la cosa migliore è farsi il mazzo per tempo.<br>
+I requisiti sono buone capacità intellettive e analitiche (non serve essere dei geni, basta essere piuttosto brillanti nelle materie scientifiche), e avere fatto un lavoro di preparazione fatto bene, che richiede alcuni anni di lavoro.<br>
+Non è necessario iniziare in terza o in quarta a studiare tre ore al giorno, ma è assolutamente consigliabile lavorare seriamente per le olimpiadi il prima possibile. Inoltre, come ha detto Ippo, per Fisica è indispensabile studiare un libro serio (l'Halliday rasenta la perfezione per uno studente liceale a mio modesto parere  :) ).<br>
+Nel mio liceo scientifico Fisica è stata affrontata e considerata in maniera molto più approssimativa di storia dell'arte latino e filosofia, e posso già ritenermi fortunato di avere fatto matematica in modo discreto.<br>
+<br>
+Purtroppo questa voglia spesso non la si trova se non alcuni mesi prima di uscire dal liceo... In terza difficilmente si pensa in modo serio alla propria università.<br>
+Nel mio caso personale, nelle olimpiadi di mate ho iniziato ad andare bene molto presto, Fisica ho iniziato a studiarla seriamente solo in quinta, e neanche come avrei dovuto: consiglio a Sarlanga di fregarsene della scuola, se la sua passione è la fisica (o la matematica). Io sono uscito con la lode, ma adesso preferirei decisamente essere uscito con 70 e avere fatto molto di più alle olimpiadi...  ;)</article>
+<article class="post" id="p2542"><div class="who"><b>Rigel</b><span>13 set 2009, 19:48</span></div>Do un consiglio anch'io: segui una preparazione costante. Non puoi pretendere chisà cosa se fai poco o nulla per mesi e poi fai cinque ore al giorno la settimana prima di Senigallia. piuttosto un quarto d'ora-mezz'ora al giorno è molto più efficace per mantenersi in allenamento facendo degli esercizi o magari parti di problemi più grossi.<br>
+Per matematica non posso dire nulla essendo anch'io un <em class="text-italics">pezzent physicist</em>  :lol:</article>
+</main></body></html>

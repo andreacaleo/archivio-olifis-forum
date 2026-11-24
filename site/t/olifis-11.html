@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auguri!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../caffe.html">Caffè</a></span></nav>
+<h1>Auguri!</h1>
+<p class="meta">9 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=11">forum Olifis</a></p>
+<article class="post first" id="p23"><div class="who"><b>Senior</b><span>11 gen 2009, 21:49</span></div>Giunge opportuna l'attivazione di un forum tutto dedicato alle OLIFIS. E' scontato un ringraziamento all'OLIFORUM che finora ha ospitato una sezione di Fisica.<br>
+In bocca al lupo a questo forum e a tutti i suoi frequentatori.<br>
+ :D</article>
+<article class="post" id="p34"><div class="who"><b>Davide90</b><span>12 gen 2009, 18:41</span></div>Veramente un'ottima iniziativa, complimenti!!<br>
+Mi sembra che il forum si stia avviando bene... :) <br>
+<br>
+Una proposta: non si potrebbe suddividere l'area per la discussione dei problemi teorici per argomenti? Ad esempio Meccanica, Termodinamica, Elettromagnetismo, Ottica, Relatività, ecc.<br>
+Soprattutto più avanti potrebbe rendere molto più agevole la consultazione ;)</article>
+<article class="post" id="p44"><div class="who"><b>Pigkappa</b><span>12 gen 2009, 22:07</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>Una proposta: non si potrebbe suddividere l'area per la discussione dei problemi teorici per argomenti? Ad esempio Meccanica, Termodinamica, Elettromagnetismo, Ottica, Relatività, ecc</div></blockquote>
+
+Secondo me prima è bene cominciare così e vedere di farlo popolare. Finchè ci sono 2 topic, non vale la pena di suddividerlo e renderlo ancora più dispersivo...</article>
+<article class="post" id="p61"><div class="who"><b>MicroM</b><span>13 gen 2009, 14:22</span></div>Condivido l'impostazione di Pigkappa: pochi ma buoni...</article>
+<article class="post" id="p69"><div class="who"><b>Senior</b><span>13 gen 2009, 19:03</span></div>Concordo con Pigkappa che ha scritto:
+<blockquote class="uncited"><div>Secondo me prima è bene cominciare così e vedere di farlo popolare....</div></blockquote>
+Quando il numero di post diventerà elevato sarà, però, opportuno dividere per argomenti; quindi mi trovo d'accordo anche con la proposta di Davide90. Si tratta di aspettare un po' di tempo!<br>
+<br>
+@ MicroM: perchè pochi?<br>
+<br>
+Direi, invece, che più sono meglio è! ... e di qualunque livello. Basterà rispettare le regole del forum. :)</article>
+<article class="post" id="p88"><div class="who"><b>MicroM</b><span>14 gen 2009, 10:24</span></div><blockquote><div><cite>Senior ha scritto:</cite>
+<br>
+@ MicroM: perchè pochi?<br>
+
+</div></blockquote>
+
+Pochi argomenti ... e molti interventi!</article>
+<article class="post" id="p233"><div class="who"><b>CoNVeRGe.</b><span>4 feb 2009, 22:10</span></div>mmm è pubblicizzato da qualche parte il forum (magari sui testi delle olimpiadi di febbraio) ? <br>
+<br>
+sarebbe bello vedere un po' più gente  :geek:  :mrgreen:</article>
+<article class="post" id="p2420"><div class="who"><b>pascal</b><span>6 set 2009, 23:45</span></div>In bocca al lupo per il nuovo anno scolastico o accademico. <br>
+A giorni dovrò riprendere gli impegni scolastici e ridurre notevolmente il tempo da dedicare agli interessanti problemi del forum.<br>
+<br>
+Calorosamente<br>
+Pasquale C.</article>
+<article class="post" id="p2421"><div class="who"><b>Pairo</b><span>7 set 2009, 0:00</span></div>Colgo l'occasione per ringraziare Pascal (e insieme a lui anche gli altri "più grandi", come Pigkappa, Falcox, Memedesimo) per tutte le volte che si è dimostrato, anche con troppa pazienza, disponibile ad aiutarci, e a chiarire i nostri dubbi, soprattutto sugli argomenti che di volta in volta per noi erano nuovi; è sicuramente una "bella presenza" qui sul forum  :D . Ovviamente ricambio gli auguri per un buon anno scolastico e accademico a tutti.<br>
+<br>
+Lorenzo P.</article>
+<nav class="pager"><a class="next" href="olifis-107.html"><small>successivo →</small>Squadra IPhO 2009</a></nav>
+</main></body></html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>109. Satellite</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>109. Satellite</h1>
+<p class="meta">32 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6445">forum Olifis</a></p>
+<article class="post first" id="p23230"><div class="who"><b>Flaffo</b><span>21 nov 2016, 22:07</span></div>A causa dell'attrito con l'aria, satelliti abbandonati, alla fine della loro vita utile, perdono energia negli strati alti dell'atmosfera prima di essere  completamente distrutti negli strati più bassi dell'atmosfera. Un satellite di massa <span class="tex">\(m=500 kg\)</span>, in orbita circolare, è abbandonato. La forza di attrito sul satellite può essere espressa come <span class="tex">\(F_a = k \rho v^2\)</span> dove  <span class="tex">\(k=0,23 m^2\)</span>, <span class="tex">\(\rho\)</span> è la densità dell'atmosfera a quella quota e <span class="tex">\(v\)</span> è la velocità del satellite.<br>
+<br>
+1. Il satellite accelera o decelera? Come può essere spiegata la risposta precedente dal punto di vista della dinamica?<br>
+2. Trovare una relazione tra l'accelerazione (negativa o positiva) tangenziale del satellite e la forza di attrito.<br>
+3. Qual è la densità dell'atmosfera a <span class="tex">\(h=200 km\)</span> se in questa regione il raggio dell'orbita del satellite diminuisce di <span class="tex">\(100m\)</span> ogni rivoluzione intorno alla terra?</article>
+<article class="post" id="p23231"><div class="who"><b>Ciccio98</b><span>21 nov 2016, 23:55</span></div>Per il punto 3  ho considerato che la forza di attrito ha stesso verso e direzione del vettore velocità e per piccoli spostamenti è applicabile la definizione di L= Fxs cos a, dove a è uguale a 0 pertanto il coseno è sempre 1
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/3ae50bc81e11a46c.png" class="postimage" alt="Soluzione Satellite.png" onclick="viewableArea(this);" /></dt>
+						<dd>Soluzione Satellite.png (6.54 KiB) Visto 7947 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p23232"><div class="who"><b>Flaffo</b><span>22 nov 2016, 0:15</span></div>Perfetto! :D <br>
+<br>
+Vai con il punto 1 e 2  ;)</article>
+<article class="post" id="p23238"><div class="who"><b>Ciccio98</b><span>27 nov 2016, 22:38</span></div>Scusa il ritardo ma ho avuto un fine settimana impegnato. La mia soluzione è questa, se è corretta scrivo il procedimento. Ho solo un dubbio: l'accelerazione penso che dovrebbe essere positiva poiché avvicinandosi alla Terra dovrebbe aumentare la sua velocità anche se nei calcoli compare un segno meno.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/2f619a69ed8f45cc.png" class="postimage" alt="soluzione satellite punto 1-2.png" onclick="viewableArea(this);" /></dt>
+						<dd>soluzione satellite punto 1-2.png (1.67 KiB) Visto 7876 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p23239"><div class="who"><b>Flaffo</b><span>28 nov 2016, 1:13</span></div>Infatti l'accelerazione deve essere positiva (il perché lo dovresti spiegare nel primo punto.. se solo li facessi in ordine  :lol:  :D ). La formula che hai ottenuto per l'accelerazione, segni a parte, è sbagliata.<br>
+<br>
+Prova a ragionare in termini di energia e poi derivando delle cose ti ottieni l'acelerazione.</article>
+<article class="post" id="p23244"><div class="who"><b>guido</b><span>29 nov 2016, 12:38</span></div>Non ho potuto collegarmi per motivi tecnici. Per il punto 1: si, l'accelerazione come la forza d'attrito è diretta verso l'alto, è positiva, tende a tenere in quota il satellite, è di segno opposto a quella gravitazionale negativa. Per la comprensione del testo al punto 2: l'accelerazione tangenziale di cui parli è quella tangente alla traiettoria diretta come v o quella perpendicolare a r? Perchè nel primo caso le forze agenti sarebbero quella di attrito e la componente lungo v della forza gravitazionale?</article>
+<article class="post" id="p23245"><div class="who"><b>Flaffo</b><span>29 nov 2016, 16:48</span></div>Si, mi riferisco a quella tangente alla traiettoria. Abbiamo la forza di attrito negativa (verso opposto al moto) e la componente della forza gravitazionale ovviamente positiva (la traiettoria è una spirale..)</article>
+<article class="post" id="p23246"><div class="who"><b>Ciccio98</b><span>29 nov 2016, 17:23</span></div>Mi sembra troppo semplice, ma quindi a=(kpv^2)/m ) ???? In questo modo la spirale sarebbe il contributo della forza gravitazionale e della forza di attrito che si oppone al moto del satellite.</article>
+<article class="post" id="p23247"><div class="who"><b>Flaffo</b><span>29 nov 2016, 18:25</span></div>Esatto, semplice infatti :lol: <br>
+Posta il procedimento  ;)</article>
+<article class="post" id="p23248"><div class="who"><b>guido</b><span>29 nov 2016, 18:57</span></div>Io lo posto in maniera diversa da come avevi suggerito a Ciccio per non pestargli i piedi. Dalla legge di Newton <span class="tex">\(m.a=\frac{GMm}{r^2}.\frac{dr/dt}{v} -k\rho.v^2\)</span> essendo <span class="tex">\(\frac{dr/dt}{v}\)</span>il coseno dell'angolo fra r e v. Da questa si ricava<br>
+<span class="tex">\(a= \frac{GM.(dr/dt)}{r^2.v}-\frac {k\rho.v^2}{m}\)</span> :?:  :?: <br>
+Il primo termine al secondo membro è la componente secondo la tangente dell'accelerazione gravitazionale.<br>
+<br>
+Mi pare che venga lo stesso risultato facendo la derivata dell'energia totale rispetto al tempo e ponendola uguale alla potenza della forza d'attrito :?:  :?: <br>
+Anche se il mio risultato fosse giusto la staffetta secondo me spetterebbe comunque a Ciccio :!:  :!:</article>
+<article class="post" id="p23249"><div class="who"><b>Ciccio98</b><span>29 nov 2016, 20:22</span></div>Io l'avevo risolto semplicemente applicando il secondo principio della dinamica. Poiché in un moto uniforme circolare la velocità tangenziale è uguale a 0, devo solo considerare la forza di attrito: quindi Kpv^2=ma. Mi sembrava molto semplice in questo modo e conoscendo Flaffo ho fatto di tutto per risolverlo con qualche derivata  :lol:  :lol:  :lol: . A volte le idee più semplici sono quelle giuste  ;)</article>
+<article class="post" id="p23250"><div class="who"><b>Flaffo</b><span>30 nov 2016, 0:35</span></div><blockquote><div><cite>Ciccio98 ha scritto:</cite> Poiché in un moto uniforme circolare la velocità tangenziale è uguale a 0, devo solo considerare la forza di attrito: quindi Kpv^2=ma. Mi sembrava molto semplice in questo modo e conoscendo Flaffo ho fatto di tutto per risolverlo con qualche derivata  :lol:  :lol:  :lol: </div></blockquote>
+
+ In un moto circolare la velocità tangenziale non è uguale a zero, ma comunque non ha importanza.. Perché quello del satellite non è un moto circolare, ma più una spirale. Inoltre la sola forza d'attrito non basta a giustificare l'accelerazione positiva del satellite. La forza di attrito è diretta in verso opposto al moto dunque porta ad accelerazione negativa.<br>
+<br>
+Anche se non ho capito bene il procedimento alternativo di Guido (lo potresti rispiegare? :lol: ) il suo suggerimento di derivare l'energia totale, e porre questo uguale alla potenza sviluppata dalla forza di attrito è giusto. Ma per risolvere il problema ti manca una seconda equazione.. dove la trovi? :!: <br>
+Risultato interessante alla fine è che la componente tangenziale della forza peso risulta essere uguale a due volte quella di attrito.</article>
+<article class="post" id="p23251"><div class="who"><b>guido</b><span>30 nov 2016, 19:03</span></div><blockquote><div><cite>Flaffo ha scritto:</cite>Si, mi riferisco a quella tangente alla traiettoria. Abbiamo la forza di attrito negativa (verso opposto al moto) e la componente della forza gravitazionale ovviamente positiva (la traiettoria è una spirale..)</div></blockquote>
+
+Cosa devo spiegare? Questa risposta, d'accordo con quanto avevo chiesto, me l'hai data tu il giorno 29 come cito sopra. Ed io ho postato la mia soluzione imponendo appunto che l'acc. tang. fosse determinata per la legge di Newton dalla forza di attrito negativa perchè opposta al moto come dici tu e dalla componente della forza gravitazionale lungo v ancora come dici tu. Dov'è il problema? Perchè ci vuole un'altra equazione? Anche il ragionamento sull'energia, che dici pure essere giusto, da lo stesso risultato ( ma non era quello che suggerivi a Ciccio? Gli dicevi: parti dall'energia e poi derivando delle cose ti ricavi l'accelerazione.....) :?:  :?: <br>
+Questa volta proprio non ti capisco :roll:  :roll: ma forse bisogna imporre che la componente della forza gravitazionale sia doppia della forza d'attrito. Perchè non lo vedo... :shock:  :shock:</article>
+<article class="post" id="p23255"><div class="who"><b>Flaffo</b><span>2 dic 2016, 18:15</span></div>Guido, mi sembra che nella tua soluzione, non hai trovato effettivamente l'equazione che lega  l'accelerazione con la forza di attrito, perché tu non conosci, o meglio, non ti sei ticavato il termine <br>
+<br>
+<span class="tex">\(\frac {dr/dt}{v}\)</span>.<br>
+<br>
+Fino ad ora hai semplicemente applicato la seconda legge di Newton.. componente tangenziale della forza gravitaziomale meno forza di attrito. Adesso per andare avanti, come ho sugerito prima, ti conviene derivare l'energia totale. Dopo che hai fatto questo, ti servirà un'altra equazione (l'energia totale è in funzione di r e non di v, al contrario se sostituisci una cosa che contenga v, la derivi rispetto al tempo per ottenere dv/dt ----&gt; accelerazione)</article>
+<article class="post" id="p23256"><div class="who"><b>guido</b><span>2 dic 2016, 18:45</span></div>Vorrei ancora un pò di tempo ( visto che ho cominciato dopo) per questo intrigante tuo problema: ti pareva... :roll:  :roll: <br>
+Condivido la tua osservazione che devo ricavare rpunto/v. Ma l'eq. di Newton equivale secondo me alla derivata dell'energia totale che dipende da v. Infatti ti chiedo di spiegarmi perchè non mi riesce di capire: sono d'accordo che l'energia totale dipende solo da r (=-(1/2)GMm/r) ma quando il moto è circolare uniforme mica ora. Questo io penso perchè ora la forza di attrito potrebbe essere più o meno forte, dipendere dalla v in vario modo e quindi vedo l'energia totale dipendere da v come risulta da Newton e come risulterebbe derivando <span class="tex">\((1/2)mv^2-GMm/r\)</span>. Ti prego di dirmi dove sbaglio e/o perchè bisognerebbe considerare l'energia totale del moto circ. uniforme. :?:  :?: <br>
+Grazie a te :!:  :!:</article>
+<article class="post" id="p23258"><div class="who"><b>Flaffo</b><span>2 dic 2016, 19:08</span></div>Hai ragione sul fatto che quell'equazione non vale se la forza di attrito è grande. Dato, però, che ci troviamo ai limiti dell'atmosfera (Ciccio ha calcolato la densità dell'aria ed era dell'ordine di <span class="tex">\(10^{-10}\)</span> penso sia una buona approssimazione. Altrimenti applichi il teorema del viriale (che  penso sia sempre approssimato in questo caso)  sensa farti troppe domande  :lol:  :lol: <br>
+Non seguire troppo i miei suggerimenti che non sono bravo a darli  :lol:</article>
+<article class="post" id="p23260"><div class="who"><b>guido</b><span>3 dic 2016, 12:46</span></div>Da scuola: usando il teorema della media (viriale) si dimostra in primo luogo che la componente dell'acc. radiale nella direzione di v è doppia e di verso opposto a quella prodotta dalla forza di attrito. Derivando poi l'energia con l'en. cinetica troverei <span class="tex">\(a =+k\rho.v^2/m\)</span> :?:  :?: <br>
+Naturalmente il passaggio intermedio lo posterei solo se il risultato fosse giusto anche perchè qui non ho tempo :?:  :roll:  :?:</article>
+<article class="post" id="p23261"><div class="who"><b>Flaffo</b><span>3 dic 2016, 17:10</span></div>Il risultato è giusto  :D <br>
+Posta pure il procedimento</article>
+<article class="post" id="p23262"><div class="who"><b>guido</b><span>3 dic 2016, 18:45</span></div>Secondo il teorema sotto l'azione di una forza centrale praticamente conservativa e considerando le medie dell'energia cinetica e potenziale, l'energia totale può esprimersi <span class="tex">\(E_t= - (1/2)U(r)= -(1/2)\frac {GMm}{r}\)</span>. La sua derivata temporale deve uguagliare la potenza della forza di attrito che provoca la diminuzione di <span class="tex">\(E_t\)</span>. Si ottiene<br>
+<span class="tex">\((1/2)\frac{GMm}{r^2}.\frac{dr}{dt}=-k\rho v^2.v\)</span>. Ma <span class="tex">\(\frac{GMm}{r^2}=-m\frac{d^2r}{dt^2}\)</span> cioè m per l'acc. di gravità e, come ti avevo detto nel primo post,<span class="tex">\(\frac{dr}{dt}.\frac{1}{v}=cos (rv)\)</span> poichè <span class="tex">\(\frac{dr}{dt}\)</span>è proprio la componente di v su r (l'altra è <span class="tex">\(v_n\)</span> normale a r). Allora risolvendo <span class="tex">\(\frac{d^2r}{dt^2}.\frac{dr}{dt}.\frac{1}{v}=+\frac {2k\rho.v^2}{m}\)</span> ovvero che la componente dell'accelerazione di gravità su v è doppia ed ha verso opposto dell'accelerazione della forza d'attrito. Non essendoci altre accelerazioni su v si può già concludere che<span class="tex">\(a= \frac{k\rho.v^2}{m}\)</span> :roll:  :roll:  :?:  :?:</article>
+<article class="post" id="p23264"><div class="who"><b>Flaffo</b><span>3 dic 2016, 20:31</span></div>Ok, giusto. Forse ti avrei potuto dare un miglior suggerimento tipo quello di derivare solo l'energia cinetica sapendo che la derivata dell'energia totale rispetto al tempo è la potenza dissipata dalla forza di attrito.. poi basta dire <span class="tex">\(k= -2 E\)</span>e in due passaggi hai finito, senza troppi problemi. <br>
+<br>
+Ora bisogna decidere a chi dare la staffetta.. io proporrei Ciccio, altrimenti la monopolizzeremo  :lol:</article>
+<article class="post" id="p23265"><div class="who"><b>Ciccio98</b><span>3 dic 2016, 21:26</span></div>Il satellite aumenta la sua velocità perché avvicinandosi alla Terra aumenta secondo la legge che avevo scritto nel terzo punto. Dopo aver detto questo so che l'accelerazione deve essere necessariamente positiva. Adesso, la forza centripeta non può certamente cambiare il modulo della velocità ma solo la direzione, quindi l'unica altra forza deve essere necessariamente la forza di attrito e poi usare semplicemente il secondo principio della dinamica. Forse prima mi sono espresso male nel dire che l'accelerazione tangenziale era uguale a zero.</article>
+<article class="post" id="p23267"><div class="who"><b>guido</b><span>4 dic 2016, 12:22</span></div><strong class="text-strong">A Flaffo</strong>: si,si ti avevo già proposto di dare il testimone a Ciccio. Come commento al testo di questo problema intrigante volevo però osservare che mi ha lasciato un pò insoddisfatto il fatto che enfatizza il ruolo dell'attrito atmosferico fino alla distruzione del satellite (anche tu parli giustamente di moto spiraliforme) ma in media bisogna ragionare come se fosse circolare uniforme e l'attrito succhiasse energia. Ma se succhia energia non può essere più circolare uniforme. Certo uno può dire che l'attrito è scarsissimo negli strati alti dell'atmosfera ma noi diamo la soluzione anche per quando successivamente non è più cosi. E quindi non mi soddisfa di impostare la soluzione generale sul moto circolare uniforme come abbiamo fatto. :roll:  :?:  :!:</article>
+<article class="post" id="p23268"><div class="who"><b>Flaffo</b><span>4 dic 2016, 13:31</span></div>Io non saprei come altro fare.. chiedo ai più esperti (Pigkappa e altri..) il loro parere :)</article>
+<article class="post" id="p23269"><div class="who"><b>Pigkappa</b><span>4 dic 2016, 14:32</span></div>Sorry non ho seguito la discussione e non so se posso aiutarvi :p</article>
+<article class="post" id="p23272"><div class="who"><b>guido</b><span>5 dic 2016, 18:28</span></div><strong class="text-strong">per Flaffo</strong>: siccome a noi non frega niente di dare il risultato giusto ma di imparare per il test sns (almeno io..)vorrei quantificare a te la mia insoddisfazione a prescindere da Pigkappa che giustamente non ci può sempre seguire. Ammettiamo che il risultato sia giusto (l'avrai preso da un libro suppongo) allora abbiamo <span class="tex">\(\frac{dv}{dt}= k\rho.v^2\)</span>. Se <span class="tex">\(v_0\)</span> è la velocità iniziale diciamo del moto circ. unif. e v è la velocità ad un generico t successivo, con un integrale più semplice di parecchi liceali si trova<span class="tex">\(\frac{1}{v_0}-\frac{1}{v}=k\rho.t\)</span>da cui emerge come c'era da aspettarsi che <span class="tex">\(v&gt;v_0\)</span>tranne che all'inizio quando la uguaglia. Ricavando v si ha <span class="tex">\(v= \frac{v_0}{1-v_0.k\rho.t}\)</span>. Ora uno potrebbe dire: allora per t tendente infinito v tende a zero. No! Il tempo deve essere limitato  perchè v &gt;0 e dunque <span class="tex">\(t&lt;\frac{1}{v_0k\rho}\)</span>. Ma che senso ha? Abbiamo trovato una soluzione a validità limitata?  :o Oppure queste approssimazioni tipo IPHO (è spiraliforme però si finge che sia circolare) generano contraddizioni :?:  :?: Ovviamente continuerò a pensarci però te lo volevo dire a costo di romperti e parecchio...mi dispiace :?  :? !!!</article>
+<article class="post" id="p23273"><div class="who"><b>Flaffo</b><span>5 dic 2016, 19:35</span></div>La nostra approssimazione vale infatti per:<br>
+<br>
+<span class="tex">\(t &lt; \frac {m}{\rho k v_0}\)</span><br>
+<br>
+Notare, però, che l'aprossimazione diventa eccellente per <span class="tex">\(\rho \rightarrow  0\)</span>. In questa situazione il tempo <span class="tex">\(t \rightarrow  \infty\)</span>, proprio come ci si aspetterebbe. In particolare per <span class="tex">\(k=0\)</span> smette di essere un approssimazione e corrisponde alla realtà (il tempo può assumere qualsiasi valore).<br>
+<br>
+Comunque penso che l'approssimazione di orbita circolare ci stia in quanto possiamo immaginare il problema nel seguente modo. Al tempo <span class="tex">\(t\)</span> il  satellite non subisce alcuna forza di attrito, l'orbita è circolare. Per un tempo <span class="tex">\(dt\)</span> Il satellite è sottoposto ad attrito. Subito dopo, l'attrito cessa di esistere. Possiamo allora prendere la differenza tra lo stato iniziale e finale in cui il satellite si trova, in entrambi i casi,  in orbita circolare. Il realtà la seconda orbita, tende ad essere circolare per <span class="tex">\(dt\)</span> uguale al tempo di un'intera orbita e per <span class="tex">\(\rho\)</span> piccole, cosicché il satellite perda energia uniformemente. Ciò equivale a dire che la <span class="tex">\(v\)</span> del satellite non aumenta in maniera significativa durante una sola orbita. Usando i dati del problema, ad esempio:<br>
+<span class="tex">\(\Delta v_{1 orbita} = v_0 \frac {r}{2R}\)</span><br>
+<br>
+Ordine di grandezza <span class="tex">\(\Delta v_{1 orbita }= 10^{-5} m/s\)</span><br>
+<br>
+<br>
+In ogni caso, vorrei aggiungere, l'espressione per l'energia totale vale ancora nello stato iniziale e finale. Al posto di <span class="tex">\(r\)</span> (raggio orbita circolare), metti <span class="tex">\(a\)</span> (semiasse maggiore dell'orbita). Il resto (dire che U= 2E = -2K ) sono necessarie approssimazioni   :lol:</article>
+<article class="post" id="p23274"><div class="who"><b>Pigkappa</b><span>5 dic 2016, 19:43</span></div>(nota: Flaffo ha risposto mentre scrivevo per cui non ho risposto al suo messaggio qua)<br>
+<br>
+Ho dato un'occhiata alla discussione e mi e' sembrato abbiate detto tutte (o quasi) cose condivisibili ma per qualche motivo alla fine vi hanno attanagliato i dubbi. Il problema e' famosissimo e la soluzione standard e' quella con l'energia. Si trova che il raggio dell'orbita diminuisce e la velocita' aumenta.<br>
+<br>
+Sembra che guido voglia risolvere il problema senza fare l'approssimazione di orbita quasi circolare. Puo' essere un esercizio interessante; ho un presentimento che non si possa fare del tutto analiticamente ma se avete un minimo di esperienza con Mathematica o Matlab, potreste farlo numericamente (e se l'esperienza non ce l'avete, non e' impossibile arrivarci lo stesso).<br>
+
+<blockquote><div><cite>guido ha scritto:</cite>Ricavando v si ha <span class="tex">\(v= \frac{v_0}{1-v_0.k\rho.t}\)</span>. Ora uno potrebbe dire: allora per t tendente infinito v tende a zero. No! Il tempo deve essere limitato  perchè v &gt;0 e dunque <span class="tex">\(t&lt;\frac{1}{v_0k\rho}\)</span>. Ma che senso ha?</div></blockquote>
+Per <span class="tex">\(t \rightarrow \frac{1}{v_0k\rho}\)</span>, <span class="tex">\(v \rightarrow + \infty\)</span>. Non e' una cosa particolarmente sorprendentemente secondo me e vuol dire che sicuramente succede qualcos'altro quando <span class="tex">\(t \rightarrow \frac{1}{v_0k\rho}\)</span>. <br>
+<br>
+Prima di poter usare soluzioni che assumono l'orbita sia quasi circolare, bisogna chiedersi se lo si puo' fare. In questo caso direi che la cosa ha senso se l'accelerazione tangenziale dovuta all'attrito modifica poco l'orbita. Ad esempio potete controllare se il raggio dell'orbita cambia di poco in un giro intorno alla Terra, e potete imporre che l'accelerazione tangenziale sia molto minore della forza di gravita'. Scommetterei che una di queste condizioni smette di essere vera quando <span class="tex">\(t \rightarrow \frac{1}{v_0k\rho}\)</span>, nel qual caso bisogna risolvere il problema senza questa approssimazione.<br>
+<br>
+Per completezza: il problema completo non e' particolarmente difficile. L'equazione del moto ha componenti radiale e tangenziale (assumendo io abbia copiato l'accelerazione bene da <a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system" class="ext" class="postlink">qua</a>):<br>
+<span class="tex">\(\displaystyle \frac{d^2 r}{d t^2} - r (\frac{d \phi}{dt})^2= -\frac{GM_{Terra}}{r^2} - k \rho \sqrt{(\frac{dr}{dt})^2 + (r \frac{d \phi}{dt})^2} \frac{dr}{dt}\)</span><br>
+<span class="tex">\(\displaystyle r \frac{d^2 \phi}{d t^2} + 2 \frac{dr}{dt} \frac{d \phi}{dt} = - k \rho \sqrt{(\frac{dr}{dt})^2 + (r \frac{d \phi}{dt})^2} r \frac{d \phi}{dt}\)</span><br>
+Si risolvono numericamente senza problemi. Dubito si risolvano analiticamente perche' gia' senza attrito sono complicate (sappiamo che in teoria l'orbita puo' essere qualsiasi conica in funzione delle condizioni iniziali).</article>
+<article class="post" id="p23275"><div class="who"><b>guido</b><span>6 dic 2016, 18:44</span></div>Intanto desidero ringraziarvi perchè il difetto di esperienza e di competenze da parte mia mi fa meravigliare e preoccupare di problemi che com'è naturale sono già stati affrontati e risolti da tanti e tante volte :shock:  :shock: Mi divertirò a cercare di capire le equazioni di Pigkappa: la prima radiale non mi dà particolari problemi ma la seconda fa comparire al secondo membro insieme all'attrito un termine che ancora non capisco ma che vorrei capire senza aiuti :?:  :?:</article>
+<article class="post" id="p23278"><div class="who"><b>Pigkappa</b><span>7 dic 2016, 19:28</span></div>Ho corretto le formule sopra, i termini a destra sono brutti perche' l'attrito proporzionale a <span class="tex">\(v^2\)</span> e' antipatico da scrivere in coordinate cilindriche (ma anche cartesiane), comunque sono sicuro che il computer risolve quelle equazioni facilmente.</article>
+<article class="post" id="p23279"><div class="who"><b>Flaffo</b><span>8 dic 2016, 0:53</span></div><span class="tex">\(\displaystyle \vec {a} = \left (\begin{matrix}  \ddot  {r} -r {\dot {\phi}}^2 \\ r \ddot {\phi} +2 \dot  {r} \dot  {\phi }\end {matrix} \right)\)</span><br>
+ <br>
+Quindi:<br>
+<br>
+<span class="tex">\(\displaystyle -\frac {GMm}{r^2} + k \rho v^2 cos \theta =\ddot  {r} -r {\dot {\phi}}^2\)</span><br>
+<br>
+<br>
+<span class="tex">\(\displaystyle k \rho v^2 sin \theta =r \ddot {\phi} +2 \dot  {r} \dot  {\phi }\)</span><br>
+<br>
+<br>
+<span class="tex">\(\displaystyle v^2\)</span> è data dalla somma della velocità radiale e tangenziale <br>
+<span class="tex">\(\displaystyle \theta\)</span> è l'angolo tra la velocità <span class="tex">\(v\)</span> e la retta perpendicolare ad <span class="tex">\(\vec {r}\)</span><br>
+<br>
+Allora, abbiamo che:<br>
+<br>
+<span class="tex">\(\displaystyle v^2 = \dot {r}^2 + {\left (r\dot{\phi}\right)}^2\)</span><br>
+<br>
+<br>
+<span class="tex">\(\displaystyle sin \theta = \frac {v_t}{v}= \frac { r\dot{\phi} }{ \sqrt {  \dot {r}^2 + {\left (r\dot{\phi}\right)}^2 }}\)</span><br>
+<br>
+<span class="tex">\(\displaystyle cos \theta = \frac {v_r}{v} =\frac {\dot {r}  }{ \sqrt {  {\left (r\dot{\phi}\right)}^2 + r\dot{\phi} } }\)</span><br>
+<br>
+Sostituendo troviamo, almeno spero, le equazioni scritte da Pigkappa</article>
+<article class="post" id="p23283"><div class="who"><b>guido</b><span>9 dic 2016, 19:20</span></div>Finalmente mi sento soddisfatto  :lol:  :lol: Certo dal vostro punto di vista...Ho ripreso la mia prima formulazione della soluzione. SENZA tener conto dell'approssimazione al moto circolare uniforme del satellite (che non sapevo) e ovviamente senza coordinate sferiche che ho sentito solo nominare: sono giunto lo stesso alla soluzione :!:  :!: Ho indicato le derivate temporali con l'apice '. Spero si capisca altrimenti chiarirò. Ero rimasto a mezza strada perchè sbagliavo i segni dell'acc. radiale che è negativa e non consideravo l'acc.centripeta. La velocità e l'acc. tang. hanno il suffisso t, quelle radiali sono r' e r''. L'energia totale è allora <br>
+<span class="tex">\(E_t=(1/2)mv^2-GMm/r=(1/2)mv_t^2+(1/2)mr'^2-GMm/r\)</span>. Considerando la derivata temporale dell'energia totale, siccome<span class="tex">\(D[(1/2)mr'^2]=mr'r''=-D[-GMm/r]=-mr'r''\)</span>essendo<span class="tex">\(r''=-GM/r^2\)</span>come la forza gravitazionale, si ottiene che<br>
+<span class="tex">\(\frac{dE_t}{dt}=\frac{d[(1/2)mv_t^2]}{dt}=mv_t.a_t=-k\rho.v^2.v\)</span>. Dividendo per v è facile vedere che <span class="tex">\(\frac{v_t}{v}=sen(rv)\)</span> e che quindi è possibile determinare la componente di <span class="tex">\(a_t\)</span> lungo v che risulta <span class="tex">\(a_t.sen(xr)= \frac{-k\rho v^2}{m}\)</span>.<br>
+Determiniamo poi la componente sempre secondo v dell'acc. centripeta che deve valere<span class="tex">\(v_t^2/r\)</span>ovvero <span class="tex">\((v_t^2/r)=-r''\)</span>. Per cui, essendo <span class="tex">\((1/2)mv_t^2=-(1/2)mr.r''=(1/2)\frac{GM}{r}\)</span>è possibile scrivere l'energia totale come <span class="tex">\(E_t=(1/2)mr'^2-(1/2)GmM/r\)</span>. Derivando abbiamo<span class="tex">\(mr'.r''+(1/2)\frac{GmM.r'}{r^2}=-\frac{GMmr'}{r^2}+(1/2)\frac{GMmr'}{r^2}= -k\rho.v^2.v\)</span>. In definitiva è <span class="tex">\(-(1/2)r''.(r'/v)=-\frac {k|rho.v^2}{m}\)</span>.Quindi la componente di r'' su v è<span class="tex">\(r''.(r'/v)= \frac {2k\rho.v^2}{m}\)</span>. In conclusione addizionando le componenti su v di <span class="tex">\(a_t\)</span>e di z'' si ottiene la accelerazione richiesta <span class="tex">\(a=\frac{k\rho.v^2}{m}\)</span>. :roll:  :roll:  :roll:</article>
+<article class="post" id="p23376"><div class="who"><b>Flaffo</b><span>23 dic 2016, 16:05</span></div>Sono passati ormai 20 giorni da quando ho passato la staffetta a Ciccio98 senza che ancora postasse un problema. A questo punto do la staffetta a <strong class="text-strong">Guido</strong>, così da continuare questa bella tradizione  ;)</article>
+<nav class="pager"><a class="prev" href="olifis-6434.html"><small>← precedente</small>105. Palla su foglio di carta</a><a class="next" href="olifis-356.html"><small>successivo →</small>Griglia di resistenze</a></nav>
+</main></body></html>

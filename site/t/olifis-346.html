@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Momento d&#x27;inerzia dell&#x27;insieme di Cantor</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Momento d'inerzia dell'insieme di Cantor</h1>
+<p class="meta">30 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=346">forum Olifis</a></p>
+<article class="post first" id="p2950"><div class="who"><b>Ippo</b><span>12 dic 2009, 20:21</span></div>Prendete un'asta sottile di lunghezza L e massa M e spezzatela in tre parti uguali; rimuovete quella centrale e sostituitela con un'asta rigida identica ma senza massa. Ripetete il procedimento su ciascuna delle due aste  di lunghezza L/3 che vi rimangono (quelle dotate di massa ovviamente), e immaginate di iterare il procedimento infinitamente.<br>
+(si tratta dell'insieme di Cantor, un semplice e famoso esempio di struttura frattale)<br>
+Calcolate il momento d'inerzia dell'oggetto che ottenete, rispetto ad un asse passante per una sua estremità e ad esso ortogonale.<br>
+<br>
+Buon divertimento!  :mrgreen: <br>
+<br>
+<span style="font-size: 85%; line-height: normal"><br>
+(il problema viene dal Morin)</span></article>
+<article class="post" id="p2955"><div class="who"><b>Falco5x</b><span>13 dic 2009, 10:20</span></div>Qualcosa non mi è chiaro.<br>
+Se M fosse la massa iniziale dell'asta prima di eseguire i tagli e le sottrazioni multiple (come pare dalla tua descrizione), direi che la massa finale dell'insieme di Cantor è 0 e quindi pure 0 il suo momento d'inerzia. Sarebbe banale. Più interessante invece sarebbe se il problema dicesse che M è la massa finale ovvero quella dell'insieme di Cantor risultante alla fine degli infiniti tagli.<br>
+O almeno così' mi pare...</article>
+<article class="post" id="p2956"><div class="who"><b>Pigkappa</b><span>13 dic 2009, 13:11</span></div>Sì, <span class="tex">\(M\)</span> deve essere la massa di quello che rimane.</article>
+<article class="post" id="p2957"><div class="who"><b>Ippo</b><span>13 dic 2009, 14:09</span></div>scusate, chiaramente è un errore  :mrgreen:</article>
+<article class="post" id="p2958"><div class="who"><b>Falco5x</b><span>13 dic 2009, 21:40</span></div>Mi viene<br>
+<br>
+<span class="tex">\(I=\frac{3}{8}M{L^2}\)</span><br>
+<br>
+<br>
+ :?:</article>
+<article class="post" id="p2959"><div class="who"><b>Ippo</b><span>14 dic 2009, 1:13</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>Mi viene<br>
+<br>
+<span class="tex">\(I=\frac{3}{8}M{L^2}\)</span><br>
+<br>
+<br>
+ :?:</div></blockquote>
+yes   ;)  Vediamo se qualche giovane si cimenta con la soluzione, che è istruttiva!  :D</article>
+<article class="post" id="p2962"><div class="who"><b>Rigel</b><span>14 dic 2009, 22:21</span></div>Sono ancora abbastana giovane per postare la mia soluzione?  :lol: <br>
+Comunque un problema davvero carino e istruttivo</article>
+<article class="post" id="p2963"><div class="who"><b>Falco5x</b><span>15 dic 2009, 0:14</span></div><blockquote><div><cite>Rigel ha scritto:</cite>Sono ancora abbastana giovane per postare la mia soluzione?  :lol: <br>
+Comunque un problema davvero carino e istruttivo</div></blockquote>
+Sei giovane, ma vecchio... d'esperienza.<br>
+Io invece sono vecchio, ma giovane... di spirito.<br>
+Mi sa che qui di pivellini ce ne sono assai pochi. :roll: <br>
+ :D</article>
+<article class="post" id="p2964"><div class="who"><b>elendil</b><span>15 dic 2009, 0:17</span></div><blockquote><div><cite>Falco5x ha scritto:</cite>
+Mi sa che qui di pivellini ce ne sono assai pochi. :roll: <br>
+:D</div></blockquote>
+Eccomi, eccomi! Da dove si comincia a ragionare? :?</article>
+<article class="post" id="p2965"><div class="who"><b>Falco5x</b><span>15 dic 2009, 0:22</span></div><blockquote><div><cite>elendil ha scritto:</cite><blockquote><div><cite>Falco5x ha scritto:</cite>
+Mi sa che qui di pivellini ce ne sono assai pochi. :roll: <br>
+:D</div></blockquote>
+Eccomi, eccomi! Da dove si comincia a ragionare? :?</div></blockquote>
+Oh finalmente, così mi piace.<br>
+Adesso però devi pensarci tutta la notte e sperare che qualche altro vecchiaccio non soffra d'insonnia e ti bruci sul tempo. Con tutta la fatica che abbiamo fatto a trattenerci per lasciarti spazio questo è il minimo che tu possa fare.</article>
+<article class="post" id="p2966"><div class="who"><b>spn</b><span>15 dic 2009, 0:40</span></div>Simpatico come problema, non vorrei rovinarlo con la mia soluzione strana.<br>
+Ma che cos'è veramente questo insieme di Cantor?</article>
+<article class="post" id="p2967"><div class="who"><b>Falco5x</b><span>15 dic 2009, 0:43</span></div><blockquote><div><cite>spn ha scritto:</cite>Simpatico come problema, non vorrei rovinarlo con la mia soluzione strana.
+</div></blockquote>
+Perché strana? ti viene diversa dalla mia?</article>
+<article class="post" id="p2968"><div class="who"><b>spn</b><span>15 dic 2009, 0:47</span></div>No, il risultato finale mi viene uguale, ma probabilmente esiste un procedimento più veloce del mio.</article>
+<article class="post" id="p2969"><div class="who"><b>Falco5x</b><span>15 dic 2009, 1:04</span></div><blockquote><div><cite>spn ha scritto:</cite>No, il risultato finale mi viene uguale, ma probabilmente esiste un procedimento più veloce del mio.</div></blockquote>
+Interessante, pensavo che il procedimento fosse uno solo (o almeno a me ne è venuto in mente solo uno, ed è abbastanza rapido).<br>
+Vabbè, lasciamo un po' di spazio ad altri contributi e poi ci confrontiamo, mi hai incuriosito.</article>
+<article class="post" id="p2971"><div class="who"><b>pascal</b><span>15 dic 2009, 8:41</span></div>La partenza potrebbe essere la relazione delle I tra il frattale 3l ed l.</article>
+<article class="post" id="p2972"><div class="who"><b>Falco5x</b><span>15 dic 2009, 9:16</span></div><blockquote><div><cite>pascal ha scritto:</cite>La partenza potrebbe essere la relazione delle I tra il frattale 3l ed l.</div></blockquote>
+Più che la partenza direi che questa è la chiave.  :)</article>
+<article class="post" id="p2973"><div class="who"><b>Ippo</b><span>15 dic 2009, 15:25</span></div>già. L'altro ingrediente è il teorema degli assi paralleli, e poi è fatta  :)</article>
+<article class="post" id="p2974"><div class="who"><b>Pigkappa</b><span>15 dic 2009, 16:12</span></div>Ok, però qualcuno potrebbe anche far proprio vedere come si impostano i conti, ormai ne avete parlato per due pagine intere..!</article>
+<article class="post" id="p3017"><div class="who"><b>Falco5x</b><span>15 dic 2009, 20:44</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Ok, però qualcuno potrebbe anche far proprio vedere come si impostano i conti, ormai ne avete parlato per due pagine intere..!</div></blockquote>
+Il divertimento sta anche nei preliminari<br>
+<br>
+ :twisted:  :lol: <br>
+<br>
+<br>
+<br>
+ :mrgreen:</article>
+<article class="post" id="p3034"><div class="who"><b>Rigel</b><span>15 dic 2009, 21:55</span></div>Se nessuno si sente sufficientemente giovane  :mrgreen:  da postare posso mettere la mia soluzione che è la stessa di Falco5x e pascal</article>
+<article class="post" id="p3049"><div class="who"><b>pascal</b><span>15 dic 2009, 22:28</span></div>E vai ... col confronto e il trasporto delle I.</article>
+<article class="post" id="p3050"><div class="who"><b>Falco5x</b><span>15 dic 2009, 22:29</span></div><blockquote><div><cite>Rigel ha scritto:</cite>Se nessuno si sente sufficientemente giovane  :mrgreen:  da postare posso mettere la mia soluzione che è la stessa di Falco5x e pascal</div></blockquote>
+Vai tranquillo, sei tutti noi!</article>
+<article class="post" id="p3051"><div class="who"><b>Rigel</b><span>15 dic 2009, 23:10</span></div>Sia <span class="tex">\(I_b\)</span> il momento d'inerzia baricentrico dell'insieme di Cantor lungo L. poichè esso è "simile" a quello lungo L/3 allora si può scrivere<br>
+<span class="tex">\(I'_b=I_b\frac{M'}{M}(\frac{L'}{L})^2=\frac{1}{2}\frac{1}{9}I_b=\frac{I_b}{18}\)</span><br>
+con <span class="tex">\(I'_b\)</span> momento d'inerzia baricentrico dell'insieme di Cantor piccolo.<br>
+per l'additività del momento d'inerzia e per il teorema di Steiner (o degli assi paralleli) e dato che l'insieme lungo L è formato da due insiemi lunghi L/3 i cui baricentri distano L/3 da quello comune, si ricava<br>
+<span class="tex">\(I_b=2I'_b+2\frac{M}{2}\frac{L^2}{9}=\frac{I_b}{9}+\frac{ML^2}{9}\)</span><br>
+Quindi si ricava <span class="tex">\(I_b=\frac{1}{8}ML^2\)</span><br>
+Ancora per Steiner si ottiene <span class="tex">\(I=I_b+M(L/2)^2=ML^2(\frac{1}{8}+\frac{1}{4})=\frac{3}{8}ML^2\)</span></article>
+<article class="post" id="p3054"><div class="who"><b>Falco5x</b><span>16 dic 2009, 0:20</span></div>Ottimo. E adesso mi piacerebbe vedere la soluzione "strana" di SPN.</article>
+<article class="post" id="p3058"><div class="who"><b>spn</b><span>16 dic 2009, 13:29</span></div>Non per deluderti Falco5x, ma il mio procedimento è praticamente identico al vostro (anche se io l'avevo applicato ad un pezzetto dovuto all'n-esimo taglio e a quello del taglio dopo, che si riconduceva banalmente all'iniziale). Avevo detto che mi sembrava ''strano'' perchè da una prima occhiata mi era parso che potesse essere risolto in un modo ancora meno complicato. Evidentemente mi sbagliavo :roll: .</article>
+<article class="post" id="p3067"><div class="who"><b>Rigel</b><span>16 dic 2009, 21:15</span></div>Un commento secondo me importante è che il teorema di Steiner si può applicare anche ai corpi rigidi disomogenei come quello dell'insieme di Cantor</article>
+<article class="post" id="p3071"><div class="who"><b>Stardust</b><span>16 dic 2009, 22:53</span></div>Ecco un altro ancora più giovane ( e non tanto di età, quanto di conoscenza ed esperienza, purtroppo!). <br>
+Vorrei capire da cosa si deduce la "similitudine" tra le due inerzie e come si riesce a stabilire la relazione iniziale usata da Rigel nella soluzione. Cos'è un insieme di Cantor?</article>
+<article class="post" id="p3075"><div class="who"><b>Falco5x</b><span>17 dic 2009, 0:58</span></div><blockquote><div><cite>Stardust ha scritto:</cite>Ecco un altro ancora più giovane ( e non tanto di età, quanto di conoscenza ed esperienza, purtroppo!). <br>
+Vorrei capire da cosa si deduce la "similitudine" tra le due inerzie e come si riesce a stabilire la relazione iniziale usata da Rigel nella soluzione. Cos'è un insieme di Cantor?</div></blockquote>
+Per rispondere non mi rimane che condire con un maggior numero di parole quanto ha già detto Rigel.<br>
+<br>
+La similitudine tra l'intero insieme (l'asta completa alla fine delle infinite operazioni di taglio) e uno dei due sottoinsiemi iniziale e finale della stessa, lunghi ciascuno 1/3 dell'asta intera, deriva dalla replicazione all'infinito della regola che segue: partendo dall'asta continua iniziale, ogni tratto continuo viene diviso in 3 parti e viene asportata la parte centrale.<br>
+Da ciò consegue che ciascun tratto alla fine degli infiniti tagli sarà l'immagine dell'intero insieme, con l'unica differenza inerente un primo fattore di scala per le lunghezze e un secondo fattore di scala per le masse.<br>
+Nella fattispecie del rapporto tra l'asta completa lunga L (naturalmente a valle degli infiniti tagli, per cui risulta infinitamente "bucherellata") e il suo tratto iniziale o il suo tratto finale (parimenti bucherellati), ciascuno di questi due sarà l'immagine rimpicciolita dell'asta stessa, con un rapporto di scala 1:3 sulle lunghezze e 1:2 sulle masse. Poiché il momento d'inerzia rispetto al baricentro vede ciascun elemento di massa moltiplicato per il quadrato della distanza dal baricentro stesso, ciascuno di questi tratti (bucherellati) avrà un momento d'inerzia baricentrico pari a 1/2 per quanto concerne la massa e 1/9 per quanto concerne la lunghezza rispetto al momento d'inerzia dell'asta completa. Ovvero <span class="tex">\(I'=(1/18) I\)</span>.<br>
+Non so però se ho chiarito oppure se ho semplicemente aumentato la confusione.<br>
+<br>
+Riguardo all'insieme di Cantor in generale guarda su Wikipedia <a href="http://it.wikipedia.org/wiki/Insieme_di_Cantor" class="ext" class="postlink">http://it.wikipedia.org/wiki/Insieme_di_Cantor</a>.</article>
+<article class="post" id="p3079"><div class="who"><b>Stardust</b><span>17 dic 2009, 16:30</span></div>Grazie mille, ora riesco a seguire la soluzione.</article>
+<article class="post" id="p7273"><div class="who"><b>egl</b><span>21 ago 2011, 10:19</span></div>Propongo un'altra soluzione, sebbene sia molto meno olimpica di quella di Rigel  :mrgreen: <br>
+<br>
+A tagli ultimati <span class="tex">\(M\)</span> è la massa dell'asta. Sia <span class="tex">\(O\)</span> un estremo e <span class="tex">\(A\)</span> il centro geometrico dell'asta. Da <span class="tex">\(O\)</span> viaggiamo verso il centro per <span class="tex">\(1/3\)</span> della lunghezza. Questa lunghezza, che è <span class="tex">\(\dfrac{L}{3}\)</span> contiene una massa di <span class="tex">\(\dfrac{M}{2}\)</span>. Il momento di inerzia rispetto ad <span class="tex">\(A\)</span> è dato per il teorema di Steiner da <br>
+<span class="tex">\(\displaystyle I_A=2\left [I_B+\frac{M}{2}\left(\frac{L}{3}\right)^2\right ]\)</span> dove <span class="tex">\(B\)</span> è il punto medio fra <span class="tex">\(O\)</span> e <span class="tex">\(\dfrac{1}{3}\)</span> dell'asta. Il due a moltiplicare poichè il ragionamento è analogo dall'altra parte. Sia ora <span class="tex">\(C\)</span> il punto medio fra <span class="tex">\(O\)</span> e una distanza <span class="tex">\(\dfrac{L}{9}\)</span>. Con un ragionamento analogo  e procedendo di questo passo si ha:<br>
+<br>
+<span class="tex">\(\displaystyle I_B=2\left [I_C+\frac{M}{4}\left(\frac{L}{9}\right)^2\right ]\)</span><br>
+<br>
+<span class="tex">\(\displaystyle I_C=2\left [I_D+\frac{M}{8}\left(\frac{L}{27}\right)^2\right ]\)</span><br>
+<br>
+Da cui  <span class="tex">\(\displaystyle I_A=\frac{ML^2}{9}\left( 1+\frac{1}{9}+\frac{1}{81} + \cdots \right )=\frac{ML^2}{9}\sum_{n=0}^\infty \left (\frac{1}{9}\right )^n\)</span> che è una serie geometrica, per cui <span class="tex">\(\displaystyle I_A=\frac{ML^2}{9}\frac{1}{1-1/9}=\frac{ML^2}{8}\)</span><br>
+Ancora per Steiner <span class="tex">\(I_0=I_A+M\left (\dfrac{L}{2} \right )^2=\dfrac{3}{8}ML^2\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-433.html"><small>← precedente</small>Asta che gira</a><a class="next" href="olifis-7255.html"><small>successivo →</small>321. Torre infinita di cilindri</a></nav>
+</main></body></html>

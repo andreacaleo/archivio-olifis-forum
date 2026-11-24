@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gioco d&#x27;azzardo</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../caffe.html">Caffè</a></span></nav>
+<h1>Gioco d'azzardo</h1>
+<p class="meta">7 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6382">forum Olifis</a></p>
+<article class="post first" id="p22728"><div class="who"><b>Pigkappa</b><span>11 ago 2016, 18:26</span></div>Un amico vi propone un gioco. Lui lancia una moneta. Se esce croce tu vinci 1€ e il gioco termina. Se esce testa lui lancia la moneta di nuovo; continuera' a lanciare finche', prima o poi, uscira' croce. Se alla fine c'e' stata 1 sola testa, tu vinci 2€, se ci sono state 2 teste vinci 4€, tre teste 8€, e cosi' via, raddoppiando ogni volta. Quanto siete disposti a pagare per giocare a questo gioco?</article>
+<article class="post" id="p22740"><div class="who"><b>Pigkappa</b><span>16 ago 2016, 11:36</span></div>Non so se non rispondete perche' vi sembra troppo facile ma potrebbe essere un inizio di orale in Normale per cui farei lo sforzo se fossi in voi :D</article>
+<article class="post" id="p22741"><div class="who"><b>DEhunt</b><span>16 ago 2016, 21:03</span></div>Mi ha fatto riflettere molto questo problema<br>
+<br>
+Come prima cosa non sono riuscito a spiegarmi il perchè non vada bene calcolare la speranza matematica.<br>
+Mi spiego meglio: con una probabilità del <span class="tex">\(\frac 1 2\)</span> vinco <span class="tex">\(1\)</span>, con probabilità del <span class="tex">\(\left ( \frac 1 2 \right) ^2\)</span> vinco <span class="tex">\(2\)</span>, più in generale con una probabilità del <span class="tex">\(\left ( \frac 1 2 \right) ^n\)</span> vinco <span class="tex">\(2^{n-1}\)</span><br>
+<br>
+Quindi in una singola partita il valore atteso dovrebbe essere:<br>
+<span class="tex">\(\displaystyle\sum_{n=0}^\infty \left ( \frac 1 2 \right) ^n\cdot 2^{n-1}=\sum_{n=0}^\infty \frac 1 2\)</span> che però diverge e non me lo spiego  :?:  :?: <br>
+<br>
+Detto questo ho provato a cercare il valore medio di lanci dopo il quale esce per la prima volta testa e ho scoperto grazie a Wolframalpha che <span class="tex">\(\displaystyle\sum_{n=0}^\infty \frac{n}{2^n}=2\)</span> (EDIT: la seguente frase che ho scritto è una baggianata) <span style="color:#FF0000">e quindi sono disposto a puntare fino a 2$ per partecipare al gioco (se finisce in media al secondo lancio mi viene dato in media 2$).</span> Ho cercato di ricavare questo risultato fuori da qualche simmetria ma non mi sono ricondotto a nulla di elementare  :(</article>
+<article class="post" id="p22742"><div class="who"><b>Pigkappa</b><span>17 ago 2016, 19:16</span></div>Quello e' il punto: il valore medio che si vince in questo gioco e' <span class="tex">\(+ \infty\)</span>. Per cui il valore giusto da scommettere secondo il solito ragionamento sarebbe infinito - se potessimo giocare questo gioco molte volte, dovremmo accettare di farlo anche per una cifra piuttosto alta.<br>
+<br>
+Se si chiede a una persona che non e' esperta di matematica quanto e' disposta a pagare per giocare, di solito risponde una cifra molto bassa (circa 2 €). Questo paradosso evidenzia che la nostra felicita' non dipende linearmente da quanti soldi possiamo vincere. Per noi, c'e' una grande differenza tra vincere 0€ e 100000€, ma non c'e' una altrettanto grande differenza tra vincere 1000000€ e 1100000€. Calcolare il valore medio della vincita, invece, assume che queste due cose siano uguali. <br>
+<br>
+Questo paradosso si chiama paradosso di San Pietroburgo (<a href="https://en.wikipedia.org/wiki/St._Petersburg_paradox" class="ext" class="postlink">link</a>) ed a partire dalla sua scoperta abbiamo provato a quantificare la felicita' in modi piu' elaborati. La teoria che ne e' nata si chiama utility theory (piu' di recente sta diventando popolare una nuova versione che si chiama prospect theory) e sta al confine tra psicologia e matematica. Se siete interessati potete trovare informazioni online, oppure consiglio Thinking Fast and Slow, libro scritto da uno psicologo che ha ricevuto il premio nobel in Economia.</article>
+<article class="post" id="p22743"><div class="who"><b>DEhunt</b><span>17 ago 2016, 21:38</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Quello e' il punto: il valore medio che si vince in questo gioco e' <span class="tex">\(+ \infty\)</span>. Per cui il valore giusto da scommettere secondo il solito ragionamento sarebbe infinito - se potessimo giocare questo gioco molte volte, dovremmo accettare di farlo anche per una cifra piuttosto alta.<br>
+<br>
+Se si chiede a una persona che non e' esperta di matematica quanto e' disposta a pagare per giocare, di solito risponde una cifra molto bassa (circa 2 €). Questo paradosso evidenzia che la nostra felicita' non dipende linearmente da quanti soldi possiamo vincere. Per noi, c'e' una grande differenza tra vincere 0€ e 100000€, ma non c'e' una altrettanto grande differenza tra vincere 1000000€ e 1100000€. Calcolare il valore medio della vincita, invece, assume che queste due cose siano uguali. <br>
+<br>
+Questo paradosso si chiama paradosso di San Pietroburgo (<a href="https://en.wikipedia.org/wiki/St._Petersburg_paradox" class="ext" class="postlink">link</a>) ed a partire dalla sua scoperta abbiamo provato a quantificare la felicita' in modi piu' elaborati. La teoria che ne e' nata si chiama utility theory (piu' di recente sta diventando popolare una nuova versione che si chiama prospect theory) e sta al confine tra psicologia e matematica. Se siete interessati potete trovare informazioni online, oppure consiglio Thinking Fast and Slow, libro scritto da uno psicologo che ha ricevuto il premio nobel in Economia.</div></blockquote>
+
+Che figata incredibile<br>
+Quindi sostanzialmente nel lungo termine mi conviene giocare pagando una qualsiasi cifra mi venga chiesta per ogni singola giocata?<br>
+Tuttora fatico a convincermene, ma il ragionamento di fondo è più che sensato, ti ringrazio davvero per aver postato questo problema perchè mi ha certamente colpito  :D <br>
+Per il resto, credo prenderò pure il libro, dalla descrizione che ne fanno sembra davvero interessante</article>
+<article class="post" id="p22744"><div class="who"><b>Pigkappa</b><span>17 ago 2016, 22:53</span></div><blockquote><div><cite>DEhunt ha scritto:</cite>Quindi sostanzialmente nel lungo termine mi conviene giocare pagando una qualsiasi cifra mi venga chiesta per ogni singola giocata?</div></blockquote>
+Esatto!<br>
+
+<blockquote><div><cite>DEhunt ha scritto:</cite>Per il resto, credo prenderò pure il libro, dalla descrizione che ne fanno sembra davvero interessante</div></blockquote>
+Nel libro non c'e' questo specifico paradosso ma ce ne sono molti altri (non solo su queste cose ma si discute in generale di come la nostra intuizione si approccia alla statistica) e si parla un po' piu' in dettaglio di utility e prospect theory.<br>
+<br>
+Un punto chiave della utility theory e' che, se tu hai $1000, perdi $500, e guadagni di nuovo $500, la tua felicita' non e' cambiata. Invece ci sono parecchi studi che dimostrano che soffriamo di piu' per le perdite di quanto gioiamo per le vincite. La prospect theory prova a descrivere questo effetto.</article>
+<article class="post" id="p27621"><div class="who"><b>william1312</b><span>20 feb 2023, 16:49</span></div>Informazioni interessanti, grazie!</article>
+<nav class="pager"><a class="prev" href="olifis-6246.html"><small>← precedente</small>gli isolani dagli occhi blu</a><a class="next" href="olifis-535.html"><small>successivo →</small>Scemenza stellare sul TG2</a></nav>
+</main></body></html>

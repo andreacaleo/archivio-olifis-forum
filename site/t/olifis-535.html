@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scemenza stellare sul TG2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../caffe.html">Caffè</a></span></nav>
+<h1>Scemenza stellare sul TG2</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=535">forum Olifis</a></p>
+<article class="post first" id="p4822"><div class="who"><b>Catacian</b><span>10 ago 2010, 20:16</span></div>Salve, o avventori del Forum.<br>
+Avete visto il TG2 stamattina? <br>
+Spero di no. <br>
+Ad un tratto ho sentito una cosa che faceva accapponare la pelle. Un giornalista, mentre si parlava di Superenalotto ha detto una cosa tipo: "siccome nessuno fa 6 da 67 estrazioni, allora è sempre più probabile che esca alla prossima estrazione".<br>
+Per chi vuole davvero spaventarsi (vi giuro, è peggio di un film Horror  :mrgreen: ) c'è ancora il video online: è il Servizio 14 <a href="http://www.tg2.rai.it/dl/tg2/Page-51fc176a-1c60-4232-a024-732f3ba3f42a.html" class="ext" class="postlink">http://www.tg2.rai.it/dl/tg2/Page-51fc1 ... 3f42a.html</a><br>
+Vabbè, macome si fà a dire cazzate del genere e poi far finta di promuovere la cultura scientifica  :evil: Con che coraggio lo fanno?</article>
+<article class="post" id="p4823"><div class="who"><b>Stardust</b><span>10 ago 2010, 21:15</span></div>E questo è niente rispetto a quando cominciano a chiacchierare di atomi, del CERN o dei "Problemi del Millennio"...<br>
+Consiglio a tutti di leggere un bell'articolo pubblicato su Le Scienze di questo mese sul rapporto tra scienza vera, pseudo-scienza e media.</article>
+<article class="post" id="p4824"><div class="who"><b>Gauss91</b><span>10 ago 2010, 22:39</span></div>Sicuramente il giornalista autore del servizio non lo sa, ma effettivamente non ha detto una cosa completamente senza senso... diamo a Cesare quel che è di Cesare, anche se le cose che sto per dire sono banali.<br>
+La probabilità p che qualcuno in italia faccia 6 è senz'altro la stessa ad ogni estrazione. Ma all'aumentare di estrazioni, la probabilità totale che esca un sei aumenta. Se vengono fatte due estrazioni, la probabilità di un 6 in almeno una di esse non è p, bensì p(2-p) &gt; p, anche se la probabilità rimane p per ogni estrazione. E' come dire "ho lanciato una moneta 60 volte e ho ottenuto sempre croce... più la lancio e più probabilità ho di ottenere testa". Anche se la probabilità che esca testa è esattamente la stessa ad ogni lancio.<br>
+Ma sicuramente così come detto dal giornalista, è assolutamente cannato :shock: . Non ci sono motivi che esca alla prossima più di quanti ce n'erano alla prima estrazione.</article>
+<article class="post" id="p4825"><div class="who"><b>spn</b><span>11 ago 2010, 4:21</span></div>Mah, io non penso che volesse intendere quello che dice Gauss e che l'abbia solo espresso male. Penso invece che abbia semplicemente toppato alla grande, mentre non capiva assolutamente quello che stava dicendo.<br>
+<br>
+Purtroppo è sempre più palese che nei media la diffusione della cultura scientifica sia falsa e penosa. Basta vedere per cinque minuti trasmissioni come 'Mistero'...<br>
+Il programma che più si avvicina alla scienza ormai è Big Bang Theory  :mrgreen: .</article>
+<article class="post" id="p4826"><div class="who"><b>Catacian</b><span>11 ago 2010, 11:04</span></div>Per Gauss... se vogliamo vederla così... in effetti abbiamo il 10% di giocate in più ad ogni estrazione (sempre secondo il servizio incriminato). Quindi c'è effettivamente un piccolo aumento della probabilità che QUALCUNO faccia 6. <br>
+Anzi, se <span class="tex">\(n\)</span> è il numero di giocate al Superenalotto, si può dire che ognuna di loro ha una probabilità <span class="tex">\(p\)</span> di fare 6. In particolare <span class="tex">\(p = \frac{84!6!}{90!} = \frac{1}{622614630}\)</span><br>
+Se si prova a disegnare un diagramma ad albero, fingendo che le giocate vengano fatte in un ordine prestabilito (ed arbitrario) mi sembra che la probabilità che una qualsiasi di queste giocate risulti vincente è <span class="tex">\(q = 1 - (1-p)^n\)</span>. <br>
+Quindi, se davvero le giocate passano da <span class="tex">\(n_1\)</span> a <span class="tex">\(1.1 \cdot n_1\)</span> (cioè aumentano del 10%), la probabilità che qualcuno faccia 6 è effettivamente aumentata: <span class="tex">\(\Delta q = (1-p)^{n_1} - (1-p)^{1.1 \cdot n_1}\)</span><br>
+Purtroppo non so di preciso quante persone giochino al Superenalotto. Questo calcolo, comunque, è un rimaneggiamento di un problema di ammissione al Sant'Anna.<br>
+Conti a parte, non si dovrebbero dire certe idiozie di fronte a 3 milioni di telespettatori!</article>
+<article class="post" id="p4828"><div class="who"><b>Gauss91</b><span>11 ago 2010, 15:26</span></div>va beh da gente che dice che il sole perde massa a causa del flusso dei NEUTRIGNI, e che al sud ci sono stati più 110 E LODE alla maturità... ci si può aspettare di tutto! :lol:</article>
+<article class="post" id="p4831"><div class="who"><b>SkZ</b><span>11 ago 2010, 20:56</span></div>ho saputo che hanno pure detto che le Perseadi sono causate da un meteorite arrivato da Perseo :roll: <br>
+Si e inviato dagli insetti! (v. Starship Troopers)</article>
+<article class="post" id="p4861"><div class="who"><b>Stardust</b><span>16 ago 2010, 19:07</span></div>Tanto per restare in tema, girovagando su internet alla ricerca di curiosità divertenti, mi sono imbattuto nell'immagine linkata: <a href="http://www.motivatedphotos.com/?id=1501" class="ext" class="postlink">http://www.motivatedphotos.com/?id=1501</a>.<br>
+<br>
+Io spero che si tratti di un'immagine modificata al computer, ma se la didascalia sul servizio della CNN è vera (per un fatto tragico come l'esplosione dello shuttle Columbia), si tratta davvero di uno scivolone storico!!! <br>
+Se poi è un fake, ne girano tanti nel web e questo è comunque carino.</article>
+<article class="post" id="p4863"><div class="who"><b>Gauss91</b><span>16 ago 2010, 21:42</span></div>Però... veloce! Le tecnologie hanno proprio fatto passi da gigante :roll: !</article>
+<article class="post" id="p4870"><div class="who"><b>SkZ</b><span>17 ago 2010, 17:53</span></div>temo che volessero dire "18 volte la velocita' del suono" :(</article>
+<article class="post" id="p4871"><div class="who"><b>Gauss91</b><span>17 ago 2010, 18:11</span></div>Beh spero proprio volessero dire quello... è una velocità abbastanza ragionevole per un satellite in caduta libera. Diciamo che hanno sbagliato a scrivere altrimenti saremmo messi malissimo.</article>
+<article class="post" id="p6620"><div class="who"><b>Fedecart</b><span>29 mag 2011, 16:37</span></div>Riesumo questa vecchia discussione per segnalare che un pò di tempo fa ho sentito parlare al tg del BUSONE di Higgs.<br>
+Se non sapete che vuol dire busone provate a chiedere a un bolognese! =)</article>
+<article class="post" id="p6651"><div class="who"><b>SkZ</b><span>31 mag 2011, 21:06</span></div><a href="http://www.corriere.it/scienze_e_tecnologie/11_maggio_26/mappa-3d-universo-redshift-survey_89bf334a-879d-11e0-8601-a1952c3da2ae.shtml" class="ext" class="postlink">http://www.corriere.it/scienze_e_tecnol ... a2ae.shtml</a><br>
+Il 2MASS Redshift Survey ha sondato interamente il cielo notturno utilizzando raggi simili agli infrarossi<br>
+<br>
+<br>
+2MASS, che e' poi il catalogo che uso per lavoro proprio adesso, e' appunto negli infrarossi: Two Micron All-Sky Survey</article>
+<nav class="pager"><a class="prev" href="olifis-6382.html"><small>← precedente</small>Gioco d&#x27;azzardo</a><a class="next" href="olifis-730.html"><small>successivo →</small>Incidente a Fukushima</a></nav>
+</main></body></html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un problema sulle nuvole.</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Un problema sulle nuvole.</h1>
+<p class="meta">25 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=1397">forum Olifis</a></p>
+<article class="post first" id="p9317"><div class="who"><b>Fedecart</b><span>30 ago 2012, 19:51</span></div>Quando una nuvola passa sopra il laboratorio di metereologia viene ivi regestrato un campo elettrico pari a <span class="tex">\(E=100 V/m\)</span>.<br>
+Il fondo della nuvola è ad una quota <span class="tex">\(d=300m\)</span> dal suolo, mentre la sommità è ad una quota di <span class="tex">\(2d\)</span>.<br>
+(Non son convinto che esistano nuvole di questo tipo, così vicine alla terra e allo stesso tempo così alte, ma per il problema direi che va bene)<br>
+Assumete che la nuvola sia complessivamente elettricamente neutra ma abbia una carica <span class="tex">\(+q\)</span> sulla sommità ed una carica <span class="tex">\(-q\)</span> sul fondo.<br>
+<br>
+Determinare il valore di <span class="tex">\(q\)</span>.<br>
+Determinare la forza totale elettrostatica agente sulla nuvola.<br>
+<br>
+Trascurate ogni tipo di altra carica presente nell'atmosfera.</article>
+<article class="post" id="p9318"><div class="who"><b>Gabry</b><span>30 ago 2012, 21:48</span></div>La cariche sono da considerarsi puntiformi? O il campo elettrico viene registrato dentro la nuvola? Perchè se fossero equamente distribuite sul fondo (approssimato piatto) della nuvola il campo elettrico non dipenderebbe dalla distanza (E sarebbe uguale a <span class="tex">\({\sigma \over 2\epsilon_0}\)</span> ed essendo la nube elettricamente neutra e quindi la carica sulla sommità uguale a quella sul fondo (e anche le loro rispettive densità) si avrebbe che il campo elettrico esterno sarebbe nullo</article>
+<article class="post" id="p9319"><div class="who"><b>Fedecart</b><span>30 ago 2012, 23:52</span></div><blockquote><div><cite>Gabry ha scritto:</cite>La cariche sono da considerarsi puntiformi?</div></blockquote>
+Si <br>
+
+<blockquote><div><cite>Gabry ha scritto:</cite>
+Il campo elettrico viene registrato dentro la nuvola? </div></blockquote>
+No, viene registrato nel laboratorio di metereologia, a quota zero sulla superficie della terra.</article>
+<article class="post" id="p9320"><div class="who"><b>Pigkappa</b><span>31 ago 2012, 1:34</span></div><blockquote><div><cite>Fedecart ha scritto:</cite><blockquote><div><cite>Gabry ha scritto:</cite>La cariche sono da considerarsi puntiformi?</div></blockquote>
+Si 
+</div></blockquote>
+Questo modello ha qualche applicazione? Questa cosa mi sembra un po' irragionevole...</article>
+<article class="post" id="p9321"><div class="who"><b>Fedecart</b><span>31 ago 2012, 2:04</span></div>Che io sappia nessuna. Volendo si può fare l'esercizio dimenticandosi delle nuvole. Ci sono due cariche di dato valore a distanze note dalla superficie della terra. A <span class="tex">\(z=0\)</span> viene misurato il campo e vale tot.<br>
+Stesse domande.</article>
+<article class="post" id="p9322"><div class="who"><b>Gabry</b><span>31 ago 2012, 9:45</span></div>CAmpo elettrico (sommando vettorialmente quelli delle due cariche) <span class="tex">\(E={3\over 4}{q\over 4\pi \epsilon_0d^2}\)</span> Forza agente su una carica <span class="tex">\(F={q^2\over 4\pi \epsilon_0d^2}\)</span>. Forza totale che tende a restringere la nuvola <span class="tex">\(F_{tot}=2F={q^2\over 2\pi \epsilon_0d^2}\)</span></article>
+<article class="post" id="p9323"><div class="who"><b>Fedecart</b><span>31 ago 2012, 10:49</span></div>Quello che hai scritto sarebbe stato giuasto nel caso avessi detto "siamo nel vuoto, con due cariche a tali distanze dall'origine e il campo nell'origine è noto e vale tot".<br>
+<br>
+Tuttavia non sei nel vuoto.<br>
+Quale proprietà elettrostatica importante ha la superficie della terra?</article>
+<article class="post" id="p9324"><div class="who"><b>Gabry</b><span>31 ago 2012, 12:52</span></div>Hai ragione ho scordato di considerare, per la fretta, la costante dielettrica relativa dell'aria (ma non era circa uguale a quella del vuoto?) e il campo elettrico terrestre. Quest'ultimo dovrebbe essere disposto radialmente giusto? Ma è entrante o uscente?</article>
+<article class="post" id="p9327"><div class="who"><b>Fedecart</b><span>31 ago 2012, 15:22</span></div>In realtà no. Puoi pure prendere la costante dielettrica dell'aria pari a quella del vuoto e trascurare il campo terrestre.<br>
+C'è un effetto più importante che non vedi, dovuto al fatto che le cariche sono vicine alla superficie della terra.<br>
+Inoltre non ci sono dati nascosti/da guardare sulle tabelle in questo problema (eccezione fatta per le costanti fondamentali tipo epsilon 0)<br>
+<br>
+Ti ripeto, che proprietà importante ha, in elettrostatica la superficie della terra?</article>
+<article class="post" id="p9328"><div class="who"><b>Gabry</b><span>31 ago 2012, 15:30</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>In realtà no. Puoi pure prendere la costante dielettrica dell'aria pari a quella del vuoto e trascurare il campo terrestre.<br>
+C'è un effetto più importante che non vedi, dovuto al fatto che le cariche sono vicine alla superficie della terra.<br>
+Inoltre non ci sono dati nascosti/da guardare sulle tabelle in questo problema (eccezione fatta per le costanti fondamentali tipo epsilon 0)<br>
+<br>
+Ti ripeto, che proprietà importante ha, in elettrostatica la superficie della terra?</div></blockquote>
+
+Non lo so sinceramente, ma così ad occhio mi viene da pensare che possa comportarsi come un conduttore e quindi indursi una carica su di essa, è così?</article>
+<article class="post" id="p9329"><div class="who"><b>Fedecart</b><span>31 ago 2012, 17:10</span></div>Esatto. La terra è messa a terra. Lo dice il nome stesso!  ;) <br>
+Quindi?</article>
+<article class="post" id="p9331"><div class="who"><b>modesto</b><span>31 ago 2012, 17:52</span></div><blockquote><div><cite>Gabry ha scritto:</cite>Non lo so sinceramente, ma così ad occhio mi viene da pensare che possa comportarsi come un conduttore e quindi indursi una carica su di essa, è così?</div></blockquote>
+Sono tornato e ho trovato il solito problemino di Fedecart! Penso che Gabry sia ora sulla strada giusta e mi provo a buttar giù due idee facendo i conti se Federcart non mi interrompe perchè ho detto bischerate. Ciascuna carica,+q e -q, deve indurre  due cariche opposte <span class="tex">\(q_1 , -q_1\)</span> dentro la Terra perchè essa deve continuare a rimanere scarica se si ammette di trascurare la sua carica e il suo campo. Le due cariche vanno determinate in modo che il potenziale della Terra sia costante. Si determin poi il potenziale totale generato dalle cariche e da quelle indotte e il campo sulla superficie E=-dV/dr uguagliandolo a 100 V/m. Posterò i conti solo se Fedecart...</article>
+<article class="post" id="p9332"><div class="who"><b>Pigkappa</b><span>31 ago 2012, 18:00</span></div>La soluzione è giusta, ma qualcuno che non ha già visto questa cosa difficilmente capisce il tuo messaggio.</article>
+<article class="post" id="p9333"><div class="who"><b>modesto</b><span>31 ago 2012, 18:14</span></div>Infatti mi spiego male perchè ancora non ho messo a fuoco le idee giuste. Mi ci concentrerò stasera visto il tuo giudizio. Per esempio mi verrebbe da dire che dovrebbero essere sul raggio e una nel centro. Perchè non posso dire "tutto va come se..." facendo i relativi conti?</article>
+<article class="post" id="p9335"><div class="who"><b>Gabry</b><span>31 ago 2012, 18:57</span></div>Ma per trovare le due cariche indotte non è possibile usare il metodo dell'immagine elettrica? (anche se con questo metodo il campo sulla superficie sarebbe nullo)</article>
+<article class="post" id="p9336"><div class="who"><b>Fedecart</b><span>31 ago 2012, 19:14</span></div><blockquote><div><cite>Gabry ha scritto:</cite>Ma per trovare le due cariche indotte non è possibile usare il metodo dell'immagine elettrica?</div></blockquote>
+E' esattamente quello che occorre fare!<br>
+
+<blockquote><div><cite>Gabry ha scritto:</cite>
+anche se con questo metodo il campo sulla superficie sarebbe nullo</div></blockquote>
+Sicuro? Il potenziale alla superficie sarebbe nullo. Potenziale nullo implica campo nullo? Quanto valgono le componenti tangenti e normali del campo elettrico sulla superficie di un conduttore?<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>Per esempio mi verrebbe da dire che dovrebbero essere sul raggio e una nel centro.</div></blockquote>
+L'idea della carica immagine è giusta, la loro posizione invece no...<br>
+<br>
+Ora, aiutino. Il metodo della carica immagine funziona solo per alcune (purtroppo poche) geometrie della superficie messa a terra. Quali? E in quale caso siamo ora? Ovvero com'è possibile schematizzare/approssimare la superficie della terra, vista da una carica posta a quella distanza <span class="tex">\(d\)</span> da essa?</article>
+<article class="post" id="p9337"><div class="who"><b>Pigkappa</b><span>31 ago 2012, 19:45</span></div><blockquote><div><cite>modesto ha scritto:</cite>Perchè non posso dire "tutto va come se..." facendo i relativi conti?</div></blockquote>
+Per dimostrare le cose per davvero si dovrebbe parlare dell'unicità della soluzione del problema di Laplace, altrimenti non si può far altro che credere al fatto che "tutto va come se...".</article>
+<article class="post" id="p9338"><div class="who"><b>t4ilgr4b</b><span>31 ago 2012, 20:12</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>com'è possibile schematizzare/approssimare la superficie della terra, vista da una carica posta a quella distanza <span class="tex">\(d\)</span> da essa?</div></blockquote>
+
+come un piano? e quindi ci sarà a distanza d dalla superficie verso il centro della terra una carica e a distanza 2d l'altra?<br>
+bisogna considerare un condensatore con un campo all'interno di 100 V/m e una distanza 2d fra le armature (con al centro la superficie terrestre), e trovare la carica?<br>
+Però saprei trovare solo la densità di carica... C'è qualcosa che non quadra :?<br>
+<br>
+EDIT: Potrebbe essere <span class="tex">\(Q = 8 \pi \epsilon d^2 E\)</span><br>
+Se <span class="tex">\(E = \frac{\delta V}{\delta d}\)</span><br>
+Allora <span class="tex">\(E = \frac{Q}{8 \pi \epsilon d^2}\)</span><br>
+E quindi...  :| spero in non troppe boiate...</article>
+<article class="post" id="p9339"><div class="who"><b>Gabry</b><span>31 ago 2012, 21:27</span></div><blockquote><div><cite>Fedecart ha scritto:</cite><blockquote><div><cite>Gabry ha scritto:</cite>Ma per trovare le due cariche indotte non è possibile usare il metodo dell'immagine elettrica?</div></blockquote>
+E' esattamente quello che occorre fare!<br>
+
+<blockquote><div><cite>Gabry ha scritto:</cite>
+anche se con questo metodo il campo sulla superficie sarebbe nullo</div></blockquote>
+Sicuro? Il potenziale alla superficie sarebbe nullo. Potenziale nullo implica campo nullo? Quanto valgono le componenti tangenti e normali del campo elettrico sulla superficie di un conduttore?<br>
+
+<blockquote><div><cite>modesto ha scritto:</cite>Per esempio mi verrebbe da dire che dovrebbero essere sul raggio e una nel centro.</div></blockquote>
+L'idea della carica immagine è giusta, la loro posizione invece no...<br>
+<br>
+Ora, aiutino. Il metodo della carica immagine funziona solo per alcune (purtroppo poche) geometrie della superficie messa a terra. Quali? E in quale caso siamo ora? Ovvero com'è possibile schematizzare/approssimare la superficie della terra, vista da una carica posta a quella distanza <span class="tex">\(d\)</span> da essa?</div></blockquote>
+
+Usando il metodo dell'immagine elettrica troverei due cariche alla stessa distanza dalla superficie terrestre e quindi essendo il punto sulla superficie terrestre lungo la congiungente le cariche "virtuali" e reali punto medio di ogni coppia reale-virtuale di carica il campo elettrico essendo somma vettoriale di vettori con modulo uguale ma versi opposti dovrebbe essere nullo. (Oppure a sorpresa essendo la terra sferica il metodo dell'immagine elettrica si applica tenendo conto che l'immagine "virtuale" è stata creata da uno specchio sferico per cui vale la legge dei punti coniugati in analogia con l'ottica? :o )</article>
+<article class="post" id="p9340"><div class="who"><b>Fedecart</b><span>31 ago 2012, 21:59</span></div>E il modulo di queste cariche che dici giustamente di aggiungere, qual'è? Uguale alle altre, opposto, diverso? E se diverso di quanto?<br>
+Perchè il valore nullo o no del campo su cui discutiamo potrebbe dipendere proprio da questo...<br>
+<br>
+Comunque si, schematizziamo pure la terra come un piano.<br>
+Credo che il problema della carica immagine a geometria sferica sia overkill per le olimpiadi. Forse preipho e ipho no però... Non so, son anni fuori dall'ambiente olimpico, non so gli standard attuali!</article>
+<article class="post" id="p9353"><div class="who"><b>Gabry</b><span>31 ago 2012, 22:50</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>E il modulo di queste cariche che dici giustamente di aggiungere, qual'è? Uguale alle altre, opposto, diverso? E se diverso di quanto?<br>
+Perchè il valore nullo o no del campo su cui discutiamo potrebbe dipendere proprio da questo...
+</div></blockquote>
+
+Hai ragione tu, mi ricordavo male le cariche immagine hanno segno opposto alle cariche reali. A questo punto il campo elettrico dovrebbe essere <span class="tex">\(E={2q\over 4\pi \epsilon_0d^2}-{2q\over 16\pi \epsilon_0d^2}={3\over 2}{q\over 4\pi \epsilon_0d^2}\)</span> Ma a questo punto non bisognerebbe considerare la costante dielettrica relativa del terreno?</article>
+<article class="post" id="p9355"><div class="who"><b>Pigkappa</b><span>1 set 2012, 1:31</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>E il modulo di queste cariche che dici giustamente di aggiungere, qual'è? Uguale alle altre, opposto, diverso? E se diverso di quanto?<br>
+Perchè il valore nullo o no del campo su cui discutiamo potrebbe dipendere proprio da questo...<br>
+<br>
+Comunque si, schematizziamo pure la terra come un piano.<br>
+Credo che il problema della carica immagine a geometria sferica sia overkill per le olimpiadi. Forse preipho e ipho no però... Non so, son anni fuori dall'ambiente olimpico, non so gli standard attuali!</div></blockquote>
+
+Potrebbe anche essere dato, ma spiegando tutto per bene (con enunciati chiari, anche senza dimostrare tutto) in modo che possano capire quel che stanno facendo. Dare un problema che si fa con le cariche immagine senza nessuna indicazione mi pare un po' cattivo...</article>
+<article class="post" id="p9357"><div class="who"><b>t4ilgr4b</b><span>1 set 2012, 1:56</span></div><blockquote><div><cite>Fedecart ha scritto:</cite>E il modulo di queste cariche che dici giustamente di aggiungere, qual'è? Uguale alle altre, opposto, diverso? E se diverso di quanto?<br>
+Perchè il valore nullo o no del campo su cui discutiamo potrebbe dipendere proprio da questo...<br>
+<br>
+Comunque si, schematizziamo pure la terra come un piano.</div></blockquote>
+
+Il modulo è q e sono opposte... Quindi è giusto ciò che ho scritto?<blockquote><div><cite>t4ilgr4b ha scritto:</cite>Potrebbe essere <span class="tex">\(Q = 8 \pi \epsilon d^2 E\)</span><br>
+Se <span class="tex">\(E = \frac{\delta V}{\delta d}\)</span><br>
+Allora <span class="tex">\(E = \frac{Q}{8 \pi \epsilon d^2}\)</span><br>
+E quindi...  :| spero in non troppe boiate...</div></blockquote>
+
+Non penso si debba cambiare la costante dielettrica perchè non sono cariche reali quello "dentro" la terra...</article>
+<article class="post" id="p9358"><div class="who"><b>Gabry</b><span>1 set 2012, 7:47</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Fedecart ha scritto:</cite>E il modulo di queste cariche che dici giustamente di aggiungere, qual'è? Uguale alle altre, opposto, diverso? E se diverso di quanto?<br>
+Perchè il valore nullo o no del campo su cui discutiamo potrebbe dipendere proprio da questo...<br>
+<br>
+Comunque si, schematizziamo pure la terra come un piano.<br>
+Credo che il problema della carica immagine a geometria sferica sia overkill per le olimpiadi. Forse preipho e ipho no però... Non so, son anni fuori dall'ambiente olimpico, non so gli standard attuali!</div></blockquote>
+
+Potrebbe anche essere dato, ma spiegando tutto per bene (con enunciati chiari, anche senza dimostrare tutto) in modo che possano capire quel che stanno facendo. Dare un problema che si fa con le cariche immagine senza nessuna indicazione mi pare un po' cattivo...</div></blockquote>
+
+Se non mi pare male mi pare di aver visto un problema con le cariche a immagine a simmatria sferica in qualche ipho recente mentre leggevo distrattamente i testi per farmi un'idea di quale fosse il livello delle ipho e mi pare che fosse abbastanza guidato, ma non avendo provato a risolverlo né avendone visto la soluzione non saprei dire...</article>
+<article class="post" id="p9360"><div class="who"><b>modesto</b><span>1 set 2012, 9:34</span></div>La carica +q a distanza 300 m induce cariche di segno opposto nella superficie terrestre contigua e di segno uguale in quella più lontana. Tutto va come se ci fossero cariche puntiformi equivalenti (quelle che Gabry chiama immagini) che producessero potenziale costante sulla superficie sferica e che ho chiamato <span class="tex">\(-q_1,+q_1\)</span>. Disponendo quest'ultima nel centro in modo che produca potenziale costante sulla sfera, il suo modulo e la posizione dell'altra le scelgo in modo che insieme a +q produca potenziale nullo sulla sfera terrestre. Conto uggioso ma non complicato ( si tratta di imporre che il luogo dei punti in cui si annulla il potenziale generato da q e <span class="tex">\(-q_1\)</span> sia proprio l'equazione della sfera) che fornisce <span class="tex">\(-q_1= -q\frac{R}{R+d}\)</span> dove R è il raggio terrestre, situata a distanza <span class="tex">\(\frac{Rd}{R+d}\)</span> dalla superficie e <span class="tex">\(\frac{R^{2}}{R+d}\)</span> dal centro. Si trova così un potenziale sulla superficie, generato solo da +<span class="tex">\(q_1\)</span>, pari a <br>
+<span class="tex">\(V = -{q}{8\pi \epsilon_0(R+d)}\)</span>. Ugualmente si procede per -q a distanza 600 m. Poi si determina E misurato -dV/dr .Mi risulterebbe se non sbaglio i conti<br>
+<span class="tex">\(q= 100.8\pi\epsilon_0(R+d)R\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-101.html"><small>← precedente</small>Contraddizione sull&#x27;energia di una &quot;bussola&quot;</a><a class="next" href="olifis-6017.html"><small>successivo →</small>lastre piane e parallele... in movimento!</a></nav>
+</main></body></html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pila di mattoni</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>Pila di mattoni</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=640">forum Olifis</a></p>
+<article class="post first" id="p5705"><div class="who"><b>spn</b><span>11 dic 2010, 17:01</span></div>Si vogliono sovrapporre <span class="tex">\(N\)</span> mattoni di lunghezza <span class="tex">\(2d\)</span> in modo da ottenere una pila in equilibrio. Qual'è la massima separazione orizzontale ottenibile fra il centro di massa del mattone più in basso e quello del mattone più in alto?<br>
+<br>
+<br>
+<br>
+<br>
+(Il problema è preso da qui: <a href="http://www.df.unipi.it/~cella/ueg/uegbook.pdf" class="ext" class="postlink">http://www.df.unipi.it/~cella/ueg/uegbook.pdf</a>, ci sono molti altri problemini carini, anche se in buon numero richiedono analisi da fine liceo/inizio università).</article>
+<article class="post" id="p5748"><div class="who"><b>Rosstheonlyboss</b><span>16 dic 2010, 15:44</span></div>sn di 3 liceo. è inutile tentarlo??? xD</article>
+<article class="post" id="p5753"><div class="who"><b>Ippo</b><span>17 dic 2010, 1:16</span></div><blockquote><div><cite>Rosstheonlyboss ha scritto:</cite>sn di 3 liceo. è inutile tentarlo??? xD</div></blockquote>
+non è che sia vietato ai minori, puoi provarci!  :P</article>
+<article class="post" id="p5754"><div class="who"><b>spn</b><span>17 dic 2010, 1:24</span></div>nono, è fattibile con poche conoscenze di fisica, basta sapere qualche nozione sul centro di massa.<br>
+Se non ti viene in mente niente ti do un hint:<br>
+<span style="font-size: 20%; line-height: normal">Prova a vedere qual'è la massima distanza per casi con N piccolo (tipo N=2,3,4), da lì si capisce abbastanza bene come dovrà essere la formula generale, che però dovrai dimostrare</span>.</article>
+<article class="post" id="p5765"><div class="who"><b>f.o.x</b><span>18 dic 2010, 13:48</span></div>Posto questo ragionamento, sbagliato, perchè non trovo dev'è l'errore.<br>
+Il centro di massa del sistema deve essere compreso nella base d'appoggio. Poniamo ora un sistema di assi cartesiani centrato nel CDM del primo blocco, con l'asse y rivolto verso l'alto e l'asse x verso destra. Il centro di massa del sistema si trova così:<br>
+<span class="tex">\(\displaystyle {x_{cm}=\frac {m_1x_1+m_2x_2+...+m_nx_n} {M}=\frac {m}{nm}\Delta x=\frac {\Delta x}{n}}\)</span>Dato che la massima distanza tra il primo centro di massa e l'ultimo si ha quando è massimo il CDM del sistema, <span class="tex">\(x_{cm}\)</span> sarà <span class="tex">\(d\)</span>. Quindi <span class="tex">\(\Delta x= nd\)</span>.<br>
+Questa soluzione è sbagliata perchè impone che il CDM di ogni blocco sia sul bordo del blocco precedente, e questa configurazione non produce equilibrio, ma dovè la falla nel ragionamento?</article>
+<article class="post" id="p5776"><div class="who"><b>spn</b><span>19 dic 2010, 13:14</span></div><blockquote><div><cite>f.o.x ha scritto:</cite> ogni blocco sia sul bordo del blocco precedente</div></blockquote>
+Lo sbaglio dovrebbe essere questo. Per ciascun mattone, si deve avere che il cdm complessivo di tutti quelli sopra di lui deve stargli entro, non solo quello del mattone immediatamente sopra.</article>
+<article class="post" id="p5780"><div class="who"><b>f.o.x</b><span>19 dic 2010, 14:13</span></div><blockquote class="uncited"><div>Per ciascun mattone, si deve avere che il cdm complessivo di tutti quelli sopra di lui deve stargli entro, non solo quello del mattone immediatamente sopra.</div></blockquote>
+Infatti io ho preso il CDM di tutto il sistema e ho imposto che deve essere all'interno della base d'appoggio del primo blocco. L'errore stava nella formula (che ora si vede  :D ) poichè io avevo inteso <span class="tex">\(\Delta x\)</span> come la distanza tra il centro degli assi cartesiani e l'ultimo CDM, ma invece questo è la somma di tutte le distanze dei vari CDM dall'origine, quindi devo togliere una certa quantità a <span class="tex">\(\Delta x\)</span> per trovare il risultato, che ad occhio direi che è la somma di tutti gli <span class="tex">\(x_i-x_{i-1}\)</span> quindi il risultato sarà:<br>
+<span class="tex">\(\displaystyle { nd - \sum_{i=1}^n x_i - x_{i-1} }\)</span><br>
+<br>
+Potrei aver sbagliato perchè vado di fretta, in caso dopo ci penso meglio</article>
+<article class="post" id="p5782"><div class="who"><b>Meta*</b><span>19 dic 2010, 18:21</span></div>Considerando la <span class="tex">\(x_{cdm}\)</span> dei blocchi al centro dei mattoni, la <span class="tex">\(X_{cdm}\)</span> (che possiamo considerare come quella del mattone centrale) non deve superare la distanza <span class="tex">\(L/2\)</span> dal centro mentre quello più in alto non supera la distanza <span class="tex">\(L\)</span> dal cdm del primo.. quindi :<br>
+<span class="tex">\(n \Delta x \le L\)</span><br>
+Da cui :<br>
+<span class="tex">\(\Delta x \le \frac{L}{n}\)</span><br>
+Se indico con m il numero del mattone che mi interessa lo spostamento del suo centro di massa rispetto a quello del primo lo posso ricavare scrivendo :<br>
+<span class="tex">\(x_{cdm} \le m \frac{L}{n}\)</span>     per     <span class="tex">\(m = n\)</span>    (ultimo mattone) ottengo       <span class="tex">\(x_{cdm} = L\)</span><br>
+Sistema di riferimento con origine nel cdm del primo mattone  :geek:<br>
+<br>
+Inutile dire che se il cdm del sistema supera il bordo del primo mattone si ha una rotazione e che per simmetria (essendo la massa distribuita uniformemente) essendo il primo mattone a una distanza L/2 a sinistra del cdm l'ultimo sara a L/2 a destra (o viceversa)</article>
+<article class="post" id="p5783"><div class="who"><b>spn</b><span>20 dic 2010, 0:18</span></div>@fox: per N=3 si nota facilmente che la distanza massima è 3/2 d, che non sembra andare bene con il tuo risultato.<br>
+<br>
+@Meta*:
+<blockquote><div><cite>Meta* ha scritto:</cite>mentre quello più in alto non supera la distanza  L dal cdm del primo</div></blockquote>
+Ma perchè mai? (da qui il problema sarebbe inoltre già risolto...non ha molto senso dividere per n e moltiplicare per n per far tornare L).</article>
+<article class="post" id="p5785"><div class="who"><b>Meta*</b><span>20 dic 2010, 14:48</span></div><blockquote><div><cite>spn ha scritto:</cite>
+@Meta*:
+<blockquote><div><cite>Meta* ha scritto:</cite>mentre quello più in alto non supera la distanza  L dal cdm del primo</div></blockquote>
+Ma perchè mai? (da qui il problema sarebbe inoltre già risolto...non ha molto senso dividere per n e moltiplicare per n per far tornare L).</div></blockquote>
+
+Perche se considero la pila di mattoni come un solido di massa omogenea ho che il cdm si trova al centro e non può uscire fuori dalla base altrimenti si crea un momento e il solido cade (quindi distanza L/2) per simmetria l'ultimo mattone avra lo spigolo a un ulteriore L/2 quindi la distanza massima è L. O no  :?:</article>
+<article class="post" id="p5786"><div class="who"><b>spn</b><span>20 dic 2010, 16:06</span></div><blockquote><div><cite>Meta* ha scritto:</cite>l'ultimo mattone avra lo spigolo a un ulteriore L/2</div></blockquote>
+Qui sbagli, ti basta notare il caso N=2. Cerca di ragionare bene su tutti i passaggi. <br>
+Ti anticipo che la cosa più interessante di questo problema è che viene fuori che per un numero infinito di mattoni la distanza massima diventa anch'essa infinito.</article>
+<article class="post" id="p5787"><div class="who"><b>AxxMan</b><span>20 dic 2010, 16:39</span></div>A me infatti viene questo <span class="tex">\(D=d(1 + \frac1 2+ \frac1 3+...+\frac1 {n-1})\)</span><br>
+Il problema è fare una dimostrazione rigorosa, perchè mi viene solo facendo i conti in maniera ricorsiva</article>
+<article class="post" id="p5794"><div class="who"><b>egl</b><span>21 dic 2010, 18:38</span></div>Si potrebbe risolvere in questo modo: trovare la distanza fra il cdm del mattone più in basso e quello del mattone più in alto significa (dato che il primo mattone sporge di metà della sua lunghezza) sommare tutti i pezzetti di mattone che sporgono, dal primo all' n-esimo.<br>
+<br>
+Poi, preso il mattone x, per l'equilibrio il cdm del sistema formato da tutti i mattoni più in alto di x deve essere proprio sul bordo di x (pechè cerco la massima distanza). Conto i mattoni dal 1 in alto all' n-esimo in basso e voglio trovare di quanto l'<span class="tex">\(N-1\)</span> mattone può sporgere oltre il bordo dell' n-esimo (quindi dell'ultimo). Piazzo gli assi con l'origine sul vertice in basso a sinistra dell'<span class="tex">\(N-1\)</span> mattone e scrivo, per l'equilibrio:<br>
+<br>
+<span class="tex">\(x_{cdm}=\dfrac{md+m(N-2)\cdot 2d}{m(N-1)}=\dfrac{2dN+3d}{N+1}\)</span><br>
+<br>
+Devo sottrarre a <span class="tex">\(2d\)</span> questa distanza per vedere di quanto l' n-1 mattone può sporgere, per cui<br>
+<br>
+<span class="tex">\(2d-\frac{2dN-3d}{N-1}=2d\left(\frac{1}{2(N-1)}\right )\)</span> infatti se, ad esempio, N=2 i conti tornano.<br>
+<br>
+Il tutto, quindi, si riduce ad una sommatoria:  <span class="tex">\(D_{max}=\displaystyle \sum_{n=2}^N 2d\left (\frac{1}{2(n-1)} \right)\)</span> che, se si analizzano un po' di casi, si riconduce a <span class="tex">\(\displaystyle d\sum_{n=1}^{N-1}\frac{1}{n}\)</span></article>
+<article class="post" id="p5795"><div class="who"><b>Meta*</b><span>21 dic 2010, 19:52</span></div>Credo di aver capito il ragionamento ma non mi torna un fatto :<br>
+Se considero 3 blocchi ho che il secondo sporge di una lunghezza d mentre il terzo di d/2 rispetto il 2° quindi il loro cdm si trova a <span class="tex">\(\frac{d + (d + \frac{d}{2})}{2} \longrightarrow \frac{5}{4}d\)</span> che è al di fuori dello spigolo del primo blocco  :?:</article>
+<article class="post" id="p5796"><div class="who"><b>egl</b><span>21 dic 2010, 21:22</span></div>Ho caricato un disegno della situazione che (mi sembra) stai descrivendo.<br>
+<br>
+<a class="lost" href="http://img84.imageshack.us/img84/1401/mattoni.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+La distanza <span class="tex">\(a\)</span> vale <span class="tex">\(d\)</span> e la distanza <span class="tex">\(b\)</span> vale <span class="tex">\(d\over 2\)</span>. Questo dalla formula di prima. Il centro di massa dei blocchi 2 e 3 si troverà oltre il bordo del 1°, ma cosa importa se questo si trova più in alto?  ;)</article>
+<article class="post" id="p5797"><div class="who"><b>Meta*</b><span>21 dic 2010, 21:34</span></div>aaah  :lol:  <br>
+io partivo dal basso verso l'alto (nel senso ampiezza maggiore in basso e decrescente salendo) per questo non mi trovavo col cdm,  mi sono ricordato di un problema simile sull'halliday<br>
+Alcuni problemi sono meno semplici di quello che sembrano,   grazie del disegnino  :roll:</article>
+<article class="post" id="p5801"><div class="who"><b>spn</b><span>22 dic 2010, 2:02</span></div>Apposto  ;) , notate che come si diceva la serie <span class="tex">\(\displaystyle \sum_{n=2}^{\infty} {1 \over n}\)</span> diverge, per cui per un numero infinito di mattoni la distanza può diventare infinito, che non è per niente banale.</article>
+<article class="post" id="p5803"><div class="who"><b>AxxMan</b><span>22 dic 2010, 15:51</span></div>Che idiota, il mio ragionamento era identico a quello di egl ma non mi era venuto di usare la sommatoria per fare le cose formalmente... Devo ricordarmi che esiste  :lol:</article>
+<article class="post" id="p5805"><div class="who"><b>Pigkappa</b><span>22 dic 2010, 20:26</span></div><blockquote><div><cite>spn ha scritto:</cite>Apposto  ;) , notate che come si diceva la serie <span class="tex">\(\displaystyle \sum_{n=2}^{\infty} {1 \over n}\)</span> diverge, per cui per un numero infinito di mattoni la distanza può diventare infinito, che non è per niente banale.</div></blockquote>
+
+Beh, infinito per modo di dire. Con un milione (!) di mattoni di un metro (!) di lunghezza si arriva comunque ad una quindicina di metri in quel modo  :P ...</article>
+<nav class="pager"><a class="prev" href="olifis-24.html"><small>← precedente</small>Macchina di Atwood... Infinita!</a><a class="next" href="olifis-644.html"><small>successivo →</small>Barche all&#x27;inseguimento.</a></nav>
+</main></body></html>

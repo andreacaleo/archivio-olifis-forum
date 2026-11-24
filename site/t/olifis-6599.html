@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scuola invernale NON ufficiale</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../olimpiadi.html">Olimpiadi di Fisica</a></span></nav>
+<h1>Scuola invernale NON ufficiale</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6599">forum Olifis</a></p>
+<article class="post first" id="p24189"><div class="who"><b>OrsoBruno96</b><span>16 dic 2017, 17:48</span></div>Ciao a tutti.<br>
+<br>
+Dal 4 al 10 febbraio 2018 si terrà uno stage di preparazione alla fase Nazionale e Internazionale delle Olimpiadi della Fisica.<br>
+<br>
+Il progetto è interamente organizzato da studenti di Fisica della Scuola Normale Superiore che hanno partecipato alle Olimpiadi Nazionali ed Internazionali della Fisica. Lo stage è realizzato in collaborazione con la Scuola Normale Superiore, l'AIF ed il Gruppo Olimpiadi non sono coinvolti. La Scuola rilascerà un attestato di partecipazione.<br>
+<br>
+Lo stage si svolgerà a Pisa. Le lezioni e discussioni di problemi teorici si svolgeranno all'interno del Palazzo della Carovana, sede della Scuola Normale Superiore, mentre le esperienze di laboratorio verranno realizzate nei laboratori didattici dell'Università di Pisa. <br>
+<br>
+Chiunque ha la facoltà di iscriversi, ma è stato fissato un numero massimo di partecipanti di 24 persone. È prevista una quota di iscrizione che viene utilizzata quasi interamente per pagare le spese dell'alloggio. Il resto verrà speso per il materiale didattico. Il viaggio invece è a completo carico dell'interessato.<br>
+<br>
+Le modalità di iscrizione e eventuali informazioni aggiuntive su vitto e alloggio sono disponibili sul sito dell'evento:<br>
+<a href="https://stagefisica.uz.sns.it/" class="ext" class="postlink">https://stagefisica.uz.sns.it/</a><br>
+<br>
+Il termine ultimo per la presentazione delle iscrizioni è il giorno 15/01/18. <br>
+Per qualsiasi informazione e contatto è stato attivato l'indirizzo email <br>
+<a href="mailto:segreteria.stagefisica@gmail.com" class="ext">segreteria.stagefisica@gmail.com</a><br>
+<br>
+<br>
+ATTENZIONE: purtroppo al momento il sito dell'evento non funziona. Il punto è che la macchina su cui è hostato il sito è stata spenta durante le vacanze di Natale (non per nostro volere ovviamente). Stiamo cercando una soluzione alternativa. Nel frattempo, è disponibile il sito di ripiego <br>
+<a href="http://sito-stage-olifis.surge.sh/" class="ext" class="postlink">http://sito-stage-olifis.surge.sh/</a><br>
+<br>
+Ci scusiamo per il disservizio</article>
+<article class="post" id="p24190"><div class="who"><b>antonio s.a.</b><span>16 dic 2017, 21:45</span></div>Come vengono scelte queste 25 persone?</article>
+<article class="post" id="p24191"><div class="who"><b>OrsoBruno96</b><span>17 dic 2017, 2:08</span></div>Come indicato sul sito dell'evento, che ho indicato sopra, viene richiesto di inviare un "curriculum olimpico" insieme alla domanda di iscrizione. Il criterio principale di selezione sarà basato su questo curriculum. <br>
+<br>
+Ci tengo a precisare che il livello dello stage è avanzato, come specificato sul sito dell'evento. Non mi sto riferendo a te, dato che non ti conosco, ma sconsiglio a chi è davvero alle prime armi di iscriversi, potrebbe trovare difficile seguire le lezioni e potrebbe essere per lui una perdita di tempo.<br>
+<br>
+P.S. Se non si fosse capito, consiglio di visitare il sito dell'evento, dovrei aver scritto le informazioni essenziali. Se qualcosa manca, chiedere qui o per mail, ma lì dovrebbero esserci le cose fondamentali</article>
+<article class="post" id="p24192"><div class="who"><b>antonio s.a.</b><span>17 dic 2017, 11:14</span></div>Perfetto. Ho letto anche sul link postato ed è  tutto chiaro .  Unico dubbio : come ci si organizza con la scuola e con l'accompagnatore?</article>
+<article class="post" id="p24194"><div class="who"><b>OrsoBruno96</b><span>17 dic 2017, 15:09</span></div>Non è previsto alcun accompagnatore, lo studente deve autonomamente arrivare a Pisa. Chiaramente niente vi vieta di portare un accompagnatore, ma sarebbe un po' inutile. Dovrebbe trovarsi vitto e alloggio da solo per una settimana per non fare niente, gli studenti sono impegnati dalle 9 del mattino fino alle 19. <br>
+<br>
+Per la scuola, se ti stai chiedendo come giustificare l'assenza, la Normale rilascerà un attestato di partecipazione e questo potrà essere utilizzato per far valere l'attività come attività didattica. In base a quello che decide il preside, potrebbe addirittura passare come alternanza scuola lavoro, ma dipende dal preside. <br>
+<br>
+Le scuole degli studenti selezionati per partecipare verranno contattate dalla Normale che darà ulteriori delucidazioni sull'evento e si accorderanno su questioni burocratiche come le assicurazioni.<br>
+<br>
+Ho risposto alla tua domanda o intendevi altro?</article>
+<article class="post" id="p24195"><div class="who"><b>antonio s.a.</b><span>17 dic 2017, 15:16</span></div>Grazie  mille . Era quello che intendevo.  :)</article>
+<article class="post" id="p24213"><div class="who"><b>IrishWhiskey</b><span>21 dic 2017, 13:59</span></div>Esistono stage un po più semplici da seguire?</article>
+<article class="post" id="p24214"><div class="who"><b>drago</b><span>21 dic 2017, 14:41</span></div>prima della gara di secondo livello ci sono dei corsi organizzati dai vari poli, qui sul sito delle olifis verrà messo un elenco dei poli che organizzano l'evento e le date in cui è tenuto (almeno gli anni scorsi l'hanno fatto), questi sono pensati in preparazione della gara provinciale quindi penso che siano quello che ti interessa.</article>
+<article class="post" id="p24216"><div class="who"><b>IrishWhiskey</b><span>21 dic 2017, 22:52</span></div>Grazie, ma dubito che nella mia zona venga organizzata qualcosa :cry:</article>
+<article class="post" id="p24263"><div class="who"><b>OrsoBruno96</b><span>2 gen 2018, 21:19</span></div>Ho aggiunto il seguente pezzo al messaggio originale a causa di qualche piccolo problema tecnico:<br>
+<br>
+ATTENZIONE: purtroppo al momento il sito dell'evento non funziona. Il punto è che la macchina su cui è hostato il sito è stata spenta durante le vacanze di Natale (non per nostro volere ovviamente). Stiamo cercando una soluzione alternativa. Nel frattempo, è disponibile il sito di ripiego <br>
+<a href="http://sito-stage-olifis.surge.sh/" class="ext" class="postlink">http://sito-stage-olifis.surge.sh/</a><br>
+<br>
+Ci scusiamo per il disservizio</article>
+<article class="post" id="p24371"><div class="who"><b>marcomila99</b><span>20 gen 2018, 16:56</span></div>-------------------------------------------------------------</article>
+<article class="post" id="p24373"><div class="who"><b>drago</b><span>21 gen 2018, 2:10</span></div>non possiamo fornire nessuna delle informazioni che richiedi in quanto ci sono state date senza nessun permesso scritto che ci autorizzi a divulgarle.<br>
+per poter assecondare la tua richiesta dovremmo richiedere i sovracitati permessi firmati da un tutore e ciò richiederebbe troppo tempo e in questi giorrni non ne abbiamo.<br>
+spero che potrai comprendere questa nostra posizione</article>
+<nav class="pager"><a class="prev" href="olifis-7175.html"><small>← precedente</small>Risultati gara di II livello 2023</a><a class="next" href="olifis-387.html"><small>successivo →</small>Gara di secondo livello</a></nav>
+</main></body></html>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lastre piane e parallele... in movimento!</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../problemi-teorici.html">Problemi teorici</a></span></nav>
+<h1>lastre piane e parallele... in movimento!</h1>
+<p class="meta">28 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6017">forum Olifis</a></p>
+<article class="post first" id="p20009"><div class="who"><b>andrea96</b><span>20 dic 2014, 20:05</span></div>Ora che sono iniziate le olimpiadi e il forum mi sembra un pochino più popolato, è il momento di postare qualche problema simpatico e fattibile... spero di non rimanere l'unico a combattere questa battaglia :lol:  :lol:  :lol: <br>
+Due lastre piane, infinite e parallele sono caricate con densità superficiale <span class="tex">\(+\sigma\)</span> e <span class="tex">\(-\sigma\)</span> rispettivamente. Le lastre non sono tenute ferme da nulla, quindi la forza elettrostatica tra di loro le porterebbe a "scontrarsi"; ma noi non lo vogliamo! Allora le mettiamo in movimento alla stessa velocità, e la velocità deve essere tale che la forza totale su ciascuna delle piastre è nulla. è possibile fare questa cosa?</article>
+<article class="post" id="p20013"><div class="who"><b>Simone256</b><span>20 dic 2014, 22:20</span></div>Molto molto carino :)</article>
+<article class="post" id="p20048"><div class="who"><b>arna1998</b><span>26 dic 2014, 1:45</span></div>Dato che nessuno ha ancora provato a fare il problema, tento io, anche se per ora sono lontano dal risultato.<br>
+Faccio una domanda, dato che non dai la distanza tra le lastre tra i dati, il risultato è indipendente da essa giusto?</article>
+<article class="post" id="p20049"><div class="who"><b>andrea96</b><span>26 dic 2014, 2:00</span></div><blockquote><div><cite>arna1998 ha scritto:</cite>Dato che nessuno ha ancora provato a fare il problema, tento io, anche se per ora sono lontano dal risultato.<br>
+Faccio una domanda, dato che non dai la distanza tra le lastre tra i dati, il risultato è indipendente da essa giusto?</div></blockquote>
+si è indipendente! :D do un aiutino: considerate un area unitaria e provate a vedere quando la risultante delle forze è nulla. Quando le lastre sono ferme agisce solo forza elettrica che è attrattiva ( questa non dovrebbe creare problemi... apparte uno, ma vedremo... ); quando le lastre si muovono...</article>
+<article class="post" id="p20051"><div class="who"><b>arna1998</b><span>26 dic 2014, 2:08</span></div>Me lo aspettavo, ma ciò mi allontana ancora di più dalla soluzione :? <br>
+Il problema sulle distanze me lo crea appunto il movimento della lastre, perché ho provato un paio di approcci, ma la distanza non se ne va. Proverò a seguire il tuo suggerimento.</article>
+<article class="post" id="p20052"><div class="who"><b>andrea96</b><span>26 dic 2014, 2:19</span></div><blockquote><div><cite>arna1998 ha scritto:</cite>Me lo aspettavo, ma ciò mi allontana ancora di più dalla soluzione :? <br>
+Il problema sulle distanze me lo crea appunto il movimento della lastre, perché ho provato un paio di approcci, ma la distanza non se ne va. Proverò a seguire il tuo suggerimento.</div></blockquote>
+Giusto per capire dove sbagli ( non ti darò un altro suggerimento altrimenti distruggo tutto il tuo divertimento  :D ), da dove ti viene fuori la distanza tra le lastre?</article>
+<article class="post" id="p20054"><div class="who"><b>arna1998</b><span>26 dic 2014, 11:15</span></div>Quando provo a calcolare il campo magnetico, non avendo idee, ho provato a immaginare la lastra come un insieme di infiti fili in cui scorre corrente, tutti paralleli alla direzione della velocità. Da lì uso le formula per calcolare il campo magnetico di un filo rettilineo infinitamente lungo provando a sommare il contributo di ogni filo, ma chiaramente resta dipendente dalla distanza... Da ciò deduco che il mio ragionamento è sbagliato, però non ho altre idee :(</article>
+<article class="post" id="p20057"><div class="who"><b>Simone256</b><span>26 dic 2014, 14:29</span></div>Dovrebbe funzionare! Prova a mettere il procedimento del calcolo del campo magnetico! :)</article>
+<article class="post" id="p20058"><div class="who"><b>andrea96</b><span>26 dic 2014, 14:43</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>Dovrebbe funzionare! Prova a mettere il procedimento del calcolo del campo magnetico! :)</div></blockquote>
+Infatti! c'è un modo più veloce ma quella è anche giusta come idea... probabilmente sbagli qualche conto  :D</article>
+<article class="post" id="p20061"><div class="who"><b>arna1998</b><span>27 dic 2014, 12:02</span></div>Dato che mi avete detto che l'approccio era giusto e che veniva effettivamente indipendente dalla distanza, ho corretto e riveduto i conti, ho trovato un errore, ed ora mi è uscito un risultato senza di essa. <br>
+Spiego come, perché ho ancora un problemino per arrivare alla soluzione definitiva. <br>
+Consideriamo il campo magnetico generato da una singola lastra. Guardando la lastra nella direzione in cui si muove e prendendo come verso quello in cui la lastra entra nel disegno, il campo magnetico sarà diretto verso destra. In un punto <span class="tex">\(P\)</span> a distanza <span class="tex">\(d\)</span> dalla lastra il campo magnetico è dato dalla somma di tutti i campi generati dagli infiniti fili paralleli che immaginiamo che la lastra sia divisa. Sappiamo che il campo magnetico generato da un filo è:<br>
+ <span class="tex">\(B=\frac{\mu_0}{2\pi r}i\)</span> con <span class="tex">\(i\)</span> l'intensità di corrente che scorre in un filo, che è uguale per ognuno di essi, e <span class="tex">\(r\)</span> la distanza dal filo.<br>
+(Questa parte potrebbe essere non molto chiara senza un disegno, forse lo preparo e carico più tardi) Chiamiamo <span class="tex">\(D\)</span> la proiezione di <span class="tex">\(P\)</span> sulla lastra, ed <span class="tex">\(a\)</span> la distanza di un generico filo <span class="tex">\(f\)</span> da <span class="tex">\(D\)</span>.<br>
+La distanza tra <span class="tex">\(f\)</span> e <span class="tex">\(P\)</span> è data da <span class="tex">\(r=\sqrt{d^2+a^2}\)</span>. Il campo magnetico in <span class="tex">\(P\)</span> generato da <span class="tex">\(f\)</span> sarà perpendicolare alla retta <span class="tex">\(Pf\)</span>. Se lo scomponiamo perpendicolarmente e parallelamente alla lastra, possiamo dire che la componente perpendicolare verrà annulata per simmetria da un altro campo. La componente parallela sarà uguale <span class="tex">\(B_f\cdot \sin{\widehat{PfD}}\)</span>, ma <span class="tex">\(\sin{\widehat{PFD}}=\frac{d}{\sqrt{d^2+a^2}}\)</span> quindi possiamo dire che la componente parallela campo magnetico generato dal filo <span class="tex">\(f\)</span> in P è:<br>
+<span class="tex">\(\displaystyle B_{f,x}=\frac{\mu_0}{2\pi }i \frac{1}{\sqrt{d^2+a^2}}\frac{d}{\sqrt{d^2+a^2}}=\frac{\mu_0d}{2\pi(d^2+a^2)}i\)</span><br>
+Per trovare il campo magnetico dobbiamo tener conto del contributo di tutti i fili:<br>
+<span class="tex">\(\displaystyle dB=\frac{\mu_0d}{2\pi(d^2+a^2)}ida\)</span> Integrando tra <span class="tex">\(-\infty\)</span> e <span class="tex">\(+\infty\)</span> perchè la lastra ha estensione infinita:<br>
+<span class="tex">\(\displaystyle B=\int_{-\infty}^{+\infty}\frac{\mu_0d}{2\pi(d^2+a^2)}ida=\frac{\mu_0}{2\pi}i\int_{-\infty}^{+\infty}\frac{d}{d^2+a^2}da=\frac{\mu_0}{2\pi}i\pi=\frac{\mu_0}{2}i\)</span><br>
+<br>
+Ora il problema è calcolare <span class="tex">\(i\)</span> :? <br>
+Non sono riuscito a trovare un modo per farlo, anche se intuitivamente penso che sia proporzionalle a <span class="tex">\(\sigma\)</span> e alla velocità con cui si muove la lastra, ma per ora non ho ancora trovato nulla.</article>
+<article class="post" id="p20064"><div class="who"><b>andrea96</b><span>27 dic 2014, 15:13</span></div>ok l'idea è giusta, i conti non li ho controllati ma a occhio mi sembra che quello che ti viene ha senso... come ti sei reso conto anche tu c'è un problemino con la corrente, il fatto è questo: il "filo ideale"  è infinitesimo e trasporta quindi una corrente infinitesima <span class="tex">\(di\)</span>, se scrivi questa corrente come <span class="tex">\(di=Kda\)</span> ( dove <span class="tex">\(K\)</span> è costante visto che per simmetria la corrente è uniforme e <span class="tex">\(da\)</span> è l'elemento di lunghezza infinitesimo perpendicolare al filo ) ti accorgerai che <span class="tex">\(K\)</span> è la derivata della corrente rispetto alla lunghezza perpendicolare al filo, è l'analogo bidimensionale della densità di corrente e si chiama appunto densità superficiale di corrente. Per collegare <span class="tex">\(K\)</span> ai dati del problema ti do una formula più generale ( e importantissima ) che da quello che ho capito non conosci: se una densità di carica <span class="tex">\(\rho\)</span> si muove a velocità <span class="tex">\(\vec v\)</span>, in quel punto c'è una densità di corrente <span class="tex">\(\vec j=\rho \vec v\)</span>; ora da queste cose prova a rifare l'integrale mettendoci dentro le cose nuove e dopo esserti ricavato la formula che ti ho dato nel caso bidimensionale.<br>
+In ogni caso sono convinto che ti arrabbierai parecchio quando ti dirò in che modo tutto questo poteva essere evitato  :D  :D  :D</article>
+<article class="post" id="p20065"><div class="who"><b>arna1998</b><span>27 dic 2014, 17:51</span></div>Non avevo mai sentito parlare della densità di corrente, sono un po' più indietro sull'Halliday, anche se ora gli ho dato uno sguardo :) <br>
+Comunque, ho una domanda prima di provare a rifare l'integrale.<br>
+Mi hai detto che in ogni filo passa una corrente infinitesima tale <span class="tex">\(di= K da\)</span>. La costante <span class="tex">\(K\)</span> è quindi qualcosa di analogo alla densità di corrente, ma siccome noi lavoriamo con una lastra in due dimensioni <span class="tex">\(J=\sigma \cdot v\)</span>, che si misura in <span class="tex">\(\frac{A}{m}\)</span> anziché in <span class="tex">\(\frac{A}{m^2}\)</span>, ma funziona comunque giusto?<br>
+<br>
+Mi incuriosisci dicendo che si poteva evitare tutto questo casino ahhahhahah :lol:</article>
+<article class="post" id="p20066"><div class="who"><b>andrea96</b><span>27 dic 2014, 18:14</span></div>Guarda visto che non conosci la densità di corrente ti spiego subito ci vogliono due parole: una definizione può essere proprio quella che ti ho dato prima cioè <span class="tex">\(\vec j=\rho \vec v\)</span> quindi è un vettore che ha la stessa direzione della velocità con cui si sta muovendo la carica in quel punto. Ora a che serve? serve perchè si può dimostrare ( e riuscirai sicuramente a farlo in un caso semplificato, cioè corrente uniforme in un filo ) che il flusso di questo vettore attraverso una superficie è la corrente totale che attraversa la superficie. Quando riduciamo le dimensioni possiamo sempre immaginare per semplicità che la dimensione che abbiamo eliminato c'è ma è molto piccola; quindi se invece di avere una densità volumica di carica <span class="tex">\(\rho\)</span> ne ho una superficiale <span class="tex">\(\sigma\)</span> posso sempre immaginare che ci sia uno spessore piccolissimo <span class="tex">\(ds\)</span> così che <span class="tex">\(\sigma=\rho ds\)</span> e quindi scrivere <span class="tex">\(\vec j=\frac{\sigma}{ds} \vec v\)</span>. Ora visto che lo spessore è praticamente nulla capirai che la densità di corrente è praticamente infinita ( come lo è la densità di carica chiaramente ) quindi non serve a niente. Ci inventiamo allora un altro vettore, <span class="tex">\(\vec K=\sigma \vec v\)</span> così che nel caso bidimensionale <span class="tex">\(\vec j=\frac{\vec K}{ds}\)</span> che possiamo facilmente collegare alla corrente in questo modo: calcolando il flusso su una superficie a sinistra otteniamo la corrente, a destra una delle due dimensioni della superficie è chiaramente <span class="tex">\(ds\)</span> che si semplifica con quella al denominatore, quindi viene fuori che nel caso bidimensionale la corrente è data da una specie di "flusso su una linea" ( con un abuso di termine ), cioè in realtà devi andare a fare un integrale sulla linea con le componenti di <span class="tex">\(\vec K\)</span> perpendicolari alla linea. Nel caso semplicissimo in cui <span class="tex">\(\vec K\)</span> è uniforme e la linea è perpendicolare a esso si ha <span class="tex">\(i=Kl\)</span>. Spero di essere stato chiaro perchè per sistemare il problema servono queste cose.<br>
+Per come potevi evitare tutto questo se vuoi ti do un indizio... :D</article>
+<article class="post" id="p20070"><div class="who"><b>arna1998</b><span>28 dic 2014, 13:38</span></div>Ora dovrei esserci, scrivo la soluzione completa, anche se ho ancora qualche piccolo dubbio... :roll: <br>
+Iniziamo con il dire che ogni lastra genera un campo elettrico uniforme, che non dipende dalla velocità perché in ogni punto la carica è sempre la stessa in ogni istante, quindi possiamo trattare le lastre come immobili.<br>
+Consideriamone una sola: per simmetria il campo è perpendicolare alla lastra. Calcoliamo il flusso su un parallelepipedo di base <span class="tex">\(A\)</span>, non appoggiato sulla lastra, ma messo in modo di avere le due basi in parti opposte della lastra. Si tratta quindi calcolare il flusso attraverso soltanto le due basi: <span class="tex">\(2AE=\frac{\sigma A}{\epsilon_0}\)</span> per la legge di Gauss. Quindi il campo è: <span class="tex">\(E=\frac{\sigma}{2\epsilon_0}\)</span>. <br>
+La lastra muovendosi genera anche un campo magnetico. Se la guardiamo perpendicolarmente alla direzione della velocità e si sta muovendo verso destra allora il campo sarà entrante. Calcoliamone l'intensità, seguendo in parte ilragionamento del mio post precedente e l'aiuto di Andrea:<br>
+<span class="tex">\(\displaystyle dB=\frac{\mu_0}{2\pi r}di\cdot \sin{\widehat{PfD}}\)</span> <br>
+Sapendo che <span class="tex">\(r=\sqrt{a^2+d^2}\)</span>,  <span class="tex">\(di=\vec{K}da\)</span> e che <span class="tex">\(\sin{\widehat{PfD}}=\frac{d}{\sqrt{a^2+d^2}}\)</span>:<br>
+<span class="tex">\(\displaystyle dB=\frac{\mu_0K}{2\pi}\frac{d}{a^2+d^2}da  \Longrightarrow B= \frac{\mu_0K}{2\pi}\int_{-\infty}^{+\infty}\frac{d}{a^2+d^2}da=\frac{\mu_0K}{2}\)</span><br>
+Sappiamo inoltre che <span class="tex">\(K\)</span> è la densità di corrente e quindi <span class="tex">\(K=\sigma v\)</span><br>
+<br>
+Consideriamo due porzioni di lastra unitarie(sempre su suggerimento di Andrea):<br>
+Una altra attrae l'altra per gli effetti elettrici con una forza di intensità:<br>
+<span class="tex">\(\displaystyle F_E=qE=\frac{\sigma^2}{2\epsilon_0}\)</span><br>
+<br>
+Allo stesso tempo respinge l'altra con una forza <span class="tex">\(F_B\)</span> dovuta al campo magnetico che ha stessa direzione di <span class="tex">\(F_E\)</span>, ma verso opposto (se le altre si muovo nello stesso verso):<br>
+<span class="tex">\(\displaystyle F_B=qvB=\sigma v B=\frac{\mu_0\sigma^2 v^2}{2}\)</span><br>
+<br>
+Siccome le due lastre devono rimanere alla stessa distanza:<br>
+<span class="tex">\(\displaystyle F_B=F_E \Longrightarrow \frac{\mu_0\sigma^2 v^2}{2}=\frac{\sigma^2}{2\epsilon_0} \Longrightarrow v=\sqrt{\frac{1}{\epsilon_o \mu_0}}\)</span><br>
+<br>
+Il risultato non dipende dalla densità di carica :shock: La cosa è un po' strana, quindi ho il dubbio di aver sbagliato qualcosa...<br>
+Bisognerebbe dire anche che ogni punto ha la stessa carica quindi le forze agiscono allo stesso modo e possiamo estendere il ragionamento, dato che abbiamo considerato soltanto una superficie unitaria.</article>
+<article class="post" id="p20071"><div class="who"><b>sall96</b><span>28 dic 2014, 13:58</span></div><blockquote><div><cite>arna1998 ha scritto:</cite> <span class="tex">\(v=\sqrt{\frac{1}{\epsilon_o \mu_0}}\)</span></div></blockquote>
+
+E ci possono andare veramente a questa velocita' le lastre?  :D</article>
+<article class="post" id="p20073"><div class="who"><b>andrea96</b><span>28 dic 2014, 14:10</span></div>Allora il risultato ti viene giusto... ma per caso!  :D infatti ci sono 4 errori! :o il primo ( che è il più evidente ) lo hai fatto nel calcolare il campo elettrico: il flusso attraverso la faccia del parallelepipedo che si trova fuori è nullo quindi quel fattore <span class="tex">\(2\)</span> non ci va.<br>
+L'altro errore (analogo) è nel calcolo del campo magnetico: tu hai calcolato il campo magnetico generato da una lastra infinita e ti viene giustamente indipendente dalla distanza, ma qui ce ne sono due! Per calcolare la forza infatti a te interessano i campi nelle immediate vicinanze di una lastra, e li i campi delle due lastre vanno sommati. In realtà è lo stesso errore che hai fatto nel caso elettrico, quindi, pensa a come potresti calcolare il campo magnetico con qualcosa di simile al teorema di gauss ( chiaramente non il teorema di gauss per la magnetostatica perchè quello serve molto raramente, ma c'è un altro teorema per il campo magnetico... ;) )<br>
+Ora ci sono altri due errori che non ti dico per adesso perchè vengono da una cosa molto importante. Ti faccio tre domande per provare a ragionarci da solo: Quanto valgono i campi nello spazio esterno alle due lastre? Perchè per calcolare le forze usi il campo all'interno e non quello all'esterno? Quale dovresti usare REALMENTE?</article>
+<article class="post" id="p20075"><div class="who"><b>andrea96</b><span>28 dic 2014, 14:13</span></div><blockquote><div><cite>sall96 ha scritto:</cite><blockquote><div><cite>arna1998 ha scritto:</cite> <span class="tex">\(v=\sqrt{\frac{1}{\epsilon_o \mu_0}}\)</span></div></blockquote>
+
+E ci possono andare veramente a questa velocita' le lastre?  :D</div></blockquote>
+Si beh poi è quella la questione interessante  :D  :D  :D Prova a calcolarlo con la calcolatrice e vedi se il valore ti ricorda qualcosa... :D  :D  :D</article>
+<article class="post" id="p20084"><div class="who"><b>arna1998</b><span>28 dic 2014, 21:09</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Allora il risultato ti viene giusto... ma per caso!  :D infatti ci sono 4 errori! :o </div></blockquote>
+Mmm non pensavo così tanti :lol: L'idea del mio ragionamento era di considerare prima una singola lastra, e calcolarne campo elettrico e magnetico singolarmente, poi vederne gli effetti che aveva sull'altra e bilanciare le forze. <br>
+Dato che tu mi hai detto che devo ragionare trovando la somma dei campi generati, provo a mettere un po' a posto tutto...<br>
+<br>
+Il campo elettrico che si viene a formare è nullo esternamente alle lastre, mentre ha intensità doppia di quello generato da una singola tra le due:<br>
+ <span class="tex">\(E_i=2\frac{\sigma}{2\epsilon_0}=\frac{\sigma}{\epsilon_0}\)</span> e <span class="tex">\(E_e=0\)</span><br>
+<br>
+Mi sono reso conto che i due campi magnetici sono opposti, perché la densità che si muove in una lastra è di segno opposto all'altro. Quindi (non ne sono sicuro) credo che sia lo stesso che per il campo elettrico, ovvero:<br>
+<span class="tex">\(B_i=2\frac{\mu_0K}{2}=\mu_0 K\)</span> e <span class="tex">\(B_e=0\)</span><br>
+
+<blockquote><div><cite>andrea96 ha scritto:</cite>pensa a come potresti calcolare il campo magnetico con qualcosa di simile al teorema di gauss ( chiaramente non il teorema di gauss per la magnetostatica perchè quello serve molto raramente, ma c'è un altro teorema per il campo magnetico... ;) )
+</div></blockquote>
+Credo che tu ti riferisca alla legge di Ampere. Ne avevo letto da qualche parte un po' di tempo fa, e prima di iniziare questo problema l'avevo riguardata un po' perché pensavo che poteva tornarmi utile nel problema, ma non ero riuscito a farci nulla, perché probabilmente sbaglio ad usarla o non ho capito qualcosa :? <br>
+
+<blockquote><div><cite>andrea96 ha scritto:</cite>
+Ora ci sono altri due errori che non ti dico per adesso perchè vengono da una cosa molto importante. Ti faccio tre domande per provare a ragionarci da solo: Quanto valgono i campi nello spazio esterno alle due lastre? Perchè per calcolare le forze usi il campo all'interno e non quello all'esterno? Quale dovresti usare REALMENTE?</div></blockquote>
+Ora che ho scritto i campi totali e non più quelli di una singola lastra, non so quali scegliere, esterni o interni :?: <br>
+Mi verrebbe da risponderti che realmente uso quelli interni perché se no non viene il problema, ma non è una risposta molto sensata... Ci penso ancora un po' su<br>
+
+<blockquote><div><cite>andrea96 ha scritto:</cite><blockquote><div><cite>sall96 ha scritto:</cite><blockquote><div><cite>arna1998 ha scritto:</cite> <span class="tex">\(v=\sqrt{\frac{1}{\epsilon_o \mu_0}}\)</span></div></blockquote>
+
+E ci possono andare veramente a questa velocita' le lastre?  :D</div></blockquote>
+Si beh poi è quella la questione interessante  :D  :D  :D Prova a calcolarlo con la calcolatrice e vedi se il valore ti ricorda qualcosa... :D  :D  :D</div></blockquote>
+Ho fatto il conto e viene <span class="tex">\(v=\sqrt{\frac{1}{\mu_0\epsilon_0}}=c\)</span>, quindi le lastre non possono muoversi a questa velocità perché è la velocità della luce! Molto interessante :D</article>
+<article class="post" id="p20085"><div class="who"><b>Pigkappa</b><span>28 dic 2014, 21:59</span></div><blockquote><div><cite>arna1998 ha scritto:</cite>Ho fatto il conto e viene <span class="tex">\(v=\sqrt{\frac{1}{\mu_0\epsilon_0}}=c\)</span>, quindi le lastre non possono muoversi a questa velocità perché è la velocità della luce! Molto interessante :D</div></blockquote>
+Era da qualche giorno che aspettavo che finalmente arrivaste a questo risultato  :? , finalmente ci siamo!<br>
+<br>
+Adesso, fate il problema nel modo furbo :P . Supponete si muovano alla stessa velocita', mettetevi nel sistema di riferimento in cui sono ferme, e traete le conclusioni.<br>
+<br>
+Domanda bonus (potrebbe essere molto difficile): calcolate la forza sulle lastre in funzione della densita' di carica e della velocita' con i due metodi, e assicuratevi che venga uguale.<br>
+<br>
+[non vi scordate di calcolare il campo magnetico anche con il teorema di Ampere, e' istruttivo anche quello]</article>
+<article class="post" id="p20088"><div class="who"><b>andrea96</b><span>28 dic 2014, 23:00</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>
+<br>
+Adesso, fate il problema nel modo furbo :P . Supponete si muovano alla stessa velocita', mettetevi nel sistema di riferimento in cui sono ferme, e traete le conclusioni.</div></blockquote>
+Beh in effetti era per questo che avevo messo questo problema... spesso i collegamenti tra elettromagnetismo e relatività non si trattano a scuola però secondo me sono importantissimi... bello questo problema vero?? :D</article>
+<article class="post" id="p20089"><div class="who"><b>andrea96</b><span>28 dic 2014, 23:12</span></div>Per arna1998: la questione della forza è interessante. In realtà a te non interessa ne il campo da una parte né dall altra ma interessa il campo SULLA lastra, il problema è che quello è un punto di discontinuità per il campo. Questo "paradosso" nasce dal fatto che in realtà non esistono distribuzioni superficiali di carica quindi nella realtà il campo si annulla gradualmente e nella nostra approssimazione di lastra piana possiamo dire che il campo effettivo che devi considerare è una .edita tra quello dentro e quello fuori ( se non hai capito beme dispiego perché non so se sono stato molto chiaro ). Qui in realtà il risultato ti viene lo stesso perché fai l errore su tutte e due le forze e gli errori si compensano Pero è importa te capire questa cosa per non fare errori nel caso in cui c'è una sola forza...</article>
+<article class="post" id="p20093"><div class="who"><b>Pigkappa</b><span>29 dic 2014, 3:17</span></div><blockquote><div><cite>andrea96 ha scritto:</cite><blockquote><div><cite>Pigkappa ha scritto:</cite>
+<br>
+Adesso, fate il problema nel modo furbo :P . Supponete si muovano alla stessa velocita', mettetevi nel sistema di riferimento in cui sono ferme, e traete le conclusioni.</div></blockquote>
+Beh in effetti era per questo che avevo messo questo problema... spesso i collegamenti tra elettromagnetismo e relatività non si trattano a scuola però secondo me sono importantissimi... bello questo problema vero?? :D</div></blockquote>
+
+Yes, bel problema :)</article>
+<article class="post" id="p20095"><div class="who"><b>Simone256</b><span>29 dic 2014, 13:56</span></div>Provo a rispondere al bonus:<br>
+1) Ponendoci nel sistema di riferimento con le lastre a riposo le densità di carica si riducono di un fattore <span class="tex">\(\displaystyle \gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}\)</span>, quindi si riduce sia campo elettrico che carica su cui agisce la forza. Per unità di superficie la forza sarà quindi diminuita di un fattore <span class="tex">\(\gamma^2\)</span>:<br>
+<br>
+<span class="tex">\(p=\displaystyle \frac{\sigma^2}{2\varepsilon_0 \gamma^2}\)</span><br>
+<br>
+2) Nel sistema di riferimento iniziale la forza elettrica per unità di superficie (repulsiva) vale:<br>
+<br>
+<span class="tex">\(p_1=\displaystyle \frac{\sigma^2}{2\varepsilon_0}\)</span><br>
+<br>
+Il campo magnetico parallelo alla seconda lastra generato dalla prima con direzione perpendicolare alla velocità delle lastre si calcola con la circuitazione di Ampère e dovrebbe valere:<br>
+<br>
+<span class="tex">\(B=\displaystyle \frac{\sigma v \mu_0}{2}\)</span><br>
+<br>
+La forza attrattiva per unità di superficie varrà:<br>
+<br>
+<span class="tex">\(\displaystyle p_2=B\sigma v= \frac{\sigma^2 v^2 \mu_0}{2}\)</span><br>
+<br>
+La forza repulsiva per unità di superficie vale quindi:<br>
+<br>
+<span class="tex">\(\displaystyle p=p_1-p_2=\frac{\sigma^2}{2\varepsilon_0}- \frac{\sigma^2 v^2 \varepsilon_0 \mu_0}{2\varepsilon_0} = \frac{\sigma^2}{2\varepsilon_0}- \frac{\sigma^2 v^2}{2\varepsilon_0 c^2} =\frac{\sigma^2}{2\varepsilon_0}(1-\frac{v^2}{c^2})=\frac{\sigma^2}{2\varepsilon_0 \gamma^2}\)</span><br>
+<br>
+Dove si è usata la strafigherrima relazione: <span class="tex">\(\displaystyle c^2 \mu_0 \varepsilon_0=1\)</span></article>
+<article class="post" id="p20096"><div class="who"><b>andrea96</b><span>29 dic 2014, 14:04</span></div><blockquote><div><cite>Simone256 ha scritto:</cite>
+<br>
+2) Nel sistema di riferimento iniziale la forza elettrica per unità di superficie (repulsiva) vale:
+</div></blockquote>
+
+Perché è repulsiva?</article>
+<article class="post" id="p20098"><div class="who"><b>Simone256</b><span>29 dic 2014, 14:15</span></div>Perchè la carica delle lastre ha lo stesso segno  :?<br>
+<br>
+EDIT: Ok ho riletto la consegna solo adesso  :lol:  :lol:  :lol: <br>
+Giustamente bisogna scambiare tutti i miei "repulsiva" con "attrattiva" e viceversa  :P</article>
+<article class="post" id="p20100"><div class="who"><b>andrea96</b><span>29 dic 2014, 15:08</span></div>Si vabbè tanto è lo stesso :lol:  :lol:</article>
+<article class="post" id="p20110"><div class="who"><b>arna1998</b><span>29 dic 2014, 21:47</span></div><blockquote><div><cite>andrea96 ha scritto:</cite>Per arna1998: la questione della forza è interessante. In realtà a te non interessa ne il campo da una parte né dall altra ma interessa il campo SULLA lastra, il problema è che quello è un punto di discontinuità per il campo. Questo "paradosso" nasce dal fatto che in realtà non esistono distribuzioni superficiali di carica quindi nella realtà il campo si annulla gradualmente e nella nostra approssimazione di lastra piana possiamo dire che il campo effettivo che devi considerare è una .edita tra quello dentro e quello fuori ( se non hai capito beme dispiego perché non so se sono stato molto chiaro ). Qui in realtà il risultato ti viene lo stesso perché fai l errore su tutte e due le forze e gli errori si compensano Pero è importa te capire questa cosa per non fare errori nel caso in cui c'è una sola forza...</div></blockquote>
+Credo di aver capito, siccome abbiamo supposto una cosa che non può esistere siamo giunti in un paradosso. Una sola cosa, se mi puoi riscrivere questo: "...è una .edita tra quello dentro e quello fuori...", immagino che sia colpa di qualche correttore  :lol: , così sono sicuro di aver capito</article>
+<article class="post" id="p20111"><div class="who"><b>andrea96</b><span>29 dic 2014, 22:32</span></div>ahahah si l'ho scritto dal telefono :lol:  :lol: <br>
+"è una media tra quello dentro e quello fuori" :D  :D Il concetto è che assumendo che lo spessore sia piccolissimo, diciamo infinitesimo quindi <span class="tex">\(dx\)</span>, per avere una passaggio da un valore del campo <span class="tex">\(E_0\)</span> a un valore nullo all'esterno in uno spazio così piccolo, il campo può avere solo un andamento lineare e quindi si assume che il campo "all'interno" della lastra sia <span class="tex">\(\frac{E_0}{2}\)</span>. Questo è un discorso molto approssimativo per darti un idea del perchè non va bene prendere semplicemente <span class="tex">\(E_0\)</span> ma matematicamente li c'è una discontinuità, però fisicamente bisogna prendere qualcosa  ;) . Se ti va puoi provare a dimostrare che devi prendere proprio <span class="tex">\(\frac{E_0}{2}\)</span> in questo modo: considera le lastre fissate (cioè non possono muoversi ) e isolate ( cioè non possono ne acquistare ne perdere carica ), calcola l'energia elettrostatica del sistema <span class="tex">\(U\)</span> in funzione della densità di carica, della superficie delle piastre e della separazione tra di loro, e poi immagina di spostare una delle due piastre di una distanza piccolissima <span class="tex">\(dx\)</span>, per definizione la forza agente tra le piastre è <span class="tex">\(F=\frac{dU}{dx}\)</span>. Se ti viene un espressione che con le dovute sostituzioni è riconducibile a <span class="tex">\(\frac{E_0}{2}\)</span> hai dimostrato il fatto.<br>
+Chiaramente tutto il discorso vale anche per il campo magnetico.</article>
+<nav class="pager"><a class="prev" href="olifis-1397.html"><small>← precedente</small>Un problema sulle nuvole.</a><a class="next" href="olifis-6059.html"><small>successivo →</small>42: riuscirà l&#x27;elettrone a raggiungere il conduttore?</a></nav>
+</main></body></html>

@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domande Orali SNS</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio del forum Olifis</a><span class="crumb"><a href="../sns.html">Orali</a></span></nav>
+<h1>Domande Orali SNS</h1>
+<p class="meta">54 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=130">forum Olifis</a></p>
+<article class="post first" id="p1237"><div class="who"><b>Davide90</b><span>9 giu 2009, 11:40</span></div>Replico uno dei classici post del forum di mate, rivolgendomi anche ai mod e utenti vari del forum delle OliFis (soprattuto alle giovani matricole, quali Pigkappa e altri che non so se bazzicano questo forum)<br>
+<br>
+<em class="text-italics">Quali domande vi hanno fatto all'orale della Normale?</em><br>
+<br>
+Bonus Question: l'orale è completamente identico sia che uno voglia entrare per mate che per fisica?<br>
+[premessa: io tenterò per fisica, nonostante forse sia messo un pelino meglio in mate...  :? )</article>
+<article class="post" id="p1242"><div class="who"><b>Albertopisa</b><span>9 giu 2009, 12:57</span></div>Gia' che ci siamo aggiungo una domanda io: qualcuno sa come sono, rispetto a quelli per fisica, gli orali di matematica e fisica per chimici? Piu' facili? Argomenti diversi?</article>
+<article class="post" id="p1251"><div class="who"><b>Pigkappa</b><span>9 giu 2009, 21:36</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>Bonus Question: l'orale è completamente identico sia che uno voglia entrare per mate che per fisica?</div></blockquote>
+
+Sì, in teoria è uguale. Può darsi che le commissioni di Fisica siano più indulgenti coi Matematici e viceversa, ma non è detto e se succede la differenza è comunque piuttosto limitata.<br>
+<br>
+Ogni tanto le domande di fisica sono simili (o perfino uguali...) ad alcuni vecchi problemi dello scritto. Magari più avanti ne posterò qualcuna, al momento non ho molto tempo. Comunque una buona preparazione è sapere molto bene la teoria del liceo scientifico P.N.I. (e magari qualcosina di più) ed essersi allenati sui problemi delle Olimpiadi e del test SNS degli anni passati.</article>
+<article class="post" id="p1393"><div class="who"><b>bacco</b><span>24 giu 2009, 0:18</span></div>Secondo la mia esperienza, le domande tendono a essere più difficili, in modo sensibile, sulla materia per cui uno prova ad entrare.<br>
+<br>
+Le domande di fisica possono variare da cose classiche a cose decisamente non-standard che sul momento possono mettere in difficoltà. In ogni caso conta non perdere la testa e ragionare in modo intelligente, è questo che loro guardano, non è assolutamente un orale nozionistico. Certamente vedere i problemi vecchi dell'ammissione aiuta, così come sapere bene il programma olimpico; il livello, per fare un paragone a occhio, si aggira su senigallia / pre-ipho.</article>
+<article class="post" id="p2483"><div class="who"><b>Pairo</b><span>11 set 2009, 22:18</span></div>Posso riesumare questo topic per sapere almeno i cenni delle domande fatte?<br>
+Ormai ne ho già lette parecchie, però si ha sempre la sensazione che vederne di più aiuti.<br>
+In ogni caso grazie mille, e non preoccupatevi se non riuscite a rispondere..</article>
+<article class="post" id="p2489"><div class="who"><b>Pigkappa</b><span>11 set 2009, 23:51</span></div>Una domanda dell'anno scorso: stai osservando un vulcano, quando all'improvviso si verifica un'eruzione esplosiva. Riesci a stimare l'altezza raggiunta dai lapilli che vanno più in alto, e puoi raccogliere frammenti di materiale da terra. Sai quando è lungo il camino vulcanico da cui è uscito il materiale. Fare una stima della pressione nel bacino magmatico.</article>
+<article class="post" id="p2495"><div class="who"><b>Pairo</b><span>12 set 2009, 8:11</span></div>Grazie mille, come al solito!</article>
+<article class="post" id="p2623"><div class="who"><b>Davide90</b><span>19 set 2009, 13:08</span></div>Chiedo ai novelli normalisti di quest'anno (mi vengono in mente su questo forum Pairo, Ippo, Paolo90, Julio14, didudo, eli90, ma ce ne sono anche altri) di postare le loro domande di ammissione per Matematica e Fisica all'orale!  :)</article>
+<article class="post" id="p2624"><div class="who"><b>Paolo90</b><span>19 set 2009, 14:18</span></div>MATE1: sei su un vertice di un cubo, vuoi arrivare al vertice opposto camminando sulle facce: trovare il percorso minimo (molto classico e noto direi)<br>
+MATE2: dire come variano le radici di un polinomio al variare del termine noto, in particolare per termini noti molto grandi<br>
+FISICA1: problemi sbagliati degli scritti (con un po' di domande bonus sul problema della vela solare)<br>
+FISICA2: cerchi di far bollire l'acqua fornendo 100 watt di potenza, a 92 gradi la temperatura non sale piu', spegni il fornello, dire dopo quanto tempo la temperatura scende di un grado (io avevo iniziato a farlo ponendo che la potenza dispersa era direttamente proporzionale alla differenza di temperatura con l'esterno, per poi risolvere l'equazione differenziale, ma loro mi hanno detto di considerare che si disperdeva una potenza costante di 100 watt...). Mi hanno anche chiesto quanto vale una caloria.<br>
+FISICA3:hai un circuito rettangolare con una resistenza e una barra che si puo' muovere, un campo magnetico costante e perpendicolare al piano el circuito, la barra inizialmente ha una velocita' v, descrivere il moto.<br>
+<br>
+a me e' sembrato un orale facile, probabilmente la filosifia e' stata "siamo indulgenti con i fisici...":D</article>
+<article class="post" id="p2625"><div class="who"><b>eli9o</b><span>19 set 2009, 14:19</span></div>Matematica:<br>
+1)calcolare il lato del cubo inscritto (si dice così?) in un ottaedro regolare<br>
+2)pseudo triangolo di Tartaglia: un commissario ha fatto la "cornice" alternando agli estremi zeri e uni poi i numeri dentro si ottengono sommando i 2 sopra come nella costruzione del triangolo di Tartaglia<br>
+11<br>
+0-0<br>
+1--1<br>
+0---0<br>
+...      <br>
+La domanda era trovare una formula chiusa per la somma della n-esima riga.<br>
+<br>
+Fisica:<br>
+1)determinare la forma di un contenitore a simmetria assiale con un rubinetto in fondo tale che l'altezza del liquido contenuto cali a velocità costante (secondo me è bello, consiglio di provare)<br>
+2)determinare resistenza e capacità in un circuito RC note la corrente iniziale e quella dopo 5 secondi. Poi ha tolto resistenza e generatore e i cavi collegati al condensatore finivano in 2 elettrodi in una soluzione di AgOH (idrossido di argento?). Mi ha chiesto di calcolare il volume di ossigeno che si genera nella soluzione.<br>
+<br>
+Poi mi han fatto una domanda su uno dei parecchi errori stupidi dello scritto. Non ho perseverato ed erano contenti  :D <br>
+<br>
+Io ho provato per matematica anche se non credo che la difficoltà dei problemi tenga molto conto di questo.</article>
+<article class="post" id="p2626"><div class="who"><b>Julio14</b><span>19 set 2009, 16:46</span></div>Mate1: Si ha un polinomio di sesto grado monico, e sappiamo che p(0)=0, p(1)=1...p(5)=5. Trovare p(6). Fin qui abbastanza sul classico.<br>
+<br>
+Mate2: Era un po' strana, provo a spiegare tutto quello che mi hanno fatto fare.<br>
+Hanno iniziato a farmi fare 1 diviso 7 in stile elementari, calcolando le cifre. Poi mi chiedono di rifare la stessa cosa in binario. Viene 1:111=0,001001001... mi hanno chiesto perché viene periodico così particolare, e gli ho detto perché 7=2^3-1, poi in modo non troppo chiaro sono andati avanti a chiedermi il significato di questa scrittura. Al che gli dico che moltiplicando per 111 viene molto bene, perché diventano tutti 1: 0,11111... che è 1. Al che mi chiedono perché è 1, la risposta che volevano credo fosse qualcosa del tipo: è il limite della serie <span class="tex">\(\displaystyle\sum_{i=1}^{+\infty} 1\cdot 10^{-i}\)</span> perché ad ogni termine la serie è minore di 1 ma è possibile superare ogni numero minore di 1. Un problema che ho avuto è stato letteralmente capire cosa volevano, ma credo fosse fatto intenzionalmente per vedere come ragionavamo.<br>
+<br>
+Fisica1: Ero l'ultimo, erano un po' a corto di domande e così mi hanno chiesto l'unico esercizio dello scritto che non avevo fatto, quello sulla gravitazione.<br>
+<br>
+Fisica2: Un po' di stime varie sugli ordini di grandezza di atomi e molecole, del tipo energia di rotazione, momento di inerzia, raggio etc.. Al mio totale sconforto per il fatto di non avere la più pallida idea di quali fossero i numeri in gioco, mi hanno suggerito una pista che, passando per l'acqua di cui si sa densità e massa atomica in uma, portava fino in fondo.</article>
+<article class="post" id="p2627"><div class="who"><b>Ippo</b><span>19 set 2009, 18:49</span></div>Mate1: si può disegnare un triangolo equilatero congiungendo punti a coordinate intere in un piano cartesiano?<br>
+Mate2: hai due n-uple di numeri <span class="tex">\(a_i\)</span> e <span class="tex">\(b_i\)</span>, <span class="tex">\(i=1,\dots n\)</span>, che puoi permutare come vuoi; massimizza <span class="tex">\(\sum a_ib_i\)</span> - alias enuncia e dimostra la disuguaglianza di riordinamento. <br>
+<br>
+Fisica 1: come misureresti il campo magnetico terrestre? (sparo varie risposte più o meno improbabili, poi precisano:) e se disponi solo di una bussola e di una bobina?<br>
+Fisica 2: in un acquario limitato da pareti sopra e sotto c'è un bicchiere capovolto con qualche mole d'aria al suo interno; all'inizio è in equilibrio meccanico da qualche parte; che succede se scaldi o raffreddi l'acquario? se il bicchiere si trova in cima, calcola (conoscendo tutto) la temperatura a cui scende; dopo che è arrivato a fondo, calcola a che temperatura risale; fai un grafico altezza vs temperatura e dimmi che cosa ti ricorda.<br>
+<br>
+Anche nel mio caso la materia scelta non ha minimamente inciso, anzi. In generale, dagli orali che ho seguito (5-6), mi pare che in fisica siano stati molto indulgenti, probabilmente anche alla luce del massacro degli scritti   :)  (promossi 8 fisici su 9; segati senza pietà chimici, biologi e - un pochino meno - matematici). In fisica hanno curiosamente fatto alcune domandine di nozionismo puro, tipo il fattore di conversione joule-caloria, la velocità di fuga dalla terra, il campo magnetico terrestre, la densità della terra....mah  :roll:</article>
+<article class="post" id="p2628"><div class="who"><b>Julio14</b><span>19 set 2009, 19:14</span></div>Commento al primo di mate: credo sia l'unico problema mai visto in vita mia che si può fare con il celeberrimo Teorema di Pick, direttamente dalle schede olimpiche. Anche senza, eh, però dire il Teorema di Pick fa stile :D</article>
+<article class="post" id="p2629"><div class="who"><b>Albertopisa</b><span>19 set 2009, 20:20</span></div>Posto due domande che hanno fatto a me, sporco chimico  :P , ma che so che hanno fatto anche ad altri matematici e fisici:<br>
+<br>
+- hai una sbarra imperniata al centro e una pallina che la urta anaelasticamente con velocita' iniziale <span class="tex">\(v_1\)</span>. Descrivere cio' che avviene dopo l'urto. Ripetere l'esercizio nel caso in cui la sbarretta sia libera di muoversi, senza attriti, sempre con urto anaelastico.<br>
+<br>
+- si considera un filo conduttore cilindrico di lunghezza che si puo' considerare infinita, che ha al suo interno una cavita', anch'essa cilindrica, con asse parallelo a quello del cilindro grande. Si suppone che questo filo sia attraversato da una corrente di intensita' <span class="tex">\(i\)</span>; si determini il campo magnetico <span class="tex">\(B\)</span> al centro della cavita'.</article>
+<article class="post" id="p2630"><div class="who"><b>Xalexalex</b><span>19 set 2009, 20:55</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Matematica:<br>
+1)calcolare il lato del cubo inscritto (si dice così?) in un ottaedro regolare<br>
+2)pseudo triangolo di Tartaglia: un commissario ha fatto la "cornice" alternando agli estremi zeri e uni poi i numeri dentro si ottengono sommando i 2 sopra come nella costruzione del triangolo di Tartaglia<br>
+11<br>
+0-0<br>
+1--1<br>
+0---0<br>
+...      <br>
+La domanda era trovare una formula chiusa per la somma della n-esima riga.<br>
+<br>
+Fisica:<br>
+1)determinare la forma di un contenitore a simmetria assiale con un rubinetto in fondo tale che l'altezza del liquido contenuto cali a velocità costante (secondo me è bello, consiglio di provare)<br>
+<strong class="text-strong">2)determinare resistenza e capacità in un circuito RC note la corrente iniziale e quella dopo 5 secondi. Poi ha tolto resistenza e generatore e i cavi collegati al condensatore finivano in 2 elettrodi in una soluzione di AgOH (idrossido di argento?). Mi ha chiesto di calcolare il volume di ossigeno che si genera nella soluzione.</strong><br>
+<br>
+Poi mi han fatto una domanda su uno dei parecchi errori stupidi dello scritto. Non ho perseverato ed erano contenti  :D <br>
+<br>
+Io ho provato per matematica anche se non credo che la difficoltà dei problemi tenga molto conto di questo.</div></blockquote>
+Questo l'han chiesto anche a me, ma prima mi han chiesto la parte sull'elettrolisi, e poi sul circuito RC =D<br>
+<br>
+Addendum generico: Fisici e Chimici sono stati commissari abbastanza umani, si riusciva a "dialogare", sorridevano ed è scappata qualche batutta. I matematici NO. Aridi nel loro guardarti tutti insieme in ASSOLUTO SILENZIO (con disprezzo, ma in fondo sono un chimico...), seduti intorno al miserando tavolino. Cattivi ù.ù</article>
+<article class="post" id="p2636"><div class="who"><b>Pairo</b><span>20 set 2009, 1:54</span></div>Mi scuso se rispondo in ritardo:<br>
+<br>
+Mate 1:<br>
+in un piano cartesiano considera i triangoli rettangoli che hanno centro nell'origine e la cui somma dei cateti è uno; trova un'espressione su x e y che caratterizzi l'unione di tutti i punti di questi triangoli (soluzione <span class="tex">\(\sqrt x + \sqrt y \leq 1\)</span>)<br>
+Mate 2:<br>
+domanda facile facile di probabilità circa due dadi, uno di sei, l'altro di 4 facce.<br>
+<br>
+Fisica 1.<br>
+come misureresti la velocità della luce (ho dato l'esempio storico della ruota dentata, ma lui voleva che dicessi l'osservazione degli spostamenti periodici dei satelliti di altri pianeti, insieme all'effetto doppler)<br>
+Fisica 2<br>
+hai un circuito con un sacco di schifezze, tra resistenze, induttanze e capacità. Qual'è la carica finale sulle capacità (molto facile); se tolgo le resistenze, che succede? (oscillazioni tra induttanza e capacità)</article>
+<article class="post" id="p2638"><div class="who"><b>Ippo</b><span>20 set 2009, 13:17</span></div>domande di fisica che ho sentito da altri orali:<br>
+- perché le porte/finestre sbattono se c'è corrente d'aria?  :mrgreen: <br>
+- una palla da basket ed una da tennis (di massa molto minore) sono ad una certa altezza da terra, con la palla da tennis sopra quella da basket; cadono: cohe succede? come rimbalzano da terra? a che altezza arriva la pallina da tennis?<br>
+- il solito condensatore a pelo d'acqua (un vecchio ipho già postato da Rigel se non sbaglio)<br>
+- una pallina si trova in cima ad un cono e può scorrere sulla sua superficie laterale secondo una guida a forma di vite (supponiamo il passo della vite molto breve). Quando arriva a terra come si muovono il cono e la pallina? tutto l'affare è appoggiato su un piano senza attrito. (mi è stato riferito quindi non sono sicuro fosse proprio così, ma mi pare di sì)</article>
+<article class="post" id="p2642"><div class="who"><b>MrTeo</b><span>20 set 2009, 19:05</span></div><blockquote><div><cite>Ippo ha scritto:</cite>domande di fisica che ho sentito da altri orali:<br>
+- perché le porte/finestre sbattono se c'è corrente d'aria?  :mrgreen: </div></blockquote>
+
+[OT] Effetto Coandă?  :mrgreen:  [/OT]</article>
+<article class="post" id="p2652"><div class="who"><b>Jing</b><span>20 set 2009, 21:07</span></div>Matematica:<br>
+1) Sia <span class="tex">\(p_n\)</span> il prodotto di <span class="tex">\(k\)</span> interi consecutivi positivi a partire da <span class="tex">\(n\)</span>. Trovare il <span class="tex">\(MCD\)</span> di tutti i <span class="tex">\(p_n\)</span> con <span class="tex">\(k\)</span> fissato.<br>
+2) Sia <span class="tex">\(P(x)=x^3-ax^2-bx-c\)</span>, con <span class="tex">\(a,b,c \in {\mathbb{R}}_+\)</span>. Siano <span class="tex">\(u, v, t\)</span> le radici di <span class="tex">\(P(x)\)</span>, dimostrare che <span class="tex">\(u^n+v^n+t^n&gt;0, \forall n \in \mathbb{N}\)</span>.<br>
+<br>
+Fisica:<br>
+1) Calcolare il rendimento di un ciclo composto da queste trasformazioni:<br>
+-espansione isoterma a <span class="tex">\(T_0\)</span> da <span class="tex">\(V_1\)</span> a <span class="tex">\(V_2\)</span><br>
+-compressione isobara da <span class="tex">\(V_2\)</span> a <span class="tex">\(V_3\)</span><br>
+-compressione isoterma a <span class="tex">\(T_1\)</span> da <span class="tex">\(V_3\)</span> a <span class="tex">\(V_4\)</span><br>
+-espansione isobara da <span class="tex">\(V_4\)</span> a <span class="tex">\(V_1\)</span><br>
+dire perché il rendimento non è lo stesso di un ciclo di Carnot che lavora tra <span class="tex">\(T_0\)</span> e <span class="tex">\(T_1\)</span>.<br>
+2) Lo stesso esercizio dato a Alberto, sul filo bucato infinito percorso da corrente.</article>
+<article class="post" id="p2653"><div class="who"><b>Pigkappa</b><span>21 set 2009, 1:07</span></div><blockquote><div><cite>Jing ha scritto:</cite>Matematica:<br>
+1) Sia <span class="tex">\(p_n\)</span> il prodotto di <span class="tex">\(k\)</span> interi consecutivi positivi a partire da <span class="tex">\(n\)</span>. Trovare il <span class="tex">\(MCD\)</span> di tutti i <span class="tex">\(p_n\)</span> con <span class="tex">\(k\)</span> fissato.
+</div></blockquote>
+
+- benvenuta (o benvenuto)!<br>
+<br>
+- fatto utile per chi leggerà questo topic tra 11 mesi: quella domanda è un classico, viene fatta spesso (lo scorso anno credo l'abbiano fatta a un biologo).  :D</article>
+<article class="post" id="p2655"><div class="who"><b>Davide90</b><span>21 set 2009, 13:11</span></div>Grazie a tutti per le risposte! (anche se vi ringrazieranno di più i futuri aspiranti normalisti  :) ).<br>
+Su alcuni problemi sono piuttosto incerto:
+<blockquote><div><cite>Paolo90 ha scritto:</cite> MATE2: dire come variano le radici di un polinomio al variare del termine noto, in particolare per termini noti molto grandi</div></blockquote>
+Si riferivano all'interpretazione grafica della funzione? Cioè le intercette, all'aumentare del termine noto, "spariscono" due alla volta finchè, per termini noti molto grandi, vi è una sola soluzione (o zero soluzioni se il polinomio è di grado pari).
+<blockquote><div><cite>eli90 ha scritto:</cite> 1)determinare la forma di un contenitore a simmetria assiale con un rubinetto in fondo tale che l'altezza del liquido contenuto cali a velocità costante</div></blockquote>
+<span style="font-size: 85%; line-height: normal">(Quando me l'avevi spiegato a Padova avevo capito che l'altra velocità fosse costante...  :oops: )</span> Il risultato viene del tipo <span class="tex">\(h=kr^4\)</span> ? e nel secondo immagino fosse nota la <span class="tex">\(\mathcal E\)</span> del circuito RC...<br>
+
+<blockquote><div><cite>Ippo ha scritto:</cite>Fisica 1: come misureresti il campo magnetico terrestre? (sparo varie risposte più o meno improbabili, poi precisano:) e se disponi solo di una bussola e di una bobina?<br>
+Fisica 2: in un acquario limitato da pareti sopra e sotto c'è un bicchiere capovolto con qualche mole d'aria al suo interno; all'inizio è in equilibrio meccanico da qualche parte; che succede se scaldi o raffreddi l'acquario? se il bicchiere si trova in cima, calcola (conoscendo tutto) la temperatura a cui scende; dopo che è arrivato a fondo, calcola a che temperatura risale; fai un grafico altezza vs temperatura e dimmi che cosa ti ricorda.</div></blockquote>
+Nel primo intendevano la bussola delle tangenti? (Vecchio problema SNS assegnato negli anni '30... bei tempi) Cioè, avevi a disposizione una batteria? Sennò sarei un po' spiazzato...  :? <br>
+Il secondo in pratica è l' <a href="http://olimpiadi.dm.unibo.it/oliForum/viewtopic.php?t=11416" class="ext" class="postlink">SNS 2007 n. 4</a> (da te risolto un anno fa :D ). Il grafico dovrebbe essere una retta; il "cosa ti ricorda" è il termometro ad acqua (se si chiama così...) inventato da Galileo?<br>
+
+<blockquote><div><cite>Albertopisa ha scritto:</cite>Si considera un filo conduttore cilindrico di lunghezza che si puo' considerare infinita, che ha al suo interno una cavita', anch'essa cilindrica, con asse parallelo a quello del cilindro grande. Si suppone che questo filo sia attraversato da una corrente di intensita' <span class="tex">\(i\)</span>; si determini il campo magnetico <span class="tex">\(B\)</span> al centro della cavita'.</div></blockquote>
+Temo di dire qualche mega cazzata qui... però mi viene da dire che il campo magnetico è nullo. Infatti, qualsiasi linea amperiana passante per il centro della cavità, e in esse compresa, non presenta alcuna corrente concatenata alla linea di integrazione; inoltre la corrente, e quindi il campo elettrico, sono costanti, dunque per la legge di Ampère-Maxwell il campo B deve essere nullo.<br>
+In altro modo, si può pensare al cilindro come a tanti fili infiniti giustapposti a formare un cilindro: ogni filo induce un campo B che giace su un piano perpendicolare all'asse del cilindro, dunque la somma dei vari campi generati dai vari fili è nulla in quanto hanno stesso modulo, ma versi opposti per simmetria.
+<blockquote><div><cite>Jing ha scritto:</cite>1) Sia <span class="tex">\(p_n\)</span> il prodotto di <span class="tex">\(k\)</span> interi consecutivi positivi a partire da <span class="tex">\(n\)</span>. Trovare il <span class="tex">\(MCD\)</span> di tutti i <span class="tex">\(p_n\)</span> con <span class="tex">\(k\)</span> fissato.</div></blockquote>
+È <span class="tex">\(k!\)</span>?<br>
+<br>
+Dopo avervi martellato con decine di domande, vi chiedo un'ultima cosa: se per rispondere a un problema ragiono in silenzio per due o tre minuti di orologio, è disdicevole?<br>
+Penso che sia meglio riflettere un minuto in più ed essere sicuri di dire una cosa giusta, che parlare subito e rischiare di dire fesserie.  :roll:<br>
+<br>
+Grazie mille a chi risponderà a qualche quesito!  :)</article>
+<article class="post" id="p2656"><div class="who"><b>Pigkappa</b><span>21 set 2009, 13:31</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>Il risultato viene del tipo <span class="tex">\(h=kr^4\)</span> ?<br>
+<br>
+Temo di dire qualche mega cazzata qui... però mi viene da dire che il campo magnetico è nullo. <br>
+<br>
+È <span class="tex">\(k!\)</span>?
+</div></blockquote>
+
+1) Sì, credo venga qualcosa del genere. C'era un problema simile (o forse proprio uguale) che ho postato io su questo forum parecchi mesi fa.<br>
+<br>
+2) Secondo me non è nullo, è il classico problema che si risolve immaginando che nella cavità ci siano due correnti, una negativa e una positiva. La tua prima spiegazione del perchè dovrebbe fare zero contiene un errore, la seconda non l'ho capita.<br>
+<br>
+3) Sì, è k!.<br>
+<br>
+<br>
+4) Dipende da quello che pensano i professori, ma in genere no, non puoi stare zitto 3 minuti prima di dire qualcosa. E non puoi passare 3 minuti a scrivere cose su un foglio o sulla lavagna senza spiegare per niente cosa stai facendo.</article>
+<article class="post" id="p2657"><div class="who"><b>eli9o</b><span>21 set 2009, 14:03</span></div>Confermo <span class="tex">\(h=kr^4\)</span>.<br>
+<br>
+Sì <span class="tex">\(\mathcal E\)</span> (non la sapevo fare questa lettera in LaTeX) è nota, mi ero scordato.</article>
+<article class="post" id="p2658"><div class="who"><b>Davide90</b><span>21 set 2009, 14:46</span></div>1) Ok, ho trovato anche il <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/posting.php?mode=reply&amp;f=6&amp;t=130" class="ext" class="postlink">post</a> accennato da Pigkappa, e risolto anche dallo stesso eli90. :D<br>
+2) Avevo capito che anche la cavità avesse lunghezza infinita, invece no...  :oops: Dunque come va risolto? :roll:<br>
+
+<blockquote><div><cite>Pigkappa ha scritto:</cite>4) Dipende da quello che pensano i professori, ma in genere no, non puoi stare zitto 3 minuti prima di dire qualcosa. E non puoi passare 3 minuti a scrivere cose su un foglio o sulla lavagna senza spiegare per niente cosa stai facendo.</div></blockquote>
+Ok, allora la cosa migliore è capire e inquadrare in 20 secondi il problema, e se non si è cibata la soluzione con sicurezza si spiega quale strada si intraprenderebbe. Ad esempio: " Credo che la soluzione si possa trovare in questo modo", oppure "Mi vengono in mente due possibili strade, verifichiamo quale porta al risultato". Inoltre, in Fisica, durante la riflessione si può dire "posso assumere che questa cosa sia trascurabile?", eccetera. Giusto?<br>
+Tutto questo ovviamente, non si fa se si è già capita la soluzione, nel qual caso si può ostentare sicurezza e superiorità.  8-)</article>
+<article class="post" id="p2659"><div class="who"><b>Pairo</b><span>21 set 2009, 15:00</span></div>Per quanto riguarda il mio orale di matematica, il prof mi ha chiesto, prima che iniziassi ad affrontarlo seriamente, di fare qualche considerazione che inquadrasse il problema; ho quindi detto le prime cose ovvie e cosa mi aspettavo che venisse come risultato. Dopo di chè le pause che lasciavano prima di intervenire erano di circa 30-40 secondi; in ogni caso, come hai detto tu, cerca di evitare di dire tutto quello che ti viene in mente, (come ho fatto io ad un certo punto), ma piuttosto pesa le parole, anche se richiede qualche momento in più. Da quel che ho potuto capire è una cosa più apprezzata.<br>
+<br>
+Per quanto riguarda il problema del cilindro ho qualche perplessità. Chiariamo prima le ipotesi:<br>
+<br>
+1) ho un cilindro di lunghezza infinita percorso da corrente;<br>
+2) ho una cavità cilindrica infinita all'interno del cilindro.<br>
+<br>
+Ora, se l'asse della cavità coincide con quella del cilindro, il campo non dovrebbe essere nullo all'interno della cavità?<br>
+Con le solite notazioni, all'interno della cavità, per un certo r abbiamo:<br>
+<br>
+<span class="tex">\(2\pi r {B_1} = {\mu_0}j \pi r^2\)</span><br>
+<span class="tex">\(2\pi r {B_2} = -{\mu_0}j \pi r^2\)</span>   dove <span class="tex">\({B_1}\)</span> e <span class="tex">\({B_2}\)</span> sono i campi generati dalle due correnti  sovrapposte (quella positiva e quella negativa.) Se li sommiamo, tenendo conto che il verso è opposto, dovrebbe dare risultante nulla. C'è un errore?</article>
+<article class="post" id="p2662"><div class="who"><b>Pigkappa</b><span>21 set 2009, 16:16</span></div>- Non ho capito perchè l'asse della cavità deve coincidere con quello del cilindro, o non capisco il testo oppure non c'è scritto...<br>
+
+<blockquote class="uncited"><div>Ok, allora la cosa migliore è capire e inquadrare in 20 secondi il problema, e se non si è cibata la soluzione con sicurezza si spiega quale strada si intraprenderebbe. Ad esempio: " Credo che la soluzione si possa trovare in questo modo", oppure "Mi vengono in mente due possibili strade, verifichiamo quale porta al risultato". Inoltre, in Fisica, durante la riflessione si può dire "posso assumere che questa cosa sia trascurabile?", eccetera. Giusto?<br>
+Tutto questo ovviamente, non si fa se si è già capita la soluzione, nel qual caso si può ostentare sicurezza e superiorità. 8-)</div></blockquote>
+
+Sì, va tutto bene, ma è meglio non ostentare "sicurezza e superiorità" se non sei proprio <strong class="text-strong">veramente</strong> sicuro di quello che stai per dire e di tutte le giustificazioni nascoste che ci sono sotto, per evitare di ritrovarti in situazioni disastrose ("ah, quindi sta usando l'integrazione per sostituzione... ci dice le ipotesi?").</article>
+<article class="post" id="p2663"><div class="who"><b>Pairo</b><span>21 set 2009, 16:21</span></div>Beh sì, ovvio, se l'asse della cavità non coincide con quello del cilindro non è vero; però penso che Davide stesse ragionando su una cavità con asse coincidente.<br>
+Nel caso dell'asse della cavità non coincidente con quello del cilindro basta fare i conti con il principio di sovrapposizione comunque.</article>
+<article class="post" id="p2664"><div class="who"><b>Ippo</b><span>21 set 2009, 17:21</span></div><blockquote><div><cite>Davide90 ha scritto:</cite>Nel primo intendevano la bussola delle tangenti? (Vecchio problema SNS assegnato negli anni '30... bei tempi) Cioè, avevi a disposizione una batteria? Sennò sarei un po' spiazzato...  :? <br>
+Il secondo in pratica è l' <a href="http://olimpiadi.dm.unibo.it/oliForum/viewtopic.php?t=11416" class="ext" class="postlink">SNS 2007 n. 4</a> (da te risolto un anno fa :D ). Il grafico dovrebbe essere una retta; il "cosa ti ricorda" è il termometro ad acqua (se si chiama così...) inventato da Galileo?</div></blockquote>
+1. sì beh chiaro, s'intende che puoi far produrre alla bobina un campo magnetico noto, altrimenti hai un oggetto abbastanza inutile XD e sì, non ho visto quel problema, ma credo che l'idea sia la stessa. Dirigi verso est o ovest il campo della bobina e misuri la deflessione angolare dell'ago della bussola rispetto al nord, fai la tangente e hai il rapporto tra i campi, di cui uno è noto.<br>
+2. Sì, più o meno la stessa cosa. Il punto "simpatico" è che il bicchiere risale dal fondo ad una temperatura maggiore di quella necessaria a farlo scendere dalla cima, cosicché i grafici per temperature discendenti e ascendenti sono diversi. Ho detto che mi ricordava la curva d'isteresi di un materiale magnetico (un po' più "squadrata" ^^) e a giudicare da come hanno reagito direi che era quello che volevano.</article>
+<article class="post" id="p2666"><div class="who"><b>Davide90</b><span>21 set 2009, 20:20</span></div><blockquote><div><cite>Pairo ha scritto:</cite>Beh sì, ovvio, se l'asse della cavità non coincide con quello del cilindro non è vero; però penso che Davide stesse ragionando su una cavità con asse coincidente.<br>
+Nel caso dell'asse della cavità non coincidente con quello del cilindro basta fare i conti con il principio di sovrapposizione comunque.</div></blockquote>
+Esatto, stranamente avevo letto male il testo...    :roll: <br>
+Allora ok, poi bisogna distinguere i casi in base alla grandezza della cavità e alla sua distanza dall'asse, comunque basta fare il conto con il principio di sovrapposizione e la legge di Ampère. Per essere sicuro di avere capito: se per caso la linea amperiana passante per il centro della cavità giace interamente nella cavità, allora B è nullo giusto?<br>
+<br>
+@Ippo:<br>
+1. Ok, era come avevo immaginato, ed è esattamente il succo dle problema che intendevo (tra l'altro risolto anche da Enrico Fermi :D ).<br>
+2. Fico, all'isteresi non ci avevo pensato.</article>
+<article class="post" id="p2668"><div class="who"><b>Jing</b><span>22 set 2009, 12:52</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Jing ha scritto:</cite>Matematica:<br>
+1) Sia <span class="tex">\(p_n\)</span> il prodotto di <span class="tex">\(k\)</span> interi consecutivi positivi a partire da <span class="tex">\(n\)</span>. Trovare il <span class="tex">\(MCD\)</span> di tutti i <span class="tex">\(p_n\)</span> con <span class="tex">\(k\)</span> fissato.
+</div></blockquote>
+
+- benvenuta (o benvenuto)!<br>
+<br>
+- fatto utile per chi leggerà questo topic tra 11 mesi: quella domanda è un classico, viene fatta spesso (lo scorso anno credo l'abbiano fatta a un biologo).  :D</div></blockquote>
+
+("benvenuta"  :P )<br>
+Purtroppo non sapevo era un esercizio così classico, beh, spero serva ai futuri aspiranti normalisti.</article>
+<article class="post" id="p2669"><div class="who"><b>Albertopisa</b><span>22 set 2009, 13:54</span></div>Un altro esercizio particolare che hanno chiesto e che e' rimasto senza risposta e' il seguente: sta piovendo, sei senza ombrello e vuoi arrivare a casa correndo. Essendo nota la velocita' con cui cade l'acqua, la "densita'" delle gocce e la distanza da percorrere, trovare a che velocita' si devecorrere per bagnarsi il meno possibile. Il prof ha anche suggerito di supporre che la persona possa essere schematizzata come un "rettangolo" privo di spessore, in modo tale che, stando fermi, non ci si bagna (anche se non si arriva a casa  8-) ).</article>
+<article class="post" id="p2670"><div class="who"><b>eli9o</b><span>22 set 2009, 14:15</span></div>Ti giri di lato e vai alla velocità che vuoi  8-)</article>
+<article class="post" id="p2694"><div class="who"><b>Rigel</b><span>24 set 2009, 21:09</span></div><blockquote><div><cite>eli9o ha scritto:</cite>Ti giri di lato e vai alla velocità che vuoi  8-)</div></blockquote>
+La soluzione che ti aspetteresti da un matematico  :lol:</article>
+<article class="post" id="p2716"><div class="who"><b>spn</b><span>28 set 2009, 14:03</span></div>Quest'ultimo problema di Albertopisa mi sembra il più interessante dei problemi di quest'anno, soprattutto perchè alla fine mi risulta che puoi andare alla velocità che vuoi, ma sempre la stessa quantità d'acqua prendi, il che dà molto più senso alla vita  :mrgreen: .</article>
+<article class="post" id="p2717"><div class="who"><b>Albertopisa</b><span>28 set 2009, 14:14</span></div><blockquote><div><cite>spn ha scritto:</cite>Quest'ultimo problema di Albertopisa mi sembra il più interessante dei problemi di quest'anno, soprattutto perchè alla fine mi risulta che puoi andare alla velocità che vuoi, ma sempre la stessa quantità d'acqua prendi, il che dà molto più senso alla vita  :mrgreen: .</div></blockquote>
+
+Infatti, il problema che era saltato fuori durante l'interrogazione e' collegare la velocità con cui la pioggia cade con la quantità d'acqua intercettata. E dato che l'interrogato non ha risposto all'esercizio, il dubbio è rimasto  :?</article>
+<article class="post" id="p2718"><div class="who"><b>came14</b><span>28 set 2009, 15:04</span></div><blockquote><div><cite>Rigel ha scritto:</cite><blockquote><div><cite>eli9o ha scritto:</cite>Ti giri di lato e vai alla velocità che vuoi  8-)</div></blockquote>
+La soluzione che ti aspetteresti da un matematico  :lol:</div></blockquote>
+Beh da fisico potresti sperimentare!</article>
+<article class="post" id="p2719"><div class="who"><b>Davide90</b><span>28 set 2009, 15:17</span></div>Ma lo sfortunato passante deve camminare dritto? Perchè se si può piegare in avanti può arrivare a casa perfettamente asciutto, se si inclina rispetto all'orizzontale di un angolo pari a<br>
+<span class="tex">\(\arctan \dfrac{v_a}{v_0}\)</span><br>
+dove <span class="tex">\(v_a\)</span> è la velocita con cui scende la pioggia, <span class="tex">\(v_0\)</span> è la velocita del passante.<br>
+(È lo stesso identico principio dell'aberrazione stellare, in linea teorica il passante incontra solo le gocce che lo colpiscono esattamente sul lato superiore, che per ipotesi è unidimensionale)</article>
+<article class="post" id="p2721"><div class="who"><b>Albertopisa</b><span>28 set 2009, 19:27</span></div>Onestamente credo dovesse correre in posizione perpendicolare al terreno (probabilmente e' un passante scemo che non si rende conto di essere bidimensionale  ;) ), perche' mi sembra che il prof avesse fatto un disegno ben preciso...</article>
+<article class="post" id="p2723"><div class="who"><b>spn</b><span>28 set 2009, 20:20</span></div>Però sarebbe divertente se appena incominciasse a piovere tutte le persone si piegassero  :lol: .<br>
+A parte gli scherzi mi sembra chiaro che il problema non prevedeva magheggi tipo quello di eli9o o di Davide90, perchè non chiedeva della pendenza che conviene avere, ma della velocità. Comunque se a qualcuno interessa il mio ragionamento è questo:<br>
+<br>
+<br>
+L'acqua incide sulla persona con una velocità, rispetto ad essa, <span class="tex">\(\vec{v_1}=\vec{V}+\vec{v}\)</span>, dove <span class="tex">\(V\)</span> e <span class="tex">\(v\)</span> sono le velocità rispettivamente della persona e della pioggia, ed un angolo <span class="tex">\(\alpha\)</span> con la sua superficie. La quantità d'acqua che incide sulla superficie per unità di tempo (che si potrebbe considerare come una portata) è <span class="tex">\(P=v_1 \delta A sen\alpha\)</span>, dove <span class="tex">\(A\)</span> è la superficie e <span class="tex">\(\delta\)</span> la densità di goccie. Percui la quantità totale d'acqua che si prende è: <span class="tex">\(N=P t\)</span> dove per <span class="tex">\(t\)</span>  nel nostro caso vale <span class="tex">\(t= {S \over V}\)</span>, percui: <span class="tex">\(N=v_1 \delta A sen\alpha \cdot {S \over V}\)</span>. Ma <span class="tex">\(sen\alpha={V \over v_1}\)</span>, da cui:  <span class="tex">\(N=\delta A  S\)</span>, che non dipende da <span class="tex">\(V\)</span>.</article>
+<article class="post" id="p5161"><div class="who"><b>TBPL</b><span>11 set 2010, 10:44</span></div>Può essere utile per l'anno prossimo, quindi meglio riesumarlo.<br>
+<br>
+Matematica: <br>
+1. Sia <span class="tex">\(p(x)\)</span> un polinomio a coefficienti complessi e siano <span class="tex">\(x_1,\dots,x_n\)</span> le sue radici, tutte distinte per semplicità. Sia <span class="tex">\(p'(x)\)</span> la derivata di <span class="tex">\(p(x)\)</span>. Dimostra che le radici di <span class="tex">\(p'(x)\)</span> sono tutte nell'inviluppo convesso degli <span class="tex">\(x_i\)</span>.<br>
+2. Hai un poligono convesso di <span class="tex">\(n\)</span> lati. Lo vuoi dividere in triangoli tracciando delle diagonali. Quante ne devi tracciare, al minimo?<br>
+<br>
+Fisica:<br>
+1. Mi hanno disegnato un segmento (orientato) sul piano pV, e mi hanno chiesto di calcolare il calore assorbito dal gas nella trasformazione. Poi mi hanno chiesto se fosse possibile che <span class="tex">\(Q=0\)</span>, e una volta verificato che lo era, in quali punti della trasformazione vale <span class="tex">\(dQ=0\)</span><br>
+2. Hai un cilindro pieno con una cavità cilindrica al centro. Conosci tutte le dimensioni dei due cilindrici e sai che il materiale ha resistività <span class="tex">\(\rho\)</span>. Creo una differenza di potenziale <span class="tex">\(V\)</span> fra la faccia superiore e quella inferiore, e il cilindro diventa equivalente ad una resistenza <span class="tex">\(R_1\)</span>. Ora invece creo una differenza di potenziale <span class="tex">\(V\)</span> fra la cavità interna e il guscio esterno del cilindro. Il tutto diventa equivalente ad una resistenza <span class="tex">\(R_2\)</span>. Vale che <span class="tex">\(R_1=R_2\)</span>?</article>
+<article class="post" id="p5162"><div class="who"><b>Spammowarrior</b><span>11 set 2010, 12:32</span></div>posto le mie domande, più altre che ho sentito<br>
+<br>
+matematica:<br>
+2^29 ha 9 cifre tutte diverse. quale cifra non c'è?<br>
+<br>
+dimostrare che dati i poligoni di n lati con area fissata, quello con perimetro minimo è equilatero. dimostrare che è equiangolo nel caso dei quadrilateri.<br>
+<br>
+fisica:<br>
+una giostra ruota con velocità angolare costante, e ha un muretto su un diametro. si mette una pallina quasi al centro, cosa le succede? con che velocità cade dall'altalena? guardando da fuori, cosa fa muovere la pallina? poi mi hanno chiesto di fare delle considerazioni sul moto, ho detto qualcosa e poi mi hanno dato l'equazione differenziale finale e mi hanno chiesto che funzione la risolve.<br>
+<br>
+4 cariche positive sui vertici di un quadrato, si mette una carica quasi al centro. cosa succede?<br>
+<br>
+<br>
+altre domande (metto quelle un po' impegnative)<br>
+trovare una funzione biiettiva da [0;1) a [0;1]<br>
+delle figure piane con perimetro fissato quella che massimizza l'area è il cerchio. determinare delle figure piane con area fissata quella che minimizza il perimetro.<br>
+contare le funzioni suriettive da a a b<br>
+calcolare cos(2/5 pi)</article>
+<article class="post" id="p5163"><div class="who"><b>Pigkappa</b><span>11 set 2010, 13:14</span></div>Ok... Secondo me è meglio non raccogliere tutte le domande ogni anno perchè sennó diventa più conveniente studierai queste che la teoria, ma qualcuna come esempio va bene.<br>
+<br>
+Quella di 2^29 comunque non avrei idea di come farla al momento.</article>
+<article class="post" id="p5164"><div class="who"><b>Rigel</b><span>11 set 2010, 14:03</span></div><blockquote><div><cite>TBPL ha scritto:</cite>2. Hai un poligono convesso di <span class="tex">\(n\)</span> lati. Lo vuoi dividere in triangoli tracciando delle diagonali. Quante ne devi tracciare, al minimo?</div></blockquote>
+sbaglio o non devono incrociarsi? poi magari non serve se vuoi il numero minimo<br>
+a me a fisica hanno chiesto perchè gli anelli di Saturno hanno delle bande scure (cioè non c'è materiale orbitante) per certi valori della distanza dal pianeta?  :mrgreen:</article>
+<article class="post" id="p5165"><div class="who"><b>Iuppiter</b><span>11 set 2010, 14:14</span></div>Si analizza la somma delle cifre della somma delle cifre della somma delle cifre [...]di <span class="tex">\(2^n\)</span>. Si nota che c'è un periodo lungo 6 che si ripete, e quindi si deduce che la somma delle cifre [...] di <span class="tex">\(2^{29}\)</span> è uguale alla somma delle cifre [...] di <span class="tex">\(2^5\)</span>, ovvero 5. Poi è facile concludere, sapendo che la somma delle cifre da 0 a 9 è <span class="tex">\(45 \equiv 0\)</span>(mod 9). Se a 45 tolgo 4, la somma diventa <span class="tex">\(\equiv 5\)</span>(mod 9). Quindi manca la cifra 4.<br>
+<br>
+Piuttosto come si fa a stabilire una corrispondenza biunivoca tra i punti di [0,1) e di [0,1]?<br>
+E tra i punti di [0,1] e quelli di [0,1]x[0,1]?<br>
+Grazie<br>
+<br>
+EDIT: sto rispondendo alla domanda di Pigkappa</article>
+<article class="post" id="p5166"><div class="who"><b>Spammowarrior</b><span>11 set 2010, 14:21</span></div>quella di 2^29 si fa come dice iuppiter ma non serve fare tutti i ragionamenti che ha fatto lui, basta farsi i conticini con le congruenze modulo 9 e da lì si conclude.<br>
+<br>
+la funzione da [0;1) a [0;1] è a mio parere la domanda più tosta che hanno fatto il giorno in cui c'ero io (giovedì), alla fine credo che il candidato non abbia trovato una soluzione (nemmeno io nè tutti quelli che assistevano) ma poi un altro ci è arrivato:<br>
+<br>
+<span style="font-size: 50%; line-height: normal"> mandi 0 in 0, 1/N in 1/N-1 e tutto il resto in sè stesso</span></article>
+<article class="post" id="p5171"><div class="who"><b>spn</b><span>11 set 2010, 15:24</span></div>Orale di fisica:<br>
+<br>
+1) Sul piano si ha una retta che fa un'angolo <span class="tex">\(\alpha\)</span> con l'orizzontale. la retta trasla con una velocità v diretta lungo l'asse y. Determinare la velocità orizzontale dell'intersezione della retta con l'asse x. Questa velocità, che si trova facilmente, può risultare  maggiore di c per certi valori di <span class="tex">\(\alpha\)</span>. Spiegare dov'è l'intoppo.<br>
+<br>
+2) In un sistema di riferimento O una macchina accelera da <span class="tex">\(v_0\)</span> a <span class="tex">\(v_1\)</span>, bruciando una certa quantità di carburante. Se ora ci mettiamo in un sistema di riferimento O' che si muove ad una velocità v rispetto a O (tipo un treno), si ha che la variazione di energia cinetica della macchina è diversa (facile da dimostrare). Ma allora quant'è effettivamente la quantità di carburante bruciato? Mostrare anche qui l'intoppo e far vedere come si aggiusta la cosa.<br>
+<br>
+commento personale: orale str***o, ma parecchio.</article>
+<article class="post" id="p5172"><div class="who"><b>TBPL</b><span>11 set 2010, 15:45</span></div><blockquote><div><cite>Rigel ha scritto:</cite>
+sbaglio o non devono incrociarsi? poi magari non serve se vuoi il numero minimo
+</div></blockquote>
+
+Credo che non dovessero incrociarsi, ma le due dimostrazioni che conosco funzionano comunque.<br>
+<br>
+Per il resto, quello di <span class="tex">\(2^{29}\)</span> l'avrei fatto facendo il conto  :D, in quanto <span class="tex">\(2^{29}=\frac{1024^3}{2}\)</span>, che si fa in fretta a mano. <br>
+<br>
+Per la funzione da [0,1)--&gt;[0,1], si possono anche lasciare gli irrazionali dove sono e mandare i razionali nei naturali nel modo famoso, facendo poi la bigezione solita fra <span class="tex">\(\mathbb{N}/\{0\}\)</span> e <span class="tex">\(\mathbb{N}\)</span></article>
+<article class="post" id="p5176"><div class="who"><b>Spammowarrior</b><span>11 set 2010, 17:13</span></div>da quello che ho visto, quando ti chiedono qualcosa e tu lo verifichi a mano, poi ti danno un problema analogo in cui il calcolo non si riesce a fare ;)</article>
+<article class="post" id="p5180"><div class="who"><b>Pigkappa</b><span>11 set 2010, 20:28</span></div>Dubito che conoscano un altro numero che si descrive facilmente e con una proprietà analoga (nella forma "ha tutte le cifre da 0 a 9 cinque volte ognuna, tranne una che c'è solo quattro volte"). <br>
+<br>
+Comunque, di sicuro se uno si mette a fare quel conto lo fermano e gli impongono di trovare una soluzione diversa. Il candidato forse potrebbe intestardirsi e dire che sa rispondere alla domanda in modo corretto e devono lasciarlo fare, ma litigare con la commissione in genere non è una buona idea...</article>
+<article class="post" id="p5181"><div class="who"><b>Carmelo</b><span>11 set 2010, 21:57</span></div>Mate:<br>
+1. Ho una penna (sì, insomma, un'asta rigida sottile) che si muove in modo vario nello spazio. Cosa posso dire sulle velocità istantanee dei due punti estremi della penna? In particolare, sulla proiezione di queste velocità sull'asse della penna?<br>
+2. I punti di un piano sono colorati in bianco o in nero, in modo vario. Dimostra che, indipendentemente da come sono colorati i punti, si può trovare un triangolo equilatero con i tre vertici dello stesso colore.<br>
+3. Una funzione polinomiale può essere invertibile? E la sua inversa può essere un polinomio?<br>
+<br>
+Fisica:<br>
+1. In un mondo in cui esistano cariche magnetiche, al posto di quelle elettriche, come sarebbero le equazioni di Maxwell?<br>
+2. Composizioni di molle in serie e in parallelo</article>
+<article class="post" id="p5183"><div class="who"><b>Gia91</b><span>12 set 2010, 4:43</span></div><blockquote><div><cite>Carmelo ha scritto:</cite>
+2. I punti di un piano sono colorati in bianco o in nero, in modo vario. Dimostra che, indipendentemente da come sono colorati i punti, si può trovare un triangolo equilatero con i tre vertici dello stesso colore.
+</div></blockquote>
+
+Preso dallo scritto di matematica dell'anno scorso della SSC :D</article>
+<article class="post" id="p15597"><div class="who"><b>Pigkappa</b><span>9 set 2013, 19:30</span></div>Dato che immagino possa interessare un po' di persone, resuscito questa discussione così che sia visibile a tutti e non solo a quelli che mi hanno chiesto personalmente come sono gli orali!</article>
+<article class="post" id="p19433"><div class="who"><b>gott</b><span>7 set 2014, 14:45</span></div>Per quanto riguarda <span class="tex">\(\cos (2\pi/5)\)</span>, si può fare così.<br>
+Consideriamo una successione di polinomi <span class="tex">\(T_n(x)\)</span> tali che <span class="tex">\(T_n(\cos \alpha ) = \cos (n\alpha)\)</span> (polinomi di chebyshev).<br>
+Notiamo che <span class="tex">\(T_0(x) \equiv 1, \ \ T_1(x) = x\)</span>. Inoltre, dal fatto che (prostaferesi):<br>
+<span class="tex">\(\cos (n+1) \alpha + \cos (n-1) \alpha = 2 \cos \alpha \cdot \cos n \alpha\)</span><br>
+si ha <br>
+<span class="tex">\(T_{n+1} (x) + T_{n-1}(x) = 2xT_n(x)\)</span><br>
+che è una relazione di ricorrenza che ci permette di trovare, con qualche conticino:<br>
+<span class="tex">\(T_5(x) = 16 x^5 - 20 x^3 + 5x\)</span><br>
+le cui soluzioni corrispondono a quegli <span class="tex">\(\alpha\)</span> tali che <span class="tex">\(T_5 ( \cos \alpha) =  \cos 5 \alpha = 0,\)</span> ossia <span class="tex">\(5 \alpha = \pi/2 (2k+1)\)</span>: <span class="tex">\(\pi/10, 3\pi / 10, \pi/2, 7\pi/10, 9 \pi/10\)</span>. Non poniamo direttamente <span class="tex">\(T_5(x) = 1\)</span>, altrimenti chi cacchio la sa risolvere? Dunque, risolvendo si trova<br>
+<span class="tex">\(x = \pm \sqrt{ \frac{ 5 \pm \sqrt{5} }{8} }, 0\)</span><br>
+Visto che <span class="tex">\(0 &lt; \cos(3\pi/10) &lt; \cos(\pi/10) &lt; 1\)</span>, abbiamo <span class="tex">\(\cos (\pi/10) = \sqrt{ \frac{ 5 + \sqrt{5} }{8} }\)</span>.<br>
+Prima per trovare <span class="tex">\(T_5(x)\)</span> avevamo trovato anche <span class="tex">\(T_4(x) = 8x^4-8x^2+1\)</span>, da cui<br>
+<span class="tex">\(\displaystyle \cos (2\pi/5) = \cos(4 \cdot \pi/10 ) = T_4( \pi/10) = \mbox{ .. conti .. } = \boxed{ \frac{ \sqrt{5} -1 }{4} }\)</span></article>
+<article class="post" id="p19434"><div class="who"><b>gott</b><span>8 set 2014, 1:25</span></div>Per quanto riguarda invece il piano colorato di bianco e di nero, consideriamo un punto bianco <span class="tex">\(P\)</span> e un esagono <span class="tex">\(S =A_1 A_2 A_3 A_4 A_5 A_6\)</span>. Supponiamo per assurdo che non ci siano triangoli equilateri con vertici dello stesso colore.<br>
+<br>
+Sicuramente <span class="tex">\(S\)</span> contiene almeno un punto bianco, wlog <span class="tex">\(A_1\)</span>, altrimenti ci sarebbe un triangolo nero. I punti <span class="tex">\(A_2, A_6\)</span> sono invece di certo neri, altrimenti si formerebbe un triangolo equilatero con <span class="tex">\(A_1, P\)</span>. Dunque <span class="tex">\(A_4\)</span> deve essere bianco, altrimenti si formerebbe un triangolo nero <span class="tex">\(A_2, A_4, A_6\)</span>. Finiamo di colorare <span class="tex">\(S\)</span> notando che <span class="tex">\(A_3, A_5\)</span> devono essere neri, altrimenti formerebbero un triangolo con <span class="tex">\(P, A_4\)</span>. <br>
+<br>
+Consideriamo il punto <span class="tex">\(Q\)</span> diverso da <span class="tex">\(P\)</span> che forma un triangolo equilatero con <span class="tex">\(A_2, A_3\)</span>. Se fosse nero, allora <span class="tex">\(A_2, Q, A_3\)</span> sarebbe un triangolo eq. nero. Se fosse bianco, allora <span class="tex">\(A_1, Q, A_4\)</span> sarebbe un triangolo eq. bianco, assurdo. Perciò esiste un triangolo equilatero con vertici dello stesso colore.</article>
+</main></body></html>
