@@ -372,8 +372,9 @@ h2 { font:600 13px var(--sans); text-transform:uppercase; letter-spacing:.08em; 
 /* posts */
 .post { padding:22px 0; border-top:1px solid var(--line); overflow-wrap:anywhere; }
 .post:first-of-type { border-top:none; padding-top:4px; }
-.post .who { font:13px var(--sans); color:var(--faint); margin-bottom:10px; display:flex; gap:8px; align-items:baseline; }
-.post .who b { color:var(--fg); font-weight:600; font-size:14px; }
+.post .who { font:15px var(--sans); color:var(--muted); margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--line);
+             display:flex; flex-wrap:wrap; gap:4px 12px; align-items:baseline; }
+.post .who b { color:var(--accent); font-weight:700; font-size:18px; }
 .post.first { background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:20px 22px; margin-bottom:12px; }
 .post.first + .post { border-top:none; }
 .post img { max-width:100%; height:auto; border-radius:4px; }
