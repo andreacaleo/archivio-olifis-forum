@@ -639,6 +639,10 @@ def main():
         return (k[0], k[2]) if k and k[1] == 't' else None
 
     idx = parse_index(index_posts[0]['content'])
+    # notes in the index post that were requests to forum users, or no longer true here: left out
+    drop = ('Non sono inclusi', 'Mi fate un grande favore', 'Fisica aggiornata')
+    idx['notes'] = '<br>'.join(l for l in idx['notes'].split('<br>')
+                               if not html.unescape(re.sub('<[^>]+>', '', l)).strip().startswith(drop))
 
     def merge(rows, entries):
         """Add the hand-picked topics to the year rows, keeping years and problem numbers in order."""
