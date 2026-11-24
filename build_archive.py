@@ -828,7 +828,7 @@ al problema {max(nums)}: qui ci sono tutti, in ordine.</p>
             entries = [e for e in selections.get(s['key'], []) if ('olifis', e['t']) in topics]
             total += len(entries)
             if len(secs) > 1:
-                body_parts.append(f'<h2 class="part">{s["title"]}</h2><p class="notes">{s["lede"]} {len(entries)} discussioni su {s["total"]}.</p>'
+                body_parts.append(f'<h2 class="part">{s["title"]}</h2><p class="notes">{s["lede"]}</p>'
                                   + picks(entries, 'h3'))
             else:
                 body_parts.append(f'<p class="meta">{len(entries)} discussioni scelte su {s["total"]} della sezione</p>' + picks(entries, 'h2'))
