@@ -28,7 +28,7 @@ h2 { font:600 13px var(--sans); text-transform:uppercase; letter-spacing:.08em; 
 .notice { font:14px/1.5 var(--sans); color:var(--muted); background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin:0 0 24px; }
 
 /* posts */
-.post { padding:22px 0; border-top:1px solid var(--line); overflow-wrap:anywhere; }
+.post { padding:22px 0; border-top:3px solid var(--muted); overflow-wrap:anywhere; }
 .post:first-of-type { border-top:none; padding-top:4px; }
 .post .who { font:15px var(--sans); color:var(--muted); margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--line);
              display:flex; flex-wrap:wrap; gap:4px 12px; align-items:baseline; }
