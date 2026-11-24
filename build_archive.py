@@ -757,9 +757,8 @@ def main():
 <p>Le soluzioni di matematica sono sul forum delle Olimpiadi di Matematica, che resta aperto: i link portano lì.</p>
 {table(idx['matematica'])}</details>
 {others_html}
-<h2>Da dove viene</h2>
-<div class="notes"><p>Copia statica della discussione <a href="t/olifis-{INDEX_TOPIC}.html">«Soluzioni SNS sui forum Olimat e Olifis»</a>, aperta da Pigkappa nel 2009, e di tutte le discussioni a cui rimanda, più le altre discussioni della sezione Problemi teorici con SNS nel titolo. Archiviata il {time.strftime('%d/%m/%Y')}.</p>
-<p>Note dalla discussione originale:</p><p>{notes}</p></div>
+<h2>Note dalla discussione originale</h2>
+<div class="notes"><p>{notes}</p></div>
 """
     body = body.replace(f'{total_posts:,}', f'{total_posts:,}'.replace(',', '.'))
     (SITE / 'sns.html').write_text(page('Problemi di ammissione alla Normale · ' + SITE_NAME, body, 0, False), encoding='utf8')
