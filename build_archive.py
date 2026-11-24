@@ -279,6 +279,14 @@ def fetch_image(url):
         return url, 'img/' + done[0].name
     if 'oliforum.it' in url and 'download/file.php' in url:  # disallowed by OliForum's robots.txt
         return url, None
+    if 'imgur.com' in url:
+        # fetched from outside the UK by the GitHub workflow, branch "imgur", copied to raw/imgur/
+        cached = RAW / 'imgur' / url.rsplit('/', 1)[-1]
+        if cached.exists() and cached.stat().st_size > 0:
+            ext = cached.suffix.lower().replace('.jpeg', '.jpg')
+            (SITE / 'img').mkdir(parents=True, exist_ok=True)
+            (SITE / 'img' / (name + ext)).write_bytes(cached.read_bytes())
+            return url, 'img/' + name + ext
     if url in FAILED:  # already tried and lost; --retry-images tries again
         return url, None
     b = ct = None
@@ -458,7 +466,7 @@ def main():
     ap.add_argument('--retry-images', action='store_true', help='try again the images that could not be saved before')
     args = ap.parse_args()
     if FAILED_FILE.exists() and not args.retry_images:
-        FAILED.update(json.loads(FAILED_FILE.read_text(encoding='utf8')))
+        FAILED.update(json.loads(FAILED_FILE.read_text(encoding='utf-8-sig')))
 
     # 1. the index topic and the topics it links to
     if not args.build:
