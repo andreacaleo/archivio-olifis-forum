@@ -854,9 +854,8 @@ prima della chiusura del forum.</p>
 <h2>Il forum in numeri</h2>
 <div class="stats"><span><b>{FORUM_STATS['topics']}</b>discussioni</span><span><b>{FORUM_STATS['posts']}</b>messaggi</span><span><b>{FORUM_STATS['members']}</b>iscritti</span><span><b>2009–{FORUM_STATS['last']}</b>anni</span></div>
 <h2>Questo archivio</h2>
-<div class="notes"><p>Ogni pagina riproduce una discussione del forum com'era, con autori, date, formule e immagini. Le formule sono mostrate con MathJax e il sito funziona anche senza connessione.
-Alcune immagini, caricate su servizi esterni che le hanno cancellate, sono andate perse.</p>
-<p>L'archivio non è un sito ufficiale dell'AIF né della Scuola Normale Superiore. Copia fatta il {time.strftime('%d/%m/%Y')}.</p></div>
+<div class="notes"><p>Ogni pagina riproduce una discussione del forum com'era, con autori, date, formule e immagini. Le formule sono mostrate con MathJax.
+Alcune immagini, caricate su servizi esterni che le hanno cancellate, sono andate perse.</p></div>
 """
     (SITE / 'index.html').write_text(page(SITE_NAME, home, 0, False), encoding='utf8')
 
