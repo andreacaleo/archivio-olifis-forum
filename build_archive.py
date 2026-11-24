@@ -847,8 +847,8 @@ al problema {max(nums)}: qui ci sono tutti, in ordine.</p>
     staff_card = card('staffetta.html', 'La staffetta', f'Chi risolve un problema ne propone uno nuovo: tutti i {max(nums)} problemi, in ordine.', staff_n + len(staff['prime_staffette']))
     other_cards = staff_card + ''.join(card(p['page'], p['title'], p['card'], n) for p, n in cards if n)
     home = f"""<h1>{SITE_NAME}</h1>
-<p class="lede">Dal 2009 il forum delle Olimpiadi di Fisica, su forum.olifis.it, è stato il luogo dove studenti, insegnanti ed ex olimpionici
-discutevano di problemi di fisica, di gare e di tutto il resto. Questa è una copia statica di una selezione delle sue discussioni, fatta nel {time.strftime('%Y')}
+<p class="lede">Dal 2009 al {FORUM_STATS['last']} il forum delle Olimpiadi di Fisica, su forum.olifis.it, è stato il luogo dove studenti, insegnanti ed ex olimpionici
+discutevano di problemi di fisica, di gare e di tutto il resto. Questa è una copia statica di una selezione delle sue discussioni, fatta
 prima della chiusura del forum.</p>
 <div class="cards">{sns_card}{other_cards}</div>
 <h2>Il forum in numeri</h2>
