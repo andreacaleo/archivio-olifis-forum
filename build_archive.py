@@ -740,7 +740,6 @@ def main():
     notes = rw.content('olifis', idx['notes']).replace('href="olifis-', 'href="t/olifis-').replace('href="oliforum-', 'href="t/oliforum-')
     body = f"""<h1>Problemi di ammissione alla Normale, con le soluzioni</h1>
 <p class="lede">Le discussioni del forum delle Olimpiadi di Fisica sui problemi delle prove di ammissione alla Scuola Normale Superiore di Pisa, raccolte anno per anno.</p>
-<div class="stats"><span><b>{len(topics) - 1}</b>discussioni</span><span><b>{total_posts:,}</b>messaggi</span><span><b>{years[0][:4]}–{years[-1][-4:]}</b>anni</span></div>
 <h2>Fisica</h2>
 {table(idx['fisica'])}
 <h2>Fisica per chimica e biologia</h2>
