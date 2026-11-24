@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011 numero 3</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011, problema 3</span></nav>
+<h1>SNS 2010/2011 numero 3</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=559">forum Olifis</a></p>
+<article class="post first" id="p5009"><div class="who"><b>Luke</b><span>28 ago 2010, 0:08</span></div>Una carica Q di massa M è lanciata con velocità <span class="tex">\(v_0\)</span> verticale. Percorre una lunghezza L (lungo la verticale), ed è immersa in un campo magnetico perpendicolare (verso "uscente dal foglio"). Dopo lo spazio L c'é una regione di spessore molto minore a L (non dato); in questa regione la carica si può considerare in moto rettilineo uniforme. Qui è presente inoltre un campo elettrico E rivolto verso il basso, e la carica Q emette elettroni con una certa frequenza costante inizialmente fermi, che risentono del campo elettrico, del campo magnetico, e di una forza di attrito viscoso proporzionale alla velocità <span class="tex">\(F = -\beta v\)</span>. Alla fine della regione superiore (raggiunto il "tetto" per capirci) è chiamata d la distanza tra l'ascissa del punto di partenza di Q e l'ascissa raggiunta.<br>
+Sul testo c'era l'immagine in cui erano rappresentati gli elettroni emessi (presumibilmente) all'entrata di Q nella regione superiore, e il cui moto era rappresentato come rettilineo uniforme, con gli elettroni che erano emessi più o meno a 45 gradi verso destra (la carica era deflessa verso sinistra).<br>
+<br>
+Si chiede:<br>
+a) In assenza del campo magnetico, calcolare la velocità di regime raggiunta dagli elettroni<br>
+b) Generalizzare il calcolo precedente in presenza del campo magnetico B<br>
+c) Gli elettroni emessi che impattano il "soffitto" coprono un'area A, calcolare quest'area e descrivere il segno di Q e la velocità iniziale <span class="tex">\(v_0\)</span> per cui quest'area è minima.</article>
+<article class="post" id="p5012"><div class="who"><b>GVL</b><span>28 ago 2010, 2:29</span></div>Punto A: le uniche forze agenti sono quelle causate da E e da F ovvero <span class="tex">\(F_E=Eq\)</span> e <span class="tex">\(F=-\beta v\)</span>. Uguagliando le due forze otteniamo <span class="tex">\(v=Eq / \beta\)</span>. Dove <span class="tex">\(q\)</span> è la carica dell'elettrone che avendo segno negativo viene accelerata dal campo elettrico E diretto da b ad a.<br>
+<br>
+Punto B: ora agisce anche il vettore B, quindi sugli elettroni si esercita un forza <span class="tex">\(F_B=qVXB\)</span> detta forza di Lorentz. Ora essendo <span class="tex">\(V\)</span> e <span class="tex">\(B\)</span> perpendicolari il seno dell'angolo compreso è <span class="tex">\(\pi /2\)</span> quindi <span class="tex">\(F_B=qVB\)</span>. Tale forza è tuttavia perpendicolare anche ad <span class="tex">\(F_E\)</span> quindi si compone vettorialmente e sfruttando Pitagora la forza risultante dall'azione di E e B è <span class="tex">\(F_R= \sqrt{E^2 q^2 + q^2 V^2 B^2}\)</span>. Come fatto prima con <span class="tex">\(F_E\)</span>, per ottenere l'equilibrio <span class="tex">\(F_R + F=0\)</span> quindi <span class="tex">\(\beta V=\sqrt{E^2 q^2 + q^2 V^2 B^2}\)</span> elevando tutto al quadrato e risolvendo per <span class="tex">\(V\)</span> otteniamo <span class="tex">\(V=\sqrt{(E^2 q^2)/(\beta^2 -q^2 B^2)}\)</span> che per <span class="tex">\(B=0\)</span> si riduce alla relazione ottenuta per il punto A.<br>
+<br>
+Punto C: Senza il disegno è molto arduo, ma spero di riuscire a farmi capire. Si chiedeva di minimizzare la regione in cui giungono gli elettroni mostrando la relazione tra la minima regione <span class="tex">\(d\)</span> e <span class="tex">\(V_0 , Q\)</span> in particolare chiedeva il segno della carica Q. Io forse non ho capito a pieno cosa chiedesse di minimizzare tuttavia ho osservato che gli elettroni una volta emessi si muovono lungo una direzione che forma con il piatto più un basso un angolo <span class="tex">\(\theta = arctg(F_E / F_B)\)</span>. Se Q è negativa come gli elettroni, la forza di Lorentz fa compiere un arco di circonferenza <span class="tex">\(\gamma = arcsin(D/R)\)</span> dove D è la distanza tra il punto di partenza della particella di carica Q e il piatto più in basso ed R è il raggio della circonferenza che Q descriverebbe se fosse soggetta solo a <span class="tex">\(F_B\)</span> e <span class="tex">\(R=MV_0 /QB\)</span> (si ottiene osservando che <span class="tex">\(F_B\)</span> è un'accelerazione centripeta).<br>
+Ora la regione in cui giungono gli elettroni si minimizza se <span class="tex">\(\gamma = \theta\)</span> infatti gli elettroni verrebbero rilasciati lungo la stessa direzione lungo la quale saranno poi mossi a causa di <span class="tex">\(B,E,F\)</span> perciò giungono tutti nello stesso punto. Quindi <span class="tex">\(sin\gamma = tg\theta cos\theta = sin\theta\)</span> essendo <span class="tex">\(0&lt;\theta &lt;\pi /2\)</span>. Quindi si fanno un po' di contacci osservando che <span class="tex">\(sin\theta = F_E/F_R\)</span> e si risolve rispetto a <span class="tex">\(V_0\)</span>.</article>
+<article class="post" id="p5013"><div class="who"><b>Spammowarrior</b><span>28 ago 2010, 9:44</span></div>chi dice che Fe ed Fb sono perpendicolari?</article>
+<article class="post" id="p5015"><div class="who"><b>GVL</b><span>28 ago 2010, 10:34</span></div>Lo sai, se non mi sbaglio di grosso, dai dati del problema. <br>
+B è perpendicolare a E e questo ce l'hai per ipotesi in quanto giacciono su piani perpendicolari. Inoltre per come è definita la forza di Lorentz (dati B e V perpendicolari e ciò è sempre vero nel nostro problema in quanto V si trova su un ipotetico piano (x,z) mentre B è sull'asse perpendicolare (z) ) <span class="tex">\(F_B\)</span> è sempre perpendicolare a V, ma su un altro asse rispetto a B. Quindi fissiamo un attimo questi assi. L'asse y è quello della forza <span class="tex">\(F_E\)</span> e quindi per i primissimi momenti anche quello di <span class="tex">\(V\)</span>, B giace sull'asse z quindi <span class="tex">\(F_B\)</span> si trova sull'asse x.<br>
+Questo quindi vale fintanto che <span class="tex">\(F_E\)</span> e <span class="tex">\(V\)</span> sono sullo stesso asse, questo chiaramente non avviene se la distanza percorsa dagli elettroni è grande, tuttavia sia la velocità limite sia la stessa distanza tra i due piatti viene raggiunta in un tempo molto breve quindi con le dovute approssimazioni si può considerare <span class="tex">\(F_E\)</span> perpendicolare ad <span class="tex">\(F_B\)</span> ottenendo una accettabile approssimazione e descrizione qualitativa del moto degli elettroni.<br>
+<br>
+Questo per usare tante parole teoriche, se no uno vede dal testo che l'altra particella carica Q si può approssimare che si muova di moto rettilineo uniforme tra le due piastre (i motivi non vengono detti, ma suppongo siano analoghi a quello detto prima per gli elettroni) e quindi quell'approssimazione la puoi prendere per vera anche per gli elettroni.<br>
+Questo è quanto la mia mente assonnata è riuscita a capire/scrivere/spiegare. C'è qualcosa di clamorosamente errato?</article>
+<article class="post" id="p5016"><div class="who"><b>Spammowarrior</b><span>28 ago 2010, 10:40</span></div>questo vorrebbe dire che gli elettroni si muovono sempre in verticale.<br>
+tuttavia la forza di attrito è opposta alla velocità, quindi è verticale.<br>
+quindi hai una forza verticale verso l'alto (Fe) una forza verticale verso il basso (attrito) e una forza orizzontale verso destra (Fb)<br>
+ad occhio la risultante di queste tre forze non è mai 0, giusto?</article>
+<article class="post" id="p5017"><div class="who"><b>GVL</b><span>28 ago 2010, 11:13</span></div>Non si muovono solo verticalmente, "a quanto ho capito" le approssimazioni del fatto che la distanza "innominata" tra i due piatti fosse piccola e che il tempo per raggiungere la velocità limite fosse molto breve, implica che <span class="tex">\(F_B\)</span> è influente solo quando perpendicolare a <span class="tex">\(F_E\)</span> cioè nei primissimi istanti di accelerazione di <span class="tex">\(q\)</span> (le due proprosizioni possono essere assunte strettamente legate per quanto detto nel post precedente) altrimenti non mi riuscirei a giustificare neanche il comportamento dell'altra particella di carica Q.</article>
+<article class="post" id="p5027"><div class="who"><b>spn</b><span>28 ago 2010, 13:38</span></div>Sbaglio o questo non era il terzo problema ma il secondo?</article>
+<article class="post" id="p5031"><div class="who"><b>Luke</b><span>28 ago 2010, 14:46</span></div>Forse mi sbaglio ma mi pareva fosse il terzo... il secondo non era quello della carrucola?<br>
+Comunque a me non convinceva molto il modo in cui erano approssimati gli elettroni... nel disegno li hanno fatto che partivano praticamente direttamente molto inclinati a destra... se partono da fermi dovrebbero percorrere un arco di circonferenza, pur essendo piccola la distanza percorsa, si può davvero approssimare il moto in quel modo tanto grossolano senza commettere errori apprezzabili (nell'ambito del problema ovviamente)?</article>
+<article class="post" id="p5069"><div class="who"><b>Rigel</b><span>30 ago 2010, 19:48</span></div>Questo era il secondo problema  ;)  e secondo me anche il più carino<br>
+il moto degli elettroni è rettilineo uniforme perchè: lo diceva il testo; la forza di attrito viscoso ha la stessa direzione della velocità, quindi dopo un tempo sufficiente la velocità assumerà quella direzione per cui la forza risultante ortogonale è nulla (moto rettilineo) e poichè l'attrito è proporzionale alla velocità, ci sarà un certo valore di v per cui la forza risultante parallela al moto è nulla...tale valore è costnate e il moto è anche uniforme.<br>
+forse si può dimostrare che il moto raggiunge effettivamente queste condizioni di regime (anche se le equazioni mi sembrano un pò brutte) ma quando lo dice il testo non pensa sia il caso<br>
+quanto alle particelle cariche, attribuire loro un moto rettilineo uniforme (tra le armature del condensatore) è solo un'approssimazione che semplifica i calcoli del punto c</article>
+<article class="post" id="p5076"><div class="who"><b>Ippo</b><span>31 ago 2010, 1:30</span></div><blockquote><div><cite>Rigel ha scritto:</cite>forse si può dimostrare che il moto raggiunge effettivamente queste condizioni di regime (anche se le equazioni mi sembrano un pò brutte) ma quando lo dice il testo non pensa sia il caso</div></blockquote>
+Sì, ovviamente non era richiesto e non è della gran bella matematica, ma insomma, giusto per cultura generale...<br>
+Le equazioni del moto assumono la forma (se ho capito bene la disposizione delle varie cose, ma forse è un'ipotesi falsa)<br>
+<span class="tex">\(m \vec a=e \vec E+e \vec v \times \vec B-\beta \vec v\)</span> che scritta in componenti, prendendo l'asse x orizzontale (nel foglio), quello y verticale (nel foglio) e quello z uscente dal foglio, diventa:<br>
+<span class="tex">\(m \ddot x=-\beta \dot x+eB\dot y \qquad m \ddot y=eE-\beta \dot y-eB \dot x \qquad m \ddot z=0\)</span><br>
+che possiamo riassumere con formalismo vettoriale, detto <span class="tex">\(\vec v=\left( \begin{array}{c}\dot x \\ \dot y \end{array}\right)\)</span> (ci riduciamo al moto bidimensionale visto che l'equazione per z(t) è banale), nel modo seguente:<br>
+<span class="tex">\(\displaystyle m{d \vec v \over dt}=M \vec v+ \vec w\)</span><br>
+dove <span class="tex">\(M=\left( \begin{array}{cc} - \beta &amp; eB \\ -eB &amp; -\beta \end{array}\right)\)</span> e <span class="tex">\(\vec w=\left( \begin{array}{c} 0 \\ eE \end{array}\right)\)</span> per comodità.<br>
+<br>
+La soluzione particolare si ha prendendo <span class="tex">\(\vec v\)</span> costante, ed è quindi data da <span class="tex">\(M \vec v=-\vec w\)</span> ovvero <span class="tex">\(\vec v =-M^{-1} \vec w\)</span> (nota: la matrice M è invertibile a meno che sia beta sia B siano nulli, nel qual caso il problema è idiota);<br>
+per la soluzione dell'omogenea si ha<br>
+<span class="tex">\(\dfrac{ d \vec v}{dt}={1 \over m}M \vec v\)</span><br>
+Tentiamo il solito approccio <span class="tex">\(\vec v= \vec v_0 e^{\omega t}\)</span> sperando di trovare un <span class="tex">\(\omega\)</span> (complesso) che soddisfi l'equazione. Si ottiene:<br>
+<span class="tex">\(\omega \vec v_0 e^{\omega t}={M \over m}\vec v_0 e^{\omega t}\)</span><br>
+da cui<br>
+<span class="tex">\(({M \over m}- \omega I) \vec v_0=\vec 0\)</span> (I è la matrice identità)<br>
+Per ammettere soluzioni non banali (cioè <span class="tex">\(\vec v_0 \neq \vec 0\)</span>) il determinante della matrice deve annullarsi, cioè si deve avere<br>
+<span class="tex">\(\displaystyle (-\beta/m -\omega)^2+{e^2 B^2 \over m^2}=0 \Rightarrow \omega_{1,2}=-{\beta \over m} \pm i {eB \over m}\)</span><br>
+Segue (non determiniamo la forma che deve avere <span class="tex">\(\vec v_0\)</span>, non ci interessa esplicitamente) che la soluzione generale dell'omogenea ha la forma<br>
+<span class="tex">\(\displaystyle \vec v(t)=e^{-\beta t \over m} \left( \vec v_{0,1} \cos(eBt/m)+\vec v_{0,2}\sin (eBt/m) \right)\)</span><br>
+dove notiamo il coefficiente di smorzamento esponenziale dipendente dall'attrito viscoso.<br>
+<br>
+Conclusione: il moto, dopo un tempo nell'ordine di <span class="tex">\(m/\beta\)</span>, si stabilizza sulla soluzione "a regime" di moto uniforme (cioè la soluzione particolare dell'inomogenea trovata prima), indipendentemente dalle condizioni iniziali assegnate.</article>
+<article class="post" id="p5096"><div class="who"><b>Gauss91</b><span>4 set 2010, 11:11</span></div>In ogni caso non è vero che la velocità finale <span class="tex">\(\vec{v_f}\)</span> dell'elettrone è parallela al vettore <span class="tex">\(\vec{E}\)</span>, in tal caso infatti nessuna forza si opporrebbe alla forza magnetica che tenderà a curvare la traiettoria dell'elettrone. In realtà la velocità dell'elettrone, risultava nella figura diretta "verso sinistra" (e non verso destra come disegnato dagli infidi esaminatori :P ).<br>
+Sia <span class="tex">\(\theta\)</span> l'angolo che la velocità dell'elettrone forma, all'equilibrio, con la verticale. Siano poi <span class="tex">\(\vec{F_e}\)</span> la forza elettrica, <span class="tex">\(\vec{F_b}\)</span> quella magnetica, <span class="tex">\(\vec{f}\)</span> quella di attrito. Scomponiamo le forze nelle direzioni parallela e perpendicolare alla velocità dell'elettrone. Sarà, all'equilibrio,<br>
+<span class="tex">\(F_e\cos\theta = f\)</span><br>
+<span class="tex">\(F_e\sin\theta = F_b\)</span> (1)<br>
+da cui si può trovare l'angolo <span class="tex">\(\theta\)</span> finale:<br>
+<span class="tex">\(\tan\theta = \dfrac{F_b}{f} = \dfrac{eB}{\beta}\)</span>, dove e è la carica dell'elettrone. Si vede che theta dipende solo da fattori insiti nel sistema, considerazione utile nella terza domanda del problema.<br>
+Usando l'identità <span class="tex">\(\sin\theta = \dfrac{\tan\theta}{\sqrt{1+\tan^2\theta}} = \dfrac{eB}{\sqrt{\beta^2 + e^2B^2}}\)</span>, si ha sostituendo nella (1)<br>
+<span class="tex">\(eE\dfrac{eB}{\sqrt{\beta^2 + e^2B^2}} = evB\)</span>, da cui la velocità finale<br>
+<span class="tex">\(v_f = \dfrac{eE}{\sqrt{\beta^2 + e^2B^2}}\)</span>.<br>
+<br>
+Per il punto c, invece, usiamo la considerazione che theta è indipendente dalla velocità della particella. Siccome il problema indica che gli elettroni raggiungono la condizione di regime IN BREVE TEMPO, si può approssimare dicendo che la particella, entrata nella regione tra a e b (in cui il suo moto è rettilineo uniforme come specificato dal problema) "spara" gli elettroni costantemente in direzione di <span class="tex">\(\vec{v_f}\)</span>. La d minima è quindi ottenuta quando la particella entra nella regione tra a e b con velocità parallela a <span class="tex">\(\vec{v_f}\)</span>: in tal caso sarà infatti <span class="tex">\(d \approx 0\)</span> (non proprio 0 perché comunque gli elettroni percorrono un certo spazio prima di arrivare a regime, inoltre a tali livelli non è più trascurabile il raggio della particella). Con la regola della mano destra si trova <span class="tex">\(Q &lt; 0\)</span>.<br>
+Come è noto, la velocità <span class="tex">\(v_0\)</span> della particella rimane costante in modulo fintanto che è soggetta alla sola forza magnetica, e la particella descriverà un arco di circonferenza di raggio<br>
+<span class="tex">\(r = \dfrac{Mv_0}{QB}\)</span>. Disegnando l'arco suddetto, si vede che l'angolo al centro <span class="tex">\(\alpha\)</span> che lo sottende, è uguale all'angolo che la particella formerà con la direzione di <span class="tex">\(\vec{E}\)</span> una volta entrata nella regione tra a e b. Inoltre<br>
+<span class="tex">\(\sin\alpha = \dfrac{L}{r} = \dfrac{LQB}{Mv_0}\)</span>. Ponendo quindi <span class="tex">\(\sin\alpha = \sin\theta\)</span>, si ha <br>
+<span class="tex">\(\dfrac{LQB}{Mv_0} = \dfrac{eB}{\sqrt{\beta^2 + e^2B^2}}\)</span>, da cui<br>
+<br>
+<span class="tex">\(v_0 = \dfrac{LQ\sqrt{\beta^2 + e^2B^2}}{Me}\)</span></article>
+<article class="post" id="p5098"><div class="who"><b>Ippo</b><span>4 set 2010, 12:03</span></div>Esatto. Dal mio procedimento si ricava<br>
+<span class="tex">\(\vec v_f=M^{-1} \vec w\)</span><br>
+Notando che la matrice M è prodotto del coefficiente <span class="tex">\(\sqrt{ \beta^2 +e^2B^2}\)</span> (che è il determinante) per una rotazione di angolo <span class="tex">\(\theta=\arcsin {eB \over \sqrt{\beta^2+e^2B^2}}\)</span> e quindi ha inversa<br>
+<span class="tex">\(M^{-1} ={1 \over \sqrt{\beta^2 +e^2B^2}}\left( \begin{array}{cc} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{array} \right)\)</span><br>
+si ricava<br>
+<span class="tex">\(\vec v_f={eE \over \sqrt{\beta^2 +e^2B^2}} \left( \begin{array}{c} -\sin \theta \\ \cos \theta \end{array} \right)\)</span><br>
+ovvero risostituendo i valori di seno e coseno<br>
+<span class="tex">\(\vec v_f={eE \over \beta^2 +e^2B^2} \left( \begin{array}{c} -eB \\ -\beta \end{array} \right)\)</span><br>
+che coincide col risultato dei calcoli di Gauss91.<br>
+(potenza delle matrici  :mrgreen: )</article>
+<nav class="pager"><a class="prev" href="olifis-4675.html"><small>← precedente</small>SNS 2010/2011 problema 3</a><a class="next" href="olifis-560.html"><small>successivo →</small>SNS 2010/2011 numero 4</a></nav>
+</main></body></html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2008 n1 per chimici</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Chimica e biologia 2008-2009, problema 1</span></nav>
+<h1>SNS 2008 n1 per chimici</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=1431">forum Olifis</a></p>
+<article class="post first" id="p9408"><div class="who"><b>baratti07</b><span>5 set 2012, 18:21</span></div>Una palla  da tennis di massa <span class="tex">\(m\)</span> è appoggiata sopra un pallone da pallacanestro, di massa <span class="tex">\(M&gt;&gt;m\)</span>. Il pallone ha diametro <span class="tex">\(d\)</span>, e il suo punto più basso si trova ad una altezza <span class="tex">\(h\)</span> dal terreno, cosicchè la pallina da tennis si trova ad una altezza <span class="tex">\(d+h\)</span> dal terreno. Assumendo urti elastici, a quale altezza rimbalza la pallina da tennis?<br>
+<br>
+mi vengono in mente diverse possibili soluzioni ma tutto sta nel capire se le due palle si staccano o restano attaccate...</article>
+<article class="post" id="p9410"><div class="who"><b>Gabry</b><span>5 set 2012, 18:28</span></div>Le due palle restano attaccate finchè il pallone da basket non raggiunge il terreno, una volta urtato il terreno supponendo l'urto elastico il pallone ritorna indietro con la stessa velocità cambiata di segno urtando però la pallina. Banalmente si trova la velocità della pallina dopo l'urto elastico col pallone e da qui l'altezza raggiunta (da sommare a quella a cui si trovava al momento dell'urto!)</article>
+<article class="post" id="p9411"><div class="who"><b>baratti07</b><span>5 set 2012, 18:47</span></div>ok grazie ci avevo pensato anche io e in questo caso la soluzione dovrebbe essere banale ma non so scriverla sul Latex perchè un po' bruttina :S<br>
+ma il mio dubbio era...la palllina e il pallone urtano contemporaneamente il suolo proprio perché nella prima caduta sono attaccatti...ora se questo urto è contemporaneo è come se entrambe rimbalzassero a terra e quindi ritornano su con la stessa velocità e così via.</article>
+<article class="post" id="p9412"><div class="who"><b>Fedecart</b><span>5 set 2012, 18:56</span></div>Non è contemporaneo... Cosa succederebbe se anzichè attaccati fossero distandi <span class="tex">\(d\)</span> con <span class="tex">\(d\)</span> enormemente piccolo?</article>
+<article class="post" id="p9413"><div class="who"><b>baratti07</b><span>5 set 2012, 20:57</span></div>succederebbe quello che dice Gabry, ovvero che le due palle si incontrano circa nel momento in cui quella da Basket tocca terra (un istante dopo) con velocità uguale e opposta.<br>
+ma se quel <span class="tex">\(d\)</span> non c'è? se sono perfettamente attaccate, come dovrebbe essere in teoria visto che partono attaccate, entrambe da ferme e non c'è motivo per il quale si dovrebbero staccare, che succede?<br>
+rimbalzano felici attaccate?</article>
+<article class="post" id="p9414"><div class="who"><b>Gabry</b><span>5 set 2012, 21:23</span></div>Anche se non c'è quel d, se si considera l'urto come ideale, la palla da basket avrà già cambiato la sua direzione. Infatti in un urto ideale la palla da basket subisce l'impulso del pavimento (e quindi cambia quantità di moto) nello stesso istante in cui tocca terra, quindi appena le due palle toccheranno terra la palla da basket avrà già cambiato la sua velocità indipendentemente dalla separazione che c'era (e se c'era) tra le due.</article>
+</main></body></html>

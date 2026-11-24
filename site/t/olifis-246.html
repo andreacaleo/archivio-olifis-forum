@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMULAZIONE: SNS 2003/2004 Problema 6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 6</span></nav>
+<h1>SIMULAZIONE: SNS 2003/2004 Problema 6</h1>
+<p class="meta">3 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=246">forum Olifis</a></p>
+<article class="post first" id="p2178"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 21:17</span></div>Siano date due orbite circolari intorno alla Terra, complanari, di raggi R1<br>
+e R2, con R2 &gt; R1. Si vuole portare un satellite artificiale da R1 a R2, accendendo<br>
+i suoi razzi. Si assuma che il cambiamento di velocit`a causato<br>
+dall’accensione dei razzi sia istantaneo e avvenga quando il satellite lascia<br>
+l’orbita iniziale e quando raggiunge la distanza R2. Si assuma inoltre<br>
+che il consumo di carburante sia proporzionale al quadrato della velocit`a<br>
+impartita dai razzi. Qual `e l’orbita intermedia fra R1 e R2 che consente il<br>
+minor consumo di carburante?</article>
+<article class="post" id="p2182"><div class="who"><b>MrTeo</b><span>24 ago 2009, 21:32</span></div>Questo è un po' "bruciato" in partenza, se ne è parlato per un po' sul forum...<br>
+<br>
+Magari cambialo con un altro anno, con uno che ti sembra difficile, per non rischiare una simulazione falsata  ;)</article>
+<article class="post" id="p2183"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 21:41</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>Questo è un po' "bruciato" in partenza, se ne è parlato per un po' sul forum...<br>
+<br>
+Magari cambialo con un altro anno, con uno che ti sembra difficile, per non rischiare una simulazione falsata  ;)</div></blockquote>
+
+Mi dispiace ci ho provato..ma mi da errore..al massimo se sono troppo semplici continuiamo con un altro po' di problems già carichi  :geek:</article>
+<nav class="pager"><a class="prev" href="olifis-198.html"><small>← precedente</small>SNS 2003/2004 Problema 6</a><a class="next" href="olifis-225.html"><small>successivo →</small>SNS 2004/2005 n 1 facile facile...</a></nav>
+</main></body></html>

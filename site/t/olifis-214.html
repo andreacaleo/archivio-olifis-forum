@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1995/1996 n°3 - sistemi di stelle in rotazione</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1995-1996, problema 3</span></nav>
+<h1>SNS 1995/1996 n°3 - sistemi di stelle in rotazione</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=214">forum Olifis</a></p>
+<article class="post first" id="p1914"><div class="who"><b>Ippo</b><span>9 ago 2009, 15:48</span></div>Tre stelle di ugual massa, M/3 (M è la massa dell'intero sistema), in mutua attrazione gravitazionale, ruotano su un'orbita circolare di raggio R intorno al centro di massa del sistema, mantenendo la loro posizione relativa in modo da occupare i vertici di un triangolo equilatero.<br>
+a) determinare la velocità angolare <span class="tex">\(\Omega_3\)</span> di ciascuna stella attorno al centro di massa<br>
+b) per orbite circolari di raggio R fissato e sistemi di massa totale M assegnata, come si paragona il valore di <span class="tex">\(\Omega_3\)</span> con la velocità angolare di un sistema binario <span class="tex">\(\Omega_2\)</span>? E con <span class="tex">\(\Omega_4\)</span> (quattro stelle ai vertici di un quadrato)?<br>
+c) siete in grado di valutare il valore limite <span class="tex">\(\Omega_{\infty}=\lim_{n\rightarrow \infty} \Omega_n\)</span>?<br>
+<br>
+Il punto c è curioso.</article>
+<article class="post" id="p1919"><div class="who"><b>eli9o</b><span>9 ago 2009, 19:01</span></div>Io sono curioso e provo direttamente il punto (c) così se lo sbaglio me lo merito :D <br>
+<br>
+Consideriamo una particella che avrà massa <span class="tex">\(dm\)</span>. Il centro di massa delle altre particelle coincide col centro dell'orbita e complessivamente hanno massa <span class="tex">\(M\)</span> (più precisamente <span class="tex">\(M-dm\)</span> ma non influisce). La forza centripeta dev'essere data unicamente dall'attrazione gravitazionale quindi <span class="tex">\(dm \Omega_{\infty}^2R=G\frac{Mdm}{R^2}\)</span> e ottengo <span class="tex">\(\Omega_{\infty}=\sqrt{\frac{GM}{R^3}}\)</span><br>
+<br>
+<br>
+Intanto che ci sono pongo un'altra domanda: dimostrare che <span class="tex">\((\Omega_n)_{n\in \mathbb{N}}\)</span> è una successione crescente.<br>
+In realtà non l'ho dimostrato (quindi neanche se è vero) e non so quanto si complichi però ci si può dare almeno un'interpretazione qualitativa. Mi sembrava interessante e l'ho messo.</article>
+<article class="post" id="p1921"><div class="who"><b>CoNVeRGe.</b><span>9 ago 2009, 19:23</span></div><blockquote><div><cite>eli9o ha scritto:</cite>
+La forza centripeta dev'essere data unicamente dall'attrazione gravitazionale quindi <span class="tex">\(dm \Omega_{\infty}^2R=G\frac{Mdm}{R^2}\)</span> e ottengo <span class="tex">\(\Omega_{\infty}=\sqrt{\frac{GM}{R^3}}\)</span>
+</div></blockquote>
+Non credo tu possa assumere la massa tutta al centro, servirebbe una simmetria sferica per poterlo fare.</article>
+<article class="post" id="p1926"><div class="who"><b>Ippo</b><span>9 ago 2009, 20:15</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>
+Non credo tu possa assumere la massa tutta al centro, servirebbe una simmetria sferica per poterlo fare.</div></blockquote>
+Esatto. Purtroppo per il punto c, che io sappia, non c'è nessuno stratagemma elegante.</article>
+<article class="post" id="p1942"><div class="who"><b>Ippo</b><span>10 ago 2009, 17:32</span></div>Tra l'altro si tratterebbe, anche in caso di simmetria sferica, di un punto <em class="text-italics">della</em> superficie sferica, quindi non strettamenete esterno né interno. Allora quale teorema dei gusci applicare? La froza è nulla o è equivalente a quella generata da una massa puntiforme nel centro? In realtà non è nessuna delle due. Il risultato è abbastanza paradossale e la causa del paradosso è il passaggio dal discreto al continuo (il limite per n che tende ad infinito). C'è un perché se la materia è quantizzata  :mrgreen:</article>
+<article class="post" id="p1944"><div class="who"><b>Falco5x</b><span>10 ago 2009, 20:15</span></div>Ho la sensazione che il paradosso che esce considerando un numero infinito di stelle infinitesime derivi dal fatto che si pretende di distribuire una massa finita lungo un anello di spessore zero, motivo per il quale avendo questo una densità lineare finita dovrebbe possedere una densità volumica infinita.</article>
+<article class="post" id="p1947"><div class="who"><b>Ippo</b><span>11 ago 2009, 11:32</span></div>Io credo che sia una cosa di questo tipo: una forza che varia con l'inverso del quadrato della distanza genera banalmente un infinito quando le due masse si avvicinano indefinitamente; qui il fatto apparentemente curioso è che le masse sono quasi allineate lungo la tangente all'anello, ma generano una forza infinita (dimostratelo, fate il problema, su!  :mrgreen: ) in direzione  <em class="text-italics">radiale</em>; ma la forza radiale è la forza totale moltiplicata per il seno dell'angolo alla circonferenza individuato dalle due masse, che è approssimativamente la distanza tra le masse (cioè la corda che queste individuano) diviso il diametro; il prodotto di queste due cose (la forza che va con <span class="tex">\(d^{-2}\)</span> e il seno che va con <span class="tex">\(d\)</span>) è proporzionale a <span class="tex">\(d^{-1}\)</span>, che ovviamente tende ad infinito quando avviciniamo indefinitamente le masse ( = quando abbiamo una distribuzione continua di massa). 
+<blockquote><div><cite>Falco5x ha scritto:</cite>Ho la sensazione che il paradosso che esce considerando un numero infinito di stelle infinitesime derivi dal fatto che si pretende di distribuire una massa finita lungo un anello di spessore zero, motivo per il quale avendo questo una densità lineare finita dovrebbe possedere una densità volumica infinita.</div></blockquote>
+In un certo senso sì, considerare ad esempio masse puntiformi ( = di massa volumica infinita) non crea problemi finché non ci chiediamo come si comporterebbe una massa <em class="text-italics">dentro</em> il punto, che è con le dovute differenze quello che chiede di fare questo problema.</article>
+<article class="post" id="p2028"><div class="who"><b>Ippo</b><span>15 ago 2009, 22:32</span></div>Vabbè, visto che non se lo fila nessuno ecco la soluzione (a beneficio dei posteri, non si sa mai  :mrgreen: )<br>
+<br>
+a) La distanza tra due stelle è <span class="tex">\(\sqrt 3 R\)</span> quindi la forza tra ciascuna coppia di stelle è<br>
+<span class="tex">\(F_0={GM^2 \over 9 \cdot 3 R^2}\)</span><br>
+Rispetto alla mediana per una certa massa le due forze sono inclinate entrambe di 30°, da parti opposte; contano solo i contributi nella direzione della mediana e la risultante è <span class="tex">\(F_{\rm tot}=\sqrt3 F_0={\sqrt3 GM^2 \over 27R^2}\)</span><br>
+Si impone ora la condizione per il moto circolare uniforme e si ricava <span class="tex">\(\Omega_3\)</span>:<br>
+<span class="tex">\(\Omega_3^2 R={3F_{\rm tot}\over M}={\sqrt3 GM \over 9R^2}\)</span> da cui<br>
+<span class="tex">\(\Omega_3=\sqrt{\sqrt3 GM \over 9R^3}=3^{-{3 \over 4}}\sqrt{GM \over R^3}\)</span><br>
+b) Stessa cosa con le opportune differenze geometriche; risulta<br>
+<span class="tex">\(F_{\rm tot}={GM^2 \over 16} \left( {\sqrt2 \over 2R^2}+{1\over 4R^2}\right)={GM^2 \over 64R^2}(2\sqrt2+1)\)</span> e<br>
+<span class="tex">\(\Omega_4^2 R={4F_{\rm tot} \over M}={GM \over 16R^2}(2\sqrt2 +1)\)</span> da cui<br>
+<span class="tex">\(\Omega_4= {\sqrt{\sqrt2+1}\over 2}\sqrt{GM \over R^3}\)</span><br>
+Il caso binario è banale, si ha <span class="tex">\(\Omega_2=\sqrt{2F \over MR}=\sqrt{GM \over 8R^3}=2^{-{3\over 2}}\sqrt{GM \over R^3}\)</span><br>
+c) Consideriamo una distribuzione continua di massa a forma di anello, di densità lineare <span class="tex">\(\lambda=M/2\pi R\)</span><br>
+Un punto P di questa distribuzione è soggetto ad una accelerazione che è la somma degli infiniti contributi di ciascun altro punto dell'anello. Chiamiamo <span class="tex">\(\theta\)</span> il complementare dell'angolo che il raggio vettore <span class="tex">\(\vec{OP_i}\)</span> dal centro a ciascun punto individua rispetto al raggio vettore <span class="tex">\(\vec{OP}\)</span> dal centro a P.<br>
+Si ha <span class="tex">\(P_iP^2=2R^2+2R^2\cos\theta=2R^2(1+\cos\theta)\)</span> per il teorema del coseno; poiché la situazione è simmetrica rispetto al diametro per P, tutti i contributi ortogonali a tale diametro si elidono con contributi uguali ed opposti, quindi vanno considerate solo le componenti delle forze in quella direzione. Risulta <br>
+<span class="tex">\(dg={Gdm \over 2R^2(1+\cos\theta)}\cos(\theta/2)\)</span> dove g è il campo gravitazionale. <span class="tex">\(\theta/2\)</span> è l'angolo alla circonferenza in P, che ha per corrispondente al centro <span class="tex">\(\theta\)</span>. Sostituendo <span class="tex">\(dm=\lambda Rd\theta=Md\theta/2\pi\)</span> e <span class="tex">\(\cos\theta=2\cos^2(\theta/2)-1\)</span> si ricava<br>
+<span class="tex">\(dg={GMd\theta \over 8\pi R\cos(\theta/2)}\)</span><br>
+Ora si ha che g è, per simmetria, due volte l'integrale da <span class="tex">\(\theta=0\)</span> a <span class="tex">\(\theta=\pi\)</span> di quella brutta roba lì:<br>
+<span class="tex">\(g={GM \over 4\pi R}\int_0^{\pi}{d\theta \over \cos(\theta/2)}\)</span><br>
+è evidente che per <span class="tex">\(\theta \rightarrow \pi\)</span> la frazione tende ad infinito; anche l'integrale dà un infinito perché <span class="tex">\(\cos(\theta/2)\)</span> in qualsiasi intorno sinistro di <span class="tex">\(\pi\)</span> è strettamente minore della retta <span class="tex">\(y=-\theta+\pi\)</span> quindi il suo reciproco (restando sufficientemente vicini a  pi) è strettamente maggiore dell'iperbole <span class="tex">\(y={1 \over \pi-\theta}\)</span> il cui grafico come è noto sottende un'area infinita. Il grafico di <span class="tex">\(1/\cos(\theta/2)\)</span> sottende quindi un'area maggiore di un'altra che è infinita. Ciò dimostra che il campo gravitazionale in ciascun punto dell'anello è infinito e che <span class="tex">\(\Omega_{\infty}=\lim_{n\rightarrow \infty}\Omega_n=\infty\)</span></article>
+<article class="post" id="p2029"><div class="who"><b>SkZ</b><span>16 ago 2009, 5:29</span></div>un trucchetto: teorema del viriale.<br>
+<br>
+In un sistema isolato in equilibrio di n particelle di massa m poste su una circonferenza di raggio R<br>
+<span class="tex">\(~2K+\Omega=0\)</span><br>
+ergo se <span class="tex">\(~K+\Omega=-E\)</span><br>
+<span class="tex">\(~K=E\qquad \Omega=-2E\)</span><br>
+ma, ricordando che <span class="tex">\(~nm=M\)</span>,<br>
+<span class="tex">\(K=\frac{n}{2}m(R\omega)^2=\frac{1}{2} M(R\omega)^2\)</span><br>
+e<br>
+<span class="tex">\(\Omega=-\frac{n}{2}\sum_{i=1}^{n-1}\frac{Gm^2}{2R\sin{(i\pi/n)}}=-\frac{GM^2}{4R}\sum_{i=1}^{n-1}\frac{1}{n\sin{(i\pi/n)}}\)</span><br>
+<br>
+PS: qualcuno mi spiega perche' si incasina quel frac? ho provato anche a ricopiarlo da altri o a spostare la formula, ma continua<br>
+Edit: Ok. abituato all'oliforum dove serve il $ per un display piu' grande. dimenticato che qui non serve e incasina solo. Ma perche' nella riga dopo non causava nulla? :?<br>
+piccolo errore nella sommatoria</article>
+<article class="post" id="p2030"><div class="who"><b>Alex90</b><span>16 ago 2009, 10:44</span></div>Sinceramente non so...così viene  :) <br>
+<br>
+<span class="tex">\(\displaystyle \Omega = \frac{n}{2} m (R \omega)^2 = \frac{1}{2} M (r \omega)^2\)</span></article>
+<article class="post" id="p2031"><div class="who"><b>MrTeo</b><span>16 ago 2009, 12:07</span></div>Prova a togliere quel $ accanto a K...  :roll:</article>
+<article class="post" id="p2033"><div class="who"><b>SkZ</b><span>16 ago 2009, 20:59</span></div>alex, quel risultato e' sbagliato:<br>
+1) <span class="tex">\(\Omega\)</span> e' negativo<br>
+2) quello e' il valore dell'energia cinetica K che e' la meta' dell'energia potenziale in valore assoluto<br>
+<br>
+nota: da un punto di vista e' giusto che l'energia potenziale sia costante, visto che abbiamo sempre una massa totale M che ruota alla distanza R a velocita' angolare <span class="tex">\(\omega\)</span><br>
+L'energia potenziale deve variare dato che ad ogni passaggio vario la posizione delle masse</article>
+<article class="post" id="p2034"><div class="who"><b>Alex90</b><span>16 ago 2009, 21:23</span></div><blockquote><div><cite>SkZ ha scritto:</cite>alex, quel risultato e' sbagliato:<br>
+1) <span class="tex">\(\Omega\)</span> e' negativo<br>
+2) quello e' il valore dell'energia cinetica K che e' la meta' dell'energia potenziale in valore assoluto<br>
+<br>
+nota: da un punto di vista e' giusto che l'energia potenziale sia costante, visto che abbiamo sempre una massa totale M che ruota alla distanza R a velocita' angolare <span class="tex">\(\omega\)</span><br>
+L'energia potenziale deve variare dato che ad ogni passaggio vario la posizione delle masse</div></blockquote>
+
+Ho solo riscritto la formula che a te non veniva sbagliando una <span class="tex">\(R\)</span> con una <span class="tex">\(r\)</span>  :lol:</article>
+<nav class="pager"><a class="prev" href="oliforum-6116.html"><small>← precedente</small>SNS 1995</a><a class="next" href="olifis-851.html"><small>successivo →</small>Un dubbio sulla notazione- SNS 1996-1997</a></nav>
+</main></body></html>

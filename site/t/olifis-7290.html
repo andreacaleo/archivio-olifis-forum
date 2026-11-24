@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Re: SNS n. 6,  2024/1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2024-2025, problema 6</span></nav>
+<h1>Re: SNS n. 6,  2024/1</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7290">forum Olifis</a></p>
+<article class="post first" id="p28716"><div class="who"><b>Higgs</b><span>20 mar 2025, 18:29</span></div>Edit. Si tratta di un problema lunghissimo senza la difficoltà delle figure ma riguarda l'analisi dimensionale. E' diviso praticamente in 4 sottoproblemi sull'argomento. Ne formulerò uno alla volta e dopo alcuni giorni posterò la mia proposta di soluzione.<br>
+<br>
+<br>
+L'analisi dimensionale ha un ruolo centrale in Fisica, perché consente di legare diverse quantità sulla base delle loro dimensioni fisiche . Usiamo l'analisi dimensionale per dedurre alcune proprietà dei buchi neri.<br>
+1. Trovare la velocità di fuga<span class="tex">\(V_e\)</span> da un pianeta sferico in termini della costante di Newton <span class="tex">\(G_N\)</span>, della massa M del pianeta e del suo raggio R.<br>
+Un buco nero è un corpo estremamente denso circondato da una superficie sferica ideale e il suo orizzonte dal quale nulla può uscire se c, la velocità della luce, è la massima velocità possibile. Legare la dimensione <span class="tex">\(R_s \)</span> dell'orizzonte di un buco nero sferico alla costante di Newton, alla massa M del buco nero e alla velocità della luce c utilizzando il precedente risultato.</article>
+<article class="post" id="p28717"><div class="who"><b>Higgs</b><span>24 mar 2025, 18:20</span></div>Come era prevedibile non essendoci alcuna risposta propongo la mia soluzione dell'SNS di cui all'oggetto. La premessa è che considero il Sistema Internazionale di unità di misura nel quale sono grandezze fondamentali la lunghezza L, la massa M, il tempo T , l'intensità di corrente  con unità di misura l'ampere A, la temperatura con unità di misura il grado Kelvin °K, la quantità di sostanza con unità di misura la mole e l'intensità luminosa con unità di misura la candela.<br>
+La velocità di fuga definita come quella velocità che consente di portare un pianeta o un satellite dall'attrattore M all'infinito con velocità nulla è rappresentata da  <span class="tex">\( V_e = \sqrt{ \frac{ 2GM}{ R}}\)</span> dove G è la costante di Newton <span class="tex">\(G_N\)</span>, M è la massa dell'attrattore ed R è il raggio dell'orbita seguita dal pianeta o dal satellite. <br>
+La dimensioe di <span class="tex">\(V_e\)</span> è <span class="tex">\([[L]/[T]\)</span> mentre quella della costante di Newton è sulla base della legge stessa  <span class="tex">\([G_N]= L^{ 3}T^{-2 } M^{-1 }\)</span> e componendo le due risulta in definitiva <span class="tex">\([V_e] = [G_N]^{1/2 } [M]^{1/2 }[L]^{-1/2 }\)</span> Pertanto la dimensione dell'orizzonte di un buco nero risulta <br>
+<span class="tex">\([R_s]=[c][T] =[G_N]^{ 1/2} [M]^{ 1/2}[L]^{-1/2 }[T]\)</span></article>
+<article class="post" id="p28718"><div class="who"><b>Higgs</b><span>26 mar 2025, 18:19</span></div>Si può ora procedere con l'analisi dimensionale verso argomenti di frontiera.<br>
+2. a) La " costante di struttura fine" <span class="tex">\(\alpha\)</span> è una quantità adimensionale che controlla le correzioni quantistiche alla legge di Coulomb fra una coppia di elettroni. Usando nozioni basilari di Elettrostatica, trovare l'espressione di <span class="tex">\(\alpha\)</span> in termini della carica e dell'elettrone, della costante di Planck <span class="tex">\(\hbar\)</span>, della costante dielettrica del vuoto <span class="tex">\(\epsilon_0\)</span> e della velocità della luce c.<br>
+b) Trovare la forma della controparte  <span class="tex">\(\alpha_G\)</span> di <span class="tex">\(\alpha\)</span> per la gravità basandosi sull'analogia fra le leggi di Coulomb e di Newton e su <span class="tex">\(E = mc^2\)</span>. Mostrare che <span class="tex">\(\alpha_G(E)\)</span> cresce quantitativamente con l'energia degli elettroni al quadrato<br>
+c) A quale energia <span class="tex">\(\alpha_G(E)\)</span> diventa di ordine 1 ? Questa energia viene detta "Energia di Planck <span class="tex">\(E_{Pl }\)</span>".</article>
+<article class="post" id="p28720"><div class="who"><b>Higgs</b><span>28 mar 2025, 12:39</span></div>2a) Sulla base della legge di Coulomb fra due elettroni <span class="tex">\(F= \frac{e^2 } {4\pi\epsilon_0 d^2 }\)</span>è facile dedurre che <span class="tex">\(F.d^2 = \frac{e^2 }{4\pi\epsilon_0 }\)</span> ha le dimensioni di una forza per una distanza al quadrato ovvero che si misura in <span class="tex">\(N/m^2\)</span> esattamente come la quantità <span class="tex">\(\hbar c\)</span> Pertanto la quantità <span class="tex">\(\alpha\)</span> che rappresenta il loro rapporto risulta una quantità adimensionale e si può scrivere come <br>
+<span class="tex">\(\alpha = \frac{\frac{ e^2}{ 4\pi \epsilon_0} }{\hbar c }\)</span> che risulta adimensionale espressa con le grandezze richieste.<br>
+2b) La controparte gravitazionale <span class="tex">\(\alpha_G\)</span> si può trovare considerando la legge gravitazionale e l'energia di riposo di <span class="tex">\(m_e\)</span>. Infatti l'energia gravitazionale si può scrivere dalla legge di gravitazione come<span class="tex">\(F.d= \frac{ G m_e^2 }{ d} J\)</span> e altrettanto l'energia di riposo <span class="tex">\(m_e c^2 J\)</span>. Pertanto risulta adimensionale e in funzione delle grandezze richieste la controparte gravitazionale<br>
+<span class="tex">\(\alpha_G =\frac{\frac{Gm_e^2}{d }}{m_e . c^2 }\)</span><br>
+2c) Quando l'energia dei due elettroni uguaglia l'energia della massa a riposo <span class="tex">\(m_e\)</span> si dice che rappresenta l'energia di Planck. Insomma l'energia di Planck è quella della massa <span class="tex">\(m_e\)</span>a riposo. Allora <span class="tex">\(\alpha_G\)</span> diventa di ordine 1.</article>
+<article class="post" id="p28721"><div class="who"><b>Higgs</b><span>28 mar 2025, 17:50</span></div>3. Trovare la dipendenza della temperatura <span class="tex">\(T_H\)</span>di un buco nero ( tenendo conto del fatto che è inversamente proporzionale allasua massa M) da M, <span class="tex">\(M_{ Pl}\)</span>,la velocità della luce c e la costante di Boltzmann<span class="tex">\(K_B\)</span> . Perchè in questo caso è necessario fornire la dipendenza da M?</article>
+<article class="post" id="p28722"><div class="who"><b>Higgs</b><span>30 mar 2025, 11:47</span></div>3) L'intensità di emissione di un corpo nero a temperatura <span class="tex">\(T_H\)</span> è data da <span class="tex">\(I=K_B.T_H^4\)</span> dove la costante di Boltzmann vale <span class="tex">\( 5670 .10^{-8 } \frac{W K}{ m^2}. K^4\)</span> essendo K l'unita di misura della temperatura assoluta.Da cui si può scrivere che <span class="tex">\(T_H= [ \frac {I(T) }{K_B }]^{1/4 }\)</span> mentre secondo il testo deve essere<span class="tex">\(T_H=\frac {K_B }{ M}\)</span> Essendo l'intensità una energia per metro quadrato e sostituendo alla energia il valore <span class="tex">\(M_{Pl } c^2\)</span> ovvero l'energia di Planck si può porre<br>
+<span class="tex">\(T_H=\frac{K_B(M_{Pl } c^2)^{ 1/4}} { M} . \sqrt{\frac{1 }{L^2 K_B } }\)</span><br>
+In questo caso è necessario fornire la dipendenza da M perché più è massiccio e più è minore la temperatura <span class="tex">\(T_H\)</span> del buco nero.</article>
+<article class="post" id="p28725"><div class="who"><b>Pigkappa</b><span>1 apr 2025, 0:38</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7290.html#p28722" data-post-id="28722" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 mar 2025, 11:47</div></cite>
+In questo caso è necessario fornire la dipendenza da M perché più è massiccio e più è minore la temperatura <span class="tex">\(T_H\)</span> del buco nero.
+</div></blockquote>
+Avrei detto piuttosto che e' necessario fornirla perche' altrimenti non ci sono abbastanza informazioni per risolvere il problema. Nelle altre domande c'era una sola soluzione possibile che rispettasse l'analisi dimensionale, a meno di costanti numeriche (o a meno di fare cose molto strane). Quest'ultima, senza sapere questa dipendenza, non si poteva risolvere.</article>
+<article class="post" id="p28726"><div class="who"><b>Pigkappa</b><span>1 apr 2025, 0:41</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7290.html#p28720" data-post-id="28720" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">28 mar 2025, 12:39</div></cite>
+Pertanto risulta adimensionale e in funzione delle grandezze richieste la controparte gravitazionale<br>
+<span class="tex">\(\alpha_G =\frac{\frac{Gm_e^2}{d }}{m_e . c^2 }\)</span>
+</div></blockquote>
+Cosa e' <span class="tex">\(\displaystyle d\)</span> ? Non penso fosse tra le grandezze che si possono usare qua dato che non e' una costante.<br>
+<br>
+<strong class="text-strong">Nota bene:</strong> secondo me qua il testo e' scritto male e trae in inganno. Abbiamo visto che la costante di struttura fine da' in un certo senso il rapporto tra l'energia elettrostatica [di due elettroni a distanza X] e quantistica [di un fotone di lunghezza d'onda X]. Allo stesso modo, per quanto il testo non lo dica chiaramente, credo che la costante di struttura fine gravitazionale debba dare una idea tra il rapporto dell'energia gravitazionale e quella quantistica. Quindi nel risultato ci sara' ancora <span class="tex">\(\displaystyle \hbar\)</span>. Il commento che fanno dicendo "basandosi su [...] <span class="tex">\(\displaystyle E = mc^2\)</span>" e' fuorviante; penso volessero dire di esprimere il risultato finale in termini di <span class="tex">\(\displaystyle E=m_e c^2\)</span>, facendo scomparire <span class="tex">\(\displaystyle m_e\)</span>, per dimostrare cosi' la cosa che chiedono subito dopo, che <span class="tex">\(\displaystyle \alpha_G \propto E^2\)</span>.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7290.html#p28718" data-post-id="28718" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">26 mar 2025, 18:19</div></cite>
+Mostrare che <span class="tex">\(\alpha_G(E)\)</span> cresce quantitativamente con l'energia degli elettroni al quadrato
+</div></blockquote>
+Mi pare che tu non abbia affrontato questa parte<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7290.html#p28722" data-post-id="28722" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 mar 2025, 11:47</div></cite>
+secondo il testo deve essere<span class="tex">\(T_H=\frac {K_B}{ M}\)</span>
+</div></blockquote>
+Aspetta... Questa da dove viene? Il testo dice <span class="tex">\(T_H \propto \frac {1}{M}\)</span> ma il coefficiente di proporzionalita' da dove lo hai trovato?<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7290.html#p28722" data-post-id="28722" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">30 mar 2025, 11:47</div></cite>
+<span class="tex">\(T_H=\frac{K_B(M_{Pl } c^2)^{ 1/4}} { M} . \sqrt{\frac{1 }{L^2 K_B } }\)</span>
+</div></blockquote>
+Forse mi sono perso qualcosa ma... Cosa e' <span class="tex">\(\displaystyle L\)</span> ?</article>
+<article class="post" id="p28728"><div class="who"><b>Higgs</b><span>7 apr 2025, 17:24</span></div>La vera obiezione che fai è quella relativa al punto 3. Mi sono accorto di aver fatto un errore di calcolo. Infatti il punto si fonda su due equazioni: 1) la legge di emissione del corpo nero a temperatura <span class="tex">\(T_H\)</span> ovvero<span class="tex">\(I=K_B T_H^4\)</span> e l'altra, contenente l'errore, <span class="tex">\(T_H= K/M\)</span> dove erroneamente al posto di K ho messo <span class="tex">\(K_B\)</span>. Si tratta di due equazioni in due incognite, <span class="tex">\(T_H\)</span> e K. Si ricava K in funzione di <span class="tex">\(T_H\)</span> e quindi si ricava <span class="tex">\(T_H\)</span> in funzione delle grandezze che il testo indica cioè la massa M del buco nero, la massa di Planck <span class="tex">\(M_{Pl }= Mc^2\)</span> e  <span class="tex">\(K_B\)</span>.<br>
+Se non ho sbagliato i conti mi risulta<br>
+<span class="tex">\(T_H =\frac{  (M_{Pl } . c^2)^{1/4 } }{M } . \sqrt{\frac{K_B }{L^2 } }\)</span><br>
+dove si deve osservare che <span class="tex">\(L^2\)</span> deriva dal fatto che I , come intensità di emissione del buco nero alla temperatura <span class="tex">\(T_H\)</span>, rappresenta un'energia per <span class="tex">\(m^2\)</span> cioè  per una lunghezza al quadrato. Dovrebbe essere la risposta alla tua ultima domanda...</article>
+<article class="post" id="p28730"><div class="who"><b>Higgs</b><span>9 apr 2025, 18:07</span></div>4. Sappiamo dalla Termodinamica che la temperatura può essere dedotta dall' e ntropia S utilizzando la relazione <br>
+<span class="tex">\(\frac{1 }{K_BT_H }= \frac {dS }{dE }\)</span><br>
+dove E è l'energia interna del sistema. Qui l'unico contributo per E è l'energia di riposo del buco nero, <span class="tex">\(Mc^2\)</span>. Legare l'entropia alla massa M integrando questa equazione. Esprimere il risultato in termini della dimensione <span class="tex">\(R_s\)</span>dell'orizzonte e della lunghezza di Planck <span class="tex">\(l_{Pl }\)</span>.<br>
+Notate che , sorprendentemente, il risultato è proporzionale all'area dell'orizzonte e non al volume da esso racchiuso. <br>
+Nota: <span class="tex">\(\hbar \)</span>= energia del fotone di frequenza angolare <span class="tex">\(\omega\)</span>, <span class="tex">\(E_{Pl }= M{Pl } c^2 \)</span> e <br>
+<span class="tex">\(l_{Pl . M_{Pl }c=\hbar }\)</span><br>
+<br>
+4. Integrando <span class="tex">\(dS=\frac{1 }{ K_B T_H}c^2 dM\)</span> e introducendo l'orizzonte di dimensione <span class="tex">\(R_s= c.t\)</span> nonché il suggerimento della nota, si ottiene<span class="tex">\(S= \frac{c^2.M }{ K_B T_H}\)</span> dove <span class="tex">\(c^2 M=M_{Pl }c^2=\hbar c\)</span><br>
+In conclusione risulta<br>
+<span class="tex">\(S= \frac{\hbar c }{ K_B .T_H. l_{Pl } }\)</span>  :?:</article>
+<article class="post" id="p28731"><div class="who"><b>Pigkappa</b><span>9 apr 2025, 18:31</span></div>Riguardo queste quando posso ma era significativa anche la mia obiezione al punto 2, sulla costante di struttura fine gravitazionale</article>
+<nav class="pager"><a class="prev" href="olifis-7288.html"><small>← precedente</small>SNS n. 5  2024</a></nav>
+</main></body></html>

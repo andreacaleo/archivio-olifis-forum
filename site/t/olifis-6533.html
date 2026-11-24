@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una centrale che rispetta l&#x27;ambiente (SNS 2017-5)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2017-2018, problema 5</span></nav>
+<h1>Una centrale che rispetta l'ambiente (SNS 2017-5)</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6533">forum Olifis</a></p>
+<article class="post first" id="p23727"><div class="who"><b>arna1998</b><span>1 set 2017, 9:35</span></div><span class="tex">\(\)</span>Si vuole costruire una nuova centrale termoelettrica vicino ad un fiume, in modo che possa utilizzare l'acqua come fluido di raffreddamento. La centrale produce energia bruciando combustibile a 600 °C. Il fiume ha una larghezza <span class="tex">\(l=10 \, m\)</span> e una profondità media <span class="tex">\(h=3 \, m\)</span>, e l'acqua ha una temperatura di 15° C e scorre ad una velocità <span class="tex">\(v=1 \, m/s\)</span>.<br>
+E' stato determinato da studi approfonditi che la fauna che abita il fiume non può tollerare un aumento di temperatura dell'acqua superiore a 0,5 °C senza subire conseguenze negative. Si determini la massima potenza elettrica che è teoricamente possibile ricavare dalla centrale, rispettando i suddetti limiti imposti dalla protezione ambientale. <br>
+Dati utili: 0 °C=273 K; il calore specifico dell'acqua vale 4,19 J/(g °C).</article>
+<article class="post" id="p23728"><div class="who"><b>lance00</b><span>1 set 2017, 12:41</span></div>viene all'incirca 180MW ? se è giusta (molto probabilmente no    ) posto il procedimento  :D</article>
+<article class="post" id="p23729"><div class="who"><b>arna1998</b><span>1 set 2017, 12:44</span></div>No, non è quella  :? <br>
+Magari prova comunque a spiegare a grandi linee come hai fatto  :)</article>
+<article class="post" id="p23730"><div class="who"><b>lance00</b><span>1 set 2017, 12:53</span></div>:cry:  ... ho risolto la differenziale<br>
+<span class="tex">\(\frac{T(calda)}{T} = \frac{dQ(calda)}{mcdT}\)</span> con T la temperatura del fiume e m la massa d'acqua che attraversa una sezione del fiume in un tempo dt</article>
+<article class="post" id="p23731"><div class="who"><b>cumbajin99</b><span>1 set 2017, 13:44</span></div>Io farei <span class="tex">\(P_{max}=\frac{dQ}{dt} = \rho_{acqua} l h \frac{dx}{dt} c_s \Delta T\)</span></article>
+<article class="post" id="p23732"><div class="who"><b>cumbajin99</b><span>1 set 2017, 14:13</span></div>E mettendo in numeri mi esce <span class="tex">\(P=62,8 MW\)</span></article>
+<article class="post" id="p23733"><div class="who"><b>arna1998</b><span>1 set 2017, 18:14</span></div><blockquote><div><cite>lance00 ha scritto: <a href="olifis-6533.html#p23730" data-post-id="23730" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 set 2017, 12:53</div></cite>
+:cry:  ... ho risolto la differenziale<br>
+<span class="tex">\(\frac{T(calda)}{T} = \frac{dQ(calda)}{mcdT}\)</span> con T la temperatura del fiume e m la massa d'acqua che attraversa una sezione del fiume in un tempo dt
+</div></blockquote>
+Non ho capito come trovi questa equazione :( <br>
+
+<blockquote><div><cite>cumbajin99 ha scritto: <a href="olifis-6533.html#p23731" data-post-id="23731" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 set 2017, 13:44</div></cite>
+Io farei <span class="tex">\(P_{max}=\frac{dQ}{dt} = \rho_{acqua} l h \frac{dx}{dt} c_s \Delta T\)</span>
+</div></blockquote>
+In questo modo trovi la massima potenza che la centrale può cedere al fiume. Questa quantità di energia però non è convertibile in energia elettrica, perché è dispersa nell'ambiente.</article>
+<article class="post" id="p23734"><div class="who"><b>cumbajin99</b><span>1 set 2017, 18:39</span></div><blockquote><div><cite>arna1998 ha scritto: <a href="olifis-6533.html#p23733" data-post-id="23733" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 set 2017, 18:14</div></cite>
+In questo modo trovi la massima potenza che la centrale può cedere al fiume. Questa quantità di energia però non è convertibile in energia elettrica, perché è dispersa nell'ambiente.
+</div></blockquote>
+Quindi a questa potenza devo sommare quella convertita in energia elettrica?</article>
+<article class="post" id="p23735"><div class="who"><b>arna1998</b><span>1 set 2017, 18:50</span></div>Mmm no. La centrale produce una certa quantità di energia dovuta alla combustione, una parte viene convertita in energia elettrica, mentre la restante viene "rilasciata" nel fiume. Il problema chiede di trovare la potenza elettrica massima che si può avere rispettando i limiti imposti ;)</article>
+<article class="post" id="p23736"><div class="who"><b>Marcus</b><span>1 set 2017, 19:44</span></div>Vediamo...<br>
+<br>
+Si assume che il sistema della centrale sia una macchina termica con rendimento costante, dato <span class="tex">\(\Delta T=0.5 \,K\ll T_2=288\, K\)</span>, e coincidente con il massimo teoricamente possibile, ovvero quello di Carnot. Allora:<br>
+<br>
+<span class="tex">\(\displaystyle L=Q_1-Q_2\)</span><br>
+<br>
+Dato <span class="tex">\(\Delta S=0\)</span> per Carnot, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle \frac{Q_1}{T_1}=\frac{Q_2}{T_2}\)</span><br>
+<br>
+Sostituendo in funzione di <span class="tex">\(Q_2\)</span>:<br>
+<br>
+<span class="tex">\(\displaystyle L=Q_2\biggl(\frac{T_1}{T_2}-1\biggr)\)</span><br>
+<br>
+Dove <span class="tex">\(T_1=873\,K\°C\)</span>. Inoltre si ha:<br>
+<br>
+<span class="tex">\(Q_2=c\rho lh\delta D\Delta T\)</span><br>
+<br>
+Detto <span class="tex">\(\delta D\)</span> un tratto elementare di fiume percorso in un tempo <span class="tex">\(\delta t\)</span>. Allora <span class="tex">\(L\)</span> dovrà essere sviluppato proprio in quel <span class="tex">\(\delta t\)</span> affinché l'acqua riscaldata abbia il tempo di scorrere e non aumentare ulteriormente di temperatura. La potenza P sviluppata è allora:<br>
+<br>
+<span class="tex">\(P=c\rho lhv\Delta T\biggl(\frac{T_1}{T_2}-1\biggr) \quad (\approx 128 MW)\)</span><br>
+<br>
+NOTA: I calori sono tutti considerati in modulo.</article>
+<article class="post" id="p23737"><div class="who"><b>lance00</b><span>1 set 2017, 19:49</span></div>Ho fatto una cosa parecchio losca.. sostituire Q1/Q2 con dQ1/dQ2  :lol: l'errore penso stia lì</article>
+<article class="post" id="p23738"><div class="who"><b>arna1998</b><span>1 set 2017, 22:25</span></div>Perfetto Marcus :D</article>
+<article class="post" id="p23740"><div class="who"><b>FedeColo98</b><span>2 set 2017, 10:49</span></div>Altra soluzione:<br>
+Si parte sempre dal considerare il rendimento massimo, quindi quello del ciclo di Carnot<br>
+<span class="tex">\(\eta = 1-\frac{T_f}{T_c}\)</span><br>
+Tale rendimento si può mettere in relazione con la potenza massima utile (quella che cerchiamo), ovvero<br>
+<span class="tex">\(\eta =\frac{P_{utile}}{P_{tot}}\)</span><br>
+<br>
+dove <span class="tex">\(P_{tot}= P_{utile}+P_{dispersainacquaperipoveripesciolini}\)</span><br>
+<br>
+Unendo i due rendimenti (e sostituendo <span class="tex">\(P_{disp}=\rho.l.h.v.c \Delta T\)</span>si ottiene lo stesso risultato ;)</article>
+<nav class="pager"><a class="prev" href="olifis-7156.html"><small>← precedente</small>SNS 2017/18 n.5</a><a class="next" href="olifis-6706.html"><small>successivo →</small>SNS 2017 n.6</a></nav>
+</main></body></html>

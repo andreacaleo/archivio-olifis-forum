@@ -41,6 +41,10 @@ h2 { font:600 13px var(--sans); text-transform:uppercase; letter-spacing:.08em; 
 .post pre, .post code { font:14px/1.45 Consolas, "SF Mono", monospace; }
 .post pre { overflow-x:auto; background:var(--quote); padding:10px; border-radius:6px; }
 .post ul, .post ol { padding-left:1.4em; }
+.post dl.attachbox { margin:14px 0 0; padding:10px 14px; border:1px solid var(--line); border-radius:8px; font:14px var(--sans); }
+.post dl.attachbox > dt { font-weight:600; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+.post dl.attachbox dd { margin:0; } .post dl.file { margin:6px 0; } .post dl.file dd { color:var(--faint); font-size:12px; }
+.post dl.file dt img[src*="upload_icons"] { vertical-align:middle; margin-right:4px; }
 mjx-container { max-width:100%; overflow-x:auto; overflow-y:hidden; }
 mjx-container[display="true"] { margin:.6em 0 !important; }
 /* a formula MathJax cannot read is shown as its source, like plain text rather than highlighted */

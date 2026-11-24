@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS - Condensatore</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica anno ?</span></nav>
+<h1>SNS - Condensatore</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=226">forum Olifis</a></p>
+<article class="post first" id="p2032"><div class="who"><b>Ratman</b><span>16 ago 2009, 19:21</span></div>Un condensatore a lastre piane, perfettamente conduttrici, con distanza di separazione<br>
+<span class="tex">\(d\)</span> `e riempito con due strati di materiale (1) e (2). Il primo materiale ha<br>
+una costante dielettrica <span class="tex">\(e_1\)</span>, conducibilita' <span class="tex">\(s_1\)</span>, il secondo ha costante dielettrica <span class="tex">\(e_2\)</span>, conducibilita' <span class="tex">\(s_2\)</span> ed i loro spessori sono rispettivamente <span class="tex">\(d_1\)</span> e <span class="tex">\(d_2\)</span> <span class="tex">\((d = d_1 + d_2)\)</span>. Un potenziale <span class="tex">\(V\)</span> e' applicato ai capi del condensatore.<br>
+<br>
+(a) Trascurando gli effetti di bordo calcolare il campo elettrico nel materiale (1) e (2).<br>
+(b) Quanto vale la densit`a di corrente che passa attraverso il condensatore?<br>
+(c) Quanto vale la densit`a totale di carica all’interfaccia tra il materiale (1) e (2)?</article>
+<article class="post" id="p2049"><div class="who"><b>Ippo</b><span>20 ago 2009, 18:26</span></div>a) La densità di corrente a regime deve essere la stessa nei due mezzi perché altrimenti si creerebbe un accumulo di carica indefinitamente crescente all'interfaccia (in pratica è la legge dei nodi di Kirchoff).<br>
+La forma della legge di Ohm <span class="tex">\(E=j\rho=j/s\)</span> (la conducibilità s è il reciproco della resistività del mezzo) ci dice che<br>
+<span class="tex">\(E_1={j \over s_1}\)</span> e <span class="tex">\(E_2={j \over s_2}=E_1{s_1 \over s_2}\)</span><br>
+ma sappiamo anche che <span class="tex">\(E_1 d_1+E_2d_2=V\)</span> quindi ricaviamo<br>
+<span class="tex">\(E_1 \left( d_1 +d_2 {s_1 \over s_2}\right) =V\)</span><br>
+da cui <span class="tex">\(E_1={s_2 V \over d_1 s_2 + d_2 s_1} \qquad E_2={s_1 V \over d_1 s_2 + d_2 s_1}\)</span><br>
+b) <span class="tex">\(j=E_1s_1=E_2s_2={s_1s_2V \over d_1 s_2 + d_2 s_1}\)</span><br>
+c) Detta <span class="tex">\(\sigma_0\)</span> la densità superficiale di carica sulle facce del condensatore e <span class="tex">\(\sigma\)</span> quella all'interfaccia, si ha per la legge di Gauss<br>
+<span class="tex">\(E_1={2\sigma_0-\sigma \over 2 \epsilon_0 \epsilon_1} \qquad E_2={2\sigma_0+\sigma \over 2 \epsilon_0 \epsilon_2}\)</span><br>
+da cui<br>
+<span class="tex">\({2 \epsilon_0 \epsilon_1 s_2 V \over d_1s_2+d_2s_1}=2\sigma_0-\sigma \qquad {2 \epsilon_0 \epsilon_2 s_1 V \over d_1s_2+d_2s_1}=2\sigma_0+\sigma\)</span><br>
+Sottraendo la prima equazione alla seconda otteniamo infine<br>
+<span class="tex">\(\sigma={\epsilon_0 V \over d_1s_2+d_2s_1}(\epsilon_2 s_1-\epsilon_1s_2)\)</span><br>
+Se <span class="tex">\(\epsilon_2s_1&gt;\epsilon_1 s_2\)</span> la carica all'interfaccia è dello stesso segno di quella sulla faccia a contatto con (1), altrimenti viceversa. <br>
+Notiamo inoltre che se <span class="tex">\(\epsilon_2s_1=\epsilon_1 s_2\)</span> allora la carica all'interfaccia è nulla, e infatti si ha <span class="tex">\({\epsilon_1 \over \epsilon_2}={s_1 \over s_2}\)</span> cosicché <span class="tex">\(E_2=E_1{s_2 \over s_1}=E_1{\epsilon_2 \over \epsilon_1}\)</span> il che è coerente col fatto che c'è un campo di induzione elettrica D uniforme tra le due facce tale che<br>
+<span class="tex">\(E_1=D/ \epsilon_0\epsilon_1 \qquad E_2=D/\epsilon_0\epsilon_2\)</span></article>
+<article class="post" id="p2051"><div class="who"><b>Ratman</b><span>20 ago 2009, 23:56</span></div>Come fai ad applicare Gauss nel terzo punto, sapendo che il conduttore e' attraversato da una corrente, e quindi le cariche non sono solamente sull'interfaccia? Cioe', quel metodo io lo avrei usato per calcolare la densita' in un non-conduttore polarizzato...</article>
+<article class="post" id="p2052"><div class="who"><b>Ippo</b><span>21 ago 2009, 11:40</span></div>Beh certo se i mezzi fossero isolanti sarebbe un problema molto più standard.<br>
+Credo che Gauss possa valere anche in questo caso. La corrente non dovrebbe influenzare il campo elettrico, il contenuto netto di portatori di carica nel mezzo non cambia. Il fatto che queste siano in movimento non influenza il campo finché le velocità non sono relativistiche. La cosa un po' problematica è che <span class="tex">\(\sigma_0\)</span> che ho supposto uguale sulle due facce dovrebbe avere invece due valori distinti (altrimenti si crea un eccesso di carica <span class="tex">\(S \sigma\)</span> all'interfaccia).</article>
+<article class="post" id="p2057"><div class="who"><b>Ratman</b><span>21 ago 2009, 18:30</span></div>Probabilmente non mi sono spiegato bene, o non capisco quello che dici (d'altronde sono nuovo, devo fare esperienza  :) ) Io stavo dicendo che applicando Gauss forse si dovrebbe considerare anche la carica in eccesso all'interno del conduttore  (che dovrebbe essere costante, dato che j e' costante); pensavo che questa, indipendentemente dall'essere in moto o ferma, dovesse generare un campo...</article>
+<article class="post" id="p2058"><div class="who"><b>CoNVeRGe.</b><span>21 ago 2009, 18:40</span></div><blockquote><div><cite>Ratman ha scritto:</cite> applicando Gauss forse si dovrebbe considerare anche la carica in eccesso all'interno del conduttore </div></blockquote>
+Infatti i campi elettrici che ha calcolato sono differenze di tre campi elettrici dovuti a piani uniformemente carichi (le due armature e l'interfaccia), <span class="tex">\(\displaystyle \sigma_0\)</span> è la densità di carica sulle facce del condensatore.</article>
+<article class="post" id="p2061"><div class="who"><b>Ratman</b><span>21 ago 2009, 18:53</span></div>Si', quello che non capisco e' perche' le cariche non siano anche all'interno del conduttore...</article>
+<article class="post" id="p2062"><div class="who"><b>CoNVeRGe.</b><span>21 ago 2009, 19:06</span></div>Ok avevo capito male  :x <br>
+<br>
+Credo che il fatto che scorra una corrente costante non abbia ripercussioni sulla posizone delle cariche in eccesso, visto che si raggiunge una situazione di equilibrio dinamico. Le cariche in eccesso son disposte ai lati dei materiali come in un normale condensatore con dielettrico.</article>
+<article class="post" id="p2072"><div class="who"><b>Ippo</b><span>22 ago 2009, 9:25</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>Ok avevo capito male  :x <br>
+<br>
+Credo che il fatto che scorra una corrente costante non abbia ripercussioni sulla posizone delle cariche in eccesso, visto che si raggiunge una situazione di equilibrio dinamico. Le cariche in eccesso son disposte ai lati dei materiali come in un normale condensatore con dielettrico.</div></blockquote>
+Esatto. Puoi vedere la cosa in questo modo, se ti risulta più comodo: c'è un volume fisso con una certa densità di carica positiva uniforme, che sarebbe il conduttore coi suoi ioni positivi; sovrapposto a questo c'è un volume con densità di carica uguale e opposta che scorre a velocità costante rispetto all'altro (sarebbero gli elettroni di conduzione). Il contenuto netto di carica è nullo.<br>
+<br>
+Tornando alla questione dell'eccesso di carica, supponiamo che le densità sulle facce siano diverse, diciamo <span class="tex">\(\sigma_1\)</span> e <span class="tex">\(\sigma_2\)</span>. Per un bilancio complessivo nullo deve essere: <span class="tex">\(\sigma_2=-\sigma_1-\sigma\)</span><br>
+Si ha dunque <span class="tex">\(E_1={\sigma_1 \over \epsilon_0 \epsilon_1}\)</span> e <span class="tex">\(E_2={\sigma_1+\sigma \over \epsilon_0\epsilon_2}\)</span> da cui<br>
+<span class="tex">\(\sigma=\epsilon_0\epsilon_2E_2-\sigma_1=\epsilon_0\epsilon_2E_2-\epsilon_0\epsilon_1E_1\)</span><br>
+Sostituendo le espressioni per i campi:<br>
+<span class="tex">\(\sigma={\epsilon_0 V \over d_1s_2+d_2s_1} \left( s_1\epsilon_2- s_2\epsilon_1 \right)\)</span><br>
+che è lo stesso risultato di prima, ma stavolta segue da un ragionamento corretto  :P</article>
+<article class="post" id="p2075"><div class="who"><b>Ratman</b><span>22 ago 2009, 10:00</span></div>Ok, perfetto, avevo pensato anche io al bilancio di carica per risolvere il terzo punto; il mio dubbio riguardava il fatto che ci potessero essere cariche in eccesso pure all'interno...<br>
+Grazie mille per la pazienza!  :)</article>
+<article class="post" id="p2096"><div class="who"><b>Loren Kocillari89</b><span>23 ago 2009, 16:40</span></div><blockquote><div><cite>Ippo ha scritto:</cite>a) La densità di corrente a regime deve essere la stessa nei due mezzi perché altrimenti si creerebbe un accumulo di carica indefinitamente crescente all'interfaccia (in pratica è la legge dei nodi di Kirchoff).<br>
+La forma della legge di Ohm <span class="tex">\(E=j\rho=j/s\)</span> (la conducibilità s è il reciproco della resistività del mezzo) ci dice che<br>
+<span class="tex">\(E_1={j \over s_1}\)</span> e <span class="tex">\(E_2={j \over s_2}=E_1{s_1 \over s_2}\)</span></div></blockquote>
+
+Non mi è chiaro il fatto per cui si deve considerare a priori l'esistenza di una corrente a regime. Nel primo punto io ho cercato i campi elettrici massimi per cui non si ha corrente. Il testo infatti non lo dice esplicitamente. :|</article>
+<article class="post" id="p2097"><div class="who"><b>pascal</b><span>23 ago 2009, 18:40</span></div>E’ interessante la densità di carica sulla giunzione. Poiché l’induzione dielettrica <span class="tex">\(\vec D\)</span> è discontinua sull’interfaccia appare la <span class="tex">\(\sigma\)</span>. Infatti il teorema di Gauss per il vettore <span class="tex">\(\vec D\)</span> fornisce <span class="tex">\(D_2-D_1=\sigma\)</span>, cioè <span class="tex">\(\epsilon_2E_2-\epsilon_1E_1=\sigma\)</span>, dove le <span class="tex">\(\epsilon_{1,2}\)</span>  sono le costanti dielettriche assolute. I campi elettrici sono imposti dalle leggi di Ohm applicate alle due resistenze in serie. La <span class="tex">\(\sigma\)</span> è dovuta a cariche vere perché il flusso di <span class="tex">\(\vec D\)</span> è uguale alla somma delle cariche vere contenute nella superficie chiusa. Si tratta di un eccesso o difetto di elettroni liberi. Alle interfacce compaiono anche cariche indotte dalla polarizzazione dei dielettrici per deformazione od orientamento delle molecole, ma queste non influenzano il flusso di <span class="tex">\(\vec D\)</span>. La diversità delle cariche vere agli estremi del collegamento non consente di considerare i due condensatori in serie. Il fenomeno della carica sulla giunzione non si presenterebbe per assenza di elettroni liberi se i due dielettrici fossero perfetti.</article>
+<article class="post" id="p2099"><div class="who"><b>Ippo</b><span>23 ago 2009, 21:02</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>Non mi è chiaro il fatto per cui si deve considerare a priori l'esistenza di una corrente a regime. Nel primo punto io ho cercato i campi elettrici massimi per cui non si ha corrente. Il testo infatti non lo dice esplicitamente. :|</div></blockquote>
+Se c'è una ddp non nulla ed un mezzo che ha resistività non infinita temo che non possa non esserci corrente...  :roll:</article>
+<nav class="pager"><a class="prev" href="olifis-7152.html"><small>← precedente</small>297- SNS Doppio strato</a><a class="next" href="oliforum-13043.html"><small>successivo →</small>SNS di Pisa 1960/1961 Problema Numero 4</a></nav>
+</main></body></html>

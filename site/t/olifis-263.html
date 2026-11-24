@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2006/2007</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2006-2007</span></nav>
+<h1>SNS 2006/2007</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=263">forum Olifis</a></p>
+<article class="post first" id="p2376"><div class="who"><b>federicoag</b><span>2 set 2009, 21:21</span></div>Una cometa si muove su una traiettoria parabolica intorno al sole nello stesso piano dell' orbita terrestre,assunta circolare. <br>
+Trovare il tempo T che la cometa spende all' interno dell' orbita terrestre in funzione del perelio p della sua traiettoria e calcolarne il valore massimo possibile.</article>
+<article class="post" id="p2377"><div class="who"><b>Pigkappa</b><span>2 set 2009, 21:24</span></div>commento: questo problema viene dalle selezioni per l'ingresso al 4° anno, non al primo. Non spaventatevi se non lo sapete fare.</article>
+<article class="post" id="p2378"><div class="who"><b>MrTeo</b><span>2 set 2009, 22:39</span></div>Adesso passano Rigel o Ippo, lo risolvono e <strong class="text-strong">poi</strong> si accorgono del post di Pigkappa  :mrgreen: <br>
+<br>
+Vabbè... parlando di domande serie, si può pensare (lo dico da profano davanti a questo problema che in effetti sembra impegnativo) che come per le ellissi anche il fuoco della parabola rappresenti il "centro" dell'orbita cometaria intorno al sole?</article>
+<article class="post" id="p2379"><div class="who"><b>Pigkappa</b><span>2 set 2009, 23:07</span></div><blockquote><div><cite>MrTeo ha scritto:</cite>si può pensare (lo dico da profano davanti a questo problema che in effetti sembra impegnativo) che come per le ellissi anche il fuoco della parabola rappresenti il "centro" dell'orbita cometaria intorno al sole?</div></blockquote>
+
+Il Sole si trova nel fuoco dell'orbita parabolica della cometa, se è questo quello che hai cercato di chiedermi.<br>
+L'equazione in coordinate polari di una parabola è analoga a quella di un'ellisse: bisogna solo mettere l'eccentricità uguale ad 1.</article>
+<article class="post" id="p2380"><div class="who"><b>Loren Kocillari89</b><span>3 set 2009, 0:59</span></div>Si parte dal fatto che sia per la terra che per la cometa, il sole rappresenta <strong class="text-strong">il fuoco di entrambe</strong> le curve. Questo ci dà un vantaggio perchè siamo in grado di porre il fenomeno in un sistema di assi cartesiani in cui la circonferenza che rappresenta l'orbita terrestre, passa per l'origine e ha il suo centro nel punto <span class="tex">\((0,R)\)</span> sull'asse delle ordinate. Allo stesso modo, la parabola della cometa, passerà dentro l'orbita terrestre che abbiamo rappresentato, e avrà come fuoco lo stesso punto <span class="tex">\((0,R)\)</span>. A questo punto dobbiamo considerare tutti i casi di parabole che intersecandosi con l'orbita della terra, hanno il loro fuoco nel punto <span class="tex">\((0,R)\)</span>.<br>
+Se consideriamo la formula della parabola <span class="tex">\(y= a x^2 + b x + c\)</span> , se dobbiamo tenere il fuoco costante, assegnato <span class="tex">\(c=k\)</span> allora <span class="tex">\(a= 1 /4(R+k)\)</span>, mentre b non può variare altrimenti si avrebbe una traslazione destra-sinistra nell'asse cartesiano. Tra parentesi, <span class="tex">\(c=k\)</span> non è altro che il perielio della cometa, disegnare per credere.<br>
+Quindi ci basta porre in un sistema il "fascio" di parabole con lo stesso fuoco  con la circonferenza <span class="tex">\(x^2 + y^2 = R\)</span>.<br>
+Trovati i due punti di tangenza, possiamo utilizzarli per calcolarci la lunghezza della curva della parabola compresa dentro la circonferenza. Infatti ora basta integrare una nota formula ( :?: ) che ci permette di calcolarci la lunghezza e troveremo i casi in funzione di <span class="tex">\(k\)</span>.<br>
+Per trovare il massimo, deriviamo quello che si ricava dall'integrale definita ponendo il tutto uguale a 0.<br>
+SE e solo se la velocità è costante in modulo per tutto il tragitto allora il tempo T sarà massimo quando lo spazio percorso sarà massimo.<br>
+<br>
+<br>
+Con questo procedimento sono andato avanti fino a prima di trovare i due punti..Poi mi vengono dei calcoli enormi per cui non riesco ad andare avanti, almn per oggi.  :D</article>
+<article class="post" id="p2382"><div class="who"><b>pascal</b><span>3 set 2009, 1:43</span></div>Se non ho sbagliato i calcoli trovo il tempo maggiore per p=R/2.<br>
+Dopo la sveglia controllerò ed eventualmente posterò il procedimento.</article>
+<article class="post" id="p2383"><div class="who"><b>pascal</b><span>3 set 2009, 11:02</span></div>In un sistema di assi cartesiani sia data la parabola con vertice nell’origine, simmetrica rispetto all’asse x, con fuoco F(p, 0) e direttrice x=-p. La curva ha equazione <span class="tex">\(y^2=4xp\)</span>. L’area compresa tra la parabola e la retta x=X vale:<br>
+<br>
+<span class="tex">\(A_1=2\int_{0}^{X} y\, dx=2\int_{0}^{X} \sqrt{4xp}\, dx=8/3 \sqrt{p} X^{3/2}\)</span><br>
+<br>
+Detti A e B i punti d’intersezione della parabola con x=X, l’area spazzata dal raggio vettore FP, mentre P descrive l’arco AB, risulta:<br>
+<br>
+<span class="tex">\(A= A_1-(X-p) AB/2=8/3 \sqrt{p} X^{3/2}-(X-p) \sqrt{{4Xp}\)</span><br>
+<br>
+Siccome la cometa percorre una parabola, significa che raggiungerà l’infinito con velocità nulla. La conservazione dell’energia tra il perielio e l’infinito fornisce:<br>
+<br>
+<span class="tex">\(v^2/2-GM/p=0 \qquad\)</span>  cioè  <span class="tex">\(v^2=2GM/p \qquad\)</span> con M = massa sole.<br>
+<br>
+Poiché la forza sulla cometa è centrale, si conserva il momento angolare e la la velocità areolare k=dA/dt rispetto al centro del sole, che determinata al perielio ammonta a k=pv/2, da cui <br>
+<br>
+<span class="tex">\(k = \sqrt{GMp/2}\)</span><br>
+<br>
+Dato che la velocità k è costante, il tempo che impiega la cometa per viaggiare da A a B è:<br>
+<br>
+<span class="tex">\(t=A/k=\left(8/3X^{3/2}-2(X-p) \sqrt {x}\right) \sqrt{2/(GM)}\)</span><br>
+<br>
+Le distanze del punto A dal fuoco e dalla direttrice sono uguali per la definizione di parabola: FA=X+p. Se A e B sono i punti d’intersezione della parabola con l’orbita terrestre di raggio R, si ha R =X+p. Perciò<br>
+<br>
+<span class="tex">\(t = [8/3 (R-p)^{3/2}-2(R-2p) (R-p)^{1/2}]\sqrt{2/(GM)}\)</span><br>
+<br>
+Si ricava t’&gt;0 per <span class="tex">\(p\le R/2\)</span><br>
+<br>
+Il massimo si ha per p=R/2.<br>
+<br>
+Il tempo più elevato richiesto è dunque:<br>
+<br>
+<span class="tex">\(t=\frac{4}{3}\sqrt{\frac {R^3}{GM}}.\)</span><br>
+<br>
+Spero che lo svolgimento sia esatto.</article>
+<article class="post" id="p2385"><div class="who"><b>Pigkappa</b><span>3 set 2009, 12:36</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>
+SE e solo se la velocità è costante in modulo per tutto il tragitto allora il tempo T sarà massimo quando lo spazio percorso sarà massimo.</div></blockquote>
+
+Peccato che la velocità non è costante...</article>
+<article class="post" id="p2386"><div class="who"><b>Ippo</b><span>3 set 2009, 13:24</span></div>ok provo anche io...<br>
+diciamo che l'orbita terrestre è <span class="tex">\(\Gamma: \ x^2+y^2=R^2\)</span> e quella della cometa è <span class="tex">\(\Pi: \ y={x^2 \over 4p}-p\)</span> (parabola con il fuoco nel Sole, vertice in (o;-p) e asse x=0)<br>
+Con qualche conto si trova che <br>
+<span class="tex">\(\Gamma \cap \Pi=(2\sqrt{pR-p^2};R-2p)\cup (-2\sqrt{pR-p^2};R-2p)\)</span><br>
+Ora la conservazione dell'energia impone che la velocità in ogni punto sia <br>
+<span class="tex">\(v^2(x,y)={2GM \over \sqrt{x^2+y^2}}\)</span><br>
+sostituendo <span class="tex">\(x^2=4py+4p^2\)</span> (la via meno contosa) abbiamo <br>
+<span class="tex">\(v(y)=\sqrt{2GM \over y+2p}\)</span><br>
+Ora <span class="tex">\(dt={d \ell \over v}\)</span> con <span class="tex">\(d \ell=\sqrt{(dx)^2+(dy)^2}=dy\sqrt{1+(dx/dy)^2}\)</span><br>
+Essendo <span class="tex">\(x(y)=2\sqrt{py+p^2}\)</span> si ha <span class="tex">\({dx \over dy}={p \over \sqrt{py+p^2}}\)</span> da cui <br>
+<span class="tex">\(d \ell =dy\sqrt{1+{p \over y+p}}\)</span>; arriviamo infine a <br>
+<span class="tex">\(dt= {d \ell \over v}=dy\sqrt{1+{p \over y+p}}\cdot \sqrt{y+2p \over 2GM}=\)</span><br>
+<span class="tex">\(=dy \sqrt{(y+2p)^2 \over (y+p)2GM}={dy (y+2p) \over \sqrt{(y+p)2GM}}\)</span><br>
+da cui si ottiene integrando:<br>
+<span class="tex">\(t=2\int_{-p}^{R-2p}{(y+2p) \over \sqrt{(y+p)2GM}}dy\)</span><br>
+Ora si può effettuare un cambio di variabile: poniamo <span class="tex">\(z=y+p\)</span>, e quindi <span class="tex">\(dz=dy\)</span>; il corrispondente integrale indefinito, a meno di costanti, diventa <br>
+<span class="tex">\(\int {z+p \over \sqrt{z}}dz=\int \sqrt{z}dz+p \int{dz \over \sqrt{z}}={2 \over 3}z^{3/2}+2p\sqrt{z}+k\)</span><br>
+quindi si ottiene infine<br>
+<span class="tex">\(t=\sqrt{2 \over GM} \left[ {2 \over 3}z^{3/2}+2p\sqrt{z} \right]_0^{R-p}=\)</span><br>
+<span class="tex">\(=2\sqrt{2 \over GM} \left( {1 \over 3}(R-p)^{3/2}+p\sqrt{R-p} \right)=\)</span><br>
+<span class="tex">\(=2\sqrt{2(R-p) \over GM} \left( {1 \over 3}(R-p)+p \right)={2 \over 3}\sqrt{2(R-p) \over GM} ( R +2p )\)</span><br>
+Ora non resta che massimizzare questa schifezza.</article>
+<article class="post" id="p2387"><div class="who"><b>Ippo</b><span>3 set 2009, 13:30</span></div>A meno di costanti è <span class="tex">\(t(p)=\sqrt{R-p}(R+2p)\)</span> e quindi <br>
+<span class="tex">\(t'(p)={3(R-2p) \over 2\sqrt{R-p}}\)</span><br>
+da cui risulta che il massimo si ha per <span class="tex">\(p=R/2\)</span><br>
+<br>
+Il valore certcato è <span class="tex">\(t(R/2)={2 \over 3}\sqrt{R \over GM}(2R)={4 \over 3} \sqrt{R^3 \over GM}\)</span><br>
+che è in accordo con quello di Pascal. Certo che a parità di risultato la mia soluzione è molto più brutta  :mrgreen:</article>
+<article class="post" id="p2391"><div class="who"><b>Loren Kocillari89</b><span>3 set 2009, 16:21</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>
+SE e solo se la velocità è costante in modulo per tutto il tragitto allora il tempo T sarà massimo quando lo spazio percorso sarà massimo.</div></blockquote>
+
+Peccato che la velocità non è costante...</div></blockquote>
+Già! non so perchè avevo in mente che si trattasse di una astronave invece che di una cometa, il che rende doveroso il cambiamento di velocità e rende impossibile eventuali accelerazioni o decelerazioni, per tenere la velocità costante!</article>
+<article class="post" id="p2393"><div class="who"><b>pascal</b><span>4 set 2009, 10:19</span></div>Il tempo trovato soddisfa alla relazione <span class="tex">\(R^3/T_c^2=9 \,GM/16\)</span> analoga alla terza legge di Keplero <span class="tex">\(R^3/T_p^2=GM/(4 \pi^2)\)</span>, dove <span class="tex">\(T_p\)</span> è il periodo del pianeta. Eseguendo il rapporto si giunge a <br>
+<br>
+<span class="tex">\(T_p/T_c=3 \pi/2\)</span><br>
+<br>
+A parte il risultato, vi è una motivazione tangibile per comprendere la semplicità e il valore del rapporto?<br>
+In condizione di tempo massimo  <span class="tex">\(x=R-p=2p-p=p=R/2\)</span>, cioè l’ascissa dei punti A e B è uguale a quella del fuoco (il sistema di coordinate ha l’origine nel vertice della parabola) per il quale transita, dunque, il segmento AB. Allora l’area descritta dal raggio vettore concernente la parabola è:<br>
+<br>
+<span class="tex">\(A_c=8/3 \sqrt p \, X^{3/2}=2R^2/3\)</span><br>
+<br>
+L’area che invece il raggio del pianeta occupa nel periodo <span class="tex">\(T_p\)</span> è quella del cerchio <br>
+<br>
+<span class="tex">\(A_p=\pi R^2\)</span>.<br>
+<br>
+La velocità areolare della cometa è <br>
+<br>
+<span class="tex">\(k_c=\sqrt{GMp/2}=(1/2)\sqrt{GMR}\)</span><br>
+<br>
+La velocità areolare del pianeta è:<br>
+<br>
+<span class="tex">\(k_p=Rv_p/2=(R/2)\sqrt{GM/R}=(1/2)\sqrt{GMR}\)</span><br>
+<br>
+Siccome le due velocità areolari sono uguali, il rapporto dei tempi è uguale a quello delle aree, ovvero<br>
+<br>
+<span class="tex">\(\frac {T_p}{T_c}=\frac {A_p}{A_c}=\frac {\pi R^2}{2R^2/3}=\frac {3 \pi}{2}\)</span>.</article>
+<nav class="pager"><a class="prev" href="oliforum-6273.html"><small>← precedente</small>sns 2006-2007 es. n°6</a><a class="next" href="oliforum-12743.html"><small>successivo →</small>Gravità, primo round (SNS 2007-2008)</a></nav>
+</main></body></html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 1999/2000 (n.5) [chimica]</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Chimica e biologia 1999-2000, problema 5</span></nav>
+<h1>SNS 1999/2000 (n.5) [chimica]</h1>
+<p class="meta">5 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=529">forum Olifis</a></p>
+<article class="post first" id="p4795"><div class="who"><b>MrTeo</b><span>7 ago 2010, 10:02</span></div>Si può stimare la temperatura della Terra supponendo che il Sole e la Terra siano entrambi corpi irraggianti perfetti che emettono isotropicamente una potenza per unità di superficie <span class="tex">\(W=\sigma T^4\)</span> dove σ è la costante di Stefan-Boltzmann e T è la temperatura assoluta del corpo.<br>
+<br>
+a) Si calcoli la temperatura della Terra sapendo che la temperatura superficiale del Sole è <span class="tex">\(T_S = 6000 K\)</span> e assumendo che una frazione <span class="tex">\(f\approx 0.7\)</span> dell’energia solare che arriva sulla Terra sia assorbita dalla Terra stessa e riemessa come radiazione.<br>
+<br>
+b) La temperatura calcolata al punto precedente è una stima della temperatura al bordo più esterno sulla superficie dell’atmosfera ma non sulla superficie terrestre. Si può tenere grossolanamente conto dell’atmosfera considerando un modello a due strati, lo strato atmosferico ad un’unica temperatura e la superficie terrestre. Supponiamo inoltre che la radiazione solare arrivi sulla superficie terrestre indisturbata e che l’atmosfera assorba completamente la radiazione della Terra (effetto “serra”) e irraggi uniformemente in tutte le direzioni come indicato in figura 2. Calcolare in questo caso la temperatura della superficie terrestre.<br>
+<br>
+Buon lavoro e grazie mille a tutti quelli che vorranno dire la loro  ;)</article>
+<article class="post" id="p4796"><div class="who"><b>Stardust</b><span>7 ago 2010, 23:01</span></div>Questa è solo una rapida stima della temperatura della superficie atmosferica della Terra.<br>
+[Declino ogni responsabilità per quanto sotto riportato.]<br>
+<br>
+Il Sole offre alla Terra metà superficie in ogni istante, ma la potenza totale che emette è:<br>
+<span class="tex">\(P_S=4\pi R_S^2 \sigma T_S^4\)</span>, dove <span class="tex">\(R_S=6,96\,10^8\,m\)</span> è il raggio del Sole.<br>
+La Terra è posta ad una distanza D dal Sole pari a <span class="tex">\(D=150 \,10^9m\)</span>, dove l'intensità della radiazione è: <br>
+<span class="tex">\(I_T=\displaystyle{\frac{P_S} {4\pi D^2}}\)</span>.<br>
+La Terra si mostra anch'essa solo per metà al Sole, con una superficie <span class="tex">\(S_T=2\pi R_T^2\)</span>, dove <span class="tex">\(R_T=6,37\,10^6\,m\)</span> è il raggio terrestre.<br>
+In realtà la superficie terrestre non è esposta uniformemente alla radiazione solare. La parte davanti (tipo l'equatore, in alcune condizioni) è più vicina al Sole di quanto non lo sia  la parte finale, dove c'è il crepuscolo (come ai poli in certe date dell'anno - è solo per dare un'idea). Questa diversa distanza dalla stella non influisce più di tanto, visto che <span class="tex">\(D \approx 24000\,R_T\)</span>, ma la forma pressocchè sferica del pianeta fa sì che i raggi siano inclinati in modo vario, quindi un raggio all'equatore, praticamente perpendicolare alla superficie, riscalda di più di uno che arriva ai poli, dove è quasi radente.<br>
+Per vedere bene che succede mi verrebbe in mente di stilizzare il profilo della Terra come una circonferenza e vedere come varia la derivata in ciascun punto, così da farsi un'idea più precisa di quanto l'obliquità dei raggi influisca. Tenendomi però fedele al proposito di dare solo una stima un po' grossolana, mi sembra sufficiente rappresentare la Terra in forma bidimensionale (orrore! Allora Colombo si sbagliava... ;-) ), vista l'enorme distanza che ci separa dal Sole. La minore area considerata dovrebbe ragionevolmente compensare le variazioni di intensità ed incidenza dei raggi sopra esposte.<br>
+<br>
+Quindi la potenza ricevuta dalla Terra è:<br>
+<span class="tex">\(P_{r,T}= \pi R_T^2 I_T=\displaystyle{\frac{\pi \sigma R_T^2 R_S^2}{ D^2}T_S^4}\)</span>.<br>
+Sappiamo però che la Terra rilascia il 70% dell'energia ricevuta verso l'esterno, riflettendo parte di quanto inizialmente assorbito.<br>
+Il 30% che resta sull Terra secondo me serve a tenere stabile la temperatura sul lato oscuro del pianeta, evitando che non essendo raggiunto dal Sole disperda tutta la sua energia nel cosmo.<br>
+Ovviamente la trasmissione di questa energia è sotto forma di calore irradiato nello spazio. Quindi la potenza emessa è (stavolta irradiando in modo isotropo torniamo ad avere la terza dimensione): <br>
+<span class="tex">\(P_{e,T}=4\pi R_T^2 \sigma T_{ext}^4\)</span>, assumendo appunto che la superficie atmosferica riesca a tenere una temperatura media fissa in ogni parte del globo.<br>
+Ponendo <span class="tex">\(P_{e,T}=fP_{r,T}\)</span> si ricava quindi:<br>
+<span class="tex">\(4\pi R_T^2 \sigma T_{ext}^4=0,7\;\displaystyle{\frac{\pi \sigma R_T^2 R_S^2}{ D^2}T_S^4}\)</span>.<br>
+Alla fine esce:<br>
+<br>
+<span class="tex">\(T_{ext}=\left[{\displaystyle{\frac{fR_S^2}{4D^2} } }\right]^{1/4}T_S\, \approx -9C\)</span>.<br>
+Mi sembra però un valore un po' eccessivo.</article>
+<article class="post" id="p4798"><div class="who"><b>MrTeo</b><span>8 ago 2010, 11:23</span></div>Perfetto  ;) <br>
+<br>
+Non mi convinceva il fatto di dover aggiungere dati come il raggio del Sole e della Terra, ma come mi hai confermato anche tu non c'è modo di farne a meno.<br>
+Riporto anche la figura allegata che avevo maldestramente dimenticato di inserire così potete terminare con la seconda parte del problema  :mrgreen: <br>
+<br>
+<a class="lost" href="http://img340.imageshack.us/img340/7081/37834928.jpg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p4802"><div class="who"><b>Stardust</b><span>8 ago 2010, 22:16</span></div>[NB: la parte quantitativa della trattazione in questo post era errata :oops: ed è stata rimossa, scusate. E' possibile leggere una soluzione più ragionevole (almeno spero  :) ) nel post successivo ]<br>
+<br>
+Allora vediamo se riesco a dare una spiegazione decente del secondo punto, anche se credo mi ingarbuglierò un po'.<br>
+L'atmosfera all'inizio non filtra la potenza solare, che giunge sulla Terra ed è riflessa col canonico rendimento del 70% (ovvero <span class="tex">\(f\)</span>). Questa energia viene assorbita dall'atmosfera che la ripartisce in due potenze uguali, una verso il cosmo ed una di ritorno sulla terra: <br>
+<span class="tex">\(P_{e,atm}=\displaystyle{fP_S\over 2}\)</span> (questo è il valore di entrambe).<br>
+Ora la porzione che torna sulla Terra è nuovamente assorbita al 30% e riflessa per il resto, e quest'ulteriore porzione è poi suddivisa in due metà nell'atto della riflessione atmosferica. A questo punto poi la parte di potenza che torna ancora una volta indietro è più piccola, ma viene poi ulteriormente riflessa e così il fenomeno procede a catena. <br>
+<br>
+Probabilmente si può estrarre una fomula generale che permetta di dire qual è la potenza emessa dalla Terra all' n-esima riflessione da parte dell'atmosfera, e facendo tendere n ad infinito con un bel limite si ottiene di sicuro un risultato più attendibile.</article>
+<article class="post" id="p4806"><div class="who"><b>Stardust</b><span>9 ago 2010, 12:46</span></div>Allora dopo aver dato sfogo al mio estro creativo, torno sulla retta via... <br>
+Correggo le stupidaggini del mio post precedente.<br>
+Allora la potenza emessa dal pianeta come conseguenza dell'irraggiamento solare diretto e di quello derivante dall'effetto serra esercitato dall'atmosfera è la somma dell'irraggiamento <br>
+<span class="tex">\(P_{e,T\,1}=fP_S\)</span><br>
+e di tutte le n riflessioni dovute all'atmosfera.<br>
+Considerando questo aspetto, la potenza totale irraggiata dalla Terra verso l'atmosfera è:<br>
+<span class="tex">\(P_{e, T\, n}=\displaystyle{fP_S+\frac{f^2}{2}P_S+\frac{f^3}{4}P_S+\frac{f^4}{8}P_S+\ldots+\frac{f^n}{2^{n-1}}P_S}\)</span><br>
+ovvero<br>
+<span class="tex">\(P_{e,T\,n}=fP_S\left(\displaystyle{1+\frac{f}{2}+\frac{f^2}{2^2}+\frac{f^3}{2^3}+\ldots+\frac{f^{n-1}}{2^{n-1}}}\right)\)</span>.<br>
+Ora la somma sulla destra può essere scritta in modo più comodo, ottenendo:<br>
+<span class="tex">\(P_{e,T\,n}=fP_S\left[ \frac{\displaystyle{1-\left(\frac{f}{2}\right)^n} }{\displaystyle{1-\frac{f}{2}}}\right]\)</span>.<br>
+Se consideriamo <span class="tex">\(n \rightarrow \infty\)</span> abbiamo la potenza che meglio approssima la realtà (almeno del modello climatico proposto):<br>
+<span class="tex">\(P_{e, T, tot}=\displaystyle{\lim_{n \to \infty}{fP_S\left[ \frac{\displaystyle{1-\left(\frac{f}{2}\right)^n} }{\displaystyle{1-\frac{f}{2}}}\right]}}= fP_S\displaystyle{\frac{1}{1-\displaystyle{\frac{f}{2}}}}=\displaystyle{\frac{2fP_S}{2-f}}\)</span>.<br>
+<br>
+Possiamo ora collegare questa emissione alla temperatura della superficie terrestre:<br>
+<span class="tex">\(P_{e,T,tot}=4\pi R_T^2 \sigma T_T^4=\displaystyle{\frac{2f}{2-f}}P_S=\displaystyle{\frac{2f}{2-f}\frac{\pi \sigma R_T^2 R_S^2}{D^2}T_S^4}\)</span>.<br>
+Da ciò si arriva a:<br>
+<span class="tex">\(T_T=\left(\displaystyle{\frac{f}{4-2f}\frac{R_S^2}{D^2}}\right)^{1/4}T_S\approx 294 \,K \approx 21\, C\)</span>.<br>
+Sicuramente questo è un valore di temperatura più attendibile. ;)</article>
+</main></body></html>

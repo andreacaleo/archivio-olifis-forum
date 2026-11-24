@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS n. 1 2023</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2023-2024, problema 1</span></nav>
+<h1>SNS n. 1 2023</h1>
+<p class="meta">34 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7227">forum Olifis</a></p>
+<article class="post first" id="p28213"><div class="who"><b>Higgs</b><span>14 nov 2023, 12:50</span></div>Due punti materiali di massa identica sono in caduta libera, collegati da un'asta rigida di massa trascurabile e lunghezza L. Al tempo t=0 entrambe le masse hanno velocità iniziale zero e sono posizionate a diverse altezze dal suolo , l'asta formando un angolo <span class="tex">\(\theta\)</span> con l'orizzontale.<br>
+Si determini come si muove il sistema immediatamente dopo il primo contatto con il suolo, immaginando che quest'ultimo sia perfettamente liscio ed assumendo un modello di collisione completamente elastica per l'impatto.</article>
+<article class="post" id="p28214"><div class="who"><b>Torros</b><span>15 nov 2023, 18:28</span></div>Credo che l'idea alla base sia quella di considerare la conservazione del momento angolare rispetto al punto di contatto tra massa e suolo, ma probabilmente questo l'avevi capito o esiste un'altra strada. Fammi sapere!</article>
+<article class="post" id="p28215"><div class="who"><b>Higgs</b><span>16 nov 2023, 12:05</span></div>Si anch'io pensavo che la massa di contatto, che per un istante deve fermarsi all'inversione della sua velocità, diventasse sede dell'asse istantaneo di rotazione perpendicolare al foglio sotto l'azione del momento <span class="tex">\(M=- mgLcos\theta\)</span> dovuto all'altra massa. Se si usasse la seconda equazione di Newton, detti I= m<span class="tex">\(L^2\)</span> il momento di inerzia della massa m e <span class="tex">\(\alpha \)</span>la sua accelerazione angolare verrebbe <span class="tex">\(mL^2\alpha= - mgLcos\theta\)</span>e quindi un'accelerazione <span class="tex">\(a=-g cos\theta\)</span>che si aggiungerebbe a -g già posseduta. Quando quest'ultima tocca il suolo si verifica sull'altra quanto ora descritto? La conclusione dovrebbe essere che si ripristina la situazione iniziale, si conserva l'energia meccanica e il sistema ritorna alla quota da cui era partito. <br>
+P.S. Non essendoci le soluzioni chiedo, pensando che tu sia d'accordo, il controllo di Tarapia e/o di Pigkappa</article>
+<article class="post" id="p28218"><div class="who"><b>Pigkappa</b><span>17 nov 2023, 20:22</span></div><blockquote><div><cite>Torros ha scritto: <a href="olifis-7227.html#p28214" data-post-id="28214" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">15 nov 2023, 18:28</div></cite>
+conservazione del momento angolare rispetto al punto di contatto tra massa e suolo
+</div></blockquote>
+Vero che il momento angolare si conserva rispetto a lì.<br>
+<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28215" data-post-id="28215" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 nov 2023, 12:05</div></cite>
+rotazione perpendicolare al foglio sotto l'azione del momento <span class="tex">\(M=- mgLcos\theta\)</span> dovuto all'altra massa
+</div></blockquote>
+L'urto ha durata infinitesima e quel momento non è infinito, quindi è trascurabile durante l'urto. Per questo si conserva il momento angolare: <span class="tex">\(\displaystyle \Delta \vec L = \int_0^T \vec M dt \rightarrow 0\)</span> perché <span class="tex">\(\displaystyle T \rightarrow 0\)</span> e <span class="tex">\(\displaystyle M\)</span> non è infinito.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28215" data-post-id="28215" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 nov 2023, 12:05</div></cite>
+chiedo, pensando che tu sia d'accordo, il controllo di Tarapia e/o di Pigkappa
+</div></blockquote>
+Controllo di cosa? Non avete postato soluzioni.<br>
+<br>
+Assumendo la massa più vicina al suolo partisse da altezza <span class="tex">\(\displaystyle h\)</span>, le masse avranno velocità <span class="tex">\(\displaystyle v_0 = \sqrt{2 g h}\)</span> subito prima dell'urto. Postare una soluzione vuol dire spiegare come si muove il sistema subito dopo l'urto, qualitativamente e quantitativamente (=ci devono essere delle risposte algebriche in termini di <span class="tex">\(\displaystyle h\)</span>, oppure di <span class="tex">\(\displaystyle v_0\)</span>)</article>
+<article class="post" id="p28219"><div class="who"><b>Higgs</b><span>18 nov 2023, 18:23</span></div>@Pigkappa<br>
+ Speravo che intervenisse anche Torros ma non sembra intenzionato. Io vorrei un hint prima di stendere il procedimento che ho in mente. La massa che urta il suolo secondo me non può ricevere una reazione con una componente orizzontale perchè il suolo è liscio e il suo urto è ad esso perpendicolare. Allora dovrebbe essere respinta lungo la verticale con velocità <span class="tex">\(v_0 =\sqrt{2gh}\)</span>Questo vuol dire che l'altra massa sospesa deve muoversi perpendicolarmente all'asta deviando dalla caduta verticale effettuando una rotazione istantanea attorno all'altra e formando un angolo <span class="tex">\(\theta\)</span>con la verticale. Siccome il suo momento angolare prima dell'urto era <span class="tex">\(Lm\sqrt{2gh}cos\theta\)</span>anche immediatamente dopo l'urto dovrebbe essere <span class="tex">\(Lm\sqrt {v}cos\theta\)</span>ovvero anche il modulo di v dovrebbe mantenersi <span class="tex">\(v_0\)</span> e quindi cambierebbe solo di direzione. Per favore vorrei sapere se sono sulla strada giusta :?:  :?: o sono sciocchezze...</article>
+<article class="post" id="p28220"><div class="who"><b>Pigkappa</b><span>18 nov 2023, 22:04</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28219" data-post-id="28219" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">18 nov 2023, 18:23</div></cite>
+La massa che urta il suolo secondo me non può ricevere una reazione con una componente orizzontale perchè il suolo è liscio
+</div></blockquote>
+Giusto: non c'è forza orizzontale tra suolo e massa<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28219" data-post-id="28219" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">18 nov 2023, 18:23</div></cite>
+respinta lungo la verticale con velocità <span class="tex">\(v_0 =\sqrt{2gh}\)</span> ... Questo vuol dire che l'altra massa sospesa deve muoversi perpendicolarmente all'asta deviando dalla caduta verticale effettuando una rotazione istantanea attorno all'altra
+</div></blockquote>
+Buon tentativo, ma secondo me è sbagliato<br>
+<br>
+L'asta che tiene attaccate le due masse esercita una forza per costringerle a restare a distanza <span class="tex">\(\displaystyle L\)</span>. Questa forza ha una componente orizzontale.<br>
+<br>
+Nel moto che descrivi tu, è chiaro che c'è stata una forza orizzontale agente sulla seconda massa, perché ora la sua velocità non è più verticale. Ma per il principio di azione e reazione, allora deve agire una forza orizzontale anche sulla prima massa.<br>
+<br>
+Un altro modo di vederlo è questo. Non ci sono forze orizzontali esterne al sistema massa-asta-massa. Ma nella tua descrizione del moto, la quantità di moto orizzontale è cambiata.</article>
+<article class="post" id="p28221"><div class="who"><b>Higgs</b><span>19 nov 2023, 12:42</span></div>Il testo chiede di determinare come si muove il sistema immediatamente dopo l'urto della massa di sinistra. Allora come ho detto la massa di destra assume una direzione perpendicolare a L con modulo <span class="tex">\(\sqrt{2gh}\)</span> immutato con componente orizzontale<span class="tex">\(\sqrt{2gh} sen\theta\)</span> e componente verticale<span class="tex">\(-\sqrt{2gh}cos\theta\)</span> mentre anche l'altra massa assume le stesse componenti a segno invertito. Complessivamente dopo l'urto la quantità di moto totale del sistema è quindi nulla. L'asta rigida ruota attorno al CM tendendo alla posizione orizzontale e per la conservazione dell'energia meccanica la massa di sinistra dovrebbe raggiungere la posizione h quando quella di destra urta il suolo.  :?:  :?:</article>
+<article class="post" id="p28222"><div class="who"><b>Pigkappa</b><span>19 nov 2023, 15:03</span></div>Se la tua soluzione è giusta, non succede qualcosa di molto strano nel caso in cui theta sia 90 gradi?<br>
+<br>
+In tal caso mi aspetto il sistema rimbalzi verticalmente, non che inizi a girare...</article>
+<article class="post" id="p28223"><div class="who"><b>Higgs</b><span>20 nov 2023, 12:53</span></div>Si la tua osservazione è giusta. La mia soluzione non funziona per <span class="tex">\(\theta=\pi/2\)</span> giacché la componente orizzontale di v non può essere v medesima e quella verticale nulla. Dovrebbe essere vero l'opposto.<br>
+Allora io penso di riproporre la mia soluzione, che ti prego di rileggere, integrandola con la condizione <span class="tex">\(\theta \neq \pi/2\)</span> mentre per <span class="tex">\(\theta =\pi/2\)</span> v ed L sono verticali e allineati, si conserva il momento angolare uguale a zero prima e dopo l'urto di una massa che rimane immutata e per la conservazione dell'energia il CM parte e torna alla stessa quota h. Può stare così :?:  :?:</article>
+<article class="post" id="p28224"><div class="who"><b>Pigkappa</b><span>20 nov 2023, 13:34</span></div>Purtroppo no... Il caso theta = 90 gradi doveva servire come caso limite per capire che qualcosa non torna, ma non è l'unico caso in cui la risposta è sbagliata.<br>
+<br>
+La tua soluzione conserva l'energia e la quantità di moto orizzontale, e rispetta la condizione per cui le due masse rimangono a distanza L. <br>
+<br>
+Ma ci sono infinite soluzioni che soddisfano queste 3 condizioni.<br>
+<br>
+Hai 4 incognite (le due componenti della velocità di ognuna delle 2 masse), e stai usando solo 3 equazioni.<br>
+<br>
+Bisogna capire qual è la quarta equazione...</article>
+<article class="post" id="p28227"><div class="who"><b>Higgs</b><span>21 nov 2023, 17:56</span></div>Mi puoi dare qualche indizio? Io proprio non la vedo . Tuttavia mi dicevi che il mio è un buon tentativo...ma è sbagliato. Quindi anche le tre equazioni di cui parli lo sarebbero..</article>
+<article class="post" id="p28228"><div class="who"><b>Pigkappa</b><span>21 nov 2023, 18:12</span></div>Le tre equazioni/condizioni sono giuste, ma non di può scegliere una qualsiasi soluzione che le soddisfi tra le infinite possibili, bisogna imporre la quarta condizione.<br>
+<br>
+La soluzione in cui l'asta è perpendicolare al suolo, lo colpisce verticalmente, e poi invece di rimbalzare inizia subito a ruotare era sbagliata... Perché la forza verticale che ne cambia la quantità di moto verticale, non può dare un momento angolare al sistema. La forza è diretta lungo l'asta e quindi il suo momento torcente, rispetto al centro dell'asta o comunque qualsiasi punto della stessa, è nullo.<br>
+<br>
+Nel caso di asta inclinata, la forza verticale può dare momento angolare al sistema, ma il momento angolare che gli dà non è arbitrario.<br>
+<br>
+Un modo di imporre questa condizione sul momento angolare o momento torcente è quella che ha detto Torros all'inizio...</article>
+<article class="post" id="p28229"><div class="who"><b>Higgs</b><span>21 nov 2023, 19:06</span></div>La conservazione del momento angolare rispetto al punto-massa di contatto immediatamente prima e dopo l'urto io la scriverei così:<br>
+prima dell'urto :<span class="tex">\(\vec L\times m\vec{\sqrt{2gh}}= Lm\sqrt{2gh} cos\theta\)</span><br>
+dopo l'urto       :<span class="tex">\(Lmv'\)</span> da cui si deduce forse che v' ha direzione verticale verso il basso e modulo <span class="tex">\(\sqrt{2gh}cos\theta\)</span><br>
+da cui mi sembra uscirebbero <span class="tex">\(v_0 = \sqrt {2gh}\)</span> e <span class="tex">\(v'= \sqrt{2gh}cos \theta\)</span> Per <span class="tex">\(\theta=\pi/2\)</span> il momento angolare è nullo prima e dopo l'urto conservandosi giustamente. Chissà... :?:  :?:</article>
+<article class="post" id="p28230"><div class="who"><b>Pigkappa</b><span>21 nov 2023, 19:49</span></div>XD<br>
+Non ho mai visto una freccia di vettore sopra una radice quadrata<br>
+<br>
+Bisogna fare molta attenzione alle direzioni dei vettori e alle componenti per scrivere bene il momento angolare prima e, soprattutto, dopo l'urto...<br>
+<br>
+La scelta di scomporre le velocità in componente verticale e orizzontale è stata utile perché la variazione di QDM è solo su una di queste direzioni. Ma entrambe queste componenti contribuiscono al momento angolare, e non si può scomporre anche la velocità in componente parallela e perpendicolare all'asta allo stesso tempo che orizzontale è verticale. Quindi bisogna portarsi dietro entrambe le componenti nei conti sul momento angolare. Oppure trovare un modo di aggirare questo problema...</article>
+<article class="post" id="p28231"><div class="who"><b>Higgs</b><span>22 nov 2023, 12:54</span></div>Confesso di non capire quanto mi dici e soprattutto quanto mi hai detto. Ti prego di aiutarmi, spero definitivamente, a chiarirmi le idee.<br>
+1) Il 21 nov. mi scrivesti che "le tre equazioni/condizioni sono giuste". Per favore me le puoi elencare?<br>
+2) Momento angolare. E' giusto che prima dell'urto le QDM di entrambe non hanno componenti orizzontali e che le QDM valgano<span class="tex">\(m v_0 \)</span>? rispetto al punto-massa al suolo prima dell'urto c'é solo il momento del punto-massa di destra che vale <span class="tex">\(M_d= mv_0 L cos\theta\)</span><br>
+3) Dopo l'urto per effetto di L ci sarebbero allora due componenti orizzontali opposte delle QDM di cui bisogna tener conto nel momento? Ma il momento di quella di sinistra comunque sia deve essere nullo. L'unico momento allora è quello di destra la cui QDM ha cambiato direzione, non è più verticale. E' così?</article>
+<article class="post" id="p28232"><div class="who"><b>Higgs</b><span>22 nov 2023, 19:25</span></div>Seguendo la linea prefigurata che non so se sia giusta ho messo il momento angolare rispetto al punto massa al suolo prima dell'urto  pari a <span class="tex">\(mL v_0 cos\theta\)</span>mentre dopo l'urto dovrebbe essere <span class="tex">\(M=\vec L\times m\vec v =( L cos\theta \vec i + L sen\theta \vec j)\times m(v_x \vec i+ v_y\vec j)\)</span> essendo queste ultime le componenti orizzontale e verticale di <span class="tex">\(\vec v\)</span>. Non sto a tediarti con i conti che riprodurrò dopo il tuo giudizio ma trovo come componenti <span class="tex">\(v_x=0, v_y =v_0\)</span>. In altri termini troverei che continuano in direzione verticale :?:  :?:</article>
+<article class="post" id="p28233"><div class="who"><b>Pigkappa</b><span>22 nov 2023, 21:24</span></div>Premessa - la soluzione che stiamo costruendo non è la soluzione più semplice a questo problema, ce n'è un'altra un po' più facile. Magari la posto alla fine però, intanto andiamo avanti con questo metodo.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28231" data-post-id="28231" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 nov 2023, 12:54</div></cite>
+"le tre equazioni/condizioni sono giuste". Per favore me le puoi elencare?
+</div></blockquote>
+Certamente. Indico con <span class="tex">\(\displaystyle v_{1x}, v_{1y}, v_{2x}, v_{2y}\)</span> le componenti delle velocità delle due particelle dopo l'urto. La particella 1 è quella che urta il terreno. L'asse x è orizzontale e quello y è verticale. Le condizioni prima dell'urto sono <span class="tex">\(\displaystyle v_{1x}=0, v_{1y}=-v_0, v_{2x}=0, v_{2y}=-v_0\)</span> dove ho preso la direzione positiva verso l'alto.<br>
+<br>
+<strong class="text-strong">Equazione 1</strong>, conservazione QDM orizzontale:<br>
+<span class="tex">\(\displaystyle 0 = mv_{1x} + mv_{2x}\)</span><br>
+<br>
+<strong class="text-strong">Equazione 2</strong>, conservazione energia:<br>
+<span class="tex">\(\displaystyle 2 \times \frac{1}{2}m v_0^2 = \frac{1}{2} m (v_{1x}^2 + v_{1y}^2 + v_{2x}^2 + v_{2y}^2)\)</span><br>
+<br>
+La condizione 3 è il vincolo geometrico, quello che impone che la distanza tra le particelle rimanga <span class="tex">\(\displaystyle L\)</span>. Tu stavi cercando di usare questo vincolo geometrico implicitamente, ma è utile esplicitarlo. Mettendo l'origine nel punto dell'urto, il versore diretto verso la particella 2 è:<br>
+<span class="tex">\(\displaystyle \hat l = \cos(\theta) \hat x + \sin(\theta) \hat y\)</span><br>
+La condizione da imporre è che la velocità relativa tra le masse sia ortogonale a <span class="tex">\(\displaystyle \hat l\)</span>, quindi vogliamo imporre che <span class="tex">\(\displaystyle (\vec v_2 - \vec v_1) \cdot \hat l = 0\)</span>, e questo ci dà la <strong class="text-strong">equazione 3</strong>:<br>
+<span class="tex">\(\displaystyle (v_{2x} - v_{1x})\cos \theta + (v_{2y} - v_{1y})\sin \theta = 0\)</span><br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28232" data-post-id="28232" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 nov 2023, 19:25</div></cite>
+il momento angolare rispetto al punto massa al suolo prima dell'urto  pari a <span class="tex">\(mL v_0 cos\theta\)</span>
+</div></blockquote>
+Giusto, più o meno. In base a come metti le coordinate, il segno potrebbe essere diverso. Se le hai messe come le ho messe io prima, cioè <span class="tex">\(\displaystyle \hat x, \hat y\)</span> rispettivamente verso destra e verso l'alto, allora <span class="tex">\(\displaystyle \hat z\)</span> viene verso il fuori dalla pagina perché <span class="tex">\(\displaystyle \hat x \times \hat y = \hat z\)</span>, e il momento angolare è negativo: <span class="tex">\(\displaystyle \vec M = - m L v_0 \cos \theta \hat z\)</span>.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28232" data-post-id="28232" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 nov 2023, 19:25</div></cite>
+dopo l'urto dovrebbe essere <span class="tex">\(M=\vec L\times m\vec v =( L cos\theta \vec i + L sen\theta \vec j)\times m(v_x \vec i+ v_y\vec j)\)</span> 
+</div></blockquote>
+Giusto, nella mia notazione quelle sarebbero però <span class="tex">\(\displaystyle v_{2x}, v_{2y}\)</span>. Questa è l'<strong class="text-strong">equazione 4</strong>.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28232" data-post-id="28232" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 nov 2023, 19:25</div></cite>
+Non sto a tediarti con i conti che riprodurrò dopo il tuo giudizio ma trovo come componenti <span class="tex">\(v_x=0, v_y =v_0\)</span>. In altri termini troverei che continuano in direzione verticale :?:  :?:
+</div></blockquote>
+Non mi è chiaro come mai hai solo una <span class="tex">\(\displaystyle v_x\)</span> e una <span class="tex">\(\displaystyle v_y\)</span>, ci sono due particelle.<br>
+<br>
+Per quanto riguarda quella soluzione, penso sia quella da scartare. Abbiamo 4 incognite e 4 equazioni. Una equazione, quella dell'energia, è di secondo grado. Ci aspettiamo quindi di trovare 2 soluzioni.<br>
+<br>
+E sappiamo già qual è una soluzione che rispetta tutte le equazioni: quella per cui rimane tutto immutato, <span class="tex">\(\displaystyle v_{1x}=0, v_{1y}=-v_0, v_{2x}=0, v_{2y}=-v_0\)</span>. Ma questa soluzione è fisicamente sbagliata perché descrive il caso in cui il pavimento non esiste, e la sbarra cade attraverso di esso. Quindi bisogna scartare questa soluzione e trovare l'altra.<br>
+<br>
+Il conto non è rapido ma è fattibile, l'ho fatto ieri sera :) Metterei da subito <span class="tex">\(\displaystyle v_0 = 1, L = 1, m = 1\)</span>, tanto è chiaro che le velocità alla fine saranno proporzionali a <span class="tex">\(\displaystyle v_0\)</span>.</article>
+<article class="post" id="p28234"><div class="who"><b>Higgs</b><span>23 nov 2023, 11:31</span></div>Prima di fare i conti noto che tu accetti che nella quarta equazione non compaiano le componenti della velocità della particella al suolo dopo l'urto...</article>
+<article class="post" id="p28235"><div class="who"><b>Pigkappa</b><span>23 nov 2023, 11:35</span></div>Quello è giusto.<br>
+<br>
+Ma nelle equazioni 1, 2 e 3 compaiono anche le velocità della massa di sinistra... Non credo sia possibile risolvere solo per la massa di destra ed ignorare quella di sinistra.</article>
+<article class="post" id="p28236"><div class="who"><b>Higgs</b><span>23 nov 2023, 19:25</span></div>Ho provato a fare i conti ma per es.<span class="tex">\(v_{2x}\)</span> mi viene una <span class="tex">\(f(sen\theta, cos\theta) v_0\)</span>. Non credo debba essere così brutta. Domani ci riprovo.</article>
+<article class="post" id="p28237"><div class="who"><b>Pigkappa</b><span>23 nov 2023, 19:41</span></div>Beh sicuramente dipende da seno e/o coseno di theta</article>
+<article class="post" id="p28238"><div class="who"><b>Higgs</b><span>24 nov 2023, 18:48</span></div>Allora, nel fare nuovamente i conti, ho cercato di uniformare le notazioni alle tue. Le 4 equazioni di partenza sono:<br>
+1) <span class="tex">\(v_{1x}=-v_{2x}\)</span>                    2)<span class="tex">\(v_{1x}^2 + v_{1y}^2= v_0^2\)</span> e analoghe per la massa 2       3)<span class="tex">\( (v_{2x}-v_{1x})cos\theta + (v{2y}-v_{1y})sen\theta=0\)</span>, ortogonalità fra <span class="tex">\(\vec L\)</span> e vettore differenza      4) <span class="tex">\(-mLv_0cos\theta= mLv_{2y}cos\theta - mLv_{2x}sen\theta\)</span> conservazione del momento angolare prima e dopo l'urto<br>
+<br>
+Risparmiandoti i conti, basandomi su questo sistema e combinando le quattro avrei trovato questi risultati a partire da <span class="tex">\(v_{2x}\)</span>:<br>
+<br>
+<span class="tex">\(v_{2x} =\frac{cos\theta.v_0}{sen\theta (1-cos\theta)+ 2cos^2\theta}\)</span><br>
+<span class="tex">\(v_{1x}= -v_{2x}\)</span><br>
+<span class="tex">\(v_{1y}=-v_{2y}=-\frac{v_0}{sen\theta(1-cos\theta)+2cos^2\theta}\times \sqrt{[sen\theta(1-cos\theta)+2 cos^2\theta]^2-cos^2\theta}\)</span><br>
+<br>
+Si osserva che con questi risultati quando <span class="tex">\(cos\theta =0\)</span>     <span class="tex">\(v_{1x} = v_{2x}=0  \)</span> mentre <span class="tex">\(v_{1y}=-v_{2y}=-v_0\)</span> mi sembrerebbe giustamente :?:  :?:</article>
+<article class="post" id="p28239"><div class="who"><b>Pigkappa</b><span>24 nov 2023, 19:35</span></div>Cosa vuoi dire con "analoghe per la massa 2" e con quella equazione dell'energia?<br>
+<br>
+La energia totale si conserva ma non vedo motivo per cui l'energia di ogni massa individualmente si conservi</article>
+<article class="post" id="p28240"><div class="who"><b>Pigkappa</b><span>24 nov 2023, 22:29</span></div>A me viene come segue. Ho messo <span class="tex">\(\displaystyle L = m = v_0 = 1\)</span> per comodità.<br>
+<br>
+Le equazioni sono:<br>
+<span class="tex">\(\displaystyle v_{1x} + v_{2x} = 0 \)</span><br>
+<span class="tex">\(\displaystyle 1 = \frac{1}{2}(v_{1x}^2 + v_{1y}^2 + v_{2x}^2 + v_{2y}^2)\)</span><br>
+<span class="tex">\(\displaystyle (v_{2x} - v_{1x})\cos \theta + (v_{2y} - v_{1y})\sin \theta = 0 \)</span><br>
+<span class="tex">\(\displaystyle - \cos \theta = v_{2y} \cos \theta - v_{2x} \sin \theta \)</span><br>
+<br>
+Risolvendo queste equazioni, ed escludendo la soluzione che ha <span class="tex">\(\displaystyle v_{1y} = -1\)</span> (che equivale a <span class="tex">\(\displaystyle v_0\)</span> verso il basso), si trovano le velocità:<br>
+<span class="tex">\(\displaystyle v_{1x} = -\frac{2 \cos \theta \sin \theta}{1 + \cos^2 \theta} \)</span><br>
+<span class="tex">\(\displaystyle v_{1y} = 1 \)</span><br>
+<span class="tex">\(\displaystyle v_{2x} = \frac{2 \cos \theta \sin \theta}{1 + \cos^2 \theta} \)</span><br>
+<span class="tex">\(\displaystyle v_{2y} = \frac{1 - 3 \cos^2 \theta}{1 + \cos^2 \theta} \)</span><br>
+<br>
+E' sorprendente che <span class="tex">\(\displaystyle v_{1y} = 1 \)</span> e non ho una spiegazione intuitiva del perché venga così per ogni angolo. In ogni caso, <span class="tex">\(\displaystyle v_{1x} \ne 0 \)</span> in generale, per cui non si è conservata l'energia di ogni particella individualmente.</article>
+<article class="post" id="p28241"><div class="who"><b>Pigkappa</b><span>24 nov 2023, 23:13</span></div>Questa è la soluzione più veloce. Il moto di un corpo rigido può essere solo:<br>
+<br>
+1. Pura traslazione, in cui ogni punto si muove con la stessa velocità<br>
+2. Pura rotazione, in cui ogni punto ruota attorno ad un centro comune<br>
+3. Una somma dei due precedenti<br>
+<br>
+Prima dell'urto, il moto è solo traslazione con velocità <span class="tex">\(-\displaystyle v_0\)</span> verticale. Dopo l'urto, possiamo descriverlo in generale come traslazione più rotazione attorno ad un punto. Potremmo scegliere qualsiasi punto, ma per comodità prendiamo il centro di massa come punto di rotazione. La conservazione della QDM orizzontale ci dice subito che la velocità x del CDM rimane zero, quindi abbiamo come sola componente da tenere la componente verticale.<br>
+<br>
+Prima dell'urto la velocità di traslazione è <span class="tex">\(\displaystyle -v_0\)</span> e quella di rotazione <span class="tex">\(\displaystyle \omega_0 = 0\)</span>. Dopo l'urto chiamiamole <span class="tex">\(\displaystyle v\)</span> e <span class="tex">\(\displaystyle \omega\)</span>.<br>
+<br>
+Il momento di inerzia rispetto al centro sia  <span class="tex">\(\displaystyle I = 2 \times m \times \left(\frac{L}{2}\right)^2 = \frac{mL^2}{2}\)</span>. Per conservazione dell'energia:<br>
+<span class="tex">\(\displaystyle E = 2 \times \frac{1}{2} m v_0^2 = \frac{1}{2} I \omega^2 + \frac{1}{2} (2m) v^2 \Rightarrow v_0^2 = \frac{\omega^2 L^2}{4} + v^2 \ \text{(prima equazione)}\)</span><br>
+<br>
+Il momento angolare rispetto al punto di contatto P con il suolo si conserva, perché l'unica forza impulsiva agisce lì. Prendo per positive le velocità verso l'alto, e <span class="tex">\(\displaystyle \omega\)</span> antioraria. Momento angolare prima dell'urto:<br>
+<span class="tex">\(\displaystyle M = - m L v_0 \cos(\theta)\)</span><br>
+Il momento angolare rispetto a P dopo l'urto è dato dalla somma del momento angolare di rotazione attorno al CDM, più il momento angolare rispetto a P che avrebbe il sistema se fosse tutto nel CDM:<br>
+<span class="tex">\(\displaystyle M = I \omega + (2m) \times \left(\frac{L}{2}\right) v \cos(\theta) = mL \left(\frac{\omega L}{2} + v \cos(\theta)\right)\)</span><br>
+<br>
+Quindi, eguagliandole:<br>
+<span class="tex">\(\displaystyle - v_0 \cos(\theta) = \frac{\omega L}{2} + v \cos(\theta)\ \text{(seconda equazione)}\)</span><br>
+<br>
+Risolvendo nelle incognite <span class="tex">\(\displaystyle v\)</span> ed <span class="tex">\(\displaystyle \omega\)</span> ed escludendo la soluzione <span class="tex">\(\displaystyle v = -v_0\)</span>, si trova:<br>
+<span class="tex">\(\displaystyle v = v_0 \times \frac{1 - \cos^2(\theta)}{1 + \cos^2(\theta)}\)</span><br>
+<span class="tex">\(\displaystyle \omega = -\frac{v_0}{L} \frac{4 \cos \theta}{1 + \cos^2(\theta)}\)</span><br>
+<br>
+Questo risultato è equivalente a quello del post precedente. Ad esempio, si può calcolare:<br>
+<span class="tex">\(\displaystyle v_{1x} = \omega \times \frac{L}{2} \times \sin \theta = - v_0 \frac{2 \cos \theta \sin \theta}{1 + \cos^2 \theta}\)</span><br>
+Che coincide con la soluzione precedente. Allo stesso modo si può calcolare <br>
+<span class="tex">\(\displaystyle v_{1y} = v - \omega \frac{L}{2} \cos \theta\)</span><br>
+<span class="tex">\(\displaystyle v_{2x} = - \omega \frac{L}{2} \sin \theta\)</span><br>
+<span class="tex">\(\displaystyle v_{2y} = v + \omega \frac{L}{2} \cos \theta\)</span><br>
+Facendo i conti, tornano tutti come sopra.</article>
+<article class="post" id="p28242"><div class="who"><b>Tarapìa Tapioco</b><span>25 nov 2023, 0:10</span></div><span style="text-decoration:underline">Premessa</span>   Dopo aver quasi interamente scritto il post, ho notato come avesse già pensato @Pigkappa a risolvere tutto: <em class="text-italics">game-set-match</em>. Io avevo pensato di fornire alcune direttive sui corretti metodi da seguire per una buona riuscita dello svolgimento del problema, ma @Pigkappa ha già riportato i vari procedimenti svolgendoli splendidamente. A questo punto, @Pigkappa, mi sento di chiederti scusa, ma non di cancellare questo post, nonostante molti risultati e concetti siano praticamente uguali a quelli da te avanzati. Potrebbe esserci, inoltre, un'interessante proposta di soluzione (quella contenuta nell'ultimo paragrafo) a cui potresti non aver pensato. Alla fine pubblicherò comunque, come da consueto, il mio procedimento completo ed esteso, corredandolo con tutte le informazioni, note, risoluzioni che possano venirmi in mente affinché possa essere - anche solo in minima parte - di beneficio al Forum. Grazie.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28215" data-post-id="28215" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">16 nov 2023, 12:05</div></cite>
+Si anch'io pensavo che la massa di contatto, che per un istante deve fermarsi all'inversione della sua velocità, diventasse sede dell'asse istantaneo di rotazione 
+</div></blockquote>
+
+Il suolo è liscio, dunque non ci sono forze orizzontali sul sistema composto dalle due masse. Di conseguenza, il centro di massa si muove soltanto lungo la verticale.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28219" data-post-id="28219" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">18 nov 2023, 18:23</div></cite>
+La massa che urta il suolo secondo me non può ricevere una reazione con una componente orizzontale perchè il suolo è liscio e il suo urto è ad esso perpendicolare. 
+</div></blockquote>
+
+Giusto. Non può esserci una reazione orizzontale esercitata sulla massa dal terreno.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28219" data-post-id="28219" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">18 nov 2023, 18:23</div></cite>
+Allora dovrebbe essere respinta lungo la verticale con velocità <span class="tex">\(v_0 =\sqrt{2gh}\)</span>. Questo vuol dire che l'altra massa sospesa deve muoversi perpendicolarmente all'asta deviando dalla caduta verticale effettuando una rotazione istantanea attorno all'altra e formando un angolo <span class="tex">\(\theta\)</span>con la verticale.
+</div></blockquote>
+
+Questo non è corretto. Infatti, contemporaneamente alla reazione esercitata dal suolo, si verifica una reazione agente lungo l'asta, la quale esercita un impulso orizzontale uguale e contrario sulle due masse, dando loro velocità orizzontali uguali e opposte, e, allo stesso modo, fornisce un impulso verticale uguale e contrario alle due masse, il quale aumenta l'impulso verticale proveniente dal suolo. Tale confusione suggerisce, forse, che sarebbe più semplice lavorare in termini di leggi di conservazione piuttosto che preoccuparsi di tutte le forze agenti sul sistema.<br>
+<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28221" data-post-id="28221" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">19 nov 2023, 12:42</div></cite>
+Il testo chiede di determinare come si muove il sistema immediatamente dopo l'urto della massa di sinistra. Allora come ho detto la massa di destra assume una direzione perpendicolare a L con modulo <span class="tex">\(\sqrt{2gh}\)</span> immutato con componente orizzontale<span class="tex">\(\sqrt{2gh} sen\theta\)</span> e componente verticale<span class="tex">\(-\sqrt{2gh}cos\theta\)</span> mentre anche l'altra massa assume le stesse componenti a segno invertito. Complessivamente dopo l'urto la quantità di moto totale del sistema è quindi nulla. L'asta rigida ruota attorno al CM tendendo alla posizione orizzontale e per la conservazione dell'energia meccanica la massa di sinistra dovrebbe raggiungere la posizione h quando quella di destra urta il suolo.  :?:  :?:
+</div></blockquote>
+
+Questo tentativo di soluzione sembra basato su supposizioni e intuizioni, le quali, pur costituendo un buon inizio, devono tuttavia essere supportate da equazioni basate su solidi principi, ovvero le leggi di conservazione: una descrizione qualitativa deve sempre essere supportata da un'analisi quantitativa, pena la fallacia dell'intero ragionamento. Nello specifico caso di tale approccio, il caso limite <span class="tex">\(\theta = \frac{\pi}{2}\)</span> restituisce una situazione fisica differente da quella qui presentata. Per <span class="tex">\(\theta = \frac{\pi}{2}\)</span>, idealmente, l'asta cadrà infatti verticalmente e rimbalzerà indietro fino al punto di partenza.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28223" data-post-id="28223" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">20 nov 2023, 12:53</div></cite>
+si conserva il momento angolare uguale a zero prima e dopo l'urto 
+</div></blockquote>
+
+Questa assunzione è imprecisa. Inizialmente il momento angolare è nullo e la velocità verso il basso prima dell'impatto vale <span class="tex">\(v_0 = \sqrt{2 g h}\)</span>; successivamente, quando la massa inferiore colpisce il suolo e rimbalza, il pavimento imprime un impulso <span class="tex">\(\vec J\)</span> verso l'alto: pertanto, dopo l'urto il momento angolare è stato modificato dall'impulso angolare. Il momento angolare si conserva attorno a un determinato asse se non agiscono momenti torcenti esterni all'asse, ma, anche in questo caso, l'impatto con il suolo potrebbe essere considerato alla stregua di un momento torcente esterno: pertanto, la maniera più ingegnosa per ovviare a un problema di tale sorta è quella di rendere possibile scrivere l'equazione di conservazione del momento angolare senza introdurre alcun impulso <span class="tex">\(\vec J\)</span>, mediante la scelta di un asse passante per il punto <span class="tex">\(P\)</span> di impatto, in qualità di asse rispetto al quale <span class="tex">\(\vec J\)</span> non compia alcun momento torcente.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28231" data-post-id="28231" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 nov 2023, 12:54</div></cite>
+2) Momento angolare. E' giusto che prima dell'urto le QDM di entrambe non hanno componenti orizzontali e che le QDM valgano<span class="tex">\(m v_0 \)</span>? 
+</div></blockquote>
+
+Sì, se il sistema massa-asta-massa viene rilasciato da fermo. La forza di gravità agisce verticalmente. Nessuna delle due masse possiede una componente orizzontale prima dell'urto perché <span class="tex">\((a)\)</span> non v'è alcuna forza esterna orizzontale che agisca su alcuna delle due masse e <span class="tex">\((b)\)</span> poiché le masse sono uguali, il momento torcente esterno prodotto dalla forza di gravità non causa una rotazione intorno al centro di massa che fornirebbe una componente orizzontale alle velocità delle singole masse nel caso in cui queste ultime fossero diseguali.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28231" data-post-id="28231" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 nov 2023, 12:54</div></cite>
+rispetto al punto-massa al suolo prima dell'urto c'é solo il momento del punto-massa di destra che vale <span class="tex">\(M_d= mv_0 L cos\theta\)</span><br>
+3) Dopo l'urto per effetto di L ci sarebbero allora due componenti orizzontali opposte delle QDM di cui bisogna tener conto nel momento? Ma il momento di quella di sinistra comunque sia deve essere nullo. L'unico momento allora è quello di destra la cui QDM ha cambiato direzione, non è più verticale. E' così?
+</div></blockquote>
+
+Corretto, purché si rispetti la peculiare convenzione sui segni adottata. Infatti, rispetto al punto <span class="tex">\(P\)</span> del terreno in cui impatterà la prima massa puntiforme, quest'ultima non possiede momento angolare perché la sua distanza <span class="tex">\(r\)</span> dal punto <span class="tex">\(P\)</span> sarà nulla. In alternativa, <strong class="text-strong">è possibile trattare l'asta e le due masse come un unico corpo rigido di massa <span class="tex">\(2m\)</span></strong>: il momento posseduto dal sistema prima dell'urto sarà comunque uguale a quello citato.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28231" data-post-id="28231" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 nov 2023, 12:54</div></cite>
+3) Dopo l'urto per effetto di L ci sarebbero allora due componenti orizzontali opposte delle QDM di cui bisogna tener conto nel momento? Ma il momento di quella di sinistra comunque sia deve essere nullo. L'unico momento allora è quello di destra la cui QDM ha cambiato direzione, non è più verticale. E' così?
+</div></blockquote>
+
+Corretto.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28238" data-post-id="28238" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">24 nov 2023, 18:48</div></cite>
+Risparmiandoti i conti, basandomi su questo sistema e combinando le quattro avrei trovato questi risultati a partire da <span class="tex">\(v_{2x}\)</span>:<br>
+<br>
+<span class="tex">\(v_{2x} =\frac{cos\theta.v_0}{sen\theta (1-cos\theta)+ 2cos^2\theta}\)</span><br>
+<span class="tex">\(v_{1x}= -v_{2x}\)</span><br>
+<span class="tex">\(v_{1y}=-v_{2y}=-\frac{v_0}{sen\theta(1-cos\theta)+2cos^2\theta}\times \sqrt{[sen\theta(1-cos\theta)+2 cos^2\theta]^2-cos^2\theta}\)</span>
+</div></blockquote>
+
+Le tue espressioni di <span class="tex">\(v_{1x}, v_{2x}, v_{1y}, v_{2y}\)</span> sono sbagliate. Molto probabilmente (anzi, quasi sicuramente), ciò è dovuto non a errori algebrici occorsi all'interno dei calcoli intermedi (nonostante non siano stati riportati, in questo caso non v'è alcun bisogno di decretarne la possibile correttezza), bensì a un'errata assunzione effettuata preliminarmente riguardo una delle quattro equazioni di partenza. Infatti, dalla tua presentazione dell'equazione di conservazione dell'energia cinetica,<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28238" data-post-id="28238" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">24 nov 2023, 18:48</div></cite>
+2)<span class="tex">\(v_{1x}^2 + v_{1y}^2= v_0^2\)</span> e analoghe per la massa 2       
+</div></blockquote>
+
+sembra che, al fine di facilitare i calcoli, tu abbia sdoppiato l'iniziale equazione di conservazione dell'energia cinetica dell'<strong class="text-strong">intero sistema</strong>, cioè <br>
+<span class="tex">\(\frac{1}{2} (2m) v_0^2 = \frac{1}{2} m (v_{1x}^2 + v_{1y}^2 + v_{2x}^2, v_{2y}^2) \Rightarrow \ (v_{1x}^2 + v_{1y}^2 + v_{2x}^2, v_{2y}^2) = 2v_0^2\)</span>, <br>
+in due micro-espressioni descriventi le leggi di conservazione dell'energia cinetica per ognuna delle due masse, individualmente, ovvero:<br>
+<br>
+<span class="tex">\(\text{massa 1}) \ \ \ \ \frac{1}{2} m (v_{1x}^2 + v_{1y}^2) = \frac{1}{2} m v_0^2 \Rightarrow \ v_{1x}^2 + v_{1y}^2= v_0^2\)</span><br>
+<br>
+<span class="tex">\(\text{massa 2}) \ \ \ \ \frac{1}{2} m (v_{2x}^2 + v_{2y}^2) = \frac{1}{2} m v_0^2 \Rightarrow \ v_{2x}^2 + v_{2y}^2= v_0^2\)</span>.<br>
+<br>
+Sommando membro a membro le due equazioni appena scritte, si ottiene certamente l'equazione estesa inizialmente riportata, ma <em class="text-italics">non</em> si garantisce la <em class="text-italics">conservazione dell'energia cinetica dell'intero sistema</em>: le quattro variabili <span class="tex">\(v_{1x}, v_{2x}, v_{1y}, v_{2y}\)</span> <strong class="text-strong">non sono indipendenti</strong>.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28238" data-post-id="28238" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">24 nov 2023, 18:48</div></cite>
+Si osserva che con questi risultati quando <span class="tex">\(cos\theta =0\)</span>     <span class="tex">\(v_{1x} = v_{2x}=0  \)</span> mentre <span class="tex">\(v_{1y}=-v_{2y}=-v_0\)</span> mi sembrerebbe giustamente :?:  :?:
+</div></blockquote>
+
+Le condizioni a posteriori avanzate per <span class="tex">\(\cos \theta = 0\)</span>, cioè per <span class="tex">\(\theta = \frac{\pi}{2}\)</span>, sono fisicamente errate, in quanto conseguenza dei tuoi risultati sbagliati. Se è vero che, quando l'asta è verticale, le velocità dei due corpi puntiformi possiedono solo componente verticale (dunque, corretti sono i risultati <span class="tex">\(v_{1x} = v_{2x} =0 \)</span>), non vale - né per <span class="tex">\(\theta = \frac{\pi}{2}\)</span>, né in generale - la condizione <span class="tex">\(v_{1y}= -v_{2y}\)</span>. Ci si aspetta, invece, che i due corpi possiedano <span style="text-decoration:underline">entrambi</span> velocità aventi sola componente verticale <strong class="text-strong">verso l'alto</strong> con modulo pari a quello della velocità <span class="tex">\(v_0 = \sqrt{2gh}\)</span> assunta da entrambe le masse (dunque, dal centro di massa) prima dell'urto. Le conclusioni di compendio da te avanzate sarebbero realmente valide solo quando l'asta è completamente orizzontale, cioè per <span class="tex">\(\theta = 0\)</span>. <br>
+I risultati corretti sono:<br>
+<br>
+<span class="tex">\(v_{1x} = - v_0 \dfrac{\sin (2\theta)}{1+\cos^2 \theta}, \ \ \ v_{1y} = v_0, \ \ \ v_{2x} = v_0 \dfrac{\sin (2\theta)}{1+\cos^2 \theta}, \ \ \ v_{2y} = v_0\dfrac{1-3 \cos^2 \theta}{1+\cos^2 \theta}\)</span>, <br>
+<br>
+dove si è scelto il verso positivo verso l'alto. Fammi sapere se riesci ad ottenere lo stesso.<br>
+<br>
+<br>
+Esiste, tuttavia, un altro metodo, ben più rapido e conveniente, per risolvere il problema. L'intero sistema, assimilabile ad un corpo rigido di massa <span class="tex">\(2m\)</span>, può essere descritto anche soltanto dalla velocità lineare <span class="tex">\(v_{CM}\)</span> del centro di massa e dalla velocità angolare <span class="tex">\(\omega\)</span> intorno a quest'ultimo, valutabili tramite conservazione dell'energia cinetica dell'intero sistema e conservazione del momento angolare rispetto al punto <span class="tex">\(P\)</span> di contatto. <br>
+I risultati finali sono:<br>
+<br>
+<span class="tex">\(v_{CM} = v_0 \dfrac{\sin^2 \theta}{1+ \cos^2 \theta} = \sqrt{2gh} \dfrac{\sin^2 \theta}{1+ \cos^2 \theta}\)</span><br>
+<br>
+<span class="tex">\(\omega = - 4 \frac{v_0}{L} \dfrac{\cos \theta}{1+ \cos^2 \theta} = - 4 \frac{\sqrt{2gh}}{L} \dfrac{\cos \theta}{1+ \cos^2 \theta}\)</span>,<br>
+<br>
+dove sono stati considerati positivi la direzione verso l'alto e il senso antiorario di rotazione.<br>
+<br>
+Benché bastino tali due grandezze per descrivere il sistema, si può dimostrare l'equivalenza dei due metodi verificando la coincidenza tra le espressioni delle componenti <span class="tex">\(v_{1x}, v_{2x}, v_{1y}, v_{2y}\)</span> calcolate tramite il primo metodo (quello prevedente l'impiego delle quattro equazioni) e le equazioni delle stesse variabili espresse in funzione di <span class="tex">\(v_{CM}\)</span>, <span class="tex">\(\omega\)</span> e <span class="tex">\(\theta\)</span>. Prova a verificarlo da te prima che pubblichi il mio procedimento.<br>
+<br>
+In verità, esiste anche un'altra possibile soluzione che permetta di descrivere il sistema in esame. Infatti, è possibile esaminare la ricorsività delle sequenze di <span class="tex">\(k\)</span> rimbalzi. Un metodo che garantisca la sicurezza della ripetizione di una sequenza in modo finito consiste nella verifica che la discesa dopo il rimbalzo sia l'immagine speculare della salita: perché ciò avvenga, nel punto più alto tra il primo e il secondo rimbalzo l'asta deve essere orizzontale o verticale. La sequenza più facile da osservare è quella di 4 rimbalzi (cioè, <span class="tex">\(k = 4\)</span>). Si ottiene <span class="tex">\(\theta+n \frac{\pi}{4} =4\frac{v_0^2}{Lg}\frac{\sin^2 (\theta) \cos (\theta)}{(1+\cos^2 \theta)^2} = 8 \frac{h}{L}\frac{\sin^2 (\theta) \cos (\theta)}{(1+\cos^2 \theta)^2}\)</span>, dove <span class="tex">\(n\)</span> si riferisce al numero di mezzi giri completi che il sistema massa-asta-massa compie in aria tra il primo e il secondo rimbalzo, poi all'inverso tra il secondo e il terzo rimbalzo, poi ancora in verso opposto tra terzo e quarto rimbalzo.<br>
+Esistono molte altre sequenze finite, ma sono più complesse da analizzare.</article>
+<article class="post" id="p28243"><div class="who"><b>Pigkappa</b><span>25 nov 2023, 3:19</span></div>Hai una spiegazione intuitiva del perché ci viene <span class="tex">\(v_{1y} = v_0\)</span>?</article>
+<article class="post" id="p28245"><div class="who"><b>Tarapìa Tapioco</b><span>25 nov 2023, 10:37</span></div><blockquote><div><cite>Tarapìa Tapioco ha scritto: <a href="olifis-7227.html#p28245" data-post-id="28245" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 nov 2023, 10:37</div></cite>
+<blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7227.html#p28243" data-post-id="28243" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 nov 2023, 3:19</div></cite>
+Hai una spiegazione intuitiva del perché ci viene <span class="tex">\(v_{1y} = v_0\)</span>?
+</div></blockquote>
+
+Il risultato <span class="tex">\(v_{1y} = v_0\)</span> trovato analiticamente è effettivamente molto interessante. Non riesco a pensare a un'<em class="text-italics">immediata</em> spiegazione intuitiva della precisa motivazione per cui la componente verticale della velocità assunta dalla prima particella dopo l'urto non dipenda dall'angolo <span class="tex">\(\theta\)</span>. Questa peculiare espressione restituisce una situazione fisica in cui l'impulso dell'asta verso il basso è compensato da un aumento dell'impulso verso l'alto fornito dal terreno, ma non è chiaro né ovvio perché ciò avvenga. Dovrebbe essere una conseguenza della conservazione dell'energia meccanica.
+</div></blockquote></article>
+<article class="post" id="p28247"><div class="who"><b>Higgs</b><span>25 nov 2023, 18:23</span></div>Si in effetti riconosco il mio errore. Ci avevo pensato molto a questo problema ed erroneamente non vedevo asimmetrie fra le due masse. Consentitemi di dire però che era un problema molto difficile per un liceale. Non so ovviamente cosa pretendeva poi la commissione...</article>
+<article class="post" id="p28249"><div class="who"><b>Tarapìa Tapioco</b><span>25 nov 2023, 19:04</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28247" data-post-id="28247" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 nov 2023, 18:23</div></cite>
+Si in effetti riconosco il mio errore. Ci avevo pensato molto a questo problema ed erroneamente non vedevo asimmetrie fra le due masse. Consentitemi di dire però che era un problema molto difficile per un liceale. Non so ovviamente cosa pretendeva poi la commissione...
+</div></blockquote>
+
+La tua posizione è comprensibile. Nonostante lo svolgimento di questo problema non fosse poi così difficile e proibitivo, è assolutamente vero che un simile caso teorico non sia di immediata comprensione, specialmente per un liceale. Se non si conosce (si legga anche: non è mai stato affrontato, o non viene subito riconosciuto) il metodo più facile e rapido per affrontare problemi come questo, ovvero la descrizione del sistema mediante la roto-traslazione del corpo rigido attorno al centro di massa (che permette di snellire i calcoli, coinvolgendo soltanto due equazioni), si può molto facilmente incorrere in errori addentrandosi in strade molto articolate, tortuose e piene di calcoli, come quella che prevedeva la risoluzione di quattro equazioni o altre ancora. Come hai potuto constatare, esistono molti possibili metodi applicabili per la risoluzione dello stesso problema, ma ancora una volta, come nel problema "Scontro tra asteroidi", la risoluzione in termini del centro di massa è sempre più conveniente e vantaggiosa.</article>
+<article class="post" id="p28250"><div class="who"><b>Pigkappa</b><span>25 nov 2023, 20:28</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7227.html#p28247" data-post-id="28247" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 nov 2023, 18:23</div></cite>
+Si in effetti riconosco il mio errore. Ci avevo pensato molto a questo problema ed erroneamente non vedevo asimmetrie fra le due masse. Consentitemi di dire però che era un problema molto difficile per un liceale. Non so ovviamente cosa pretendeva poi la commissione...
+</div></blockquote>
+
+L'anno scorso il problema 1 era quella assurdità sulla tensione superficiale! Quindi direi che quest'anno sono stati magnanimi xD</article>
+<article class="post" id="p28252"><div class="who"><b>Higgs</b><span>26 nov 2023, 11:38</span></div>+Vi ringrazio per le osservazioni fondate su tanti problemi affrontati e risolti! Posterò a breve lo SNS n2 2023 (a proposito uno dello stesso tipo fu proposto da Pigkappa nella primavera scorsa)</article>
+<article class="post" id="p28535"><div class="who"><b>Tarapìa Tapioco</b><span>22 lug 2024, 18:05</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-7227.html#p28243" data-post-id="28243" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">25 nov 2023, 3:19</div></cite>
+Hai una spiegazione intuitiva del perché ci viene <span class="tex">\(v_{1y} = v_0\)</span>?
+</div></blockquote>
+
+Una spiegazione pressoché (ma non <em class="text-italics">immediatamente</em>) intuitiva della motivazione per cui la componente verticale <span class="tex">\(v_{1y}\)</span> della velocità della particella 1 dopo il primo urto sia uguale alla velocità iniziale <span class="tex">\(v_0\)</span> della stessa (e dell'intero sistema), risiede nella tipologia dell'urto occorso (<strong class="text-strong">perfettamente elastico</strong>) e nelle condizioni iniziali del sistema (che si muove con <strong class="text-strong">velocità angolare iniziale nulla</strong>, <span class="tex">\(\omega_0 = 0\)</span>). Appare abbastanza intuitiva (benché non ovvia) la constatazione che, in una collisione completamente elastica, i due corpi urtanti rimbalzano perfettamente l'uno sull'altro e la relativa velocità di impatto è uguale (in modulo) e opposta (in verso) alla relativa velocità di rimbalzo; analogamente, ad esempio, è altrettanto intuitivo osservare che, in un urto completamente anelastico, le due masse urtanti tendano ad aderire plasticamente e incastrarsi tra loro, dimodoché la relativa velocità di rimbalzo sia necessariamente nulla. <br>
+In questo specifico caso, è possibile distinguere tra corpo urtante (la massa puntiforme, avente una certa velocità iniziale di caduta coincidente con quella del centro di massa del sistema e una certa velocità finale di rimbalzo immediatamente dopo l'urto) e corpo urtato (il pavimento, di massa molto maggiore rispetto a quella urtante e avente velocità nulle prima e dopo l'urto): pertanto, le relative velocità di impatto e rimbalzo corrispondono, rispettivamente, alle velocità di impatto e di rimbalzo della sola particella puntiforme.<br>
+Poiché, considerata la situazione fisica, la particella 1 è la prima ad urtare il suolo, allora il moto da essa descritto durante l'intervallo di tempo intercorso tra la caduta e l'impatto con il terreno corrisponde alla pura traslazione del sistema, con uguale velocità traslazionale assunta da ogni suo punto e apporto nullo proveniente dalla rotazione, la quale precede il breve istante, compreso tra la fine della collisione e l'inizio del rimbalzo, durante il quale si innesca il contributo fornito dalla rotazione (a velocità angolare costante) del sistema. Assumendo il verso positivo verso l'alto, dunque, la massa puntiforme contraddistinta dalla particella 1 acquisisce una velocità di caduta verticale <span class="tex">\(- v_0\)</span> corrispondente a quella del centro di massa, mantenendola costante fino all'impatto (<span class="tex">\(v_{\text{impatto}} = - v_0\)</span>) senza avvertire gli effetti della rotazione (<span class="tex">\(\omega_0 = \omega_{\text{iniziale}} = 0\)</span>), per poi invertire il suo moto e assumere una certa componente verticale <span class="tex">\(y\)</span> di velocità di rimbalzo <span class="tex">\(v_{\text{rimbalzo}} = v_{1y}\)</span>. <br>
+<br>
+Pertanto, stanti le condizioni iniziali (<span class="tex">\(\text{pura traslazione} \to \omega_0 = \omega_{\text{iniziale}} = 0\)</span>) e disponendo un modello di collisione completamente elastica per l'impatto, in virtù delle precedenti considerazioni la componente verticale della velocità d'impatto <span class="tex">\(v_{\text{impatto}} = - v_0\)</span> <br>
+dev'essere uguale in modulo ed opposta in verso alla componente verticale della velocità di rimbalzo <span class="tex">\(v_{\text{rimbalzo}} = v_{1y}\)</span>; deve valere, cioè, che:<br>
+<br>
+<span class="tex">\(v_{\text{rimbalzo}} = - v_{\text{impatto}}\)</span> <span class="tex">\(\Longrightarrow \ \)</span> <span class="tex">\(v_{1y} = - (-v_0)\)</span> <span class="tex">\(\iff \\)</span> <span class="tex">\(\boxed{v_{1y} = v_0}\)</span><br>
+<br>
+<span style="text-decoration:underline">La spiegazione intuitiva sopra presentata trova supporto</span> nel concetto di <strong class="text-strong">coefficiente di restituzione</strong> (o Legge di Restituzione di Newton, o Legge di contatto) fondamentale nella meccanica degli impatti. <br>
+<br>
+Siano <span class="tex">\(m_A\)</span> e <span class="tex">\(m_B\)</span> le masse di due particelle <span class="tex">\(A\)</span> e <span class="tex">\(B\)</span> che urtano tra loro nella stessa direzione a velocità <span class="tex">\(v_{A, \text{iniziale}}\)</span> e <span class="tex">\(v_{B, \text{iniziale}}\)</span> prima dell'urto, rispettivamente. Si assuma <span class="tex">\(v_{A, \text{iniziale}} &gt; v_{B, \text{iniziale}}\)</span> in modo che il moto relativo tra le due particelle sia tale che esse effettivamente si scontrino, con la prima (<span class="tex">\(A\)</span>) urtante la seconda (<span class="tex">\(B\)</span>). Assumendo che le masse delle particelle rimangano invariate (per i principi della meccanica classica non-relativistica), le velocità delle due particelle dopo l'urto si diranno <span class="tex">\(v_{A, \text{finale}}\)</span> e <span class="tex">\(v_{B, \text{finale}}\)</span>, rispettivamente. Se le due particelle si muovono nella stessa direzione, stanti le condizioni iniziali, si avrà necessariamente <span class="tex">\(v_{B, \text{finale}} &gt; v_{A, \text{finale}}\)</span>, perché altrimenti ciò implicherebbe che la particella <span class="tex">\(A\)</span> si sia spostata effettivamente attraverso la particella <span class="tex">\(B\)</span> senza che le due si siano veramente scontrate. <br>
+Il coefficiente di restituzione <span class="tex">\(\varepsilon\)</span> è definito come il rapporto tra la relativa velocità di separazione dopo l'urto e la relativa velocità di approccio prima dell'urto, in valore assoluto. Si ha:<br>
+<br>
+<span class="tex">\(|v_{\text{separazione}}| = |v_{B, \text{finale}} - v_{A, \text{finale}}| = v_{B, \text{finale}} - v_{A, \text{finale}}\)</span>     <span class="tex">\(\qquad\)</span><span class="tex">\(\text{in quanto}\)</span>     <span class="tex">\(v_{B, \text{finale}} &gt; v_{A, \text{finale}}\)</span>,<br>
+<span class="tex">\(|v_{\text{approccio}}| = |v_{B, \text{iniziale}} - v_{A, \text{iniziale}}| = v_{A, \text{iniziale}} - v_{B, \text{iniziale}}\)</span>     <span class="tex">\(\qquad\)</span><span class="tex">\(\text{in quanto}\)</span>     <span class="tex">\(v_{A, \text{iniziale}} &gt; v_{B, \text{iniziale}}\)</span>,<br>
+<br>
+dove i valori assoluti sono dovuti al fatto che il coefficiente di restituzione è definito come quantità non negativa.<br>
+<br>
+Dunque:<br>
+<br>
+<span class="tex">\(\varepsilon = \dfrac{|v_{\text{separazione}}|}{|v_{\text{approccio}}|} = \dfrac{|v_{B, \text{finale}} - v_{A, \text{finale}}|}{|v_{B, \text{iniziale}} - v_{A, \text{iniziale}}|} = \dfrac{v_{B, \text{finale}} - v_{A, \text{finale}}}{v_{A, \text{iniziale}} - v_{B, \text{iniziale}}}\)</span>.<br>
+<br>
+Poiché si è assunto l'urto perfettamente elastico, si devono imporre la conservazione della quantità di moto e dell'energia cinetica del sistema tra prima e dopo l'urto. Quindi:<br>
+<span class="tex">\(\begin{cases}
+m_A \ v_{A, \text{iniziale}} + m_B \ v_{B, \text{iniziale}} = m_A \ v_{A, \text{finale}} + m_B \ v_{B, \text{finale}} \\
+\dfrac{1}{2} \ m_A \ v_{A, \text{iniziale}}^2 + \dfrac{1}{2} \ m_B \ v_{B, \text{iniziale}}^2 = \dfrac{1}{2} \ m_A \ v_{A, \text{finale}}^2 + \dfrac{1}{2} \ m_B \ v_{B, \text{finale}}^2 .
+\end{cases}\)</span><br>
+Risolvendo il sistema, si ottiene<br>
+<br>
+<span class="tex">\(v_{B, \text{finale}} - v_{A, \text{finale}} = v_{A, \text{iniziale}} - v_{B, \text{iniziale}} \)</span>.<br>
+<br>
+Dunque, dividendo entrambi i membri per <span class="tex">\((v_{A, \text{iniziale}} - v_{B, \text{iniziale}})\)</span>:<br>
+<br>
+<span class="tex">\(\varepsilon = \dfrac{v_{B, \text{finale}} - v_{A, \text{finale}}}{v_{A, \text{iniziale}} - v_{B, \text{iniziale}}} = 1\)</span>.<br>
+<br>
+Assumendo, senza perdita di generalità, che il corpo <span class="tex">\(A\)</span> sia la particella <span class="tex">\(1\)</span> e il corpo <span class="tex">\(B\)</span> (di massa <span class="tex">\(m_B \to \infty\)</span>) sia il pavimento, si hanno le seguenti:<br>
+<br>
+<span class="tex">\(v_{B, \text{finale}} = v_{B, \text{iniziale}} = 0 \)</span> perché il pavimento è fermo; <br>
+<span class="tex">\(v_{A, \text{iniziale}} = v_{1, \text{impatto}}\)</span> è la velocità relativa di impatto al suolo della particella <span class="tex">\(1\)</span>;<br>
+<span class="tex">\(v_{A, \text{finale}} = v_{1, \text{rimbalzo}}\)</span> è la velocità relativa di rimbalzo trasmesso dal suolo della particella <span class="tex">\(1\)</span>.<br>
+<br>
+Si ha dunque: <span class="tex">\(\varepsilon = - \dfrac{v_{1, \text{rimbalzo}}}{v_{1, \text{impatto}}} = 1\)</span>  <span class="tex">\(\iff\)</span>   <span class="tex">\(v_{1, \text{rimbalzo}} = - \varepsilon  \ v_{1, \text{impatto}} = - v_{1, \text{impatto}}\)</span>, cioè<br>
+<br>
+<span class="tex">\(v_{1, \text{rimbalzo}} = - v_{1, \text{impatto}}\)</span>.<br>
+<br>
+Le velocità assolute di impatto e rimbalzo sono date dalla somma (vettoriale) tra le rispettive velocità di trascinamento (del centro di massa) e le rispettive velocità relative rispetto al centro di massa (date dal prodotto vettoriale - massimo in modulo - tra velocità angolare e vettore posizione del vettore velocità di trascinamento rispetto al centro di massa). <br>
+Dunque:<br>
+<br>
+<span class="tex">\(v_{1, \text{impatto}} = -v_0 + \frac{L}{2} \cos \theta \cancelto{0}{\omega_{1, \text{iniziale}}} = - v_0\)</span><br>
+<br>
+<span class="tex">\(v_{1, \text{rimbalzo}} = v_{1y} + \frac{L}{2} \cos \theta \cancelto{0}{\omega_{1, \text{finale}}} = v_{1y}\)</span>, <br>
+<br>
+e dal momento che:<br>
+<br>
+<span class="tex">\(v_{1, \text{rimbalzo}} = - v_{1, \text{impatto}}\)</span>,<br>
+<br>
+allora<br>
+<br>
+<span class="tex">\(v_{1y} = - (-v_0)\)</span> <span class="tex">\(\iff \\)</span> <span class="tex">\(\boxed{v_{1y} = v_0}\)</span>.<br>
+<br>
+Lo stesso procedimento può essere esteso anche alla particella <span class="tex">\(2\)</span>:<br>
+<br>
+<span class="tex">\(v_{2, \text{impatto}} = - v_0  + \frac{L}{2} \cos \theta \cancelto{\omega}{\omega_{2, \text{iniziale}}}\)</span> <br>
+<br>
+<span class="tex">\(v_{2, \text{rimbalzo}} = v_{2y} + \frac{L}{2} \cos \theta \cancelto{\omega}{\omega_{2, \text{finale}}}\)</span>,<br>
+<br>
+e dal momento che:<br>
+<br>
+<span class="tex">\(v_{2, \text{rimbalzo}} = - v_{2, \text{impatto}}\)</span>,<br>
+<br>
+allora<br>
+<br>
+<span class="tex">\(v_{2y} + \frac{L}{2}  \omega \cos \theta \omega = - \left(- v_0  + \frac{L}{2} \omega \cos \theta \right) \implies\)</span> <br>
+<span class="tex">\(\implies v_{2y} + \frac{L}{2} \omega \cos \theta  = v_0 - \frac{L}{2} \omega \cos \theta\)</span>, <br>
+<br>
+da cui<br>
+<br>
+<span class="tex">\(v_{2y} = v_0 - \cancel{2} \dfrac{L}{\bcancel{2}} \omega \cos \theta = v_0 - L \omega \cos \theta.\)</span>.<br>
+<br>
+Sostituendo <span class="tex">\(\omega = 4 \frac{v_0}{L} \dfrac{\cos \theta}{1+ \cos^2 \theta}\)</span>:<br>
+<br>
+<span class="tex">\(v_{2y} = v_0 - \frac{4 v_0 \cos \theta ^2}{1+ \cos^2 \theta} \iff \boxed{v_{2y} = \dfrac{1-3 \cos^2 \theta}{1+\cos^2 \theta}v_0}\)</span>,<br>
+<br>
+come previsto.</article>
+<article class="post" id="p28536"><div class="who"><b>Pigkappa</b><span>22 lug 2024, 23:11</span></div><blockquote><div><cite>Tarapìa Tapioco ha scritto: <a href="olifis-7227.html#p28535" data-post-id="28535" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">22 lug 2024, 18:05</div></cite>
+Pertanto, stanti le condizioni iniziali (<span class="tex">\(\text{pura traslazione} \to \omega_0 = \omega_{\text{iniziale}} = 0\)</span>) e disponendo un modello di collisione completamente elastica per l'impatto, in virtù delle precedenti considerazioni la velocità d'impatto <span class="tex">\(v_{\text{impatto}} = - v_0\)</span> <br>
+dev'essere uguale in modulo ed opposta in verso alla velocità di rimbalzo <span class="tex">\(v_{\text{rimbalzo}} = v_{1y}\)</span>
+</div></blockquote>
+Questa cosa forse non la capisco. Non mi pare sia vera. Abbiamo visto sopra che <span class="tex">\(\displaystyle v_{1x}\)</span> non è zero, quindi non è vero che la velocità di impatto e rimbalzo sono uguali in modulo. La velocità di rimbalzo è più grande in modulo di quella di impatto.<br>
+<br>
+La collisione è elastica nel suo complesso, cioè si conserva l'energia cinetica totale. Ma si ridistribuisce energia tra le due masse connesse dall'asta. L'asta è chiaramente in grado di fare lavoro sulle masse con la sua forza impulsiva, infatti abbiamo visto che influenza <span class="tex">\(\displaystyle v_{1x}, v_{2x}, v_{2y}\)</span>, ma sorprendentemente non <span class="tex">\(\displaystyle v_{1y}\)</span>.<br>
+<br>
+Nei conti successivi non mi è chiaro cosa sia <span class="tex">\(\displaystyle \omega_\text{1,finale}\)</span> e perché compaia anche un <span class="tex">\(\displaystyle \omega_\text{2,finale}\)</span>. Presumibilmente di <span class="tex">\(\displaystyle \omega\)</span> ce n'è una sola...</article>
+<nav class="pager"><a class="prev" href="olifis-7160.html"><small>← precedente</small>SNS 2022/5 Ciclo reversibile adiabatiche e isobare</a><a class="next" href="olifis-7229.html"><small>successivo →</small>SNS n.2, 2023</a></nav>
+</main></body></html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cinematica SNS 2005/2006</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2005-2006</span></nav>
+<h1>Cinematica SNS 2005/2006</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=210">forum Olifis</a></p>
+<article class="post first" id="p1891"><div class="who"><b>Albertopisa</b><span>7 ago 2009, 18:00</span></div>Da una scogliera verticale di altezza <span class="tex">\(H\)</span> si vuole lanciare un sasso in modo che arrivi in acqua alla massima distanza <span class="tex">\(L_m\)</span> dal piede della scogliera.<br>
+Assumendo di poter imprimere al sasso una velocita' iniziale di modulo <span class="tex">\(v_0\)</span> fissato, si determini l’angolo <span class="tex">\(a_m\)</span> rispetto all’orizzontale con cui deve essere lanciato, trascurando la resistenza dell’aria. Si discuta il risultato ottenuto.<br>
+Suggerimento: si scriva <span class="tex">\(tan(a)\)</span> in funzione della distanza L dal piede<br>
+della scogliera al punto di caduta in acqua.<br>
+<br>
+I conti mi portano a espressioni abbastanza brutte, probabilmente c'e' un metodo piu' "pulito" che pero' non riesco a vedere  :| ... E' preso dall'esame della Normale per chimici.</article>
+<article class="post" id="p1893"><div class="who"><b>MrTeo</b><span>7 ago 2009, 21:49</span></div>Hmm... questa è la soluzione contosa credo (volendo si può anche procedere sotituendo t da un'equazione all'altra, ma vengono ancora maggiori pasticci nella soluzione):<br>
+<br>
+<span class="tex">\(\begin{array}{l}
+ \left\{ \begin{array}{l}
+ y =  - \frac{1}{2}gt^2  + vt\sin \alpha  \\ 
+ x = vt\cos \alpha  \\ 
+ \end{array} \right. \\ 
+ \left\{ \begin{array}{l}
+ y =  - \frac{1}{2}gt^2  + vt\sin \alpha  \\ 
+ t = \frac{x}{{v\cos \alpha }} \\ 
+ \end{array} \right. \\ 
+ \end{array}\)</span><br>
+<span class="tex">\(\begin{array}{l}
+  - h =  - \frac{{gx^2 }}{{2v^2 \cos ^2 \alpha }} + x\tan \alpha  \\ 
+  - \frac{g}{{2v^2 \cos ^2 \alpha }}x^2  + x\tan \alpha  + h = 0 \\ 
+ \Delta  = \tan ^2 \alpha  + \frac{{2hg}}{{v^2 \cos ^2 \alpha }} \\ 
+ x = -g\frac{{\tan \alpha  \pm \sqrt {\tan ^2 \alpha  + \frac{{2hg}}{{v^2 \cos ^2 \alpha }}} }}{{v^2 \cos ^2 \alpha }} \\ 
+ \end{array}\)</span><br>
+<br>
+Ho provato a spezzare il moto in due parti (l'una quando ritorna all'altezza h, l'altra quando finisce di cadere a terra) e anche a utilizzare la conservazione dell'energia... ma non ottengo migliori soluzioni... non è che con qualche passaggio assennato si può ricondurre ad un'espressione più accessibile alla discussione?</article>
+<article class="post" id="p1895"><div class="who"><b>Albertopisa</b><span>7 ago 2009, 22:51</span></div>Si', e' quello che ho fatto io, ma provare a derivare quella cosa li' mi spaventa  :?  Pero' non so impostare un procedimento piu' furbo...</article>
+<article class="post" id="p1899"><div class="who"><b>spn</b><span>8 ago 2009, 1:42</span></div>Sono troppo stanco per controllare bene (e spero di non scrivere boiate) ma dell'equazione della soluzione di Mr.Teo non mi convincono due cose:  la distanza <span class="tex">\(x\)</span> viene <span class="tex">\(\frac{1}{m}\)</span> quindi non corrispondono le unità di misura, inoltre essa sembra crescere con l'angolo,  ed è infinità per <span class="tex">\(a=\frac{\pi}{2}\)</span>, che non ha senso.</article>
+<article class="post" id="p1901"><div class="who"><b>MrTeo</b><span>8 ago 2009, 7:04</span></div>Ho maldestramente invertito <span class="tex">\(g\)</span> e <span class="tex">\(v^2 \cos^2 \alpha\)</span> all'ultimo passaggio  :mrgreen: <br>
+Grazie per la segnalazione, ecco il risultato corretto:<br>
+<br>
+<span class="tex">\(x =- v^2 \cos ^2 \alpha \frac{{\tan \alpha  \pm \sqrt {\tan ^2 \alpha  + \frac{{2hg}}{{v^2 \cos ^2 \alpha }}} }}{g}\)</span><br>
+<br>
+Purtroppo però non migliora molto anche così  :roll:</article>
+<article class="post" id="p1902"><div class="who"><b>Albertopisa</b><span>8 ago 2009, 8:00</span></div>Nell'equazione della parabola forse conviene usare l'uguaglianza <br>
+<span class="tex">\(\cos^2 \alpha = \frac{1}{\tan^2 \alpha +1}\)</span><br>
+Cosi' si ottiene una funzione unicamente in tangente, come consigliato nel testo...</article>
+<article class="post" id="p1905"><div class="who"><b>Alex90</b><span>8 ago 2009, 11:55</span></div>Mmm...conti bruttini...e se lo derivate non credo che si risolva granchè...un consiglio così a uffa è di provare a considerare il moto come su un piano inclinato con cateto minore <span class="tex">\(H\)</span> e cateto maggiore <span class="tex">\(L\)</span>...provate prima a risolvere il caso di massima gittata lungo un piano inclinato di un angolo <span class="tex">\(\theta\)</span>...magari qualche analogia viene fuori...</article>
+<article class="post" id="p1906"><div class="who"><b>Loren Kocillari89</b><span>8 ago 2009, 12:23</span></div>Date un'occhiata alla sezione del caffè. E' importante, e vi prego di lasciare un'opinione. ;)</article>
+<article class="post" id="p1924"><div class="who"><b>String</b><span>9 ago 2009, 19:38</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>un consiglio così a uffa è di provare a considerare il moto come su un piano inclinato con cateto minore <span class="tex">\(H\)</span> e cateto maggiore <span class="tex">\(L\)</span>...provate prima a risolvere il caso di massima gittata lungo un piano inclinato di un angolo <span class="tex">\(\theta\)</span>...magari qualche analogia viene fuori...</div></blockquote>
+Non ho capito il suggerimento...Puoi spiegarti meglio? Oppure scrivere il procedimento?</article>
+<article class="post" id="p1925"><div class="who"><b>Falco5x</b><span>9 ago 2009, 19:54</span></div>Voglio proporre un metodo di soluzione alternativo che ha il vantaggio di richiedere (forse) qualche calcolo in meno.<br>
+E’ noto che data una certa velocità iniziale  <span class="tex">\(v_0\)</span>del sasso esiste quella che viene chiamata la parabola della massima gittata. Tale parabola è la zona al di fuori della quale nessun colpo può arrivare, ed ha la caratteristica di essere in ogni suo punto tangente all’unica parabola di tiro che può raggiungere quel punto.<br>
+Ponendo il lanciatore sull’origine degli assi cartesiani il vertice della parabola di massima gittata è posto nel punto <br>
+ <span class="tex">\(x=0;y_0=\frac{v_0^2}{2g}\)</span><br>
+e passa per il punto <br>
+ <span class="tex">\(y=0;x_0=\frac{v_0^2}{g}\)</span>.<br>
+ La sua equazione è dunque  <br>
+<span class="tex">\(y=-\frac{x^2}{4y_0}+y_0\)</span>.<br>
+Considerando adesso il punto sul livello del mare, cioè ad altezza   <span class="tex">\(y=-H\)</span>, sostituendo questo punto nell’equazione della parabola di massima gittata si ha la distanza massima raggiunta in orizzontale <br>
+ <span class="tex">\(L=2\sqrt{y_0(y_0+H)}\)</span>.<br>
+Nel punto raggiunto la parabola di massima gittata ha la stessa inclinazione della parabola di tiro, ovvero la derivata delle due funzioni è la medesima, per cui si può scrivere: <br>
+ <span class="tex">\(\frac{dy}{dx}=-\frac{L}{2y_0}=\frac{v_y}{v_x}=\frac{ v_y }{ v_{x 0}}\)</span>,<br>
+ infatti la velocità orizzontale rimane inalterata durante tutta la traiettoria, e dunque è uguale a quella iniziale. La velocità verticale invece ha la seguente relazione con la velocità iniziale:<br>
+  <span class="tex">\(v_y^2=v_{y0}^2+2gH\)</span> .<br>
+ Mettendo insieme le precedenti relazioni si ha:<br>
+  <span class="tex">\(\frac{L^2}{4y_0^2}=1+\frac{H}{y_0}=\frac{v_{y0}^2+2gH}{v_{x0}^2}\)</span><br>
+da cui con pochi passaggi si arriva alla relazione <br>
+ <span class="tex">\(\tan\alpha=\frac{v_0}{\sqrt{v_0^2+2gH}}\)</span></article>
+<article class="post" id="p2098"><div class="who"><b>pascal</b><span>23 ago 2009, 19:41</span></div>Questo procedimento prende spunto dal suggerimento contenuto nella traccia.<br>
+L’equazione della traiettoria è:<br>
+<br>
+<span class="tex">\(y=tan\alpha \,x-\frac{gx^2}{2v_0^2}(1+\tan^2 \alpha)\)</span><br>
+<br>
+L’origine del sistema di assi è situata nel punto di lancio.<br>
+Per avere la gittata si impone y=-H e si ottiene la seguente equazione in <span class="tex">\(\tan \alpha\)</span>:<br>
+<br>
+<span class="tex">\(gx^2 \tan^2 \alpha-2v_0^2 \tan \alpha \,x -2 v_0^2H+gx^2=0\)</span><br>
+<br>
+che ammette soluzioni se il discriminante <span class="tex">\(\Delta \ge 0\)</span>.<br>
+<br>
+Per <span class="tex">\(\Delta&gt;0\)</span>  si ricavano due soluzioni, cioè la gittata viene raggiunta con due angoli di tiro diversi. <br>
+<br>
+Se <span class="tex">\(\Delta=0\)</span> i due angoli coincidono.<br>
+<br>
+Da <span class="tex">\(\Delta/4 \ge0\)</span> discende che<br>
+<br>
+<span class="tex">\(L=\mid x \mid \le\frac{v_0 \sqrt{v_0^2+2Hg}}{g}\)</span><br>
+<br>
+La gittata massima corrisponde al secondo membro della suddetta disequazione (<span class="tex">\(\Delta=0\)</span>).<br>
+<br>
+La soluzione dell’equazione per <span class="tex">\(\Delta =0\)</span> fornisce<br>
+<br>
+<span class="tex">\(\tan \alpha=\frac {v_0^2}{gx}=\frac {v_0}{\sqrt{v_0^2+2Hg}}\)</span>.</article>
+<nav class="pager"><a class="prev" href="oliforum-6145.html"><small>← precedente</small>Tubo con gas [SNS 05-06 / 6]</a><a class="next" href="oliforum-6265.html"><small>successivo →</small>sns 2006-2007, es. 1</a></nav>
+</main></body></html>

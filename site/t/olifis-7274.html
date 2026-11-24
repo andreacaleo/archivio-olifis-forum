@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>327 - SNS n.2, 2024</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2024-2025, problema 2</span></nav>
+<h1>327 - SNS n.2, 2024</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7274">forum Olifis</a></p>
+<article class="post first" id="p28657"><div class="who"><b>Pigkappa</b><span>26 nov 2024, 2:03</span></div>Una cabina C di una funivia può scorrere senza attrito su un cavo orizzontale rigido a cui è vincolata tramite una serie di bracci verticali, che ne garantiscono la stabilità impedendo ogni altro movimento (verticale, oscillatorio, trasversale).<br>
+<br>
+Come mostrato in figura, all'interno della cabina, poggiata sul pavimento, si trova una massa puntiforme A che è libera di muoversi in direzione orizzontale, restando a contatto con la base della cabina stessa, al più subendo urti perfettamente elastici con le pareti di C.<br>
+<br>
+Un osservatore esterno che monitora il sistema da lontano nota che, a intervalli regolari di durata <span class="tex">\(\displaystyle \Delta T_1\)</span> e <span class="tex">\(\displaystyle \Delta T_2\)</span>, la cabina passa da uno stato di moto <span class="tex">\(\displaystyle S_1\)</span> in cui si sposta orizzontamente lungo l'asse con velocità costante <span class="tex">\(\displaystyle V_C\)</span>, a uno stato <span class="tex">\(\displaystyle S_2\)</span> in cui è perfettamente ferma.<br>
+<br>
+Si proponga una spiegazione dell'effetto e si determini il rapporto tra <span class="tex">\(\displaystyle \Delta T_1\)</span> e <span class="tex">\(\displaystyle \Delta T_2\)</span>.<br>
+Supponendo che l'osservatore possa misurare tali grandezze, nonché le dimensioni geometriche della cabina e la velocità <span class="tex">\(\displaystyle V_C\)</span>, si determini il rapporto <span class="tex">\(\displaystyle \mu\)</span> tra le masse di C e di A.<br>
+<br>
+<a class="lost" href="https://i.imgur.com/kZO1fry.jpeg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p28659"><div class="who"><b>Higgs</b><span>1 dic 2024, 18:08</span></div>Io avrei ragionato così. Poichè gli stati possibili della cabina sono o il moto uniforme a velocità <span class="tex">\(V_C\)</span> (caso 1) o la sua quiete (caso 2), vuol dire che la risultante delle forze esterne su essa agenti è nulla. Si deve pertanto conservare la quantità di moto del sistema. In secondo luogo la velocità assoluta di A è data dalla somma di quella di trascinamento <span class="tex">\(V_C\)</span>più quella relativa alla cabina <span class="tex">\(V_R\)</span>. Ogni cambiamento della velocità della cabina e di A deve avvenire in occasione dell'urto elastico di A con la parete della cabina.<br>
+Caso 1) supponiamo di orientare l'asse x del moto da sinistra verso destra come sempre e che la cabina si muova verso sinistra. A che non è collegata alla cabina si muoverà verso destra fino ad urtare la parete di destra elasticamente. Nell'urto si conserva la quantità di moto. Abbiamo cioè prima e dopo l'urto se M è la massa della cabina e m quella di A<span class="tex">\( (-MV_C + m(-V_C+ V_R)= -mV_R \)</span> ovvero  <span class="tex">\((M+m)V_C=2mV_R\)</span>. Allora se <span class="tex">\(l_1\)</span>è il tratto percorso da m nella cabina sarà <span class="tex">\(\Delta T_1= \frac{l_1}{V_R }= \frac{2ml_1 }{ (m+M)V_C}\)</span><br>
+Caso 2) supponiamo ora che dopo l'urto la cabina si fermi. per ritornare in movimento bisogna che A percorra tutta la cabina di lunghezza l e urti la parete opposta. La velocità di A è <span class="tex">\(V_R\)</span>opposta a quella che aveva prima dell'urto elastico per cui sarà <span class="tex">\(\Delta T_2 = \frac{l }{V_R }= \frac{2ml }{ (m*M)V_C}\)</span> da cui il rapporto <span class="tex">\(\frac{\Delta T_1 }{ \Delta T_2}= l_1/l \)</span>. Essendo <span class="tex">\(\Delta T_2= \frac{2ml }{ (m+M)V_C}=\frac{l }{(1+M/m)V_C }\)</span> posto <span class="tex">\(\mu=M/m\)</span>   risulta <span class="tex">\(\mu=\frac{ 2l}{\Delta T_2.V_C }-1\)</span>     in funzione di grandezze tutte misurabili secondo il testo :?:</article>
+<article class="post" id="p28660"><div class="who"><b>Pigkappa</b><span>4 dic 2024, 0:56</span></div><blockquote><div><cite>Higgs ha scritto: <a href="olifis-7274.html#p28659" data-post-id="28659" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 dic 2024, 18:08</div></cite>
+Abbiamo cioè prima e dopo l'urto se M è la massa della cabina e m quella di A <span class="tex">\( (-MV_C + m(-V_C+ V_R)= -mV_R \)</span>
+</div></blockquote>
+Qua stai assumendo che la velocità relativa <span class="tex">\(\displaystyle V_R\)</span> tra scatola e pallina sia la stessa prima e dopo l'urto? Questo in generale non è vero.<br>
+<br>
+Permettimi di usare <span class="tex">\(\displaystyle v_R\)</span> minuscolo così è chiaro che si riferisce alla pallina (lettere maiuscole per la scatola e minuscole per la pallina). Allora bisogna introdurre due velocità <span class="tex">\(\displaystyle v_{R1}\)</span> e <span class="tex">\(\displaystyle v_{R2}\)</span> per i due stati di moto:<br>
+<br>
+<span class="tex">\(\displaystyle - M V_C + m (-V_C + v_{R1}) = m v_{R2}\)</span></article>
+<article class="post" id="p28661"><div class="who"><b>Higgs</b><span>4 dic 2024, 13:05</span></div>Ma io ritenevo che siccome l'urto è perfettamente elastico la velocità di A rispetto alla cabina cambiasse solo il segno ma non l'intensità RELATIVA della velocità. Oppure tu sostieni che dopo l'urto siccome la velocità della cabina si annulla deve variare anche l'intensità di <span class="tex">\(v_R\)</span>. E' così? Non ho le idee ancora chiare...</article>
+<article class="post" id="p28662"><div class="who"><b>Pigkappa</b><span>4 dic 2024, 14:24</span></div>Stai dicendo che la differenza tra le due velocità in un urto elastico si conserva? Mi sembra una cosa inventata sinceramente  :geek:<br>
+<br>
+Sappiamo la velocità della cabina prima e dopo l'urto. Ci mancano le velocità della massa puntiforme. Si conservano quantità di moto ed energia. Da questi due criteri si scrivono due equazioni.</article>
+<article class="post" id="p28663"><div class="who"><b>Higgs</b><span>9 dic 2024, 14:39</span></div>Espongo i miei risultati senza molti dettagli che in un secondo tempo espliciterei dopo la tua revisione.<br>
+Adottando le tue indicazioni, le due leggi di conservazione (quantità di moto ed energia) dovrebbero essere nei due casi  1)<span class="tex">\(V_C \neq0\)</span>   e 2)<span class="tex">\(V_C=0\)</span><br>
+<span class="tex">\(-MV_C + m(-V_C+v_{ R1})=mv_{ R2}\)</span>         <br>
+<span class="tex">\(-(1/2)M V_C^2+(1/2)m(-V_C+v_{R1 })^2 = (1/2)mv_{ R2}^2\)</span><br>
+Svolgendo i conti avrei ottenuto  <span class="tex">\(v_{R1 }= \frac { V_C }{ 2}(3+\frac{ M}{m })\)</span>  ;  <span class="tex">\(v_{R2} = \frac{V_C }{2 }(1- \frac{M }{m })\)</span> per cui<br>
+<span class="tex">\(\frac{\Delta T_1 }{\Delta T_2 } = \frac{ v_{ R_2}}{v_{R1 } \)</span> = <span class="tex">\(\frac{1-\mu }{3+\mu }\)</span> avendo posto <span class="tex">\(\mu = \frac { M}{m }\)</span>.<br>
+Risulta pertanto <span class="tex">\(\mu = \frac{v_{ R1}-3v_{ R2} }{v_{R1 } +v_{R2 }}\)</span>  :?:  :roll:</article>
+<article class="post" id="p28664"><div class="who"><b>Pigkappa</b><span>11 dic 2024, 1:29</span></div>Quel segno meno all'inizio della tua equazione dell'energia mi sembra sospetto.<br>
+<br>
+Faccio il conto per esteso e vediamo se mi torna uguale a te. Io non starei a lavorare in termini di velocità relativa ma semplicemente di velocità rispetto ad un osservatore esterno. Imposterei così. <br>
+<span class="tex">\(\displaystyle \mu V_C + v_1 = v_2\)</span><br>
+<span class="tex">\(\displaystyle \frac{1}{2} \mu V_C^2 + \frac{1}{2} v_1^2 = \frac{1}{2} v_2^2\)</span><br>
+Dalla prima sostituisco nella seconda, e semplifico:<br>
+<span class="tex">\(\displaystyle \mu V_C^2 + v_1^2 = (\mu V_C + v_1)^2\)</span><br>
+Espandendo, eliminando <span class="tex">\(\displaystyle v_1\)</span>, dividendo per <span class="tex">\(\displaystyle \mu V_C\)</span> che assumiamo diverso da zero:<br>
+<span class="tex">\(\displaystyle V_C = \mu V_C + 2 v_1 \rightarrow v_1 = \frac{(1-\mu) V_C}{2}\)</span><br>
+Dalla prima equazione si ottiene <span class="tex">\(\displaystyle v_2 = \frac{(1+\mu)V_C}{2}\)</span>.<br>
+<br>
+La mia <span class="tex">\(\displaystyle v_2\)</span> dovrebbe essere uguale alla tua <span class="tex">\(\displaystyle v_{R2}\)</span> ma non lo è, purtroppo...</article>
+<article class="post" id="p28665"><div class="who"><b>Higgs</b><span>12 dic 2024, 12:50</span></div>Secondo me c'è un errore nella prima delle tue  equazioni di conservazione della qdm. Il primo termine è negativo per cui le equazioni tue dovrebbero essere<br>
+<span class="tex">\(-\mu V_C + v_1=v_2\)</span><br>
+<span class="tex">\(\mu V^2_C+ v^2_1=v^2_2\)</span><br>
+La prima la scrivesti anche tu nel primo post.<br>
+Proseguendo nei conti se non li sbaglio risulterebbero allora<br>
+<span class="tex">\(v_1=(V_C/2) (\mu-1)\)</span> e <span class="tex">\(v_2=(V_C/2)(1-3\mu)\)</span>.<br>
+Pertanto avremmo <span class="tex">\(\frac{\Delta T_1 }{\Delta T_2 }=\frac{v_2 }{v_1 }=\frac{1-3\mu }{1-\mu }\)</span>e in conclusione<br>
+<span class="tex">\(\mu= \frac{\Delta T_1 + \Delta T_2}{\Delta T_1+3 \Delta T_2 }\)</span>  :?:  :roll:</article>
+<article class="post" id="p28667"><div class="who"><b>Pigkappa</b><span>14 dic 2024, 22:35</span></div>Nel mio post del 3 Dicembre stavo seguendo la tua notazione nella quale <span class="tex">\(\displaystyle V_C\)</span> era positivo verso sinistra e le altre velocita' verso destra. Notazione legittima e che potrebbe essere utile perche' in generale ci aspettiamo che queste velocita' abbiano segni diversi.<br>
+<br>
+Nel post del 10 Dicembre invece usavo la notazione che mi pare piu' naturale, in cui tutte le velocita' sono positive verso destra. Avrei dovuto segnalarlo per chiarezza, chiedo scusa.<br>
+<br>
+In ogni caso cambia solo il segno di <span class="tex">\(\displaystyle V_C\)</span> nella prima equazione e nei risultati finali, ma ovviamente <span class="tex">\(\displaystyle V_C^2\)</span> rimane sempre positivo essendo un quadrato, e nella tua equazione dell'energia non lo era.<br>
+<br>
+Usando i miei risultati per <span class="tex">\(\displaystyle v_1, v_2\)</span>, scrivo:<br>
+<span class="tex">\(\displaystyle \Delta T_1 = \frac{L}{|V_C - v_1|} = \frac{2 L}{(1+\mu) V_C}\)</span><br>
+<span class="tex">\(\displaystyle \Delta T_2 = \frac{L}{V_2} = \frac{2 L}{(1+\mu) V_C}\)</span><br>
+Che a me darebbe:<br>
+<span class="tex">\(\displaystyle \frac{\Delta T_2}{\Delta T_1} = 1\)</span><br>
+<br>
+Mi viene quindi diverso da te... Penso sia perche' nel post del 12 Dicembre, a differenza dei tuoi post precedenti, non usavi piu' le velocita' relative. Questo va bene e anche io sto facendo cosi', ma allora al denominatore di <span class="tex">\(\displaystyle \Delta T_1\)</span> devi fare attenzione e usare <span class="tex">\(\displaystyle V_C - v_1\)</span> invece di <span class="tex">\(\displaystyle v_1\)</span>.<br>
+<br>
+Il mio risultato ha senso? <br>
+<br>
+Se <span class="tex">\(\displaystyle \mu \rightarrow + \infty\)</span>, la scatola esterna rimane praticamente ferma ovvero <span class="tex">\(\displaystyle |V_C| \ll |v_1|\)</span> e <span class="tex">\(\displaystyle |V_C| \ll |v_2|\)</span>, la particella ha sempre la stessa velocita' andando avanti e indietro, quindi ci aspettiamo di trovare <span class="tex">\(\displaystyle \frac{\Delta T_2}{\Delta T_1} \approx 1\)</span>, che combacia con il risultato qua sopra.<br>
+<br>
+Il tuo risultato invece da' <span class="tex">\(\displaystyle \frac{\Delta T_2}{\Delta T_1} \approx 3\)</span> che mi sembra poco intuitivo. E se <span class="tex">\(\displaystyle \mu = 0.5\)</span> trovi un rapporto negativo che e' a sua volta un po' strano.<br>
+<br>
+Una spiegazione del perche' viene 1 potrebbe essere questa. Osserviamo lo stesso moto in un sistema di riferimento <span class="tex">\(\displaystyle S_2\)</span> che si muove con velocita' <span class="tex">\(\displaystyle V_C\)</span> rispetto al sistema iniziale <span class="tex">\(\displaystyle S_1\)</span>. Allora il moto e' simile a prima, ma abbiamo invertito quello che succede negli intervalli 1 e 2, e il segno della velocita': adesso nell'intervallo 1 la scatola e' ferma, nell'intervallo 2 si muove con velocita' <span class="tex">\(\displaystyle -V_C\)</span>. <br>
+<br>
+L'intervallo <span class="tex">\(\displaystyle \Delta T_1\)</span> e' lo stesso in entrambi i sistemi di riferimento, e nella relativita' galileiana cambiare sistema di riferimento inerziale non cambia i tempi, quindi: <span class="tex">\(\displaystyle \Delta T_1|_{S_2} = \Delta T_1|_{S_1}\)</span>, dove indico con <span class="tex">\(\displaystyle \Delta T_1|_{S_2}\)</span> il valore di <span class="tex">\(\displaystyle \Delta T_1\)</span> misurato nel sistema <span class="tex">\(\displaystyle S_2\)</span>, e allo stesso modo uso la notazione <span class="tex">\(\displaystyle |_{S_1}\)</span>.<br>
+<br>
+Pero' potremmo anche calcolare <span class="tex">\(\displaystyle \Delta T_1|_{S_2}\)</span> risolvendo, nel sistema <span class="tex">\(\displaystyle S_2\)</span>, il problema che avevamo risolto in <span class="tex">\(\displaystyle S_1\)</span> per calcolare <span class="tex">\(\displaystyle \Delta T_2\)</span>. Poiche' il problema e' identico a parte il segno delle velocita' (la lunghezza <span class="tex">\(\displaystyle L\)</span> non cambia perche' non siamo in relativita'), troveremo <span class="tex">\(\displaystyle \Delta T_1|_{S_2} = \Delta T_2|_{S_1}\)</span>.<br>
+<br>
+Mettendo insieme queste equazioni e' chiaro che <span class="tex">\(\displaystyle \Delta T_1 = \Delta T_2\)</span></article>
+<article class="post" id="p28668"><div class="who"><b>Higgs</b><span>16 dic 2024, 18:25</span></div>Tutto il tuo ragionamento ora mi convince e il rapporto fra i <span class="tex">\(\Delta T\)</span> è 1 . Non riesco a capire però quanto vale <span class="tex">\(\mu\)</span>. Mi sembra che tu non lo espliciti. Ed è la seconda domanda del testo. O è una cosa così banale ed io sono sciocco... ovvero è <span class="tex">\(\mu = \frac{2L }{ V_C \Delta T} -1\)</span> :?:  :?:</article>
+<article class="post" id="p28672"><div class="who"><b>Pigkappa</b><span>19 dic 2024, 21:19</span></div>Sì, a parte per un <span class="tex">\(V_C\)</span> che manca al denominatore.</article>
+<article class="post" id="p28673"><div class="who"><b>Pigkappa</b><span>19 dic 2024, 21:20</span></div>Se vuoi posta tu il prossimo della staffetta, potenzialmente il 3 della SNS di quest'anno, sennò quando ho tempo lo posto io</article>
+<article class="post" id="p28674"><div class="who"><b>Higgs</b><span>20 dic 2024, 12:05</span></div>Io mi scuso ma non ho imparato ancora (zuccone)come si usa il copia-incolla con il Latex. Sono molto impegnato con i primi esami ..a febbraio ho Fisica 1... :roll: Sicchè se quando hai tempo puoi procedere tu è meglio  :D</article>
+<nav class="pager"><a class="prev" href="olifis-7266.html"><small>← precedente</small>SNS n.1 2024</a><a class="next" href="olifis-7277.html"><small>successivo →</small>328 - SNS n.3, 2024</a></nav>
+</main></body></html>

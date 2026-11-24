@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[SNS 2007-2008 P.2] Una catapulta</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2007-2008, problema 2</span></nav>
+<h1>[SNS 2007-2008 P.2] Una catapulta</h1>
+<p class="meta">12 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=4589">forum Olifis</a></p>
+<article class="post first" id="p15103"><div class="who"><b>gilgamesh</b><span>14 ago 2013, 11:01</span></div>Una catapulta ha due bracci <span class="tex">\(l &gt;L\)</span> e due masse <span class="tex">\(M&gt;m\)</span> alle estremità tali che <span class="tex">\(ML&gt;ml\)</span>. La catapultà è inizialmente a riposo in posizione orizzontale, come in figura, e può ruotare senza attrito attorno al suo perno. La massa più piccola e il proiettile che si sgancia quando viene bloccata la catapulta.<br>
+<br>
+<a class="lost" href="http://s13.postimg.org/c7jbgz9x3/screenshot_2.png" class="ext">[immagine non più disponibile]</a><br>
+<br>
+(a) Si trovi la velocità e l'accelerazione del proiettile in funzione dell'angolo <span class="tex">\(\theta\)</span> di rotazione della catapulta, finché questo resta agganciato al suo braccio.<br>
+<br>
+(b) Se la catapulta viene bloccata a un certo angolo <span class="tex">\(\theta _0\)</span> si trovi il tempo di volo del proiettile se il perno è a un'altezza <span class="tex">\(L\)</span> dal terreno. SI trascuri l'attrito dell'aria.<br>
+<br>
+(c) Trascurando le dimensioni della catapulta si trovi la gittata orizzontale del proiettile.<br>
+<br>
+(d)Si trovi la gittata massima e il corrispondente angolo di lancio. Qual è la massa <span class="tex">\(m\)</span> più grande che si può lanciare a distanza <span class="tex">\(d\)</span>?<br>
+<br>
+(e) si calcoli la reazione sul perno durante la rotazione.<br>
+<br>
+Questo problema è stato già trattato sul forum delle olimpiadi di matematica, tuttavia non in modo completo. Dato che ci sono un pò di ragazzi in questo periodo che postano problemi SNS e SSSUP... ;) <br>
+posto di seguito i miei risultati:
+<blockquote class="uncited"><div>(a.1)<span class="tex">\(a(\theta)=\frac{lgcos\theta [ML-ml]}{ML^2+ml^2}\)</span><br>
+            <br>
+(a.2) <span class="tex">\(v(\theta)=l \sqrt{\frac{2[ML-ml]gsin\theta} {ML^2+ml^2}}\)</span><br>
+           <br>
+ (b) una cosa assurda se considero "le dimensioni della catapulta", atrimenti qualcosa di più semplice<br>
+           <br>
+ (c) <span class="tex">\(x(\theta)=\frac{2l^2[ML-ml]sin\theta sin2\theta}{ML^2+ml^2}\)</span><br>
+           <br>
+ (d.1) <span class="tex">\(\theta_{max}= \arccos {\frac{1}{\sqrt(3)}}\)</span><br>
+<br>
+(d.2) Basta sostituire l'angolo nell'equazione che dà la gittata<br>
+<br>
+(d.3)<span class="tex">\(m_{max}=\frac {ML}{l+1,3}\)</span><br>
+<br>
+(e) <span class="tex">\(N=\frac{(Ml-mL)(ML-ml)g cos(\theta)}{ML^2+ml^2}\)</span></div></blockquote></article>
+<article class="post" id="p15104"><div class="who"><b>bozzio</b><span>14 ago 2013, 11:38</span></div>Per il punto a) penso ti sei scordato un 2 sotto radice (sarebbe l'1/2 dell'energia cinetica). <br>
+Per il punto b) non ho capito bene cosa intendi.<br>
+Per il punto c) hai imposto la conservazione dell'energia per calcolarti la massima altezza y e poi l'hai sostituita all'equazione dei moti su asse x e y per trovare  la distanza in funzione dell'angolo?</article>
+<article class="post" id="p15105"><div class="who"><b>gilgamesh</b><span>14 ago 2013, 11:52</span></div>Si non avevo trascritto un 2 sotto radice, corretto subito (potrebbe mancare anche più avanti, rivedrò i risultati  :roll: ).<br>
+<br>
+Per quanto riguarda il punto b, si tratta di un moto che si può descrivere tramite le seguenti equazioni:<br>
+<br>
+<span class="tex">\(\left \{
+\begin{array}{l}
+x(t)=v_0 sin \theta _0 t\\
+y(t)=lsin\theta_0 + v_0 cos \theta_0 t-\frac{1}{2} gt^2\\
+\end{array}
+\right.\)</span><br>
+basta porre <span class="tex">\(y=0\)</span> e sostituire a <span class="tex">\(v_0\)</span> il valore della velocità che assume il proiettile se la catapulta viene bloccata con un angolo <span class="tex">\(\theta _0\)</span><br>
+<br>
+Per il punto c bisogna trascurare "le dimensioni della catapulta" , io l'ho inteso così:<br>
+<br>
+<span class="tex">\(\left \{
+\begin{array}{l}
+x(t)=v_0 sin \theta _0 t\\
+y(t)= v_0 cos \theta_0 t-\frac{1}{2} gt^2\\
+\end{array}
+\right.\)</span><br>
+<br>
+come se il proiettile partisse da terra. Pertanto trovo il tempo di caduta dalla seconda equazione e sostituisco nella prima per trovare la gittata.</article>
+<article class="post" id="p15107"><div class="who"><b>bozzio</b><span>14 ago 2013, 12:14</span></div>Per il punto c) mi chiedevo se dovevi aggiungere anche il tempo di ricaduta nell'equazione del moto, io l'ho fatto (supponendo che si trovasse ad un'altezza L da terra come nel punto due) e viene un'equazione più bruttina. Che ne pensi?</article>
+<article class="post" id="p15108"><div class="who"><b>gilgamesh</b><span>14 ago 2013, 12:20</span></div><blockquote><div><cite>bozzio ha scritto:</cite>Per il punto c) mi chiedevo se dovevi aggiungere anche il tempo di ricaduta nell'equazione del moto, io l'ho fatto (supponendo che si trovasse ad un'altezza L da terra come nel punto due) e viene un'equazione più bruttina. Che ne pensi?</div></blockquote>
+
+<br>
+Viene un'equazione parecchio più bruttina, comunque io ho interpretato appunto quel "trascurare le dimensioni della catapulta" come un invito ad eliminare quell'addendo dall'equazione. In un primo momento avevo inteso come trascurare "le dimensioni dell'asta che compone la catapulta", e quindi sarebbe stato come dici tu,  ma credo che sia sbagliato... :|</article>
+<article class="post" id="p15109"><div class="who"><b>bozzio</b><span>14 ago 2013, 12:26</span></div>E allora devi trascurare solo il termine <span class="tex">\(L(1+sin\theta)\)</span> e ottieni <span class="tex">\(t=lcos\theta (1+\sqrt{2})(\sqrt{2(ML-ml)sin\theta /(g(ML^2-ml^2))}\)</span></article>
+<article class="post" id="p15110"><div class="who"><b>gilgamesh</b><span>14 ago 2013, 12:32</span></div><blockquote><div><cite>bozzio ha scritto:</cite>E allora devi trascurare solo il termine <span class="tex">\(L(1+sin\theta)\)</span> </div></blockquote>
+ non ho capito cosa rappresenta questo termine</article>
+<article class="post" id="p15111"><div class="who"><b>bozzio</b><span>14 ago 2013, 12:42</span></div>Si hai ragione ho sbagliato a calcolarlo. Io ho calcolato il tempo che raggiunge l'altezza massima y ed è quello che hai messo tu, poi ho trovato l'altezza massima h rispetto alla posizione di equilibrio della catapulta. A questo punto ti trovi il tempo di ricaduta ponendo <span class="tex">\(y+L=1/2gt^2\)</span>. Tu puoi trascurare solo L da quell'equazione e ottieni <span class="tex">\(t_{ricaduta}=\sqrt{2y/g}\)</span> con <span class="tex">\(y=1/2gt^2_{salita}\)</span></article>
+<article class="post" id="p15112"><div class="who"><b>gilgamesh</b><span>14 ago 2013, 13:01</span></div>Ora che ci penso trascurare <span class="tex">\(L\)</span> mi sembra la migliore interpretazione. Dunque l'equazione del moto diventa:<br>
+<br>
+<span class="tex">\(\left \{ \begin{array}{l} x(t)=v_0 sin \theta _0 t\\ y(t)=(lsin\theta_0) + v_0 cos \theta_0 t-\frac{1}{2} gt^2\\ \end{array} \right.\)</span><br>
+<br>
+il tempo necessario a raggiungere la massima altezza è <span class="tex">\(t_1=\frac{v_0cos\theta_0}{g}\)</span> ,<br>
+<br>
+Tale altezza massima <span class="tex">\(y_{max}=(lsin\theta_0)+\frac{v^2_0cos^2\theta_0}{2g}\)</span>.<br>
+<br>
+Infine in tempo di caduta  <span class="tex">\(t_2=\sqrt{\frac{2}{g}(lsin\theta_0)+\frac{v^2_0cos^2\theta_0}{g^2}}\)</span><br>
+<br>
+per cui il tempo totale <span class="tex">\(t=t_1+t_2=\frac{v_0cos\theta_0}{g}+\sqrt{\frac{2}{g}(lsin\theta_0)+\frac{v^2_0cos^2\theta_0}{g^2}}\)</span><br>
+<br>
+Credo che su questo, salvo una interpretazione errata del testo, possiamo essere d'accordo</article>
+<article class="post" id="p15116"><div class="who"><b>bozzio</b><span>14 ago 2013, 13:37</span></div>Si perfetto. Ora resta da capire se trascurare solo L o anche <span class="tex">\(lsin\theta\)</span>, poiché ora che ci penso trascurare le dimensioni sembrerebbe come se la pallina partisse da terra...</article>
+<article class="post" id="p15118"><div class="who"><b>Andg94</b><span>14 ago 2013, 18:47</span></div>Una volta trovata l'accelerazione, la velocità come l'avete ricavata? Per il resto sono giunto ai vostri stessi risultati, anche se, se non erro, nelle equazioni del moto va posto <span class="tex">\(l \sin{\theta} + L\)</span> e non <span class="tex">\(l \sin{\theta} - L\)</span></article>
+<article class="post" id="p15166"><div class="who"><b>gilgamesh</b><span>18 ago 2013, 13:17</span></div><blockquote><div><cite>Andg94 ha scritto:</cite>Una volta trovata l'accelerazione, la velocità come l'avete ricavata?</div></blockquote>
+La velocità si può calcolare tramite la conservazione dell'energia (oppure risolvendo l'eq differenziale  :roll: )<br>
+
+<blockquote><div><cite>Andg94 ha scritto:</cite>Per il resto sono giunto ai vostri stessi risultati, anche se, se non erro, nelle equazioni del moto va posto <span class="tex">\(l \sin{\theta} + L\)</span> e non <span class="tex">\(l \sin{\theta} - L\)</span> </div></blockquote>
+
+Stiamo facendo un pò di confusione: l'altezza dalla quale "parte" il proiettile è effettivamente <span class="tex">\(l\sin {\theta} +L\)</span>. Il testo dice di "trascurare le dimensioni della catapulta", per cui, si può trascurare l'altezza  <span class="tex">\(L\)</span> del perno ottenendo <span class="tex">\(l\sin {\theta}\)</span>.</article>
+<nav class="pager"><a class="prev" href="oliforum-11384.html"><small>← precedente</small>Catapultiamoci in Normale!</a><a class="next" href="oliforum-11634.html"><small>successivo →</small>SNS 2007.3</a></nav>
+</main></body></html>

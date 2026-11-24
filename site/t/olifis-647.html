@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sns 1962 - 1963</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1962-1963</span></nav>
+<h1>sns 1962 - 1963</h1>
+<p class="meta">17 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=647">forum Olifis</a></p>
+<article class="post first" id="p5810"><div class="who"><b>f.o.x</b><span>23 dic 2010, 20:06</span></div>un'altro problema della normale, ameno lo aggiungiamo alla collezione<br>
+<br>
+Un corpo di massa M, costituito da un materiale omogeneo di densità a assota <span class="tex">\(\rho\)</span>, si pone in moto scendendo verticalmente di un tratto h entro un liquido di densità <span class="tex">\(\rho_o\)</span>. Contemporaneamente un corpo di massa KM, congiunto al primo mediante un ﬁlo inestensibile e di massa trascurabile, sale (muovendosi nell’aria) lungo un piano, inclinato di un angolo <span class="tex">\(\alpha\)</span> sul piano dell’orizzontale.<br>
+Alla ﬁne della discesa i due corpi posseggono la velocità a v.<br>
+(a) Qual è il valore dell’energia «perduta» dal sistema per vincere gli attriti e quale il valore dell’equivalente termico della medesima?<br>
+(b) Quale risulterebbe la velocità a ﬁnale se gli attriti non perturbassero il moto?<br>
+(c) Quali sarebbero in questo caso ideale i valori consentiti per il parametro K?<br>
+<br>
+Caso particolare: <span class="tex">\(\rho_o\)</span> = densità dell'acqua, <span class="tex">\(\rho\)</span> = 2500kg/m3, M = 0,025kg,<br>
+K = 28/25, h = 0,40m, <span class="tex">\(\alpha\)</span> = 30°, v = 0,10m/s.<br>
+<br>
+Il problema non da nessuna informazione sulle carrucole, quindi le ho allegramente trascurate, però dopo averlo risolto mi piacerebbe discutere a grandi linee il caso in cui non siano trascurabili.
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=152" class="ext">[immagine non più disponibile]</a></dt>
+			<dd><em>Dovrebbe almeno rendere l'idea</em></dd>			<dd>SNS 1962 - 1963.gif (2.29 KiB) Visto 11271 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p5815"><div class="who"><b>Meta*</b><span>24 dic 2010, 0:31</span></div>Proviamo  :) <br>
+a) L'energia perduta dal sistema è data da <br>
+<span class="tex">\(E_p = E_o - E_f\)</span><br>
+<span class="tex">\(E_p = Mgh - M(\frac{1}{2}V^2 + \frac{1}{2}KV^2 + Kgh \sin\alpha)\)</span><br>
+<span class="tex">\(E_p \simeq 0.0428 J\)</span><br>
+Che in calorie sarebbe 0.01 cal<br>
+<br>
+b) Se gli attriti non perturbano il moto applico la normale sommatoria delle forze..<br>
+Per il corpo sul piano inclinato :<br>
+<span class="tex">\(T - KMg \sin \alpha = KMa\)</span> <br>
+Per il corpo immerso :<br>
+<span class="tex">\(P-(T+S)= Ma\)</span><br>
+<br>
+Sostituendo e risolvendo rispetto ad a ho :<br>
+<span class="tex">\(a=\frac{g (1- K \sin \alpha- \frac{\rho_a}{ \rho})}{1+K}\)</span><br>
+Sostituisco in <span class="tex">\(V_f=\sqrt{2ah}\)</span><br>
+e ottengo <span class="tex">\(V_f \simeq 0.385\)</span><br>
+<br>
+c)Non ho capito la domanda ma immagino intenda i valori della massa del corpo sul piano inclinato per cui il blocco in acqua cade e non rimane in equilibro o sale... in questo caso<br>
+<span class="tex">\(K \leq \frac{\rho-\rho_a}{\rho \sin\alpha} \longrightarrow K\leq 3\)</span></article>
+<article class="post" id="p5817"><div class="who"><b>f.o.x</b><span>24 dic 2010, 15:11</span></div>Se il risultato fosse come dici te, l'energia nel caso in cui non c'è dissipazione, sarebbe minore dell'energia dissipata:<br>
+<span class="tex">\(E_o=K_f=1/2 (1+k)M V_f^2\)</span><br>
+in cui per <span class="tex">\(V_f\)</span> intendo il risultato che hai trovato nel caso senza attriti. Questo valore è minore dell'energia dissipata.<br>
+<br>
+ps. nell'ultimo punto credo che tu abbia commesso un'errore di calcolo.</article>
+<article class="post" id="p5819"><div class="who"><b>Meta*</b><span>24 dic 2010, 16:48</span></div>Pardon, era mezzanotte  :( <br>
+<br>
+c)Allora <span class="tex">\(K \leq \frac{6}{5}\)</span><br>
+<br>
+b) Non c'è dissipazione di energia quindi <span class="tex">\(E_o-E_f=0\)</span><br>
+<span class="tex">\(Mgh-(\frac{1}{2}MV_f^2+\frac{1}{2}KMV_f^2+KMgh\sin\alpha)=0\)</span><br>
+<br>
+risolvendo rispetto <span class="tex">\(V_f\)</span><br>
+<span class="tex">\(V_f=\sqrt{\frac{2gh(1-K\sin\alpha)}{1+K}} \simeq 1,276 \frac{m}{s}\)</span></article>
+<article class="post" id="p5820"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: sns 1962 - 1963</b><span>24 dic 2010, 17:05</span></div>Probabilmente mi sbaglio, ma c'è qualcosa che non mi convince nel ragionamento di Meta sia nel punto <em class="text-italics">a</em> che nel punto <em class="text-italics">b</em>. Sul corpo immerso nel liquido non dovrebbe agire anche la forza di Archimede? Se così fosse, il termine <span class="tex">\(Mgh\)</span> nelle equazioni energetiche sarebbe errato.</article>
+<article class="post" id="p5821"><div class="who"><b>Meta*</b><span>24 dic 2010, 17:20</span></div><blockquote><div><cite>Eagle ha scritto:</cite>Probabilmente mi sbaglio, ma c'è qualcosa che non mi convince nel ragionamento di Meta sia nel punto <em class="text-italics">a</em> che nel punto <em class="text-italics">b</em>. Sul corpo immerso nel liquido non dovrebbe agire anche la forza di Archimede? Se così fosse, il termine <span class="tex">\(Mgh\)</span> nelle equazioni energetiche sarebbe errato.</div></blockquote>
+
+La forza di archimede c'è, ma non capisco perchè è errato scrivere <span class="tex">\(Mgh\)</span> in questo caso ?</article>
+<article class="post" id="p5822"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: sns 1962 - 1963</b><span>24 dic 2010, 17:35</span></div>Forse mi sbaglio, ma anche la forza di Archimede che agisce sulla massa <span class="tex">\(M\)</span> compie lavoro.</article>
+<article class="post" id="p5823"><div class="who"><b>Meta*</b><span>24 dic 2010, 18:05</span></div><blockquote><div><cite>Eagle ha scritto:</cite>Forse mi sbaglio, ma anche la forza di Archimede che agisce sulla massa <span class="tex">\(M\)</span> compie lavoro.</div></blockquote>
+è vero ma se fosse cosi non capisco di quali attriti parla  :?  ho trascurato l'azione dell'acqua (dato che sul piano dove sta il secondo blocco non c'è attrito !?)</article>
+<article class="post" id="p5824"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: sns 1962 - 1963</b><span>24 dic 2010, 18:09</span></div>Probabilmente nel punto <em class="text-italics">b</em> vuole che si trascuri la resistenza del mezzo (in questo caso dell'acqua in cui è immerso il corpo di massa <span class="tex">\(M\)</span>). La resistenza dell'aria credo sia trascurabile a priori.</article>
+<article class="post" id="p5825"><div class="who"><b>Meta*</b><span>24 dic 2010, 18:39</span></div><blockquote><div><cite>Eagle ha scritto:</cite>Probabilmente nel punto <em class="text-italics">b</em> vuole che si trascuri la resistenza del mezzo (in questo caso dell'acqua in cui è immerso il corpo di massa <span class="tex">\(M\)</span>). La resistenza dell'aria credo sia trascurabile a priori.</div></blockquote>
+ Credevo fosse a prescindere  :o  <br>
+<br>
+Il lavoro è fatto sul sistema quindi negativo è <span class="tex">\(L=-\frac{\rho_a}{\rho}Mgh\)</span>. Per il caso a lo sottraggo a <span class="tex">\(E_f\)</span><br>
+<br>
+<span class="tex">\(E_p = Mgh - M(\frac{1}{2}V^2 + \frac{1}{2}KV^2 + Kgh \sin\alpha -\frac{\rho_a}{\rho}gh )\)</span><br>
+<span class="tex">\(E_p=0,082 J\)</span><br>
+<br>
+Idem per b sottraggo L a <span class="tex">\(E_f\)</span> e ottengo<br>
+<br>
+<span class="tex">\(V_f=\sqrt{\frac{2gh(1-K\sin\alpha + \frac{\rho_a}{\rho})}{1+K}} \simeq 1,76 \frac{m}{s}\)</span><br>
+<br>
+Non dovrebbe mancare niente  :?</article>
+<article class="post" id="p5839"><div class="who"><b>f.o.x</b><span>26 dic 2010, 12:46</span></div>Si può controllare se il tuo risultato è giusto con lo stesso metodo che ho usato prima:<br>
+se <span class="tex">\(V_f\)</span> è la velocità finale in assenza di forza dissipative, all'ora l'energia del sistema in queste condizioni sarà:<br>
+<span class="tex">\(E = K_f= 1/2 (1+k)M V_f^2\)</span> che risolto da proprio l'energia dissipata che ti sei calcolato.<br>
+
+<blockquote class="uncited"><div> Sul corpo immerso nel liquido non dovrebbe agire anche la forza di Archimede? Se così fosse, il termine <span class="tex">\(Mgh\)</span>  nelle equazioni energetiche sarebbe errato. </div></blockquote>
+è vero, bisogna guardare meglio le varie energie potenziali: non è presente solo quella gravitazionale.<br>
+<br>
+Nell’equazione dell’energia finale (del punto a) non consideri il lavoro svolto dalla resistenza del mezzo (acqua), che pur se basso ha la sua influenza sull’energia perduta. Non ti conviene fossilizzarti su questo metodo.<br>
+<br>
+Ps. Ti do un piccolo aiuto. Il risultato nel punto b del primo post di Meta* è giusto, infatti nel tuo ultimo raggionamento per il punto b, la forza peso del blocco KM produce un lavoro dello stesso segno a quello prodotto dalla spinta d'archimede, e si ritorna al risultato del primo post.</article>
+<article class="post" id="p5840"><div class="who"><b>Ippo</b><span>26 dic 2010, 14:22</span></div><blockquote><div><cite>f.o.x ha scritto:</cite>è vero, bisogna guardare meglio le varie energie potenziali: non è presente solo quella gravitazionale.</div></blockquote>
+
+Beh, a rigore l'energia associata al lavoro della spinta di Archimede è comunque di tipo potenziale gravitazionale (è l'energia potenziale gravitazionale dell'acqua spostata nell verso opposto al moto del grave, da cui il segno invertito). Tenendone conto, si ottiene l'energia potenziale gravitazionale di un grave "più leggero", di densità <span class="tex">\(\rho-\rho_0\)</span>, e i conti tornano.<br>
+Quanto alle dissipazioni per attriti e viscosità varie, è chiaro che in questo tipo di problemi (soprattutto se non sono forniti i dati dei coefficienti) vadano trascurate. Altrimenti i conti esatti diventano un po' complicati, credo.</article>
+<article class="post" id="p5862"><div class="who"><b>f.o.x</b><span>27 dic 2010, 18:01</span></div><blockquote class="uncited"><div>Beh, a rigore l'energia associata al lavoro della spinta di Archimede è comunque di tipo potenziale gravitazionale (è l'energia potenziale gravitazionale dell'acqua spostata nell verso opposto al moto del grave, da cui il segno invertito). Tenendone conto, si ottiene l'energia potenziale gravitazionale di un grave "più leggero", di densità <span class="tex">\(\rho-\rho_0\)</span>, e i conti tornano. </div></blockquote>
+Si era quello che intendevo, ma avevo associato alla spinta di archimede una propria energia potenziale, dato che <span class="tex">\(\Delta U=-L\)</span><br>
+
+<blockquote class="uncited"><div>Quanto alle dissipazioni per attriti e viscosità varie, è chiaro che in questo tipo di problemi (soprattutto se non sono forniti i dati dei coefficienti) vadano trascurate. Altrimenti i conti esatti diventano un po' complicati, credo.</div></blockquote>
+Si ma si potrebbe trovare un'altro metodo che ne tenga conto, ad esempio io ho considerato l'energia meccanica uguale all'energia cinetica finale, e invece mi sono calcolato l'energia meccanica nel caso ideale privo di attriti, sempre considerando l'energia cinetica finale, ricavata con il teorema dell'energia cinetica, considerando cioè tutti i lavori. La differenza tra queste due da l'energia dissipata.</article>
+<article class="post" id="p5898"><div class="who"><b>Meta*</b><span>29 dic 2010, 19:57</span></div><blockquote><div><cite>f.o.x ha scritto:</cite>
+Si ma si potrebbe trovare un'altro metodo che ne tenga conto, ad esempio io ho considerato l'energia meccanica uguale all'energia cinetica finale</div></blockquote>
+Non ho capito, perchè non consideri l'energia potenziale del blocco a sinistra ?<br>
+<br>
+Per il punto a mi esce 0.044 se è questo il risultato posto i passaggi  :?</article>
+<article class="post" id="p5904"><div class="who"><b>f.o.x</b><span>30 dic 2010, 12:51</span></div><blockquote><div><cite>Meta* ha scritto:</cite> Non ho capito, perchè non consideri l'energia potenziale del blocco a sinistra ?</div></blockquote>
+In pratica io ho proprio evitato di considerare l'energia potenziale, concentrandomi solo sull'energia cinetica. Ho diviso il punto a in due parti: la determinazione dell'energia meccanica nel caso ideale privo di attriti, e in quello con gli attriti. La differenza tra queste due è dovuta all'energia dissipata.<br>
+
+<blockquote><div><cite>Meta* ha scritto:</cite> Per il punto a mi esce 0.044 se è questo il risultato posto i passaggi  :?</div></blockquote>
+Se chiamiamo $v$ la velocità finale del blocco nel caso privo di forze dissipative, che tu ti sei già calcolato correttamente nel punto b del primo post, avremo che l'energia cinetica a questa velocità, sarà pari all'energia meccanica del sistema sempre nel caso privo di attriti. Quindi, <br>
+<span class="tex">\(1/2 M(1+k) v^2= 0,0039 J\)</span> <br>
+che è minore dell'energia dissipata.<br>
+Praticamente ora sai l'energia meccanica ideale, non resta che calcolarti l'energia meccnica nel caso reale, e avrai l'energia dissipata  ;)</article>
+<article class="post" id="p5908"><div class="who"><b>Meta*</b><span>30 dic 2010, 18:32</span></div><blockquote><div><cite>f.o.x ha scritto:</cite>
+In pratica io ho proprio evitato di considerare l'energia potenziale, concentrandomi solo sull'energia cinetica. Ho diviso il punto a in due parti: la determinazione dell'energia meccanica nel caso ideale privo di attriti, e in quello con gli attriti. La differenza tra queste due è dovuta all'energia dissipata.
+</div></blockquote>
+Capito  :lol:  quella non cambia quindi calcoli in meno.<br>
+<br>
+La forza dissipata è<br>
+<span class="tex">\(1/2M(1+k)(V_i^2-V_f^2)\simeq 0.0036J\)</span><br>
+<br>
+però vorrei capire perchè non mi trovo con l'altro metodo, cioè ponendo <span class="tex">\(E_i=E_f\)</span> come nel secondo post (dove però ho mancato a <span class="tex">\(E_f\)</span> il lavoro di <span class="tex">\(M(1- \rho_a/\rho)\)</span> ).<br>
+Cos'è che manca ?  :?:</article>
+<article class="post" id="p5915"><div class="who"><b>f.o.x</b><span>2 gen 2011, 13:27</span></div>L'errore sta nel considerare  <span class="tex">\(\frac {\rho_o}{\rho}Mgh\)</span> negativo, infatti dando come positive le forze verso l'alto (come hai fatto per il resto delle energie), avremo che:<br>
+<span class="tex">\(\Delta U=-L= -\frac {\rho_o}{\rho}Mgh \cos \pi \Rightarrow U_f-U_i=  \frac {\rho_o}{\rho}Mgh \Rightarrow U_f=\frac {\rho_o}{\rho}Mgh\)</span><br>
+Per cui, è vero come hai detto tu che il lavoro è negativo, ma l'energia potenziale finale data da questa forza è positiva, quindi se consideri l'energia meccanica ti verrà:<br>
+<span class="tex">\(E_p= Mgh - M(\frac 1 2 V^2 + \frac 1 2 KV^2 + Kgh\sin \alpha + \frac {\rho_o}{\rho}gh)=0,003655\)</span><br>
+precisamente. Infatti nell'energia meccanica, non devi considerare il lavoro, ma il frutto di questo, e cioè l'energia potenziale (di qualsiasi genere) e cinetica. lolXD</article>
+<nav class="pager"><a class="prev" href="olifis-2074.html"><small>← precedente</small>SNS 1960-61 PROVA DI FISICA</a><a class="next" href="oliforum-8828.html"><small>successivo →</small>Semplice ma carino (SNS 1966-67)</a></nav>
+</main></body></html>

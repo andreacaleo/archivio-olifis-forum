@@ -3,6 +3,7 @@
 Usage (from the repo root):
     python -I build_archive.py            # fetch what is missing, then build the site
     python -I build_archive.py --build    # rebuild the site from the pages already fetched
+    add --retry-images to try again the images that could not be saved (raw/img_failed.json)
 
 Pages fetched from the forums are kept in raw/ (not committed), so a rebuild never asks the forum again.
 The site goes to site/: open site/index.html in a browser. It works offline.
@@ -58,7 +59,9 @@ def topic_key(url):
 def local_relative(forum, href):
     """A relative link inside a fetched page (./viewtopic.php?...) made absolute."""
     base = FORUMS[forum].rsplit('/', 1)[0] + '/'
-    return urllib.parse.urljoin(base, html.unescape(href))
+    url = urllib.parse.urljoin(base, html.unescape(href))
+    # drop the forum's session id, which changes on every visit
+    return re.sub(r'([?&])sid=[0-9a-f]+&?', r'\1', url).rstrip('?&')
 
 
 # ---------- fetching ----------
@@ -130,12 +133,23 @@ def parse_page(h):
         c = chunk.find('<div class="content">')
         if c < 0:
             continue
+        content = balanced_div(chunk, c)
+        # attachments (pictures and files uploaded to the forum) sit in their own box after the text
+        a = chunk.find('<dl class="attachbox">')
+        if a >= 0:
+            depth, end = 0, len(chunk)
+            for mm in re.finditer(r'<dl\b|</dl>', chunk[a:]):
+                depth += 1 if mm.group() == '<dl' else -1
+                if depth == 0:
+                    end = a + mm.end()
+                    break
+            content += '\n' + chunk[a:end]
         posts.append({
             'id': int(m[1]),
             'author': html.unescape(re.sub('<[^>]+>', '', author[1])).strip() if author else '?',
             'date': html.unescape(date[1]).strip() if date else '',
             'subject': subj[1].strip() if subj else '',
-            'content': balanced_div(chunk, c),
+            'content': content,
         })
     return (title[1].strip() if title else None), posts
 
@@ -196,6 +210,7 @@ class Rewriter:
             h = re.sub(r'\$ \$(.+?)\$ \$', r'$\1$', h, flags=re.S)
         h = LATEX_IMG.sub(lambda m: '<span class="tex">\\(' + html.escape(latex_from_src(m['src']), quote=False) + '\\)</span>', h)
         h = SMILEY.sub(lambda m: html.unescape(m[1]), h)
+        h = re.sub(r'\s on\w+="[^"]*"', '', h)  # the forum's scripts are not part of the archive
         # links to members' profiles (in quotes) would lead to the forum: keep just the name
         h = re.sub(r'<a [^>]*href="[^"]*memberlist\.php[^"]*"[^>]*>(.*?)</a>', r'\1', h, flags=re.S)
 
@@ -230,6 +245,8 @@ def image_urls(forum, h):
 
 import threading
 OLIFIS_LOCK = threading.Lock()
+FAILED_FILE = RAW / 'img_failed.json'
+FAILED = set()
 WAYBACK_LOCK = threading.Lock()
 
 
@@ -261,6 +278,8 @@ def fetch_image(url):
     if done:
         return url, 'img/' + done[0].name
     if 'oliforum.it' in url and 'download/file.php' in url:  # disallowed by OliForum's robots.txt
+        return url, None
+    if url in FAILED:  # already tried and lost; --retry-images tries again
         return url, None
     b = ct = None
     # imgur refuses UK visitors and sends a "not viewable in your region" picture instead: go straight to the Wayback Machine
@@ -335,6 +354,10 @@ h2 { font:600 13px var(--sans); text-transform:uppercase; letter-spacing:.08em; 
 .post pre, .post code { font:14px/1.45 Consolas, "SF Mono", monospace; }
 .post pre { overflow-x:auto; background:var(--quote); padding:10px; border-radius:6px; }
 .post ul, .post ol { padding-left:1.4em; }
+.post dl.attachbox { margin:14px 0 0; padding:10px 14px; border:1px solid var(--line); border-radius:8px; font:14px var(--sans); }
+.post dl.attachbox > dt { font-weight:600; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+.post dl.attachbox dd { margin:0; } .post dl.file { margin:6px 0; } .post dl.file dd { color:var(--faint); font-size:12px; }
+.post dl.file dt img[src*="upload_icons"] { vertical-align:middle; margin-right:4px; }
 mjx-container { max-width:100%; overflow-x:auto; overflow-y:hidden; }
 mjx-container[display="true"] { margin:.6em 0 !important; }
 /* a formula MathJax cannot read is shown as its source, like plain text rather than highlighted */
@@ -432,7 +455,10 @@ def parse_index(first_html):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--build', action='store_true', help='only rebuild the site from raw/')
+    ap.add_argument('--retry-images', action='store_true', help='try again the images that could not be saved before')
     args = ap.parse_args()
+    if FAILED_FILE.exists() and not args.retry_images:
+        FAILED.update(json.loads(FAILED_FILE.read_text(encoding='utf8')))
 
     # 1. the index topic and the topics it links to
     if not args.build:
@@ -472,6 +498,13 @@ def main():
                 wanted.append((forum, int(m[1])))
 
     print(f'{len(wanted)} linked topics ({sum(1 for f, _ in wanted if f == "olifis")} on Olifis, {sum(1 for f, _ in wanted if f == "oliforum")} on OliForum)')
+    # topics added by hand: extra_topics.json
+    extra = json.loads((ROOT / 'extra_topics.json').read_text(encoding='utf8'))
+    extra_keys = [('olifis', e['t']) for e in extra['fisica'] + extra['chimica_biologia']] + [('olifis', t) for t in extra['orali']]
+    for k in extra_keys:
+        if k not in wanted:
+            wanted.append(k)
+    print(f'{len(extra_keys)} topics added from extra_topics.json')
     errors = {}
     if not args.build:
         for n, (forum, t) in enumerate(wanted, 1):
@@ -503,6 +536,7 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(8) as ex:
         for url, local in ex.map(fetch_image, sorted(urls)):
             images[url] = local
+    FAILED_FILE.write_text(json.dumps(sorted(u for u, l in images.items() if not l), indent=1), encoding='utf8')
     print(f'{len(urls)} images and attachments, {sum(1 for v in images.values() if v)} saved')
 
     # 4. write the site
@@ -522,6 +556,17 @@ def main():
         return (k[0], k[2]) if k and k[1] == 't' else None
 
     idx = parse_index(index_posts[0]['content'])
+
+    def merge(rows, entries):
+        """Add the hand-picked topics to the year rows, keeping years and problem numbers in order."""
+        by_year = {y: list(links) for y, links in rows}
+        for e in entries:
+            by_year.setdefault(e['year'], []).append((e['n'], f'{FORUMS["olifis"]}?t={e["t"]}'))
+        num = lambda link: (0, int(link[0])) if link[0].isdigit() else (1, 0)
+        return [(y, sorted(by_year[y], key=num)) for y in sorted(by_year, key=lambda y: (y[0].isdigit(), y))]
+
+    idx['fisica'] = merge(idx['fisica'], extra['fisica'])
+    idx['chimica_biologia'] = merge([], extra['chimica_biologia'])
     # reading order for the previous / next links: the physics list, year by year
     order, crumbs = [], {}
     for year, links in idx['fisica']:
@@ -529,7 +574,13 @@ def main():
             k = key_of(href)
             if k in topics and k not in crumbs:
                 order.append(k)
-                crumbs[k] = f'Fisica {year}' + (f', problema {label}' if label.strip('?()') else '')
+                crumbs[k] = f'Fisica {year}' + (f', problema {label}' if label.isdigit() else '')
+    for year, links in idx['chimica_biologia']:
+        for label, href in links:
+            k = key_of(href)
+            crumbs.setdefault(k, f'Chimica e biologia {year}' + (f', problema {label}' if label.isdigit() else ''))
+    for t in extra['orali']:
+        crumbs.setdefault(('olifis', t), 'Orali')
     plain = lambda s: html.escape(html.unescape(re.sub('<[^>]+>', '', s)))
 
     for (forum, t), v in topics.items():
@@ -564,7 +615,10 @@ def main():
     def table(rows):
         return '<table class="years">' + ''.join(f'<tr><td class="y">{y}</td><td>{chips(l)}</td></tr>' for y, l in rows) + '</table>'
 
-    listed = {key_of(h) for _, links in idx['fisica'] + idx['matematica'] for _, h in links}
+    listed = {key_of(h) for _, links in idx['fisica'] + idx['matematica'] + idx['chimica_biologia'] for _, h in links}
+    listed |= {('olifis', t) for t in extra['orali']}
+    orali = ''.join(f'<li><a href="t/{topic_pages[("olifis", t)]}">{plain(topics[("olifis", t)]["title"])}</a></li>'
+                    for t in extra['orali'] if ('olifis', t) in topics)
     others = [k for k in topics if k not in listed and k != ('olifis', INDEX_TOPIC)]
     others_html = ''
     if others:
@@ -579,13 +633,19 @@ def main():
 <div class="stats"><span><b>{len(topics) - 1}</b>discussioni</span><span><b>{total_posts:,}</b>messaggi</span><span><b>{years[0][:4]}–{years[-1][-4:]}</b>anni</span></div>
 <h2>Fisica</h2>
 {table(idx['fisica'])}
+<h2>Fisica per chimica e biologia</h2>
+<p class="notes">I problemi di fisica delle prove di ammissione ai corsi di chimica e di biologia.</p>
+{table(idx['chimica_biologia'])}
+<h2>Orali</h2>
+<p class="notes">Domande e problemi raccontati da chi ha fatto l'esame orale di ammissione.</p>
+<ul class="others">{orali}</ul>
 <h2>Matematica</h2>
 <details><summary>Elenco dei problemi di matematica ({sum(len(l) for _, l in idx['matematica'])})</summary>
 <p>Le soluzioni di matematica sono sul forum delle Olimpiadi di Matematica, che resta aperto: i link portano lì.</p>
 {table(idx['matematica'])}</details>
 {others_html}
 <h2>Da dove viene</h2>
-<div class="notes"><p>Copia statica della discussione <a href="t/olifis-{INDEX_TOPIC}.html">«Soluzioni SNS sui forum Olimat e Olifis»</a>, aperta da Pigkappa nel 2009, e di tutte le discussioni a cui rimanda. Archiviata il {time.strftime('%d/%m/%Y')}.</p>
+<div class="notes"><p>Copia statica della discussione <a href="t/olifis-{INDEX_TOPIC}.html">«Soluzioni SNS sui forum Olimat e Olifis»</a>, aperta da Pigkappa nel 2009, e di tutte le discussioni a cui rimanda, più le altre discussioni della sezione Problemi teorici con SNS nel titolo. Archiviata il {time.strftime('%d/%m/%Y')}.</p>
 <p>Note dalla discussione originale:</p><p>{notes}</p></div>
 """
     body = body.replace(f'{total_posts:,}', f'{total_posts:,}'.replace(',', '.'))

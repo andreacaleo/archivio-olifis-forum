@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS n. 5  2024</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2024-2025, problema 5</span></nav>
+<h1>SNS n. 5  2024</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7288">forum Olifis</a></p>
+<article class="post first" id="p28707"><div class="who"><b>Higgs</b><span>6 mar 2025, 13:01</span></div>(edit. Ho postato la mia soluzione del SNS n.4.2024 oltre un mese fa. Nessuno ha risposto. Anche io sono stato impegnato per gli esami tutto il mese di febbraio. Ritengo quindi opportuno postare il numero SNS successivo)<br>
+<br>
+Si schematizzi in una figura un interferometro di Sagnac. Un fascio di luce monocromatica viene separato in due direzioni perpendicolari da uno specchio semiriflettente. I due fasci prodotti seguono quindi un cammino chiuso grazie a tre specchi posti ai vertici di un quadrato, percorrendolo in versi opposti.<br>
+Se l'apparato ruota rigidamente (rispetto ad un sistema inerziale) intorno ad un asse perpendicolare al quadrato e posto al centro del medesimo, quando i due fasci si incontrano nuovamente hanno tra loro una differenza di fase che, in prima approssimazione (per velocità degli specchi non relativistiche), è proporzionale alla velocità angolare.<br>
+Se si usa un laser con una lunghezza d'onda di 600 nm e un quadrato di lato L= 1 m, stimare l'ordine di grandezza delle velocità angolari misurabili, supponendo di riuscire a determinare differenze di fase dell'ordine del percento.<br>
+Quanto dovrebbe essere L per rivelare una velocità angolare dell'ordine della rotazione terrestre?</article>
+<article class="post" id="p28710"><div class="who"><b>Higgs</b><span>13 mar 2025, 18:20</span></div>Come ho fatto per l'SNS n.4 in cui la soluzione da me proposta non ha suscitato repliche, propongo la mia soluzione anche per questo n.5.<br>
+<br>
+1. Siano  x e y i due segnali che si sovrappongono<br>
+x = (L/2) <span class="tex">\(sen{\Omega t}\)</span>                                   <br>
+y= (L/2)<span class="tex">\(sen( {\Omega t+ k\omega })\)</span><br>
+La differenza di fase di Sagnac dovuta alla rotazione con velocità angolare <span class="tex">\(\Omega\)</span>del dispositivo attorno all'asse perpendicolare al piano del quadrato e passante per il suo centro può allora porsi<br>
+<span class="tex">\(\Delta \Phi = \frac {4\pi L^2 \Omega}{\lambda c } \)</span> dove <span class="tex">\(L^2\)</span> è l'area del quadrato e  <span class="tex">\(\lambda\)</span> è la lunghezza d'onda della radiazione usata cioè quella del laser. Abbiamo insomma<br>
+<span class="tex">\(\Delta \Phi = \frac {4 \pi L^2 \Omega }{600  nm . 3 \times 10^8 m/s }\)</span>.<br>
+Questa quantità, considerata l'indicazione sul potere risolutivo fornita dal testo (qualche percento<span class="tex">\(\simeq 5%=(1/20))\)</span>può porsi<br>
+<span class="tex">\((1/20)= \frac{4 \pi 1 m^2 .\Omega }{ 600.10^{-9 }m .3.10^8 m/s} \)</span> da cui è facile ricavarsi l'ordine di grandezza di <br>
+<span class="tex">\(\Omega \simeq 2. 10^{17 } 1/s\)</span><br>
+<br>
+2.Nella seconda domanda che riguarda la rotazione terrestre pari a circa <span class="tex">\(729 . 10 ^{17 }rad/s \simeq (15 gradi/h)\)</span> , è allora nota <span class="tex">\(\Omega\)</span> e si tratta invece  di trovare il lato L del quadrato di Sagnac. Si arriva facilmente a <span class="tex">\(L^2 \simeq 10^{22 } m^2\)</span> ovvero <span class="tex">\(L\simeq 10^{11 } m\)</span> :roll:   :?:  :?:</article>
+<article class="post" id="p28712"><div class="who"><b>Fibdg</b><span>17 mar 2025, 0:00</span></div>Non sarebbe il doppio la differenza di fase? C'è un fascio che ci mette meno tempo a percorrere il perimetro del quadrato perchè si muove nello stesso verso della rotazione dell'interferometro, mentre l'altro ce ne mette di più. Se il primo percorre una distanza <span class="tex">\(\Delta x\)</span> in meno l'altro percorre una distanza <span class="tex">\(\Delta x\)</span> in più rispetto al caso in cui l'interferometro è fermo. Quindi la differenza di cammino dei fasci è <span class="tex">\(2\Delta x\)</span>. Potresti mostrare come hai raggiunto l'equazione sulla differenza di fase giusto per capire se sto dicendo cose sensate?</article>
+<article class="post" id="p28713"><div class="who"><b>Higgs</b><span>17 mar 2025, 12:08</span></div>Mah io ho riportato per la differenza di fase <span class="tex">\(\Delta \Phi\)</span> la equazione dell'interferometro di Sagnac che si trova nei manuali o,ho visto,anche su internet. In essa <span class="tex">\(L^2\)</span> rappresenta la nostra area del dispositivo quadrato (in altri dispositivi può essere ovviamente diversa), <span class="tex">\(\Omega\)</span> la velocità angolare di rotazione attorno all'asse per il centro del quadrato con cui si determina l'interferenza e <span class="tex">\(\lambda \)</span> la lunghezza d'onda della radiazione usata,nel nostro caso quella del laser utilizzato. Come vedi non c'è niente di ...mio.</article>
+<article class="post" id="p28714"><div class="who"><b>Fibdg</b><span>17 mar 2025, 18:58</span></div>Ho capito, in ogni caso penso che ci sia una svista nei tuoi calcoli perchè come ordine di grandezza siamo intorno a <span class="tex">\(10^{-1}\ \mathrm{rad/s}\)</span> mentre hai ottenuto <span class="tex">\(10^{17}\ \mathrm{rad/s}\)</span> per la velocità angolare.</article>
+<article class="post" id="p28715"><div class="who"><b>Higgs</b><span>18 mar 2025, 13:09</span></div>Si, ti ringrazio avevo invertito un esponenziale. Ora mi verrebbe se non ho sbagliato di nuovo i conti (??)<span class="tex">\(\Omega \simeq 2,5 . 10^{-1 } 1/s\)</span> e conseguentemente nella seconda risposta <span class="tex">\(L\simeq 7,5 m\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-7279.html"><small>← precedente</small>SNS n.4 2024</a><a class="next" href="olifis-7290.html"><small>successivo →</small>Re: SNS n. 6,  2024/1</a></nav>
+</main></body></html>

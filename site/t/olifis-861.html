@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011    numero   5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011, problema 5</span></nav>
+<h1>SNS 2010/2011    numero   5</h1>
+<p class="meta">11 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=861">forum Olifis</a></p>
+<article class="post first" id="p7235"><div class="who"><b>andreaandrea</b><span>17 ago 2011, 18:22</span></div>Un condensatore a facce piane e parallele costituito da due armature quadrate di lato<span class="tex">\(L\)</span>, poste a distanza <span class="tex">\(d\)</span>, viene caricato ad un potenziale <span class="tex">\(V\)</span>  e poi disconnesso dalla batteria. Lo stesso viene in seguito immerso in un ﬂuido dielettrico di costante relativa <span class="tex">\(\epsilon\)</span> e densità <span class="tex">\(\rho\)</span> ﬁno a quando il liquido all’interno delle armature riempie per metà il condensatore, se le facce del condensatore sono perpendicolari alla superﬁcie del liquido. Qual è la diﬀerenza di altezza <span class="tex">\(h\)</span> tra il liquido all’interno ed all’esterno del condensatore? (Nella risoluzione del problema si possono trascurare gli eﬀetti di bordo nel calcolo della capacità).<br>
+<br>
+Pongo subito una domanda: per voi l'energia si conserva ? perchè l'ho risolto imponendo la conservazione dell'energia e non torna !!!</article>
+<article class="post" id="p7246"><div class="who"><b>Incomplete93</b><span>18 ago 2011, 14:42</span></div>In un sistema di questo genere l'equilibrio viene raggiunto quando l'energia del sistema è minima...magari ti viene fuori qualcosa =)</article>
+<article class="post" id="p7283"><div class="who"><b>modesto</b><span>22 ago 2011, 9:51</span></div>Minimizzare l'energia intendendo per essa la somma di quella gravitazionale e di quella elettrica..</article>
+<article class="post" id="p7284"><div class="who"><b>exodd</b><span>22 ago 2011, 10:15</span></div>Qualcuno può gentilmente postare la soluzione? Ancora non capisco come faccia il condensatore a produrre una forza sul liquido..</article>
+<article class="post" id="p7289"><div class="who"><b>exodd</b><span>22 ago 2011, 13:26</span></div>Uhm.. Metto qualche abbozzo di ragionamento..<br>
+<br>
+Poniamo per un attimo che l'energia totale si conservi<br>
+Nel condensatore abbiamo che<br>
+<br>
+<span class="tex">\(-(U_f-U_i)=U_i\frac{\epsilon -1}{\epsilon+1}=\frac{1}{2}C_iV_i^2\frac{\epsilon -1}{\epsilon+1}=\frac{\epsilon_0L^2}{2d}\frac{\epsilon -1}{\epsilon+1}V_i^2\)</span><br>
+<br>
+Per il liquido, invece<br>
+<br>
+<span class="tex">\(U_f-U_i=mgh=\rho gh^2Ld\)</span><br>
+<br>
+quindi, eguagliando<br>
+<br>
+<span class="tex">\(h^2=\frac{\epsilon_0L}{2d^2g\rho}\frac{\epsilon -1}{\epsilon+1}V_i^2\)</span><br>
+<br>
+Cosa c'è di sbagliato?</article>
+<article class="post" id="p7291"><div class="who"><b>Sasha™</b><span>22 ago 2011, 14:14</span></div>Credo che l'inghippo sia che immergendo il condensatore in acqua si compie lavoro. Per cui l'energia non si conserva... Boh. :/</article>
+<article class="post" id="p7294"><div class="who"><b>domx</b><span>22 ago 2011, 18:22</span></div>a me sembra impossibile, come d'altronde quasi tutti i problemi di fisica assegnati lo scorso anno...<br>
+magari sono io, ma se di quelli di qualche anno fa riesco più o meno a capire qualcosa, per quelli dell'anno scorso quasi non capisco neanche cosa vogliano...</article>
+<article class="post" id="p7297"><div class="who"><b>lukaseta</b><span>23 ago 2011, 16:40</span></div>Secondo me va ricercata l'energia "minima", confrontando la situazione "senza risalita" del liquido ,con quella "con risalita" del liquido.<br>
+La situazione è simile a quella con un capillare con tensione superficiale, in cui il liquido risale nel capillare e si ferma quando l'energia potenziale (in questo caso elettrica+meccanica) è minima.<br>
+E, come per un capillare, non ci interessa quanto il condensatore sia immerso nel liquido, nè quanta parte del condensatore sia completamente emersa.. Ci interessa solamente la differenza di livello del liquido tra le armature a confronto con il livello "fuori".<br>
+<br>
+In formule, chiamando <span class="tex">\(h\)</span> il dislivello tra il liquido nelle armature e quello fuori,<span class="tex">\(E_i\)</span> l'energia del condensatore contenuta SOLO dentro al dislivello quando il liquido non è salito, <span class="tex">\(E_f\)</span> l'energia potenziale totale dopo che il liquido è salito,abbiamo:<br>
+<br>
+<span class="tex">\(E_i= \frac {C_1V_1^2}{2}=\frac {\epsilon_0LhV_1^2}{2d}\)</span><br>
+<br>
+<span class="tex">\(E_f=\frac {\epsilon_0 LhV_1^2}{2\epsilon_r d}+\frac {\rho L h^2 dg}{2}\)</span>, dove ho tenuto conto del fatto che <span class="tex">\(V_1=V_2 \epsilon_r\)</span><br>
+<br>
+Allora <span class="tex">\((E_f-E_i)=\frac {\rho Ldgh^2}{2}+\frac {\epsilon_0LhV_1^2(1-\epsilon_r)}{2d\epsilon_r}\)</span>. Per trovare l'<span class="tex">\(h\)</span> che mi minimizza la differenza di energia potenziale totale, derivo rispetto ad <span class="tex">\(h\)</span> ed ottengo:<br>
+<br>
+<span class="tex">\((E_f-E_i)'=\rho Ldgh-\frac {\epsilon LV_1^2(\epsilon_r-1)}{2d \epsilon_r}=0\)</span>, cioè <span style="font-size: 150%; line-height: normal"><span class="tex">\(h=\frac {\epsilon V_1^2(\epsilon_r-1)}{2d^2\epsilon_r\rho g}\)</span></span></article>
+<article class="post" id="p7298"><div class="who"><b>exodd</b><span>23 ago 2011, 17:01</span></div><blockquote><div><cite>lukaseta ha scritto:</cite>
+<span class="tex">\(E_f=\frac {\epsilon_0 LhV_1^2}{2\epsilon_r d}+\frac {\rho L h^2 dg}{2}\)</span>, dove ho tenuto conto del fatto che <span class="tex">\(V_1=V_2 \epsilon_r\)</span></div></blockquote>
+
+<br>
+uhm.. ti manca un esponente nell'<span class="tex">\(\epsilon_r\)</span>.. E poi da dove è saltato fuori l' 1/2 nell'energia gravitazionale?<br>
+
+<blockquote><div><cite>lukaseta ha scritto:</cite>
+Allora <span class="tex">\((E_f-E_i)=\frac {\rho Ldgh^2}{2}+\frac {\epsilon_0Lh^2(1-\epsilon_r)}{2d\epsilon_r}\)</span>. </div></blockquote>
+
+ti sei mangiato il voltaggio, e hai fatto comparire magicamente un esponente alla h</article>
+<article class="post" id="p7299"><div class="who"><b>lukaseta</b><span>23 ago 2011, 17:08</span></div><blockquote><div><cite>exodd ha scritto:</cite>uhm.. ti manca un esponente nell'\epsilon_r.. E poi da dove è saltato fuori l' 1/2 nell'energia gravitazionale?</div></blockquote>
+l'1/2 è saltato fuori da un integrale in pratica, perchè bisogna sommare l'energia potenziale gravitazionale di ogni singolo elementino di liquido al variare dell'altezza...non è come prendere un "blocco di liquido" dal basso e portarlo più in alto, il liquido viene preso sempre dalla superficie"esterna" del liquido...riguardo all'esponente : a denominatore c'è <span class="tex">\(\epsilon_r\)</span> elevato "alla prima" perchè l'esponente "alla seconda" se n'è andato con un <span class="tex">\(\epsilon_r\)</span> sopra (nella capacità).<br>
+
+<blockquote><div><cite>exodd ha scritto:</cite>ti sei mangiato il voltaggio, e hai fatto comparire magicamente un esponente alla h</div></blockquote>
+
+Sì, ho trascritto male,correggo e edito:<br>
+<br>
+<span class="tex">\((E_f-E_i)=\frac {\rho Ldgh^2}{2}+\frac {\epsilon_0LhV_1^2(1-\epsilon_r)}{2d\epsilon_r^2}.\)</span>.<br>
+<br>
+Re-edit(Re-edit(Re-edit))): Il cubo è stato un errore di gioventù, dimentica :-) è come dicevo all'inizio (secondo il mio ragionamento).</article>
+<article class="post" id="p7356"><div class="who"><b>Incomplete93</b><span>30 ago 2011, 11:19</span></div>Credo che abbia ragione Sasha...Il punto è che quando si immerge il condensatore all'interno del liquido, nel momento in cui il dielettrico penetra all'interno delle armature il campo elettrico nella porzione di condensatore bagnato internamente dal fluido si indebolisce. La carica però sulle armature si deve conservare, ma diminuendo il campo in una parte dell'armatura, credo che questa non sia più equipotenziale, per cui le cariche si riarrangiano nel condensatore fin quando non si raggiunge l'equilibrio elettrostatico. Quindi penso che in definitiva bisogna compiere una certa porzione di lavoro per immergere il condensatore nel liquido dielettrico. Non è proprio un problema banale..</article>
+<nav class="pager"><a class="prev" href="olifis-558.html"><small>← precedente</small>SNS 2010/2011 numero 5</a><a class="next" href="olifis-557.html"><small>successivo →</small>SNS 2010/2011 numero 6</a></nav>
+</main></body></html>

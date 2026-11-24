@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2004/2005 n. 2</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2004-2005, problema 2</span></nav>
+<h1>SNS 2004/2005 n. 2</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=820">forum Olifis</a></p>
+<article class="post first" id="p6972"><div class="who"><b>andreaandrea</b><span>12 lug 2011, 18:47</span></div>Come devo lanciare una palla da tennis contro una parete inclinata a 45° in modo che, fissato il valore dell’energia cinetica con cui la palla è lanciata, essa raggiunga la massima altezza possibile dopo un solo rimbalzo? Si indichi con alfa l’inclinazione del lancio e con L la distanza in orizzontale del punto di lancio dalla parete.<br>
+<br>
+p.s. ho ripostato il topic, già presente nella sezione problemi SNS affinchè fosse visibile, e perchè nascesse una nuova discussione, visto che l'ultimo messaggio risulta datato 2008. Inoltre essendo tale topic sul forum di matematica, non sarebbe visibile da questa sito un post in più in tale argomento. spero di non aver commesso errori e vi chiedo scusa subito se lo ho fatto. <br>
+<br>
+ho provato a risolverlo, ma ho qualche difficoltà. mi potreste dire se il procedimento è corretto a parer vostro ? <br>
+<br>
+Sia <span class="tex">\(K\)</span> l'energia cinetica iniziale.<br>
+<br>
+Si osservi innanzi tutto che L è sia la distanza orizzontale del punto di lancio che l'altezza da cui viene lanciata la pallina. <br>
+ho ragionato così. dopo il rimbalzo, nel punto più alto della sua traiettoria, la pallina avrà energia potenziale <span class="tex">\(U_f = mgh\)</span> ed energia cinetica <span class="tex">\(K_f = \dfrac{1}{2} m v_\parallel^2\)</span>. <br>
+<br>
+<span class="tex">\(v_\parallel\)</span> è la componente orizzontale della velocità, ovvero la componente parallela al terreno (non alla parete). <br>
+l'energia meccanica è fissata e si conserva. segue che tanto minore è l'energia cinetica, tanto maggiore è l'energia potenziale e quindi tanto maggiore è <span class="tex">\(H\)</span> altezza massima. <br>
+durante il moto che segue al rimbalzo <span class="tex">\(v_\parallel\)</span> si mantiene costante nel tempo. pertanto, se vogliamo che sia minima è necessario che la componente orizzontale della velocità della pallina subito dopo l'urto sia minima. <br>
+<br>
+Ipotizzo ora che l'angolo con cui la pallina impatta la parete sia uguale all'angolo, sempre rispetto alla parete, con cui la pallina riparte. <br>
+<br>
+Segue che l'impatto ideale è quello in cui la pallina, nel momento immediatamente precedente all'impatto ha componente verticale della velocità nulla. ciò avviene quando il vertice della parabola appartiene alla retta <span class="tex">\(y= x\)</span>.<br>
+<br>
+calcolo ora il vertice della parabola. <br>
+dalle leggi del moto ottengo <br>
+<br>
+<span class="tex">\(V = ( \dfrac {v_0^2 cos\alpha sin\alpha}{g} ;  L + \dfrac {v_0^2 (sin\alpha)^2}{2g})\)</span><br>
+<br>
+Impongo che tale vertice appartenga alla retta <span class="tex">\(y= x\)</span><br>
+<br>
+Ottengo quindi: <br>
+<br>
+<span class="tex">\(L = K \dfrac{sin2\alpha - (sin\alpha)^2}{gm}\)</span><br>
+<br>
+Che ne dite? vi sembra corretto? <br>
+per quanto riguarda le limitazioni, penso che l'unica necessaria, sia <span class="tex">\(L &gt; 0\)</span>, condizione facilmente verificabile. <br>
+<br>
+Grazie mille in anticipo dell'aiuto.</article>
+<article class="post" id="p6974"><div class="who"><b>Morley</b><span>13 lug 2011, 16:59</span></div>Prima di tutto diamo dei nomi alle energie in gioco in questo problema:<br>
+<br>
+<span class="tex">\(\ U_{i}\)</span>  l'energia potenziale della palla al momento del lancio <br>
+<span class="tex">\(\ K_{i}\)</span>  l'energia cinetica della palla al momento del lancio<br>
+<span class="tex">\(\ U_{1}\)</span> l'energia potenziale della palla un istante prima dell'urto<br>
+<span class="tex">\(\ K_{1}\)</span>  l'energia cinetica della palla un istante prima dell'urto<br>
+<span class="tex">\(\ U_{2}\)</span> l'energia potenziale della palla un istante dopo l'urto<br>
+<span class="tex">\(\ K_{2}\)</span>  l'energia cinetica della palla un istante dopo l'urto<br>
+<span class="tex">\(\ U_{f}\)</span>  l'energia potenziale della palla in un punto della nuova traiettoria<br>
+<span class="tex">\(\ K_{f}\)</span>  l'energia cinetica della palla in un punto della nuova traiettoria <br>
+<br>
+Scriviamo certe uguaglianze<br>
+<span class="tex">\(\ U_{i}+ K_{i}=U_{1}+K_{1}\)</span> (l'unica forza che agisce è conservativa)<br>
+<span class="tex">\(\ U_{1}+K_{1}=U_{2}+K_{2}\)</span> (l'altezza è rimasta la stessa e l'energia cinetica si è conservata poichè l'urto è elastico)<br>
+<span class="tex">\(\ U_{2}+K_{2}=U_{f}+K_{f}\)</span> (l'unica forza che agisce è conservativa)<br>
+<br>
+Allora <span class="tex">\(\ U_{i}+ K_{i}=U_{f}+K_{f}\)</span></article>
+<article class="post" id="p6975"><div class="who"><b>Morley</b><span>13 lug 2011, 17:15</span></div>Quindi <br>
+<br>
+<span class="tex">\(\ U_{f}=K_{i}+U{i}-K{f}\)</span><br>
+<br>
+Se non ho capito male noi vogliamo confrontare tra di loro le varie altezze massime raggiunte(l'altezza massima raggiunta fra tutti i tiri è la massima fra le altezze massime di ogni tiro) avendo volta per volta a disposizione un'energia meccanica di partenza differente.<br>
+Per questo conviene porre <span class="tex">\(\ K_{f}=0\)</span><br>
+Di conseguenza <span class="tex">\(\ U_{max}= K_{i}+ U_{i}\)</span><br>
+Visto che l'energia cinetica del momento di lancio è fissata, allora la risposta dovrebbe essere: per ottenere la massima altezza, lanciare la palla alla maggiore altezza possibile dal suolo. A quanto pare alfa ed L e l'angolo di inclinazione della parete sono superflui. :? <br>
+<br>
+NOTA: mi sembra molto strano che il problema dia tanti dati superflui, cosa che mi spinge a pensare che il mio ragionamento è probabilmente sbagliato. Ma dove?</article>
+<article class="post" id="p6977"><div class="who"><b>andreaandrea</b><span>13 lug 2011, 17:43</span></div><blockquote><div><cite>Morley ha scritto:</cite>Visto che l'energia cinetica del momento di lancio è fissata, allora la risposta dovrebbe essere: per ottenere la massima altezza, lanciare la palla alla maggiore altezza possibile dal suolo.</div></blockquote>
+
+Hai ragione, ma la massima altezza dal suolo <span style="text-decoration:underline">dopo il primo rimbalzo</span>! non è scontato che lanciandola nel punto più alto possibile, dopo il rimbalzo l'altezza massima raggiunta sia la massima tra le altezze massime. <br>
+
+<blockquote><div><cite>Morley ha scritto:</cite>NOTA: mi sembra molto strano che il problema dia tanti dati superflui</div></blockquote>
+
+Hai perfettamente ragione, tali dati devono essere indispensabili!</article>
+<article class="post" id="p6978"><div class="who"><b>Pigkappa</b><span>13 lug 2011, 17:52</span></div>(rispondendo a morley) Innanzitutto, non serve fare tutta quella confusione per dire che l'energia si conserva. È ovvio che si conserva e fare quei passaggi intermedi è inutile. Inoltre, quando provi a risolvere un problema e scopri che non ha alcun senso perchè tutti i dati sono inutili e la soluzione è facilissima, dovresti fare lo sforzo di rileggerlo e capire dove stai sbagliando. In questo caso, l'energia fissata è l'energia cinetica e non l'energia meccanica totale (ma anche se fosse l'energia meccanica totale, la tua soluzione sarebbe sbagliata; sembri ignorare totalmente la parte cinematica del problema).<br>
+<br>
+<br>
+L'approccio di andreaandrea è quello giusto.</article>
+<article class="post" id="p6980"><div class="who"><b>Morley</b><span>13 lug 2011, 18:08</span></div>In effetti non avevo molta fiducia nella correttezza del mio ragionamento. Ci penserò su.</article>
+<article class="post" id="p6985"><div class="who"><b>dinamitardo</b><span>14 lug 2011, 11:37</span></div>ma una volta impostata l'equazione è necessario anche risolverla? Perchè volendo ci si riesce ma viene una cosa immonda!</article>
+<article class="post" id="p6988"><div class="who"><b>Omar93</b><span>14 lug 2011, 19:14</span></div>Non ho capito in base a cosa è L. E' la distanza dalla base o la proiezione sull'asse delle x del punto toccato dalla pallina?</article>
+<article class="post" id="p6989"><div class="who"><b>Pigkappa</b><span>14 lug 2011, 19:24</span></div>"la distanza in orizzontale del punto di lancio dalla parete"<br>
+<br>
+Prendi l'asse delle ascisse, trova l'intersezione con la parete; la distanza tra il punto di lancio e questo punto è <span class="tex">\(L\)</span>. Mi sembra chiaro...</article>
+<article class="post" id="p6990"><div class="who"><b>Omar93</b><span>14 lug 2011, 19:41</span></div>Quindi così?
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><img src="../img/cae0296901555d41.png" class="postimage" alt="Immagine.png" onclick="viewableArea(this);" /></dt>
+						<dd>Immagine.png (4.25 KiB) Visto 8134 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p6991"><div class="who"><b>Pigkappa</b><span>14 lug 2011, 20:36</span></div>Sì.</article>
+<article class="post" id="p7044"><div class="who"><b>AxxMan</b><span>28 lug 2011, 14:32</span></div>Il problema continua, perchè L non è dato, ma è da scegliere. Comunque una volta imposte le condizioni su L, rivediamo la formula per l'altezza massima e...</article>
+<article class="post" id="p7046"><div class="who"><b>Pigkappa</b><span>28 lug 2011, 18:30</span></div>L è dato. Sennó il problema sarebbe banalissimo.</article>
+<article class="post" id="p7047"><div class="who"><b>AxxMan</b><span>28 lug 2011, 19:08</span></div>Non credo, perchè lì richiede la massima altezza dopo un rimbalzo, non la massima altezza raggiungibile dal punto di lancio. Se lancio troppo in alto non posso effettuare la traiettoria buona che mi permette di trasformare tutta l'energia cinetica in potenziale</article>
+<article class="post" id="p7048"><div class="who"><b>AxxMan</b><span>28 lug 2011, 19:10</span></div>Tra l'altro  :lol:  <a href="oliforum-8916.html" class="postlink">http://www.oliforum.it/viewtopic.php?t=8916</a></article>
+<nav class="pager"><a class="prev" href="oliforum-8916.html"><small>← precedente</small>SNS 2004/2005 Problema 2</a><a class="next" href="oliforum-8747.html"><small>successivo →</small>sns 2004/2005 #3</a></nav>
+</main></body></html>

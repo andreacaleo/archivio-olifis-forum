@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS (Chimica) n.4 2008/2009</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Chimica e biologia 2008-2009, problema 4</span></nav>
+<h1>SNS (Chimica) n.4 2008/2009</h1>
+<p class="meta">2 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=542">forum Olifis</a></p>
+<article class="post first" id="p4906"><div class="who"><b>MrTeo</b><span>20 ago 2010, 10:14</span></div>Due recipienti collegati da un tubo di sezione molto piccola contengono un gas ideale. Sapendo che uno dei due recipienti viene mantenuto alla temperatura <span class="tex">\(T_1\)</span> e l’altro alla temperatura <span class="tex">\(T_2\)</span>, si determini il rapporto tra le rispettive pressioni in funzione di quello tra le temperature.<br>
+<br>
+Sembra piuttosto standard, ma non mi è chiaro cosa cercano di dirci con l'approssimazione del tubo "di sezione molto piccola"...  :roll:<br>
+<br>
+Grazie in anticipo a tutti quelli che vi si cimenteranno  :D</article>
+<article class="post" id="p4908"><div class="who"><b>Gauss91</b><span>20 ago 2010, 11:11</span></div>Ovviamente la differenza di pressione tra i due recipienti deve essere compensata dalla differenza di densità tra un recipiente e l'altro (altrimenti non si avrebbe mai l'equilibrio).<br>
+All'equilibrio, la massa di gas in ognuno dei recipienti non può aumentare né diminuire, quindi la massa di gas in entrata deve essere uguale a quella in uscita.<br>
+<span class="tex">\(\rho_1 v_1 A = \rho_2 v_2 A\)</span> (1)<br>
+Ma è <span class="tex">\(v = \sqrt{\dfrac{3RT}{\mu}}\)</span> dove <span class="tex">\(\mu\)</span> è il peso molecolare del gas.<br>
+Ed è inoltre <span class="tex">\(\rho = \dfrac{m}{V} = \dfrac{\mu p}{RT}\)</span>.<br>
+Sostituendo nella (1) e dopo un po' di semplificazioni si ottiene<br>
+<span class="tex">\(\dfrac{p_1}{p_2} = \sqrt{\dfrac{T_1}{T_2}}\)</span><br>
+<br>
+Penso che per sezione molto piccola si intende che devi trascurare il volume del condotto, che tendenzialmente dovrebbe entrare nel calcolo della densità.</article>
+</main></body></html>

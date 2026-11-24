@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2003/2004 n 1</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2003-2004, problema 1</span></nav>
+<h1>SNS 2003/2004 n 1</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=839">forum Olifis</a></p>
+<article class="post first" id="p7090"><div class="who"><b>AxxMan</b><span>3 ago 2011, 10:46</span></div>Ad un dato istante, da un palo verticale di altezza h vengono fatte cadere<br>
+<span class="tex">\(N&gt;&gt;1\)</span> palline di raggio trascurabile e masse <span class="tex">\(m_i (i = 1,2... N)\)</span>, con velocità<br>
+iniziali <span class="tex">\(v_i\)</span> aventi ugual modulo <span class="tex">\((|\vec{v_o}|= v_0)\)</span> e direzioni distribuite su<br>
+tutto l’angolo solido. Trascurando l’attrito dell’aria, si dimostri che fino<br>
+a quando una di esse non tocca il suolo si trovano tutte disposte sulla<br>
+superficie di una sfera, e si calcolino in funzione del tempo il centro ed<br>
+il raggio di tale sfera. Si determini la massima distanza l dal piede del<br>
+palo a cui una pallina può arrivare al suolo nei due casi limite <span class="tex">\(gh &gt;&gt; v_0^2\)</span><br>
+e <span class="tex">\(gh &lt;&lt; v_0^2\)</span> dove <span class="tex">\(g\)</span> è l’accelerazione di gravità, e nel caso generale.<br>
+Idee furbe per il caso generale?</article>
+<article class="post" id="p7092"><div class="who"><b>Incomplete93</b><span>3 ago 2011, 12:50</span></div>Per caso - dico, per caso - il centro ha coordinate <span class="tex">\((0, h - \frac {1}{2}\, g\,t^2)\)</span> e il raggio è <span class="tex">\(r(t)=v_0\,t\)</span>?<br>
+<br>
+P.S: da dove viene fuori questo problema?? XD Nei testi dei problemi della SNS non l'ho trovato..</article>
+<article class="post" id="p7095"><div class="who"><b>AxxMan</b><span>3 ago 2011, 13:06</span></div>Sisi è giusto  ;)  Hai cercato tra quelli di fisica?  :lol:  Vedi se riesci ad arrivare in fondo, perchè a me veniva una disequazione brutta quando l'ho fatto</article>
+<article class="post" id="p7097"><div class="who"><b>Incomplete93</b><span>3 ago 2011, 13:09</span></div>(Ho cercato tra fisica e biologia XD) comunque ehm...io per il primo punto le masse non le ho utilizzate...ora ragiono sul secondo...spero che non si voglia che si considerino le interaizioni gravitazionali dopo che la sfera si deforma! (Fintanto che tutte le masse sono sulla superficie sferica il problema non sussiste...) Vediamo che tiro fuori...</article>
+<article class="post" id="p7099"><div class="who"><b>AxxMan</b><span>3 ago 2011, 13:24</span></div>Lascia stare le interazioni gravitazionali, siamo sulla terra con g fissa, perciò credo sia davvero poco realistico supporre che vi siano masse in grado di dare accelerazioni significative, a meno che tu non abbia delle palline di <span class="tex">\(10^{10 }kg\)</span>  :lol: In effetti il problema era dell'anno prima, ho sbagliato a scrivere</article>
+<article class="post" id="p7100"><div class="who"><b>Incomplete93</b><span>3 ago 2011, 13:41</span></div>Ehm...allora...ho fatto un ragionamento assurdo per non fare troppi calcoli e mi è venuto un risultato strano...boh...vediamo se riesco a scriverlo (considerando che con il Latex sto improvvisando non conoscendolo). Ho trovato che la massima distanza alla quale una pallina può arrivare vale, nel caso generale<br>
+<span class="tex">\(d=\sqrt{\frac {(v_0^2 + g\,h)^2}{g^2} - h^2}\)</span><br>
+I casi generali si ricavano da qua - se è giusta...quindi se <span class="tex">\(v_0^2 &lt;&lt; g\,h\)</span> allora <span class="tex">\(d= \frac{v_0^2}{g}\)</span>, se invece <span class="tex">\(v_0^2 &gt;&gt; g\,h\)</span> allora si calcola <span class="tex">\(d= \frac{v_0^2}{g} - h\)</span> semplificando sempre al primo ordine.<br>
+Il parere dell'esperto?? XD</article>
+<article class="post" id="p7103"><div class="who"><b>Incomplete93</b><span>3 ago 2011, 13:53</span></div>Ah, e scusami, perché dubiti del fatto che io abbia palline da <span class="tex">\(10^{10} kg\)</span>?  :| questo fa l'invidia u.ù ammetti!  :lol:</article>
+<article class="post" id="p7106"><div class="who"><b>AxxMan</b><span>3 ago 2011, 14:53</span></div>Mi viene diverso... Hai lavorato anche tu con il teorema di Pitagora?</article>
+<article class="post" id="p7108"><div class="who"><b>Incomplete93</b><span>3 ago 2011, 16:22</span></div>Ya...ma ho fatto un ragionamento strano partendo dai risultati del punto precedente...tu che risultato trovi?<br>
+Il mio ragionamento è stato questo. Le particelle, come dimostrato, si dispongono su una superficie sferica - che rimane sferica sino a che le particelle lanciate verticalmente verso il basso non toccano terra. Da quel momento in poi, le palline ancora in aria si trovano su di una calotta sferica, quelle che raggiungono man mano il suolo si depositano lì. Allora consideriamo che il suolo il centro della sfera - o della calotta che rimane, poco cambia - si trovi ad un'altezza <span class="tex">\(x\)</span> dal suolo. Limitiamoci a lavorare su un piano, data la simmetria cilindrica rispetto all'asta da cui sono lanciate le palline - le quali intersecano un piano qualsiasi passante per l'asta su di una circonferenza. Se questa circonferenza ha intersezioni con la retta che rappresenta il suolo, le masse che si trovano in quei punti si depositano. La distanza alle quali si depositano sono date, per il teorema di Pitagora, da <span class="tex">\(d=\sqrt{r^2(t) - x^2(t)}\)</span>, e vale, dal punto prima, <span class="tex">\(x=h - \frac{1}{2}\,g\,t^2\)</span>...sostituendo e massimizzando la funzione <span class="tex">\(d^2(t)\)</span> troviamo - a meno di calcoli sbagliati - il mio risultato di prima...<br>
+Se il ragionamento è giusto, si evitano tonnellate di calcoli, credo - quelli del tipo scrivere l'equazione della parabola del tipo <span class="tex">\(y=f(x,\alpha)\)</span> e intersecarla con l'asse <span class="tex">\(x\)</span>...</article>
+<article class="post" id="p7110"><div class="who"><b>AxxMan</b><span>3 ago 2011, 16:46</span></div>la pallina che tocca è il suolo è a distanza <span class="tex">\(v_0t\)</span> dal centro, che si trova a ordinata <span class="tex">\(h-gt^2/2\)</span> per il teorema di pitagora la distanza dal piede del palo è <span class="tex">\(\sqrt{(v_0t)^2 -(h-gt^2/2)^2}\)</span> e derivando e massimizzando risulta <span class="tex">\(t^2=2(v_0^2-gh)/g^2\)</span> che dà <span class="tex">\(d=\frac{v_0}{g}\sqrt{v_0^2 +2gh}\)</span><br>
+Avevo visto male, è la stessa cosa scritta diversamente  :lol:</article>
+<article class="post" id="p7111"><div class="who"><b>Incomplete93</b><span>3 ago 2011, 16:54</span></div>Ok abbiamo pensato alla stessa cosa, solo che io sono troppo pigro per trovare il minimo comunqe divisore XD tra l'altro è scritta meglio  come l'hai scritta tu XD ho perso  :lol:</article>
+<article class="post" id="p7112"><div class="who"><b>Incomplete93</b><span>3 ago 2011, 17:21</span></div>Comunque la domanda sorge spontanea: ma delle varie masse uno che se ne fa??? Comunque consiglio di postare la soluzione nella pagina dedicata ai problemi di ammissione della sns dato che mi pare che manchi</article>
+<article class="post" id="p7115"><div class="who"><b>Sasha™</b><span>3 ago 2011, 19:20</span></div>Se serve, anche a me viene uguale, anche se ho usato coordinate 3D. :D<br>
+(Sembrerà strano, ma i conti non sono per nulla più complicati...)</article>
+<article class="post" id="p7118"><div class="who"><b>Incomplete93</b><span>3 ago 2011, 21:06</span></div><blockquote><div><cite>Sasha™ ha scritto:</cite>Se serve, anche a me viene uguale, anche se ho usato coordinate 3D. :D<br>
+(Sembrerà strano, ma i conti non sono per nulla più complicati...)</div></blockquote>
+Sei folle... XD completamente folle!</article>
+<article class="post" id="p7120"><div class="who"><b>Sasha™</b><span>3 ago 2011, 21:40</span></div>In realtà i conti sono assolutamente uguali, non cambia proprio nulla. Provare per credere.  :D</article>
+<nav class="pager"><a class="prev" href="olifis-241.html"><small>← precedente</small>SIMULAZIONE: SNS 2003/2004 Problema 1</a><a class="next" href="oliforum-11592.html"><small>successivo →</small>SNS 2003-2004 es. 2</a></nav>
+</main></body></html>

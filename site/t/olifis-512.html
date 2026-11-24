@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strano problema della normale</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1980-1981, problema 3</span></nav>
+<h1>Strano problema della normale</h1>
+<p class="meta">1 messaggio · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=512">forum Olifis</a></p>
+<article class="post first" id="p4625"><div class="who"><b>Gauss91</b><span>19 lug 2010, 16:52</span></div>Ciao ragazzi! Dopo la maturità e una bella vacanza rilassante riprendo la mia attività sul forum! :D<br>
+Ho visto un problema per lo meno "strano": Normale, 3 1980/81 :<br>
+Sapendo che un cristallo di sale da cucina si scioglie in acqua a temperatura ambiente, determinare un limite inferiore e uno superiore per l'energia di legame degli ioni nel cristallo. Si determino inoltre i limiti sulla temperatura di ebollizione del sale fuso.</article>
+<nav class="pager"><a class="prev" href="olifis-6043.html"><small>← precedente</small>36: SNS 1980 - 3</a><a class="next" href="olifis-6030.html"><small>successivo →</small>34: SNS 1980 - 5</a></nav>
+</main></body></html>

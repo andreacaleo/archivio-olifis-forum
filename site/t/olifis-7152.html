@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>297- SNS Doppio strato</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica anno ?</span></nav>
+<h1>297- SNS Doppio strato</h1>
+<p class="meta">4 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7152">forum Olifis</a></p>
+<article class="post first" id="p27469"><div class="who"><b>roncu</b><span>3 ago 2022, 11:26</span></div>Lo strato <span class="tex">\(0&lt;z&lt;a\)</span>  è occupato dalla densità di carica <span class="tex">\(\rho&gt;0\)</span> mentre lo strato <span class="tex">\(-a&lt;z&lt;0\)</span>  è occupato dalla densità costante<span class="tex">\(-\rho\)</span>. Una particella di massa m e carica q&gt;0 con velocità iniziale <span class="tex">\(\vec v= (\frac{1}{\sqrt 2},0 , \frac{1}{\sqrt 2})v_0&gt;0\)</span>  si avvicina al piano z=0 proveniendo da una distanza dal piano grande rispetto ad a.<br>
+1. Si determini se la particella può attraversare o meno entrambi gli strati carichi. <br>
+2. Si determini la velocità finale <span class="tex">\(\vec v_f\)</span> una volta che si sia allontanata da z=0 a distanza grande rispetto ad a<br>
+3. E' possibile che la particella non si allontani più ad una distanza maggiore di a da z=0?</article>
+<article class="post" id="p27470"><div class="who"><b>Luca Milanese</b><span>4 ago 2022, 14:46</span></div>Il campo elettrico generato dal doppio strato è chiaramente diretto lungo l'asse delle <span class="tex">\(z\)</span> in ogni punto dello spazio, e dipende solo da <span class="tex">\(z\)</span>:<br>
+<span class="tex">\(\vec E(z) = E(z) \hat z\)</span><br>
+Per punti esterni al doppio strato, ciascuno dei due strati può essere visto come un piano infinito uniformemente carico con densità superficiale di carica <span class="tex">\(\sigma=\rho a\)</span>, perciò i campi elettrici generati dai due strati si annullano, da cui in particolare <span class="tex">\(E(a)=E(-a)=0\)</span>. Per la Legge di Gauss, vale:<br>
+<span class="tex">\(\frac{\partial E(z)}{\partial z}=\frac{\rho(z)}{\varepsilon_0}\)</span><br>
+Da cui si ricava l'espressione del campo elettrico nel doppio strato:<br>
+<span class="tex">\(E(z)=\begin{cases}
+\frac{\rho (z-a)}{\varepsilon_0} \quad \text{per} \; 0 \le z \le a  \\
+-\frac{\rho (z+a)}{\varepsilon_0} \quad \text{per} -a \le z \le 0 \\
+\end{cases}\)</span><br>
+E di conseguenza l'espressione del potenziale elettrico (prendendone lo zero in <span class="tex">\(z=0\)</span>):<br>
+<span class="tex">\(V(z)=\begin{cases}
+\frac{\rho}{\varepsilon_0} \bigg (az-\frac{z^2}{2}\bigg ) \quad \text{per} \; 0 \le z \le a  \\
+\frac{\rho}{\varepsilon_0} \bigg (\frac{z^2}{2}+az \bigg) \quad \text{per} -a \le z \le 0 \\
+\end{cases}\)</span><br>
+1. Lungo gli assi <span class="tex">\(x\)</span> e <span class="tex">\(y\)</span> non agiscono forze, pertanto la particella mantiene le componenti iniziali della velocità lungo queste direzioni. La differenza di potenziale tra i due lati del doppio strato è:<br>
+<span class="tex">\(\Delta V = V(a)-V(-a)=\frac{\rho a^2}{\varepsilon_0}\)</span>, e dalle espressioni trovate si vede che <span class="tex">\(V(z)\)</span> è monotonicamente crescente, perciò la particella attraversa entrambi gli strati se e solo se:<br>
+<span class="tex">\(\frac{m v_{z0}^2}{2} &gt; q \Delta V \Leftrightarrow v_0 &gt; 2a \sqrt{\frac{q\rho}{\varepsilon_0 m}}\)</span><br>
+2. Dalla conservazione dell'energia si trova la velocità finale lungo <span class="tex">\(z\)</span>:<br>
+<span class="tex">\(v_{zf}=\sqrt{\frac{v_0^2}{2}-\frac{2q\rho a^2}{\varepsilon_0 m}}\)</span><br>
+Perciò:<br>
+<span class="tex">\(\vec v_f = \bigg (\frac{v_0}{\sqrt{2}}, 0,\sqrt{\frac{v_0^2}{2}-\frac{2q\rho a^2}{\varepsilon_0 m}} \bigg )\)</span><br>
+3. Sì, è possibile. Se <span class="tex">\(  v_0 &lt; 2a \sqrt{\frac{q\rho}{\varepsilon_0 m}} \)</span>, allora la particella inverte il proprio moto lungo <span class="tex">\(z\)</span> prima di giungere a <span class="tex">\(z=a\)</span>, e viene espulsa dal doppio strato. Se invece <span class="tex">\(v_0= 2a \sqrt{\frac{q\rho}{\varepsilon_0 m}} \)</span>, allora la particella raggiunge <span class="tex">\(z=a\)</span> dopo un tempo infinito, e in particolare resta intrappolata tra <span class="tex">\(z=0\)</span> e <span class="tex">\(z=a\)</span>. Infatti, essendo <span class="tex">\(z=a\)</span> un punto di equilibrio per la particella, per la reversibilità della meccanica, a parità di energia il tempo impiegato dalla particella per andare da <span class="tex">\(z=0\)</span> a <span class="tex">\(z=a\)</span> è lo stesso che impiegherebbe a compiere il percorso inverso. Tuttavia, avendo per questo valore di <span class="tex">\(v_0\)</span> la particella velocità lungo <span class="tex">\(z\)</span> nulla in <span class="tex">\(z=a\)</span>, nel percorso inverso rimarrebbe lì ferma. <br>
+Altrimenti, dalla conservazione dell'energia, si può ottenere l'equazione del moto della particella per <span class="tex">\(0&lt;z&lt;a\)</span>:<br>
+<span class="tex">\(\dot z =\frac{\rho q (a-z)}{\varepsilon_0 m}\)</span><br>
+Che, integrata, mostra ugualmente che il tempo totale diverge.</article>
+<article class="post" id="p27471"><div class="who"><b>roncu</b><span>5 ago 2022, 16:55</span></div>Si mi sembra corretto e quindi puoi postare il 298 :D Prima tuttavia riterrei opportuno che tu rispondessi più puntualmente alle <span class="tex">\(\vec v_f\)</span> nella forma <span class="tex">\(\vec v_f=(a,b,c)v_0\)</span>  come usa il testo. Quindi nell'unico caso esplicitato quando la particella supera il doppio strato, puoi moltiplicare e dividere il sottraendo per <span class="tex">\(\frac{v_0^2}{2}\)</span>in modo da evidenziare  <span class="tex">\(\frac{v_0}{\sqrt 2}\)</span>. Anche nel caso z=a specificherei il tipo di equilibrio cui accenni esplicitando la <span class="tex">\(\vec v_f\)</span>. Infine nel caso della riflessione della particella espliciterei la <span class="tex">\(\vec v_f\)</span> dell'espulsione e se esiste l'analogia con qualche moto noto.</article>
+<article class="post" id="p27472"><div class="who"><b>Luca Milanese</b><span>5 ago 2022, 18:00</span></div>Ricapitolando, allora, le tre possibili velocità finali sono:<br>
+<span class="tex">\(\bigg (\frac{1}{\sqrt{2}}, 0, \sqrt{\frac{1}{2}-\frac{2q \rho a^2}{v_0^2 \varepsilon_0 m}} \bigg)v_0 \; \text{se} \; v_0&gt; 2a \sqrt{\frac{q \rho}{\varepsilon_0 m}}\)</span>;<br>
+<span class="tex">\(\bigg (\frac{1}{\sqrt{2}}, 0, 0 \bigg) v_0 \; \text{se} \;  v_0= 2a \sqrt{\frac{q \rho}{\varepsilon_0 m}} \)</span>;<br>
+<span class="tex">\(\bigg (\frac{1}{\sqrt{2}}, 0, -\frac{1}{\sqrt{2}} \bigg ) v_0 \; \text{se} \;  v_0 &lt; 2a \sqrt{\frac{q \rho}{\varepsilon_0 m}}  \)</span><br>
+L'analogia è quella con il moto di una pallina che viene sparata contro l'estremità libera di una molla inizialmente non allungata e il cui altro estremo è fissato.</article>
+<nav class="pager"><a class="prev" href="oliforum-3264.html"><small>← precedente</small>Spostato: Tappeto</a><a class="next" href="olifis-226.html"><small>successivo →</small>SNS - Condensatore</a></nav>
+</main></body></html>

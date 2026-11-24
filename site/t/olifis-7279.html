@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS n.4 2024</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2024-2025, problema 4</span></nav>
+<h1>SNS n.4 2024</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=7279">forum Olifis</a></p>
+<article class="post first" id="p28684"><div class="who"><b>Higgs</b><span>28 gen 2025, 18:18</span></div>(assolutamente fuori luogo per un liceale)<br>
+<br>
+Una molecola che si muove di moto Browniano sperimenta un confinamento all'interno di una matrice microstrutturata a nicchie quadrate il cui numero si può considerare infinito ( ed. ci si riferisca per le figure al testo suggerito da Pigkappa a pag.2 della soluzione dell'SNS n.1, 2024 postato da Marco Balsamo). Dopo osservazione al microscopio, la legge del moto della molecola, espressa come spazio esplorato (o Mean Squared Displacement, cioè MSD,<span class="tex">\(\mu m^2\)</span>) nel tempo (ms) risulta quella rappresentata in Fig.4B - ed. stesso testo suggerito da Pigkappa.<br>
+Si chiede di<br>
+1. stimare la dimensione caratteristica l delle nicchie di confinamento della matrice della legge del moto delle molecole (curva nera in Fig.4B) spiegando come si è giunti alla stima<br>
+2. stimare disegnandola la forma della legge del moto in assenza di barriere. Quanto spazio esplora la molecola per unità di tempo?<br>
+3. stimare disegnandola la forma della legge del moto in presenza di una barriera strutturata come in Fig.4A (ed. Pigkappa) ma semipermeabile (ovvero tale che la probabilità media di attraversarla nell'unità di tempo è non nulla). Illustrare come si potrebbe stimare la probabilità media di attraversamento delle barriere semipermeabili per unità di tempo da parte della molecola utilizzando la sola legge del moto<br>
+4. sapendo che la diffusività D(<span class="tex">\(\mu m^2/sec\)</span>)della molecola all'interno della zona di confinamento è descritta dall'equazione di Stokes-Einstein <span class="tex">\(D=(k_BT)/(6\pi \eta r)\)</span>  dove <span class="tex">\( k_B = 1,38. 10^{-23 }\)</span> è la cost. di Boltzman, T(°K) è la temperatura, <span class="tex">\(\eta\)</span>Pa,s è la viscosità dinamica del solvente e r(m) è il raggio idrodinamico della molecola, provare a stimare quest'ultimo assumendo che nelle misure descritte finora la molecola si trovi a temperatura ambiente e in solvente acquoso(<span class="tex">\(\eta = 8,9 . 10^{-4 }\)</span> ). Di che specie molecolare può trattarsi?<br>
+<br>
+<a class="lost" href="https://i.imgur.com/XbInwkp.jpeg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p28685"><div class="who"><b>Higgs</b><span>1 feb 2025, 13:11</span></div>1. Dal grafico della Fig. 4B della soluzione suggerita da Pigkappa e del testo del problema risulta che la matrice quadrata relativa alla legge del moto MSD vale <span class="tex">\(2 \mu.m^2\)</span> per cui la dimensione l richiesta risulta <span class="tex">\(l=\sqrt{(2 \mu .m)^2 }=1,4 \mu m\)</span><br>
+<br>
+2. E' necessaria una sintetica premessa sul moto Browniano. La particella di massa m immessa in un fluido all'equilibrio termodinamico a temperatura T, è soggetta  a) ad un attrito viscoso <span class="tex">\(\vec F = -\lambda \vec v\)</span> b) alla forza risultante degli urti che è isotropa <span class="tex">\(&lt;\vec f&gt; =0\)</span> (il simbolo &lt;&gt; rappresenta il valore atteso della grandezza ivi compresa) e scorrelata <span class="tex">\(&lt; \vec f_t . \vec f_{t' }&gt;= \lambda \delta(t-t')\)</span>. Applicando l'equazione di Clapeiron<br>
+<span class="tex">\(\frac{d\vec v }{dt } = -(\lambda/m) \vec v(t) + (\vec f(t)/m)\)</span> risulta <span class="tex">\(&lt;\vec v(t)&gt;=\vec v(0).e^{-(\lambda/m)t } \)</span> da cui lo spostamento <br>
+<span class="tex">\(&lt;\vec r^2 (t)&gt;\)</span> per <span class="tex">\(t&gt;&gt;(m/\lambda)\)</span> diventa <span class="tex">\(&lt;\vec r^2(t)&gt; =2Dt\)</span> ovvero nel diagramma t,<span class="tex">\(\vec r^2(t)\)</span>risulta una retta con coefficiente angolare 2D. Pertanto la massa m esplora uno spazio per unità di tempo che per tempi lunghi è costante ovvero essendo<br>
+<span class="tex">\(lim_{t\rightarrow\infty }\frac{&lt;r^2(t) &gt;}{t }=D\)</span> esso vale 2D. La quantità D è detta diffusività. Insomma il grafico dell'equazione del moto dopo il tratto a coefficiente angolare costante è seguito da un tratta finale a coefficiente 0 parallelo all'asse t. Si tratta insomma del grafico della legge del moto riportata in Fig.4B. Nel prossimo post darò la mia soluzione dei quesiti 3. e 4.</article>
+<article class="post" id="p28686"><div class="who"><b>Pigkappa</b><span>2 feb 2025, 19:03</span></div>Intanto copio qua le immagini perché sennò seguire è difficile<br>
+<a class="lost" href="https://i.imgur.com/XbInwkp.jpeg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p28687"><div class="who"><b>Higgs</b><span>3 feb 2025, 18:07</span></div>Ti ringrazio e posto l'intera soluzione proposta 8-) <br>
+<br>
+1. Dal grafico della Fig. 4B della soluzione suggerita da Pigkappa e del testo del problema risulta che la matrice quadrata relativa alla legge del moto MSD vale <span class="tex">\(2 \mu.m^2\)</span> per cui la dimensione l richiesta risulta <span class="tex">\(l=\sqrt{(2 \mu .m)^2 }=1,4 \mu m\)</span><br>
+<br>
+2. E' necessaria una sintetica premessa sul moto Browniano. La particella di massa M immessa in un fluido all'equilibrio termodinamico a temperatura T, è soggetta  a) ad un attrito viscoso <span class="tex">\(\vec F = -\lambda \vec v\)</span> b) alla forza risultante degli urti che è isotropa <span class="tex">\(&lt;\vec f&gt; =0\)</span> (il simbolo &lt;&gt; rappresenta il valore atteso della grandezza ivi compresa) e scorrelata <span class="tex">\(&lt; \vec f_t . \vec f_{t' }&gt;= \lambda \delta(t-t')\)</span>. Applicando l'equazione di Clapeiron<br>
+<span class="tex">\(\frac{d\vec v }{dt } = -(\lambda/m) \vec v(t) + (\vec f(t)/m)\)</span> risulta <span class="tex">\(&lt;\vec v(t)&gt;=\vec v(0).e^{-(\lambda/m)t } \)</span> da cui lo spostamento <br>
+<span class="tex">\(&lt;\vec r^2 (t)&gt;\)</span> per <span class="tex">\(t&gt;&gt;(m/\lambda)\)</span> diventa <span class="tex">\(&lt;\vec r^2(t)&gt; =2Dt\)</span> ovvero nel diagramma t,<span class="tex">\(\vec r^2(t)\)</span>risulta una retta con coefficiente angolare 2D. Pertanto la massa m esplora uno spazio per unità di tempo che per tempi lunghi è costante ovvero essendo<br>
+<span class="tex">\(lim_{t\rightarrow\infty }\frac{&lt;r^2(t) &gt;}{t }=D\)</span> esso vale 2D. La quantità D è detta diffusività. Insomma il grafico dell'equazione del moto dopo il tratto a coefficiente angolare costante è seguito da un tratta finale a coefficiente 0 parallelo all'asse t. Si tratta insomma del grafico della legge del moto riportata in Fig.4B.<br>
+<br>
+3. Il testo chiede di esaminare quello che succede per tempi lunghi quando non è nulla, come avveniva finora la probabilità p di attraversare la barriera in un tempo che indichiamo con <span class="tex">\(\delta t\)</span> Supponiamo che la molecola interessata sia all'interno di una celletta quadrata delle praticamente infinite cellette componenti la matrice del moto con grafico Fig.4B del testo. Nella celletta, vista l'indipendenza delle direzioni che può prendere la particella, nel tempo <span class="tex">\(\delta t\)</span> sarà <span class="tex">\(p.\delta t\)</span> la probabilità che attraversi verso l'alto o verso il basso o verso destra o verso sinistra e ovviamente sarà <span class="tex">\(1-4 p \delta t\)</span> la probabilità che permanga in questo tempo dentro la celletta. Se allora consideriamo l'intera matrice del moto di dimensione di dimensione l e superficie <span class="tex">\(l^2\)</span> ci possiamo aspettare un valore atteso<span class="tex">\(&lt; \vec r^2&gt;= l^2 4pt\)</span> per un tempo molto lungo <span class="tex">\(\delta t = t\)</span>. Ritroviamo insomma la solita legge lineare rispetto al tempo con un coefficiente angolare che, per tempi lunghi via via che incontra barriere, tende ancora a diventare orizzontale in accordo con la solita Fig. 4B del testo e relativa diffusività:<br>
+<br>
+4. Se la diffusività è supposta, come dice dice il testo, quella di Stokes-Einstein si conoscono tutti i dati tranne r che può allora essere stimato come da richiesta. Risulta  <span class="tex">\(r=\frac{KT }{6 \pi \eta D } = 4,1.10^{-7 } m \)</span> con <span class="tex">\(D= 0,6 (\mu m)^2 /s\)</span><br>
+Si tratta di una macromolecola sicuramente appartenente ad una cellula complessa della chimica organica.</article>
+<article class="post" id="p28688"><div class="who"><b>Pigkappa</b><span>4 feb 2025, 1:55</span></div>Scrivo la mia soluzione senza leggere la tua, per poi confrontare.<br>
+<br>
+Risolvo prima il punto 2.), poi l'1.), poi gli altri.<br>
+<br>
+<strong class="text-strong">2.)</strong> Nel caso di moto browniano, la distanza dal punto di origine aumenta con la radice quadrata del tempo: <span class="tex">\(\displaystyle \text{MSD}(t) = \alpha \sqrt{t}\)</span> per un qualche <span class="tex">\(\alpha\)</span>. Il coefficiente <span class="tex">\(\displaystyle \alpha\)</span> dipende dalla velocità della molecola e dal libero cammino medio <span class="tex">\(\displaystyle d\)</span>. Se stessi facendo il concorso disegnerei la funzione <span class="tex">\(\displaystyle f(x) = \sqrt{x}\)</span> per far vedere come è fatta. <br>
+Dopo un tempo <span class="tex">\(\displaystyle t\)</span>, il volume esplorato dalle particelle è <span class="tex">\(\displaystyle V(t) = \frac{4}{3} \pi \alpha^3 t^{3/2}\)</span>. Ci chiedono il volume esplorato per unità di tempo, quindi esplicitiamo la sua derivata: <span class="tex">\(\displaystyle \dot V(t) =  2 \pi \alpha^3 t^{1/2}\)</span><br>
+<br>
+<strong class="text-strong">1.)</strong> Inizialmente il moto è come nel punto 2.), ma non si può mai attraversare il muro. Evidentemente nessuna particella supera il limite <span class="tex">\(\displaystyle \text{MSD}_{\text{max}} = \sqrt{2 \times 10^{-6} m^2} \approx 1.4 \times 10^{-3} m\)</span>. Sperando che basti una stima approssimata per cui non bisogna preoccuparsi troppo della geometria delle celle e del punto di partenza della particella, stimerei come dimensione caratteristica proprio <span class="tex">\(\displaystyle l \approx 1.4 \times 10^{-3} m\)</span>.<br>
+<br>
+<strong class="text-strong">3.)</strong> Questo è un bel casino. Sia <span class="tex">\(\displaystyle p\)</span> la probabilità di penetrazione. Assumo che <span class="tex">\(\displaystyle l \gg d\)</span> perché mi sembra nello spirito del problema. Adesso bisogna dividere i casi <span class="tex">\(\displaystyle l \times p \gg d\)</span>, <span class="tex">\(\displaystyle l \times p \ll d\)</span> e quello intermedio <span class="tex">\(\displaystyle l \times p \approx d\)</span>.<br>
+<br>
+Se <span class="tex">\(\displaystyle l \times p \gg d\)</span>, la matrice non ostacola il moto e il grafico rimane quasi uguale a quello del punto 2.)<br>
+<br>
+Se <span class="tex">\(\displaystyle l \times p \ll d\)</span>, la particella passa raramente. Il grafico per piccoli tempi rimane uguale a quello del punto 1.), ma per grandi tempi continua comunque a salire, per quanto lentamente. Spiego qua cosa intendo per "grandi tempi". Sia <span class="tex">\(\displaystyle t_1\)</span> il tempo caratteristico in cui si raggiunge il limite nel caso 1.) Per "grandi tempi" intendo <span class="tex">\(\displaystyle t_2 \gg t_1 \times d / (l \times p)\)</span>. In pratica, la pendenza della retta <span class="tex">\(\displaystyle \text{MSD}^2(t)\)</span> passa da <span class="tex">\(\displaystyle \alpha^2\)</span> fino a tempi minori di <span class="tex">\(\displaystyle t_1\)</span>, a <span class="tex">\(\displaystyle \alpha^2 \times l \times p / d\)</span> per tempi maggiori di <span class="tex">\(\displaystyle t_2\)</span>.<br>
+<br>
+Se <span class="tex">\(\displaystyle l \times p \approx d\)</span>, gli urti con le altre particelle e quelli con la matrice ostacolano la particella circa con la stessa frequenza. In tal caso una approssimazione ragionevole del moto è che <span class="tex">\(\displaystyle \text{MSD}^2(t)\)</span> sia lineare ma, dopo una breve partenza con pendenza <span class="tex">\(\displaystyle \alpha^2\)</span>, poi si assesti a pendenza minore, ad esempio una pendenza come <span class="tex">\(\displaystyle \frac{\alpha^2}{1 + (d/lp)}\)</span>. Ho scelto questa funzione perché si riduce correttamente ai risultati che ho proposto nei due casi limite qua sopra.<br>
+<br>
+Il testo ci chiede come stimare <span class="tex">\(\displaystyle p\)</span>. Confrontando il grafico da misure di <span class="tex">\(\displaystyle \text{MSD}^2(t)\)</span>, che spero possiamo realizzare per molte particelle, con i tre grafici proposti qua sopra possiamo capire in quale dei tre casi ci troviamo, e stimare <span class="tex">\(\displaystyle p\)</span>. Dobbiamo però conoscere alcuni tra <span class="tex">\(\displaystyle \alpha\)</span>, <span class="tex">\(\displaystyle l\)</span>, <span class="tex">\(\displaystyle d\)</span> o la velocità media delle particelle; se abbiamo letteralmente solo il grafico non si può fare.<br>
+<br>
+<strong class="text-strong">4.)</strong> <span class="tex">\(\displaystyle D\)</span> ha dimensioni di L^2/T. Il coefficiente <span class="tex">\(\displaystyle \alpha^2\)</span> che ho usato sopra ha a sua volta dimensioni di <span class="tex">\(\displaystyle L^2/T\)</span>. Evidentemente hanno lo stesso significato fisico - più grande è la diffusione, più velocemente si diffondono le particelle - quindi stimerei <span class="tex">\(\displaystyle D \approx \alpha^2\)</span>. <span class="tex">\(\displaystyle \alpha^2\)</span> è la pendenza della retta <span class="tex">\(\displaystyle \text{MSD}^2(t) = \alpha^2 t\)</span> per piccoli tempi, che a occhio stimerei con <span class="tex">\(\displaystyle D = 1 \mu m^2 / ms = 10^{-3} m^2 / s \)</span>. Ricavando <span class="tex">\(\displaystyle r\)</span> dalla formula per <span class="tex">\(\displaystyle D\)</span>, viene <span class="tex">\(\displaystyle r = \frac{k_b T}{6 \pi \eta D} \approx 2.5 \times 10^{-16}\)</span> m che sinceramente mi sembra troppo piccolo perché è più piccolo del raggio degli atomi.<br>
+Penso di aver interpretato male le misure nel grafico e invece di micro (metri quadri), quelli fossero (micro metri) quadri. Se così fosse, si otterrebbe <span class="tex">\(\displaystyle r \approx 2.5 \times 10^{-10}\)</span> m che è un ragionevole raggio di interazione molecolare.<br>
+<br>
+Di che molecola si tratta? Non ne ho assolutamente idea. Se consideriamo <span class="tex">\(\displaystyle r \approx 2.5 \times 10^{-10}\)</span> come il libero cammino medio, possiamo usare <span class="tex">\(\displaystyle D = \frac{1}{3} r v\)</span> per stimare  <span class="tex">\(\displaystyle v = 12\)</span> m/s. Poi usiamo <span class="tex">\(\displaystyle \frac{1}{2} m v^2 = \frac{3}{2}k_B T \)</span> per trovare <span class="tex">\(\displaystyle m = \frac{3 k_B T}{v^2} = 8.4 \times 10^{-23} kg\)</span>. In unità di masse del protone, <span class="tex">\(\displaystyle m = \frac{3 k_B T}{v^2} = 8.4 \times 10^{-23} kg\)</span>, viene <span class="tex">\(\displaystyle m = 5 \times 10^4 m_\text{P}\)</span> che è molto grande.<br>
+<br>
+Avevo scritto "questa dovrebbe essere una molecola estremamente complicata. Non penso sia giusto."<br>
+<br>
+Ma poi ho chiesto a ChatGPT e invece forse è giusto. Masse di alcuni <span class="tex">\(\displaystyle 10^4 m_\text{P}\)</span> sono assolutamente normali per molecole organiche.</article>
+<article class="post" id="p28689"><div class="who"><b>Pigkappa</b><span>4 feb 2025, 1:58</span></div>Sul punto 1 siamo d'accordo, lo abbiamo fatto uguale. <br>
+<br>
+Sul punto 2:<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7279.html#p28685" data-post-id="28685" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 feb 2025, 13:11</div></cite>
+risulta <span class="tex">\(&lt;\vec v(t)&gt;=\vec v(0).e^{-(\lambda/m)t } \)</span> da cui lo spostamento <br>
+<span class="tex">\(&lt;\vec r^2 (t)&gt;\)</span> per <span class="tex">\(t&gt;&gt;(m/\lambda)\)</span> diventa <span class="tex">\(&lt;\vec r^2(t)&gt; =2Dt\)</span>
+</div></blockquote>
+
+Uhmmm quel passaggio mi sembra sbagliato? <br>
+<br>
+Se <span class="tex">\(\displaystyle v(t) = v(0).e^{-(\lambda/m)t }\)</span>, per tempi molto lunghi la distanza rimane finita, non diventa infinita. <br>
+<br>
+L'errore sta a monte. Non è vero che la particella:
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7279.html#p28685" data-post-id="28685" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">1 feb 2025, 13:11</div></cite>
+è soggetta  a) ad un attrito viscoso <span class="tex">\(\vec F = -\lambda \vec v\)</span>
+</div></blockquote>
+
+Nel moto browniano, questo attrito non c'è, c'è solo il cambio di direzione casuale ogni volta che c'è un urto.<br>
+<br>
+Nel caso del punto 2. non c'è nessun limite al moto della particella. Quindi <span class="tex">\(\displaystyle \text{MSD}^2(t)\)</span> inizia come una retta, così come dici tu, e continua per sempre come una retta.</article>
+<article class="post" id="p28690"><div class="who"><b>Pigkappa</b><span>4 feb 2025, 2:07</span></div>Sul punto 3:
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7279.html#p28687" data-post-id="28687" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">3 feb 2025, 18:07</div></cite>
+nel tempo <span class="tex">\(\delta t\)</span> sarà <span class="tex">\(p.\delta t\)</span> la probabilità che attraversi
+</div></blockquote>
+Dimensionalmente, <span class="tex">\(\displaystyle p \times \delta t\)</span> non è una probabilità ma un tempo...<br>
+<br>
+Seguire il tuo argomento è un po' difficile. Ho scritto nella mia soluzione quel che succede secondo me. In base al valore di <span class="tex">\(\displaystyle p\)</span>, la griglia potrebbe fornire un ostacolo al moto che è maggiore, minore o simile a quello dovuto agli urti tra le particelle.<br>
+
+<blockquote><div><cite>Higgs ha scritto: <a href="olifis-7279.html#p28687" data-post-id="28687" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">3 feb 2025, 18:07</div></cite>
+4. Risulta  <span class="tex">\(r=\frac{KT }{6 \pi \eta D } = 4,1.10^{-7 } m \)</span> con <span class="tex">\(D= 0,6 (\mu m)^2 /s\)</span><br>
+Si tratta di una macromolecola sicuramente appartenente ad una cellula complessa della chimica organica.
+</div></blockquote>
+Il ragionamento è lo stesso che ho fatto io ma ci viene un numero diverso, io ho messo questi numeri dentro Mathematica:
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>temp = 300; kB = 1.38*10^-23; eta = 0.00089; diff =  0.001*10^-6; 
+rH = kB*temp/(diff*6*3.1415*eta)</code></pre></div>
+E mi è uscito un raggio circa <span class="tex">\(\displaystyle 10^3\)</span> più piccolo del tuo.<br>
+<br>
+Giusta comunque l'osservazione che, se il risultato corretto è dell'ordine di <span class="tex">\(\displaystyle 10^{-7}\)</span> m, questa è una molecola complessa, molto grande, forse addirittura una cellula.</article>
+<article class="post" id="p28691"><div class="who"><b>Higgs</b><span>4 feb 2025, 12:58</span></div>Ti ringrazio tanto di aver risposto così dettagliatamente ad un problema che, ribadisco, è assolutamente fuori luogo a livello SNS. Sono sotto esame e quindi concedimi  qualche giorno perché devo rivedere il moto Browniano e la soluzione fornita da Byron che penso mi abbia confuso 8-)</article>
+<article class="post" id="p28693"><div class="who"><b>Pigkappa</b><span>4 feb 2025, 17:46</span></div>La soluzione di Byron ancora non l'ho cercata.<br>
+<br>
+Secondo me non è un problema fuori luogo. Il target non sono studenti di liceo generici, l'obbiettivo è identificare i circa 10 studenti migliori di quell'anno in Italia. Che ci siano alcuni studenti che hanno capito bene il moto browniano e hanno buona intuizione fisica (per fare il confronto tra diverse scale di lunghezza nella terza domanda) mi sembra plausibile.</article>
+<article class="post" id="p28694"><div class="who"><b>Pigkappa</b><span>5 feb 2025, 1:06</span></div>Mi sono messo stasera a simulare il moto della particella. I risultati tornano con quel che avevo scritto sopra  :D Posto qua sotto i grafici per i tre casi, <span class="tex">\(\displaystyle lp/d \gg 1\)</span> (retta con pendenza fissa), <span class="tex">\(\displaystyle lp/d \ll 1\)</span> (salita iniziale, poi appiattimento) e <span class="tex">\(\displaystyle lp/d \approx 1\)</span> (retta che cambia pendenza).<br>
+<br>
+<a class="lost" href="https://i.imgur.com/WZ08LjD.jpeg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+<a class="lost" href="https://i.imgur.com/jrVrnqz.jpeg" class="ext">[immagine non più disponibile]</a><br>
+<br>
+<a class="lost" href="https://i.imgur.com/6ZYUxwe.jpeg" class="ext">[immagine non più disponibile]</a></article>
+<article class="post" id="p28695"><div class="who"><b>Pigkappa</b><span>5 feb 2025, 1:08</span></div>Qua il codice per creare l'ultimo di quei grafici<br>
+
+<div class="codebox"><p>Codice: <a href="https://www.olifis.it/forum.olifis.it/" class="ext" onclick="selectCode(this); return false;">Seleziona tutto</a></p><pre><code>import numpy as np; np.random.seed(2)
+import matplotlib.pyplot as plt
+
+v = 1e-9; d = 1e-9; dt = d / v    # dt = 1 secondo
+l = 15 * d; p = 0.002;  ratio = l*p/d;
+T = 1e3; num_particles = int(1e4);
+N = int(T / dt) 
+
+positions = np.zeros((num_particles, N, 2))
+angles = np.random.uniform(0, 2 * np.pi, (num_particles, N))
+
+for i in range(1, N):
+    x_new = positions[:, i - 1, 0] + d * np.cos(angles[:, i])
+    y_new = positions[:, i - 1, 1] + d * np.sin(angles[:, i])
+
+    x_cross = np.abs(x_new - np.round(x_new / l) * l) &lt; d/2
+    y_cross = np.abs(y_new - np.round(y_new / l) * l) &lt; d/2
+    
+    transmit_x = np.random.rand(num_particles) &lt; p
+    transmit_y = np.random.rand(num_particles) &lt; p
+
+    x_new[x_cross &amp; ~transmit_x] = positions[x_cross &amp; ~transmit_x, i - 1, 0] - d * np.cos(angles[x_cross &amp; ~transmit_x, i])
+    y_new[y_cross &amp; ~transmit_y] = positions[y_cross &amp; ~transmit_y, i - 1, 1] - d * np.sin(angles[y_cross &amp; ~transmit_y, i])
+
+    positions[:, i, 0] = x_new
+    positions[:, i, 1] = y_new
+    
+msd = np.mean(positions[:, :, 0]**2 + positions[:, :, 1]**2, axis=0)
+times = np.arange(N) * dt
+
+plt.plot(times, msd * 1e12)  
+plt.xlabel("Time (s)"); plt.ylabel("Mean Squared Displacement (μm²)")  
+plt.text(times[-1] * 0.05, max(msd * 1e12) * 0.95, f"Ratio l*p/d = {ratio:.2f}", 
+         fontsize=12, bbox=dict(facecolor='white', alpha=0.8))
+plt.title("Mean Squared Displacement vs Time")
+plt.grid()
+plt.show()
+</code></pre></div></article>
+<article class="post" id="p28696"><div class="who"><b>Pigkappa</b><span>5 feb 2025, 1:27</span></div>Non posto le immagini ma ho anche fatto grafici con una retta che ha la pendenza che avevo suggerito nel terzo caso:<br>
+<br>
+<span class="tex">\(\displaystyle \alpha^2 \times \frac{1}{1 + \frac{lp}{d}}\)</span><br>
+<br>
+Dove scelgo <span class="tex">\(\displaystyle \alpha^2\)</span> in modo da combaciare bene con la pendenza della prima parte di salita rapida del grafico. Purtroppo, la pendenza della mia retta non è tale da renderla davvero parallela a quella per il moto per tempi lunghi. La mia funziona qua sopra ha il comportamento giusto in termini di <span class="tex">\(\displaystyle l, p, d\)</span> ma non rappresenta esattamente quel che succede.</article>
+<article class="post" id="p28698"><div class="who"><b>Higgs</b><span>6 feb 2025, 18:15</span></div>Faccio un commento sul tuo confronto fra le nostre soluzioni.<br>
+1. Giustamente su questo punto niente da dire.<br>
+<br>
+2. Ho controllato la mia soluzione con la trattazione del moto Browniano su Wikipedia e dovrei confermare quanto ho scritto. Infatti vengono considerate due forze: la forza di attrito cui è soggetta la particella <span class="tex">\(\vec F = -\lambda \vec v\)</span> e la forza dovuta agli urti disordinati del solvente <span class="tex">\(\vec f\)</span> isotropa e scorrelata per cui confermo l'equazione differenziale scritta con la soluzione data valida per <span class="tex">\(t&gt;&gt;\frac{ m}{ \lambda }\)</span> cioè<br>
+ <span class="tex">\(\vec v(t) = \vec v(0) e^{-\lambda t/m }\)</span>, si integra la velocità e si trova <span class="tex">\(\vec r(t)\)</span> e quindi <span class="tex">\(&lt;\vec r(t)^2&gt;\cong 2Dt\)</span> dovre <br>
+<span class="tex">\(D=(1/2) lim_{t\rightarrow \infty } \frac{&lt;r^2(t)&gt; }{t }\)</span> è la diffusività che è esattamente la mia.<br>
+ <br>
+Per i punti 3. e 4. ho sfruttato i suggerimenti di Byron. Premetto che la mia imprecisione ti ha giustamente indotto a rimarcare che <span class="tex">\( p \delta(t)\)</span> non ha le dimensioni di una probabilità. Perché ho omesso di sottolineare che  p è una probabilità per unità di tempo cioè rappresenta la probabilità che la particella superi la barriera in un secondo o un microsecondo se questa è l'unità usata nel caso. Quindi non c'è nessuna contraddizione dimensionale. Pertanto confermo il procedimento e i risultati ottenuti. Il grafico del moto inizialmente rettilineo , via via che incontra barriere da superare costringe la particella a rallentare come se il solvente fosse più denso e quindi il coefficiente angolare diminuisce. le due situazioni sono congiunte da un transiente e in definitiva si ottiene il grafico di Fig.4B.</article>
+<nav class="pager"><a class="prev" href="olifis-7277.html"><small>← precedente</small>328 - SNS n.3, 2024</a><a class="next" href="olifis-7288.html"><small>successivo →</small>SNS n. 5  2024</a></nav>
+</main></body></html>

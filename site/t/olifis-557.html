@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011 numero 6</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011, problema 6</span></nav>
+<h1>SNS 2010/2011 numero 6</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=557">forum Olifis</a></p>
+<article class="post first" id="p5006"><div class="who"><b>Luke</b><span>27 ago 2010, 23:53</span></div>Direttamente da Pisa....<br>
+<br>
+Si ha un reticolo infinito dove in ogni spigolo è presente una resistenza R = 2 ohm (in pratica infiniti quadrati aventi una resistenza ad ogni spigolo). Ad un certo punto tra i due punti A e B (dato che è infinito è irrilevante dove si prendono) si cambia la resistenza con un'altra da 2R. Calcolare la differenza di potenziale tra i punti A e B (stanno sullo stesso spigolo).</article>
+<article class="post" id="p5008"><div class="who"><b>Pigkappa</b><span>28 ago 2010, 0:03</span></div>Non penso di aver capito il testo... C'è solo un reticolo infinito di resistenze? Se non si dà tensione da nessuna parte, non si mette corrente in nessun modo, non ci sono campi elettrici e la differenza di potenziale è zero...</article>
+<article class="post" id="p5010"><div class="who"><b>Luke</b><span>28 ago 2010, 0:10</span></div>Si giusto, diceva anche che "è instaurata una differenza di potenziale tra i punti A e B" che è quella che va calcolata (se non ricordo male il testo)... sul disegno non era rappresentato nessun generatore né niente apparte le resistenze e i punti A e B.</article>
+<article class="post" id="p5011"><div class="who"><b>giove</b><span>28 ago 2010, 1:17</span></div>Era chiesta la resistenza equivalente tra A e B.</article>
+<article class="post" id="p5019"><div class="who"><b>Ippo</b><span>28 ago 2010, 12:31</span></div>Era chiesta la resistenza equivalente finale in funzione di quella iniziale o in forma esplicita?<br>
+in poche parole, bisognava calcolare esplicitamente <a href="http://xkcd.com/356/" class="ext" class="postlink">questo</a> (tra due punti vicini)? perché se sì è un problema abbastanza classico e parecchio difficile (io all'epoca non ne ero venuto fuori)</article>
+<article class="post" id="p5020"><div class="who"><b>giove</b><span>28 ago 2010, 12:56</span></div>E' come nella vignetta di xkcd, ma la resistenza tra A e B (che sono vicini) è 2R, mentre tutte le altre sono R. Bisogna calcolare la resistenza equivalente tra A e B.</article>
+<article class="post" id="p5025"><div class="who"><b>Pigkappa</b><span>28 ago 2010, 13:20</span></div>Direi che è ancora peggio di questo: <a href="http://forum.olifis.it/olifis/phpBB3/viewtopic.php?f=12&amp;t=356" class="ext" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=356</a><br>
+<br>
+Ci sarà una soluzione che sfrutta in qualche modo la simmetria, perchè mettersi a fare conti su resistenze che vanno da tutte le parti non credo porterebbe a grandi risultati.</article>
+<article class="post" id="p5026"><div class="who"><b>spn</b><span>28 ago 2010, 13:35</span></div>Secondo me il più difficile di quest'anno. Che io sappia l'idea buona ce l'hanno avuta solo in quattro persone (i tre croati e giove, di cui penso che solo giove e stp l'abbiano fatto giusto del tutto).</article>
+<article class="post" id="p5028"><div class="who"><b>Pigkappa</b><span>28 ago 2010, 14:21</span></div>Beh, diteci qual è l'idea buona senza farci faticare, su  :P <br>
+<br>
+Se qualcuno fosse così volenteroso da postare gli altri problemi farebbe un bene all'umanità... Prima che li mettano sul loro sito passeranno probabilmente molti mesi.</article>
+<article class="post" id="p5029"><div class="who"><b>Rigel</b><span>28 ago 2010, 14:26</span></div>Se si aggiunge una resistenza da 2R tra A e B si ha un collegamento in parallelo, per cui <span class="tex">\(1/R_0=1/R_{AB}+1/2R\)</span>, dove <span class="tex">\(R_0\)</span> è la resistenza della configurazione ottenuta. Ma tra A e B la resistenza diventa R (un parallelo di due da 2R) e quindi si ottiene la griglia infinita "uniforme" di cui basta calcolare la resistenza per trovare <span class="tex">\(R_{AB}\)</span>.<br>
+io ho fatto così ma l'ho cannato perchè ho messo <span class="tex">\(R_0=R/4\)</span>, con tanto di dimostrazione sbagliata xD<br>
+mi pare che stp e luca hanno usato le resistenz negative, più o meno è lo stesso ragionamento che ho detto ma al contrario magari</article>
+<article class="post" id="p5032"><div class="who"><b>Luke</b><span>28 ago 2010, 14:49</span></div><blockquote><div><cite>Rigel ha scritto:</cite>Se si aggiunge una resistenza da 2R tra A e B si ha un collegamento in parallelo, per cui <span class="tex">\(1/R_0=1/R_{AB}+1/2R\)</span>, dove <span class="tex">\(R_0\)</span> è la resistenza della configurazione ottenuta. Ma tra A e B la resistenza diventa R (un parallelo di due da 2R) e quindi si ottiene la griglia infinita "uniforme" di cui basta calcolare la resistenza per trovare <span class="tex">\(R_{AB}\)</span>...</div></blockquote> non ho capito, ma <span class="tex">\(R_{AB}\)</span> è la resistenza tra i due punti (ovvero 2R) ? allora l'ultimo termine <span class="tex">\(1/2R\)</span> a che si riferisce?</article>
+<article class="post" id="p5033"><div class="who"><b>Rigel</b><span>28 ago 2010, 14:59</span></div>No <span class="tex">\(R_{AB}\)</span> è la resistenza equivalente tra A e B, quella che ottieni considerando tutta la griglia</article>
+<article class="post" id="p5035"><div class="who"><b>Pigkappa</b><span>28 ago 2010, 15:01</span></div>Forse ho capito cosa vuole dirci... <span class="tex">\(R_{AB}\)</span> è la resistenza tra A e B se si toglie quella resistenza <span class="tex">\(2R\)</span> aprendo quel ramo del circuito; e <span class="tex">\(R_{AB} = R\)</span>, e questo lo si dimostra se ci si ricorda di questo problema: <a href="http://forum.olifis.it/olifis/phpBB3/viewtopic.php?f=12&amp;t=356" class="ext" class="postlink">olifis/phpBB3/viewtopic.php?f=12&amp;t=356</a> (la soluzione è nel primo post della terza pagina).<br>
+<br>
+Questo tipo di problemi comunque non mi sembra molto "fisico" (nel senso che bisogna solo trovare trucchetti per smontarlo, e non serve capire molto di fisica), ma uno ogni tanto può anche starci...</article>
+<article class="post" id="p5036"><div class="who"><b>Rigel</b><span>28 ago 2010, 15:06</span></div>mmm pensavo che stesse scritto nel testo...<span class="tex">\(R_{AB}\)</span> è la resistenza della griglia infinita modificata (quella con 2R) tra A e B. il trucchetto era collegare una resistenza da 2R in parallelo tra A e B in modo da avere una resistenza da R tra i due punti e ricondursi alla griglia infinita originaria (dove ci stanno solo resistenze da R) di cui si può calcolare la resistenza. poi si applica la formula per la connessione in parallelo e si trova <span class="tex">\(R_{AB}\)</span></article>
+<article class="post" id="p5037"><div class="who"><b>giove</b><span>28 ago 2010, 15:15</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Questo tipo di problemi comunque non mi sembra molto "fisico" (nel senso che bisogna solo trovare trucchetti per smontarlo, e non serve capire molto di fisica), ma uno ogni tanto può anche starci...</div></blockquote>
+Uhm, io ero contento perché per la prima volta nella mia vita ho avuto una bella idea in un problema di fisica :D</article>
+<article class="post" id="p5038"><div class="who"><b>Ippo</b><span>28 ago 2010, 18:16</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Questo tipo di problemi comunque non mi sembra molto "fisico" (nel senso che bisogna solo trovare trucchetti per smontarlo, e non serve capire molto di fisica), ma uno ogni tanto può anche starci...</div></blockquote>
+Concordo. Un po' come il 5 dell'anno scorso (quello sulla simmetria sferica - che comunque era molto più facile), anche lì ci voleva un'intuizione non ovvia per il controesempio mentre ogni approccio diretto falliva. Qui il grosso rischio era perdere sei ore a tentare calcoli improbabili. Comunque sì, uno all'anno ci può stare.</article>
+<article class="post" id="p5039"><div class="who"><b>Pigkappa</b><span>28 ago 2010, 20:22</span></div><blockquote><div><cite>Rigel ha scritto:</cite>mmm pensavo che stesse scritto nel testo...<span class="tex">\(R_{AB}\)</span> è la resistenza della griglia infinita modificata (quella con 2R) tra A e B. il trucchetto era collegare una resistenza da 2R in parallelo tra A e B in modo da avere una resistenza da R tra i due punti e ricondursi alla griglia infinita originaria (dove ci stanno solo resistenze da R) di cui si può calcolare la resistenza. poi si applica la formula per la connessione in parallelo e si trova <span class="tex">\(R_{AB}\)</span></div></blockquote>
+
+Uhm, ok. Però direi che funziona anche come avevo detto io qua sopra; il risultato è <span class="tex">\(\frac{2}{3} R\)</span>, giusto?</article>
+<article class="post" id="p5040"><div class="who"><b>giove</b><span>28 ago 2010, 20:36</span></div>A me e Stefano veniva <span class="tex">\(\frac23 R\)</span>, sì.</article>
+<article class="post" id="p5086"><div class="who"><b>lele91</b><span>3 set 2010, 13:30</span></div>Perfetto, anche a me veniva 2/3 R ;)</article>
+<nav class="pager"><a class="prev" href="olifis-861.html"><small>← precedente</small>SNS 2010/2011    numero   5</a><a class="next" href="olifis-624.html"><small>successivo →</small>SNS 2010/2011 problema carrucola</a></nav>
+</main></body></html>

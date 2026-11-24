@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Misurazione di g (SNS 2017-4)</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2017-2018, problema 4</span></nav>
+<h1>Misurazione di g (SNS 2017-4)</h1>
+<p class="meta">8 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=6536">forum Olifis</a></p>
+<article class="post first" id="p23749"><div class="who"><b>arna1998</b><span>3 set 2017, 10:21</span></div>Due gruppi di studenti devono stimare il valore dell'accelerazione di gravità <span class="tex">\(g\)</span> con due tipi di esperimenti. Il gruppo A ha a disposizione un oggetto di massa <span class="tex">\(m=200 \pm 5 \, g\)</span> ed una corda (di massa trascurabile) a cui appenderlo ad una distanza <span class="tex">\(l=24,8 \pm 0,3 \,cm\)</span> dal perno. Il gruppo B ha a disposizione svariate copie dell'oggetto di cui sopra, e può farlo cadere da un'altezza <span class="tex">\(h=4,90 \pm 0, 05 \, m\)</span>. Ciascun gruppo dispone di un singolo cronometro. Si assuma che con esso gli studenti possano misurare degli intervalli di tempo con un'incertezza di 50 ms. Dopo la preparazione degli esperimenti, vengono dati 20 secondi di tempo per svolgere le misure (e tutto il tempo necessario per l'analisi dati). Si trascurino fenomeni di attrito, resistenza dell'aria sui corpi, dimensioni dell'oggetto rispetto alle altre lunghezze.  Si trattino tutte le incertezze sopra riportate come errori casuali (deviazione standard rispetto al valore vero). 
+<ul><li>Quale dei due gruppi é nelle condizioni di poter dare la miglior stima di g ? Motivare brevemente la risposta, spiegando come devono essere svolti gli esperimenti per minimizzare l'incertezza sul risultato.</li> </ul>
+<ul><li>Le incertezze nelle misure sopra descritte includono altri fattori oltre all'errore strumentale. Discutere brevemente da dove possano derivare tali ulteriori fonti di incertezza nel misurare gli intervalli di tempi. Supponendo che il cronometro fornisca delle letture digitali con una risoluzione di 1 millisecondo, descrivere come si potrebbe misurare/verificare direttamente l'incertezza che sopra é stata assunta essere 50 ms, utilizzando gli strumenti descritti nel problema.</li> </ul></article>
+<article class="post" id="p23771"><div class="who"><b>Parmamath</b><span>9 set 2017, 22:58</span></div>Io l'ho risolto in maniera un po' approssimata ed è stato (penso) il problema in cui ho fatto meno punti, quindi rispondo solo per provare ad "attivare" un po' il resto degli utenti che sicuramente avranno fatto di meglio.</article>
+<article class="post" id="p23784"><div class="who"><b>arna1998</b><span>17 set 2017, 20:33</span></div>Per non lasciare senza risposta questo problema, che può tornare utile durante ad una prova sperimentale: <br>
+uno dei due gruppi ha un grosso vantaggio sull'altro, perché può ridurre l'errore di un fattore abbastanza grande. Sostanzialmente nel primo punto bisogna dire come si può fare questa cosa, è spiegare perché l'altro gruppo non può farla.</article>
+<article class="post" id="p23786"><div class="who"><b>carol</b><span>18 set 2017, 10:32</span></div>Secondo me il gruppo A può usare il pendolo e misurarne il periodo facendogli compiere molte oscillazioni che assorbono l'errore di lettura perchè se sono dieci l'errore di un periodo è diviso per dieci. Il gruppo B invece ha l'errore di una caduta...Ma forse ho detto sciocchezze :?:  :!:  :roll:</article>
+<article class="post" id="p23787"><div class="who"><b>arna1998</b><span>18 set 2017, 18:06</span></div>Si l'idea è quella :) <br>
+Per il punto B invece non so come fare  :? Al test ho scritto che l'incertezza deriva in parte anche dal tempo di reazione di chi usa il cronometro; per verificare se la stima di 50 ms è corretta si può tentare di fermare il cronometro ad un tempo fissato, 3.000 s ad esempio, e se ripetendo molte volte questa cosa si ottengono tempi compresi tra 2.950 e 3.050 s allora la stima è corretta, altrimenti va rivista. All'orale però mi hanno detto che nella parte b del problema 4 ho preso 0 punti, quindi non ho idea di cosa si aspettassero come risposta :(</article>
+<article class="post" id="p23791"><div class="who"><b>Pigkappa</b><span>19 set 2017, 22:47</span></div><blockquote><div><cite>arna1998 ha scritto: <a href="olifis-6536.html#p23749" data-post-id="23749" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">3 set 2017, 10:21</div></cite>Le incertezze nelle misure sopra descritte includono altri fattori oltre all'errore strumentale. Discutere brevemente da dove possano derivare tali ulteriori fonti di incertezza nel misurare gli intervalli di tempi.
+</div></blockquote>
+La cosa ovvia da dire e' che deriva dai riflessi della persona che prende le misure. 50 ms e' una stima ragionevole della precisione con cui una persona puo' premere il pulsante.<br>
+
+<blockquote><div><cite>arna1998 ha scritto: <a href="olifis-6536.html#p23749" data-post-id="23749" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">3 set 2017, 10:21</div></cite>Supponendo che il cronometro fornisca delle letture digitali con una risoluzione di 1 millisecondo, descrivere come si potrebbe misurare/verificare direttamente l'incertezza che sopra é stata assunta essere 50 ms, utilizzando gli strumenti descritti nel problema.</div></blockquote>
+Scegliamo un qualche evento che ha sempre la stessa durata di tempo, facciamo molte misure, e vediamo se la deviazione standard e' 50 ms per ogni misura. <br>
+<br>
+Ad esempio, diciamo che l'errore ogni volta che si preme il pulsante e' <span class="tex">\(\delta t\)</span>. Cerchiamo di misurare il tempo di una sola oscillazione. Faremo fare un errore di <span class="tex">\(\delta t\)</span> due volte e quindi (sommando quadraticamente perche' gli errori li assumiamo indipendenti) l'errore tipico sulla misura sara' <span class="tex">\(\sqrt{2} \delta t\)</span>.<br>
+<br>
+Facciamo molte misure di oscillazione, vediamo quanto vale la deviazione standard delle misure, e troviamo <span class="tex">\(\delta t\)</span>. Se la cosa ci interessa possiamo anche vedere quanto la distribuzione delle misure assomiglia ad una gaussiana o perlomeno ha una forma ragionevole; in caso contrario, c'e' motivo di preoccuparsi.<br>
+
+<blockquote><div><cite>arna1998 ha scritto:</cite>per verificare se la stima di 50 ms è corretta si può tentare di fermare il cronometro ad un tempo fissato, 3.000 s ad esempio, e se ripetendo molte volte questa cosa si ottengono tempi compresi tra 2.950 e 3.050 s allora la stima è corretta, altrimenti va rivista</div></blockquote>
+La cosa ha senso e darti zero punti e' un po' crudele, ma d'altra parte con questo metodo non e' chiarissimo come rivedere la stima, se si trova che la stima non e' corretta.</article>
+<article class="post" id="p23793"><div class="who"><b>Vinci</b><span>20 set 2017, 8:17</span></div><blockquote><div><cite>Pigkappa ha scritto: <a href="olifis-6536.html#p23791" data-post-id="23791" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">19 set 2017, 22:47</div></cite>
+(sommando quadraticamente perche' gli errori li assumiamo indipendenti) l'errore tipico sulla misura sara' <span class="tex">\(\sqrt{2} \delta t\)</span>.
+</div></blockquote>
+Non ho capito questa cosa o.O</article>
+<article class="post" id="p23794"><div class="who"><b>Pigkappa</b><span>20 set 2017, 18:19</span></div>Il testo suggerisce di fare cosi':
+<blockquote><div><cite>arna1998 ha scritto: <a href="olifis-6536.html#p23749" data-post-id="23749" onclick="if(document.getElementById(hash.substr(1)))href=hash">↑</a><div class="responsive-hide">3 set 2017, 10:21</div></cite>
+Si trattino tutte le incertezze sopra riportate come errori casuali (deviazione standard rispetto al valore vero). 
+</div></blockquote>
+
+<br>
+Provo a spiegarmi ma ho pochissimo tempo per cui questo post sara' confusionario.<br>
+<br>
+Indichiamo con <span class="tex">\(X\)</span> una variabile casuale. <span class="tex">\(X\)</span> puo' essere ad esempio il periodo di una oscillazione di un pendolo. Indichiamo con <span class="tex">\(x\)</span> una misura di <span class="tex">\(X\)</span>. Ogni volta che facciamo questa misura otterremo un valore diverso.<br>
+<br>
+Diciamo che la media di <span class="tex">\(X\)</span> e' <span class="tex">\(\mu\)</span> se la media di tante misure <span class="tex">\(\frac{1}{n} \sum_{i=1}^n{x_i}\)</span> tende a <span class="tex">\(\mu\)</span>. La indichiamo come <span class="tex">\(\mu = \mathbb E[X]\)</span>. Possiamo definire la media di altre quantita', ad esempio <span class="tex">\(\mathbb E[X^2]\)</span> sara' la cosa a cui tende la media di tante misure <span class="tex">\(x_i^2\)</span>.<br>
+<br>
+Definiamo la deviazione standard come <span class="tex">\(\sigma = \sqrt{ \mathbb E [ (X - \mathbb E[X])^2 ]}\)</span>. Ovvero <span class="tex">\(\sigma\)</span> e' la media quadratica della distanza tra un valore di <span class="tex">\(X\)</span> e la media di <span class="tex">\(X\)</span>. Ti puoi convincere che questa variabile rappresenta bene l'errore tipico sul valore di  <span class="tex">\(X\)</span> che troveremo facendo una singola misura.<br>
+<br>
+Ora immagina che quando misuriamo <span class="tex">\(X\)</span> facciamo un errore dovuto a due motivi diversi (nel caso del post sopra, ogni volta che si preme il pulsante si fa un errore). Chiamiamo <span class="tex">\(A, B\)</span> le variabili casuali di questi due errori, <span class="tex">\(a, b\)</span> due specifici valori di queste deviazioni da <span class="tex">\(\mu\)</span>. La nostra misura sara' <span class="tex">\(x = \mu + a + b\)</span>. Che cosa e' la deviazione standard? Scrivo il suo quadrato per evitare la radice:<br>
+<span class="tex">\(\sigma^2 = \mathbb E[( \mu + A + B - \mathbb E[\mu + A + B] )^2]\)</span>.<br>
+Se questi errori sono centrati intorno allo zero, che spesso e' una cosa abbastanza vera, <span class="tex">\( \mathbb E [A] = \mathbb E [ B ] = 0  \)</span>  (si dice che non c'e' bias). Inoltre <span class="tex">\(\mathbb E[\mu] = \mu\)</span> perche' stiamo assumendo che <span class="tex">\(\mu\)</span> sia il valore vero del periodo che e' sempre lo stesso. Sostituisci e:<br>
+<span class="tex">\(\sigma^2 = \mathbb E[(A + B)^2]\)</span>.<br>
+<span class="tex">\(\sigma^2 = \mathbb E[A^2 + 2 A B + B^2] = \mathbb E[A^2] + 2 \mathbb E[AB] + \mathbb[B^2]\)</span>.<br>
+<span class="tex">\(\mathbb E[A^2]\)</span> e' il quadrato della deviazione standard di <span class="tex">\(A\)</span>, <span class="tex">\(\sigma_A^2\)</span>. Similmente <span class="tex">\(\mathbb E[B^2] = \sigma_B^2\)</span>. Che cosa e' <span class="tex">\(\mathbb E[AB]\)</span>? E' la media del prodotto <span class="tex">\(ab\)</span>. In generale non e' detto che questa cosa sia zero. Tuttavia e' facile convincerti che, se l'errore che fai nell'individuare l'inizio dell'oscillazione e quello che fai nell'individuare la fine dell'oscillazione non sono legati tra loro, allora questa media fa 0. Se fai sistematicamente un errore collegato, ad esempio ogni volta che sbagli "in avanti" per l'inizio dell'oscillazione sbagli anche "in avanti" per la fine dell'oscillazione, <span class="tex">\(\mathbb E[AB]\)</span> non sara' zero e il risultato sara' piu' complicato.<br>
+<br>
+Se i due errori non sono legati tra loro si dice che sono indipendenti e <span class="tex">\(\sigma = \sqrt{\sigma_A^2 + \sigma_B^2}\)</span>. Nel mio post precedente, <span class="tex">\(\sigma_A = \sigma_B = \delta t\)</span>. Quando si e' in una situazione di questo tipo (per cui devono valere tutta una serie di ipotesi che ho nascosto sotto il tappeto) si dice che gli errori si sommano "in quadratura". Quando non si e' in una situazione di questo tipo si devono usare altri metodi per determinare l'errore, esempio semidispersione, esempio sommare i valori assoluti degli errori, esempio cose piu' astute che spero qualcuno suggerisca come risposta alla discussione che ho aperto in Problemi Sperimentali.</article>
+<nav class="pager"><a class="prev" href="olifis-7155.html"><small>← precedente</small>SNS 2017/18 n.3</a><a class="next" href="olifis-6550.html"><small>successivo →</small>SNS 2017 n.5</a></nav>
+</main></body></html>

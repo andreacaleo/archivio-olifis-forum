@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un chiarimento su SNS 6 2008/2209</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2008-2009, problema 6</span></nav>
+<h1>Un chiarimento su SNS 6 2008/2209</h1>
+<p class="meta">13 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=827">forum Olifis</a></p>
+<article class="post first" id="p7027"><div class="who"><b>andreaandrea</b><span>19 lug 2011, 22:56</span></div>Un aereo sta volando in linea retta ad un'altezza pari a <span class="tex">\(1 Km\)</span> dal terreno. Dalla torre di controllo, di altezza trascurabile rispetto al terreno, si sente il boom sonico dell'aereo<span class="tex">\(2,5 s\)</span> dopo che quest'ultimo è passato sopra di essa. Ponendo la velocità del suono pari a <span class="tex">\(340 m/s\)</span>, trovare la velocità dell'aereo. <br>
+Dopo il boom sonico si sente il suono dei motori dell'aereo, modificato dall'effetto Doppler. Considerando l'aereo una sorgente sonora con frequenza <span class="tex">\(f_0\)</span>, si scriva una formula per la frequenza f udita nella torre di controllo. Dove si trova l'aereo quando si ode una frequenza pari a <span class="tex">\(\dfrac{f_0}{2}\)</span>?<br>
+<br>
+Il problema è stato già postato, ma non ho ben capito la soluzione. è stato postato qui <a href="oliforum-11683.html" class="postlink">http://www.oliforum.it/viewtopic.php?t=11683</a>. <br>
+la soluzione alla prima parte di Rigel mi torna, ma non capisco una cosa: perchè il triangolo in figura è rettangolo?<br>
+la seconda parte non ci ho ancora provato, visto che la prima non riuscivo a risolverla. <br>
+<br>
+Chi di voi sa darmi una risposta?</article>
+<article class="post" id="p7029"><div class="who"><b>andreaandrea</b><span>21 lug 2011, 15:03</span></div>Non capisco, perchè nessuno risponde? <br>
+<br>
+è troppo facile o troppo difficile? <br>
+<br>
+forse semplicemente siete tutti al mare....... :roll:</article>
+<article class="post" id="p7030"><div class="who"><b>Pigkappa</b><span>21 lug 2011, 15:49</span></div>Ah ah, il mare.<br>
+<br>
+Io speravo rispondesse qualcun altro; ho un esame domani. Entro un paio di giorni risponderò, comunque...</article>
+<article class="post" id="p7033"><div class="who"><b>Pigkappa</b><span>22 lug 2011, 18:45</span></div>Ricordo che quel problema mi aveva dato un po' di fastidio durante la prova, anche se alla fine lo avevo risolto, e ammetto che su queste cose sono ignorante (ancora più di tre anni fa) e potrei non essere in grado di aiutarti.<br>
+<br>
+Non ricordo come lo avevo fatto, e la soluzione di Rigel non l'ho capita; io userei piuttosto il fatto che conosciamo (o almeno, dovremmo conoscere...) l'angolo di Mach (guarda <a href="http://www.grc.nasa.gov/WWW/K-12/airplane/machang.html" class="ext" class="postlink">http://www.grc.nasa.gov/WWW/K-12/airplane/machang.html</a>), che nella sua figura si chiama <span class="tex">\(\hat{ACB}\)</span>. Con questo dato in più, si può ricavare <span class="tex">\(v_a\)</span>.<br>
+<br>
+Dimmi se ti sembra funzionare...</article>
+<article class="post" id="p7141"><div class="who"><b>andreaandrea</b><span>9 ago 2011, 11:19</span></div>Penso che funzioni come dici tu, però non sono sicuro della soluzione che ho trovato, quindi la posto. <br>
+questa è l'immagine:<br>
+<br>
+<a class="lost" href="http://www.oliforum.it/download/file.php?id=352" class="ext">[immagine non più disponibile]</a><br>
+<br>
+Anche se nella figura l'angolo <span class="tex">\(\hat{BAC}\)</span> sembra retto, per quanto ne so non lo è (ovviamente se avete una spiegazione per cui lo sia, ditemi pure). <br>
+<br>
+sull'Halliday ho letto che per l'angolo di Mach, ovvero <span class="tex">\(\hat{ABC}\)</span> vale la relazione: <br>
+<br>
+<span class="tex">\(sin\phi = \dfrac{v_s}{v_a}\)</span><br>
+<br>
+con  <span class="tex">\(v_s\)</span> velocità del suono e <span class="tex">\(v_a\)</span> velocità dell'aereo. <br>
+<br>
+sia <span class="tex">\(h = 1 Km\)</span> e <span class="tex">\(r = 2,5 s\)</span><br>
+<br>
+ottengo le due equazioni: <br>
+<br>
+<span class="tex">\(\sqrt{v_s^2 (t + r)^2 - v_a^2t^2} = h\)</span><br>
+<br>
+e<br>
+<br>
+<span class="tex">\(\dfrac{v_s}{v_a} = \dfrac {h}{v_s (t+r)}\)</span><br>
+<br>
+da cui ricavo (0): <br>
+<br>
+<span class="tex">\((t+r)^2(h^2 - v_s^2t^2) = \dfrac{h^4}{v_s^2}\)</span><br>
+<br>
+approssimo <span class="tex">\(v_s^2 = 1,156 * 10^5 \approx 10^5\)</span><br>
+<br>
+quindi, ignorando le unità di misura, (1)<br>
+<br>
+<span class="tex">\((t + 2,5)^2 (10-t^2) = 100\)</span><br>
+<br>
+assumo t sufficientemente piccolo per cui <span class="tex">\((10-t^2) \approx 10\)</span><br>
+<br>
+Ottengo quindi <span class="tex">\(t \approx 0,65\)</span>. Ricontrollo la (1) e verifico che l'assunzione di t sufficientemente piccolo è buona. <br>
+<br>
+Adesso, assumendo <span class="tex">\(v_s^2 = 340^2 m^2/s^2\)</span>: <br>
+<br>
+<span class="tex">\(v_a = \dfrac{v_s^2 (t+r)}{h} = 365 m/s\)</span><br>
+<br>
+Ciò che mi fa pensare è che il risultato postato dove indica Pigkappa è ben diverso......<br>
+Forse le approssimazioni sono esagerate? comunque per l'ammissione in normale non hai la calcolatrice e quindi, come fai se non approssimi ? <br>
+<br>
+datemi un parere<br>
+<br>
+EDIT CON LA CALCOLATRICE<br>
+<br>
+Senza alcuna approssimazione dalla (0) ricavo l'equazione in t: <br>
+<br>
+<span class="tex">\(1,156t^4 + 5,78t^3 - 2,775t^2 - 50t +24 = 0\)</span><br>
+<br>
+Risolvendola con il metodo di bisezione ottengo: <br>
+<br>
+<span class="tex">\(t \approx 0,48\)</span> con un errore inferiore a un centesimo. <br>
+<br>
+da cui <br>
+<br>
+<span class="tex">\(v_a = 344 m/s\)</span><br>
+<br>
+Il risultato è ancora più vicino alla velocità del suono!!</article>
+<article class="post" id="p7142"><div class="who"><b>Pigkappa</b><span>9 ago 2011, 12:31</span></div>Per quel problema potevi usare la calcolatrice alla cattedra.</article>
+<article class="post" id="p7143"><div class="who"><b>andreaandrea</b><span>9 ago 2011, 15:40</span></div>Grazie Pigkappa, ho editato il post inserendo la soluzione più precisa ottenuta con la calcolatrice. <br>
+<br>
+Il fatto che la velocità dell'aereo sia molto vicina a quella del suono, spiega il motivo della frase:  <blockquote><div><cite>andreaandrea ha scritto:</cite>Ponendo la velocità del suono pari a <span class="tex">\(340 m/s\)</span></div></blockquote>
+
+che ne dite, vi convince come soluzione ?</article>
+<article class="post" id="p7145"><div class="who"><b>Pigkappa</b><span>10 ago 2011, 0:42</span></div>Non mi sembra proprio che si dovesse passare da equazioni da risolvere numericamente... <br>
+<br>
+Ho chiesto a Rigel di intervenire per illuminarci sulla sua soluzione, e spero riceva il mio messaggio. Scusate se io non mi rimetto a fare questo problema ma ho altro da fare e l'argomento non mi è particolarmente consono.</article>
+<article class="post" id="p7146"><div class="who"><b>AxxMan</b><span>10 ago 2011, 8:36</span></div>A me è venuto come Rigel... In pratica dalla torre si sente il boom quando il fronte d'onda del cono di Mach raggiunge la torre di controllo. Ti basta esprimere l'angolo in funzione delle due velocità, quindi lo spazio percorso dall'aereo da quando sorvola la torre fino a quando il cono la raggiunge, sempre in funzione dello stesso angolo. Avrai due equazioni in tangente e seno dell'angolo e velocità dell'aereo, e le puoi risolvere. Per il secondo punto tieni presente che si ha effetto Doppler solo per movimenti di allontanamento e avvicinamento sulla congiungente sorgente osservatore, perchè il moto tangenziale non varia la distanza tra i due corpi. Devi quindi considerare la componente della velocità diretta verso la torretta... Il triangolo è rettangolo perchè il cono di mach è un fronte d'onda, quindi è per definizione perpendicolare alla direzione di propagazione</article>
+<article class="post" id="p7147"><div class="who"><b>andreaandrea</b><span>10 ago 2011, 9:36</span></div>allora dove ho sbagliato ? <br>
+<br>
+e poi non ho capito un'altra cosa: mi torna che 
+<blockquote><div><cite>AxxMan ha scritto:</cite> Il triangolo è rettangolo perchè il cono di mach è un fronte d'onda, quindi è per definizione perpendicolare alla direzione di propagazione</div></blockquote>
+ma questo significa che BC <span class="tex">\(\perp\)</span> AH, giusto?<br>
+non capisco quindi perchè AB <span class="tex">\(\perp\)</span> AC .....<br>
+<br>
+sapete darmi qualche chiarimento ??? grazie mille in anticipo!!!</article>
+<article class="post" id="p7154"><div class="who"><b>Rigel</b><span>10 ago 2011, 15:57</span></div>Sì sostanzialmente io l'avevo risolto come dice axxman.<br>
+noi sappiamo che il fronte d'onda emesso dall'areo forma con la direzione del moto (che è orizzontale) un angolo tale che <span class="tex">\(\sin\theta_m=\frac{v_s}{v_a}\)</span>. Siccome il fronte d'onda è perpendicolare alla direzione di propagazione delle onde, allora il suono si propaga formando un angolo pari a <span class="tex">\(\theta_m\)</span> con la verticale.<br>
+Quindi il punto B, in cui è stato emesso il suono che per primo raggiunge la torre, si trova tracciando una retta inclinata di <span class="tex">\(\theta_m\)</span> rispetto alla verticale e intersecandola con la direzione del moto dell'aereo.<br>
+Il punto C è il punto in cui si trova l'aereo quando la torre sente il suono.<br>
+Per costruzione i segmenti AH, AB, BH, CH, BC hanno le lunghezze scritte nel disegno.<br>
+Se ora io unisco A e C ottengo che il rapporto tra AB e BC è pari al coseno di <span class="tex">\(\hat{ABC}\)</span>, per cui il triangolo ABC è rettangolo</article>
+<article class="post" id="p7155"><div class="who"><b>difilì</b><span>10 ago 2011, 15:59</span></div><blockquote><div><cite>andreaandrea ha scritto:</cite>sull'Halliday ho letto che per l'angolo di Mach, ovvero \hat{ABC} vale la relazione: </div></blockquote>
+credo che l'errore stia nel fatto che l'angolo di Mach in realtà è l'angolo in C</article>
+<article class="post" id="p7157"><div class="who"><b>andreaandrea</b><span>10 ago 2011, 17:12</span></div>Hai ragione !! ora ho capito !! grazie mille a tutti!!</article>
+<nav class="pager"><a class="prev" href="oliforum-11683.html"><small>← precedente</small>SNS 2008/2009 problema 6</a><a class="next" href="olifis-250.html"><small>successivo →</small>SNS 2009/2010 Problema 1</a></nav>
+</main></body></html>

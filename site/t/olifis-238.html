@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS Chimica - Problema 2 03/04</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Chimica e biologia 2003-2004, problema 2</span></nav>
+<h1>SNS Chimica - Problema 2 03/04</h1>
+<p class="meta">15 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=238">forum Olifis</a></p>
+<article class="post first" id="p2141"><div class="who"><b>Albertopisa</b><span>24 ago 2009, 14:21</span></div>Quando si osserva un aereo passare ad alta quota si notano due effetti. Primo, il rumore emesso dall’aereo sembra avere un massimo quando l’aereo è passato ben oltre lo zenith. Secondo, l’aereo non sembra emettere quasi alcun rumore prima del picco di intensità, mentre è chiaramente<br>
+udibile dopo. Sapete spiegare quantitativamente questi due fatti? Si noti che il suono, quando si propaga nell’aria, viene assorbito con coefficiente <span class="tex">\(e^{-G}\)</span>, ove <span class="tex">\(G=KDn^2\)</span>, <span class="tex">\(D\)</span> è la distanza percorsa, <span class="tex">\(n\)</span> è la frequenza del suono, e <span class="tex">\(K\)</span> è una costante che vale circa <span class="tex">\(3,3*10^{-11} m^{-1} Hz^{-2}\)</span>. Si consideri in special modo un aereo di linea che viaggia a <span class="tex">\(900 km/h\)</span> e a <span class="tex">\(10000 m\)</span> di altezza, il picco di frequenza del rumore a circa <span class="tex">\(3000 Hz\)</span>, e si prenda per la velocità del suono nell’aria <span class="tex">\(1100 km/h\)</span>.</article>
+<article class="post" id="p2142"><div class="who"><b>Pigkappa</b><span>24 ago 2009, 14:27</span></div><blockquote><div><cite>Pigkappa nel topic in evidenza ha scritto:</cite><span style="font-size: 100%; line-height: normal"><strong class="text-strong">Mi fate un grande favore se, quando postate un problema della SNS, specificate di che anno è e che numero è (problema 1, problema 2, eccetera). Sarebbe altresì utile che mi segnaliate se viene dalle selezioni per chimica/biologia.</strong></span></div></blockquote>
+
+<br>
+grazie</article>
+<article class="post" id="p2143"><div class="who"><b>Alex90</b><span>24 ago 2009, 14:38</span></div>Per il primo direi che il massimo di intensità viene percepito perchè nel tempo in cui l'aereo passa da immediatamente sopra l'osservatore, posizione in cui si ha il minimo di assorbimento dato che la distanza percorsa è minima, a quello in cui il suono raggiunge l'osservatore, l'aereo percorre una distanza orizzontale pari a <span class="tex">\(S = \frac{v_A}{v_s}h\)</span>...non se però in questo dobbiamo contare anche l'effetto doppler...</article>
+<article class="post" id="p2166"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 18:50</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Per il primo direi che il massimo di intensità viene percepito perchè nel tempo in cui l'aereo passa da immediatamente sopra l'osservatore, posizione in cui si ha il minimo di assorbimento dato che la distanza percorsa è minima, a quello in cui il suono raggiunge l'osservatore, l'aereo percorre una distanza orizzontale pari a <span class="tex">\(S = \frac{v_A}{v_s}h\)</span>...non se però in questo dobbiamo contare anche l'effetto doppler...</div></blockquote>
+
+Si bisogna considerarlo, con Rivelatore fermo e sorgente in movimento che si sta allontanando.<br>
+<br>
+<br>
+Allora Per suono assorbito si intende l'energia stessa dell'onda sonora che viene imagazzinata dalle particelle dell'aria, per cui quello che arriva al nostro orecchio non è altro che la frazione rimasta non assorbita del suono. Questa frazione può essere espressa come<br>
+<br>
+<span class="tex">\(E_1 = \frac{1}{e^{G}}E_0\)</span><br>
+<br>
+Quindi<br>
+<span class="tex">\(E_1 = \frac{1}{e^{kDn^2}}E_0\)</span><br>
+<br>
+In quest'ultima equazione si può notare che la variabile che ha maggiore "peso" è la frequenza e successivamente la distanza.<br>
+Per effetto Doppler si ha che<br>
+<br>
+<span class="tex">\(\nu_1 = \nu \frac{v_s \pm v_a}{v_s}\)</span><br>
+<br>
+Tra i due casi si deve prendere quello che rende il minimo del coefficiente di assorbimento e quindi il massimo di energia NON assorbita. Per cui si avrà:<br>
+<br>
+<span class="tex">\(E_1 = \frac{1}{e^{kD \nu \frac{v_s - v_a}{v_s}}}E_0\)</span><br>
+<br>
+Ponendo allora D come incognita si avrà che c'è un  massimo più in là del zenit quando l'aereo si sta allontanando e ciò si avrà soltanto se l'energia trasmessa E_1 e quella della sorgente E_0 sono in fase tra loro, quindi deve essere che:<br>
+<span class="tex">\(\frac{1}{e^{kD \nu \frac{v_s - v_a}{v_s}}} = 2 m\)</span><br>
+m numero intero<br>
+Poi sostituendo alla frequenza il valore del picco e risolvendo questa equazione si avrà la distanza D..<br>
+<br>
+<br>
+Per il secondo punto non capisco cosa si intende per picco di intensità di un aereo..Kmq nel caso del massimo precedente, se questo può essere considerato come un picco, dopo di esso si sentirà chiaro il suono e paragonando D alla frequenza, si può dire che aumentando a piacere la distanza D, nonostante l'energia <span class="tex">\(E_1\)</span> si attenua, non sarà assorbita del tutto, cioè l'aereo arriverà fino all'orizzonte facendosi sentire, ma poi D sarà così grande, da prevalere sulla frequenza. E quindi non si sentirà niente.</article>
+<article class="post" id="p2167"><div class="who"><b>Albertopisa</b><span>24 ago 2009, 19:17</span></div>Ci sono due cose nella tua soluzione che non ho capito; come fai a supporre che l'energia ricevuta sia indipendente dalla distanza? Cioe', l'intensita' dovrebbe essere proporizionale all'inverso del quadrato della distanza...<br>
+Poi potresti spiegare meglio il passaggio in cui parli della fase tra le energie?<br>
+Grazie!</article>
+<article class="post" id="p2168"><div class="who"><b>Loren Kocillari89</b><span>24 ago 2009, 19:43</span></div><blockquote><div><cite>Albertopisa ha scritto:</cite>Ci sono due cose nella tua soluzione che non ho capito; come fai a supporre che l'energia ricevuta sia indipendente dalla distanza? Cioe', l'intensita' dovrebbe essere proporizionale all'inverso del quadrato della distanza...<br>
+Poi potresti spiegare meglio il passaggio in cui parli della fase tra le energie?<br>
+Grazie!</div></blockquote>
+
+E' vero l'irragiamento o intensità è proporzionale all'inverso del quadrato della distanza, tuttavia intensità ed energia non sono la stessa grandezza infatti l'intensità è il rapporto tra la potenza e la superficie incidente. La potenza però in questo caso non cambia, quindi non cambia nemmeno l'energia. <br>
+Per quanto riguardo alla fase, è il punto più debole della mia soluzione in quanto ho ipotizzato a considerare l'energia del suono come un onda dove per avere un massimo la fase deve essere 0 o 2pigreco e multipli. Quindi se ti prendi l'equazione standard di un onda sonora, il coseno dell'equazione si riduce a 1 per cui <span class="tex">\(E_1\)</span> è massimo.. :|  è tutto ciò che mi è venuto in mente....</article>
+<article class="post" id="p2172"><div class="who"><b>Alex90</b><span>24 ago 2009, 20:55</span></div>Io comunque credo che l'assorbimento vada relazionato alla frequenza emessa, non a quella percepita...all'aria non gli frega niente se quello a cui deve arricare il suono le sta correndo in contro o sta scappando a gambe levate  :D</article>
+<article class="post" id="p2201"><div class="who"><b>Albertopisa</b><span>25 ago 2009, 11:40</span></div>Non so se fa differenza, pero' in questo caso e' la sorgente a muoversi; non riesco a capire come l'aria potrebbe distinguere un'onda che ha veramente quella frequenza dall'onda che ha quella frequenza a causa del doppler...</article>
+<article class="post" id="p2202"><div class="who"><b>Alex90</b><span>25 ago 2009, 11:41</span></div>Appunto la <span class="tex">\(\nu\)</span> è quella emessa secondo me</article>
+<article class="post" id="p2203"><div class="who"><b>Albertopisa</b><span>25 ago 2009, 11:55</span></div>Si', lo avevo capito, forse mi sono spiegato male  :oops:  Comunque il mio dubbio stava solo nel fatto che il tuo ragionamento mi torna solamente se e' l'osservatore a muoversi; nel caso in cui sia la sorgente a muoversi pensavo che l'aria si potesse comportare come un qualsiasi "osservatore" fermo, e che quindi la frequenza sia quella modificata dal Doppler...</article>
+<article class="post" id="p2207"><div class="who"><b>CoNVeRGe.</b><span>25 ago 2009, 14:01</span></div>L'aereo emette in ogni direzione un suono dalla frequenza determinata ma diversa a seconda dell'angolazione. La frequenza che va nel coefficiente di assorbimento è quella dell'onda rispetto al mezzo, quindi quella modificata dalla velocità dell'aereo.<br>
+<br>
+L'intensità che si percepisce a terra dell'onda che viene generata quando l'aereo è a distanza <span class="tex">\(\displaystyle D\)</span> è:<br>
+<br>
+<span class="tex">\(\displaystyle I = cost. \cdot \frac{1}{(e^{K \nu' ^2})^{D} D^2}\)</span><br>
+<br>
+Si vede che fissata la frequenza <span class="tex">\(\displaystyle  \nu'\)</span> con cui viene percepito il suono nell'istante di massima intensità, quest'ultima è massima quando <span class="tex">\(\displaystyle D\)</span> è minimo, ovvero quando l'aereo si trova sopra il punto di osservazione.<br>
+<br>
+Quindi, nel frattempo che il suono ci arriva, l'aereo percorre alcuni chilometri, come ha scritto Alex.<br>
+<br>
+Per quanto riguarda il secondo punto osserviamo che l'intensità diminuisce sia con l'aumentare della frequenza (aereo in avvicinamento) che con la distanza, per cui prima del massimo sentiamo poco rumore.<br>
+Invece quando l'aereo si allontana la diminuizione di frequenza tende a smorzare gli effetti della distanza, quindi il rumore si sente abbastanza. Quantitativamente non ho voglia di farlo  :roll:</article>
+<article class="post" id="p2209"><div class="who"><b>CoNVeRGe.</b><span>25 ago 2009, 14:48</span></div>Quantitativamente si può calcolare il rapporto tra le intensità dei suoni emessi ad una stessa distanza dalla posizione di osservazione, l'una con l'aereo in avvicinamento, l'altra con l'aereo in allontanamento.<br>
+Per una distanza di 50 chilometri ottengo che questo rapporto è di ben 27,3.</article>
+<article class="post" id="p2210"><div class="who"><b>Loren Kocillari89</b><span>25 ago 2009, 16:49</span></div><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>L'aereo emette in ogni direzione un suono dalla frequenza determinata ma diversa a seconda dell'angolazione. La frequenza che va nel coefficiente di assorbimento è quella dell'onda rispetto al mezzo, quindi quella modificata dalla velocità dell'aereo.<br>
+<br>
+L'intensità che si percepisce a terra dell'onda che viene generata quando l'aereo è a distanza <span class="tex">\(\displaystyle D\)</span> è:<br>
+<br>
+<span class="tex">\(\displaystyle I = cost. \cdot \frac{1}{(e^{K \nu'})^{D} D^2}\)</span><br>
+
+</div></blockquote>
+ Non riesco a capire il significato di quella cost. e il fatto per cui la distanza si trova elevata al quadrato al posto di n...come è nella formula del testo  :roll:. Inoltre oltre che dall'angolazione non credi che ci sia anche l'effetto Doppler? Prendi il caso di un ambulanza volante che ti passa sopra..Sentirai un massimo quando l'onda che ti arriva è in fase cioè le lunghezze d'onda sono "pari" e la distanza minima rispetto all'ambulanza. Ma nel frattempo non devi perderti l'effetto Doppler...</article>
+<article class="post" id="p2211"><div class="who"><b>Albertopisa</b><span>25 ago 2009, 16:54</span></div><blockquote><div><cite>Loren Kocillari89 ha scritto:</cite><blockquote><div><cite>CoNVeRGe. ha scritto:</cite>L'aereo emette in ogni direzione un suono dalla frequenza determinata ma diversa a seconda dell'angolazione. La frequenza che va nel coefficiente di assorbimento è quella dell'onda rispetto al mezzo, quindi quella modificata dalla velocità dell'aereo.<br>
+<br>
+L'intensità che si percepisce a terra dell'onda che viene generata quando l'aereo è a distanza <span class="tex">\(\displaystyle D\)</span> è:<br>
+<br>
+<span class="tex">\(\displaystyle I = cost. \cdot \frac{1}{(e^{K \nu'})^{D} D^2}\)</span><br>
+
+</div></blockquote>
+ Non riesco a capire il significato di quella cost. e il fatto per cui la distanza si trova elevata al quadrato al posto di n...come è nella formula del testo  :roll:. Inoltre oltre che dall'angolazione non credi che ci sia anche l'effetto Doppler? Prendi il caso di un ambulanza volante che ti passa sopra..Sentirai un massimo quando l'onda che ti arriva è in fase cioè le lunghezze d'onda sono "pari" e la distanza minima rispetto all'ambulanza. Ma nel frattempo non devi perderti l'effetto Doppler...</div></blockquote>
+
+La costante credo derivi dalla formula a cui avevo accennato, che lega potenza a intensita'. Onestamente poi non credo ci sia un problema di fase, alla fine poi l'onda e' unica, per cui non si ha interferenza...</article>
+<article class="post" id="p2212"><div class="who"><b>CoNVeRGe.</b><span>25 ago 2009, 17:11</span></div>Se la potenza della sorgente è costante e non va persa nella distanza, si ha la ben nota relazione:<br>
+<br>
+<span class="tex">\(\displaystyle I = \frac{P_{Sorg.} }{4 \pi D^2}\)</span><br>
+<br>
+Poichè la potenza varia con la distanza come <span class="tex">\(\displaystyle P = P_{Sorg.} e^{-K \nu^2 D}\)</span>, si ha:<br>
+<br>
+<span class="tex">\(\displaystyle I = \frac{P_{Sorg.}}{4 \pi} \cdot \frac{1}{e^{K \nu^2 D} D^2}\)</span><br>
+<br>
+Prima ho dimenticato un quadrato scrivendo la frequenza, è vero, correggo.<br>
+
+<blockquote><div><cite>Loren Kocillari89 ha scritto:</cite>
+Inoltre oltre che dall'angolazione non credi che ci sia anche l'effetto Doppler? Prendi il caso di un ambulanza volante che ti passa sopra..Sentirai un massimo quando l'onda che ti arriva è in fase cioè le lunghezze d'onda sono "pari" e la distanza minima rispetto all'ambulanza. Ma nel frattempo non devi perderti l'effetto Doppler...
+</div></blockquote>
+Dipende dall'angolazione appunto per l'effetto Doppler, non parlavo d'altro.<br>
+<br>
+Non capisco quanto abbia senso dire "in fase" e parlare di differenze di cammino visto che le onde non possono sovrapporsi perchè la velocità dell'aereo è minore di quella del suono.</article>
+</main></body></html>

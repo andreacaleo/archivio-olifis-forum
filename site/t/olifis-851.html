@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un dubbio sulla notazione- SNS 1996-1997</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 1996-1997, problema 1</span></nav>
+<h1>Un dubbio sulla notazione- SNS 1996-1997</h1>
+<p class="meta">6 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=851">forum Olifis</a></p>
+<article class="post first" id="p7178"><div class="who"><b>floppino81892</b><span>13 ago 2011, 0:16</span></div>1. A causa dell’attrito dell’aria, un grave in caduta libera, dopo un tempo relativamente breve, raggiunge una velocita limite costante. Stimare la velocità di <br>
+arrivo al suolo di una goccia di pioggia di raggio 3 mm e di un paracadute di<br>
+superﬁcie pari a 20 <span class="tex">\(m^2\)</span><br>
+con un peso di 64 kg, assumendo che la forza di attrito<br>
+sia della forma  <span class="tex">\(-A k |\vec v| \vec v\)</span> con A l’area della proiezione del grave sul piano ortogonale a <span class="tex">\(\vec v\)</span>, k = 0;08 nel sistema tecnico (metro, kg peso, sec). Confrontare<br>
+i risultati con il caso di caduta libera nel vuoto da 1.000 m<br>
+<br>
+Il dubbio è la forma in cui è scritta la forza di attrito ...se non fosse per questo il problema è fattibile, sta anche simile sull' Halliday dove chiama "<span class="tex">\(b\)</span>" la quantità <span class="tex">\(-A k\)</span></article>
+<article class="post" id="p7180"><div class="who"><b>Pigkappa</b><span>13 ago 2011, 0:35</span></div>Come l'hai scritto tu non ha senso. Forse è <span class="tex">\(-A k v \vec v\)</span>, oppure <span class="tex">\(-A k |\vec v| \vec v\)</span> (che sarebbe la stessa cosa)?</article>
+<article class="post" id="p7186"><div class="who"><b>floppino81892</b><span>13 ago 2011, 16:29</span></div>ho editato...c è scritto proprio così...ho pensato anche che ci fosse un errore nella traccia</article>
+<article class="post" id="p7187"><div class="who"><b>Pigkappa</b><span>13 ago 2011, 21:27</span></div><blockquote><div><cite>floppino81892 ha scritto:</cite><span class="tex">\(-A k |\vec v| \vec v\)</span></div></blockquote>
+
+Questa scrittura è corretta. <span class="tex">\(|\vec v|\)</span> è il modulo del vettore <span class="tex">\(\vec v\)</span> (che io indicherei semplicemente come <span class="tex">\(v\)</span>, ma va bene anche scriverlo in quel modo).</article>
+<article class="post" id="p7188"><div class="who"><b>floppino81892</b><span>13 ago 2011, 21:43</span></div>ok, scusa l'ignoranza, ma in definitiva la forza di attrito è proporzionale a <span class="tex">\(v\)</span> o a <span class="tex">\(v^2\)</span>  ?</article>
+<article class="post" id="p7193"><div class="who"><b>Pigkappa</b><span>14 ago 2011, 18:16</span></div>A <span class="tex">\(v^2\)</span>. Il modulo di <span class="tex">\(v\)</span> è alla prima potenza in <span class="tex">\(|\vec v|\)</span> ed alla prima potenza in <span class="tex">\(\vec v\)</span>.</article>
+<nav class="pager"><a class="prev" href="olifis-214.html"><small>← precedente</small>SNS 1995/1996 n°3 - sistemi di stelle in rotazione</a><a class="next" href="olifis-237.html"><small>successivo →</small>SNS 1996-1997 (3)</a></nav>
+</main></body></html>

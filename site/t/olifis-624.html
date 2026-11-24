@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011 problema carrucola</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011</span></nav>
+<h1>SNS 2010/2011 problema carrucola</h1>
+<p class="meta">19 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=624">forum Olifis</a></p>
+<article class="post first" id="p5544"><div class="who"><b>Bertal</b><span>30 nov 2010, 18:18</span></div>Ciao,<br>
+<br>
+sto provando a risolvere questo problema da qualche giorno, ma senza risultati !<br>
+<br>
+Vi posto il testo:<br>
+----<br>
+Considerate la corda inestensibile e di peso trascurabile e lunghezza L in figura, avvolta<br>
+attorno ad una carrucola di raggio R e alle cui estremità sono appesi inizialmente due corpi<br>
+S e B di massa m. Il sistema è inizialmente in quiete e con i corpi S e B alla stessa quota,<br>
+ma a t = 0 il corpo S inizia ad arrampicarsi sulla corda con una accelerazione costante a<br>
+grazie ad un meccanismo interno. Il corpo raggiunge così una velocità v0 e quindi rallenta<br>
+con decelerazione uguale ad a in valore assoluto, fino a tornare in quiete. Tutte le velocità ed<br>
+accelerazioni del corpo S si considerino sempre relative alla corda. Assumendo che la corda<br>
+non slitti mai sulla carrucola, determinare il moto dei due corpi nei seguenti casi:<br>
+3a la carrucola ha massa trascurabile;<br>
+3b la carrucola è un disco rigido omogeneo di massa M e momento di inerzia I = MR2/2.<br>
+------<br>
+<br>
+Io credo che nella prima fase le due masse salgano entrambe con accelerazione a/2 (dove a è quella rispetto alla corda) ma sono molto insicuro !!<br>
+Spero che i GRANDI del forum si cimentino nella soluzione almeno del primo punto !<br>
+Grazie
+<dl class="attachbox">
+					<dt>
+						Allegati
+					</dt>
+											<dd>
+			
+		
+				<dl class="file">
+			<dt class="attach-image"><a class="lost" href="https://www.olifis.it/forum.olifis.it/download/file.php?id=149" class="ext">[immagine non più disponibile]</a></dt>
+						<dd>Pulley.jpg (13.65 KiB) Visto 10295 volte</dd>
+		</dl>
+		
+		
+		
+			</dd>
+									</dl></article>
+<article class="post" id="p5548"><div class="who"><b>spn</b><span>1 dic 2010, 0:13</span></div>Provo a darti qualche hint per il primo punto, il secondo penso che si possa fare abbastanza tranquillamente capito il meccanismo:<br>
+<br>
+Supponiamo che le accelerazioni delle due masse siano diverse, quali dovrebbero essere le tensioni della corda su S e B?<br>
+Qual'è l'accelerazione angolare della carrucola in questo caso?</article>
+<article class="post" id="p5549"><div class="who"><b>Eagle							
+
+									
+						
+		
+						
+						
+		
+
+		
+						
+
+						Re: SNS 2010/2011 problema carrucola</b><span>1 dic 2010, 0:56</span></div>Ho provato a risolvere qualitativamente il problema e ho immaginato la massa <span class="tex">\(m_1\)</span> (con il meccanismo interno) come uno scoiattolo che tenta di salire spingendo con le zampe il filo verso il basso. Ci vado con i piedi di piombo, perché non so se sia possibile, ma intuitivamente vedo lo scoiattolo fermo che spinge in basso la corda restando alla stessa altezza, mentre l'altra massa sale. E' possibile?</article>
+<article class="post" id="p5550"><div class="who"><b>Meta*</b><span>1 dic 2010, 14:47</span></div>I corpi si trovano allo stesso livello sia quando l'accelerazione è positiva sia quando è negativa (immagino) ma la forza che provoca l'accelerazione va disegnata agente sulla corda verso il basso o in direzione dell'accelerazione verso l'alto ?</article>
+<article class="post" id="p5554"><div class="who"><b>spn</b><span>1 dic 2010, 17:51</span></div>Cerco di rispondervi:<br>
+<br>
+Cercate di fare dei discorsi un minimo quantitativi. Su entrambe le masse agiscono solo due forze: quella del peso e la tensione del filo, adesso basta ragionare su F=ma.<br>
+<br>
+@Eagle: perché mai il povero scoiattolino dovrebbe restare fermo? Ciò implicherebbe per altro che non ci si può arrampicare su un muro (sarebbe il caso in cui l'altra massa sarebbe infinita e tipo poggiata su un tavolo).<br>
+<br>
+@Meta*: perché mai si dovrebbero trovare sempre allo stesso livello anche se hanno accelerazioni diverse? E' ovvio che la corda può solo tirare e non spingere.</article>
+<article class="post" id="p5555"><div class="who"><b>Bertal</b><span>1 dic 2010, 17:53</span></div>Allora, si una volta risolto il primo punto per il secondo non dovrebbero esserci problemi.<br>
+Allora in caso di masse diverse la tensione dovrebbe essere uguale per entrambi<br>
+e l'accelerazione angolare della carrucola = ((m1-m2)/(m1+m2) * g) / R</article>
+<article class="post" id="p5556"><div class="who"><b>Bertal</b><span>1 dic 2010, 18:02</span></div>Allora, stavi rispondendo mentre io scrivevo !<br>
+Ti posto il mio ragionamento<br>
+Sul corpo di destra agiscono le forze m2 * g ed F (forza da lui esercitata) verso l'alto più un' ipotetica tensione tensione sempre verso l'alto quindi:<br>
+(T + F) - m2 * g = m2 * Ab (Con Ab intendo l'accelerazione del blocco rispetto alla terra)<br>
+Sull'altro:<br>
+(T + F) - m1 * g = m1 * Ac (Con Ac intendo l'accelerazione del blocco di sinistra rispetto alla terra che è la stessa della corda)<br>
+Per le accelerazioni dovrebbe valere:<br>
+Ab = A - Ac (dove A è l'accelerazione del blocco di destra rispetto alla corda)<br>
+<br>
+quindi risolvendo:<br>
+<br>
+Ab = (m1 * A + g * (m1 - m2)) / (m1 + m2)<br>
+<br>
+con m1 = m2 = m<br>
+<br>
+Ab = A / 2<br>
+e per l'altro corpo:<br>
+Ac = A / 2<br>
+<br>
+Quindi entrambi salgono con accelerazione A / 2 verso l'alto</article>
+<article class="post" id="p5557"><div class="who"><b>spn</b><span>1 dic 2010, 18:13</span></div>Ma a priori non puoi dire che nel primo caso le tensioni siano uguali: sulla carrucola c'è attrito (altrimenti non girerebbe affatto): da lì si mostra facilmente come hai fatto vedere tu che le accelerazioni sono uguali. Inoltre quella F che hai messo tu non esiste, il corpo non fa nessuna forza su se stesso.<br>
+<br>
+Poi non è quella l'accelerazione angolare (occhio a non confondere il problema con una macchina di Atwood).    <br>
+In questo caso il momento torcente agente sulla carrucola è <span class="tex">\(\tau = ( T_1 - T_2) R\)</span>, e l'accelerazione angolare si trova <span class="tex">\(\alpha = \tau / I\)</span>.</article>
+<article class="post" id="p5563"><div class="who"><b>Meta*</b><span>2 dic 2010, 18:40</span></div><span class="tex">\(\tau = I \alpha\)</span><br>
+<span class="tex">\(T_s R - T_b R = \frac{M R^2 \alpha}{2}\)</span><br>
+<span class="tex">\(T_s - T_r = \frac{M a_c}{2}\)</span><br>
+<br>
+Dove <span class="tex">\(a_c\)</span> è l'accelerazione rispetto la corda e <span class="tex">\(a\)</span> è l'accelerazione del corpo che si muove<br>
+<br>
+<span class="tex">\(T_b=m(g-a_c)\)</span><br>
+<span class="tex">\(T_s=m(g+a_c-a)\)</span><br>
+ <br>
+Sostituendo:<br>
+<br>
+<span class="tex">\(a=\frac{a_c (4m-M)}{2m}\)</span><br>
+<br>
+Da qui se trascuro la massa del disco <br>
+<span class="tex">\(a = 2 a_c \Rightarrow a_c=\frac{a}{2}\)</span><br>
+<br>
+La sciocchezza è nell'aver trascurato la M  :?  se la trascuro non vale <span class="tex">\(I\)</span> ma se non posso uguagliare le Tensioni come posso relazionarle ?</article>
+<article class="post" id="p5564"><div class="who"><b>Alex90</b><span>2 dic 2010, 20:31</span></div>Puoi relazionarle notando che entrambe le tensioni generano un momento torcente sulla carrucola da cui<br>
+<br>
+<span style="font-size: 20%; line-height: normal">R(T_2-T_1)=I \alpha<br>
+<br>
+relazionando \alpha e l'accelerazione della corda hai tutto</span></article>
+<article class="post" id="p5567"><div class="who"><b>spn</b><span>2 dic 2010, 23:12</span></div>Ok, per dire che le due tensioni erano uguali bastava notare che se queste non fossero state uguali, visto che <span class="tex">\(I\)</span> è nullo essendo nulla <span class="tex">\(M\)</span>, allora <span class="tex">\(\alpha\)</span> era infinita.<br>
+E' praticamente equivalente a  trascurare la <span class="tex">\(M\)</span> come hai fatto te, solo che con l'altro metodo il problema si faceva a mente.<br>
+Oltre al secondo punto, vi propongo pure una domanda bonus:<br>
+<br>
+Sostituire al posto della massa che si arrampica uno yo-yo sempre di massa <span class="tex">\(m\)</span> e raggio <span class="tex">\(r\)</span> (che non si arrampica...). Dire anche in questo caso le accelerazioni nei casi in cui <span class="tex">\(M\)</span> è trascurabile e quando non lo è.</article>
+<article class="post" id="p5568"><div class="who"><b>Meta*</b><span>2 dic 2010, 23:19</span></div>Lo yo-yo si srotola verso il basso ?</article>
+<article class="post" id="p5570"><div class="who"><b>spn</b><span>2 dic 2010, 23:45</span></div>ma scusa, come farebbe ad arrotolarsi mentre scende...? :roll: <br>
+Comunque sì, si srotola verso il basso.</article>
+<article class="post" id="p5571"><div class="who"><b>Meta*</b><span>3 dic 2010, 0:39</span></div>In effetti è un po difficile da immaginare xD<br>
+<br>
+Comunque quello che intendevo è che lo yo-yo si srotola e cade in caduta libera e il corpo dall'altra parte idem..</article>
+<article class="post" id="p5573"><div class="who"><b>egl</b><span>3 dic 2010, 19:06</span></div><blockquote><div><cite>spn ha scritto:</cite>Sostituire al posto della massa che si arrampica uno yo-yo sempre di massa <span class="tex">\(m\)</span> e raggio <span class="tex">\(r\)</span> (che non si arrampica...). Dire anche in questo caso le accelerazioni nei casi in cui <span class="tex">\(M\)</span> è trascurabile e quando non lo è.</div></blockquote>
+
+E' possibile che, nel caso in cui <span class="tex">\(M\)</span> è trascurabile, sia lo yo-yo che la massa dall'altra parte scendano con accelerazione in modulo pari a     <span class="tex">\(~\frac{g}{2}\)</span> oppure non ci sono neanche vicino?</article>
+<article class="post" id="p5588"><div class="who"><b>spn</b><span>4 dic 2010, 16:18</span></div>Ma perchè tirate a indovinare invece di fare le cose in modo quantitativo? Non va più di moda scrivere la soluzione per bene?<br>
+Buttate giù i vostri procedimenti e poi ne parliamo.</article>
+<article class="post" id="p5589"><div class="who"><b>egl</b><span>4 dic 2010, 16:38</span></div>D'accordo. La mia idea consisteva in questo:<br>
+<br>
+Comincio a scrivere F=ma sulla massa ed ho <span class="tex">\(T-mg=ma\)</span> dove ho assunto le forze verso l'alto positive.<br>
+<br>
+Per qunto riguarda lo yo-yo (che ho immaginato come un disco), invece ho <span class="tex">\(T-mg=m(-a-a_r)\)</span> dove <span class="tex">\(a\)</span> è il modulo dell'accelerazione dovuta allo spostamento della fune, mentre <span class="tex">\(a_r\)</span> è il modulo dell'accelerazione verticale del cdm dello yo-yo per il fatto che si sta srotolando. <br>
+Inoltre, sempre per lo yo-yo, ho <span class="tex">\(T\cdot R=(\frac{1}{2}mR^2)\cdot (\frac{a_r}{R})\)</span>.<br>
+<br>
+Mettendo il tutto a sistema si dovrebbe giungere a <span class="tex">\(a_{massa}=-\frac{g}{2}\)</span>, poi <span class="tex">\(a_{yo-yo}=-\frac{g}{2}\)</span></article>
+<article class="post" id="p5592"><div class="who"><b>spn</b><span>4 dic 2010, 18:22</span></div>ok mi sembra giusto  ;)  Il caso con M non trascurabile non è molto differente, però sarebbe bene che qualcuno posti la soluzione.</article>
+<article class="post" id="p5596"><div class="who"><b>Meta*</b><span>4 dic 2010, 19:45</span></div>In effetti devo levarmi il vizio  :lol: <br>
+Allora, nel caso in cui la massa della carrucola non è trascurabile le tensioni si devono distinguere e si aggiunge un'ulteriore relazione:<br>
+<span class="tex">\(T_1=m(g+a)\)</span><br>
+<span class="tex">\(T_2-mg=m(-a-a_r)\)</span><br>
+<span class="tex">\(T_2 r= (\frac{1}{2}mr^2)(\frac{a_r}{r})\)</span><br>
+<span class="tex">\((T_1-T_2)R=(\frac{1}{2}MR^2)(\frac{a}{R})\)</span><br>
+<br>
+Dove R è il raggio della carrucola e r quello dello yo-yo <br>
+Risolvendo (se non ho fatto errori  :) ) si ha:<br>
+<span class="tex">\(a= \frac{4mg}{3M-8m}\)</span></article>
+<nav class="pager"><a class="prev" href="olifis-557.html"><small>← precedente</small>SNS 2010/2011 numero 6</a><a class="next" href="olifis-985.html"><small>successivo →</small>sns 2011 n.1</a></nav>
+</main></body></html>

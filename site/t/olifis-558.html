@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS 2010/2011 numero 5</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Fisica 2010-2011, problema 5</span></nav>
+<h1>SNS 2010/2011 numero 5</h1>
+<p class="meta">18 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=558">forum Olifis</a></p>
+<article class="post first" id="p5007"><div class="who"><b>Luke</b><span>27 ago 2010, 23:58</span></div>E' dato un condensatore quadrato di lato L e distanza d tra le armature. Inizialmente è caricato fino a che è raggiunta una differenza di potenziale V tra le sue facce. A questo punto si immerge il condensatore per metà (fino a L/2) in un fluido dielettrico di costante dielettrica relativa <span class="tex">\(\epsilon\)</span> e densità <span class="tex">\(\rho\)</span>. Calcolare all'equilibrio la differenza di altezza che assume il liquido tra le armature del condensatore rispetto a quello all'esterno (si può immaginare che sia immerso in una specie di vasca).<br>
+<br>
+Vado a memoria quindi se mi sono scordato qualcosa correggetemi!</article>
+<article class="post" id="p5014"><div class="who"><b>Spammowarrior</b><span>28 ago 2010, 10:18</span></div>penso che sia importante dire che viene staccato dalla batteria prima di essere immerso<br>
+inoltre il liquido arriva a metà all'interno dell'armatura, non all'esterno</article>
+<article class="post" id="p5018"><div class="who"><b>AxxMan</b><span>28 ago 2010, 12:31</span></div>Se la carica in un condensatore rimane costante e si inserisce un dielettrico, la capacità aumenta quindi diminuisce l'energia nel condensatore, che presumibilmente andrà a trasferirsi al dielettrico sotto forma di energia potenziale gravitazionale, e quindi da lì si trova la differenza tra il livello del dielettrico e il resto... Avete fatto così?</article>
+<article class="post" id="p5021"><div class="who"><b>Spammowarrior</b><span>28 ago 2010, 12:57</span></div>esattamente, credo che fosse il più facile tra i problemi ;)</article>
+<article class="post" id="p5022"><div class="who"><b>giove</b><span>28 ago 2010, 12:59</span></div>Anch'io l'ho fatto così (in mancanza di altre idee), ma sono abbastanza convinto che l'energia non si conservi... (più precisamente Giuliano mi ha convinto :D)</article>
+<article class="post" id="p5023"><div class="who"><b>Spammowarrior</b><span>28 ago 2010, 13:03</span></div><blockquote><div><cite>giove ha scritto:</cite>Anch'io l'ho fatto così (in mancanza di altre idee), ma sono abbastanza convinto che l'energia non si conservi... (più precisamente Giuliano mi ha convinto :D)</div></blockquote>
+
+brutta storia, perchè non si conserva?</article>
+<article class="post" id="p5024"><div class="who"><b>Ippo</b><span>28 ago 2010, 13:11</span></div>Beh a rigore sì, si conserva, e il fluido nel condensatore oscilla su e giù (armonicamente assumendo piccole oscillazioni, oppure in modo brutto a piacere per oscillazioni grandi) attorno alla nuova posizione d'equilibrio, cioè la quota che minimizza la somma di e. potenziale gravitazionale e di e. elettrostatica. In presenza di qualche attrito l'energia cinetica dell'oscillazione viene dissipata e in definitiva la quota diventa stabilmente quella d'equilibrio (e l'energia a questo punto non si è conservata chiaramente).</article>
+<article class="post" id="p5041"><div class="who"><b>Stardust</b><span>28 ago 2010, 21:34</span></div>Ecco la mia soluzione (anche se quella consegnata nel compito è un po' diversa...)<br>
+Poniamo la capacità iniziale pari a:<br>
+<span class="tex">\(C_0=\displaystyle{\frac{\varepsilon_0 L^2}{ d}}\)</span><br>
+Il condensatore riempito a metà di acqua è la composizione di due condensatori in parallelo.<br>
+Quello in cui c'è aria presenta una capacità pari a:<br>
+<span class="tex">\(C_1=\displaystyle{\frac{\varepsilon_0 A_1}{ d}}\)</span><br>
+<span class="tex">\(C_1=\displaystyle{\frac{\varepsilon_0 L^2}{2d}=\frac{C_0}{2}}\)</span><br>
+Il condensatore riempito di acqua invece ha una capacità pari a<br>
+<span class="tex">\(C_2=\displaystyle{\frac{\varepsilon_r \varepsilon_0 A_2}{d}=\frac{\varepsilon_r \varepsilon_0 L^2}{2d}=\frac{\varepsilon_rC_0}{2}}\)</span><br>
+<br>
+La capacità complessiva in questa situazione è:<br>
+<span class="tex">\(C_e=C_1+C_2=(\varepsilon_r+1)\displaystyle{\frac{C_0}{2}}\)</span><br>
+<br>
+La carica depositata all'inizio non viene modificata, quindi dalla definizione di capacità siamo in grado di risalire alla differenza di potenziale che si instaura alla fine:<br>
+<span class="tex">\(q_0=C_0V\)</span><br>
+<span class="tex">\(q_f=q_0=C_e V_f\)</span><br>
+dove <span class="tex">\(V_f\)</span> rappresenta la tensione esistente tra le due armature alla fine.<br>
+Essa quindi vale:<br>
+<span class="tex">\(V_f=\displaystyle{\frac{C_0V}{C_e}=\frac{C_0V}{(\varepsilon_r+1)\displaystyle{\frac{C_0}{2}}}=\frac{2V}{\varepsilon_r+1}}\)</span><br>
+<br>
+E' noto che il campo elettrico è definito come la derivata spaziale del potenziale, quindi:<br>
+<span class="tex">\(E=\displaystyle{\frac{V}{d}}\)</span> essendo il campo uniforme tra le armature.<br>
+<br>
+Questo ci permette di trovare la densità di energia in <span class="tex">\(C_1\)</span> e <span class="tex">\(C_2\)</span>:<br>
+<br>
+<span class="tex">\(u_1=\displaystyle{\frac{1}{2}\varepsilon_0E^2=\frac{1}{2}\varepsilon_0\frac{V_f^2}{d^2}=\frac{2\varepsilon_0 V^2}{(\varepsilon_r+1)^2d^2}}\)</span><br>
+<br>
+<span class="tex">\(u_2=\displaystyle{\frac{1}{2}\varepsilon_r \varepsilon_0E^2=\frac{1}{2}\varepsilon_r \varepsilon_0\frac{V_f^2}{d^2}=\frac{2\varepsilon_r \varepsilon_0 V^2}{(\varepsilon_r+1)^2d^2}}\)</span><br>
+<br>
+La densità di energia in un condensatore è una forma di pressione (precisamente quella fatta da una faccia sull'altra).<br>
+E' chiaro che la differenza di densità di energia (a vantaggio del condensatore inferiore, riempito di acqua), va riequilibrata dalla pressione idrostatica.<br>
+Quindi:<br>
+<span class="tex">\(\Delta u=(\varepsilon_r-1)\displaystyle{\frac{2\varepsilon_0 V^2}{(\varepsilon_r+1)^2d^2}}\)</span><br>
+<br>
+<span class="tex">\(\Delta p= \rho g h\)</span><br>
+<br>
+Da ciò:<br>
+<span class="tex">\(h=(\varepsilon_r-1)\displaystyle{\frac{2\varepsilon_0 V^2}{(\varepsilon_r+1)^2 \rho g d^2}}\)</span>.</article>
+<article class="post" id="p5043"><div class="who"><b>Pigkappa</b><span>28 ago 2010, 22:24</span></div><blockquote><div><cite>Stardust ha scritto:</cite>E' noto che il campo elettrico è definito come la derivata spaziale del potenziale, quindi:</div></blockquote>
+
+Spero bene che tu non abbia scritto questa cosa nella prova!</article>
+<article class="post" id="p5046"><div class="who"><b>Stardust</b><span>29 ago 2010, 14:11</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite><blockquote><div><cite>Stardust ha scritto:</cite>E' noto che il campo elettrico è definito come la derivata spaziale del potenziale, quindi:</div></blockquote>
+
+Spero bene che tu non abbia scritto questa cosa nella prova!</div></blockquote>
+Non ti preoccupare Pigkappa, questa stupidaggine manca nella mia prova, ma ce n'è qualche altra comunque notevole... :oops:<br>
+<br>
+Per chiarire un'attimo quello che volevo esprimere a parole, lo riporto in forma matematica:<br>
+<span class="tex">\(\displaystyle{\vec{E}=-\vec{\nabla}V=-\left(\displaystyle{\frac{\delta V}{\delta x}}\vec{i}+\displaystyle{\frac{\delta V}{\delta y}}\vec{j}+\displaystyle{\frac{\delta V}{\delta z}}\vec{k}\right)}\)</span><br>
+Premetto che non ho molta familiarità con l'operatore nabla, che dovrebbe avere il significato di rotore o divergenza. Mi pare sia usato anche nella forma differenziale delle equazioni di Maxwell.<br>
+<br>
+Comunque, a parte qualche possibile errore, magari con il segno meno o nel posizionamento della freccette dei vettori, con questa formula intendo che il valore del campo elettrico può essere ricavato svolgendo le derivate parziali del potenziale nelle tre dimensioni spaziali x, y e z. <br>
+Nel caso del problema, il campo è uniforme/costante e parallelo al livello del liquido, quindi orizzontale, perciò tutto si riduce all'espressione:<br>
+<span class="tex">\(E=\displaystyle{\frac{V}{d}}\)</span>.</article>
+<article class="post" id="p5047"><div class="who"><b>Pigkappa</b><span>29 ago 2010, 14:29</span></div>Ok, quello che volevo sottolineare è che il campo elettrostatico non è <strong class="text-strong">definito</strong> come l'opposto del gradiente del potenziale (perlomeno, non è definito così se si fanno le cose come la maggior parte dei corsi e dei libri). Piuttosto è il potenziale che è definito come quello scalare tale che il suo gradiente è l'opposto del campo elettrico. Il campo elettrostatico è definito in base alla forza che esercita su delle cariche; la distinzione non è di poco conto, perchè la grandezza veramente "fisica" è il campo elettrico e non il potenziale (esempio: ci possono essere dei casi in cui un certo tipo di potenziale (non quello elettrostatico) nello spazio cambia istantaneamente quando si spostano le sorgenti; questo non viola la relatività perchè l'informazione, che non può andare a velocità maggiore di <span class="tex">\(c\)</span>, è contenuta nei campi, e non nel potenziale).</article>
+<article class="post" id="p5049"><div class="who"><b>Ippo</b><span>29 ago 2010, 16:34</span></div>Vabbè è vero ma non credo che questo inciderebbe minimamente sulla valutazione della prova se anche Stardust l'avesse effettivamente scritto. Al liceo non si fa molto attenzione a queste cose, la differenza tra una definizione e un teorema è abbastanza sfumata. Per mettere le cose in ordine con un approccio più sistematico ci sono apposta i corsi universitari.<br>
+Più che altro nel procedimento che hai seguito, dopo tutti i conti iniziali, non mi è chiaro come concludi. Imponi la coservazione esattamente di cosa? della densità di energia? Perchè dici che si deve conservare? se è quello che dici, magari ho frainteso.<br>
+(Comunque resto convinto che minimizzare l'energia sia sempre la via più sicura e generale)</article>
+<article class="post" id="p5050"><div class="who"><b>Stardust</b><span>29 ago 2010, 16:55</span></div>Io impongo la conservazione della carica, che è l'unica cosa che realmente si conserva. L'energia cambia per l'introduzione del dielettrico, la modificazione della capacità complessiva cambia anche la tensione e di conseguenza la densità di energia, che ad essa si può ricollegare.<br>
+E' proprio dalla differenza di energia e densità di energia tra C1 e C2 che deriva il dislivello h nel condensatore.<br>
+Il mio è solo un modo più semplice di arrivare allo stesso risultato cui si perviene ragionando in termini di energia.</article>
+<article class="post" id="p5051"><div class="who"><b>Pigkappa</b><span>29 ago 2010, 16:59</span></div><blockquote><div><cite>Ippo ha scritto:</cite>Vabbè è vero ma non credo che questo inciderebbe minimamente sulla valutazione della prova se anche Stardust l'avesse effettivamente scritto. Al liceo non si fa molto attenzione a queste cose, la differenza tra una definizione e un teorema è abbastanza sfumata. Per mettere le cose in ordine con un approccio più sistematico ci sono apposta i corsi universitari.<br>
+Più che altro nel procedimento che hai seguito, dopo tutti i conti iniziali, non mi è chiaro come concludi. Imponi la coservazione esattamente di cosa? della densità di energia? Perchè dici che si deve conservare? se è quello che dici, magari ho frainteso.<br>
+(Comunque resto convinto che minimizzare l'energia sia sempre la via più sicura e generale)</div></blockquote>
+
+Non ho letto con attenzione la sua soluzione quindi non intendevo dire che il resto è giusto. Comunque, conoscendo alcuni dei professori che ci sono, penso che qualcuno potrebbe arrabbiarsi almeno un po' per questa cosa.</article>
+<article class="post" id="p5055"><div class="who"><b>.mg</b><span>30 ago 2010, 0:07</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Ok, quello che volevo sottolineare è che il campo elettrostatico non è <strong class="text-strong">definito</strong> come l'opposto del gradiente del potenziale (perlomeno, non è definito così se si fanno le cose come la maggior parte dei corsi e dei libri).</div></blockquote>
+È vero, però c'è almeno una eccezione (e direi anche abbastanza rilevante): il Landau. Infatti <span style="text-decoration:underline">definisce</span> il campo elettrico e quello magnetico a partire dai potenziali.<br>
+<br>
+Però c'è da dire che segue un percorso particolare: introduce i potenziali, si ricava il campo elettromagnetico dalle equazioni di Lagrange (e a questo punto dà le definizioni, però sono ben giustificate dalle equazioni di Lagrange, non sono campati per aria), poi le equazioni di Maxwell e infine la legge di Coulomb. In sostanza è il contrario di quello che fa più o meno il resto del mondo  :D</article>
+<article class="post" id="p5068"><div class="who"><b>Rigel</b><span>30 ago 2010, 19:31</span></div>Magari posto la mia soluzione che segue un pò la via del minimizzare l'energia.<br>
+chiamo x l'altezza del liquido dentro il condensatore. allora ci ha<br>
+<span class="tex">\(\displaystyle C(x)=\epsilon_0\frac{L}{d}(\epsilon x+L-x)=C_0((\epsilon-1)\frac{x}{L}+1)\)</span><br>
+si trova dalla formula dei condensatori in parallelo, con <span class="tex">\(C_0\)</span> capacità totale nel vuoto<br>
+poichè si conserva la carica ho<br>
+<span class="tex">\(\displaystyle U(x)=\frac{Q^2}{2C(x)}=\frac{C_0V^2}{2((\epsilon-1)\frac{x}{L}+1)}\)</span><br>
+a questo punto vedo che è come se le armature esercitassero una forza sul liquido, data da<br>
+<span class="tex">\(\displaystyle F(x)=-\frac{dU}{dx}=\frac{C_0V^2(\epsilon-1)}{2L((\epsilon-1)\frac{x}{L}+1)^2}\)</span><br>
+questa forza è diretta verso l'alto e all'equilibrio è uguale al peso. questo metodo è uguale a minimizzare l'energia, perchè nell'espressione dell'energia compare la somma di quella gravitazionale e di U(x). all'equilibrio l'energia è minima e ciò si ha quando la sua derivata è nulla, cioè quando la somma delle forze è zero.<br>
+utilizzando i dati forniti per la situazione di equilibrio si ha<br>
+<span class="tex">\(\displaystyle \rho Ldhg=F(L/2)=\frac{C_0V^2}{2L}\frac{\epsilon-1}{(\epsilon+1)^2}\)</span><br>
+sostituendo la capacità nel vuoto si ha<br>
+<span class="tex">\(\displaystyle h=\frac{2\epsilon_0V^2}{\rho gd^2}\frac{\epsilon-1}{(\epsilon+1)^2}\)</span><br>
+qualche considerazione sulla conservazione dell'energia. nel testo diceva che il condensatore viene immerso fino ad ottenere la situazione finale. durante questo processo non è detto che non venga compiuto lavoro sul condensatore o che non avvenga il contrario.<br>
+come diceva stefano potremmo immaginare la situazione in cui è il liquido ad essere versato nel contenitore dove c'è già il condensatore; prendendo un liquido non viscoso e versandolo molto lentamente non abbiamo dissipazioni per attrito nè l'energia si trasforma in energia cinetica del liquido (che andrebbe ad oscillare). però anche in questo caso ideale si dissipa energia per effetto Joule in quanto le cariche su ciascuna armatura si ridistribuiscono (ad occhio direi che si spostano verso la parte non immersa). sempre pensandoci brevemente direi (ma potrei sbagliarmi di grosso) che l'energia dissipata è la somma di tanti contributi proporzionali a <span class="tex">\(\Delta Q\delta V\)</span> dove il primo termine è la carica che si sposta e il secondo è la ddp che dovrebbe dipendere dalla distribuzione delle cariche, come in una specie di condensatore. da questo direi che l'energia dissipata non è mai nulla indipendentemente dall resistenza delle armature</article>
+<article class="post" id="p5085"><div class="who"><b>Pigkappa</b><span>2 set 2010, 23:42</span></div>Per dimostrare che il forum serve: di questo problema si era già discusso <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=12&amp;t=366&amp;hilit=condensatore" class="ext" class="postlink">qui</a>.</article>
+<article class="post" id="p5095"><div class="who"><b>Ippo</b><span>3 set 2010, 21:23</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Per dimostrare che il forum serve: di questo problema si era già discusso <a href="http://forumwww.cadnet.marche.it#46;olifiswww.cadnet.marche.it#46;it/olifis/phpBB3/viewtopic.php?f=12&amp;t=366&amp;hilit=condensatore" class="ext" class="postlink">qui</a>.</div></blockquote>
+Sono stato profetico!  :)</article>
+<nav class="pager"><a class="prev" href="olifis-4674.html"><small>← precedente</small>SNS 2010/2011 problema 5</a><a class="next" href="olifis-861.html"><small>successivo →</small>SNS 2010/2011    numero   5</a></nav>
+</main></body></html>

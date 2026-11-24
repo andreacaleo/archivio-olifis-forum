@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orali SNS</title><link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax = {
+  startup: { ready() {
+    MathJax.startup.defaultReady();
+    // forum authors' slips that the old renderers tolerated: unbalanced braces, \left without \right
+    MathJax.startup.document.inputJax[0].preFilters.add(({math}) => {
+      let t = math.math;
+      const bare = t.replace(/\\[{}]/g, '');
+      const open = (bare.match(/{/g) || []).length, close = (bare.match(/}/g) || []).length;
+      if (open > close) t += '}'.repeat(open - close);
+      if (close > open) t = '{'.repeat(close - open) + t;
+      if ((t.match(/\\left(?![a-z])/g) || []).length !== (t.match(/\\right(?![a-z])/g) || []).length)
+        t = t.replace(/\\(left|right)(?![a-z])/g, '');
+      math.math = t;
+    });
+  } },
+  tex: { packages: { '[+]': ['noerrors'] }, inlineMath: [['\\(','\\)'],['[tex]','[/tex]']], displayMath: [['\\[','\\]']], processEscapes: false },
+  svg: { fontCache: 'global' } };</script>
+<script src="../assets/tex-svg-full.js" async></script>
+</head><body><main>
+<nav class="top"><a href="../index.html">Archivio SNS · forum Olifis</a><span class="crumb">Orali</span></nav>
+<h1>Orali SNS</h1>
+<p class="meta">38 messaggi · originale su <a class="ext" href="https://www.olifis.it/forum.olifis.it/viewtopic.php?t=432">forum Olifis</a></p>
+<article class="post first" id="p3885"><div class="who"><b>Reginald</b><span>20 apr 2010, 12:50</span></div>Sono nuovo del forum, mi piace la fisica e la matematica....ho un problemino da proporvi, spero non sia troppo facile..<br>
+Questo è un problema che hanno dato ad un mio conoscente agli orali dell'ammissione in Normale, spero non sia già stato postato...allora<br>
+<br>
+Ci sono 2 palline di massa m_1 e m_2,le metto a contatto una sopra l'altra e le lascio cadere da un' altezza h. Dire cosa succede dopo il rimbalzo...tutto senza attrito e gli urti sono perfettamente elastici...</article>
+<article class="post" id="p3886"><div class="who"><b>Nagdhar</b><span>20 apr 2010, 16:06</span></div><strong class="text-strong">Il sistema fisico </strong>in questione potrebbe essere analogicamente inteso ad una variante del pendolo di Newton, supponendo che a fornire il <strong class="text-strong">movimento </strong>delle sfere più esterne ne siano due all'estremità <strong class="text-strong">opposta</strong> poste inizialmente a contatto fra di loro e distanziate dalla loro posizione di equilibrio.<br>
+Si osserva che le <strong class="text-strong">due sfere messe</strong> (<span class="tex">\(m1=m2\)</span>) artificialmente in moto, una volta aver scontrato la massa centrale, producono il movimento contiguo delle <em class="text-italics">rimanenti due</em>.<br>
+Per analogia le due sferette di massa <strong class="text-strong">m</strong><span style="font-size: 70%; line-height: normal">1</span> ed <strong class="text-strong">m</strong><span style="font-size: 70%; line-height: normal">2</span> dopo aver scontrato un enorme massa centrale (<em class="text-italics">il pavimento privo di attrito</em>) si sollevano entrambe in aria come se fossero un unico <strong class="text-strong">corpo</strong>.</article>
+<article class="post" id="p3887"><div class="who"><b>Pigkappa</b><span>20 apr 2010, 17:17</span></div><blockquote><div><cite>Nagdhar ha scritto:</cite><strong class="text-strong">Il sistema fisico </strong>in questione potrebbe essere analogicamente inteso ad una variante del pendolo di Newton, supponendo che a fornire il <strong class="text-strong">movimento </strong>delle sfere più esterne ne siano due all'estremità <strong class="text-strong">opposta</strong> poste inizialmente a contatto fra di loro e distanziate dalla loro posizione di equilibrio.<br>
+Si osserva che le <strong class="text-strong">due sfere messe</strong> artificialmente in moto, una volta aver scontrato la massa centrale, producono il movimento contiguo delle <em class="text-italics">rimanenti due</em>.<br>
+Per analogia le due sferette di massa <strong class="text-strong">m</strong><span style="font-size: 70%; line-height: normal">1</span> ed <strong class="text-strong">m</strong><span style="font-size: 70%; line-height: normal">2</span> dopo aver scontrato un enorme massa centrale (<em class="text-italics">il pavimento privo di attrito</em>) si sollevano entrambe in aria come se fossero un unico <strong class="text-strong">corpo</strong>.</div></blockquote>
+
+N.B.: la critica che segue vuol essere bonaria e non piccata, però è bene rimarcare una cosa.<br>
+<br>
+A me questo messaggio dà l'impressione che tu voglia far sembrare di saperne tanto usando dei paroloni. Questo atteggiamento non è particolarmente apprezzato, anzi. Spero che il problema sia linguistico (magari non sai bene l'italiano...), ma temo di no.<br>
+Mi spiego: cosa significa la parola "analogicamente" là in mezzo? Perchè evidenzi parole in modo apparentemente casuale?<br>
+<br>
+Inoltre citare l'equivalenza con un sistema come il pendolo di Newton, che apparentemente è così diverso, meriterebbe qualche spiegazione in più. Il risultato a cui arrivi alla fine credo che sia sbagliato.</article>
+<article class="post" id="p3888"><div class="who"><b>Gauss91</b><span>20 apr 2010, 18:41</span></div>Le palline si staccano l'una dall'altra: basta considerare un sistema di riferimento fisso rispetto alle palline e con il pavimento che le urta a velocità <span class="tex">\(v = \sqrt{2gh}\)</span> e il fatto è evidente con poche considerazioni meccaniche (le velocità sono diverse perché l'urto dà ugual forza a masse diverse).<br>
+Adesso una breve analisi quantitativa.<br>
+Supponiamo che m_1 sta in basso (una sopra l'altra intuisco che i centri siano allineati con la verticale). Tocca terra la pallina m_1 con velocità <span class="tex">\(v = \sqrt{2gh}\)</span>, e in una frazione di secondo urta quella sopra di essa, trasferendole quantità di moto. Il parametro d'urto è 0, le uniche forze agenti sono (localmente) quelle impulsive che sono uguali e contrarie per la terza legge di Newton, quindi si può impostare la conservazione della qdm, nel caso unidimensionale (v_i sono le velocità con cui le palline partono verso l'alto):<br>
+<span class="tex">\(m_1v_1 + m_2v_2 = (m_1 + m_2)v\)</span><br>
+gli urti sono anelastici, quindi si conserva anche l'energia cinetica totale (al momento dell'urto sia chiaro):<br>
+<span class="tex">\(m_1v_1 ^2 + m_2 v_2 ^2 = (m_1 + m_2)v^2\)</span>.<br>
+Risolvendo questo sistema di due equazioni in due incognite si trovano le due velocità.<br>
+Se gli urti sono perfettamente elastici, tra l'altro, si può notare che l'energia totale si conserva e che il centro di massa delle due palline raggiungerà la stessa altezza di prima dell'urto (quale non possiamo dirlo esattamente perché non conosciamo i dati delle palline).</article>
+<article class="post" id="p3890"><div class="who"><b>Nagdhar</b><span>20 apr 2010, 20:11</span></div>Spiegazione circa l'analogia con il pendolo di Newton per (<span class="tex">\(m1=m2\)</span>):<br>
+- la similitudine mi era venuta in mente pensando al fatto che una volta terminato l'urto col pavimento, il corpo (<em class="text-italics">costituito dalle due masse</em>) sarebbe risalito fino alla stessa altezza per poi scendere nuovamente a terra in un infinito moto periodico, che avrebbe potuto richiamare il moto oscillatorio del pendolo di Newton a due sfere congiunte in movimento (<em class="text-italics">trascurando tutti gli attriti</em>).<br>
+Concordo pienamente con Gauss91 per (<span class="tex">\(m1&gt;m2\)</span>), ma se <em class="text-italics">m1</em> fosse minore di <em class="text-italics">m2</em>, con <em class="text-italics">m1</em> la sfera che sta sotto a <em class="text-italics">m2</em>, potrebbe ancora accadere che le due masse restino  a contatto :| .</article>
+<article class="post" id="p3891"><div class="who"><b>Gauss91</b><span>20 apr 2010, 20:42</span></div><blockquote><div><cite>Nagdhar ha scritto:</cite>ma se m1 fosse minore di m2, con m1 la sfera che sta sotto a m2, potrebbe ancora accadere che le due masse restino a contatto </div></blockquote>
+
+Ho fatto qualche "esperimentino" molto casalingo con due monete e il mio braccio possente che le urta  :P . So che non è assolutamente plausibile come risultato, ma ho trovato un risultato stupefacente: le monete, sia che abbiano la stessa massa sia che una sia da 1cent l'altra da 2€, rimangono SEMPRE attaccate e anche in modo molto evidente! :shock: .<br>
+Probabilmente quindi la soluzione di quel sistema potrebbe addirittura contraddire Pigkappa! :P .<br>
+Infatti ho risolto il sistema, ed è venuto, in modo abbastanza controintuitivo, che le velocità sono esattamente uguali a v: le palline rimangono a contatto.<br>
+Diamo a Cesare quel che è di Cesare: Nagdhar, anche se ha spiegato male e comunque non ha dimostrato rigorosamente la sua asserzione, aveva ragione.<br>
+Ciò che mi consola è che era un problema facile (alla fine si trattava di risolvere un sistema e solo la mia incallita pigrizia mi ha condotto su una via sbagliata! :lol: ).</article>
+<article class="post" id="p3893"><div class="who"><b>Pigkappa</b><span>20 apr 2010, 20:56</span></div>In realtà l'equazione che hai scritto per la quantità di moto mi convince abbastanza poco (indovina perchè).</article>
+<article class="post" id="p3894"><div class="who"><b>Gauss91</b><span>20 apr 2010, 21:27</span></div>Bah sinceramente non riesco a cogliere... :oops: .<br>
+E' chiaro che il baricentro del sistema rimbalza sempre come un corpo rigido, quindi nel momento "un attimo prima" e "un attimo dopo" l'urto, la sua quantità di moto deve rimanere costante (in modulo).<br>
+Prima dell'urto, la sua quantità di moto è <span class="tex">\((m_1 + m_2)v\)</span>, dopo l'urto è <span class="tex">\(m_1v_1 + m_2v_2\)</span>, in cui si è posto il caso generale di velocità diverse.<br>
+Io l'ho impostata pensando al fatto che prima di tutto, in un caso ideale, il parametro d'urto è 0 quindi ci si può ridurre al caso unidimensionale. E poi, le uniche forze che agiscono sul sistema sono quelle impulsive, interne al sistema stesso (si può trascurare la forza di gravità nell'attimo dell'urto), quindi non c'è alcuna forza che cambia il MODULO della quantità di moto totale.<br>
+Dove sbaglio?</article>
+<article class="post" id="p3895"><div class="who"><b>Alex90</b><span>20 apr 2010, 21:32</span></div>Provate a farlo con una pallina da tennis sopra un pallone da basket e ne riparliamo  ;)</article>
+<article class="post" id="p3896"><div class="who"><b>Reginald</b><span>20 apr 2010, 21:49</span></div>Allora, dal profondo della mia ignoranza...secondo me bisognerebbe considerare come se rimbalzasse prima la pallina più in basso e poi tornando verso l'alto urta immediatamente quella piccola...perchè ci sono due urti, quello pallina in basso-pavimento, e quello pallina-pallina....in questo modo la pallina più un alto se ha massa minore dell'altra schizza via dopo l'urto....però boh... :?:  :?</article>
+<article class="post" id="p3897"><div class="who"><b>Alex90</b><span>20 apr 2010, 22:03</span></div>Prova a mettere il tutto per iscritto per bene ora  :)</article>
+<article class="post" id="p3898"><div class="who"><b>Gauss91</b><span>20 apr 2010, 22:39</span></div><blockquote><div><cite>Reginald ha scritto:</cite>secondo me bisognerebbe considerare come se rimbalzasse prima la pallina più in basso e poi tornando verso l'alto urta immediatamente quella piccola...perchè ci sono due urti, quello pallina in basso-pavimento, e quello pallina-pallina....in questo modo la pallina più un alto se ha massa minore dell'altra schizza via dopo l'urto</div></blockquote>.<br>
+<br>
+Avevo pensato esattamente alla stessa cosa, per questo nel mio primo post ho scritto che le palline si separano. Tuttavia prima ho fatto quell'esperimento e ho visto che le monetine NON si separano, poi ho risolto il sistema che ho impostato (Pigkappa mi fa intuire che ho sbagliato ma non ho capito dove...) e ho visto che le velocità delle due palline sono alla fine uguali.</article>
+<article class="post" id="p3899"><div class="who"><b>Alex90</b><span>20 apr 2010, 22:49</span></div>Scusa ma secondo te le monetine sono un buon esempio di urto elastico?</article>
+<article class="post" id="p3900"><div class="who"><b>Gauss91</b><span>20 apr 2010, 22:52</span></div><blockquote><div><cite>Alex90 ha scritto:</cite> Scusa ma secondo te le monetine sono un buon esempio di urto elastico? </div></blockquote>
+
+Molto più delle palline da tennis/basket :P . Comunque quello è solo un aneddoto che mi ha spinto a calcolare quel sistema. Se quel sistema è sbagliato e se qualcuno mi può spiegare dove, allora ben venga. Ma andare a puntualizzare su un esperimento stupido che non è neanche un esperimento mi pare esagerato :? .</article>
+<article class="post" id="p3901"><div class="who"><b>Pigkappa</b><span>20 apr 2010, 22:58</span></div>Se ho capito bene, scrivi la conservazione della quantità di moto dopo che la massa 1 ha urtato per terra. Quindi nell'equazione:<br>
+
+<blockquote><div><cite>Gauss91 ha scritto:</cite><span class="tex">\(m_1v_1 + m_2v_2 = (m_1 + m_2)v\)</span></div></blockquote>
+
+---&gt; avevo detto una cosa poco chiara, comunque qualcosa lì dentro non funziona.</article>
+<article class="post" id="p3902"><div class="who"><b>Alex90</b><span>20 apr 2010, 23:02</span></div>Per carità non volevo criticare eccessivamente ma semplicemente farti notare che come "verifica sperimentale" mi sembra funzionare poco  :)...sono solo dei consigli  :D <br>
+Comunque se lasci cadere una palla da basket ben gonfia ti ritorna più o meno alla stessa altezza (non credo che se lasci cadere una monetina succede lo stesso), ergo l'urto è quasi perfettamente elastico, un po' meno lo è quello della pallina da tennis (ma per un esperimento casalingo non mi viene in mente niente di meglio), prova a farlo e vedrai  ;)</article>
+<article class="post" id="p3905"><div class="who"><b>Nagdhar</b><span>21 apr 2010, 0:34</span></div>Quando la massa inferiore si scontra col pavimento cambia il verso del proprio moto ;)</article>
+<article class="post" id="p3906"><div class="who"><b>Nagdhar</b><span>21 apr 2010, 0:41</span></div><blockquote><div><cite>Pigkappa ha scritto:</cite>Se ho capito bene, scrivi la conservazione della quantità di moto dopo che la massa 1 ha urtato per terra. Quindi nell'equazione:
+<blockquote><div><cite>Gauss91 ha scritto:</cite><span class="tex">\(m_1v_1 + m_2v_2 = (m_1 + m_2)v\)</span></div></blockquote>
+---&gt; avevo detto una cosa poco chiara, comunque qualcosa lì dentro non funziona.</div></blockquote>
+Credo che ciò che non funzioni nel sistema di Gauss91 sia relativo al segno dei membri: dopo che la massa 1 ha urtato il pavimento la sua velocità cambia verso, come quella della massa m2, e nel sistema il segno delle quantità di moto.<br>
+<span class="tex">\(-m1v1-m2v2=(m1+m2)v\)</span></article>
+<article class="post" id="p3907"><div class="who"><b>Nagdhar</b><span>21 apr 2010, 14:28</span></div>Ricostruiamo il puzzle: dopo queste considerazioni spero di aver intuito la soluzione del problema. Ringrazio <em class="text-italics">Alex90</em> per il suggerimento relativo alla prova con il pallone da basket. Cerco di svolgere passo passo, con calma e modestia, il mio ragionamento alla luce dei vostri interventi davvero utili ed istruttivi.<br>
+<strong class="text-strong">A</strong><strong class="text-strong">)</strong> Quando il corpo costituito dalle due masse a contatto <span class="tex">\((m_1+m_2)\)</span> cade, <em class="text-italics">come detto da Gauss91</em>, per la conservazione dell'energia meccanica la velocità acquisita dal corpo stesso è <span class="tex">\(\sqrt{2gh}\)</span>. <br>
+Il primo urto che avviene è sostanzialmente relativo al sistema <span class="tex">\((m_1+m_2)\)</span> in caduta libera ed al pavimento di massa M. In questo caso <span class="tex">\((m_1+m_2)/M=0\)</span>, approssimazione possibile per il semplice fatto che la massa del corpo <span class="tex">\((m_1+m_2)\)</span> è trascurabile rispetto alla massa gigantesca del pavimento, che ovviamente dopo l'urto avrà ancora velocità nulla. Considerando <span class="tex">\(v_0=\sqrt{2gh}\)</span> la velocità del corpo prima dell'urto e risolvendo rispetto a V (velocità del corpo dopo l'urto) otterremo dalla conservazione della quantità di moto:  <br>
+<br>
+<span class="tex">\(V=\displaystyle{\frac{\displaystyle[\frac{(m_1+m_2)}{M}-1]v_0}{\displaystyle[\frac{(m_1+m_2)}{M}+1]}}\)</span> <br>
+  <br>
+ed in base all'approssimazione saggiamente proposta <span class="tex">\(V=-v_0\)</span> e quindi <span class="tex">\(V=-\sqrt{2gh}\)</span>. Da ciò si deduce che appena dopo l'urto la sfera <span class="tex">\(m_1\)</span>, che sta sotto <span class="tex">\(m_2\)</span>, avrà velocità uguale in modulo a quella del corpo poco prima dell'urto, ma verso opposto.<br>
+<br>
+<strong class="text-strong">B)</strong> Applicando la conservazione della quantità di moto per l'urto tra <span class="tex">\(m_1\)</span> e <span class="tex">\(m_2\)</span>, dopo l'urto di tutto il corpo col pavimento (<em class="text-italics">ringrazio Pigkappa</em> per aver citato l'errore nell'equazione di<em class="text-italics"> Gauss91</em>, che ho poi intuito essere circa i segni delle velocità) prendo in esame la seguente equazione: <span class="tex">\(-m_1v_0-m_2v_2=(m_1+m_2)v_0\)</span> <br>
+dove la velocità della massa <span class="tex">\(m_1\)</span> dopo l'urto è uguale in modulo ma non in verso a quella del corpo <span class="tex">\((m_1+m_2)\)</span> prima dell'urto per la dimostrazione precedentemente effettuata. Risolvendo l'equazione secondo <span class="tex">\(v_2\)</span> ottengo: <br>
+<br>
+<span class="tex">\(\displaystyle{v_2=-v_0\displaystyle{(\frac{2m_1+m_2}{m_2})}}\)</span> <br>
+<br>
+dove <span class="tex">\(v_0=\sqrt{2gh}\)</span> e quindi <span class="tex">\(v_2\)</span> rispetto a <span class="tex">\(V=-v_0\)</span> (velocità di <span class="tex">\(m_1\)</span> dopo il primo urto), sarà diversa in modulo solo alla luce del rapporto <span class="tex">\((\frac{2m_1+m_2}{m_2})\)</span> e poiché questo rapporto è sempre maggiore di 1, <span class="tex">\(v_2\)</span> sarà maggiore di <span class="tex">\(v_0\)</span> in modulo e la pallina <span class="tex">\(m_2\)</span> si staccherà da <span class="tex">\(m_1\)</span>. <br>
+<br>
+Scusate il lungometraggio (<em class="text-italics">per me appassionante!</em>)<br>
+Un grazie a tutti i vostri interventi<br>
+<br>
+<strong class="text-strong">P.S.</strong>: spero di essere stato chiaro e di essermi rifatto agli occhi (spesso troppo attenti) di <em class="text-italics">Pigkappa</em>.<br>
+L'esperimento di <em class="text-italics">Gauss91</em>, sembrava contraddire quanto detto, ma sappiamo che le masse delle monetine sono piuttosto vicine: invito<em class="text-italics"> Gauss91 </em>a svolgere l'esperimento proposto da <em class="text-italics">Alex90</em> e cambierà anch'egli immediatamente opinione!</article>
+<article class="post" id="p3908"><div class="who"><b>Gauss91</b><span>21 apr 2010, 15:51</span></div>Ragazzi scusate per i voli pindarici di ieri ma oggi sono più sano mentalmente :P .<br>
+L'equazione che ho scritto io è giusta <em class="text-italics">formalmente</em> (i segni - non cambiano molto dato che io parlavo di moduli), il problema è il fatto che la qdm <em class="text-italics">non si conserva</em>, dato che la forza impulsiva del pavimento è esterna al sistema. Quindi, ogni equazione con conservazione della qdm non va bene nel primo urto, ma può essere applicata solo nel secondo (quello pallina-pallina). In tal caso, possiamo dire cose abbastanza sensate solo se la pallina di sopra è più leggera, altrimenti il problema diventa molto più complesso. (Ringrazio sentitamente Pigkappa per tutte le delucidazioni).<br>
+<br>
+P.S.: ho provato oggi a scuola a fare come detto da Alex usando un pallone da basket e una pallina da ping pong... inutile dire il risultato: la pallina da ping pong schizza ovviamente via a grande velocità, anche se è praticamente impossibile realizzare un evento con parametro d'urto 0.</article>
+<article class="post" id="p3909"><div class="who"><b>Pigkappa</b><span>21 apr 2010, 15:56</span></div>Allora, secondo me ci sono grosse difficoltà di comprensione. Penso che anche il conto di Nadghar sia sbagliato. Se ho capito cosa sta facendo (ma penso di no), non ha neanche usato la conservazione dell'energia nell'urto tra le due palline, e questo è quantomeno strano, visto che se si toglie l'ipotesi di urto elastico diventa un problema diverso.<br>
+<br>
+Immaginate che il sistema delle due palline all'inizio non abbia le due palline attaccate, ma con una distanza tra loro <span class="tex">\(\delta\)</span> molto piccola. Immaginate che l'urto tra <span class="tex">\(m_1\)</span> e il pavimento sia istantaneo, e che poi l'urto tra le due palline sia istantaneo. Le due palline sono due pezzi di materia solida distinta e non c'è assolutamente nessun motivo per dire che sono un "corpo" unico.<br>
+<br>
+Limitatevi a fare i conti spiegando sinteticamente ma chiaramente cosa sono i termini nelle vostre equazioni, e descrivendo cosa succede. Il primo urto è tra <span class="tex">\(m_1\)</span> e il pavimento; non è tra "tutto il corpo" e il pavimento, perchè "tutto il corpo" comprende la massa 2 che non tocca per niente il pavimento e che si muove in modo diverso dalla massa 1.<br>
+<br>
+<br>
+[ho scritto questo messaggio mentre gauss91 scriveva il suo, e quindi non sto rispondendo a lui]</article>
+<article class="post" id="p3910"><div class="who"><b>Nagdhar</b><span>21 apr 2010, 17:52</span></div>Non vorrei passare per idiota: ma se non avessi usato la conservazione dell'energia cinetica come avrei potuto risolvere un'equazione con due incognite (<span class="tex">\(v_0\)</span> e <span class="tex">\(V\)</span>)?<br>
+[in risposta a Pigkappa:<em class="text-italics"> non so come si scrivono i sistemi in tex</em>]<br>
+Per il fatto che tu critichi il "corpo unico", questa è una semplificazione necessaria per il primo urto: e mi pare di aver specificato <strong class="text-strong">bene </strong>che dopo lo scontro col pavimento <span class="tex">\(m_1\)</span> ha velocità uguale in modulo al corpo <span class="tex">\(\sqrt{2gh}\)</span>, ma verso opposto. Inoltre quanto scritto l'ho verificato con cronometro e dati alla mano oggi a scuola (e ringrazio nuovamente Alex90 per l'aiuto circa l'esperimento). Per quanto riguarda Gauss91, la qdm si conserva in un urto elastico in quanto il pavimento non fa altro che riflettere "<em class="text-italics">elasticamente</em>" il moto di <span class="tex">\(m_1\)</span>.</article>
+<article class="post" id="p3911"><div class="who"><b>Gauss91</b><span>21 apr 2010, 18:25</span></div><blockquote><div><cite>Nagdhar ha scritto:</cite>la qdm si conserva in un urto elastico in quanto il pavimento non fa altro che riflettere "elasticamente" il moto di m1</div></blockquote>
+
+La qdm di un sistema si conserva se e solo se a tale sistema non vengono applicate forze esterne (o ne vengono applicate ma con risultante nullo). Nel nostro caso, se prendiamo le 2 palline come "sistema", su di esso (trascurando la gravità) agisce la forza impulsiva F del pavimento, che è esterna al sistema e che quindi vi trasferisce quantità di moto.<br>
+Preciso che in TUTTI gli urti, la quantità di moto si conserva, proprio per la definizione di urto. Da ciò si può dire però che nel nostro caso, si conserva la qdm del sistema "palline-pavimento", cioè, la quantità di moto acquisita dalle palline per la forza impulsiva è uguale in modulo a quella acquistata dal... pavimento! :) . Ma impostare una conservazione della qdm in questo modo, non ha senso.</article>
+<article class="post" id="p3912"><div class="who"><b>Nagdhar</b><span>21 apr 2010, 18:29</span></div>Ha senso e come, altrimenti come spieghi l'effetto di riflessione che la superficie compie sulla sferetta <span class="tex">\(m_1\)</span>!<br>
+Bibliografia: <br>
+Fisica 1 (Caforio-Ferilli:<em class="text-italics">conservazione della quantità di moto in un urto contro una parete</em> pag.363)</article>
+<article class="post" id="p3913"><div class="who"><b>egl</b><span>21 apr 2010, 18:39</span></div>Provo a risolvere il problema.<br>
+<br>
+Il corpo di massa <span class="tex">\(m_1\)</span>, dopo aver urtato il pavimento, risale con velocità iniziale <span class="tex">\(\sqrt{2gh}\)</span> e subito urta il corpo di massa <span class="tex">\(m_2\)</span> che scende con velocità <span class="tex">\(-\sqrt{2gh}\)</span>. Impostando il sistema dove impongo la conservazione della qdm e dell'energia meccanica e risolvendo il tutto rispetto a <span class="tex">\(v_2\)</span>, cioè la velocità acquisita dopo l'urto dal corpo di massa <span class="tex">\(m_2\)</span>, sperando di non aver commesso errori trovo che <span class="tex">\(v_2=\sqrt{2gh}(\frac{3m_1-m_2}{m_1+m_2})\)</span>.<br>
+<br>
+Da ciò risulta che la velocità acquisità dal corpo 2 sarà positiva, cioè diretta verso l'alto, solo se <span class="tex">\(m_1&gt;\frac{m_2}{3}\)</span></article>
+<article class="post" id="p3914"><div class="who"><b>Gauss91</b><span>21 apr 2010, 19:08</span></div><blockquote><div><cite>Nagdhar ha scritto:</cite>Ha senso e come, altrimenti come spieghi l'effetto di riflessione che la superficie compie sulla sferetta </div></blockquote>
+
+Ok, allora imponi anche quella condizione e risolvi il problema. Però devi anche considerare la velocità acquistata dal pavimento eh! Ah, devi anche considerare se il pavimento è attaccato ai muri, e quindi anche la qdm acquistata dai muri, che in ultima analisi si riversa sulla Terra. Quindi considera la qdm che acquista la Terra!<br>
+E' chiaro che la qdm si conserva se prendi anche il pavimento, ma non si imposta mai un'equazione di conservazione di qdm così! Viene approssimato come massa infinita. E comunque, il sistema che consideriamo sono le palline, che difatto ACQUISTANO qdm quindi non puoi impostare quell'equazione se non nel SECONDO urto!</article>
+<article class="post" id="p3915"><div class="who"><b>Nagdhar</b><span>21 apr 2010, 19:13</span></div>Chiedo vivamente a Gauss91 di non irritarsi, dato che nella soluzione che ho tentato di fornire ho parlato di una certa approssimazione a 0 del rapporto tra la massa del sistema (due palline) e la massa del pavimento!<br>
+P.S.: discutiamo con calma: arrabbiarsi (come vedo dalle lettere maiuscole che hai usato) non serve a nessuno!<br>
+Per quanto riguarda la risposta di <em class="text-italics">egl</em>, personalmente ritengo che quando la massa m2 si riversa su m1, anche se ha una quantità di moto nettamente maggiore, riceve comunque una spinta proporzionale alla propria massa versa l'alto a causa del fatto che, essendo a contatto con m1 la comprime sul pavimento e per il terzo principio della dinamica riceve sia la spinta della propria forza di compressione su m1 sia quella derivata dall'inversione di moto di m1. E come aveva affermato Gauss91 all'inizio, contraddicendomi giustamente: le sferette si staccano. Ciò lo noti a grande differenza di massa: per questo sottolineavo più volte il suggerimento di Alex!</article>
+<article class="post" id="p3916"><div class="who"><b>Alex90</b><span>21 apr 2010, 19:20</span></div>L'equazione trovata da egl è corretta...se magari postasse anche i conti (sempre fonte di una quantità di errori non trascurabile) farebbe magari un favore a tutti  :) <br>
+<br>
+Chiamando <span class="tex">\(\displaystyle \mu=\frac{m_2}{m_1}\)</span> si ha<br>
+<br>
+<span class="tex">\(\displaystyle v=\frac{3 + \mu}{1+ \mu}\sqrt{2gh}\)</span><br>
+<br>
+Praticamente parlando, nel caso di <span class="tex">\(\mu&lt;&lt;1\)</span> si ha che il corpo torna su con velocità tripla e raggiunge un'altezza decisamente superiore a quella iniziale, a voi calcolare di quanto ma a questo punto non è difficile...<br>
+Cercate di impostare il sistema correttamente e di risolverlo in modo furbo che è senza dubbio utile e istruttivo  ;)</article>
+<article class="post" id="p3917"><div class="who"><b>Gauss91</b><span>21 apr 2010, 19:23</span></div>@Nagdhar: Era per farti capire che la qdm delle palline non si conserva tra il momento in cui cadono e quello in cui tutto finisce...<br>
+<br>
+OT: Come ti ho già detto, le ire di Odino non sono nulla in confronto alle mie frequentissime e temibili collere!! :twisted: Mai qualcuno che sbagli perché io non sbaglio proprio mai! (ahahahah!)</article>
+<article class="post" id="p3918"><div class="who"><b>MrTeo</b><span>21 apr 2010, 19:40</span></div><blockquote><div><cite>Alex90 ha scritto:</cite>Cercate di impostare il sistema correttamente e di risolverlo in modo furbo che è senza dubbio utile e istruttivo  ;)</div></blockquote>
+
+Ora non ho molto tempo, ma a occhio direi che l'idea per sbrogliare i conti nel sistemone di conservazione della QDM e dell'energia cinetica sta nel porsi in un sistema di riferimento alla velocità di una delle due palline (subito dopo l'urto, per così dire, di "riflessione" della prima che colpisce il pavimento) e studiare la situazione con una delle due v pari a 0, altrimenti rischiamo di perderci la testa sulla soluzione algebrica  :roll: <br>
+<br>
+Ai volenterosi il compito di sviluppare le mie profezie (o di trovarne di migliori, in caso  :D )</article>
+<article class="post" id="p3919"><div class="who"><b>Pigkappa</b><span>21 apr 2010, 20:15</span></div>Prima che iniziate a parlare di "infiniti urti" o cose di questo tipo, sappiate che la commissione, una volta visto che il candidato stava risolvendo il sistema di equazioni giusto per determinare la velocità delle due palline dopo il primo urto tra di loro, secondo me avrebbe chiesto di fare il caso in cui la seconda massa è molto più piccola della prima.<br>
+<br>
+<br>
+In questo topic sono state dette tante cose false, tante cose poco chiare e tante cose poco sensate. Secondo me alcuni di voi (Nadghar, Gauss91) hanno le idee molto confuse su cosa è corretto e su cosa non lo è, su come si usano i principi di conservazione, su quali sono le cose importanti da dire e quali sono inutili. Spero che riusciate a ricostruire la soluzione capendo per bene ogni passaggio.</article>
+<article class="post" id="p3920"><div class="who"><b>Nagdhar</b><span>21 apr 2010, 20:56</span></div>Ma siamo veramente sicuri, come dice egl, che sia giusto considerare la velocità di <span class="tex">\(m_2\)</span> uguale a <span class="tex">\(\sqrt{2gh}\)</span>? In base a quanto detto da Pigkappa, m2 al momento dello scontro, e su questo concordo, non ha la velocità in modulo uguale a m1.<br>
+E poi nell'ipotesi in cui m2=0 la velocità della seconda pallina per egl verrebbe uguale a <span class="tex">\(\sqrt{2gh}\)</span> e ciò è impossibile (matematicamente si trova riscontro con la mia soluzione e ciò rafforza la mia convinzione di aver seguito il giusto procedimento).<br>
+Ribadisco che quanto scritto ha verifiche sperimentali a supporto e non frasi campate in aria :twisted: !</article>
+<article class="post" id="p3921"><div class="who"><b>Ippo</b><span>21 apr 2010, 21:23</span></div><blockquote><div><cite>Nagdhar ha scritto:</cite>Ma siamo veramente sicuri, come dice egl, che sia giusto considerare la velocità di <span class="tex">\(m_2\)</span> uguale a <span class="tex">\(\sqrt{2gh}\)</span>? In base a quanto detto da Pigkappa, m2 al momento dello scontro, e su questo concordo, non ha la velocità in modulo uguale a m1.</div></blockquote>
+Sì, ne siamo sicuri; se pig ha sostenuto il contrario mi dev'essere sfuggito... Se ti riferisci al <span class="tex">\(\delta\)</span> che separa le palline, quello va mandato a zero e non crea differenze. Le velocità sono uguali.
+<blockquote><div><cite>Nagdhar ha scritto:</cite>E poi nell'ipotesi in cui m2=0 la velocità della seconda pallina per egl verrebbe uguale a <span class="tex">\(\sqrt{2gh}\)</span> e ciò è impossibile!</div></blockquote>
+anche perché con <span class="tex">\(m_2=0\)</span> la seconda pallina non esiste  :roll:<br>
+<br>
+Andiamo, non è niente di difficile. Dopo l'urto della prima particella col suolo la sua velocità viene riflessa (si può fare il conto e mandare M a infinito oppure usare la conservazione dell'energia e un argomento di simmetria se preferite); a quel punto si tratta di un urto frontale tra due particelle di velocità <span class="tex">\(\pm \sqrt{2gh}\)</span>, e il problema è risolto. Non ci possono essere ambiguità o opinioni, bisogna solo risolvere due equazioni (conservazione di <span class="tex">\(E\)</span> e <span class="tex">\(p_z\)</span>). Roba da prima liceo.</article>
+<article class="post" id="p3922"><div class="who"><b>Pigkappa</b><span>22 apr 2010, 1:06</span></div><blockquote><div><cite>Nagdhar ha scritto:</cite>Ma siamo veramente sicuri, come dice egl, che sia giusto considerare la velocità di <span class="tex">\(m_2\)</span> uguale a <span class="tex">\(\sqrt{2gh}\)</span>?</div></blockquote>
+
+Quando le due palline vengono lasciate cadere da un'altezza <span class="tex">\(h\)</span>, subito prima di arrivare al suolo hanno velocità <span class="tex">\(\sqrt{2gh}\)</span>. Quindi la risposta è sì, ne siamo veramente sicuri.</article>
+<article class="post" id="p3923"><div class="who"><b>Alex90</b><span>22 apr 2010, 11:56</span></div>Magari Nagdhar si è fatto ingannare dal fatto che <span class="tex">\(m_2\)</span> parte più in alto rispetto a <span class="tex">\(m_1\)</span>...ma si ferma anche più in alto  ;)</article>
+<article class="post" id="p3925"><div class="who"><b>egl</b><span>22 apr 2010, 13:46</span></div>Ok ragazzi, adesso posto le mie equazioni.<br>
+<br>
+Subito dopo che il corpo di massa <span class="tex">\(m_1\)</span> urta il terreno inverte il suo moto istantaneamente e quindi risale con velocità iniziale<span class="tex">\(v_{0_1}\)</span>. In quello stesso momento urta il corpo di massa <span class="tex">\(m_2\)</span> che scende con velocità <span class="tex">\(v_{0_2}\)</span>. La prima equazione è quindi quella di conservazione della qdm e impostando i segni nel modo corretto risulta essere  <br>
+<br>
+<span class="tex">\(+m_1v_{0_1} - m_2v_{0_2}=m_1v_1+m_2v_2\)</span><br>
+<br>
+L'equazione per la conservazione dell'energia cinetica mi viene invece:<br>
+<br>
+<span class="tex">\(\frac{1}{2}m_1{v_{0_1}}^2+\frac{1}{2}m_2{v_{0_2}}^2=\frac{1}{2}m_1{v_1}^2+\frac{1}{2}m_2{v_2}^2\)</span> dove <span class="tex">\(v_1\)</span> è la velocità del corpo 1 dopo l'urto con il corpo 2, e la velocità<span class="tex">\(v_2\)</span> e la velocità del corpo 2 dopo l'urto col corpo 1.<br>
+<br>
+Vale <span class="tex">\(v_{0_1}=v_{0_2}=\sqrt{2gh}\)</span><br>
+<br>
+Mi ricavo <span class="tex">\(v_1\)</span> dalla prima equazione e la sostituisco nella seconda. Ho adesso un'equazione di secondo grado in <span class="tex">\(v_2\)</span>. Una soluzione la scarto (è quella relativa al caso in cui le quantità in gioco si conservano, ma l'urto non avviene); l'altra soluzione è  <span class="tex">\(\sqrt{2gh}\frac{3m_1-m_2}{m_1+m_2}\)</span>.<br>
+Voi che ne pensate? :?</article>
+<article class="post" id="p3926"><div class="who"><b>Pigkappa</b><span>22 apr 2010, 13:51</span></div>Il sistema di equazioni postato è (finalmente) quello giusto: alleluia!</article>
+<article class="post" id="p3928"><div class="who"><b>Ippo</b><span>22 apr 2010, 16:36</span></div>Buona norma generale per il futuro: prendete esempio dal post di egl. Descrivete in modo completo ma sintetico cosa succede, spiegate la notazione e scrivete le equazioni. E risolvetele. Punto. Poi potete anche fare commenti, ovvio, ma è importante che prima postiate una soluzione leggibile e sensata.<br>
+Evitate di essere ridondanti, che oltre ad essere inutile è dannoso. Crea confusione in voi (facendovi sbagliare) e in chi legge. Ed evitate complicazioni inutili, soprattutto quando le cose sono di per sé facili come qui.<br>
+Questo aiuta la fruibilità del forum da parte di tutti, ed è una buona abitudine per voi in vista di qualsiasi olimpiade o concorso di ammissione. Alle commissioni in generale non piace faticare per decifrare elaborati fumosi. Fate voi...  :roll:</article>
+</main></body></html>
