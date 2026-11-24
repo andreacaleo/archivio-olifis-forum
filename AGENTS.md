@@ -2,7 +2,7 @@
 
 Static archive of the forum of the Italian Physics Olympiads (forum.olifis.it), run by AIF. Started on 2026-11-24, when Dennis Luigi Censi (AIF, head of the Olympiads project) proposed closing the forum. The site is in Italian.
 
-Private GitHub repo `andreacaleo/archivio-olifis-forum`. Commit freely, push only when Andrea says "push".
+Public GitHub repo `andreacaleo/archivio-olifis-forum`. Commit freely, push only when Andrea says "push". The site is published on GitHub Pages at https://andreacaleo.github.io/archivio-olifis-forum/ by `.github/workflows/pages.yml` whenever `site/` changes on main: rebuild locally, commit, push.
 
 What is archived so far: the topic "Soluzioni SNS sui forum Olimat e Olifis" (t=228, opened by Andrea as Pigkappa in 2009), an index of the admission problems of the Scuola Normale Superiore, and every topic it links to. Plus, listed in `extra_topics.json` with their year and problem number, the other topics in the Problemi teorici section with SNS in the title: physics problems go in the main table, problems from the chemistry and biology admission tests in their own section, orals in their own section. Topics left out are listed there with the reason. Other interesting topics are to be added.
 
