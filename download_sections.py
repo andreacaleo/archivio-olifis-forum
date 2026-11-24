@@ -83,6 +83,13 @@ def fetch(url):
     raise RuntimeError(err)
 
 
+def write(path, b):
+    """Write through a temporary file, so a stopped run never leaves half a file that would be skipped later."""
+    tmp = path.with_name('.part_' + path.name)
+    tmp.write_bytes(b)
+    tmp.replace(path)
+
+
 # ---------- listing ----------
 
 def listing_starts(h, f):
@@ -103,7 +110,7 @@ def parse_listing(h):
         m = re.search(r'<a href="[^"]*viewtopic\.php\?(?:[^"]*?&amp;)?t=(\d+)[^"]*" class="topictitle">(.*?)</a>', p, re.S)
         if not m:
             continue
-        r = re.search(r'Risposte: <strong>(\d+)</strong>', p)
+        r = re.search(r'<dd class="posts">\s*(\d+)', p) or re.search(r'Risposte: <strong>(\d+)</strong>', p)
         title = html.unescape(re.sub('<[^>]+>', '', m[2])).strip()
         rows.append((int(m[1]), title, int(r[1]) if r else None))
     return rows
@@ -116,13 +123,13 @@ def get_listing(f, folder):
         for p in old.glob('s*.html'):
             shutil.copyfile(p, folder / f'forum_{p.name}')
     if not first.exists():
-        first.write_bytes(fetch(f'{BASE}viewforum.php?f={f}')[0])
+        write(first, fetch(f'{BASE}viewforum.php?f={f}')[0])
     starts = listing_starts(ba.decode(first.read_bytes()), f)
     topics = {}
     for s in starts:
         p = folder / f'forum_s{s}.html'
         if not p.exists():
-            p.write_bytes(fetch(f'{BASE}viewforum.php?f={f}&start={s}')[0])
+            write(p, fetch(f'{BASE}viewforum.php?f={f}&start={s}')[0])
         for t, title, replies in parse_listing(ba.decode(p.read_bytes())):
             topics.setdefault(t, (title, replies))
     return starts, topics
@@ -151,7 +158,7 @@ def get_topic(t, replies, folder):
                 shutil.copyfile(p, dest)
     first = folder / f't{t}_s0.html'
     if not first.exists():
-        first.write_bytes(fetch(f'{BASE}viewtopic.php?t={t}')[0])
+        write(first, fetch(f'{BASE}viewtopic.php?t={t}')[0])
     last = topic_starts(ba.decode(first.read_bytes()), t)
     if expected:
         last = max(last, 10 * (expected - 1))
@@ -159,7 +166,7 @@ def get_topic(t, replies, folder):
     for s in range(0, last + 1, 10):
         p = folder / f't{t}_s{s}.html'
         if not p.exists():
-            p.write_bytes(fetch(f'{BASE}viewtopic.php?t={t}&start={s}')[0])
+            write(p, fetch(f'{BASE}viewtopic.php?t={t}&start={s}')[0])
         files.append(p)
     return files
 
@@ -212,7 +219,7 @@ def get_attachment(aid, adir, missing):
         missing[aid] = 'forum answered with a page, not the file'
         return 'missing'
     adir.mkdir(exist_ok=True)
-    (adir / filename(headers, aid)).write_bytes(b)
+    write(adir / filename(headers, aid), b)
     return 'saved'
 
 
